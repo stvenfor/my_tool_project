@@ -1,0 +1,32 @@
+global:
+  rules:
+    - normalize_whitespace
+    - fix_heading_levels
+    - code_block_lang
+    - compress_blank_lines
+  skip_patterns:
+    - "*.sheet.md"
+    - "*画板*"
+    - "*board*"
+
+# 分步优化顺序（npm run optimize-book -- --next）
+book_order:
+  - 金融
+  - 默认知识库
+  - eav1v0
+  - 飞书
+  - 掘金
+  - English
+  - code
+  - daily
+  - project
+  - tool
+
+folders:
+  默认:
+    ai_content: false
+
+  # 示例：为特定文件夹启用 AI 内容优化
+  # AI猫短剧:
+  #   ai_content: true
+  #   ai_template: /Users/mac/Desktop/github/my_rn_project/docs/ai-cat-drama/EP01-心肌梗塞/README.md

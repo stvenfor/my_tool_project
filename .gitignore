@@ -1,0 +1,23 @@
+# OS
+.DS_Store
+
+# Dependencies
+node_modules/
+
+# Generated outputs
+_cffex/output/
+_cffex/logs/
+_reports/
+
+# Local backups & migration artifacts
+_backup/
+_migrate/
+
+# Runtime state
+scripts/cffex-daily/quote_state.json
+scripts/cffex-daily/remotion/public/report-props.json
+scripts/cffex-daily/remotion/public/bgm.mp3
+scripts/cffex-daily/remotion/public/logo.png
+
+# Douyin login profile (contains cookies)
+.douyin-playwright/

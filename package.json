@@ -1,0 +1,50 @@
+{
+  "name": "yuque-workspace",
+  "private": true,
+  "description": "语雀文档本地镜像与格式优化（默认不写回云端，不影响语雀在线编辑）",
+  "type": "module",
+  "scripts": {
+    "auth": "node scripts/auth.mjs",
+    "get-token": "node scripts/get-token.mjs",
+    "export-cookie": "node scripts/export-cookie.mjs",
+    "setup": "node scripts/setup.mjs",
+    "sync": "node scripts/sync.mjs",
+    "sync-all": "node scripts/sync.mjs --all",
+    "inventory": "node scripts/build-inventory.mjs",
+    "optimize": "node scripts/optimize-rules.mjs",
+    "optimize-book": "node scripts/optimize-book.mjs",
+    "backup": "node scripts/backup.mjs",
+    "diff": "node scripts/generate-diff.mjs",
+    "push": "node scripts/push-all.mjs",
+    "restore-cloud": "node scripts/restore-cloud-docs.mjs",
+    "scan-corrupted": "node scripts/scan-corrupted.mjs",
+    "reconcile-meta": "node scripts/reconcile-meta.mjs",
+    "audit-book": "node scripts/audit-book.mjs",
+    "cleanup-cloud": "node scripts/cleanup-cloud-duplicates.mjs",
+    "pilot": "node scripts/pilot.mjs",
+    "run-all": "node scripts/run-all.mjs",
+    "migrate:export": "node scripts/migrate/export-yuque.mjs",
+    "migrate:clean": "node scripts/migrate/clean-local.mjs",
+    "migrate:import": "node scripts/migrate/import-to-lark.mjs",
+    "migrate:links": "node scripts/migrate/replace-links.mjs",
+    "migrate:md-links": "node scripts/migrate/replace-md-links.mjs",
+    "migrate:refresh": "node scripts/migrate/refresh-content.mjs",
+    "migrate:sync-urls": "node scripts/migrate/sync-wiki-urls.mjs",
+    "migrate:report": "node scripts/migrate/generate-report.mjs",
+    "migrate:pilot": "node scripts/migrate/run-pilot.mjs",
+    "migrate:full": "node scripts/migrate/run-full.mjs",
+    "cffex:daily": "python3 scripts/cffex-daily/fetch_and_render.py",
+    "cffex:video": "node scripts/cffex-daily/render_video.mjs",
+    "cffex:publish": "node scripts/cffex-daily/publish-to-douyin.mjs",
+    "cffex:auth": "node scripts/cffex-daily/douyin/auth.mjs",
+    "cffex:setup-douyin": "zsh scripts/cffex-daily/douyin/setup.sh",
+    "cffex:schedule": "zsh scripts/cffex-daily/install-scheduler.sh"
+  },
+  "dependencies": {
+    "js-yaml": "^5.2.1",
+    "yuque-dl": "^1.0.85"
+  },
+  "devDependencies": {
+    "playwright": "^1.52.0"
+  }
+}
