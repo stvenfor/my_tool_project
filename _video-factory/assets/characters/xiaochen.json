@@ -1,0 +1,11 @@
+{
+  "key": "xiaochen",
+  "name": "小陈",
+  "prompt_layer": "写实插画/3D卡通，年轻职场男性，白衬衫，疲惫但眼神清澈",
+  "voice_profile": {
+    "voice": "zh-CN-YunxiNeural",
+    "rate": "+0%",
+    "pitch": "-2Hz",
+    "volume": "+2%"
+  }
+}

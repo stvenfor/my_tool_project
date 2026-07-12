@@ -207,44 +207,87 @@ def fetch_report(trade_date: date) -> dict:
     }
 
 
-MORANDI_LONG = "#d14d4d"
-MORANDI_LONG_DEEP = "#b83333"
-MORANDI_SHORT = "#3a9a6a"
-MORANDI_SHORT_DEEP = "#257a52"
+MORANDI_LONG = "#e04545"
+MORANDI_LONG_DEEP = "#b82e2e"
+MORANDI_SHORT = "#2f9b6a"
+MORANDI_SHORT_DEEP = "#1f7a52"
 MORANDI_PALETTE = ["#a8b5c4", "#9b8aa5", "#c4847a", "#7ba38c"]
 
 
-def build_chart_svg(report: dict, width: int = 632, height: int = 260) -> str:
-    """Editorial column chart with zone tints, gradients, and inline labels."""
+def max_change_symbol(report: dict) -> str:
+    values = report["citic_by_symbol"]
+    return max(SYMBOLS, key=lambda s: abs(values[s]))
+
+
+def build_today_highlight(report: dict) -> str:
+    symbol = max_change_symbol(report)
+    net = report["citic_by_symbol"][symbol]
+    direction = "加多" if net >= 0 else "加空"
+    return (
+        f'<div class="today-highlight">'
+        f"今日要点 · {symbol} {direction} {abs(net):,} 手为最大边际变化"
+        f"</div>"
+    )
+
+
+def build_chart_svg(report: dict, width: int = 656, height: int = 332) -> str:
+    """Premium diverging column chart with sqrt scale for small-value visibility."""
+    import math
+
     values = [report["citic_by_symbol"][s] for s in SYMBOLS]
     max_abs = max(abs(v) for v in values) or 1
     max_idx = max(range(len(values)), key=lambda i: abs(values[i]))
 
-    pad_top, pad_bottom, pad_x = 32, 52, 28
+    pad_top, pad_bottom, pad_x = 24, 48, 12
     chart_w = width - pad_x * 2
     chart_h = height - pad_top - pad_bottom
     zero_y = pad_top + chart_h / 2
-    bar_w = chart_w / len(SYMBOLS) * 0.48
     gap = chart_w / len(SYMBOLS)
+    bar_w = gap * 0.42
+    min_bar = 14
+
+    def bar_height(val: int) -> float:
+        if val == 0:
+            return 0.0
+        ratio = math.sqrt(abs(val) / max_abs)
+        return max(min_bar, ratio * (chart_h / 2 - 30))
 
     defs = (
         "<defs>"
         '<linearGradient id="gradLong" x1="0" y1="0" x2="0" y2="1">'
-        f'<stop offset="0%" stop-color="{MORANDI_LONG}"/>'
+        '<stop offset="0%" stop-color="#f06a6a"/>'
+        f'<stop offset="55%" stop-color="{MORANDI_LONG}"/>'
         f'<stop offset="100%" stop-color="{MORANDI_LONG_DEEP}"/>'
         "</linearGradient>"
         '<linearGradient id="gradShort" x1="0" y1="1" x2="0" y2="0">'
-        f'<stop offset="0%" stop-color="{MORANDI_SHORT}"/>'
+        '<stop offset="0%" stop-color="#56b888"/>'
+        f'<stop offset="55%" stop-color="{MORANDI_SHORT}"/>'
         f'<stop offset="100%" stop-color="{MORANDI_SHORT_DEEP}"/>'
         "</linearGradient>"
+        '<linearGradient id="zoneLong" x1="0" y1="0" x2="0" y2="1">'
+        '<stop offset="0%" stop-color="rgba(224,69,69,0.10)"/>'
+        '<stop offset="100%" stop-color="rgba(224,69,69,0.03)"/>'
+        "</linearGradient>"
+        '<linearGradient id="zoneShort" x1="0" y1="0" x2="0" y2="1">'
+        '<stop offset="0%" stop-color="rgba(47,155,106,0.03)"/>'
+        '<stop offset="100%" stop-color="rgba(47,155,106,0.10)"/>'
+        "</linearGradient>"
+        '<filter id="barShadow" x="-30%" y="-30%" width="160%" height="160%">'
+        '<feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="rgba(20,20,20,0.14)"/>'
+        "</filter>"
+        '<filter id="glowLong" x="-50%" y="-50%" width="200%" height="200%">'
+        '<feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="rgba(224,69,69,0.45)"/>'
+        "</filter>"
         "</defs>"
     )
 
+    frame = ""
+
     zones = (
         f'<rect x="{pad_x}" y="{pad_top}" width="{chart_w}" height="{chart_h / 2}" '
-        f'fill="rgba(209,77,77,0.10)" rx="4"/>'
+        f'fill="url(#zoneLong)" rx="8"/>'
         f'<rect x="{pad_x}" y="{zero_y}" width="{chart_w}" height="{chart_h / 2}" '
-        f'fill="rgba(58,154,106,0.10)" rx="4"/>'
+        f'fill="url(#zoneShort)" rx="8"/>'
     )
 
     grid_lines: list[str] = []
@@ -252,7 +295,7 @@ def build_chart_svg(report: dict, width: int = 632, height: int = 260) -> str:
         y = zero_y - frac * chart_h
         grid_lines.append(
             f'<line x1="{pad_x}" y1="{y:.1f}" x2="{width - pad_x}" y2="{y:.1f}" '
-            f'stroke="#ebebeb" stroke-width="1" stroke-dasharray="4,4"/>'
+            f'stroke="#e8e4df" stroke-width="1" stroke-dasharray="5,5"/>'
         )
 
     bars: list[str] = []
@@ -260,54 +303,64 @@ def build_chart_svg(report: dict, width: int = 632, height: int = 260) -> str:
     for i, symbol in enumerate(SYMBOLS):
         val = values[i]
         cx = pad_x + gap * i + gap / 2
-        bar_h = (abs(val) / max_abs) * (chart_h / 2 - 16)
+        bar_h = bar_height(val)
         is_long = val >= 0
         fill = "url(#gradLong)" if is_long else "url(#gradShort)"
         color = MORANDI_LONG_DEEP if is_long else MORANDI_SHORT_DEEP
+        light = "#fff5f5" if is_long else "#f0faf5"
         x = cx - bar_w / 2
-        rx = 4 if bar_h > 6 else 1
+        rx = min(bar_w / 2, 8)
 
         if is_long:
             y = zero_y - bar_h
-            label_y = y - 10
+            label_y = y - 14
         else:
             y = zero_y
-            label_y = y + bar_h + 18
+            label_y = y + bar_h + 22
 
-        highlight = ""
-        if i == max_idx:
-            highlight = (
-                f'<rect x="{x - 4:.1f}" y="{y - 4:.1f}" width="{bar_w + 8:.1f}" '
-                f'height="{bar_h + 8:.1f}" fill="none" stroke="{color}" stroke-width="1.5" '
-                f'rx="6" opacity="0.35"/>'
-            )
+        shadow_filter = (
+            'filter="url(#glowLong)"' if i == max_idx and is_long else 'filter="url(#barShadow)"'
+        )
 
         bars.append(
-            f"{highlight}"
             f'<rect x="{x:.1f}" y="{y:.1f}" width="{bar_w:.1f}" height="{bar_h:.1f}" '
-            f'fill="{fill}" rx="{rx}"/>'
+            f'fill="{fill}" rx="{rx:.1f}" {shadow_filter}/>'
         )
 
         sign = "+" if val >= 0 else ""
+        compact = bar_h < 24
+        badge_h = 20 if compact else 22
+        badge_w = 48 if compact else 52
+        badge_rx = 10 if compact else 11
+        font_size = 10 if compact else 12
+        labels.append(
+            f'<rect x="{cx - badge_w / 2:.1f}" y="{label_y - 14:.1f}" width="{badge_w}" height="{badge_h}" '
+            f'rx="{badge_rx}" fill="{light}" stroke="{color}" stroke-width="1" opacity="0.95"/>'
+        )
         labels.append(
             f'<text x="{cx:.1f}" y="{label_y:.1f}" text-anchor="middle" '
-            f'font-family="Helvetica Neue, PingFang SC, sans-serif" font-size="13" '
+            f'font-family="Helvetica Neue, PingFang SC, sans-serif" font-size="{font_size}" '
             f'font-weight="800" fill="{color}">{sign}{val:,}</text>'
         )
+        if i == max_idx:
+            dot_r = 3
+            if is_long:
+                dot_cy = label_y - 14 - 6 - dot_r
+            else:
+                dot_cy = label_y + 8 + 6 + dot_r
+            labels.append(
+                f'<circle cx="{cx:.1f}" cy="{dot_cy:.1f}" r="{dot_r}" fill="{color}"/>'
+            )
+        axis_y = height - pad_bottom + 16
         labels.append(
-            f'<text x="{cx:.1f}" y="{height - 28}" text-anchor="middle" '
-            f'font-family="Helvetica Neue, PingFang SC, sans-serif" font-size="12" '
-            f'font-weight="700" fill="#1a1a1a">{symbol}</text>'
-        )
-        labels.append(
-            f'<text x="{cx:.1f}" y="{height - 12}" text-anchor="middle" '
+            f'<text x="{cx:.1f}" y="{axis_y:.1f}" text-anchor="middle" '
             f'font-family="Helvetica Neue, PingFang SC, sans-serif" font-size="10" '
-            f'fill="#8c8c8c">{SYMBOL_NAMES[symbol]}</text>'
+            f'font-weight="600" fill="#5c5c5c">{symbol} {SYMBOL_NAMES[symbol]}</text>'
         )
 
     zero_line = (
         f'<line x1="{pad_x}" y1="{zero_y:.1f}" x2="{width - pad_x}" y2="{zero_y:.1f}" '
-        f'stroke="#d9d9d9" stroke-width="1.5"/>'
+        f'stroke="#cfc9c2" stroke-width="2"/>'
     )
 
     return (
@@ -380,22 +433,25 @@ def format_symbol_value(net: int) -> str:
     return f"{sign}{net:,}"
 
 
+def format_stock_value(n: int) -> str:
+    if abs(n) >= 10000:
+        return f"{n / 10000:.1f}万"
+    return f"{n:,}"
+
+
 def build_symbol_cards(report: dict) -> str:
     cards: list[str] = []
     for symbol in SYMBOLS:
         net = report["citic_by_symbol"][symbol]
         css_class = "long" if net >= 0 else "short"
-        direction = "净加多" if net >= 0 else "净加空"
         badge = "↑ 加多" if net >= 0 else "↓ 加空"
         cards.append(
             f'<div class="symbol-cell {css_class}">'
-            f'<span class="sym-watermark">{symbol}</span>'
             f'<div class="sym-top">'
-            f'<span class="sym-label">{symbol} · {SYMBOL_NAMES[symbol]}</span>'
+            f'<span class="sym-label">{symbol}·{SYMBOL_NAMES[symbol]}</span>'
             f'<span class="dir-badge {css_class}">{badge}</span>'
             f"</div>"
             f'<div class="sym-value">{format_symbol_value(net)}</div>'
-            f'<div class="sym-sub">{direction} {abs(net):,}手</div>'
             f"</div>"
         )
     return "\n        ".join(cards)
@@ -419,17 +475,21 @@ def build_html(report: dict, config: dict, chart_url: str | None, work_dir: Path
         "DATE_LABEL": report["date_label"],
         "SYMBOL_CARDS": build_symbol_cards(report),
         "CHART_SECTION": chart_section,
+        "LOGO_HANDLE_ROW": f'<span class="masthead-handle">{logo_handle}</span>',
+        "TODAY_HIGHLIGHT": build_today_highlight(report),
         "LOGO_SECTION": (
             f'<div class="logo-block">'
-            f'<img class="logo" src="{logo_src}" width="60" height="60" alt="logo" />'
-            f'<span class="logo-handle">{logo_handle}</span>'
+            f'<div class="logo-shell">'
+            f'<img class="logo" src="{logo_src}" width="46" height="46" alt="logo" />'
+            f"</div>"
             f"</div>"
             if logo_src
             else ""
         ),
         "CITIC_OVERALL": format_symbol_value(citic_total),
         "CITIC_CLASS": "long" if citic_total >= 0 else "short",
-        "TOP20_TOTAL": f"{report['top20_net_short_total']:,}",
+        "TOP20_TOTAL": format_stock_value(report["top20_net_short_total"]),
+        "TOP20_EXACT": f"{report['top20_net_short_total']:,}",
         "NET_BUY": f"{report['net_buy_total']:,}",
     }
     html = template

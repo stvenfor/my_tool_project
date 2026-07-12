@@ -7,9 +7,10 @@ import {
   THEME,
   DEFAULT_LOGO_HANDLE,
   DEFAULT_BGM_VOLUME,
-  formatNetChange,
+  formatStockValue,
   formatSymbolValue,
   type ReportData,
+  type SymbolCode,
 } from "./types";
 import { holdOrInterpolate, holdOrSpring, useAnimFrame, useIsHold } from "./useAnimFrame";
 
@@ -17,18 +18,49 @@ export type CiticReportVideoProps = {
   report: ReportData;
 };
 
-const CARD_STAGGER = 10;
+const CARD_STAGGER = 8;
 const CARD_START = 24;
-const CHART_START = 62;
-const SUMMARY_START = 100;
-const FOOTER_START = 128;
+const CHART_START = 58;
+const SUMMARY_START = 96;
+const FOOTER_START = 124;
+
+function maxChangeSymbol(data: Record<SymbolCode, number>): SymbolCode {
+  return SYMBOLS.reduce((best, symbol) =>
+    Math.abs(data[symbol]) > Math.abs(data[best]) ? symbol : best,
+  );
+}
+
+const ChartLegend: React.FC = () => (
+  <div
+    style={{
+      display: "flex",
+      alignItems: "center",
+      gap: 12,
+      fontSize: 10,
+      fontWeight: 600,
+      color: THEME.inkSecondary,
+      flexShrink: 0,
+      whiteSpace: "nowrap",
+    }}
+  >
+    <span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>
+      <span style={{ width: 8, height: 8, borderRadius: 2, background: THEME.long }} />
+      加多
+    </span>
+    <span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>
+      <span style={{ width: 8, height: 8, borderRadius: 2, background: THEME.short }} />
+      加空
+    </span>
+  </div>
+);
 
 const SectionHead: React.FC<{
   num: string;
   title: string;
-  subtitle: string;
+  subtitle?: string;
   startFrame: number;
-}> = ({ num, title, subtitle, startFrame }) => {
+  legend?: boolean;
+}> = ({ num, title, subtitle, startFrame, legend }) => {
   const animFrame = useAnimFrame();
   const isHold = useIsHold();
   const { fps } = useVideoConfig();
@@ -42,28 +74,27 @@ const SectionHead: React.FC<{
       style={{
         marginBottom: 12,
         display: "flex",
-        alignItems: "baseline",
-        gap: 10,
+        alignItems: legend ? "center" : "baseline",
+        gap: 12,
         opacity: entrance,
         transform: `translateX(${(1 - entrance) * -12}px)`,
       }}
     >
       <span
         style={{
-          fontFamily: THEME.serif,
-          fontSize: 22,
-          fontWeight: 700,
+          fontSize: 12,
+          fontWeight: 800,
+          fontVariantNumeric: "tabular-nums",
           color: THEME.accentSoft,
           lineHeight: 1,
-          letterSpacing: "-0.02em",
+          letterSpacing: "0.04em",
         }}
       >
         {num}
       </span>
-      <div>
+      <div style={{ flex: legend ? 1 : undefined, minWidth: 0 }}>
         <h2
           style={{
-            fontFamily: THEME.serif,
             fontSize: 16,
             fontWeight: 700,
             color: THEME.ink,
@@ -73,17 +104,20 @@ const SectionHead: React.FC<{
         >
           {title}
         </h2>
-        <p
-          style={{
-            fontSize: 11,
-            color: THEME.inkSecondary,
-            margin: "3px 0 0",
-            letterSpacing: "0.01em",
-          }}
-        >
-          {subtitle}
-        </p>
+        {subtitle ? (
+          <p
+            style={{
+              fontSize: 12,
+              color: THEME.inkSecondary,
+              margin: "3px 0 0",
+              letterSpacing: "0.01em",
+            }}
+          >
+            {subtitle}
+          </p>
+        ) : null}
       </div>
+      {legend ? <ChartLegend /> : null}
     </div>
   );
 };
@@ -109,13 +143,15 @@ const SymbolCell: React.FC<{
       style={{
         position: "relative",
         overflow: "hidden",
-        padding: "18px 16px 16px",
-        borderRadius: 10,
+        padding: "12px 10px 10px",
+        borderRadius: 12,
         background: isLong
-          ? `linear-gradient(145deg, #fff5f5 0%, ${THEME.longBg} 100%)`
-          : `linear-gradient(145deg, #f0faf5 0%, ${THEME.shortBg} 100%)`,
-        border: `1px solid ${isLong ? "rgba(209,77,77,0.35)" : "rgba(58,154,106,0.35)"}`,
-        boxShadow: `0 6px 18px ${isLong ? THEME.longGlow : THEME.shortGlow}`,
+          ? `linear-gradient(155deg, #ffffff 0%, ${THEME.longBg} 100%)`
+          : `linear-gradient(155deg, #ffffff 0%, ${THEME.shortBg} 100%)`,
+        border: `1px solid ${isLong ? "rgba(224,69,69,0.28)" : "rgba(47,155,106,0.28)"}`,
+        boxShadow: isLong
+          ? `0 6px 18px ${THEME.longGlow}, inset 0 1px 0 rgba(255,255,255,0.9)`
+          : `0 6px 18px ${THEME.shortGlow}, inset 0 1px 0 rgba(255,255,255,0.9)`,
         textAlign: "left",
         opacity: entrance,
         transform: `translateY(${(1 - entrance) * 16}px)`,
@@ -133,41 +169,38 @@ const SymbolCell: React.FC<{
             : `linear-gradient(180deg, ${THEME.short} 0%, ${THEME.shortDeep} 100%)`,
         }}
       />
-      <span
-        style={{
-          position: "absolute",
-          right: 8,
-          top: 6,
-          fontSize: 42,
-          fontWeight: 800,
-          opacity: 0.06,
-          letterSpacing: "-0.04em",
-        }}
-      >
-        {symbol}
-      </span>
       <div
         style={{
           display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: 8,
-          marginBottom: 10,
+          flexDirection: "column",
+          gap: 4,
+          marginBottom: 8,
           position: "relative",
           zIndex: 1,
         }}
       >
-        <span style={{ fontSize: 12, fontWeight: 600, color: THEME.inkSecondary }}>
-          {symbol} · {SYMBOL_NAMES[symbol]}
-        </span>
         <span
           style={{
             fontSize: 10,
             fontWeight: 700,
-            padding: "3px 8px",
+            color: THEME.inkSecondary,
+            whiteSpace: "nowrap",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+          }}
+        >
+          {symbol}·{SYMBOL_NAMES[symbol]}
+        </span>
+        <span
+          style={{
+            alignSelf: "flex-start",
+            fontSize: 10,
+            fontWeight: 700,
+            padding: "2px 6px",
             borderRadius: 999,
-            background: isLong ? "rgba(209,77,77,0.18)" : "rgba(58,154,106,0.18)",
+            background: isLong ? "rgba(224,69,69,0.16)" : "rgba(47,155,106,0.16)",
             color: isLong ? THEME.longDeep : THEME.shortDeep,
+            border: `1px solid ${isLong ? "rgba(224,69,69,0.2)" : "rgba(47,155,106,0.2)"}`,
           }}
         >
           {badge}
@@ -175,7 +208,7 @@ const SymbolCell: React.FC<{
       </div>
       <div
         style={{
-          fontSize: 30,
+          fontSize: 28,
           fontWeight: 800,
           fontVariantNumeric: "tabular-nums",
           letterSpacing: "-0.04em",
@@ -192,14 +225,6 @@ const SymbolCell: React.FC<{
           formatter={(v) => formatSymbolValue(Math.round(v))}
         />
       </div>
-      <div style={{ fontSize: 11, marginTop: 8, color: THEME.inkSecondary, position: "relative", zIndex: 1 }}>
-        <AnimatedNumber
-          value={Math.abs(net)}
-          startFrame={delay + 8}
-          durationFrames={28}
-          formatter={(v) => formatNetChange(isLong ? Math.round(v) : -Math.round(v))}
-        />
-      </div>
     </div>
   );
 };
@@ -211,7 +236,8 @@ const SummaryItem: React.FC<{
   index: number;
   colored?: boolean;
   hero?: boolean;
-}> = ({ label, value, unit, index, colored, hero }) => {
+  stock?: boolean;
+}> = ({ label, value, unit, index, colored, hero, stock }) => {
   const animFrame = useAnimFrame();
   const isHold = useIsHold();
   const { fps } = useVideoConfig();
@@ -221,35 +247,55 @@ const SummaryItem: React.FC<{
     stiffness: 130,
   });
   const isLong = value >= 0;
+  const leftBar = hero
+    ? `linear-gradient(180deg, ${THEME.long} 0%, ${THEME.longDeep} 100%)`
+    : `linear-gradient(180deg, ${THEME.accentSoft} 0%, ${THEME.line} 100%)`;
 
   return (
     <div
       style={{
-        padding: "18px 14px",
-        background: hero ? `linear-gradient(160deg, ${THEME.longBg} 0%, #fff5f5 85%)` : THEME.bg,
-        borderRight: index < 2 ? `1px solid ${hero ? "rgba(209,77,77,0.3)" : THEME.line}` : "none",
+        position: "relative",
+        padding: "16px 14px 14px 18px",
+        borderRadius: 14,
+        background: hero
+          ? `linear-gradient(165deg, #fff8f8 0%, ${THEME.longBg} 55%, #ffffff 100%)`
+          : "linear-gradient(165deg, #ffffff 0%, #fafafa 100%)",
+        border: hero ? "1px solid rgba(224,69,69,0.22)" : "1px solid #ece8e3",
+        boxShadow: hero
+          ? "0 10px 28px rgba(224,69,69,0.12), inset 0 1px 0 rgba(255,255,255,0.95)"
+          : "0 8px 22px rgba(20,20,20,0.06), inset 0 1px 0 rgba(255,255,255,0.95)",
+        overflow: "hidden",
         opacity: entrance,
         transform: `translateY(${(1 - entrance) * 12}px)`,
       }}
     >
       <div
         style={{
+          position: "absolute",
+          left: 0,
+          top: 0,
+          bottom: 0,
+          width: 4,
+          background: leftBar,
+        }}
+      />
+      <div
+        style={{
           fontSize: 10,
-          fontWeight: 600,
-          letterSpacing: "0.08em",
-          textTransform: "uppercase",
+          fontWeight: 700,
+          letterSpacing: "0.06em",
           color: THEME.inkSecondary,
-          marginBottom: 8,
+          marginBottom: 10,
         }}
       >
         {label}
       </div>
       <div
         style={{
-          fontSize: hero ? 28 : 22,
+          fontSize: hero ? 30 : stock ? 20 : 24,
           fontWeight: 800,
           fontVariantNumeric: "tabular-nums",
-          color: colored ? (isLong ? THEME.longDeep : THEME.shortDeep) : THEME.ink,
+          color: colored ? (isLong ? THEME.longDeep : THEME.shortDeep) : stock ? THEME.inkSecondary : THEME.ink,
           lineHeight: 1.05,
           letterSpacing: "-0.03em",
         }}
@@ -261,11 +307,23 @@ const SummaryItem: React.FC<{
           formatter={(v) =>
             colored
               ? formatSymbolValue(Math.round(v))
-              : Math.round(v).toLocaleString("zh-CN")
+              : stock
+                ? formatStockValue(Math.round(v))
+                : Math.round(v).toLocaleString("zh-CN")
           }
         />
       </div>
-      <div style={{ fontSize: 11, color: THEME.inkSecondary, marginTop: 6 }}>{unit}</div>
+      <div
+        style={{
+          fontSize: 10,
+          fontWeight: 600,
+          color: THEME.inkMuted,
+          marginTop: 6,
+          letterSpacing: "0.02em",
+        }}
+      >
+        {unit}
+      </div>
     </div>
   );
 };
@@ -281,18 +339,20 @@ export const CiticReportVideo: React.FC<CiticReportVideoProps> = ({ report }) =>
   });
 
   const quoteOpacity = holdOrInterpolate(isHold, animFrame, [10, 22], [0, 1]);
-
+  const highlightOpacity = holdOrInterpolate(isHold, animFrame, [18, 28], [0, 1]);
   const chartOpacity = holdOrInterpolate(isHold, animFrame, [CHART_START, CHART_START + 12], [0, 1]);
-
   const footerOpacity = holdOrInterpolate(isHold, animFrame, [FOOTER_START, FOOTER_START + 18], [0, 1]);
   const logoHandle = report.logo_handle ?? DEFAULT_LOGO_HANDLE;
   const bgmVolume = report.bgm_volume ?? DEFAULT_BGM_VOLUME;
+  const peakSymbol = maxChangeSymbol(report.citic_by_symbol);
+  const peakNet = report.citic_by_symbol[peakSymbol];
+  const peakDir = peakNet >= 0 ? "加多" : "加空";
 
   return (
     <AbsoluteFill
       style={{
         fontFamily: THEME.sans,
-        background: THEME.bg,
+        background: "linear-gradient(180deg, #ffffff 0%, #fafafa 100%)",
         color: THEME.ink,
       }}
     >
@@ -314,16 +374,16 @@ export const CiticReportVideo: React.FC<CiticReportVideoProps> = ({ report }) =>
           height: 1280,
           display: "flex",
           flexDirection: "column",
-          padding: "40px 32px 28px",
+          padding: "36px 32px 28px",
           overflow: "hidden",
         }}
       >
         <header
           style={{
             flexShrink: 0,
-            marginBottom: 28,
+            marginBottom: 22,
             borderBottom: `2px solid ${THEME.ink}`,
-            paddingBottom: 18,
+            paddingBottom: 16,
             opacity: headerEntrance,
             transform: `translateY(${(1 - headerEntrance) * -12}px)`,
           }}
@@ -331,59 +391,88 @@ export const CiticReportVideo: React.FC<CiticReportVideoProps> = ({ report }) =>
           <div
             style={{
               display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: 12,
+              marginBottom: 10,
+            }}
+          >
+            <span
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                fontSize: 12,
+                fontWeight: 700,
+                letterSpacing: "0.08em",
+                color: THEME.accent,
+                padding: "5px 12px",
+                borderRadius: 999,
+                background: "rgba(61,74,92,0.07)",
+                border: "1px solid rgba(61,74,92,0.12)",
+              }}
+            >
+              中信期货 · 净持仓日报
+            </span>
+            <span
+              style={{
+                fontSize: 12,
+                fontWeight: 600,
+                color: THEME.accent,
+                letterSpacing: "0.02em",
+                whiteSpace: "nowrap",
+              }}
+            >
+              {logoHandle}
+            </span>
+          </div>
+          <div
+            style={{
+              display: "flex",
               justifyContent: "space-between",
               alignItems: "flex-start",
               gap: 16,
-              marginBottom: 12,
             }}
           >
-            <div style={{ flex: 1, minWidth: 0 }}>
+            <h1
+              style={{
+                fontFamily: THEME.serif,
+                fontSize: 26,
+                fontWeight: 700,
+                lineHeight: 1.25,
+                color: THEME.ink,
+                margin: 0,
+                letterSpacing: "-0.01em",
+                maxWidth: 520,
+              }}
+            >
+              {report.date_label}
+            </h1>
+            <div style={{ flexShrink: 0, marginTop: 6 }}>
               <div
                 style={{
-                  fontFamily: THEME.serif,
-                  fontSize: 11,
-                  fontWeight: 700,
-                  letterSpacing: "0.14em",
-                  textTransform: "uppercase",
-                  color: THEME.accent,
+                  width: 64,
+                  height: 64,
+                  borderRadius: 18,
+                  background: THEME.logoBg,
+                  boxShadow: THEME.logoShadow,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  border: "1px solid rgba(255,255,255,0.8)",
                 }}
               >
-                中信期货 · 净持仓日报
+                <Img
+                  src={staticFile("logo.png")}
+                  style={{
+                    width: 46,
+                    height: 46,
+                    objectFit: "contain",
+                    filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.08))",
+                  }}
+                />
               </div>
             </div>
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4, flexShrink: 0 }}>
-              <Img
-                src={staticFile("logo.png")}
-                style={{ width: 60, height: 60, objectFit: "contain" }}
-              />
-              <span
-                style={{
-                  fontSize: 9,
-                  fontWeight: 600,
-                  color: THEME.inkSecondary,
-                  letterSpacing: "0.01em",
-                  whiteSpace: "nowrap",
-                  lineHeight: 1.2,
-                }}
-              >
-                {logoHandle}
-              </span>
-            </div>
           </div>
-          <h1
-            style={{
-              fontFamily: THEME.serif,
-              fontSize: 26,
-              fontWeight: 700,
-              lineHeight: 1.25,
-              color: THEME.ink,
-              margin: 0,
-              letterSpacing: "-0.01em",
-              maxWidth: 520,
-            }}
-          >
-            {report.date_label}
-          </h1>
           <p
             style={{
               marginTop: 8,
@@ -399,29 +488,49 @@ export const CiticReportVideo: React.FC<CiticReportVideoProps> = ({ report }) =>
         <blockquote
           style={{
             flexShrink: 0,
-            margin: "0 0 22px 0",
-            padding: "14px 16px 14px 20px",
-            background: `linear-gradient(90deg, ${THEME.longBg} 0%, ${THEME.bg} 72%)`,
-            borderLeft: `3px solid ${THEME.long}`,
+            margin: "0 0 18px 0",
+            padding: "10px 14px",
+            background: "rgba(61,74,92,0.04)",
+            borderLeft: `3px solid ${THEME.accentSoft}`,
             borderRadius: "0 8px 8px 0",
             opacity: quoteOpacity,
           }}
         >
           <p
             style={{
-              fontFamily: THEME.serif,
-              fontSize: 15,
-              lineHeight: 1.65,
-              color: THEME.ink,
-              fontStyle: "italic",
+              fontSize: 12,
+              lineHeight: 1.45,
+              color: THEME.inkSecondary,
+              fontStyle: "normal",
               margin: 0,
+              whiteSpace: "nowrap",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
             }}
           >
             {report.daily_quote}
           </p>
         </blockquote>
 
-        <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 20, minHeight: 0 }}>
+        <div
+          style={{
+            flexShrink: 0,
+            marginBottom: 16,
+            padding: "8px 12px",
+            borderRadius: 8,
+            background: `linear-gradient(90deg, ${THEME.longBg} 0%, rgba(255,240,240,0.2) 100%)`,
+            border: "1px solid rgba(224,69,69,0.18)",
+            fontSize: 12,
+            fontWeight: 700,
+            color: THEME.longDeep,
+            letterSpacing: "0.02em",
+            opacity: highlightOpacity,
+          }}
+        >
+          今日要点 · {peakSymbol} {peakDir} {Math.abs(peakNet).toLocaleString("zh-CN")} 手为最大边际变化
+        </div>
+
+        <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 20, minHeight: 0, overflow: "hidden" }}>
           <section style={{ flexShrink: 0 }}>
             <SectionHead
               num="01"
@@ -432,8 +541,8 @@ export const CiticReportVideo: React.FC<CiticReportVideoProps> = ({ report }) =>
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(2, 1fr)",
-                gap: 10,
+                gridTemplateColumns: "repeat(4, 1fr)",
+                gap: 8,
               }}
             >
               {SYMBOLS.map((symbol, index) => (
@@ -447,23 +556,20 @@ export const CiticReportVideo: React.FC<CiticReportVideoProps> = ({ report }) =>
             </div>
           </section>
 
-          <section style={{ flex: 1, minHeight: 0, display: "flex", flexDirection: "column" }}>
+          <section style={{ flexShrink: 0, display: "flex", flexDirection: "column" }}>
             <SectionHead
               num="02"
               title="持仓变化对比"
-              subtitle="各品种净加减仓手数（正为加多，负为加空）· 来源于网络"
-              startFrame={48}
+              subtitle="平方根刻度 · 正为加多，负为加空"
+              startFrame={44}
+              legend
             />
             <div
               style={{
-                flex: 1,
-                minHeight: 240,
+                flexShrink: 0,
+                height: 332,
+                width: "100%",
                 opacity: chartOpacity,
-                background: THEME.panel,
-                border: `1px solid ${THEME.line}`,
-                borderRadius: 12,
-                padding: "14px 12px 8px",
-                boxShadow: "0 4px 20px rgba(26,26,26,0.04)",
               }}
             >
               <AnimatedBarChart data={report.citic_by_symbol} startFrame={CHART_START + 5} />
@@ -471,47 +577,35 @@ export const CiticReportVideo: React.FC<CiticReportVideoProps> = ({ report }) =>
           </section>
 
           <section style={{ flexShrink: 0 }}>
-            <SectionHead
-              num="03"
-              title="市场概览"
-              subtitle="全市场机构持仓汇总 · 来源于网络"
-              startFrame={88}
-            />
+            <SectionHead num="03" title="市场概览" startFrame={84} />
             <div
               style={{
-                borderRadius: 12,
-                overflow: "hidden",
-                border: `1px solid ${THEME.line}`,
-                boxShadow: "0 4px 20px rgba(26,26,26,0.04)",
+                display: "grid",
+                gridTemplateColumns: "1.15fr 1fr 1fr",
+                gap: 12,
               }}
             >
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "1.15fr 1fr 1fr",
-                }}
-              >
               <SummaryItem
                 label="中信整体"
                 value={report.citic_total}
-                unit="净持仓变化"
+                unit="当日净持仓变化 · 手"
                 index={0}
                 colored
                 hero
               />
               <SummaryItem
-                label="前20机构净空单"
+                label="前20机构净空单（存量）"
                 value={report.top20_net_short_total}
-                unit="手"
+                unit={`全市场存量 · ${report.top20_net_short_total.toLocaleString("zh-CN")} 手`}
                 index={1}
+                stock
               />
               <SummaryItem
                 label="今日净买入"
                 value={report.net_buy_total}
-                unit="手"
+                unit="当日变动 · 手"
                 index={2}
               />
-              </div>
             </div>
           </section>
         </div>
@@ -519,8 +613,8 @@ export const CiticReportVideo: React.FC<CiticReportVideoProps> = ({ report }) =>
         <footer
           style={{
             flexShrink: 0,
-            marginTop: 24,
-            paddingTop: 16,
+            marginTop: 8,
+            paddingTop: 12,
             borderTop: `1px solid ${THEME.line}`,
             opacity: footerOpacity,
           }}

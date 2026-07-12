@@ -1,0 +1,68 @@
+{
+  "disclaimer": "个人观点，无不良引导",
+  "scenes": [
+    {
+      "id": "desk_stress",
+      "pose": "desk_stress",
+      "prop": "laptop",
+      "headline": "存量博弈",
+      "extras": ["clock", "sweat", "paper_stack", "coffee", "stress_lines"],
+      "phases": ["pain"],
+      "tags": ["加班", "白领", "办公", "都市", "职场", "焦虑", "耗材", "博弈", "地铁"]
+    },
+    {
+      "id": "city_thinking",
+      "pose": "thinking",
+      "prop": "city_silhouette",
+      "headline": "低欲生活",
+      "extras": ["thought_bubble", "moon", "stars", "question", "lightbulb"],
+      "phases": ["insight"],
+      "tags": ["思考", "夜景", "独处", "认知", "赢家", "低欲", "围城"]
+    },
+    {
+      "id": "split_choice",
+      "pose": "crossroads",
+      "prop": "signpost",
+      "headline": "欲望坐标",
+      "extras": ["arrow_left", "arrow_right", "cloud", "bird", "scale"],
+      "phases": ["contrast"],
+      "tags": ["对比", "城市", "欲望", "坐标", "选择"]
+    },
+    {
+      "id": "slow_walk",
+      "pose": "walk_relaxed",
+      "prop": "tree",
+      "headline": "换个活法",
+      "extras": ["sun", "cloud", "flower", "bird", "path"],
+      "phases": ["action"],
+      "tags": ["慢生活", "自然", "日常", "小城", "活法", "日子"]
+    },
+    {
+      "id": "platform_world",
+      "pose": "on_platform",
+      "prop": "wooden_stage",
+      "headline": "当局局外",
+      "extras": ["exclaim", "crowd_dots", "spotlight", "flag", "spark"],
+      "phases": ["insight", "contrast"],
+      "tags": ["当局", "局外", "神仙", "围城", "真相", "本质"]
+    },
+    {
+      "id": "crown_sidequest",
+      "pose": "crown_scroll",
+      "prop": "scroll_work",
+      "headline": "人生支线",
+      "extras": ["star", "coin", "heart", "spark", "crown_sparkle"],
+      "phases": ["cta", "action"],
+      "tags": ["收藏", "关注", "建议", "工作", "人生"]
+    },
+    {
+      "id": "wave_bye",
+      "pose": "wave",
+      "prop": "heart",
+      "headline": "收藏智慧",
+      "extras": ["heart", "star", "spark", "thumb"],
+      "phases": ["cta"],
+      "tags": ["收藏", "分享", "点赞"]
+    }
+  ]
+}

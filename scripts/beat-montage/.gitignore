@@ -1,0 +1,15 @@
+# Beat-montage pipeline outputs
+output/
+_beat-montage/output/
+
+# Remotion build artifacts
+remotion/node_modules/
+remotion/public/
+
+# User-provided BGM (optional)
+bgm/*.mp3
+!bgm/.gitkeep
+
+# Real film clips (user-provided, copyright-sensitive)
+clips/**/*.mp4
+clips/**/*.mov

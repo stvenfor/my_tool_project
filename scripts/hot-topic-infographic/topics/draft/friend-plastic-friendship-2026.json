@@ -1,0 +1,87 @@
+{
+  "id": "friend-plastic-friendship-2026",
+  "status": "draft",
+  "meta": {
+    "theme": "朋友关系塑料友情",
+    "hot_keywords": ["塑料友情", "表面热闹", "真心", "社交"],
+    "tone": "satire",
+    "created_at": "2026-07-12",
+    "category": "friend",
+    "angle": "塑料友情",
+    "framing": "友情消耗清单"
+  },
+  "header": {
+    "title": "塑料友情四件套",
+    "subtitle": "热闹很多，真心很少",
+    "badge_top": "越热闹越空",
+    "badge_bottom": "真心余额不足"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "点赞很积极",
+      "price": "互动满分",
+      "accent": "#2563EB",
+      "bullets": ["每条都点赞", "评论全是表情包", "私下从不深聊"],
+      "scene_prompt": "person quickly liking all friends posts without reading deeply",
+      "bubble": "支持支持",
+      "effect": "互动热闹，关系浅薄"
+    },
+    {
+      "no": "02",
+      "name": "遇事找不到",
+      "price": "求助归零",
+      "accent": "#16A34A",
+      "bullets": ["平时群聊很多", "真有事各自忙", "能深聊的没几个"],
+      "scene_prompt": "person scrolling contact list during difficulty finding no one to call",
+      "bubble": "算了靠自己",
+      "effect": "朋友很多，帮手很少"
+    },
+    {
+      "no": "03",
+      "name": "聚会合拍照",
+      "price": "仪式感拉满",
+      "accent": "#EA580C",
+      "bullets": ["见面先拍照", "修图两小时", "发完各回各家"],
+      "scene_prompt": "friends posing for group photo at gathering then looking at phones after",
+      "bubble": "友谊长存",
+      "effect": "合照很美，联系很淡"
+    },
+    {
+      "no": "04",
+      "name": "散场各忙各",
+      "price": "热闹散场",
+      "accent": "#64748B",
+      "bullets": ["聚会结束秒没影", "下次再约遥遥无期", "热闹像一次性消费"],
+      "scene_prompt": "group dispersing after party each leaving in different directions",
+      "bubble": "下次再聚",
+      "effect": "塑料不坏，只是不暖"
+    }
+  ],
+  "footer": {
+    "upgrades": ["深聊破冰术", "真朋友识别器", "社交减负指南", "高质量陪伴课"],
+    "warning": "社交热闹不等于真心陪伴，珍惜能深聊的朋友。",
+    "receipt": {
+      "lines": [
+        { "label": "点赞很积极", "amount": "互动100%" },
+        { "label": "遇事找不到", "amount": "求助0人" },
+        { "label": "聚会合拍照", "amount": "P图2h" },
+        { "label": "散场各忙各", "amount": "联系冷却" }
+      ],
+      "total": "热闹有余真心不足",
+      "balance": "空",
+      "note": "真心待充值"
+    },
+    "tagline": "朋友不在多，在于能接住你。"
+  },
+  "hooks": [
+    "你有塑料友情吗？",
+    "遇事时你能找到几个真朋友？",
+    "聚会合照后还会联系吗？",
+    "点赞之交算朋友吗？"
+  ],
+  "copy": {
+    "douyin_tags": ["朋友关系", "塑料友情", "社交", "真心朋友", "聚会"],
+    "xiaohongshu_tags": ["朋友关系", "塑料友情", "社交", "真心朋友", "边界感", "共鸣"]
+  }
+}

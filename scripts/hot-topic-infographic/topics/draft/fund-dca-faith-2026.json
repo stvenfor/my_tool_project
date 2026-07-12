@@ -1,0 +1,87 @@
+{
+  "id": "fund-dca-faith-2026",
+  "status": "draft",
+  "meta": {
+    "theme": "基金玩家定投信仰",
+    "hot_keywords": ["定投", "基金", "净值", "长期"],
+    "tone": "satire",
+    "created_at": "2026-07-12",
+    "category": "fund",
+    "angle": "定投信仰",
+    "framing": "基金认知陷阱"
+  },
+  "header": {
+    "title": "基金定投四件套",
+    "subtitle": "相信长期，每天看净值",
+    "badge_top": "越跌越买",
+    "badge_bottom": "净值焦虑中"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "相信长期",
+      "price": "持有3年+",
+      "accent": "#2563EB",
+      "bullets": ["专家说定投稳", "时间换空间", "先设定投计划"],
+      "scene_prompt": "person setting up automatic fund investment plan on finance app",
+      "bubble": "长期主义",
+      "effect": "信仰很坚定，手很不安分"
+    },
+    {
+      "no": "02",
+      "name": "每天看净值",
+      "price": "刷新50次/天",
+      "accent": "#16A34A",
+      "bullets": ["早上先看涨跌", "绿了心情差一天", "红了也不敢高兴"],
+      "scene_prompt": "person obsessively checking fund net value on phone throughout day",
+      "bubble": "又绿了",
+      "effect": "说是长期，天天短线心"
+    },
+    {
+      "no": "03",
+      "name": "跌了加仓",
+      "price": "子弹打光",
+      "accent": "#EA580C",
+      "bullets": ["越跌越买摊成本", "工资全填进去", "还没到底呢"],
+      "scene_prompt": "person transferring more money into fund account during market dip",
+      "bubble": "抄底机会",
+      "effect": "加仓很勇，回本很远"
+    },
+    {
+      "no": "04",
+      "name": "涨了舍不得卖",
+      "price": "利润回吐",
+      "accent": "#64748B",
+      "bullets": ["赚了一点想更多", "回调全回去了", "继续相信长期"],
+      "scene_prompt": "person watching fund profit disappear on chart with regret",
+      "bubble": "再等等",
+      "effect": "贪婪入场，犹豫离场"
+    }
+  ],
+  "footer": {
+    "upgrades": ["定投纪律表", "净值少看计划", "止盈策略包", "基金小白课"],
+    "warning": "基金有风险，定投需坚持也需理性，别用生活费硬扛。",
+    "receipt": {
+      "lines": [
+        { "label": "相信长期", "amount": "3年+" },
+        { "label": "每天看净值", "amount": "刷新50次" },
+        { "label": "跌了加仓", "amount": "子弹打光" },
+        { "label": "涨了舍不得卖", "amount": "利润回吐" }
+      ],
+      "total": "信仰满分收益待定",
+      "balance": "±0",
+      "note": "净值焦虑中"
+    },
+    "tagline": "定投可以，别定成焦虑。"
+  },
+  "hooks": [
+    "你一天看几次基金净值？",
+    "跌了你会加仓吗？",
+    "涨了舍不得卖吗？",
+    "定投坚持多久了？"
+  ],
+  "copy": {
+    "douyin_tags": ["基金", "定投", "理财", "净值", "投资"],
+    "xiaohongshu_tags": ["基金定投", "基金玩家", "理财", "净值焦虑", "投资", "共鸣"]
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "id": "fishing-empty-handed-2026",
+  "status": "draft",
+  "meta": {
+    "theme": "钓鱼人空军日记",
+    "hot_keywords": ["空军", "钓鱼", "装备", "耐心"],
+    "tone": "satire",
+    "created_at": "2026-07-12",
+    "category": "fishing",
+    "angle": "空军日记",
+    "framing": "钓鱼陷阱四件套"
+  },
+  "header": {
+    "title": "钓鱼空军四件套",
+    "subtitle": "装备齐全，鱼护空空",
+    "badge_top": "越钓越穷",
+    "badge_bottom": "鱼获为零"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "清晨出发",
+      "price": "凌晨4点",
+      "accent": "#2563EB",
+      "bullets": ["闹钟比上班还早", "饵料配了半小时", "信心满满出发"],
+      "scene_prompt": "fisherman loading gear into car at dawn with excited expression",
+      "bubble": "今天必爆护",
+      "effect": "起最早，空最晚"
+    },
+    {
+      "no": "02",
+      "name": "晒成黑炭",
+      "price": "防晒白涂",
+      "accent": "#16A34A",
+      "bullets": ["河边一坐一整天", "太阳晒到怀疑人生", "蚊子咬了八个包"],
+      "scene_prompt": "fisherman sitting by river in hot sun looking sunburned and tired",
+      "bubble": "鱼呢鱼呢",
+      "effect": "晒一天，鱼影都没见"
+    },
+    {
+      "no": "03",
+      "name": "鱼护空空",
+      "price": "0尾",
+      "accent": "#EA580C",
+      "bullets": ["漂动了一次是风吹", "切线一次是挂底", "收竿时鱼护是干的"],
+      "scene_prompt": "fisherman holding empty fish net looking disappointed at sunset",
+      "bubble": "空军again",
+      "effect": "装备越贵，鱼越少"
+    },
+    {
+      "no": "04",
+      "name": "下次一定",
+      "price": "信心+100",
+      "accent": "#64748B",
+      "bullets": ["回家路上复盘", "怪天气怪水位", "下周再来一定中"],
+      "scene_prompt": "fisherman planning next trip on phone while driving home empty-handed",
+      "bubble": "下次换钓点",
+      "effect": "空军成瘾，下次还敢"
+    }
+  ],
+  "footer": {
+    "upgrades": ["新饵料套餐", "钓点导航VIP", "防晒加强版", "空军安慰群"],
+    "warning": "钓鱼重在过程，空军是常态，别上头买太多装备。",
+    "receipt": {
+      "lines": [
+        { "label": "清晨出发", "amount": "4:00AM" },
+        { "label": "晒成黑炭", "amount": "8小时" },
+        { "label": "鱼护空空", "amount": "0尾" },
+        { "label": "下次一定", "amount": "信心+100" }
+      ],
+      "total": "快乐满分鱼获零",
+      "balance": "0尾",
+      "note": "鱼获已透支"
+    },
+    "tagline": "空军不可怕，下次继续钓。"
+  },
+  "hooks": [
+    "你最长空军多久？",
+    "装备齐全鱼护空空过吗？",
+    "空军后你还会去吗？",
+    "凌晨出发钓鱼你干过吗？"
+  ],
+  "copy": {
+    "douyin_tags": ["钓鱼", "空军", "钓鱼佬", "户外", "装备党"],
+    "xiaohongshu_tags": ["钓鱼", "空军日记", "钓鱼佬", "户外钓鱼", "装备党", "共鸣"]
+  }
+}

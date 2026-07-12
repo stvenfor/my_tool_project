@@ -1,0 +1,105 @@
+{
+  "id": "apple-openai-lawsuit",
+  "status": "approved",
+  "meta": {
+    "theme": "苹果诉OpenAI",
+    "hot_keywords": ["苹果", "OpenAI", "窃密", "AI硬件", "挖角"],
+    "tone": "satire",
+    "created_at": "2026-07-12"
+  },
+  "header": {
+    "title": "AI硬件抢人四件套",
+    "subtitle": "联盟破裂，诉讼开打，钱包先被掏空",
+    "badge_top": "越抢越穷",
+    "badge_bottom": "余额不足"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "高管跳槽潮",
+      "price": "¥0/人",
+      "accent": "#2563EB",
+      "bullets": [
+        "高管带团队走",
+        "期权故事画饼",
+        "打工人看热闹"
+      ],
+      "scene_prompt": "executives leaving office with boxes, tech campus background",
+      "bubble": "抢的是人，烧的是钱",
+      "effect": "人才流动，股价波动"
+    },
+    {
+      "no": "02",
+      "name": "商业机密诉讼",
+      "price": "律师费∞",
+      "accent": "#16A34A",
+      "bullets": [
+        "诉状比产品厚",
+        "公关比代码快",
+        "用户围观吃瓜"
+      ],
+      "scene_prompt": "court documents and tech logos abstract, stressed lawyers",
+      "bubble": "打官司的钱够买显卡",
+      "effect": "诉讼升级，订阅照付"
+    },
+    {
+      "no": "03",
+      "name": "AI智能眼镜",
+      "price": "¥8999起",
+      "accent": "#EA580C",
+      "bullets": [
+        "还没发布先 hype",
+        "生态未建先抢跑",
+        "预售先割一波"
+      ],
+      "scene_prompt": "futuristic smart glasses concept, marketing hype visuals",
+      "bubble": "眼镜还没戴，钱包先瞎",
+      "effect": "概念先行，钱包先行"
+    },
+    {
+      "no": "04",
+      "name": "AI AirPods",
+      "price": "¥2499起",
+      "accent": "#64748B",
+      "bullets": [
+        "耳机变终端",
+        "摄像头加隐私",
+        "续航加焦虑"
+      ],
+      "scene_prompt": "wireless earbuds with camera sensors, privacy concern theme",
+      "bubble": "耳朵戴终端，隐私戴问号",
+      "effect": "设备越多，越不省心"
+    }
+  ],
+  "footer": {
+    "upgrades": [
+      "诉讼直播会员",
+      "硬件预售订金",
+      "AI生态股票",
+      "第二副眼镜"
+    ],
+    "warning": "本套装不创造收入，只消耗储蓄。请吃饱再理性消费。",
+    "receipt": {
+      "lines": [
+        { "label": "ChatGPT Pro", "amount": "¥1499" },
+        { "label": "智能眼镜订金", "amount": "¥2000" },
+        { "label": "AI AirPods", "amount": "¥2499" },
+        { "label": "相关股票亏损", "amount": "¥5000" }
+      ],
+      "total": "¥10998",
+      "balance": "-¥10998",
+      "note": "人生已透支"
+    },
+    "tagline": "巨头互撕你看戏，盲目跟风仍会变穷。"
+  },
+  "hooks": [
+    "苹果诉 OpenAI，你站哪边？",
+    "AI 硬件你会首发冲吗？",
+    "ChatGPT 还会留在 iPhone 吗？",
+    "如果只能买一个 AI 设备？"
+  ],
+  "copy": {
+    "douyin_tags": ["苹果", "OpenAI", "AI硬件", "热点", "科技"],
+    "xiaohongshu_tags": ["苹果", "OpenAI", "AI硬件", "热点", "科技圈", "消费主义"]
+  }
+}

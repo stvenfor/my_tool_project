@@ -1,0 +1,87 @@
+{
+  "id": "drinkbuddy-late-arrival-2026",
+  "status": "draft",
+  "meta": {
+    "theme": "酒友酒局迟到",
+    "hot_keywords": ["迟到", "聚会", "等位", "尴尬"],
+    "tone": "satire",
+    "created_at": "2026-07-12",
+    "category": "drinking_buddy",
+    "angle": "酒局迟到",
+    "framing": "酒局踩坑清单"
+  },
+  "header": {
+    "title": "酒局迟到四件套",
+    "subtitle": "说好七点，人到九点",
+    "badge_top": "越等越尬",
+    "badge_bottom": "信用余额不足"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "说好七点",
+      "price": "准时率0%",
+      "accent": "#2563EB",
+      "bullets": ["群里确认过时间", "大家都到了", "你还在路上"],
+      "scene_prompt": "friends waiting at restaurant table checking watches impatiently",
+      "bubble": "马上到",
+      "effect": "时间说定了，人还没到"
+    },
+    {
+      "no": "02",
+      "name": "九点才到",
+      "price": "迟到2h",
+      "accent": "#16A34A",
+      "bullets": ["堵车是万能理由", "其实刚出门", "满桌等你一轮"],
+      "scene_prompt": "person rushing into gathering late while friends look amused",
+      "bubble": "路上太堵",
+      "effect": "迟到很久，理由很短"
+    },
+    {
+      "no": "03",
+      "name": "满桌等你",
+      "price": "社死开局",
+      "accent": "#EA580C",
+      "bullets": ["进门全场看你", "自罚一杯变喝水", "尴尬笑到脸僵"],
+      "scene_prompt": "late arrival person greeted by everyone staring at entrance awkwardly",
+      "bubble": "我的锅我的锅",
+      "effect": "聚会还没开始，社死先开始"
+    },
+    {
+      "no": "04",
+      "name": "自罚变喝水",
+      "price": "诚意打折",
+      "accent": "#64748B",
+      "bullets": ["朋友说意思一下", "你当真喝三大杯", "第二天更起不来"],
+      "scene_prompt": "person holding water glass doing playful penalty toast at gathering",
+      "bubble": "下次一定早",
+      "effect": "迟到一次，信用减一分"
+    }
+  ],
+  "footer": {
+    "upgrades": ["准时出门提醒", "迟到补救话术", "聚会时间缓冲", "信用修复指南"],
+    "warning": "聚会守时是基本尊重，适量饮酒，拒绝酒驾。",
+    "receipt": {
+      "lines": [
+        { "label": "说好七点", "amount": "准时0%" },
+        { "label": "九点才到", "amount": "迟到2h" },
+        { "label": "满桌等你", "amount": "社死+1" },
+        { "label": "自罚变喝水", "amount": "诚意打折" }
+      ],
+      "total": "信用小亏",
+      "balance": "-1分",
+      "note": "信用待修复"
+    },
+    "tagline": "聚会可以晚到一点，别让大家等太久。"
+  },
+  "hooks": [
+    "酒局迟到你常干吗？",
+    "满桌等你尴尬吗？",
+    "迟到理由你用过哪些？",
+    "下次一定早你说过吗？"
+  ],
+  "copy": {
+    "douyin_tags": ["酒友", "聚会", "迟到", "尴尬", "朋友聚会"],
+    "xiaohongshu_tags": ["酒友", "聚会迟到", "朋友聚会", "社交尴尬", "守时", "共鸣"]
+  }
+}

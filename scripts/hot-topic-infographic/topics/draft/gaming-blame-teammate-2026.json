@@ -1,0 +1,87 @@
+{
+  "id": "gaming-blame-teammate-2026",
+  "status": "draft",
+  "meta": {
+    "theme": "游戏队友甩锅队友",
+    "hot_keywords": ["甩锅", "队友", "开黑", "上分"],
+    "tone": "satire",
+    "created_at": "2026-07-12",
+    "category": "gaming",
+    "angle": "甩锅队友",
+    "framing": "开黑踩坑四件套"
+  },
+  "header": {
+    "title": "甩锅队友四件套",
+    "subtitle": "输了不怪自己，先怪队友",
+    "badge_top": "越甩越气",
+    "badge_bottom": "心态余额不足"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "打野不支援",
+      "price": "野区逛街",
+      "accent": "#2563EB",
+      "bullets": ["上路被抓三次", "打野还在刷野", "信号发烂也不来"],
+      "scene_prompt": "gamer angrily pinging map while jungler farms in video game",
+      "bubble": "你会不会玩",
+      "effect": "支援不来，锅先甩"
+    },
+    {
+      "no": "02",
+      "name": "射手脸探草",
+      "price": "秒躺送头",
+      "accent": "#16A34A",
+      "bullets": ["没视野硬冲", "一秒被秒", "怪辅助没保"],
+      "scene_prompt": "gamer character dying instantly after walking into bush in game",
+      "bubble": "辅助干嘛呢",
+      "effect": "自己浪，锅在辅助"
+    },
+    {
+      "no": "03",
+      "name": "辅助不跟团",
+      "price": "独自开团",
+      "accent": "#EA580C",
+      "bullets": ["开团没人跟", "死了怪队友卖", "打字喷完全场"],
+      "scene_prompt": "gamer typing angry messages in game chat after team fight loss",
+      "bubble": "都在卖我",
+      "effect": "团战输了，打字赢了"
+    },
+    {
+      "no": "04",
+      "name": "全员怪打野",
+      "price": "甩锅大会",
+      "accent": "#64748B",
+      "bullets": ["四路全崩怪打野", "打野默默背锅", "下把换路人"],
+      "scene_prompt": "team blaming jungler in post-game lobby chat screen",
+      "bubble": "打野差距",
+      "effect": "输了比赛，赢了嘴仗"
+    }
+  ],
+  "footer": {
+    "upgrades": ["心态修炼课", "甩锅识别器", "团队沟通模板", "上分冷静指南"],
+    "warning": "游戏娱乐为主，甩锅伤队友也伤自己心态。",
+    "receipt": {
+      "lines": [
+        { "label": "打野不支援", "amount": "被抓×3" },
+        { "label": "射手脸探草", "amount": "送头×5" },
+        { "label": "辅助不跟团", "amount": "打字×20" },
+        { "label": "全员怪打野", "amount": "甩锅大会" }
+      ],
+      "total": "心态崩盘",
+      "balance": "-1星",
+      "note": "心态已透支"
+    },
+    "tagline": "可以菜，别光甩锅。"
+  },
+  "hooks": [
+    "你遇到过甩锅队友吗？",
+    "输了你会先怪谁？",
+    "打野不支援你经历过吗？",
+    "全员怪打野你见过吗？"
+  ],
+  "copy": {
+    "douyin_tags": ["游戏", "队友", "甩锅", "开黑", "上分"],
+    "xiaohongshu_tags": ["游戏队友", "甩锅", "开黑", "游戏日常", "上分", "共鸣"]
+  }
+}

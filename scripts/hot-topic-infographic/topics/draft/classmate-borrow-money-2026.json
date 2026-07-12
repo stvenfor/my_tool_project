@@ -1,0 +1,87 @@
+{
+  "id": "classmate-borrow-money-2026",
+  "status": "draft",
+  "meta": {
+    "theme": "同学关系借钱的同学",
+    "hot_keywords": ["借钱", "同学", "催还", "友情"],
+    "tone": "satire",
+    "created_at": "2026-07-12",
+    "category": "classmate",
+    "angle": "借钱的同学",
+    "framing": "同窗社交雷区"
+  },
+  "header": {
+    "title": "借钱的同学四件套",
+    "subtitle": "钱借出去，同学关系也借走了",
+    "badge_top": "越借越淡",
+    "badge_bottom": "友情余额不足"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "开口借钱",
+      "price": "¥5000起",
+      "accent": "#2563EB",
+      "bullets": ["老同学突然联系", "寒暄三句进正题", "说下周一定还"],
+      "scene_prompt": "old classmate calling on phone with awkward friendly tone asking for money",
+      "bubble": "帮个忙呗",
+      "effect": "友情开场，借钱压轴"
+    },
+    {
+      "no": "02",
+      "name": "久催不还",
+      "price": "耐心-100",
+      "accent": "#16A34A",
+      "bullets": ["消息已读不回", "说手头紧再等等", "朋友圈晒旅游照"],
+      "scene_prompt": "person checking phone with unread messages while friend posts vacation photos",
+      "bubble": "下次一定还",
+      "effect": "你的耐心，他的借口"
+    },
+    {
+      "no": "03",
+      "name": "友情打折",
+      "price": "信任归零",
+      "accent": "#EA580C",
+      "bullets": ["见面先躲着你", "共同朋友也尴尬", "钱成了心结"],
+      "scene_prompt": "two old friends avoiding eye contact at casual gathering",
+      "bubble": "还能做朋友吗",
+      "effect": "钱不多，心结很大"
+    },
+    {
+      "no": "04",
+      "name": "从此疏远",
+      "price": "联系归零",
+      "accent": "#64748B",
+      "bullets": ["钱要不回来", "人也不想联系了", "当花钱买教训"],
+      "scene_prompt": "person deleting chat history with old classmate looking resigned",
+      "bubble": "算了算了",
+      "effect": "同学没了，教训留下了"
+    }
+  ],
+  "footer": {
+    "upgrades": ["催还话术包", "借钱风险评估", "友情止损指南", "电子借条模板"],
+    "warning": "同学借钱需谨慎，量力而行，写好借条。",
+    "receipt": {
+      "lines": [
+        { "label": "开口借钱", "amount": "¥5000" },
+        { "label": "久催不还", "amount": "6个月" },
+        { "label": "友情打折", "amount": "信任-100" },
+        { "label": "从此疏远", "amount": "联系归零" }
+      ],
+      "total": "人财两伤",
+      "balance": "-¥5000",
+      "note": "友情已透支"
+    },
+    "tagline": "同学可以帮，借钱看人品。"
+  },
+  "hooks": [
+    "同学借钱你借过吗？",
+    "催还不还你怎么处理的？",
+    "因为借钱疏远过同学吗？",
+    "借钱会影响同学感情吗？"
+  ],
+  "copy": {
+    "douyin_tags": ["同学借钱", "同学关系", "借钱", "友情", "催还"],
+    "xiaohongshu_tags": ["同学借钱", "同学关系", "借钱", "友情边界", "催还", "避坑"]
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "id": "fund-redeem-hesitate-2026",
+  "status": "draft",
+  "meta": {
+    "theme": "基金玩家赎回犹豫",
+    "hot_keywords": ["赎回", "犹豫", "基金", "止盈"],
+    "tone": "satire",
+    "created_at": "2026-07-12",
+    "category": "fund",
+    "angle": "赎回犹豫",
+    "framing": "基金认知陷阱"
+  },
+  "header": {
+    "title": "赎回犹豫四件套",
+    "subtitle": "卖出页面打开十次，一次没点",
+    "badge_top": "越犹豫越亏",
+    "badge_bottom": "决策余额不足"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "赚了想更多",
+      "price": "贪婪+100",
+      "accent": "#2563EB",
+      "bullets": ["浮盈看着舒服", "觉得还能涨", "止盈键按不下去"],
+      "scene_prompt": "person watching fund profit on screen hesitating to sell",
+      "bubble": "再等等",
+      "effect": "贪心入场，贪心离场"
+    },
+    {
+      "no": "02",
+      "name": "亏了舍不得割",
+      "price": "套牢模式",
+      "accent": "#DC2626",
+      "bullets": ["一卖就真亏了", "等回本再说", "越等越没底"],
+      "scene_prompt": "person staring at fund loss refusing to tap redeem button",
+      "bubble": "再扛一扛",
+      "effect": "舍不得割，就一直在"
+    },
+    {
+      "no": "03",
+      "name": "反复打开卖出页",
+      "price": "操作×10次",
+      "accent": "#16A34A",
+      "bullets": ["打开又关掉", "问朋友怎么办", "朋友说再观望"],
+      "scene_prompt": "person repeatedly opening and closing fund sell page on app",
+      "bubble": "要卖吗",
+      "effect": "犹豫很勤，决策为零"
+    },
+    {
+      "no": "04",
+      "name": "最后什么都没做",
+      "price": "状态维持",
+      "accent": "#64748B",
+      "bullets": ["利润回吐", "亏损扩大", "继续每天看净值"],
+      "scene_prompt": "person exhausted from indecision still checking fund daily",
+      "bubble": "下次一定卖",
+      "effect": "想太多，做太少"
+    }
+  ],
+  "footer": {
+    "upgrades": ["止盈止损表", "赎回决策树", "情绪冷静卡", "基金复盘课"],
+    "warning": "止盈止损需要纪律，犹豫本身也在消耗收益。",
+    "receipt": {
+      "lines": [
+        { "label": "赚了想更多", "amount": "贪婪+100" },
+        { "label": "亏舍不得割", "amount": "套牢中" },
+        { "label": "反复开卖出页", "amount": "×10次" },
+        { "label": "什么都没做", "amount": "利润回吐" }
+      ],
+      "total": "决策瘫痪",
+      "balance": "±回吐",
+      "note": "决策已透支"
+    },
+    "tagline": "想好规则，比反复纠结强。"
+  },
+  "hooks": [
+    "赎回页面你打开过几次？",
+    "赚了你会及时止盈吗？",
+    "亏了你会果断割肉吗？",
+    "犹豫到最后你做过什么？"
+  ],
+  "copy": {
+    "douyin_tags": ["基金", "赎回", "止盈", "理财", "犹豫"],
+    "xiaohongshu_tags": ["基金", "赎回犹豫", "基金玩家", "止盈止损", "理财", "共鸣"]
+  }
+}

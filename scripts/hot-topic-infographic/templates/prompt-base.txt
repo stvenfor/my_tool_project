@@ -1,0 +1,18 @@
+【模板】Infographic Engine + Illustration Art Style
+9:16 portrait infographic base layer, NO TEXT.
+
+主题：{theme}
+版式：{style_variant}
+画布：1080x1920，米白背景 #F5F0E8
+
+分区（留白给文字，只画插画和色块）：
+{layout_zones}
+
+四格插画：
+01 ({accent_1}): {scene_1}
+02 ({accent_2}): {scene_2}
+03 ({accent_3}): {scene_3}
+04 ({accent_4}): {scene_4}
+
+视觉：干净信息图，漫画线稿，社媒讽刺风格
+负面：no Chinese text, no readable letters, no watermark, abstract icons only

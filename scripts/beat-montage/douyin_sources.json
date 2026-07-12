@@ -1,0 +1,12 @@
+{
+  "source": "douyin",
+  "note": "由 search_douyin_clips.py 自动填充 urls。Playwright 下载优先。",
+  "local_videos": [],
+  "urls": [
+    "https://v.douyin.com/i8EnbJV6/",
+    "https://v.douyin.com/euJwWkJ8-f4/",
+    "https://www.douyin.com/video/7272298676003884347",
+    "https://www.douyin.com/video/7660992367738015022"
+  ],
+  "cookies_from_browser": "chrome"
+}

@@ -1,0 +1,87 @@
+{
+  "id": "fund-chase-hot-2026",
+  "status": "draft",
+  "meta": {
+    "theme": "基金玩家追涨基金",
+    "hot_keywords": ["热门基金", "追涨", "净值", "跟风"],
+    "tone": "satire",
+    "created_at": "2026-07-12",
+    "category": "fund",
+    "angle": "追涨基金",
+    "framing": "基金认知陷阱"
+  },
+  "header": {
+    "title": "追涨基金四件套",
+    "subtitle": "榜单前几名，买在山顶上",
+    "badge_top": "越追越绿",
+    "badge_bottom": "净值余额不足"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "榜单前几名",
+      "price": "收益率亮眼",
+      "accent": "#2563EB",
+      "bullets": ["收益榜冠军", "评论区全在夸", "觉得不买就亏了"],
+      "scene_prompt": "person checking top performing fund ranking on finance app excitedly",
+      "bubble": "明星基金",
+      "effect": "榜单一亮，冲动上线"
+    },
+    {
+      "no": "02",
+      "name": "赶紧上车",
+      "price": "冲动申购",
+      "accent": "#16A34A",
+      "bullets": ["怕错过行情", "先买一万试试", "试完觉得买少了"],
+      "scene_prompt": "person quickly subscribing to hot fund on phone",
+      "bubble": "先上车",
+      "effect": "上车很快，下车很难"
+    },
+    {
+      "no": "03",
+      "name": "买在高点",
+      "price": "净值回调",
+      "accent": "#EA580C",
+      "bullets": ["买入后连跌", "评论区开始骂", "自己开始装死"],
+      "scene_prompt": "person watching fund net value drop after purchase with regret",
+      "bubble": "怎么绿了",
+      "effect": "追的是热度，站的是山顶"
+    },
+    {
+      "no": "04",
+      "name": "长期变短期",
+      "price": "信仰动摇",
+      "accent": "#64748B",
+      "bullets": ["说好长期持有", "跌了就想赎回", "又看到新热门"],
+      "scene_prompt": "person switching between sell button and new hot fund list",
+      "bubble": "换个试试",
+      "effect": "长期口号，短期操作"
+    }
+  ],
+  "footer": {
+    "upgrades": ["追热点冷静期", "基金筛选表", "定投替代方案", "净值少看计划"],
+    "warning": "过往收益不代表未来，追热门基金需谨慎。",
+    "receipt": {
+      "lines": [
+        { "label": "榜单前几名", "amount": "心动+100" },
+        { "label": "赶紧上车", "amount": "申购1万" },
+        { "label": "买在高点", "amount": "-8%" },
+        { "label": "长期变短期", "amount": "信仰动摇" }
+      ],
+      "total": "热度税已缴",
+      "balance": "-8%",
+      "note": "净值焦虑中"
+    },
+    "tagline": "别追榜单，追自己的计划。"
+  },
+  "hooks": [
+    "你追过热门基金吗？",
+    "买在高点你经历过吗？",
+    "说好长期你守住了吗？",
+    "明星基金你上过车吗？"
+  ],
+  "copy": {
+    "douyin_tags": ["基金", "追涨", "热门基金", "理财", "净值"],
+    "xiaohongshu_tags": ["基金", "追涨基金", "基金玩家", "理财踩坑", "净值焦虑", "共鸣"]
+  }
+}

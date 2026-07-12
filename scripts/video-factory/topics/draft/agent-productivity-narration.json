@@ -1,0 +1,23 @@
+{
+  "id": "agent-productivity-narration",
+  "mode": "narration",
+  "series": "认知提升",
+  "title": "Agent才是生产力",
+  "hook": "你还在手动干活，别人已经让Agent跑起来了",
+  "tags": [
+    "AI",
+    "效率",
+    "职场"
+  ],
+  "visual_strategy": "stickman",
+  "skip_analyze": true,
+  "status": "draft",
+  "episode": "01",
+  "cta": "建议收藏，持续更新",
+  "reference_url": "",
+  "use_llm": true,
+  "meta": {
+    "created_at": "2026-07-12T13:20:38.641409+00:00",
+    "source": "video-factory:draft"
+  }
+}

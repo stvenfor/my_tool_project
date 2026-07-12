@@ -1,0 +1,87 @@
+{
+  "id": "fishing-skip-work-2026",
+  "status": "draft",
+  "meta": {
+    "theme": "钓鱼人钓鱼请假",
+    "hot_keywords": ["钓鱼", "请假", "钓点", "瘾"],
+    "tone": "satire",
+    "created_at": "2026-07-12",
+    "category": "fishing",
+    "angle": "钓鱼请假",
+    "framing": "钓鱼陷阱四件套"
+  },
+  "header": {
+    "title": "钓鱼请假四件套",
+    "subtitle": "天气预报说有口，班就不上了",
+    "badge_top": "越钓越瘾",
+    "badge_bottom": "全勤奖没了"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "天气预报有口",
+      "price": "心动+100",
+      "accent": "#2563EB",
+      "bullets": ["钓友群里报鱼情", "说今天必爆护", "心里长草拔不掉"],
+      "scene_prompt": "fisherman checking weather and fishing reports on phone excitedly",
+      "bubble": "今天有口",
+      "effect": "鱼情一动，班就不香了"
+    },
+    {
+      "no": "02",
+      "name": "理由编半天",
+      "price": "演技上线",
+      "accent": "#16A34A",
+      "bullets": ["家里有事", "身体不舒服", "其实人在河边"],
+      "scene_prompt": "person sending sick leave message while packing fishing gear",
+      "bubble": "就请一天",
+      "effect": "理由越真，心虚越大"
+    },
+    {
+      "no": "03",
+      "name": "钓完补工时",
+      "price": "周末报废",
+      "accent": "#EA580C",
+      "bullets": ["工作日去钓鱼", "周末加班补活", "快乐是借来的"],
+      "scene_prompt": "fisherman working overtime on weekend after weekday fishing trip",
+      "bubble": "值了值了",
+      "effect": "偷来的快乐，周末还回去"
+    },
+    {
+      "no": "04",
+      "name": "下次还敢",
+      "price": "瘾循环",
+      "accent": "#64748B",
+      "bullets": ["发誓下不为例", "下次有口还来", "钓鱼佬没有记性"],
+      "scene_prompt": "fisherman planning next fishing trip on calendar with grin",
+      "bubble": "就最后一次",
+      "effect": "请假一次，上瘾长期"
+    }
+  ],
+  "footer": {
+    "upgrades": ["请假风险评估", "钓点周末版", "工时补救表", "瘾头克制指南"],
+    "warning": "钓鱼娱乐为主，别因爱好影响正事。",
+    "receipt": {
+      "lines": [
+        { "label": "天气预报有口", "amount": "心动+100" },
+        { "label": "理由编半天", "amount": "请假1天" },
+        { "label": "钓完补工时", "amount": "周末-1" },
+        { "label": "下次还敢", "amount": "循环∞" }
+      ],
+      "total": "快乐兑换工时",
+      "balance": "全勤-1",
+      "note": "假期已透支"
+    },
+    "tagline": "钓瘾可控，正事优先。"
+  },
+  "hooks": [
+    "你为钓鱼请过假吗？",
+    "钓友报鱼情你心动吗？",
+    "钓完补工时你干过吗？",
+    "下次还敢你说过吗？"
+  ],
+  "copy": {
+    "douyin_tags": ["钓鱼", "钓鱼佬", "请假", "钓点", "户外"],
+    "xiaohongshu_tags": ["钓鱼", "钓鱼请假", "钓鱼佬", "钓点", "户外钓鱼", "共鸣"]
+  }
+}

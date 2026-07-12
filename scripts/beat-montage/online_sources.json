@@ -1,0 +1,96 @@
+{
+  "source": "mixkit",
+  "license": "Mixkit Free License (personal/commercial)",
+  "clips": [
+    {
+      "id": "comedy_funny_01",
+      "type": "comedy",
+      "energy": 2,
+      "tags": ["喜剧", "搞笑", "冷场"],
+      "url": "https://assets.mixkit.co/videos/28734/28734-720.mp4",
+      "trim_in": 1.0,
+      "duration_hint": 1.5
+    },
+    {
+      "id": "comedy_laugh_01",
+      "type": "comedy",
+      "energy": 3,
+      "tags": ["憨豆", "喜剧", "反应"],
+      "url": "https://assets.mixkit.co/videos/22188/22188-720.mp4",
+      "trim_in": 0.5,
+      "duration_hint": 1.5
+    },
+    {
+      "id": "slow_build_run_01",
+      "type": "slow_build",
+      "energy": 3,
+      "tags": ["蓄力", "慢镜", "奔跑"],
+      "url": "https://assets.mixkit.co/videos/1248/1248-720.mp4",
+      "trim_in": 2.0,
+      "duration_hint": 1.8
+    },
+    {
+      "id": "slow_build_bag_01",
+      "type": "slow_build",
+      "energy": 4,
+      "tags": ["蓄力", "拳击沙袋"],
+      "url": "https://assets.mixkit.co/videos/40276/40276-720.mp4",
+      "trim_in": 1.0,
+      "duration_hint": 1.5
+    },
+    {
+      "id": "action_punch_karate_01",
+      "type": "action_punch",
+      "energy": 8,
+      "tags": ["拳脚", "空手道", "打击"],
+      "url": "https://assets.mixkit.co/videos/49637/49637-720.mp4",
+      "trim_in": 0.8,
+      "duration_hint": 1.2
+    },
+    {
+      "id": "action_punch_mma_01",
+      "type": "action_punch",
+      "energy": 9,
+      "tags": ["拳脚", "MMA", "格斗"],
+      "url": "https://assets.mixkit.co/videos/40985/40985-720.mp4",
+      "trim_in": 1.5,
+      "duration_hint": 1.2
+    },
+    {
+      "id": "action_punch_kick_01",
+      "type": "action_punch",
+      "energy": 8,
+      "tags": ["拳脚", "踢击"],
+      "url": "https://assets.mixkit.co/videos/23134/23134-720.mp4",
+      "trim_in": 1.0,
+      "duration_hint": 1.2
+    },
+    {
+      "id": "action_punch_box_01",
+      "type": "action_punch",
+      "energy": 7,
+      "tags": ["拳脚", "拳击"],
+      "url": "https://assets.mixkit.co/videos/40274/40274-720.mp4",
+      "trim_in": 0.5,
+      "duration_hint": 1.2
+    },
+    {
+      "id": "action_gun_soldier_01",
+      "type": "action_gun",
+      "energy": 9,
+      "tags": ["射击", "枪战", "瞄准"],
+      "url": "https://assets.mixkit.co/videos/47864/47864-720.mp4",
+      "trim_in": 2.0,
+      "duration_hint": 1.2
+    },
+    {
+      "id": "hero_cinematic_01",
+      "type": "hero_shot",
+      "energy": 5,
+      "tags": ["定格", "结尾", "英雄"],
+      "url": "https://assets.mixkit.co/videos/32868/32868-720.mp4",
+      "trim_in": 3.0,
+      "duration_hint": 2.0
+    }
+  ]
+}

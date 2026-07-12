@@ -1,0 +1,105 @@
+{
+  "id": "ai-poverty-2026",
+  "status": "approved",
+  "meta": {
+    "theme": "AI订阅返贫",
+    "hot_keywords": ["Cursor Ultra", "ChatGPT Pro", "Claude Max", "Mac Mini", "Agent"],
+    "tone": "satire",
+    "created_at": "2026-07-12"
+  },
+  "header": {
+    "title": "打工人返贫四件套（2026 版）",
+    "subtitle": "买前本就穷，买后更赤贫，从此开启 AI 负债人生",
+    "badge_top": "越用越穷",
+    "badge_bottom": "余额不足"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "Cursor Ultra",
+      "price": "¥1499/月",
+      "accent": "#2563EB",
+      "bullets": [
+        "Agent改码快，Bug还在",
+        "Tab越顺，越像加班",
+        "$400额度，一开就没"
+      ],
+      "scene_prompt": "tired programmer at IDE, dark circles, cold coffee, code diffs on screen",
+      "bubble": "它写得比我快，但我依然没下班",
+      "effect": "代码越来越多，头发越来越少"
+    },
+    {
+      "no": "02",
+      "name": "ChatGPT Pro",
+      "price": "¥1499/月",
+      "accent": "#16A34A",
+      "bullets": [
+        "报告很漂亮，老板不看",
+        "Codex/Sora全能",
+        "订阅为不被抛弃"
+      ],
+      "scene_prompt": "person in bed scrolling phone, long research report on screen",
+      "bubble": "研究完了，行动还没开始",
+      "effect": "认知升级了，存款降级了"
+    },
+    {
+      "no": "03",
+      "name": "Claude Max 20x",
+      "price": "¥1499/月",
+      "accent": "#EA580C",
+      "bullets": [
+        "方案简历都像样",
+        "Code很强，现金不强",
+        "5小时限流更准时"
+      ],
+      "scene_prompt": "editing business plan on laptop, tired worker, multiple document versions",
+      "bubble": "写得真好，可惜没人看",
+      "effect": "越用越焦虑，越焦虑越续费"
+    },
+    {
+      "no": "04",
+      "name": "Mac Mini 跑 Agent",
+      "price": "¥6999起+电费",
+      "accent": "#64748B",
+      "bullets": [
+        "24h挂100个Agent",
+        "电费比饭钱贵",
+        "一人公司变机房"
+      ],
+      "scene_prompt": "Mac Mini server rack with router, cooling fan, agent running indicator",
+      "bubble": "以为在造未来，其实在烧生活费",
+      "effect": "电表在转，人生没动"
+    }
+  ],
+  "footer": {
+    "upgrades": [
+      "AI 焦虑保险",
+      "知识星球",
+      "数字游民课",
+      "第二台 Mac Mini"
+    ],
+    "warning": "本套装不创造收入，只消耗储蓄。请吃饱再理性消费。",
+    "receipt": {
+      "lines": [
+        { "label": "Cursor Ultra", "amount": "¥1499" },
+        { "label": "ChatGPT Pro", "amount": "¥1499" },
+        { "label": "Claude Max 20x", "amount": "¥1499" },
+        { "label": "Mac Mini+电费", "amount": "¥8500" }
+      ],
+      "total": "¥12997",
+      "balance": "-¥12997",
+      "note": "人生已透支"
+    },
+    "tagline": "努力不一定有回报，但盲目订阅一定会变穷。"
+  },
+  "hooks": [
+    "你目前开了几个 $200 档？真的用满了吗？",
+    "Cursor Ultra 和 Claude Max 二选一，你站哪边？",
+    "Mac Mini 跑 Agent：真生产力还是赛博手办？",
+    "如果只能留一个订阅，你会砍哪个？"
+  ],
+  "copy": {
+    "douyin_tags": ["AI订阅", "Cursor", "ChatGPT", "Claude", "打工人"],
+    "xiaohongshu_tags": ["AI工具", "程序员日常", "CursorUltra", "ChatGPTPro", "Claude", "MacMini", "消费主义", "副业"]
+  }
+}

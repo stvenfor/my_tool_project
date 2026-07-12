@@ -1,0 +1,37 @@
+{
+  "seed_urls": {
+    "day": [
+      "https://v.douyin.com/iPsRET3Y/",
+      "https://v.douyin.com/LGkIq1R99YA/",
+      "https://www.douyin.com/video/7654529041411706138"
+    ],
+    "transition": [
+      "https://v.douyin.com/iPsRET3Y/",
+      "https://v.douyin.com/LGkIq1R99YA/"
+    ],
+    "night": [
+      "https://v.douyin.com/uzOiyht0DQw/",
+      "https://v.douyin.com/1qvxJyEfxNg/",
+      "https://www.douyin.com/video/7654202766248391268"
+    ]
+  },
+  "search_keywords": {
+    "day": [
+      "西安城墙 航拍",
+      "大雁塔 西安 白天",
+      "西安 钟楼鼓楼"
+    ],
+    "transition": [
+      "西安 黄昏 日落",
+      "西安城墙 日落"
+    ],
+    "night": [
+      "大唐不夜城 夜景",
+      "大雁塔 夜景 喷泉",
+      "西安 夜景 灯笼"
+    ]
+  },
+  "cookies_from_browser": "chrome",
+  "download_delay_sec": 2.5,
+  "min_videos_per_phase": 2
+}

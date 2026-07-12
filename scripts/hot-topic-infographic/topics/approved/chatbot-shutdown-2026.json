@@ -1,0 +1,105 @@
+{
+  "id": "chatbot-shutdown-2026",
+  "status": "approved",
+  "meta": {
+    "theme": "AI陪聊团灭",
+    "hot_keywords": ["拟人化互动", "7月15", "豆包", "千问", "Chatbot下架"],
+    "tone": "satire",
+    "created_at": "2026-07-12"
+  },
+  "header": {
+    "title": "AI陪聊团灭四件套",
+    "subtitle": "7.15一到，陪聊下架，情感账单还在",
+    "badge_top": "越聊越穷",
+    "badge_bottom": "余额不足"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "豆包拟人陪聊",
+      "price": "¥0→停服",
+      "accent": "#2563EB",
+      "bullets": [
+        "角色能定制",
+        "下线后更想念",
+        "回忆也要会员"
+      ],
+      "scene_prompt": "person staring at chat app showing service discontinued message",
+      "bubble": "陪聊没了，习惯还在",
+      "effect": "陪伴下架，依赖还在"
+    },
+    {
+      "no": "02",
+      "name": "千问虚拟角色",
+      "price": "¥0→停服",
+      "accent": "#16A34A",
+      "bullets": [
+        "昨天还能聊",
+        "今天变公告",
+        "情绪没处放"
+      ],
+      "scene_prompt": "user reading app update notice in dark room",
+      "bubble": "规则变了，我还没缓",
+      "effect": "功能没了，空落落"
+    },
+    {
+      "no": "03",
+      "name": "Character.ai",
+      "price": "¥68/月",
+      "accent": "#EA580C",
+      "bullets": [
+        "海外还能玩",
+        "延迟加魔改",
+        "翻墙也心累"
+      ],
+      "scene_prompt": "person using VPN on phone frustrated expression",
+      "bubble": "人在国内，魂在境外",
+      "effect": "越绕越远，越花越多"
+    },
+    {
+      "no": "04",
+      "name": "情感依赖社群",
+      "price": "¥199/月",
+      "accent": "#64748B",
+      "bullets": [
+        "群友互相安慰",
+        "导师卖课接棒",
+        "焦虑换了个坑"
+      ],
+      "scene_prompt": "group chat notifications and paid community banner",
+      "bubble": "从一个坑跳进另一个",
+      "effect": "陪聊没了，割韭还在"
+    }
+  ],
+  "footer": {
+    "upgrades": [
+      "AI情感保险",
+      "替代陪聊课",
+      "深夜树洞群",
+      "第二账号翻墙"
+    ],
+    "warning": "本套装不创造收入，只消耗储蓄。请吃饱再理性消费。",
+    "receipt": {
+      "lines": [
+        { "label": "Character.ai", "amount": "¥68" },
+        { "label": "付费社群", "amount": "¥199" },
+        { "label": "VPN+流量", "amount": "¥89" },
+        { "label": "情感课程", "amount": "¥999" }
+      ],
+      "total": "¥1355",
+      "balance": "-¥1355",
+      "note": "人生已透支"
+    },
+    "tagline": "监管护你远离陷阱，但盲目跟风仍会变穷。"
+  },
+  "hooks": [
+    "你的陪聊功能下线了吗？",
+    "Chatbot 和 Agent，你更看好哪个？",
+    "情感依赖社群算不算新陷阱？",
+    "如果只能留一个 AI 产品？"
+  ],
+  "copy": {
+    "douyin_tags": ["AI陪聊", "拟人化", "豆包", "千问", "打工人"],
+    "xiaohongshu_tags": ["AI工具", "Chatbot", "情感陪伴", "热点", "消费主义", "避坑"]
+  }
+}

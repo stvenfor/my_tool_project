@@ -1,0 +1,87 @@
+{
+  "id": "classmate-reunion-anxiety-2026",
+  "status": "draft",
+  "meta": {
+    "theme": "同学关系同学聚会",
+    "hot_keywords": ["同学聚会", "攀比", "尴尬", "怀旧"],
+    "tone": "satire",
+    "created_at": "2026-07-12",
+    "category": "classmate",
+    "angle": "同学聚会",
+    "framing": "同窗社交雷区"
+  },
+  "header": {
+    "title": "同学聚会四件套",
+    "subtitle": "本想叙旧，结果比了一场人生",
+    "badge_top": "越聚越尬",
+    "badge_bottom": "怀旧不足"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "攀比局",
+      "price": "自尊-30",
+      "accent": "#2563EB",
+      "bullets": ["谁年薪更高", "谁孩子更优秀", "谁房子更大"],
+      "scene_prompt": "adults at restaurant table comparing careers with forced smiles",
+      "bubble": "怎么变味了",
+      "effect": "叙旧局，变成成绩单"
+    },
+    {
+      "no": "02",
+      "name": "尬聊回忆",
+      "price": "沉默+5次",
+      "accent": "#16A34A",
+      "bullets": ["记得那次考试", "其实谁也不记得", "硬找共同话题"],
+      "scene_prompt": "two old classmates awkwardly trying to remember school events",
+      "bubble": "你还记得吗",
+      "effect": "回忆模糊，尴尬清晰"
+    },
+    {
+      "no": "03",
+      "name": "合照压力",
+      "price": "P图半小时",
+      "accent": "#EA580C",
+      "bullets": ["站前排显脸小", "滤镜开到最大", "发圈配文感慨"],
+      "scene_prompt": "group of adults posing for reunion photo with phones and filters",
+      "bubble": "青春不散场",
+      "effect": "人聚了，心没聚"
+    },
+    {
+      "no": "04",
+      "name": "散场失落",
+      "price": "感慨一夜",
+      "accent": "#64748B",
+      "bullets": ["加回微信不说话", "下次不知何年", "回家路上沉默"],
+      "scene_prompt": "person walking alone after reunion looking thoughtful and slightly sad",
+      "bubble": "回不去了",
+      "effect": "聚会结束，落差开始"
+    }
+  ],
+  "footer": {
+    "upgrades": ["尬聊话术包", "攀比免疫术", "合照站位指南", "怀旧滤镜"],
+    "warning": "同学聚会可以开心，不必变成人生擂台赛。",
+    "receipt": {
+      "lines": [
+        { "label": "攀比局", "amount": "自尊-30" },
+        { "label": "尬聊回忆", "amount": "沉默×5" },
+        { "label": "合照压力", "amount": "P图30min" },
+        { "label": "散场失落", "amount": "感慨一夜" }
+      ],
+      "total": "怀旧体验打折",
+      "balance": "心累>开心",
+      "note": "青春已存档"
+    },
+    "tagline": "见见可以，比一比就算了。"
+  },
+  "hooks": [
+    "同学聚会你最尴尬的时刻？",
+    "攀比局你怎么应对的？",
+    "散场后你会失落吗？",
+    "还会去第二次同学聚会吗？"
+  ],
+  "copy": {
+    "douyin_tags": ["同学聚会", "同学关系", "怀旧", "社交", "尴尬"],
+    "xiaohongshu_tags": ["同学聚会", "同学关系", "怀旧", "社交尴尬", "攀比", "共鸣"]
+  }
+}

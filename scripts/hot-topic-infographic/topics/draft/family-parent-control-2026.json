@@ -1,0 +1,87 @@
+{
+  "id": "family-parent-control-2026",
+  "status": "draft",
+  "meta": {
+    "theme": "家庭关系父母控制",
+    "hot_keywords": ["父母控制", "边界", "情感绑架", "职业干涉"],
+    "tone": "satire",
+    "created_at": "2026-07-12",
+    "category": "family",
+    "angle": "父母控制",
+    "framing": "关系雷区/沟通踩坑"
+  },
+  "header": {
+    "title": "父母控制四件套",
+    "subtitle": "爱是关心，控制是窒息",
+    "badge_top": "越爱越紧",
+    "badge_bottom": "边界不足"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "职业干涉",
+      "price": "梦想-1",
+      "accent": "#DC2626",
+      "bullets": ["稳定才是正经", "你那个不靠谱", "考公考编最好"],
+      "scene_prompt": "parents lecturing adult child about career choices at dinner table",
+      "bubble": "我都是为你好",
+      "effect": "你的热爱，不如他们的安心"
+    },
+    {
+      "no": "02",
+      "name": "情感绑架",
+      "price": "愧疚+100",
+      "accent": "#2563EB",
+      "bullets": ["白养你了", "不孝", "别人家孩子多听话"],
+      "scene_prompt": "adult child looking guilty while parent points finger emotionally",
+      "bubble": "你怎么这么不懂事",
+      "effect": "爱变成债，沟通变争吵"
+    },
+    {
+      "no": "03",
+      "name": "经济依赖",
+      "price": "自由打折",
+      "accent": "#16A34A",
+      "bullets": ["房首付爸妈出", "大事得听爸妈", "钱给了话权也给了"],
+      "scene_prompt": "young adult receiving money from parents with conflicted expression",
+      "bubble": "拿了钱就得听",
+      "effect": "经济独立前，人格难独立"
+    },
+    {
+      "no": "04",
+      "name": "边界试探",
+      "price": "勇气+1",
+      "accent": "#EA580C",
+      "bullets": ["第一次说不", "被骂自私", "慢慢学会坚持"],
+      "scene_prompt": "adult calmly setting boundary while parent looks surprised",
+      "bubble": "这是我的事",
+      "effect": "边界很难，但没有更窒息"
+    }
+  ],
+  "footer": {
+    "upgrades": ["边界感话术", "非暴力沟通", "经济独立计划", "情绪脱钩课"],
+    "warning": "理解父母的爱，也要守护自己的人生选择权。",
+    "receipt": {
+      "lines": [
+        { "label": "职业干涉", "amount": "梦想-1" },
+        { "label": "情感绑架", "amount": "愧疚+100" },
+        { "label": "经济依赖", "amount": "自由-50%" },
+        { "label": "边界试探", "amount": "勇气+1" }
+      ],
+      "total": "独立之路漫长",
+      "balance": "进行中",
+      "note": "边界建设中"
+    },
+    "tagline": "爱可以靠近，控制需要远离。"
+  },
+  "hooks": [
+    "父母干涉你职业选择吗？",
+    "你被情感绑架过吗？",
+    "经济依赖让你失去话语权了吗？",
+    "你试过和父母划边界吗？"
+  ],
+  "copy": {
+    "douyin_tags": ["父母控制", "家庭关系", "边界感", "代际冲突", "原生家庭"],
+    "xiaohongshu_tags": ["父母控制", "家庭关系", "边界感", "情感绑架", "原生家庭", "独立", "共鸣"]
+  }
+}

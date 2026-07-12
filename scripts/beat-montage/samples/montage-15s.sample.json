@@ -1,0 +1,69 @@
+{
+  "title": "打击乐版红日 · 15s 手工小样",
+  "audio": "bgm/sample.mp3",
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "playbackRate": 1.01,
+  "duration": 15.0,
+  "bpm": 128,
+  "sections": [
+    { "name": "cold", "start": 0.0, "end": 3.0 },
+    { "name": "warm", "start": 3.0, "end": 7.0 },
+    { "name": "hot", "start": 7.0, "end": 13.0 },
+    { "name": "outro", "start": 13.0, "end": 15.0 }
+  ],
+  "beats": [0.0, 0.47, 0.94, 1.41, 1.88, 2.34, 2.81, 3.28, 3.75, 4.22, 4.69, 5.16, 5.63, 6.09, 6.56, 7.03, 7.5, 7.97, 8.44, 8.91, 9.38, 9.84, 10.31, 10.78, 11.25, 11.72, 12.19, 12.66, 13.13, 13.59, 14.06, 14.53],
+  "cuts": [
+    {
+      "clip": "clips/comedy/bean_01.png",
+      "clipId": "comedy_bean_01",
+      "section": "cold",
+      "startBeat": 0,
+      "startTime": 0.0,
+      "durationBeats": 2,
+      "trimIn": 0.0,
+      "fx": []
+    },
+    {
+      "clip": "clips/slow_build/charge_01.png",
+      "clipId": "slow_build_01",
+      "section": "cold",
+      "startBeat": 2,
+      "startTime": 0.94,
+      "durationBeats": 2,
+      "trimIn": 0.0,
+      "fx": []
+    },
+    {
+      "clip": "clips/action_punch/punch_01.png",
+      "clipId": "action_punch_01",
+      "section": "warm",
+      "startBeat": 4,
+      "startTime": 1.88,
+      "durationBeats": 2,
+      "trimIn": 0.0,
+      "fx": ["zoom"]
+    },
+    {
+      "clip": "clips/action_gun/gun_01.png",
+      "clipId": "action_gun_01",
+      "section": "hot",
+      "startBeat": 6,
+      "startTime": 2.81,
+      "durationBeats": 1,
+      "trimIn": 0.0,
+      "fx": ["flash", "zoom"]
+    },
+    {
+      "clip": "clips/hero_shot/hero_01.png",
+      "clipId": "hero_shot_01",
+      "section": "outro",
+      "startBeat": 7,
+      "startTime": 3.28,
+      "durationBeats": 3,
+      "trimIn": 0.0,
+      "fx": []
+    }
+  ]
+}

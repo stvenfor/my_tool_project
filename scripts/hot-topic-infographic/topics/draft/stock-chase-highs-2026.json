@@ -1,0 +1,87 @@
+{
+  "id": "stock-chase-highs-2026",
+  "status": "draft",
+  "meta": {
+    "theme": "股市交易者追涨杀跌",
+    "hot_keywords": ["追涨", "杀跌", "韭菜", "心态"],
+    "tone": "satire",
+    "created_at": "2026-07-12",
+    "category": "stock",
+    "angle": "追涨杀跌",
+    "framing": "交易踩坑清单"
+  },
+  "header": {
+    "title": "追涨杀跌四件套",
+    "subtitle": "买在山顶，卖在谷底",
+    "badge_top": "越操作越亏",
+    "badge_bottom": "账户余额不足"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "追高买入",
+      "price": "山顶站岗",
+      "accent": "#DC2626",
+      "bullets": ["涨停了忍不住追", "觉得还能涨", "买入就回调"],
+      "scene_prompt": "trader excitedly buying stock on phone as price peaks on chart",
+      "bubble": "再不上车晚了",
+      "effect": "追得越高，套得越深"
+    },
+    {
+      "no": "02",
+      "name": "恐慌割肉",
+      "price": "亏损-20%",
+      "accent": "#2563EB",
+      "bullets": ["跌了心慌", "一割就反弹", "发誓再也不碰"],
+      "scene_prompt": "trader panicking and selling stock as price drops on screen",
+      "bubble": "受不了了割了",
+      "effect": "割在地板上，弹在眼前"
+    },
+    {
+      "no": "03",
+      "name": "抄底抄在腰",
+      "price": "补仓再亏",
+      "accent": "#16A34A",
+      "bullets": ["觉得跌够了", "加仓摊低成本", "结果还有地下室"],
+      "scene_prompt": "trader adding more position while stock keeps falling on chart",
+      "bubble": "越跌越买",
+      "effect": "以为是底，其实是腰"
+    },
+    {
+      "no": "04",
+      "name": "反复横跳",
+      "price": "手续费+心态崩",
+      "accent": "#64748B",
+      "bullets": ["一周买卖五次", "手续费吃掉利润", "心态比账户先崩"],
+      "scene_prompt": "exhausted trader staring at multiple buy sell notifications on phone",
+      "bubble": "不操作手痒",
+      "effect": "忙了一天，亏了两百"
+    }
+  ],
+  "footer": {
+    "upgrades": ["心态修炼课", "交易纪律表", "止损止盈模板", "韭菜自救群"],
+    "warning": "投资有风险，追涨杀跌是新手最常踩的坑，仅供参考。",
+    "receipt": {
+      "lines": [
+        { "label": "追高买入", "amount": "山顶站岗" },
+        { "label": "恐慌割肉", "amount": "-20%" },
+        { "label": "抄底抄腰", "amount": "再亏-10%" },
+        { "label": "反复横跳", "amount": "手续费¥200" }
+      ],
+      "total": "账户缩水",
+      "balance": "-30%",
+      "note": "心态已透支"
+    },
+    "tagline": "少操作，多思考，别跟情绪走。"
+  },
+  "hooks": [
+    "你追高买入过吗？",
+    "割肉后反弹你经历过吗？",
+    "抄底抄在腰举手？",
+    "一天操作几次算频繁？"
+  ],
+  "copy": {
+    "douyin_tags": ["股市", "追涨杀跌", "韭菜", "投资", "交易"],
+    "xiaohongshu_tags": ["股市", "追涨杀跌", "韭菜自嘲", "投资踩坑", "交易心态", "共鸣"]
+  }
+}

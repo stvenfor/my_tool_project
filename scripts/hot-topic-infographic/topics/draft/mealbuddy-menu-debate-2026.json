@@ -1,0 +1,87 @@
+{
+  "id": "mealbuddy-menu-debate-2026",
+  "status": "draft",
+  "meta": {
+    "theme": "饭搭子选择困难",
+    "hot_keywords": ["吃什么", "选择困难", "饭搭子", "纠结"],
+    "tone": "satire",
+    "created_at": "2026-07-12",
+    "category": "meal_buddy",
+    "angle": "选择困难",
+    "framing": "干饭社交雷区"
+  },
+  "header": {
+    "title": "吃什么四件套",
+    "subtitle": "讨论半小时，饿到先随便",
+    "badge_top": "越选越饿",
+    "badge_bottom": "耐心余额不足"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "讨论半小时",
+      "price": "时间-30min",
+      "accent": "#2563EB",
+      "bullets": ["火锅还是烧烤", "辣不辣能不能吃", "每家都有人否决"],
+      "scene_prompt": "friends in group chat debating restaurant choices endlessly",
+      "bubble": "吃啥啊",
+      "effect": "讨论很热烈，肚子很空"
+    },
+    {
+      "no": "02",
+      "name": "谁都定不了",
+      "price": "决策僵局",
+      "accent": "#16A34A",
+      "bullets": ["你定吧我不挑", "其实心里挑", "互相等对方拍板"],
+      "scene_prompt": "two friends each insisting other choose restaurant with awkward smiles",
+      "bubble": "你说了算",
+      "effect": "都说随便，谁都不随便"
+    },
+    {
+      "no": "03",
+      "name": "随便变随便",
+      "price": "敷衍+1",
+      "accent": "#EA580C",
+      "bullets": ["最后说随便吧", "随便最难伺候", "走到门口还在想"],
+      "scene_prompt": "friends walking street hungry still undecided on food",
+      "bubble": "随便吃点",
+      "effect": "随便二字，最难翻译"
+    },
+    {
+      "no": "04",
+      "name": "饿到先随便吃",
+      "price": "将就一餐",
+      "accent": "#64748B",
+      "bullets": ["随便进一家店", "吃完说下次早点定", "下次照样半小时"],
+      "scene_prompt": "friends finally eating at random restaurant looking tired and hungry",
+      "bubble": "将就吧",
+      "effect": "选择困难，胃最诚实"
+    }
+  ],
+  "footer": {
+    "upgrades": ["干饭决策轮盘", "饭搭子拍板权", "附近美食清单", "饿急预案"],
+    "warning": "约饭开心为主，别让选择困难毁掉胃口。",
+    "receipt": {
+      "lines": [
+        { "label": "讨论半小时", "amount": "-30min" },
+        { "label": "谁都定不了", "amount": "僵局" },
+        { "label": "随便变随便", "amount": "敷衍+1" },
+        { "label": "饿到随便吃", "amount": "将就" }
+      ],
+      "total": "快乐打折",
+      "balance": "饿",
+      "note": "耐心已透支"
+    },
+    "tagline": "饭搭子可以纠结，别饿着自己。"
+  },
+  "hooks": [
+    "约饭选店你们讨论多久？",
+    "你说随便其实挑吗？",
+    "选择困难耽误过吃饭吗？",
+    "饭搭子谁来做决定？"
+  ],
+  "copy": {
+    "douyin_tags": ["饭搭子", "吃什么", "选择困难", "干饭", "约饭"],
+    "xiaohongshu_tags": ["饭搭子", "选择困难", "吃什么", "干饭人", "约饭", "共鸣"]
+  }
+}

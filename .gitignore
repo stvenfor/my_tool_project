@@ -4,10 +4,46 @@
 # Dependencies
 node_modules/
 
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
 # Generated outputs
 _cffex/output/
 _cffex/logs/
 _reports/
+
+# Pipeline work directories (render artifacts, not source)
+_video-factory/*/
+!_video-factory/assets/
+_cognitive-video/
+_cat-drama/
+_city-bilingual/
+_city-healing/
+_three-kingdoms-english/
+_beat-montage/output/
+_hot-topic-infographic/output/
+_hot-topic-infographic/
+_dance-remake/
+
+# Generated media
+*.wav
+*.mp4
+*.m4a
+*.webm
+
+# Generated storyboard / clip images
+assets/storyboard/
+
+# ML model weights
+*.pt
+
+# Vendor checkouts
+scripts/city-healing-video/vendor/
+
+# Remotion runtime copies (render copies work-dir assets here)
+scripts/*/remotion/public/
 
 # Local backups & migration artifacts
 _backup/
@@ -18,6 +54,9 @@ scripts/cffex-daily/quote_state.json
 scripts/cffex-daily/remotion/public/report-props.json
 scripts/cffex-daily/remotion/public/bgm.mp3
 scripts/cffex-daily/remotion/public/logo.png
+**/pipeline-result.json
+**/qa-report.json
+**/publish-queue.json
 
 # Douyin login profile (contains cookies)
 .douyin-playwright/

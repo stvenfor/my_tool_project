@@ -1,0 +1,87 @@
+{
+  "id": "classmate-lost-contact-2026",
+  "status": "draft",
+  "meta": {
+    "theme": "同学关系多年不联系",
+    "hot_keywords": ["老同学", "失联", "怀念", "重逢"],
+    "tone": "satire",
+    "created_at": "2026-07-12",
+    "category": "classmate",
+    "angle": "多年不联系",
+    "framing": "同窗社交雷区"
+  },
+  "header": {
+    "title": "多年不联系四件套",
+    "subtitle": "躺在列表里，像一段过期青春",
+    "badge_top": "越念越远",
+    "badge_bottom": "联系频率归零"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "突然想联系",
+      "price": "怀念+100",
+      "accent": "#2563EB",
+      "bullets": ["翻到旧照片", "想起同桌的你", "想发一句在吗"],
+      "scene_prompt": "person looking at old school photo album with nostalgic smile",
+      "bubble": "还好吗",
+      "effect": "怀念涌上来，手指停住了"
+    },
+    {
+      "no": "02",
+      "name": "不知说什么",
+      "price": "输入框空着",
+      "accent": "#16A34A",
+      "bullets": ["打了删删了打", "怕太突兀", "怕对方觉得奇怪"],
+      "scene_prompt": "person typing and deleting message to old classmate on phone",
+      "bubble": "说什么好呢",
+      "effect": "想说很多，开口很难"
+    },
+    {
+      "no": "03",
+      "name": "只剩朋友圈",
+      "price": "互动降级",
+      "accent": "#EA580C",
+      "bullets": ["看他结婚生娃", "点赞从不评论", "像旁观他的人生"],
+      "scene_prompt": "person scrolling old classmate life updates on social media quietly",
+      "bubble": "过得挺好",
+      "effect": "没断联，也没连接"
+    },
+    {
+      "no": "04",
+      "name": "青春已走远",
+      "price": "回忆存档",
+      "accent": "#64748B",
+      "bullets": ["各自城市各自忙", "重逢也不知聊啥", "有些人留在记忆里就好"],
+      "scene_prompt": "person closing phone and looking out window with gentle melancholy",
+      "bubble": "回不去了",
+      "effect": "不是不想联系，是路已分叉"
+    }
+  ],
+  "footer": {
+    "upgrades": ["破冰第一句话", "老同学重逢指南", "怀旧疗愈包", "联系勇气小册"],
+    "warning": "有些人适合怀念，联系与否都没有标准答案。",
+    "receipt": {
+      "lines": [
+        { "label": "突然想联系", "amount": "怀念+100" },
+        { "label": "不知说什么", "amount": "草稿×5" },
+        { "label": "只剩朋友圈", "amount": "点赞模式" },
+        { "label": "青春已走远", "amount": "存档完成" }
+      ],
+      "total": "温柔遗憾",
+      "balance": "怀念>联系",
+      "note": "青春已存档"
+    },
+    "tagline": "联系可以，不联系也行。"
+  },
+  "hooks": [
+    "你有多年不联系的同学吗？",
+    "突然想联系你会发消息吗？",
+    "只看朋友圈算维持联系吗？",
+    "老同学重逢你会尴尬吗？"
+  ],
+  "copy": {
+    "douyin_tags": ["同学关系", "多年不联系", "老同学", "怀旧", "青春"],
+    "xiaohongshu_tags": ["同学关系", "多年不联系", "老同学", "怀旧", "青春", "共鸣"]
+  }
+}

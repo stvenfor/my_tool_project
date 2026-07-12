@@ -1,0 +1,23 @@
+{
+  "id": "worker-salary-silence",
+  "status": "approved",
+  "mode": "narration",
+  "series": "打工逆袭",
+  "episode": "01",
+  "title": "工资沉默的代价",
+  "hook": "为什么你越努力，越不敢谈钱？",
+  "cta": "点赞收藏，下次谈薪用得上",
+  "tags": ["职场", "打工人", "人间清醒", "谈薪", "逆袭"],
+  "reference_url": "",
+  "width": 1080,
+  "height": 1920,
+  "visual_strategy": "stickman",
+  "voice_strategy": "edge_tts",
+  "use_llm": false,
+  "skip_analyze": true,
+  "migrate_from_cognitive": false,
+  "meta": {
+    "approved_at": "2026-07-12T00:00:00Z",
+    "source": "video-factory seed"
+  }
+}

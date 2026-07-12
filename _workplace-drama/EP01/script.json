@@ -1,0 +1,260 @@
+{
+  "series": "打工逆袭",
+  "episode": "01",
+  "title": "背锅三年，一朝翻盘",
+  "hook": "",
+  "mode": "dialogue",
+  "logline": "老实打工人被主管当众羞辱、抢功、甩锅，直到项目崩盘那天，他拿出的方案让全公司闭嘴。",
+  "synopsis": "小陈在部门里干了三年脏活累活，功劳全被王主管拿走，锅全往他身上甩。季度汇报前夜，主管再次让他背锅准备辞职走人，小陈却拿出自己偷偷完善的备用方案，在老板面前一战翻盘。",
+  "tags": ["职场", "逆袭", "打工人", "爽剧", "人间清醒"],
+  "cta": "下一集：离职还是升职？",
+  "characters": [
+    {
+      "key": "xiaochen",
+      "name": "小陈",
+      "role": "主角，老实执行型打工人",
+      "voice_hint": "青年男声，前期压抑偏低，逆袭段沉稳有力",
+      "arc": "隐忍 → 爆发 → 翻盘"
+    },
+    {
+      "key": "wang",
+      "name": "王主管",
+      "role": "反派，PUA + 抢功",
+      "voice_hint": "中年男声，傲慢、语速快",
+      "arc": "嚣张 → 慌张 → 失态"
+    },
+    {
+      "key": "amei",
+      "name": "阿美",
+      "role": "同事，前期看戏后期站队",
+      "voice_hint": "女声，略带讽刺",
+      "arc": "旁观 → 意外 → 附和"
+    },
+    {
+      "key": "boss",
+      "name": "老板",
+      "role": "决策者，只看结果",
+      "voice_hint": "低沉男声，简短有力",
+      "arc": "质疑 → 震惊 → 拍板"
+    }
+  ],
+  "segments": [
+    {
+      "id": "S01",
+      "character": "",
+      "character_key": "setup",
+      "dialogue": "",
+      "visual_keyword": "办公室深夜，工位只剩一盏台灯，小陈独自加班",
+      "phase": "setup",
+      "shot": "全景",
+      "emotion": "压抑",
+      "duration_hint_sec": 2.0,
+      "note": "无台词，环境音：键盘声、空调低频"
+    },
+    {
+      "id": "S02",
+      "character": "王主管",
+      "character_key": "wang",
+      "dialogue": "小陈，这份报告怎么又迟了？你是不是不想干了？",
+      "visual_keyword": "王主管居高临下，手指敲桌面，小陈低头",
+      "phase": "wang",
+      "shot": "中景",
+      "emotion": "打压",
+      "duration_hint_sec": 4.5
+    },
+    {
+      "id": "S03",
+      "character": "小陈",
+      "character_key": "xiaochen",
+      "dialogue": "主管，数据是昨晚十一点才给到我的……",
+      "visual_keyword": "小陈欲言又止，手里攥着修改版文件",
+      "phase": "xiaochen",
+      "shot": "特写",
+      "emotion": "委屈",
+      "duration_hint_sec": 3.5
+    },
+    {
+      "id": "S04",
+      "character": "王主管",
+      "character_key": "wang",
+      "dialogue": "别找借口。你这种态度，组里谁都看得见。",
+      "visual_keyword": "王主管冷笑，阿美在隔间探头看热闹",
+      "phase": "wang",
+      "shot": "中景",
+      "emotion": "PUA",
+      "duration_hint_sec": 4.0
+    },
+    {
+      "id": "S05",
+      "character": "阿美",
+      "character_key": "amei",
+      "dialogue": "哎呀，小陈你又惹主管不高兴啦？",
+      "visual_keyword": "阿美端咖啡路过，看热闹不嫌事大",
+      "phase": "amei",
+      "shot": "中景",
+      "emotion": "拱火",
+      "duration_hint_sec": 3.0
+    },
+    {
+      "id": "S06",
+      "character": "王主管",
+      "character_key": "wang",
+      "dialogue": "明天汇报你顶上去。出了问题，你负责。",
+      "visual_keyword": "王主管甩文件夹给小陈，转身离开",
+      "phase": "wang",
+      "shot": "中景",
+      "emotion": "甩锅",
+      "duration_hint_sec": 4.0
+    },
+    {
+      "id": "S07",
+      "character": "小陈",
+      "character_key": "xiaochen",
+      "dialogue": "……好。",
+      "visual_keyword": "小陈独自坐在工位，眼神从隐忍变冷",
+      "phase": "xiaochen",
+      "shot": "特写",
+      "emotion": "转折",
+      "duration_hint_sec": 1.5
+    },
+    {
+      "id": "S08",
+      "character": "老板",
+      "character_key": "boss",
+      "dialogue": "这个方案，谁做的？",
+      "visual_keyword": "会议室大屏，老板皱眉看投影",
+      "phase": "boss",
+      "shot": "全景",
+      "emotion": "质疑",
+      "duration_hint_sec": 2.5
+    },
+    {
+      "id": "S09",
+      "character": "王主管",
+      "character_key": "wang",
+      "dialogue": "是我带着团队做的，小陈主要负责执行。",
+      "visual_keyword": "王主管抢先举手，笑容僵硬",
+      "phase": "wang",
+      "shot": "中景",
+      "emotion": "抢功",
+      "duration_hint_sec": 4.0
+    },
+    {
+      "id": "S10",
+      "character": "小陈",
+      "character_key": "xiaochen",
+      "dialogue": "老板，执行版有漏洞。我准备了第二版，请您看这一页。",
+      "visual_keyword": "小陈站起，投屏切到自己备份方案，数据完整",
+      "phase": "xiaochen",
+      "shot": "中景",
+      "emotion": "反击",
+      "duration_hint_sec": 5.5
+    },
+    {
+      "id": "S11",
+      "character": "老板",
+      "character_key": "boss",
+      "dialogue": "这版成本怎么降了百分之十八？",
+      "visual_keyword": "老板前倾，王主管脸色发白",
+      "phase": "boss",
+      "shot": "特写",
+      "emotion": "震惊",
+      "duration_hint_sec": 3.0
+    },
+    {
+      "id": "S12",
+      "character": "小陈",
+      "character_key": "xiaochen",
+      "dialogue": "我把冗余流程砍了，风险也做了预案。",
+      "visual_keyword": "小陈平静陈述，全会议室安静",
+      "phase": "xiaochen",
+      "shot": "特写",
+      "emotion": "高光",
+      "duration_hint_sec": 4.0
+    },
+    {
+      "id": "S13",
+      "character": "老板",
+      "character_key": "boss",
+      "dialogue": "王主管，这个项目，以后由小陈牵头。",
+      "visual_keyword": "老板合上电脑，王主管僵在原地",
+      "phase": "boss",
+      "shot": "全景",
+      "emotion": "翻盘",
+      "duration_hint_sec": 4.0
+    },
+    {
+      "id": "S14",
+      "character": "阿美",
+      "character_key": "amei",
+      "dialogue": "小陈，晚上一起吃饭？我请你！",
+      "visual_keyword": "散会后阿美凑过来，小陈淡淡一笑",
+      "phase": "amei",
+      "shot": "中景",
+      "emotion": "收尾",
+      "duration_hint_sec": 3.0
+    },
+    {
+      "id": "S15",
+      "character": "小陈",
+      "character_key": "xiaochen",
+      "dialogue": "不用了。我先把这个，做完。",
+      "visual_keyword": "小陈转回工位，眼神坚定，灯还亮着",
+      "phase": "xiaochen",
+      "shot": "特写",
+      "emotion": "冷峻",
+      "duration_hint_sec": 3.5
+    }
+  ],
+  "storyboard_prompts": [
+    {
+      "id": "S01",
+      "prompt": "3D卡通/写实插画，深夜办公室，年轻打工人独自加班，电脑蓝光，竖屏9:16，电影感，压抑氛围"
+    },
+    {
+      "id": "S02",
+      "prompt": "中年主管居高临下训斥下属，办公室工位，竖屏9:16，紧张对峙"
+    },
+    {
+      "id": "S03",
+      "prompt": "年轻男员工低头辩解，手里拿文件，委屈表情，办公室特写，竖屏9:16"
+    },
+    {
+      "id": "S10",
+      "prompt": "会议室逆袭时刻，年轻人站起投屏，方案数据清晰，同事震惊，竖屏9:16"
+    },
+    {
+      "id": "S13",
+      "prompt": "老板宣布人事调整，主管失态，年轻人沉稳，会议室全景，竖屏9:16"
+    }
+  ],
+  "character_voices": {
+    "xiaochen": {
+      "voice": "zh-CN-YunxiNeural",
+      "rate": "+0%",
+      "pitch": "-2Hz",
+      "volume": "+2%"
+    },
+    "wang": {
+      "voice": "zh-CN-YunjianNeural",
+      "rate": "+10%",
+      "pitch": "-4Hz",
+      "volume": "+4%"
+    },
+    "amei": {
+      "voice": "zh-CN-XiaoyiNeural",
+      "rate": "+8%",
+      "pitch": "+4Hz",
+      "volume": "+2%"
+    },
+    "boss": {
+      "voice": "zh-CN-YunyangNeural",
+      "rate": "-4%",
+      "pitch": "-8Hz",
+      "volume": "+2%"
+    },
+    "setup": {
+      "silence_sec": 2.0
+    }
+  }
+}

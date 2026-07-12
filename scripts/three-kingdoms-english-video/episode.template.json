@@ -1,0 +1,22 @@
+{
+  "episode_id": "yijia-xuchang",
+  "episode_title": "移驾许昌",
+  "series_title": "儿童英语三国",
+  "template_version": "1.0",
+  "defaults": {
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "voice": "en-US-AnaNeural",
+    "voice_rate": "-10%",
+    "hook_duration_sec": 3.0,
+    "asset_mode": "reference_slice"
+  },
+  "douyin_title_format": "儿童英语三国【{episode_title}】{episode_hook}",
+  "historical_events": [
+    "曹操迎汉献帝",
+    "董昭献策迁许",
+    "移驾许昌",
+    "挟天子以令诸侯"
+  ]
+}

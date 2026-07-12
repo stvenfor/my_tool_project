@@ -1,0 +1,282 @@
+{
+  "worker": {
+    "label": "打工人",
+    "status": "pilot",
+    "tone": "职场自嘲、黑色幽默、避坑",
+    "angles": ["摸鱼经济学", "加班内耗", "职场PUA", "谈薪困境"],
+    "framing": "陷阱/禁忌/内耗清单",
+    "min_topics": 3,
+    "pilot_topics": [
+      {
+        "id": "worker-overtime-burnout-2026",
+        "angle": "加班内耗",
+        "keywords": ["加班", "内耗", "表演式忙碌", "健康透支"],
+        "card_hints": ["无效加班", "表演式忙碌", "健康透支", "离职幻想"]
+      },
+      {
+        "id": "worker-moyu-economics-2026",
+        "angle": "摸鱼经济学",
+        "keywords": ["摸鱼", "划水", "效率", "良心不安"],
+        "card_hints": ["摸鱼姿势", "被抓风险", "良心不安", "效率悖论"]
+      },
+      {
+        "id": "worker-salary-silence-2026",
+        "angle": "谈薪沉默",
+        "keywords": ["谈薪", "涨薪", "画饼", "跳槽"],
+        "card_hints": ["不敢开口", "同事倒挂", "老板画饼", "跳槽犹豫"]
+      }
+    ]
+  },
+  "family": {
+    "label": "家庭关系",
+    "status": "pilot",
+    "tone": "温情讽刺、代际冲突、过年回家",
+    "angles": ["催婚催育", "父母控制", "过年回家", "婆媳翁婿"],
+    "framing": "关系雷区/沟通踩坑",
+    "min_topics": 3,
+    "pilot_topics": [
+      {
+        "id": "family-marriage-pressure-2026",
+        "angle": "催婚催育",
+        "keywords": ["催婚", "催育", "相亲", "亲戚盘问"],
+        "card_hints": ["相亲轰炸", "生育KPI", "亲戚盘问", "自我怀疑"]
+      },
+      {
+        "id": "family-spring-festival-2026",
+        "angle": "过年回家",
+        "keywords": ["过年", "回家", "红包", "职业拷问"],
+        "card_hints": ["红包攀比", "职业拷问", "作息打乱", "返程解脱"]
+      },
+      {
+        "id": "family-parent-control-2026",
+        "angle": "父母控制",
+        "keywords": ["父母控制", "边界", "情感绑架", "职业干涉"],
+        "card_hints": ["职业干涉", "情感绑架", "经济依赖", "边界试探"]
+      }
+    ]
+  },
+  "classmate": {
+    "label": "同学关系",
+    "status": "active",
+    "tone": "怀旧讽刺、攀比焦虑、同窗情谊",
+    "angles": ["同学聚会", "学历攀比", "借钱的同学", "多年不联系"],
+    "framing": "同窗社交雷区",
+    "min_topics": 3,
+    "pilot_topics": [
+      {
+        "id": "classmate-reunion-anxiety-2026",
+        "angle": "同学聚会",
+        "keywords": ["同学聚会", "攀比", "尴尬", "怀旧"],
+        "card_hints": ["攀比局", "尬聊回忆", "合照压力", "散场失落"]
+      },
+      {
+        "id": "classmate-borrow-money-2026",
+        "angle": "借钱的同学",
+        "keywords": ["借钱", "同学", "催还", "友情"],
+        "card_hints": ["开口借钱", "久催不还", "友情打折", "从此疏远"]
+      },
+      {
+        "id": "classmate-lost-contact-2026",
+        "angle": "多年不联系",
+        "keywords": ["老同学", "失联", "怀念", "重逢"],
+        "card_hints": ["突然想联系", "不知说什么", "只剩朋友圈", "青春已走远"]
+      }
+    ]
+  },
+  "friend": {
+    "label": "朋友关系",
+    "status": "active",
+    "tone": "友情自嘲、边界感、社交消耗",
+    "angles": ["借钱的朋友", "负能量朋友", "渐行渐远", "塑料友情"],
+    "framing": "友情消耗清单",
+    "min_topics": 3,
+    "pilot_topics": [
+      {
+        "id": "friend-drifting-apart-2026",
+        "angle": "渐行渐远",
+        "keywords": ["渐行渐远", "友情", "联系", "回忆"],
+        "card_hints": ["聊天变少", "约饭推辞", "共同话题", "只剩点赞"]
+      },
+      {
+        "id": "friend-negative-energy-2026",
+        "angle": "负能量朋友",
+        "keywords": ["负能量", "吐槽", "情绪", "边界"],
+        "card_hints": ["只吐苦水", "从不倾听", "情绪垃圾桶", "想逃又不好意思"]
+      },
+      {
+        "id": "friend-plastic-friendship-2026",
+        "angle": "塑料友情",
+        "keywords": ["塑料友情", "表面热闹", "真心", "社交"],
+        "card_hints": ["点赞很积极", "遇事找不到", "聚会合拍照", "散场各忙各"]
+      }
+    ]
+  },
+  "fishing": {
+    "label": "钓鱼人",
+    "status": "active",
+    "tone": "钓鱼佬自嘲、装备党、空军焦虑",
+    "angles": ["装备升级", "空军日记", "钓鱼请假", "钓友攀比"],
+    "framing": "钓鱼陷阱四件套",
+    "min_topics": 3,
+    "pilot_topics": [
+      {
+        "id": "fishing-empty-handed-2026",
+        "angle": "空军日记",
+        "keywords": ["空军", "钓鱼", "装备", "耐心"],
+        "card_hints": ["清晨出发", "晒成黑炭", "鱼护空空", "下次一定"]
+      },
+      {
+        "id": "fishing-gear-upgrade-2026",
+        "angle": "装备升级",
+        "keywords": ["装备", "鱼竿", "饵料", "装备党"],
+        "card_hints": ["旧竿不顺手", "新品必入坑", "饵料买一堆", "鱼没多装备满"]
+      },
+      {
+        "id": "fishing-skip-work-2026",
+        "angle": "钓鱼请假",
+        "keywords": ["钓鱼", "请假", "钓点", "瘾"],
+        "card_hints": ["天气预报有口", "理由编半天", "钓完补工时", "下次还敢"]
+      }
+    ]
+  },
+  "stock": {
+    "label": "股市交易者",
+    "status": "active",
+    "tone": "黑色幽默、韭菜自嘲、追涨杀跌",
+    "angles": ["追涨杀跌", "满仓梭哈", "听消息炒股", "割肉补仓"],
+    "framing": "交易踩坑清单",
+    "min_topics": 3,
+    "pilot_topics": [
+      {
+        "id": "stock-chase-highs-2026",
+        "angle": "追涨杀跌",
+        "keywords": ["追涨", "杀跌", "韭菜", "心态"],
+        "card_hints": ["追高买入", "恐慌割肉", "抄底抄在腰", "反复横跳"]
+      },
+      {
+        "id": "stock-all-in-2026",
+        "angle": "满仓梭哈",
+        "keywords": ["满仓", "梭哈", "赌一把", "心态"],
+        "card_hints": ["感觉要涨", "一把梭进去", "跌了就装死", "发誓再也不梭"]
+      },
+      {
+        "id": "stock-rumor-trade-2026",
+        "angle": "听消息炒股",
+        "keywords": ["消息", "内幕", "韭菜", "跟风"],
+        "card_hints": ["群里有内幕", "赶紧跟进", "消息是滞后的", "接盘侠上线"]
+      }
+    ]
+  },
+  "fund": {
+    "label": "基金玩家",
+    "status": "active",
+    "tone": "理财自嘲、定投信仰、净值焦虑",
+    "angles": ["定投信仰", "追涨基金", "基金经理崇拜", "赎回犹豫"],
+    "framing": "基金认知陷阱",
+    "min_topics": 3,
+    "pilot_topics": [
+      {
+        "id": "fund-dca-faith-2026",
+        "angle": "定投信仰",
+        "keywords": ["定投", "基金", "净值", "长期"],
+        "card_hints": ["相信长期", "每天看净值", "跌了加仓", "涨了舍不得卖"]
+      },
+      {
+        "id": "fund-chase-hot-2026",
+        "angle": "追涨基金",
+        "keywords": ["热门基金", "追涨", "净值", "跟风"],
+        "card_hints": ["榜单前几名", "赶紧上车", "买在高点", "长期变短期"]
+      },
+      {
+        "id": "fund-redeem-hesitate-2026",
+        "angle": "赎回犹豫",
+        "keywords": ["赎回", "犹豫", "基金", "止盈"],
+        "card_hints": ["赚了想更多", "亏了舍不得割", "反复打开卖出页", "最后什么都没做"]
+      }
+    ]
+  },
+  "meal_buddy": {
+    "label": "饭搭子",
+    "status": "active",
+    "tone": "干饭自嘲、选择困难、AA尴尬",
+    "angles": ["选择困难", "AA尴尬", "饭搭子失联", "减肥失败"],
+    "framing": "干饭社交雷区",
+    "min_topics": 3,
+    "pilot_topics": [
+      {
+        "id": "mealbuddy-ghosting-2026",
+        "angle": "饭搭子失联",
+        "keywords": ["饭搭子", "约饭", "放鸽子", "干饭"],
+        "card_hints": ["兴致勃勃约饭", "临期说有事", "下次一定", "干饭孤独"]
+      },
+      {
+        "id": "mealbuddy-menu-debate-2026",
+        "angle": "选择困难",
+        "keywords": ["吃什么", "选择困难", "饭搭子", "纠结"],
+        "card_hints": ["讨论半小时", "谁都定不了", "随便变成随便", "饿到先随便吃"]
+      },
+      {
+        "id": "mealbuddy-aa-awkward-2026",
+        "angle": "AA尴尬",
+        "keywords": ["AA", "买单", "尴尬", "饭搭子"],
+        "card_hints": ["谁先来谁先付", "算账算到分", "有人忘转账", "下次不想同桌"]
+      }
+    ]
+  },
+  "drinking_buddy": {
+    "label": "酒友",
+    "status": "active",
+    "tone": "酒局自嘲、宿醉后悔、轻松聚会",
+    "angles": ["小酌聚会", "宿醉后悔", "酒局迟到", "下次不喝"],
+    "framing": "酒局踩坑清单",
+    "min_topics": 3,
+    "pilot_topics": [
+      {
+        "id": "drinkbuddy-hangover-2026",
+        "angle": "宿醉后悔",
+        "keywords": ["宿醉", "聚会", "后悔", "早起"],
+        "card_hints": ["昨晚开心", "今早头疼", "发誓不喝", "下周末又来"]
+      },
+      {
+        "id": "drinkbuddy-late-arrival-2026",
+        "angle": "酒局迟到",
+        "keywords": ["迟到", "聚会", "等位", "尴尬"],
+        "card_hints": ["说好七点", "九点才到", "满桌等你", "自罚三杯变喝水"]
+      },
+      {
+        "id": "drinkbuddy-casual-gathering-2026",
+        "angle": "小酌聚会",
+        "keywords": ["小酌", "聚会", "聊天", "放松"],
+        "card_hints": ["本想小聚", "聊到不想散", "开心过头", "回家路上回味"]
+      }
+    ]
+  },
+  "gaming": {
+    "label": "游戏队友",
+    "status": "active",
+    "tone": "游戏自嘲、甩锅文化、上分焦虑",
+    "angles": ["甩锅队友", "上分焦虑", "氪金陷阱", "熬夜开黑"],
+    "framing": "开黑踩坑四件套",
+    "min_topics": 3,
+    "pilot_topics": [
+      {
+        "id": "gaming-blame-teammate-2026",
+        "angle": "甩锅队友",
+        "keywords": ["甩锅", "队友", "开黑", "上分"],
+        "card_hints": ["打野不支援", "射手脸探草", "辅助不跟团", "全员怪打野"]
+      },
+      {
+        "id": "gaming-rank-anxiety-2026",
+        "angle": "上分焦虑",
+        "keywords": ["上分", "段位", "连跪", "心态"],
+        "card_hints": ["差一把晋级", "连跪五把", "熬夜冲分", "掉段更焦虑"]
+      },
+      {
+        "id": "gaming-gacha-trap-2026",
+        "angle": "氪金陷阱",
+        "keywords": ["氪金", "皮肤", "抽奖", "冲动"],
+        "card_hints": ["限时皮肤", "再抽一次", "保底还差十抽", "钱包比段位先空"]
+      }
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "hot-topic-infographic/layout.schema.json",
+  "title": "HotTopicLayout",
+  "type": "object",
+  "required": ["canvas", "style_variant", "single", "carousel"],
+  "properties": {
+    "canvas": {
+      "type": "object",
+      "required": ["width", "height"],
+      "properties": {
+        "width": { "const": 1080 },
+        "height": { "const": 1920 }
+      }
+    },
+    "style_variant": {
+      "type": "string",
+      "enum": ["grid_2x2_compact", "vertical_stack", "staggered_cards"]
+    },
+    "single": { "type": "object" },
+    "carousel": { "type": "object" }
+  }
+}

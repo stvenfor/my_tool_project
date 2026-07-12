@@ -1,0 +1,20 @@
+{
+  "id": "workplace-ep01",
+  "status": "approved",
+  "mode": "dialogue",
+  "series": "打工逆袭",
+  "episode": "01",
+  "title": "背锅三年，一朝翻盘",
+  "hook": "",
+  "cta": "下一集：离职还是升职？",
+  "tags": ["职场", "逆袭", "打工人", "爽剧", "人间清醒"],
+  "visual_strategy": "manual_image",
+  "voice_strategy": "edge_tts_multi",
+  "script_source": "_workplace-drama/EP01/script.json",
+  "skip_analyze": true,
+  "migrate_from_cognitive": false,
+  "meta": {
+    "approved_at": "2026-07-12T00:00:00Z",
+    "source": "workplace-drama EP01"
+  }
+}

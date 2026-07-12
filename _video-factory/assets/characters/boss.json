@@ -1,0 +1,11 @@
+{
+  "key": "boss",
+  "name": "老板",
+  "prompt_layer": "中年决策者，深色西装，低沉威严",
+  "voice_profile": {
+    "voice": "zh-CN-YunyangNeural",
+    "rate": "-4%",
+    "pitch": "-8Hz",
+    "volume": "+2%"
+  }
+}

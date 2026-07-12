@@ -1,0 +1,11 @@
+{
+  "series": "打工逆袭",
+  "stickman_series_title": "打工逆袭",
+  "tags": ["职场", "打工人", "逆袭", "爽剧"],
+  "ambient_bgm_volume": 0.08,
+  "subtitle_style": {
+    "zh_size": 38,
+    "margin_bottom": 180,
+    "color_zh": "#fff8ec"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "style_suffix": "cinematic travel documentary, high contrast, authentic {city_name} landmarks, 4K vertical framing, realistic lighting, no watermark, no generic stock",
+  "negative_prompt": "cartoon, anime, watermark, blurry, low quality, wrong city",
+  "phases": {
+    "day": {
+      "keywords": ["{city_name} 白天", "{landmark_day_1}", "{landmark_day_2}", "古城墙 航拍"],
+      "prompt_core": "{city_name} daytime landmark {landmark_day_1}, cinematic drone and street documentary, natural daylight"
+    },
+    "transition": {
+      "keywords": ["{city_name} 黄昏", "日落 古城", "golden hour city"],
+      "prompt_core": "{city_name} golden hour transition, sun setting over ancient city walls, warm orange sky"
+    },
+    "night": {
+      "keywords": ["{ancient_name} 夜景", "{landmark_night_1}", "大唐不夜城 夜景", "红灯笼 古街"],
+      "prompt_core": "{ancient_name} night street {landmark_night_1}, Tang dynasty lanterns, warm glow, festive crowd"
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "id": "stock-rumor-trade-2026",
+  "status": "draft",
+  "meta": {
+    "theme": "股市交易者听消息炒股",
+    "hot_keywords": ["消息", "内幕", "韭菜", "跟风"],
+    "tone": "satire",
+    "created_at": "2026-07-12",
+    "category": "stock",
+    "angle": "听消息炒股",
+    "framing": "交易踩坑清单"
+  },
+  "header": {
+    "title": "听消息炒股四件套",
+    "subtitle": "消息到你这，可能已经晚了",
+    "badge_top": "越听越亏",
+    "badge_bottom": "信息余额不足"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "群里有内幕",
+      "price": "可信度?",
+      "accent": "#2563EB",
+      "bullets": ["群里突然爆料", "说得有鼻子有眼", "心动先上车"],
+      "scene_prompt": "trader reading stock tip message in chat group with excited eyes",
+      "bubble": "内部消息",
+      "effect": "消息很真，来源很虚"
+    },
+    {
+      "no": "02",
+      "name": "赶紧跟进",
+      "price": "冲动买入",
+      "accent": "#16A34A",
+      "bullets": ["怕错过行情", "不问真假先买", "买完开始查"],
+      "scene_prompt": "trader rushing to buy stock immediately after hearing rumor",
+      "bubble": "先上车再说",
+      "effect": "跟进很快，验证很慢"
+    },
+    {
+      "no": "03",
+      "name": "消息是滞后的",
+      "price": "接盘概率↑",
+      "accent": "#EA580C",
+      "bullets": ["买在小作文高点", "利好出尽变利空", "群里突然安静"],
+      "scene_prompt": "trader watching stock drop after buying on hot rumor",
+      "bubble": "怎么跌了",
+      "effect": "你听到的，往往是最后一棒"
+    },
+    {
+      "no": "04",
+      "name": "接盘侠上线",
+      "price": "学费+1",
+      "accent": "#64748B",
+      "bullets": ["发誓不信群消息", "下次热点又来", "韭菜记忆只有七天"],
+      "scene_prompt": "trader regretting rumor trade while new hot tip appears in chat",
+      "bubble": "下次一定不信",
+      "effect": "消息不可靠，你的冲动很可靠"
+    }
+  ],
+  "footer": {
+    "upgrades": ["消息真伪核查", "冲动冷静期", "交易日志模板", "韭菜防骗课"],
+    "warning": "勿信所谓内幕消息，投资需独立判断。",
+    "receipt": {
+      "lines": [
+        { "label": "群里有内幕", "amount": "可信度?" },
+        { "label": "赶紧跟进", "amount": "冲动买" },
+        { "label": "消息滞后", "amount": "接盘+1" },
+        { "label": "接盘侠上线", "amount": "学费+1" }
+      ],
+      "total": "信息税已缴",
+      "balance": "-学费",
+      "note": "消息已透支"
+    },
+    "tagline": "少听消息，多靠自己判断。"
+  },
+  "hooks": [
+    "你听过群内幕消息吗？",
+    "听消息炒股你亏过吗？",
+    "接盘侠你当过几次？",
+    "小作文你信过几条？"
+  ],
+  "copy": {
+    "douyin_tags": ["股市", "消息", "韭菜", "跟风", "交易"],
+    "xiaohongshu_tags": ["股市", "听消息炒股", "韭菜自嘲", "交易踩坑", "投资", "共鸣"]
+  }
+}

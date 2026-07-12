@@ -1,0 +1,76 @@
+{
+  "canvas": { "width": 1536, "height": 2048 },
+  "colors": {
+    "bg": "#F5F0E8",
+    "text": "#1A1A1A",
+    "subtitle": "#DC2626",
+    "muted": "#666666",
+    "warning_bg": "#FEF3C7",
+    "warning_border": "#F59E0B",
+    "receipt_bg": "#FFFFFF",
+    "panel": "#FFFFFF"
+  },
+  "header": {
+    "title": { "x": 768, "y": 72, "size": 52, "anchor": "mm", "bold": true },
+    "subtitle": { "x": 768, "y": 132, "size": 24, "anchor": "mm", "color": "subtitle" },
+    "badge_box": { "x": 1320, "y": 48, "w": 180, "h": 100 },
+    "badge_top": { "x": 1410, "y": 78, "size": 18, "anchor": "mm" },
+    "badge_bottom": { "x": 1410, "y": 112, "size": 16, "anchor": "mm", "color": "subtitle" }
+  },
+  "cards": [
+    {
+      "box": { "x": 48, "y": 190, "w": 720, "h": 700 },
+      "header_h": 56,
+      "no": { "x": 72, "y": 222, "size": 22, "color": "#FFFFFF" },
+      "name": { "x": 120, "y": 218, "size": 26, "bold": true, "color": "#FFFFFF" },
+      "price": { "x": 680, "y": 218, "size": 22, "anchor": "rm", "color": "#FFFFFF" },
+      "bullets": { "x": 72, "y": 270, "size": 20, "line_height": 34, "max_lines": 3 },
+      "bubble": { "x": 400, "y": 520, "w": 300, "size": 18, "anchor": "mm", "bg": true },
+      "effect": { "x": 72, "y": 850, "size": 18, "bold": true }
+    },
+    {
+      "box": { "x": 768, "y": 190, "w": 720, "h": 700 },
+      "header_h": 56,
+      "no": { "x": 792, "y": 222, "size": 22, "color": "#FFFFFF" },
+      "name": { "x": 840, "y": 218, "size": 26, "bold": true, "color": "#FFFFFF" },
+      "price": { "x": 1400, "y": 218, "size": 22, "anchor": "rm", "color": "#FFFFFF" },
+      "bullets": { "x": 792, "y": 270, "size": 20, "line_height": 34, "max_lines": 3 },
+      "bubble": { "x": 1120, "y": 520, "w": 300, "size": 18, "anchor": "mm", "bg": true },
+      "effect": { "x": 792, "y": 850, "size": 18, "bold": true }
+    },
+    {
+      "box": { "x": 48, "y": 910, "w": 720, "h": 700 },
+      "header_h": 56,
+      "no": { "x": 72, "y": 942, "size": 22, "color": "#FFFFFF" },
+      "name": { "x": 120, "y": 938, "size": 26, "bold": true, "color": "#FFFFFF" },
+      "price": { "x": 680, "y": 938, "size": 22, "anchor": "rm", "color": "#FFFFFF" },
+      "bullets": { "x": 72, "y": 990, "size": 20, "line_height": 34, "max_lines": 3 },
+      "bubble": { "x": 400, "y": 1240, "w": 300, "size": 18, "anchor": "mm", "bg": true },
+      "effect": { "x": 72, "y": 1570, "size": 18, "bold": true }
+    },
+    {
+      "box": { "x": 768, "y": 910, "w": 720, "h": 700 },
+      "header_h": 56,
+      "no": { "x": 792, "y": 942, "size": 22, "color": "#FFFFFF" },
+      "name": { "x": 840, "y": 938, "size": 26, "bold": true, "color": "#FFFFFF" },
+      "price": { "x": 1400, "y": 938, "size": 22, "anchor": "rm", "color": "#FFFFFF" },
+      "bullets": { "x": 792, "y": 990, "size": 20, "line_height": 34, "max_lines": 3 },
+      "bubble": { "x": 1120, "y": 1240, "w": 300, "size": 18, "anchor": "mm", "bg": true },
+      "effect": { "x": 792, "y": 1570, "size": 18, "bold": true }
+    }
+  ],
+  "footer": {
+    "upgrades_box": { "x": 48, "y": 1630, "w": 420, "h": 280 },
+    "upgrades_title": { "x": 72, "y": 1660, "size": 22, "bold": true },
+    "upgrades_items": { "x": 72, "y": 1700, "size": 18, "line_height": 36 },
+    "warning_box": { "x": 500, "y": 1630, "w": 536, "h": 280 },
+    "warning_text": { "x": 768, "y": 1770, "size": 20, "anchor": "mm", "max_width": 480 },
+    "receipt_box": { "x": 1068, "y": 1630, "w": 420, "h": 280 },
+    "receipt_title": { "x": 1092, "y": 1660, "size": 20, "bold": true },
+    "receipt_lines": { "x": 1092, "y": 1700, "size": 17, "line_height": 30 },
+    "receipt_total": { "x": 1092, "y": 1830, "size": 18, "bold": true },
+    "receipt_balance": { "x": 1092, "y": 1860, "size": 18, "color": "subtitle" },
+    "receipt_note": { "x": 1280, "y": 1890, "size": 20, "anchor": "mm", "color": "subtitle", "bold": true }
+  },
+  "tagline": { "x": 768, "y": 1990, "size": 22, "anchor": "mm", "bold": true }
+}

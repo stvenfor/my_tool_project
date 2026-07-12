@@ -1,0 +1,23 @@
+{
+  "id": "middle-class-exit",
+  "status": "approved",
+  "mode": "narration",
+  "series": "认知提升",
+  "episode": "01",
+  "title": "中产退场 低欲生活才是赢家",
+  "hook": "去换个活法吧！当局者困在围城，局外者活成神仙",
+  "cta": "建议收藏，换个活法",
+  "tags": ["自我成长", "人性洞察", "处世智慧", "人性博弈", "人间清醒"],
+  "reference_url": "https://v.douyin.com/A3HUZVm7ZgM/",
+  "width": 1080,
+  "height": 1920,
+  "visual_strategy": "stickman",
+  "voice_strategy": "edge_tts",
+  "use_llm": false,
+  "skip_analyze": true,
+  "migrate_from_cognitive": "middle-class-exit",
+  "meta": {
+    "approved_at": "2026-07-12T00:00:00Z",
+    "source": "cognitive-video migration"
+  }
+}

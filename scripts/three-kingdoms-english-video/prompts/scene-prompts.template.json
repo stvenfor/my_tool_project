@@ -1,0 +1,24 @@
+{
+  "style_suffix": "3D动画，Q版可爱，皮克斯黏土质感，三国古装，暖色调，9:16竖屏，儿童绘本风格",
+  "character_bible": "曹操：圆脸络腮胡，深红战袍；汉献帝：少年天子，明黄龙袍；董昭：文士青衫；士兵：简甲持矛",
+  "phases": {
+    "hook": {
+      "keywords": ["三国 Q版 标题卡 episode_title"],
+      "prompt_core": "儿童英语三国系列标题卡，大字【episode_title】，3D Q版三国风格"
+    },
+    "story": {
+      "keywords": ["三国 3D Q版 儿童动画"],
+      "prompt_core": "三国演义典故移驾许昌，{visual_keyword}"
+    },
+    "closing": {
+      "keywords": ["曹操 霸业 许昌 3D Q版"],
+      "prompt_core": "曹操站在许昌城楼上，霸业开始的史诗感，Q版可爱"
+    }
+  },
+  "jimeng_motion_hints": [
+    "固定镜头，人物轻微说话动作",
+    "车驾缓缓前行，旗帜飘动",
+    "宫殿远景，云彩缓慢移动",
+    "士兵列队，轻微走动"
+  ]
+}

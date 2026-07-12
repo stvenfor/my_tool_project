@@ -327,6 +327,18 @@ npm run cffex:video -- \
 cd scripts/cffex-daily/remotion && npm run preview
 ```
 
+### 小屏可读性检查（360px）
+
+日报图按 720×1280 设计，发布到抖音后缩略图约 200–360px 宽。建议在每次改 UI 后额外导出一张 360px 宽预览图，确认核心数字与标题仍可读：
+
+```bash
+npm run cffex:daily -- --date 20260710 --force
+# 可选：用 Playwright 对 .report 截图并缩放至 360px 宽做人工检查
+# 核心数字（四品种值、中信整体）应 ≥ 28px 等效；标题距顶/底 ≥ 48px 安全区
+```
+
+当前模板已收敛为 5 档字号（26 / 28–30 / 16 / 12 / 10px），section 副标题 ≥ 12px。
+
 ### 源码结构
 
 ```

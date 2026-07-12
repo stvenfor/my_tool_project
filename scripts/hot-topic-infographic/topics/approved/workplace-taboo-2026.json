@@ -1,0 +1,105 @@
+{
+  "id": "workplace-taboo-2026",
+  "status": "approved",
+  "meta": {
+    "theme": "打工人职场禁忌",
+    "hot_keywords": ["职场", "禁忌", "裸辞", "站队", "谈薪"],
+    "tone": "satire",
+    "created_at": "2026-07-12"
+  },
+  "header": {
+    "title": "打工人职场禁忌四件套",
+    "subtitle": "踩中一条，升职没你，背锅有你",
+    "badge_top": "越干越亏",
+    "badge_bottom": "余额不足"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "和领导硬刚",
+      "price": "代价∞",
+      "accent": "#DC2626",
+      "bullets": [
+        "道理全在你这边",
+        "绩效全在他那边",
+        "最后全在群里"
+      ],
+      "scene_prompt": "exhausted office worker arguing with boss in meeting room, tense atmosphere",
+      "bubble": "赢了道理，输了绩效",
+      "effect": "嘴硬一时，背锅一世"
+    },
+    {
+      "no": "02",
+      "name": "乱站队吃瓜",
+      "price": "人缘-100",
+      "accent": "#2563EB",
+      "bullets": [
+        "群聊里义愤填膺",
+        "站队站到最后",
+        "发现两边都是领导"
+      ],
+      "scene_prompt": "worker secretly reading office group chat on phone, nervous expression",
+      "bubble": "瓜没吃完，锅先到了",
+      "effect": "站队越猛，死得越快"
+    },
+    {
+      "no": "03",
+      "name": "从不主动谈薪",
+      "price": "¥0涨幅/年",
+      "accent": "#16A34A",
+      "bullets": [
+        "默默多干三年",
+        "默默少拿三成",
+        "默默等老板良心"
+      ],
+      "scene_prompt": "worker looking at payslip with shocked face, calculator on desk",
+      "bubble": "你不提，老板不提",
+      "effect": "沉默是金，沉默也穷"
+    },
+    {
+      "no": "04",
+      "name": "裸辞一时爽",
+      "price": "Gap年+焦虑",
+      "accent": "#EA580C",
+      "bullets": [
+        "辞职信很潇洒",
+        "银行卡很慌张",
+        "下家还在已读不回"
+      ],
+      "scene_prompt": "person submitting resignation then staring at empty wallet and job apps",
+      "bubble": "爽三天，慌三年",
+      "effect": "离职自由，财务不自由"
+    }
+  ],
+  "footer": {
+    "upgrades": [
+      "职场 PUA 抗体",
+      "摸鱼高级课程",
+      "简历美化套餐",
+      "Gap 年自救群"
+    ],
+    "warning": "本清单不保证升职，只保证少踩坑。请留好退路再硬刚。",
+    "receipt": {
+      "lines": [
+        { "label": "和领导硬刚", "amount": "绩效C" },
+        { "label": "乱站队", "amount": "人缘-100" },
+        { "label": "不谈薪", "amount": "¥0涨幅" },
+        { "label": "裸辞Gap", "amount": "6个月空窗" }
+      ],
+      "total": "职场信用破产",
+      "balance": "-∞",
+      "note": "简历已透支"
+    },
+    "tagline": "打工可以认真，禁忌千万别踩。"
+  },
+  "hooks": [
+    "你踩过几条职场禁忌？",
+    "和领导硬刚，你后悔过吗？",
+    "裸辞前你会留几个月生活费？",
+    "谈薪你开得出口吗？"
+  ],
+  "copy": {
+    "douyin_tags": ["职场", "打工人", "职场禁忌", "裸辞", "谈薪"],
+    "xiaohongshu_tags": ["职场", "打工人", "职场禁忌", "裸辞", "谈薪", "办公室生存", "避坑"]
+  }
+}

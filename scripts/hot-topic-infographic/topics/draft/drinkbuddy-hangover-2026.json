@@ -1,0 +1,87 @@
+{
+  "id": "drinkbuddy-hangover-2026",
+  "status": "draft",
+  "meta": {
+    "theme": "酒友宿醉后悔",
+    "hot_keywords": ["宿醉", "聚会", "后悔", "早起"],
+    "tone": "satire",
+    "created_at": "2026-07-12",
+    "category": "drinking_buddy",
+    "angle": "宿醉后悔",
+    "framing": "酒局踩坑清单"
+  },
+  "header": {
+    "title": "宿醉后悔四件套",
+    "subtitle": "昨晚开心，今早想穿越",
+    "badge_top": "越喝越悔",
+    "badge_bottom": "状态余额不足"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "昨晚开心",
+      "price": "快乐+100",
+      "accent": "#2563EB",
+      "bullets": ["朋友聚会气氛好", "聊到凌晨不想散", "觉得今天不上班就好了"],
+      "scene_prompt": "friends laughing and chatting happily at casual evening gathering",
+      "bubble": "今晚真开心",
+      "effect": "快乐是昨晚的，账是今早付"
+    },
+    {
+      "no": "02",
+      "name": "今早头疼",
+      "price": "状态-90%",
+      "accent": "#16A34A",
+      "bullets": ["闹钟响了三遍", "起床像拆零件", "上班灵魂不在"],
+      "scene_prompt": "person holding head in pain getting out of bed in morning sunlight",
+      "bubble": "头要炸了",
+      "effect": "小酌开心，过量受罪"
+    },
+    {
+      "no": "03",
+      "name": "发誓不喝",
+      "price": "誓言1天有效",
+      "accent": "#EA580C",
+      "bullets": ["对着镜子发誓", "删了酒友群消息", "写下戒酒日记"],
+      "scene_prompt": "person writing sober pledge in notebook with determined expression",
+      "bubble": "再也不喝了",
+      "effect": "誓言很真，保质期很短"
+    },
+    {
+      "no": "04",
+      "name": "下周末又来",
+      "price": "循环播放",
+      "accent": "#64748B",
+      "bullets": ["朋友一约就动摇", "说就喝一杯", "故事又重新上演"],
+      "scene_prompt": "person receiving weekend gathering invite and hesitating to accept",
+      "bubble": "就这一次",
+      "effect": "后悔循环，快乐也循环"
+    }
+  ],
+  "footer": {
+    "upgrades": ["解酒小妙招", "聚会适量提醒", "周末拒绝话术", "状态恢复指南"],
+    "warning": "小酌助兴，过量伤身。适量饮酒，拒绝酒驾。",
+    "receipt": {
+      "lines": [
+        { "label": "昨晚开心", "amount": "快乐+100" },
+        { "label": "今早头疼", "amount": "状态-90%" },
+        { "label": "发誓不喝", "amount": "有效1天" },
+        { "label": "下周末又来", "amount": "循环∞" }
+      ],
+      "total": "快乐负债",
+      "balance": "头疼中",
+      "note": "状态已透支"
+    },
+    "tagline": "聚会可以，适量就好。"
+  },
+  "hooks": [
+    "宿醉后你发誓过吗？",
+    "发誓不喝坚持了多久？",
+    "小酌和过量的分界线在哪？",
+    "下周末又来你经历过吗？"
+  ],
+  "copy": {
+    "douyin_tags": ["酒友", "宿醉", "聚会", "周末", "适量饮酒"],
+    "xiaohongshu_tags": ["酒友", "宿醉后悔", "朋友聚会", "周末生活", "适量饮酒", "共鸣"]
+  }
+}

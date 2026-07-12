@@ -1,0 +1,87 @@
+{
+  "id": "family-spring-festival-2026",
+  "status": "draft",
+  "meta": {
+    "theme": "家庭关系过年回家",
+    "hot_keywords": ["过年", "回家", "红包", "职业拷问"],
+    "tone": "satire",
+    "created_at": "2026-07-12",
+    "category": "family",
+    "angle": "过年回家",
+    "framing": "关系雷区/沟通踩坑"
+  },
+  "header": {
+    "title": "过年回家四件套",
+    "subtitle": "票抢到了，心态没抢到",
+    "badge_top": "越回越累",
+    "badge_bottom": "假期不足"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "红包攀比",
+      "price": "钱包-30%",
+      "accent": "#DC2626",
+      "bullets": ["晚辈红包不能少", "自家娃收不回来", "面子比存款重要"],
+      "scene_prompt": "adult handing red envelopes to children while checking thin wallet",
+      "bubble": "不能比别人少",
+      "effect": "一年攒的，七天花光"
+    },
+    {
+      "no": "02",
+      "name": "职业拷问",
+      "price": "自尊-20",
+      "accent": "#2563EB",
+      "bullets": ["工资多少有对象", "同学谁谁谁买了房", "你怎么还在租房"],
+      "scene_prompt": "young adult at dinner table being compared to successful cousins",
+      "bubble": "人家都比你强",
+      "effect": "回家团圆，心态分裂"
+    },
+    {
+      "no": "03",
+      "name": "作息打乱",
+      "price": "生物钟报废",
+      "accent": "#16A34A",
+      "bullets": ["早起走亲戚", "熬夜打麻将", "假期比上班还累"],
+      "scene_prompt": "exhausted person waking up early for family visits with dark circles",
+      "bubble": "这叫放假？",
+      "effect": "休七天，缓半个月"
+    },
+    {
+      "no": "04",
+      "name": "返程解脱",
+      "price": "如释重负",
+      "accent": "#EA580C",
+      "bullets": ["初七票抢到手", "离家那一刻松口气", "回到出租屋才像自己"],
+      "scene_prompt": "person on train looking relieved leaving hometown behind window",
+      "bubble": "终于自由了",
+      "effect": "家是港湾，也是考场"
+    }
+  ],
+  "footer": {
+    "upgrades": ["红包预算表", "职业拷问话术", "作息恢复计划", "返程疗愈包"],
+    "warning": "团圆值得珍惜，但不必为面子透支自己。",
+    "receipt": {
+      "lines": [
+        { "label": "红包攀比", "amount": "-¥5000" },
+        { "label": "职业拷问", "amount": "自尊-20" },
+        { "label": "作息打乱", "amount": "睡眠-40h" },
+        { "label": "返程解脱", "amount": "如释重负" }
+      ],
+      "total": "假期体验盈亏",
+      "balance": "心累>心暖",
+      "note": "假期已透支"
+    },
+    "tagline": "回家可以，别把自己回丢了。"
+  },
+  "hooks": [
+    "过年红包你发出去多少？",
+    "职业拷问你怎么扛的？",
+    "返程那一刻你松口气了吗？",
+    "过年比上班累吗？"
+  ],
+  "copy": {
+    "douyin_tags": ["过年回家", "春节", "家庭关系", "红包", "亲戚"],
+    "xiaohongshu_tags": ["过年回家", "春节", "家庭关系", "红包攀比", "职业拷问", "返程", "共鸣"]
+  }
+}

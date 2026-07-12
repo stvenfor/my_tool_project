@@ -1,0 +1,87 @@
+{
+  "id": "friend-negative-energy-2026",
+  "status": "draft",
+  "meta": {
+    "theme": "朋友关系负能量朋友",
+    "hot_keywords": ["负能量", "吐槽", "情绪", "边界"],
+    "tone": "satire",
+    "created_at": "2026-07-12",
+    "category": "friend",
+    "angle": "负能量朋友",
+    "framing": "友情消耗清单"
+  },
+  "header": {
+    "title": "负能量朋友四件套",
+    "subtitle": "每次聊完，你比他还累",
+    "badge_top": "越听越沉",
+    "badge_bottom": "情绪电量不足"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "只吐苦水",
+      "price": "时长2h+",
+      "accent": "#2563EB",
+      "bullets": ["工作全是糟心事", "生活全是倒霉事", "从来不问你好不好"],
+      "scene_prompt": "friend venting complaints on phone while listener looks exhausted",
+      "bubble": "你听我说",
+      "effect": "他的吐槽，你的加班"
+    },
+    {
+      "no": "02",
+      "name": "从不倾听",
+      "price": "单向输出",
+      "accent": "#16A34A",
+      "bullets": ["你说的事他打断", "秒切回自己话题", "你的烦恼不算事"],
+      "scene_prompt": "person trying to share problem while friend interrupts with own story",
+      "bubble": "我那更惨",
+      "effect": "友情变成情绪单向道"
+    },
+    {
+      "no": "03",
+      "name": "情绪垃圾桶",
+      "price": "电量-80%",
+      "accent": "#EA580C",
+      "bullets": ["每次聊完心情差", "想躲又不好意思", "拒绝怕伤感情"],
+      "scene_prompt": "person sitting drained after long phone call with stressed expression",
+      "bubble": "我好累",
+      "effect": "帮了他，亏了自己"
+    },
+    {
+      "no": "04",
+      "name": "想逃又不好意思",
+      "price": "内耗+50",
+      "accent": "#64748B",
+      "bullets": ["消息故意晚回", "找借口说在忙", "愧疚感和疲惫感并存"],
+      "scene_prompt": "person hesitating to reply message notification with conflicted face",
+      "bubble": "晚点回吧",
+      "effect": "边界难设，内耗难停"
+    }
+  ],
+  "footer": {
+    "upgrades": ["边界感话术", "情绪急救包", "拒绝模板", "友情能量管理"],
+    "warning": "倾听朋友是美德，但别让自己变成永久垃圾桶。",
+    "receipt": {
+      "lines": [
+        { "label": "只吐苦水", "amount": "2h/次" },
+        { "label": "从不倾听", "amount": "单向∞" },
+        { "label": "情绪垃圾桶", "amount": "电量-80%" },
+        { "label": "想逃又不好意思", "amount": "内耗+50" }
+      ],
+      "total": "情绪透支",
+      "balance": "-80%",
+      "note": "电量已透支"
+    },
+    "tagline": "朋友可以听，但别一直扛。"
+  },
+  "hooks": [
+    "你有负能量很重的朋友吗？",
+    "聊完朋友你心情会变差吗？",
+    "你怎么设友情边界的？",
+    "当情绪垃圾桶多久了？"
+  ],
+  "copy": {
+    "douyin_tags": ["朋友关系", "负能量", "友情", "边界感", "吐槽"],
+    "xiaohongshu_tags": ["朋友关系", "负能量朋友", "友情边界", "情绪管理", "社交", "共鸣"]
+  }
+}

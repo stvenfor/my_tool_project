@@ -1,0 +1,23 @@
+{
+  "id": "workplace-taboo-narration",
+  "mode": "narration",
+  "series": "认知提升",
+  "title": "职场三大禁忌",
+  "hook": "聪明人从不在办公室说这三句话",
+  "tags": [
+    "职场",
+    "处世智慧",
+    "人性洞察"
+  ],
+  "visual_strategy": "stickman",
+  "skip_analyze": true,
+  "status": "draft",
+  "episode": "01",
+  "cta": "建议收藏，持续更新",
+  "reference_url": "",
+  "use_llm": true,
+  "meta": {
+    "created_at": "2026-07-12T13:20:38.641116+00:00",
+    "source": "video-factory:draft"
+  }
+}

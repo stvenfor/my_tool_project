@@ -1,0 +1,87 @@
+{
+  "id": "mealbuddy-ghosting-2026",
+  "status": "draft",
+  "meta": {
+    "theme": "饭搭子失联",
+    "hot_keywords": ["饭搭子", "约饭", "放鸽子", "干饭"],
+    "tone": "satire",
+    "created_at": "2026-07-12",
+    "category": "meal_buddy",
+    "angle": "饭搭子失联",
+    "framing": "干饭社交雷区"
+  },
+  "header": {
+    "title": "饭搭子失联四件套",
+    "subtitle": "约饭时热情，到点人没了",
+    "badge_top": "越约越孤",
+    "badge_bottom": "干饭余额不足"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "兴致勃勃约饭",
+      "price": "期待值满格",
+      "accent": "#2563EB",
+      "bullets": ["群里喊谁吃饭", "迅速响应三家", "菜单看了半小时"],
+      "scene_prompt": "friends enthusiastically planning dinner in group chat on phone",
+      "bubble": "今晚冲",
+      "effect": "约的时候最开心"
+    },
+    {
+      "no": "02",
+      "name": "临期说有事",
+      "price": "爽约率80%",
+      "accent": "#16A34A",
+      "bullets": ["饭点前一小时", "突然说加班", "或者身体不舒服"],
+      "scene_prompt": "person receiving cancellation message right before dinner time",
+      "bubble": "去不了了",
+      "effect": "热情是你，爽约是他"
+    },
+    {
+      "no": "03",
+      "name": "下次一定",
+      "price": "承诺∞次",
+      "accent": "#EA580C",
+      "bullets": ["说下周补回来", "下周又有事", "约饭变成口头支票"],
+      "scene_prompt": "person scrolling chat full of postponed dinner promises",
+      "bubble": "下次一定",
+      "effect": "下次永远是下次"
+    },
+    {
+      "no": "04",
+      "name": "干饭孤独",
+      "price": "外卖+1",
+      "accent": "#64748B",
+      "bullets": ["最后一个人吃", "或者默默点外卖", "饭搭子变饭孤人"],
+      "scene_prompt": "person eating alone at restaurant table with empty chair opposite",
+      "bubble": "又一个人",
+      "effect": "饭搭子失联，胃还在等"
+    }
+  ],
+  "footer": {
+    "upgrades": ["约饭成功率提升", "放鸽子应对术", "一人干饭指南", "饭搭子匹配群"],
+    "warning": "约饭随缘，别为爽约太生气，一个人吃也挺好。",
+    "receipt": {
+      "lines": [
+        { "label": "兴致勃勃约饭", "amount": "期待100%" },
+        { "label": "临期说有事", "amount": "爽约×4" },
+        { "label": "下次一定", "amount": "承诺∞" },
+        { "label": "干饭孤独", "amount": "外卖+1" }
+      ],
+      "total": "社交体验打折",
+      "balance": "孤独+1",
+      "note": "饭搭子离线"
+    },
+    "tagline": "饭搭子可以换，干饭不能停。"
+  },
+  "hooks": [
+    "饭搭子放你鸽子过吗？",
+    "约饭被爽约你怎么处理的？",
+    "一个人吃饭你习惯吗？",
+    "下次一定你听过几次？"
+  ],
+  "copy": {
+    "douyin_tags": ["饭搭子", "约饭", "干饭", "放鸽子", "孤独干饭"],
+    "xiaohongshu_tags": ["饭搭子", "约饭", "干饭人", "放鸽子", "一人食", "共鸣"]
+  }
+}

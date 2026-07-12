@@ -1,0 +1,11 @@
+{
+  "key": "amei",
+  "name": "阿美",
+  "prompt_layer": "年轻职场女性，端咖啡，略带讽刺表情",
+  "voice_profile": {
+    "voice": "zh-CN-XiaoyiNeural",
+    "rate": "+8%",
+    "pitch": "+4Hz",
+    "volume": "+2%"
+  }
+}

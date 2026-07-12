@@ -1,0 +1,110 @@
+{
+  "hook": {
+    "zh": "白天是【city_name】，晚上是【ancient_name】",
+    "duration_sec": 2.5,
+    "visual_keyword": "【city_name】 城市 航拍",
+    "landmark": "【city_name】",
+    "phase": "day"
+  },
+  "segments": [
+    {
+      "start_sec": 2.5,
+      "duration_sec": 4.0,
+      "en": "Day breaks over Xi'an.",
+      "zh": "清晨，【city_name】醒了",
+      "visual_keyword": "【city_name】 城市 清晨 航拍",
+      "landmark": "【city_name】",
+      "phase": "day"
+    },
+    {
+      "start_sec": 6.5,
+      "duration_sec": 4.5,
+      "en": "On the ancient walls, sunlight walks with the wind.",
+      "zh": "古城墙上，阳光与风同行",
+      "visual_keyword": "【city_name】城墙 航拍",
+      "landmark": "【landmark_day_1】",
+      "phase": "day"
+    },
+    {
+      "start_sec": 11.0,
+      "duration_sec": 4.5,
+      "en": "The Giant Wild Goose Pagoda stands quiet above the city.",
+      "zh": "大雁塔静静俯瞰这座城市",
+      "visual_keyword": "大雁塔 【city_name】 白天",
+      "landmark": "大雁塔",
+      "phase": "day"
+    },
+    {
+      "start_sec": 15.5,
+      "duration_sec": 4.5,
+      "en": "Street vendors wake the lanes with steam and voices.",
+      "zh": "市井巷里，热气与吆喝一同醒来",
+      "visual_keyword": "【city_name】 回民街 早市",
+      "landmark": "回民街",
+      "phase": "day"
+    },
+    {
+      "start_sec": 20.0,
+      "duration_sec": 5.0,
+      "en": "This is Xi'an in daylight — alive, grounded, real.",
+      "zh": "白天的【city_name】，真实而鲜活",
+      "visual_keyword": "【city_name】 白天 街景",
+      "landmark": "【city_name】",
+      "phase": "day"
+    },
+    {
+      "start_sec": 25.0,
+      "duration_sec": 4.0,
+      "en": "Then dusk arrives, and the city changes its name.",
+      "zh": "暮色降临，城市换了名字",
+      "visual_keyword": "【city_name】 黄昏 日落",
+      "landmark": "【city_name】",
+      "phase": "transition"
+    },
+    {
+      "start_sec": 29.0,
+      "duration_sec": 5.0,
+      "en": "Lanterns rise along the Tang streets like a river of gold.",
+      "zh": "唐风长街，灯火如金河铺展",
+      "visual_keyword": "【landmark_night_1】 夜景",
+      "landmark": "【landmark_night_1】",
+      "phase": "night"
+    },
+    {
+      "start_sec": 34.0,
+      "duration_sec": 4.5,
+      "en": "Chang'an returns in light and shadow.",
+      "zh": "光影之间，【ancient_name】归来",
+      "visual_keyword": "大雁塔 夜景 喷泉",
+      "landmark": "大雁塔夜景",
+      "phase": "night"
+    },
+    {
+      "start_sec": 38.5,
+      "duration_sec": 4.5,
+      "en": "Drums, silk, and laughter fill the night air.",
+      "zh": "鼓点、丝竹与笑声，填满夜色",
+      "visual_keyword": "【landmark_night_1】 表演 夜景",
+      "landmark": "【landmark_night_1】",
+      "phase": "night"
+    },
+    {
+      "start_sec": 43.0,
+      "duration_sec": 4.5,
+      "en": "One step into the old capital, and a thousand years open before you.",
+      "zh": "一步踏入故都，千年在眼前展开",
+      "visual_keyword": "【ancient_name】 古建筑 夜景",
+      "landmark": "【ancient_name】",
+      "phase": "night"
+    },
+    {
+      "start_sec": 47.5,
+      "duration_sec": 3.7,
+      "en": "Day is Xi'an. Night is Chang'an.",
+      "zh": "白天是【city_name】，晚上是【ancient_name】",
+      "visual_keyword": "【city_name】 【ancient_name】 夜景 航拍",
+      "landmark": "【city_name】",
+      "phase": "night"
+    }
+  ]
+}

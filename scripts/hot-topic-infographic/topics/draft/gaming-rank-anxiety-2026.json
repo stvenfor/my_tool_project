@@ -1,0 +1,87 @@
+{
+  "id": "gaming-rank-anxiety-2026",
+  "status": "draft",
+  "meta": {
+    "theme": "游戏队友上分焦虑",
+    "hot_keywords": ["上分", "段位", "连跪", "心态"],
+    "tone": "satire",
+    "created_at": "2026-07-12",
+    "category": "gaming",
+    "angle": "上分焦虑",
+    "framing": "开黑踩坑四件套"
+  },
+  "header": {
+    "title": "上分焦虑四件套",
+    "subtitle": "差一把晋级，连跪五把掉段",
+    "badge_top": "越打越慌",
+    "badge_bottom": "段位余额不足"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "差一把晋级",
+      "price": "紧张+100",
+      "accent": "#2563EB",
+      "bullets": ["晋级赛打了三把", "差最后一把", "手汗把屏幕弄湿"],
+      "scene_prompt": "gamer nervously playing ranked promotion match with sweaty hands",
+      "bubble": "这把必须赢",
+      "effect": "越紧张，越容易失误"
+    },
+    {
+      "no": "02",
+      "name": "连跪五把",
+      "price": "段位-1",
+      "accent": "#DC2626",
+      "bullets": ["不信邪继续排", "一把比一把惨", "心态先崩了"],
+      "scene_prompt": "gamer staring at losing streak on screen with frustrated expression",
+      "bubble": "怎么又输了",
+      "effect": "连跪不可怕，上头最可怕"
+    },
+    {
+      "no": "03",
+      "name": "熬夜冲分",
+      "price": "睡眠-4h",
+      "accent": "#16A34A",
+      "bullets": ["说好最后一把", "打到凌晨三点", "明天上班灵魂出窍"],
+      "scene_prompt": "gamer playing late at night with dark circles and clock showing 3am",
+      "bubble": "赢一把就睡",
+      "effect": "分没上去，觉先没了"
+    },
+    {
+      "no": "04",
+      "name": "掉段更焦虑",
+      "price": "焦虑循环",
+      "accent": "#64748B",
+      "bullets": ["掉段不甘心", "继续排继续输", "发誓下赛季再来"],
+      "scene_prompt": "gamer looking at demoted rank badge with defeated expression",
+      "bubble": "下赛季一定",
+      "effect": "焦虑驱动，越打越亏"
+    }
+  ],
+  "footer": {
+    "upgrades": ["连跪止损术", "心态恢复包", "熬夜戒断计划", "上分时间表"],
+    "warning": "游戏娱乐为主，别为上分熬夜伤身体。",
+    "receipt": {
+      "lines": [
+        { "label": "差一把晋级", "amount": "紧张+100" },
+        { "label": "连跪五把", "amount": "段位-1" },
+        { "label": "熬夜冲分", "amount": "睡眠-4h" },
+        { "label": "掉段更焦虑", "amount": "循环∞" }
+      ],
+      "total": "心态+睡眠双亏",
+      "balance": "-1段",
+      "note": "段位已透支"
+    },
+    "tagline": "上分可以，别搭上睡眠。"
+  },
+  "hooks": [
+    "晋级赛连跪你经历过吗？",
+    "赢一把就睡你说过吗？",
+    "为上分熬夜过吗？",
+    "掉段后你会继续排吗？"
+  ],
+  "copy": {
+    "douyin_tags": ["游戏", "上分", "连跪", "段位", "开黑"],
+    "xiaohongshu_tags": ["游戏队友", "上分焦虑", "连跪", "段位", "游戏日常", "共鸣"]
+  }
+}

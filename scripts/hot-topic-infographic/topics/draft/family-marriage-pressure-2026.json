@@ -1,0 +1,87 @@
+{
+  "id": "family-marriage-pressure-2026",
+  "status": "draft",
+  "meta": {
+    "theme": "家庭关系催婚催育",
+    "hot_keywords": ["催婚", "催育", "相亲", "亲戚盘问"],
+    "tone": "satire",
+    "created_at": "2026-07-12",
+    "category": "family",
+    "angle": "催婚催育",
+    "framing": "关系雷区/沟通踩坑"
+  },
+  "header": {
+    "title": "催婚催育四件套",
+    "subtitle": "过年回家，灵魂拷问先上线",
+    "badge_top": "越催越烦",
+    "badge_bottom": "耐心不足"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "相亲轰炸",
+      "price": "局/周3+",
+      "accent": "#DC2626",
+      "bullets": ["妈发相亲链接", "爸打电话确认", "不去就是不孝"],
+      "scene_prompt": "young adult overwhelmed by parents showing phone with dating profiles",
+      "bubble": "我都是为你好",
+      "effect": "相亲没结果，亲情先紧张"
+    },
+    {
+      "no": "02",
+      "name": "生育KPI",
+      "price": "压力+100",
+      "accent": "#2563EB",
+      "bullets": ["结了婚就催生", "一胎催二胎", "年龄不等人"],
+      "scene_prompt": "couple at family dinner surrounded by relatives asking about children",
+      "bubble": "趁年轻要一个",
+      "effect": "人生进度条被全家操控"
+    },
+    {
+      "no": "03",
+      "name": "亲戚盘问",
+      "price": "社恐发作",
+      "accent": "#16A34A",
+      "bullets": ["有对象了吗", "工资多少啊", "什么时候结婚"],
+      "scene_prompt": "young person cornered by curious relatives at family gathering",
+      "bubble": "关你什么事",
+      "effect": "表面寒暄，内心想逃"
+    },
+    {
+      "no": "04",
+      "name": "自我怀疑",
+      "price": "自信-50",
+      "accent": "#EA580C",
+      "bullets": ["是不是我太挑", "别人都有了我呢", "深夜开始焦虑"],
+      "scene_prompt": "person lying in bed at night scrolling phone with worried expression",
+      "bubble": "我是不是有问题",
+      "effect": "别人的时间表，变成你的焦虑表"
+    }
+  ],
+  "footer": {
+    "upgrades": ["催婚应对话术", "边界感修炼", "相亲逃生指南", "情绪急救包"],
+    "warning": "亲情可以沟通，但人生节奏属于自己。别被催到将就。",
+    "receipt": {
+      "lines": [
+        { "label": "相亲轰炸", "amount": "12局/年" },
+        { "label": "生育KPI", "amount": "追问∞" },
+        { "label": "亲戚盘问", "amount": "社恐+3" },
+        { "label": "自我怀疑", "amount": "失眠7天" }
+      ],
+      "total": "精神内耗爆表",
+      "balance": "-∞",
+      "note": "耐心已透支"
+    },
+    "tagline": "爱可以听，人生自己走。"
+  },
+  "hooks": [
+    "你被催婚最狠的一次？",
+    "亲戚盘问你怎么回的？",
+    "催生压力你扛过吗？",
+    "催到自我怀疑的举手？"
+  ],
+  "copy": {
+    "douyin_tags": ["催婚", "催育", "家庭关系", "过年", "相亲"],
+    "xiaohongshu_tags": ["催婚", "催育", "家庭关系", "亲戚盘问", "相亲", "边界感", "共鸣"]
+  }
+}

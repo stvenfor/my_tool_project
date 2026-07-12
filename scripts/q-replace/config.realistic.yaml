@@ -1,0 +1,59 @@
+device: auto  # auto | mps | cpu
+
+video:
+  analysis_fps: 15
+  output_fps: 30
+  scene_threshold: 0.30
+  min_shot_duration: 0.3
+
+tracking:
+  model: yolov8n.pt
+  conf: 0.35
+  iou: 0.45
+  mask_feather: 14
+
+motion:
+  pose_model: pose_landmarker_heavy.task
+  face_model: face_landmarker.task
+  min_detection_confidence: 0.5
+  min_tracking_confidence: 0.5
+
+identity:
+  prompt: >-
+    photorealistic young East Asian woman, slim dancer body, long dark hair,
+    delicate face, large eyes, fair smooth skin, natural skin texture, soft beauty lighting,
+    white strapless tube top, purple ruffled mini shorts with pink bow,
+    full body, douyin aesthetic, high detail photo
+  negative_prompt: >-
+    deformed, extra limbs, bad hands, extra fingers, blurry, low quality, watermark, text,
+    cartoon, chibi, 3d render, oversaturated, ugly face, plastic skin
+  num_inference_steps: 28
+  guidance_scale: 7.0
+  strength: 0.60
+  seed: 20260712
+
+synthesis:
+  keyframe_interval: 18
+  ip_adapter_scale: 0.80
+  controlnet_conditioning_scale: 1.0
+  num_inference_steps: 12
+  guidance_scale: 6.5
+  use_optical_flow: false
+  wav2lip_enabled: true
+  wav2lip_threshold: 0.35
+  min_track_frames: 5
+  max_persons_per_frame: 4
+
+composite:
+  alpha_feather: 12
+  color_match: true
+
+output:
+  crf: 18
+  preview_duration: 3.0
+
+models:
+  sdxl_base: stabilityai/stable-diffusion-xl-base-1.0
+  controlnet_openpose: xinsir/controlnet-openpose-sdxl-1.0
+  ip_adapter: h94/IP-Adapter
+  ip_adapter_weight: ip-adapter_sdxl.bin

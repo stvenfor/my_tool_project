@@ -1,0 +1,87 @@
+{
+  "id": "fishing-gear-upgrade-2026",
+  "status": "draft",
+  "meta": {
+    "theme": "钓鱼人装备升级",
+    "hot_keywords": ["装备", "鱼竿", "饵料", "装备党"],
+    "tone": "satire",
+    "created_at": "2026-07-12",
+    "category": "fishing",
+    "angle": "装备升级",
+    "framing": "钓鱼陷阱四件套"
+  },
+  "header": {
+    "title": "钓鱼装备四件套",
+    "subtitle": "鱼没多钓，装备先满舱",
+    "badge_top": "越买越穷",
+    "badge_bottom": "钱包余额不足"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "旧竿不顺手",
+      "price": "嫌弃+1",
+      "accent": "#2563EB",
+      "bullets": ["觉得腰力不够", "手感不如新品", "看测评心痒痒"],
+      "scene_prompt": "fisherman comparing old fishing rod with new model reviews on phone",
+      "bubble": "该升级了",
+      "effect": "不是竿不行，是心痒了"
+    },
+    {
+      "no": "02",
+      "name": "新品必入坑",
+      "price": "¥2000+",
+      "accent": "#16A34A",
+      "bullets": ["限量款要抢", "分期也要买", "到家先摸三遍"],
+      "scene_prompt": "fisherman excitedly unboxing new expensive fishing rod",
+      "bubble": "手感真香",
+      "effect": "装备到位，技术原地"
+    },
+    {
+      "no": "03",
+      "name": "饵料买一堆",
+      "price": "库存满仓",
+      "accent": "#EA580C",
+      "bullets": ["味型买了一排", "开饵像做实验", "鱼不认你的配方"],
+      "scene_prompt": "fisherman surrounded by many bait packages at fishing spot",
+      "bubble": "这次一定中",
+      "effect": "饵料越多，选择越乱"
+    },
+    {
+      "no": "04",
+      "name": "鱼没多装备满",
+      "price": "鱼获/装备比",
+      "accent": "#64748B",
+      "bullets": ["后备箱全是竿", "鱼护依然空空", "下次再买新配件"],
+      "scene_prompt": "car trunk full of fishing gear next to empty fish bucket",
+      "bubble": "还差个配件",
+      "effect": "装备党终点，仍是空军"
+    }
+  ],
+  "footer": {
+    "upgrades": ["装备克制计划", "二手回血指南", "开饵简化表", "空军安慰群"],
+    "warning": "装备是辅助，别让它比钓鱼本身更上头。",
+    "receipt": {
+      "lines": [
+        { "label": "旧竿不顺手", "amount": "嫌弃+1" },
+        { "label": "新品必入坑", "amount": "¥2000" },
+        { "label": "饵料买一堆", "amount": "库存满" },
+        { "label": "鱼没多装备满", "amount": "0尾" }
+      ],
+      "total": "装备富有鱼获贫穷",
+      "balance": "-¥2000",
+      "note": "钱包已透支"
+    },
+    "tagline": "装备够用就行，别被种草牵着走。"
+  },
+  "hooks": [
+    "你为钓鱼买过最冤的装备？",
+    "饵料买一堆你用几种？",
+    "装备满了鱼护空过吗？",
+    "新品必入坑你中过吗？"
+  ],
+  "copy": {
+    "douyin_tags": ["钓鱼", "装备党", "钓鱼佬", "鱼竿", "空军"],
+    "xiaohongshu_tags": ["钓鱼", "装备升级", "钓鱼佬", "装备党", "钓鱼装备", "共鸣"]
+  }
+}

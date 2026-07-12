@@ -1,0 +1,137 @@
+{
+  "source": "web",
+  "license": "Mixkit Free License",
+  "note": "多样化网上短素材，每段来自不同视频源，用于 beat 模式混剪",
+  "clips": [
+    {
+      "id": "web_karate_punch",
+      "type": "action_punch",
+      "energy": 8,
+      "tags": ["空手道", "拳脚", "打击"],
+      "url": "https://assets.mixkit.co/videos/49637/49637-720.mp4",
+      "trim_in": 0.8,
+      "duration_hint": 1.2
+    },
+    {
+      "id": "web_mma_intense",
+      "type": "action_punch",
+      "energy": 9,
+      "tags": ["MMA", "格斗", "拳脚"],
+      "url": "https://assets.mixkit.co/videos/40985/40985-720.mp4",
+      "trim_in": 1.2,
+      "duration_hint": 1.2
+    },
+    {
+      "id": "web_mma_fierce",
+      "type": "action_punch",
+      "energy": 9,
+      "tags": ["MMA", "激烈", "拳脚"],
+      "url": "https://assets.mixkit.co/videos/40993/40993-720.mp4",
+      "trim_in": 0.5,
+      "duration_hint": 1.2
+    },
+    {
+      "id": "web_mma_ring",
+      "type": "action_punch",
+      "energy": 8,
+      "tags": ["拳击台", "格斗"],
+      "url": "https://assets.mixkit.co/videos/40999/40999-720.mp4",
+      "trim_in": 0.8,
+      "duration_hint": 1.2
+    },
+    {
+      "id": "web_mma_pair",
+      "type": "action_punch",
+      "energy": 8,
+      "tags": ["双人对打", "拳脚"],
+      "url": "https://assets.mixkit.co/videos/41000/41000-720.mp4",
+      "trim_in": 1.0,
+      "duration_hint": 1.2
+    },
+    {
+      "id": "web_fighter_woman",
+      "type": "action_punch",
+      "energy": 7,
+      "tags": ["女格斗家", "拳脚"],
+      "url": "https://assets.mixkit.co/videos/40991/40991-720.mp4",
+      "trim_in": 0.6,
+      "duration_hint": 1.2
+    },
+    {
+      "id": "web_karate_kick",
+      "type": "action_punch",
+      "energy": 8,
+      "tags": ["踢击", "空手道"],
+      "url": "https://assets.mixkit.co/videos/23134/23134-720.mp4",
+      "trim_in": 0.8,
+      "duration_hint": 1.2
+    },
+    {
+      "id": "web_boxing_bag",
+      "type": "slow_build",
+      "energy": 5,
+      "tags": ["沙袋", "蓄力", "慢镜"],
+      "url": "https://assets.mixkit.co/videos/40276/40276-720.mp4",
+      "trim_in": 0.5,
+      "duration_hint": 1.5
+    },
+    {
+      "id": "web_kickbox_punch",
+      "type": "action_punch",
+      "energy": 7,
+      "tags": ["拳击", "踢拳"],
+      "url": "https://assets.mixkit.co/videos/40274/40274-720.mp4",
+      "trim_in": 0.4,
+      "duration_hint": 1.2
+    },
+    {
+      "id": "web_gun_soldier",
+      "type": "action_gun",
+      "energy": 9,
+      "tags": ["射击", "枪战", "瞄准"],
+      "url": "https://assets.mixkit.co/videos/47864/47864-720.mp4",
+      "trim_in": 1.5,
+      "duration_hint": 1.2
+    },
+    {
+      "id": "web_comedy_01",
+      "type": "comedy",
+      "energy": 3,
+      "tags": ["喜剧", "搞笑", "调剂"],
+      "url": "https://assets.mixkit.co/videos/28734/28734-720.mp4",
+      "trim_in": 0.5,
+      "duration_hint": 1.5
+    },
+    {
+      "id": "web_comedy_02",
+      "type": "comedy",
+      "energy": 3,
+      "tags": ["喜剧", "反应"],
+      "url": "https://assets.mixkit.co/videos/22188/22188-720.mp4",
+      "trim_in": 0.3,
+      "duration_hint": 1.5
+    },
+    {
+      "id": "web_slow_run",
+      "type": "slow_build",
+      "energy": 4,
+      "tags": ["慢镜", "蓄力", "奔跑"],
+      "url": "https://assets.mixkit.co/videos/1248/1248-720.mp4",
+      "trim_in": 1.0,
+      "duration_hint": 1.8
+    },
+    {
+      "id": "web_hero_cine",
+      "type": "hero_shot",
+      "energy": 5,
+      "tags": ["定格", "英雄", "结尾"],
+      "url": "https://assets.mixkit.co/videos/32868/32868-720.mp4",
+      "trim_in": 2.0,
+      "duration_hint": 2.0
+    }
+  ],
+  "douyin_urls": [
+    "https://v.douyin.com/i8EnbJV6/",
+    "https://v.douyin.com/euJwWkJ8-f4/"
+  ]
+}

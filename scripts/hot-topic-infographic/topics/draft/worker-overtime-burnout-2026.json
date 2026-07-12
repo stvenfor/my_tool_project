@@ -1,0 +1,87 @@
+{
+  "id": "worker-overtime-burnout-2026",
+  "status": "draft",
+  "meta": {
+    "theme": "打工人加班内耗",
+    "hot_keywords": ["加班", "内耗", "表演式忙碌", "健康透支"],
+    "tone": "satire",
+    "created_at": "2026-07-12",
+    "category": "worker",
+    "angle": "加班内耗",
+    "framing": "陷阱/禁忌/内耗清单"
+  },
+  "header": {
+    "title": "打工人加班内耗四件套",
+    "subtitle": "班加够了，命还没够，心先空了",
+    "badge_top": "越加越亏",
+    "badge_bottom": "电量不足"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "无效加班",
+      "price": "时薪÷2",
+      "accent": "#2563EB",
+      "bullets": ["活白天干不完", "晚上假装努力", "领导只看在线"],
+      "scene_prompt": "office worker staying late at desk with empty progress on screen",
+      "bubble": "人在工位，魂已下班",
+      "effect": "加班不涨薪，只涨黑眼圈"
+    },
+    {
+      "no": "02",
+      "name": "表演式忙碌",
+      "price": "演技+100",
+      "accent": "#16A34A",
+      "bullets": ["键盘敲得飞起", "文档没改一行", "群里回复收到"],
+      "scene_prompt": "worker frantically typing while secretly browsing phone under desk",
+      "bubble": "看起来很忙",
+      "effect": "忙给领导看，累给自己扛"
+    },
+    {
+      "no": "03",
+      "name": "健康透支",
+      "price": "体检红灯",
+      "accent": "#EA580C",
+      "bullets": ["咖啡续到第三杯", "颈椎比KPI先报警", "体检报告不敢开"],
+      "scene_prompt": "exhausted worker rubbing neck at computer with coffee cups piled up",
+      "bubble": "身体在抗议",
+      "effect": "拿命换考勤，拿健康换表扬"
+    },
+    {
+      "no": "04",
+      "name": "离职幻想",
+      "price": "幻想∞次/天",
+      "accent": "#64748B",
+      "bullets": ["每天想辞职一百遍", "房贷提醒一百零一遍", "继续苟到发薪日"],
+      "scene_prompt": "worker daydreaming about resignation while staring at payslip",
+      "bubble": "想走不敢走",
+      "effect": "精神离职，肉体打卡"
+    }
+  ],
+  "footer": {
+    "upgrades": ["摸鱼高级课", "颈椎理疗卡", "离职勇气包", "副业入门营"],
+    "warning": "本清单不鼓励无效内卷，只提醒别拿健康换表演。",
+    "receipt": {
+      "lines": [
+        { "label": "无效加班", "amount": "200h/年" },
+        { "label": "表演忙碌", "amount": "演技A+" },
+        { "label": "健康透支", "amount": "3项异常" },
+        { "label": "离职幻想", "amount": "0次行动" }
+      ],
+      "total": "身心双亏",
+      "balance": "-∞",
+      "note": "电量已透支"
+    },
+    "tagline": "加班可以，内耗别上瘾。"
+  },
+  "hooks": [
+    "你每天无效加班几小时？",
+    "表演式忙碌，你演过几次？",
+    "体检报告你敢自己先看吗？",
+    "想离职又不敢走的举手？"
+  ],
+  "copy": {
+    "douyin_tags": ["打工人", "加班", "内耗", "职场", "摸鱼"],
+    "xiaohongshu_tags": ["打工人", "加班内耗", "职场生存", "无效加班", "精神离职", "避坑"]
+  }
+}

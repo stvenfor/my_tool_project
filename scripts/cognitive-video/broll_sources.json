@@ -1,0 +1,104 @@
+{
+  "source": "mixkit",
+  "license": "Mixkit Stock Video Free License",
+  "clips": [
+    {
+      "id": "office_night_worker",
+      "url": "https://assets.mixkit.co/videos/39839/39839-720.mp4",
+      "tags": ["加班", "白领", "办公", "夜晚", "电脑", "都市", "职场", "焦虑"],
+      "phases": ["pain"],
+      "trim_in": 1.2
+    },
+    {
+      "id": "businessman_late_night",
+      "url": "https://assets.mixkit.co/videos/24344/24344-720.mp4",
+      "tags": ["加班", "商务", "深夜", "工作", "压力", "都市"],
+      "phases": ["pain"],
+      "trim_in": 0.8
+    },
+    {
+      "id": "subway_commute",
+      "url": "https://assets.mixkit.co/videos/1623/1623-720.mp4",
+      "tags": ["地铁", "通勤", "上班", "都市", "人流", "焦虑"],
+      "phases": ["pain"],
+      "trim_in": 0.5
+    },
+    {
+      "id": "subway_passenger",
+      "url": "https://assets.mixkit.co/videos/40669/40669-720.mp4",
+      "tags": ["地铁", "通勤", "年轻人", "都市", "日常"],
+      "phases": ["pain"],
+      "trim_in": 1.0
+    },
+    {
+      "id": "city_night_aerial",
+      "url": "https://assets.mixkit.co/videos/49845/49845-720.mp4",
+      "tags": ["城市", "夜景", "高楼", "都市", "思考", "独处"],
+      "phases": ["insight", "contrast"],
+      "trim_in": 2.0
+    },
+    {
+      "id": "man_thinking_window",
+      "url": "https://assets.mixkit.co/videos/40767/40767-720.mp4",
+      "tags": ["思考", "独处", "窗边", "沉思", "认知"],
+      "phases": ["insight"],
+      "trim_in": 0.8
+    },
+    {
+      "id": "city_sunset_skyline",
+      "url": "https://assets.mixkit.co/videos/40652/40652-720.mp4",
+      "tags": ["城市", "日落", "高楼", "对比", "黄昏", "风景"],
+      "phases": ["contrast", "cta"],
+      "trim_in": 1.5
+    },
+    {
+      "id": "traffic_city_night",
+      "url": "https://assets.mixkit.co/videos/44279/44279-720.mp4",
+      "tags": ["城市", "车流", "夜景", "都市", "竞争", "博弈"],
+      "phases": ["pain", "contrast"],
+      "trim_in": 1.0
+    },
+    {
+      "id": "small_town_street",
+      "url": "https://assets.mixkit.co/videos/40744/40744-720.mp4",
+      "tags": ["小城", "街道", "慢生活", "日常", "宁静"],
+      "phases": ["action", "contrast"],
+      "trim_in": 0.6
+    },
+    {
+      "id": "nature_walk_path",
+      "url": "https://assets.mixkit.co/videos/1582/1582-720.mp4",
+      "tags": ["自然", "散步", "慢生活", "户外", "日常", "活法"],
+      "phases": ["action"],
+      "trim_in": 0.5
+    },
+    {
+      "id": "sunset_horizon",
+      "url": "https://assets.mixkit.co/videos/2098/2098-720.mp4",
+      "tags": ["日落", "风景", "宁静", "收藏", "结尾"],
+      "phases": ["cta"],
+      "trim_in": 1.0
+    },
+    {
+      "id": "coffee_slow_morning",
+      "url": "https://assets.mixkit.co/videos/4886/4886-720.mp4",
+      "tags": ["慢生活", "咖啡", "日常", "小城", "选择"],
+      "phases": ["action", "cta"],
+      "trim_in": 0.8
+    },
+    {
+      "id": "crowd_city_crosswalk",
+      "url": "https://assets.mixkit.co/videos/44272/44272-720.mp4",
+      "tags": ["都市", "人流", "竞争", "耗材", "博弈", "上班"],
+      "phases": ["pain"],
+      "trim_in": 0.7
+    },
+    {
+      "id": "lake_peaceful_nature",
+      "url": "https://assets.mixkit.co/videos/1580/1580-720.mp4",
+      "tags": ["自然", "湖泊", "宁静", "低欲", "风景", "赢家"],
+      "phases": ["action", "insight", "cta"],
+      "trim_in": 1.2
+    }
+  ]
+}

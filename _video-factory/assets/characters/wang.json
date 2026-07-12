@@ -1,0 +1,11 @@
+{
+  "key": "wang",
+  "name": "王主管",
+  "prompt_layer": "中年男性，西装，傲慢表情，办公室场景",
+  "voice_profile": {
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "+10%",
+    "pitch": "-4Hz",
+    "volume": "+4%"
+  }
+}

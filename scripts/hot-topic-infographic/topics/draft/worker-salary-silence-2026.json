@@ -1,0 +1,87 @@
+{
+  "id": "worker-salary-silence-2026",
+  "status": "draft",
+  "meta": {
+    "theme": "打工人谈薪沉默",
+    "hot_keywords": ["谈薪", "涨薪", "画饼", "跳槽"],
+    "tone": "satire",
+    "created_at": "2026-07-12",
+    "category": "worker",
+    "angle": "谈薪沉默",
+    "framing": "陷阱/禁忌/内耗清单"
+  },
+  "header": {
+    "title": "打工人谈薪沉默四件套",
+    "subtitle": "你不开口，老板就当没这回事",
+    "badge_top": "越沉默越穷",
+    "badge_bottom": "涨幅为零"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "不敢开口",
+      "price": "¥0涨幅",
+      "accent": "#2563EB",
+      "bullets": ["想谈怕尴尬", "怕谈完被穿小鞋", "干脆继续忍"],
+      "scene_prompt": "nervous worker rehearsing salary talk in mirror before meeting",
+      "bubble": "下次再说吧",
+      "effect": "下次永远是下次"
+    },
+    {
+      "no": "02",
+      "name": "同事倒挂",
+      "price": "心态崩了",
+      "accent": "#16A34A",
+      "bullets": ["新人工资比你高", "你带他还比他穷", "HR说市场就这样"],
+      "scene_prompt": "senior worker shocked comparing salary info with junior colleague",
+      "bubble": "经验不值钱？",
+      "effect": "忠诚度换不来涨薪"
+    },
+    {
+      "no": "03",
+      "name": "老板画饼",
+      "price": "饼管饱",
+      "accent": "#EA580C",
+      "bullets": ["明年一定涨", "先做出成绩", "公司困难理解下"],
+      "scene_prompt": "manager gesturing enthusiastically while worker looks skeptical",
+      "bubble": "饼又大又圆",
+      "effect": "饼吃了三年，工资没变"
+    },
+    {
+      "no": "04",
+      "name": "跳槽犹豫",
+      "price": "机会成本↑",
+      "accent": "#64748B",
+      "bullets": ["外面也不一定好", "熟悉的环境舍不得", "简历改了一半又删"],
+      "scene_prompt": "worker editing resume then closing laptop with hesitation",
+      "bubble": "再观望观望",
+      "effect": "观望一年，倒挂又一年"
+    }
+  ],
+  "footer": {
+    "upgrades": ["谈薪话术包", "跳槽风险评估", "简历优化课", "薪酬调研表"],
+    "warning": "谈薪需要勇气和数据，沉默不会自动变涨薪。",
+    "receipt": {
+      "lines": [
+        { "label": "不敢开口", "amount": "3年0涨" },
+        { "label": "同事倒挂", "amount": "-30%" },
+        { "label": "老板画饼", "amount": "饼×12" },
+        { "label": "跳槽犹豫", "amount": "机会-3" }
+      ],
+      "total": "收入原地踏步",
+      "balance": "-¥???",
+      "note": "涨幅已透支"
+    },
+    "tagline": "打工可以忍，谈薪别一直忍。"
+  },
+  "hooks": [
+    "你几年没涨薪了？",
+    "被新人工资倒挂过吗？",
+    "老板的饼你吃了几个？",
+    "谈薪你开过口吗？"
+  ],
+  "copy": {
+    "douyin_tags": ["打工人", "谈薪", "涨薪", "跳槽", "职场"],
+    "xiaohongshu_tags": ["打工人", "谈薪", "涨薪困境", "职场避坑", "跳槽", "薪酬倒挂"]
+  }
+}

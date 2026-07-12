@@ -1,0 +1,87 @@
+{
+  "id": "mealbuddy-aa-awkward-2026",
+  "status": "draft",
+  "meta": {
+    "theme": "饭搭子AA尴尬",
+    "hot_keywords": ["AA", "买单", "尴尬", "饭搭子"],
+    "tone": "satire",
+    "created_at": "2026-07-12",
+    "category": "meal_buddy",
+    "angle": "AA尴尬",
+    "framing": "干饭社交雷区"
+  },
+  "header": {
+    "title": "AA尴尬四件套",
+    "subtitle": "吃得开心，算账尴尬",
+    "badge_top": "越算越尬",
+    "badge_bottom": "社交余额不足"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "谁先来谁先付",
+      "price": "垫付压力",
+      "accent": "#2563EB",
+      "bullets": ["我先扫了码", "等大家转账", "有人装没看见"],
+      "scene_prompt": "person paying restaurant bill first waiting for friends to transfer money",
+      "bubble": "记得转我",
+      "effect": "垫付爽快，催款尴尬"
+    },
+    {
+      "no": "02",
+      "name": "算账算到分",
+      "price": "精度拉满",
+      "accent": "#16A34A",
+      "bullets": ["饮料谁喝了", "这道菜谁没吃", "计算器按半天"],
+      "scene_prompt": "friends splitting bill precisely with calculator at restaurant table",
+      "bubble": "一分不能少",
+      "effect": "算得清楚，气氛变冷"
+    },
+    {
+      "no": "03",
+      "name": "有人忘转账",
+      "price": "沉默三天",
+      "accent": "#EA580C",
+      "bullets": ["不好意思催", "怕显得小气", "最后自己消化"],
+      "scene_prompt": "person checking unpaid transfer reminder awkwardly in chat",
+      "bubble": "算了算了",
+      "effect": "钱不多，心结不小"
+    },
+    {
+      "no": "04",
+      "name": "下次不想同桌",
+      "price": "饭缘-1",
+      "accent": "#64748B",
+      "bullets": ["吃得还行", "算账难受", "约饭开始挑人"],
+      "scene_prompt": "person hesitating to invite same friend for next meal",
+      "bubble": "下次换一家",
+      "effect": "饭搭子可以换，规矩要提前说"
+    }
+  ],
+  "footer": {
+    "upgrades": ["AA话术模板", "群收款指南", "饭搭子规则卡", "尴尬化解包"],
+    "warning": "AA很正常，提前说好规则，避免事后尴尬。",
+    "receipt": {
+      "lines": [
+        { "label": "先来先付", "amount": "垫付¥200" },
+        { "label": "算账到分", "amount": "精度100%" },
+        { "label": "有人忘转", "amount": "沉默3天" },
+        { "label": "不想同桌", "amount": "饭缘-1" }
+      ],
+      "total": "社交体验打折",
+      "balance": "尬",
+      "note": "社交已透支"
+    },
+    "tagline": "AA可以，规矩先说清。"
+  },
+  "hooks": [
+    "AA算账你尴尬过吗？",
+    "垫付后有人忘转账怎么办？",
+    "算账算到分你会吗？",
+    "因为AA不想约第二次有过吗？"
+  ],
+  "copy": {
+    "douyin_tags": ["饭搭子", "AA", "买单", "尴尬", "干饭"],
+    "xiaohongshu_tags": ["饭搭子", "AA尴尬", "买单", "干饭社交", "约饭", "共鸣"]
+  }
+}

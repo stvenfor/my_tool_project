@@ -1,0 +1,87 @@
+{
+  "id": "worker-moyu-economics-2026",
+  "status": "draft",
+  "meta": {
+    "theme": "打工人摸鱼经济学",
+    "hot_keywords": ["摸鱼", "划水", "效率", "良心不安"],
+    "tone": "satire",
+    "created_at": "2026-07-12",
+    "category": "worker",
+    "angle": "摸鱼经济学",
+    "framing": "陷阱/禁忌/内耗清单"
+  },
+  "header": {
+    "title": "打工人摸鱼经济学四件套",
+    "subtitle": "摸鱼摸到心虚，不摸摸到崩溃",
+    "badge_top": "越摸越慌",
+    "badge_bottom": "良心余额不足"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "摸鱼姿势",
+      "price": "¥0/小时",
+      "accent": "#2563EB",
+      "bullets": ["厕所带薪思考", "接水路线绕远", "屏幕永远有文档"],
+      "scene_prompt": "office worker walking to water cooler with phone hidden, casual expression",
+      "bubble": "这叫劳逸结合",
+      "effect": "摸鱼五分钟，心虚两小时"
+    },
+    {
+      "no": "02",
+      "name": "被抓风险",
+      "price": "社死概率↑",
+      "accent": "#16A34A",
+      "bullets": ["领导突然站身后", "投屏忘关聊天框", "耳机里漏出游戏声"],
+      "scene_prompt": "worker panicking as manager appears behind desk during phone scrolling",
+      "bubble": "当场社死",
+      "effect": "一次被抓，半年老实"
+    },
+    {
+      "no": "03",
+      "name": "良心不安",
+      "price": "内耗+50",
+      "accent": "#EA580C",
+      "bullets": ["摸完更焦虑", "活堆到下班", "加班补今天的鱼"],
+      "scene_prompt": "worker staring at piled tasks with guilty expression after slacking",
+      "bubble": "鱼摸了，活还在",
+      "effect": "省下的时间，加倍还回去"
+    },
+    {
+      "no": "04",
+      "name": "效率悖论",
+      "price": "产出不变",
+      "accent": "#64748B",
+      "bullets": ["摸鱼日效率最高", "认真日反而拖延", "deadline才是生产力"],
+      "scene_prompt": "worker rushing to finish work at last minute before deadline",
+      "bubble": "Deadline是第一生产力",
+      "effect": "不是不会干，是不会提前干"
+    }
+  ],
+  "footer": {
+    "upgrades": ["摸鱼隐身术", "投屏防社死", "焦虑缓释片", "效率伪装课"],
+    "warning": "适度休息合理，长期摸鱼伤的是自己。别学坏。",
+    "receipt": {
+      "lines": [
+        { "label": "摸鱼姿势", "amount": "2h/天" },
+        { "label": "被抓风险", "amount": "1次/季" },
+        { "label": "良心不安", "amount": "内耗+50" },
+        { "label": "效率悖论", "amount": "产出0变化" }
+      ],
+      "total": "摸鱼盈亏平衡",
+      "balance": "±0",
+      "note": "良心已透支"
+    },
+    "tagline": "摸鱼可以，别把自己摸丢了。"
+  },
+  "hooks": [
+    "你摸鱼被抓过吗？",
+    "摸完鱼会更焦虑吗？",
+    "你的Deadline生产力几级？",
+    "厕所带薪思考你干过吗？"
+  ],
+  "copy": {
+    "douyin_tags": ["打工人", "摸鱼", "职场", "划水", "效率"],
+    "xiaohongshu_tags": ["打工人", "摸鱼经济学", "职场摸鱼", "办公室生存", "划水", "共鸣"]
+  }
+}

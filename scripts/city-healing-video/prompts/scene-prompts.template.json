@@ -1,0 +1,86 @@
+{
+  "style_suffix": "4K healing humanistic city documentary, retro cream film aesthetic, soft warm cream lighting, low contrast, subtle 35mm film grain, atmospheric soft glow, authentic LOCAL street life of {city_name} ONLY, unique regional architecture signage and dialect culture, handheld slow motion, NOT generic Chinese tourist hotspot, NOT Chengdu Chongqing Xi'an Shanghai generic stock footage",
+  "negative_prompt": "generic tourist city, neon cyberpunk, high contrast digital, stock footage watermark, crowded landmark selfie spot, modern glass skyscraper downtown",
+  "scenes": [
+    {
+      "id": "S01",
+      "zh_desc": "老巷特色小店",
+      "prompt_core": "{city_name} old alley specialty shop at dawn, weathered wooden door, local handwritten signboard, {local_shop_type}, cream morning light, empty quiet lane",
+      "camera": "handheld slow push/pull, subtle camera sway",
+      "duration_sec": 6,
+      "gen_duration_sec": 5
+    },
+    {
+      "id": "S02",
+      "zh_desc": "本地早餐市集",
+      "prompt_core": "{city_name} morning breakfast market, steam rising from {local_breakfast}, vendor hands serving, macro food close-up, warm cream tones",
+      "camera": "macro lens 100mm, shallow DOF, extreme close-up",
+      "duration_sec": 6,
+      "gen_duration_sec": 5
+    },
+    {
+      "id": "S03",
+      "zh_desc": "非遗手艺人",
+      "prompt_core": "{city_name} intangible cultural heritage craftsman, {craft_name}, weathered hands working, eye-level humanistic portrait, soft window light",
+      "camera": "eye-level documentary framing, 50mm natural perspective",
+      "duration_sec": 6,
+      "gen_duration_sec": 5
+    },
+    {
+      "id": "S04",
+      "zh_desc": "专属美食",
+      "prompt_core": "{city_name} signature local cuisine {dish_name}, macro texture steam oil sheen, slow motion pour, cream warm palette",
+      "camera": "macro lens 100mm, shallow DOF, extreme close-up",
+      "duration_sec": 6,
+      "gen_duration_sec": 5
+    },
+    {
+      "id": "S05",
+      "zh_desc": "城市公园",
+      "prompt_core": "{city_name} urban park morning walk, elderly locals tai chi, dappled sunlight through trees, gentle handheld follow",
+      "camera": "handheld slow push/pull, subtle camera sway",
+      "duration_sec": 6,
+      "gen_duration_sec": 5
+    },
+    {
+      "id": "S06",
+      "zh_desc": "小众地标街角",
+      "prompt_core": "{city_name} hidden landmark corner {landmark_name}, unique local architecture detail, eye-level street corner, few pedestrians",
+      "camera": "eye-level documentary framing, 50mm natural perspective",
+      "duration_sec": 6,
+      "gen_duration_sec": 5
+    },
+    {
+      "id": "S07",
+      "zh_desc": "市井生活延续",
+      "prompt_core": "{city_name} daily street life silhouettes, laundry lines local scooters, slow motion passersby, documentary warmth",
+      "camera": "handheld slow push/pull, subtle camera sway",
+      "duration_sec": 6,
+      "gen_duration_sec": 5
+    },
+    {
+      "id": "S08",
+      "zh_desc": "日落街道光斑",
+      "prompt_core": "{city_name} sunset street golden hour, lens flare bokeh slow motion, warm cream backlight, nostalgic film look",
+      "camera": "golden hour backlight, anamorphic bokeh, slow motion 60fps feel",
+      "duration_sec": 6,
+      "gen_duration_sec": 5
+    },
+    {
+      "id": "S09",
+      "zh_desc": "特色产业场景",
+      "prompt_core": "{city_name} {industry_scene} local workshop storefront, authentic production scene, eye-level documentary",
+      "camera": "eye-level documentary framing, 50mm natural perspective",
+      "duration_sec": 6,
+      "gen_duration_sec": 5
+    },
+    {
+      "id": "S10",
+      "zh_desc": "温暖收束",
+      "prompt_core": "{city_name} panoramic warm closing shot, city skyline or river at dusk, slow pull back, cream film grain, peaceful ending",
+      "camera": "handheld slow push/pull, subtle camera sway",
+      "duration_sec": 6,
+      "gen_duration_sec": 5
+    }
+  ]
+}

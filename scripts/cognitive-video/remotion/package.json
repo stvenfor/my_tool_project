@@ -1,0 +1,16 @@
+{
+  "name": "cognitive-video-remotion",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "render": "remotion render src/index.ts CognitiveVideo",
+    "preview": "remotion studio src/index.ts"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.242",
+    "@remotion/licensing": "^4.0.487",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.242"
+  }
+}

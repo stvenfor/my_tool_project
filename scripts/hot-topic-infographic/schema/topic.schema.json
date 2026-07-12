@@ -1,0 +1,117 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "hot-topic-infographic/topic.schema.json",
+  "title": "HotTopicInfographic",
+  "type": "object",
+  "required": ["id", "status", "header", "cards", "footer", "hooks", "copy"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "status": { "type": "string", "enum": ["draft", "approved"] },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "theme": { "type": "string" },
+        "hot_keywords": { "type": "array", "items": { "type": "string" } },
+        "tone": { "type": "string" },
+        "created_at": { "type": "string" },
+        "category": { "type": "string", "description": "Category slug, e.g. worker, family" },
+        "angle": { "type": "string", "description": "Topic angle within category" },
+        "framing": { "type": "string", "description": "Content framing style for context" }
+      }
+    },
+    "header": {
+      "type": "object",
+      "required": ["title", "subtitle", "badge_top", "badge_bottom"],
+      "properties": {
+        "title": { "type": "string", "maxLength": 18 },
+        "subtitle": { "type": "string", "maxLength": 24 },
+        "badge_top": { "type": "string", "maxLength": 8 },
+        "badge_bottom": { "type": "string", "maxLength": 8 }
+      }
+    },
+    "cards": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "required": ["no", "name", "price", "accent", "bullets", "scene_prompt", "bubble", "effect"],
+        "properties": {
+          "no": { "type": "string" },
+          "name": { "type": "string", "maxLength": 20 },
+          "price": { "type": "string", "maxLength": 12 },
+          "accent": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+          "bullets": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": { "type": "string", "maxLength": 14 }
+          },
+          "scene_prompt": { "type": "string" },
+          "bubble": { "type": "string", "maxLength": 16 },
+          "effect": { "type": "string", "maxLength": 14 }
+        }
+      }
+    },
+    "footer": {
+      "type": "object",
+      "required": ["upgrades", "warning", "receipt", "tagline"],
+      "properties": {
+        "upgrades": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": { "type": "string", "maxLength": 16 }
+        },
+        "warning": { "type": "string", "maxLength": 32 },
+        "receipt": {
+          "type": "object",
+          "required": ["lines", "total", "balance", "note"],
+          "properties": {
+            "lines": {
+              "type": "array",
+              "minItems": 4,
+              "maxItems": 6,
+              "items": {
+                "type": "object",
+                "required": ["label", "amount"],
+                "properties": {
+                  "label": { "type": "string" },
+                  "amount": { "type": "string" }
+                }
+              }
+            },
+            "total": { "type": "string" },
+            "balance": { "type": "string" },
+            "note": { "type": "string", "maxLength": 8 }
+          }
+        },
+        "tagline": { "type": "string", "maxLength": 24 }
+      }
+    },
+    "hooks": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": { "type": "string" }
+    },
+    "copy": {
+      "type": "object",
+      "required": ["douyin_tags", "xiaohongshu_tags"],
+      "properties": {
+        "douyin_tags": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 5,
+          "items": { "type": "string" }
+        },
+        "xiaohongshu_tags": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 8,
+          "items": { "type": "string" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "hook": {
+    "zh": "儿童英语三国【移驾许昌】",
+    "en": "Three Kingdoms English: Move to Xuchang",
+    "duration_sec": 3.36,
+    "visual_keyword": "三国 Q版 标题卡 移驾许昌 3D动画",
+    "phase": "hook"
+  },
+  "segments": [
+    {
+      "start_sec": 12.64,
+      "duration_sec": 11.52,
+      "en": "Your majesty, I have a report. Yang Feng and Han Xian helped protect you. But now they are rude and bossy. Please punish them.",
+      "zh": "陛下，臣有本奏。杨奉、韩暹曾护驾有功，如今却跋扈无礼，请陛下严惩。",
+      "visual_keyword": "杨奉 韩暹 汉献帝 3D Q版三国",
+      "phase": "story"
+    },
+    {
+      "start_sec": 24.16,
+      "duration_sec": 12.4,
+      "en": "Yang Feng, you're lying! You too. Stay or leave — the choice is yours. Yang Feng, you'll pay for this!",
+      "zh": "杨奉，你撒谎！你也是。去或留，你自己选。杨奉，你会付出代价！",
+      "visual_keyword": "杨奉 对峙 3D Q版",
+      "phase": "story"
+    },
+    {
+      "start_sec": 44.32,
+      "duration_sec": 9.04,
+      "en": "Send for Xu Huang. Yes, general! Which group of generals does Xu Huang belong to?",
+      "zh": "传徐晃来。遵命，将军！徐晃属于哪一类将军？",
+      "visual_keyword": "徐晃 曹操 3D Q版三国",
+      "phase": "story"
+    },
+    {
+      "start_sec": 54.08,
+      "duration_sec": 7.84,
+      "en": "A, the five tiger generals. B, the five elite generals. C, the five dragon generals.",
+      "zh": "A，五虎上将。B，五子良将。C，五龙上将。",
+      "visual_keyword": "选择题 五子良将 3D Q版",
+      "phase": "story"
+    },
+    {
+      "start_sec": 63.12,
+      "duration_sec": 6.24,
+      "en": "Xu Huang, Yang Feng can't protect you. Join me and you'll be safe.",
+      "zh": "徐晃，杨奉保护不了你。跟我，你就安全。",
+      "visual_keyword": "曹操 徐晃 招降 3D Q版",
+      "phase": "story"
+    },
+    {
+      "start_sec": 74.4,
+      "duration_sec": 5.04,
+      "en": "I will serve you. Great! From now on, we fight together.",
+      "zh": "愿效忠将军。好！从今以后，我们一起战斗。",
+      "visual_keyword": "徐晃 归顺 3D Q版",
+      "phase": "story"
+    },
+    {
+      "start_sec": 83.52,
+      "duration_sec": 6.56,
+      "en": "Luoyang is very old and broken now, and we don't have enough food. Could we move somewhere else?",
+      "zh": "洛阳如今残破不堪，粮食也不够。能迁到别处吗？",
+      "visual_keyword": "洛阳废墟 缺粮 3D Q版",
+      "phase": "story"
+    },
+    {
+      "start_sec": 90.56,
+      "duration_sec": 5.04,
+      "en": "Xuchang has plenty of food and is your base. This is a great plan.",
+      "zh": "许昌粮足，又是将军根基。这是好主意。",
+      "visual_keyword": "许昌 粮仓 地图 3D Q版",
+      "phase": "story"
+    },
+    {
+      "start_sec": 99.52,
+      "duration_sec": 5.76,
+      "en": "Your majesty, we have no food here. Please move to Xuchang.",
+      "zh": "陛下，此处无粮，请移驾许昌。",
+      "visual_keyword": "移驾许昌 汉献帝 3D Q版",
+      "phase": "story"
+    },
+    {
+      "start_sec": 105.92,
+      "duration_sec": 10.16,
+      "en": "I will follow your plan, General Cao. Then let's set off today.",
+      "zh": "朕听从曹将军之计。那今日便出发吧。",
+      "visual_keyword": "皇家车队 出发 3D Q版",
+      "phase": "story"
+    },
+    {
+      "start_sec": 125.52,
+      "duration_sec": 8.32,
+      "en": "I'm making Xu Huang our top general. Great decision, your majesty.",
+      "zh": "朕封徐晃为大将。陛下英明。",
+      "visual_keyword": "拜将 徐晃 3D Q版",
+      "phase": "story"
+    },
+    {
+      "start_sec": 133.84,
+      "duration_sec": 7.927,
+      "en": "Instead of complaining, take a brave new step. Cao Cao's power grew from here.",
+      "zh": "别抱怨，勇敢迈出新一步。曹操霸业，从此开始。",
+      "visual_keyword": "曹操 霸业 许昌 3D Q版",
+      "phase": "closing"
+    }
+  ]
+}

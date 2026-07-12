@@ -1,0 +1,87 @@
+{
+  "id": "gaming-gacha-trap-2026",
+  "status": "draft",
+  "meta": {
+    "theme": "游戏队友氪金陷阱",
+    "hot_keywords": ["氪金", "皮肤", "抽奖", "冲动"],
+    "tone": "satire",
+    "created_at": "2026-07-12",
+    "category": "gaming",
+    "angle": "氪金陷阱",
+    "framing": "开黑踩坑四件套"
+  },
+  "header": {
+    "title": "游戏氪金四件套",
+    "subtitle": "皮肤到手，钱包先空",
+    "badge_top": "越氪越穷",
+    "badge_bottom": "钱包余额不足"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "限时皮肤",
+      "price": "倒计时焦虑",
+      "accent": "#2563EB",
+      "bullets": ["错过就没了", "特效真的帅", "先买再说"],
+      "scene_prompt": "gamer staring at limited time skin offer with countdown timer",
+      "bubble": "不买会后悔",
+      "effect": "限时很假，冲动很真"
+    },
+    {
+      "no": "02",
+      "name": "再抽一次",
+      "price": "¥648风险",
+      "accent": "#DC2626",
+      "bullets": ["差一个就出了", "觉得下把必中", "概率不会骗人吧"],
+      "scene_prompt": "gamer repeatedly tapping gacha pull button on game screen",
+      "bubble": "就最后一抽",
+      "effect": "最后一抽，永远没有最后一抽"
+    },
+    {
+      "no": "03",
+      "name": "保底还差十抽",
+      "price": "沉没成本",
+      "accent": "#16A34A",
+      "bullets": ["已经氪了两百", "保底还差十抽", "不抽前面白氪"],
+      "scene_prompt": "gamer calculating gacha pity counter with frustrated expression",
+      "bubble": "都到这份上了",
+      "effect": "前面氪的，逼你继续氪"
+    },
+    {
+      "no": "04",
+      "name": "钱包比段位先空",
+      "price": "余额见底",
+      "accent": "#64748B",
+      "bullets": ["皮肤有了技术没涨", "月底吃泡面", "发誓下月不氪"],
+      "scene_prompt": "gamer showing off new skin while checking empty wallet on phone",
+      "bubble": "下月一定戒",
+      "effect": "外观满配，余额空配"
+    }
+  ],
+  "footer": {
+    "upgrades": ["氪金冷静期", "月预算上限", "保底计算器", "白嫖快乐指南"],
+    "warning": "游戏娱乐为主，氪金需量力而行，别影响生活。",
+    "receipt": {
+      "lines": [
+        { "label": "限时皮肤", "amount": "焦虑+100" },
+        { "label": "再抽一次", "amount": "¥648" },
+        { "label": "保底差十抽", "amount": "沉没成本" },
+        { "label": "钱包先空", "amount": "余额0" }
+      ],
+      "total": "外观富有钱包贫穷",
+      "balance": "-¥648",
+      "note": "钱包已透支"
+    },
+    "tagline": "皮肤可以帅，钱包别先空。"
+  },
+  "hooks": [
+    "你为游戏氪过最多一次多少？",
+    "最后一抽你说过几次？",
+    "保底逼氪你经历过吗？",
+    "钱包比段位先空过吗？"
+  ],
+  "copy": {
+    "douyin_tags": ["游戏", "氪金", "抽奖", "皮肤", "游戏日常"],
+    "xiaohongshu_tags": ["游戏队友", "氪金陷阱", "游戏氪金", "抽奖", "游戏日常", "共鸣"]
+  }
+}

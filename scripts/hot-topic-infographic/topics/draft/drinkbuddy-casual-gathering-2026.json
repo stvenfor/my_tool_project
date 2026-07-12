@@ -1,0 +1,87 @@
+{
+  "id": "drinkbuddy-casual-gathering-2026",
+  "status": "draft",
+  "meta": {
+    "theme": "酒友小酌聚会",
+    "hot_keywords": ["小酌", "聚会", "聊天", "放松"],
+    "tone": "satire",
+    "created_at": "2026-07-12",
+    "category": "drinking_buddy",
+    "angle": "小酌聚会",
+    "framing": "酒局踩坑清单"
+  },
+  "header": {
+    "title": "小酌聚会四件套",
+    "subtitle": "本想聊会儿，聊到不想散",
+    "badge_top": "越聊越嗨",
+    "badge_bottom": "作息余额不足"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "本想小聚",
+      "price": "计划1小时",
+      "accent": "#2563EB",
+      "bullets": ["下班见一面", "聊聊天就回", "穿得也很随意"],
+      "scene_prompt": "friends meeting casually at small restaurant for relaxed gathering",
+      "bubble": "小聚一下",
+      "effect": "计划很短，快乐很长"
+    },
+    {
+      "no": "02",
+      "name": "聊到不想散",
+      "price": "时长×3",
+      "accent": "#16A34A",
+      "bullets": ["旧事新梗轮流讲", "笑声越来越大", "店员来收桌了"],
+      "scene_prompt": "friends laughing and chatting late at restaurant table",
+      "bubble": "再坐会儿",
+      "effect": "时间没了概念，快乐有了浓度"
+    },
+    {
+      "no": "03",
+      "name": "开心过头",
+      "price": "音量+100",
+      "accent": "#EA580C",
+      "bullets": ["隔壁桌看你们", "自己完全没察觉", "聚会变脱口秀"],
+      "scene_prompt": "group of friends talking animatedly loud in restaurant",
+      "bubble": "今天太开心了",
+      "effect": "开心是真的，吵也是真的"
+    },
+    {
+      "no": "04",
+      "name": "回家路上回味",
+      "price": "余温很久",
+      "accent": "#64748B",
+      "bullets": ["路上还在笑", "回家舍不得睡", "开始约下次"],
+      "scene_prompt": "person walking home at night smiling remembering gathering",
+      "bubble": "下次再约",
+      "effect": "小聚不大，回忆很满"
+    }
+  ],
+  "footer": {
+    "upgrades": ["聚会时间管理", "适量小酌提醒", "回家路线安全", "下次约会日历"],
+    "warning": "聚会开心就好，适量饮酒，注意回家安全。",
+    "receipt": {
+      "lines": [
+        { "label": "本想小聚", "amount": "计划1h" },
+        { "label": "聊到不想散", "amount": "实际3h" },
+        { "label": "开心过头", "amount": "音量+100" },
+        { "label": "回家回味", "amount": "余温很久" }
+      ],
+      "total": "快乐超额",
+      "balance": "+开心",
+      "note": "作息待补"
+    },
+    "tagline": "朋友小聚，开心比时长重要。"
+  },
+  "hooks": [
+    "小聚变久聊你经历过吗？",
+    "聚会聊到不想散过吗？",
+    "开心过头吵到隔壁有过吗？",
+    "回家路上还在回味吗？"
+  ],
+  "copy": {
+    "douyin_tags": ["酒友", "小酌", "朋友聚会", "聊天", "周末"],
+    "xiaohongshu_tags": ["酒友", "小酌聚会", "朋友聚会", "周末生活", "聊天", "共鸣"]
+  }
+}

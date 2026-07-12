@@ -1,0 +1,87 @@
+{
+  "id": "friend-drifting-apart-2026",
+  "status": "draft",
+  "meta": {
+    "theme": "朋友关系渐行渐远",
+    "hot_keywords": ["渐行渐远", "友情", "联系", "回忆"],
+    "tone": "satire",
+    "created_at": "2026-07-12",
+    "category": "friend",
+    "angle": "渐行渐远",
+    "framing": "友情消耗清单"
+  },
+  "header": {
+    "title": "渐行渐远四件套",
+    "subtitle": "没吵架，就是慢慢不联系了",
+    "badge_top": "越长大越淡",
+    "badge_bottom": "联系频率归零"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "聊天变少",
+      "price": "月聊1次",
+      "accent": "#2563EB",
+      "bullets": ["从每天聊到每周", "从每周到每月", "最后只剩节日问候"],
+      "scene_prompt": "person scrolling old chat history with friend showing fewer recent messages",
+      "bubble": "在吗在吗",
+      "effect": "不是不想聊，是没话题了"
+    },
+    {
+      "no": "02",
+      "name": "约饭推辞",
+      "price": "爽约率↑",
+      "accent": "#16A34A",
+      "bullets": ["说好这周见", "临时说有事", "下次再约再也没下次"],
+      "scene_prompt": "person cancelling dinner plans on phone with apologetic expression",
+      "bubble": "下次一定",
+      "effect": "约饭热情，赴约冷淡"
+    },
+    {
+      "no": "03",
+      "name": "共同话题",
+      "price": "话题-90%",
+      "accent": "#EA580C",
+      "bullets": ["生活轨迹不同了", "聊完近况就沉默", "回忆杀撑不了多久"],
+      "scene_prompt": "two friends at cafe running out of conversation topics awkwardly",
+      "bubble": "然后呢",
+      "effect": "坐在一起，各想各的"
+    },
+    {
+      "no": "04",
+      "name": "只剩点赞",
+      "price": "互动降级",
+      "accent": "#64748B",
+      "bullets": ["朋友圈互点赞", "从不评论", "像熟悉的陌生人"],
+      "scene_prompt": "person liking friend's social media post without commenting",
+      "bubble": "还在列表里",
+      "effect": "友情没断，只是休眠了"
+    }
+  ],
+  "footer": {
+    "upgrades": ["破冰话术", "约饭成功率提升", "共同话题挖掘", "友情维护提醒"],
+    "warning": "友情会淡，珍惜还联系的朋友，不必强求。",
+    "receipt": {
+      "lines": [
+        { "label": "聊天变少", "amount": "月聊1次" },
+        { "label": "约饭推辞", "amount": "爽约×3" },
+        { "label": "共同话题", "amount": "-90%" },
+        { "label": "只剩点赞", "amount": "互动降级" }
+      ],
+      "total": "友情自然降温",
+      "balance": "怀念>联系",
+      "note": "青春已存档"
+    },
+    "tagline": "朋友可以散，回忆不会丢。"
+  },
+  "hooks": [
+    "你和最好的朋友多久没联系了？",
+    "渐行渐远你经历过吗？",
+    "约饭推辞你会主动再约吗？",
+    "朋友圈点赞算维持友情吗？"
+  ],
+  "copy": {
+    "douyin_tags": ["朋友关系", "渐行渐远", "友情", "长大", "联系"],
+    "xiaohongshu_tags": ["朋友关系", "渐行渐远", "友情", "长大", "社交", "共鸣"]
+  }
+}

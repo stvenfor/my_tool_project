@@ -6,22 +6,23 @@
   <title>{{TITLE}} - {{DATE_LABEL}}</title>
   <style>
     :root {
-      --ink: #1a1a1a;
-      --ink-secondary: #666666;
-      --ink-muted: #999999;
-      --grid: #e0e0e0;
-      --line: #cccccc;
-      --long: #d14d4d;
-      --long-deep: #b83333;
-      --long-bg: #fde8e8;
-      --long-glow: rgba(209, 77, 77, 0.28);
-      --short: #3a9a6a;
-      --short-deep: #257a52;
-      --short-bg: #e2f4ea;
-      --short-glow: rgba(58, 154, 106, 0.28);
-      --accent: #4a5568;
-      --accent-soft: #8b9aab;
-      --panel: #f5f3f0;
+      --ink: #141414;
+      --ink-secondary: #5c5c5c;
+      --ink-muted: #8a8a8a;
+      --grid: #d8d8d8;
+      --line: #d0d0d0;
+      --long: #e04545;
+      --long-deep: #b82e2e;
+      --long-bg: #fff0f0;
+      --long-glow: rgba(224, 69, 69, 0.32);
+      --short: #2f9b6a;
+      --short-deep: #1f7a52;
+      --short-bg: #e8f8ef;
+      --short-glow: rgba(47, 155, 106, 0.28);
+      --accent: #3d4a5c;
+      --accent-soft: #7a8a9c;
+      --panel: #f7f5f2;
+      --panel-deep: #ece8e3;
       --bg: #ffffff;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -39,54 +40,49 @@
     .report {
       width: 720px;
       height: 1280px;
-      background: var(--bg);
+      background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
       display: flex;
       flex-direction: column;
-      padding: 40px 32px 28px;
+      padding: 36px 32px 28px;
     }
 
     .masthead {
       flex-shrink: 0;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
       border-bottom: 2px solid var(--ink);
-      padding-bottom: 18px;
+      padding-bottom: 16px;
     }
-    .masthead-row {
+    .masthead-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .masthead-kicker {
+      display: inline-flex;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(61, 74, 92, 0.07);
+      border: 1px solid rgba(61, 74, 92, 0.12);
+    }
+    .masthead-handle {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    .masthead-date-row {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
       gap: 16px;
-      margin-bottom: 12px;
-    }
-    .masthead-left { flex: 1; min-width: 0; }
-    .logo-block {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      flex-shrink: 0;
-    }
-    .logo {
-      width: 60px;
-      height: 60px;
-      object-fit: contain;
-      display: block;
-    }
-    .logo-handle {
-      font-size: 9px;
-      font-weight: 600;
-      color: var(--ink-secondary);
-      letter-spacing: 0.01em;
-      white-space: nowrap;
-      line-height: 1.2;
-    }
-    .masthead-kicker {
-      font-family: Georgia, "Times New Roman", "Songti SC", serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
     }
     .masthead h1 {
       font-family: Georgia, "Times New Roman", "Songti SC", serif;
@@ -97,6 +93,31 @@
       letter-spacing: -0.01em;
       max-width: 520px;
     }
+    .logo-block {
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+    .logo-shell {
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      background: linear-gradient(145deg, #ffffff 0%, #eef3fa 55%, #e3ebf5 100%);
+      box-shadow:
+        0 6px 16px rgba(61, 74, 92, 0.14),
+        0 2px 6px rgba(61, 74, 92, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+    }
+    .logo {
+      width: 46px;
+      height: 46px;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+    }
     .masthead-sub {
       margin-top: 8px;
       font-size: 12px;
@@ -104,20 +125,17 @@
       letter-spacing: 0.02em;
     }
 
-    .pull-quote {
+    .today-highlight {
       flex-shrink: 0;
-      margin-bottom: 22px;
-      padding: 14px 16px 14px 20px;
-      background: linear-gradient(90deg, var(--long-bg) 0%, var(--bg) 72%);
-      border-left: 3px solid var(--long);
-      border-radius: 0 8px 8px 0;
-    }
-    .pull-quote p {
-      font-family: Georgia, "Times New Roman", "Songti SC", serif;
-      font-size: 15px;
-      line-height: 1.65;
-      color: var(--ink);
-      font-style: italic;
+      margin-bottom: 16px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      background: linear-gradient(90deg, var(--long-bg) 0%, rgba(255, 240, 240, 0.2) 100%);
+      border: 1px solid rgba(224, 69, 69, 0.18);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--long-deep);
+      letter-spacing: 0.02em;
     }
 
     .main {
@@ -126,59 +144,94 @@
       flex-direction: column;
       gap: 20px;
       min-height: 0;
+      overflow: hidden;
     }
 
     .section { flex-shrink: 0; }
+    .chart-section { flex-shrink: 0; }
     .section-head {
       margin-bottom: 12px;
       display: flex;
       align-items: baseline;
-      gap: 10px;
+      gap: 12px;
+    }
+    .section-head-chart {
+      align-items: center;
+    }
+    .section-head-chart .section-text {
+      flex: 1;
+      min-width: 0;
     }
     .section-num {
-      font-family: Georgia, "Times New Roman", "Songti SC", serif;
-      font-size: 22px;
-      font-weight: 700;
+      font-size: 12px;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
       color: var(--accent-soft);
       line-height: 1;
-      letter-spacing: -0.02em;
+      letter-spacing: 0.04em;
     }
     .section-text h2 {
-      font-family: Georgia, "Times New Roman", "Songti SC", serif;
       font-size: 16px;
       font-weight: 700;
       color: var(--ink);
       line-height: 1.3;
     }
     .section-text p {
-      font-size: 11px;
+      font-size: 12px;
       color: var(--ink-secondary);
       margin-top: 3px;
       letter-spacing: 0.01em;
     }
+    .chart-legend {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--ink-secondary);
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .legend-swatch {
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .legend-swatch.long { background: var(--long); }
+    .legend-swatch.short { background: var(--short); }
 
     .symbol-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
     }
     .symbol-cell {
       position: relative;
       overflow: hidden;
-      padding: 18px 16px 16px;
-      border-radius: 10px;
+      padding: 12px 10px 10px;
+      border-radius: 12px;
       border: 1px solid transparent;
       text-align: left;
     }
     .symbol-cell.long {
-      background: linear-gradient(145deg, #fff5f5 0%, var(--long-bg) 100%);
-      border-color: rgba(209, 77, 77, 0.35);
-      box-shadow: 0 6px 20px var(--long-glow);
+      background: linear-gradient(155deg, #ffffff 0%, var(--long-bg) 100%);
+      border-color: rgba(224, 69, 69, 0.28);
+      box-shadow:
+        0 6px 18px var(--long-glow),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
     }
     .symbol-cell.short {
-      background: linear-gradient(145deg, #f0faf5 0%, var(--short-bg) 100%);
-      border-color: rgba(58, 154, 106, 0.35);
-      box-shadow: 0 6px 20px var(--short-glow);
+      background: linear-gradient(155deg, #ffffff 0%, var(--short-bg) 100%);
+      border-color: rgba(47, 155, 106, 0.28);
+      box-shadow:
+        0 6px 18px var(--short-glow),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
     }
     .symbol-cell::before {
       content: "";
@@ -188,44 +241,37 @@
     }
     .symbol-cell.long::before { background: linear-gradient(180deg, var(--long) 0%, var(--long-deep) 100%); }
     .symbol-cell.short::before { background: linear-gradient(180deg, var(--short) 0%, var(--short-deep) 100%); }
-    .sym-watermark {
-      position: absolute;
-      right: 8px;
-      top: 6px;
-      font-size: 42px;
-      font-weight: 800;
-      line-height: 1;
-      opacity: 0.06;
-      letter-spacing: -0.04em;
-      pointer-events: none;
-    }
     .sym-top {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      margin-bottom: 10px;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 8px;
       position: relative;
       z-index: 1;
     }
     .sym-label {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--ink-secondary);
-      letter-spacing: 0.02em;
-    }
-    .dir-badge {
       font-size: 10px;
       font-weight: 700;
-      padding: 3px 8px;
+      color: var(--ink-secondary);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .dir-badge {
+      display: inline-flex;
+      align-self: flex-start;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 6px;
       border-radius: 999px;
       letter-spacing: 0.04em;
       white-space: nowrap;
     }
-    .dir-badge.long { background: rgba(209, 77, 77, 0.18); color: var(--long-deep); }
-    .dir-badge.short { background: rgba(58, 154, 106, 0.18); color: var(--short-deep); }
+    .dir-badge.long { background: rgba(224, 69, 69, 0.16); color: var(--long-deep); border: 1px solid rgba(224, 69, 69, 0.2); }
+    .dir-badge.short { background: rgba(47, 155, 106, 0.16); color: var(--short-deep); border: 1px solid rgba(47, 155, 106, 0.2); }
     .sym-value {
-      font-size: 30px;
+      font-size: 28px;
       font-weight: 800;
       font-variant-numeric: tabular-nums;
       letter-spacing: -0.04em;
@@ -235,85 +281,99 @@
     }
     .symbol-cell.long .sym-value { color: var(--long-deep); }
     .symbol-cell.short .sym-value { color: var(--short-deep); }
-    .sym-sub {
-      font-size: 11px;
-      margin-top: 8px;
-      color: var(--ink-secondary);
-      position: relative;
-      z-index: 1;
-    }
 
     .chart-panel {
-      flex: 1;
-      min-height: 0;
+      flex-shrink: 0;
       display: flex;
       flex-direction: column;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 14px 12px 8px;
-      box-shadow: 0 4px 20px rgba(26, 26, 26, 0.04);
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      padding: 0;
+      box-shadow: none;
     }
     .chart-wrap {
-      flex: 1;
-      min-height: 250px;
+      flex-shrink: 0;
+      height: 332px;
+      width: 100%;
       display: flex;
       align-items: stretch;
     }
     .chart-wrap svg { width: 100%; height: 100%; }
 
-    .summary-panel {
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      box-shadow: 0 4px 20px rgba(26, 26, 26, 0.04);
-    }
     .summary-grid {
       display: grid;
       grid-template-columns: 1.15fr 1fr 1fr;
-      gap: 0;
+      gap: 12px;
     }
-    .summary-item {
-      padding: 18px 14px;
-      background: var(--bg);
-      border-right: 1px solid var(--line);
+    .summary-card {
+      position: relative;
+      padding: 16px 14px 14px 18px;
+      border-radius: 14px;
+      background: linear-gradient(165deg, #ffffff 0%, #fafafa 100%);
+      border: 1px solid #ece8e3;
+      box-shadow:
+        0 8px 22px rgba(20, 20, 20, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      overflow: hidden;
     }
-    .summary-item:last-child { border-right: none; }
-    .summary-item.hero {
-      background: linear-gradient(160deg, var(--long-bg) 0%, #fff5f5 85%);
-      border-right: 1px solid rgba(209, 77, 77, 0.3);
+    .summary-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
     }
-    .summary-item .s-label {
+    .summary-card.hero::before {
+      background: linear-gradient(180deg, var(--long) 0%, var(--long-deep) 100%);
+    }
+    .summary-card.stock::before,
+    .summary-card.flow::before {
+      background: linear-gradient(180deg, var(--accent-soft) 0%, var(--line) 100%);
+    }
+    .summary-card.hero {
+      background: linear-gradient(165deg, #fff8f8 0%, var(--long-bg) 55%, #ffffff 100%);
+      border-color: rgba(224, 69, 69, 0.22);
+      box-shadow:
+        0 10px 28px rgba(224, 69, 69, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    }
+    .summary-card .s-label {
       font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.06em;
       color: var(--ink-secondary);
       margin-bottom: 10px;
     }
-    .summary-item .s-value {
-      font-size: 22px;
+    .summary-card .s-value {
+      font-size: 24px;
       font-weight: 800;
       font-variant-numeric: tabular-nums;
       color: var(--ink);
       line-height: 1.05;
       letter-spacing: -0.03em;
     }
-    .summary-item.hero .s-value { font-size: 28px; }
-    .summary-item .s-value.long { color: var(--long-deep); }
-    .summary-item .s-value.short { color: var(--short-deep); }
-    .summary-item .s-value.accent { color: var(--long-deep); }
-    .summary-item .s-unit {
-      font-size: 11px;
-      font-weight: 400;
+    .summary-card.hero .s-value { font-size: 30px; }
+    .summary-card.stock .s-value {
+      font-size: 20px;
       color: var(--ink-secondary);
+    }
+    .summary-card .s-value.long { color: var(--long-deep); }
+    .summary-card .s-value.short { color: var(--short-deep); }
+    .summary-card .s-unit {
+      display: block;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--ink-muted);
       margin-top: 6px;
+      letter-spacing: 0.02em;
     }
 
     .footer {
       flex-shrink: 0;
-      margin-top: 20px;
-      padding-top: 14px;
+      margin-top: 8px;
+      padding-top: 12px;
       border-top: 1px solid var(--line);
     }
     .footer p {
@@ -327,19 +387,18 @@
 <body>
   <div class="report">
     <header class="masthead">
-      <div class="masthead-row">
-        <div class="masthead-left">
-          <div class="masthead-kicker">中信期货 · 净持仓日报</div>
-        </div>
+      <div class="masthead-top">
+        <span class="masthead-kicker">中信期货 · 净持仓日报</span>
+        {{LOGO_HANDLE_ROW}}
+      </div>
+      <div class="masthead-date-row">
+        <h1>{{DATE_LABEL}}</h1>
         {{LOGO_SECTION}}
       </div>
-      <h1>{{DATE_LABEL}}</h1>
       <p class="masthead-sub">来源于网络 · 机构持仓数据</p>
     </header>
 
-    <blockquote class="pull-quote">
-      <p>{{TITLE}}</p>
-    </blockquote>
+    {{TODAY_HIGHLIGHT}}
 
     <div class="main">
       <section class="section">
@@ -354,11 +413,15 @@
       </section>
 
       <section class="section chart-section">
-        <div class="section-head">
+        <div class="section-head section-head-chart">
           <span class="section-num">02</span>
           <div class="section-text">
             <h2>持仓变化对比</h2>
-            <p>各品种净加减仓手数（正为加多，负为加空）· 来源于网络</p>
+            <p>平方根刻度 · 正为加多，负为加空</p>
+          </div>
+          <div class="chart-legend">
+            <span class="legend-item"><span class="legend-swatch long"></span>加多</span>
+            <span class="legend-item"><span class="legend-swatch short"></span>加空</span>
           </div>
         </div>
         <div class="chart-panel">{{CHART_SECTION}}</div>
@@ -369,28 +432,25 @@
           <span class="section-num">03</span>
           <div class="section-text">
             <h2>市场概览</h2>
-            <p>全市场机构持仓汇总 · 来源于网络</p>
           </div>
         </div>
-        <div class="summary-panel">
-          <div class="summary-grid">
-            <div class="summary-item hero">
+        <div class="summary-grid">
+            <div class="summary-card hero">
               <div class="s-label">中信整体</div>
               <div class="s-value {{CITIC_CLASS}}">{{CITIC_OVERALL}}</div>
-              <div class="s-unit">净持仓变化</div>
+              <div class="s-unit">当日净持仓变化 · 手</div>
             </div>
-            <div class="summary-item">
-              <div class="s-label">前20机构净空单</div>
+            <div class="summary-card stock">
+              <div class="s-label">前20机构净空单（存量）</div>
               <div class="s-value">{{TOP20_TOTAL}}</div>
-              <div class="s-unit">手</div>
+              <div class="s-unit">全市场存量 · {{TOP20_EXACT}} 手</div>
             </div>
-            <div class="summary-item">
+            <div class="summary-card flow">
               <div class="s-label">今日净买入</div>
-              <div class="s-value accent">{{NET_BUY}}</div>
-              <div class="s-unit">手</div>
+              <div class="s-value">{{NET_BUY}}</div>
+              <div class="s-unit">当日变动 · 手</div>
             </div>
           </div>
-        </div>
       </section>
     </div>
 

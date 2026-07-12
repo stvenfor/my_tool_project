@@ -1,0 +1,132 @@
+{
+  "id": "agent-productivity-2026",
+  "status": "draft",
+  "meta": {
+    "theme": "Agent生产力陷阱",
+    "hot_keywords": [
+      "Agent",
+      "自动化",
+      "n8n",
+      "云服务器"
+    ],
+    "tone": "satire",
+    "created_at": "2026-07-12"
+  },
+  "header": {
+    "title": "Agent生产力陷阱四件套",
+    "subtitle": "买前穷，买后更穷，Agent陷阱",
+    "badge_top": "越用越穷",
+    "badge_bottom": "余额不足"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "Agent",
+      "price": "¥999/月",
+      "accent": "#2563EB",
+      "bullets": [
+        "看起来很刚需",
+        "其实可替代",
+        "续费才安心"
+      ],
+      "scene_prompt": "tired worker using laptop at night",
+      "bubble": "又交了智商税",
+      "effect": "钱包瘦了心更慌"
+    },
+    {
+      "no": "02",
+      "name": "自动化",
+      "price": "¥799/月",
+      "accent": "#16A34A",
+      "bullets": [
+        "功能听起来全",
+        "用到只有一点",
+        "其余都在吃灰"
+      ],
+      "scene_prompt": "person scrolling phone in bed",
+      "bubble": "买了等于用了",
+      "effect": "认知升级存款降级"
+    },
+    {
+      "no": "03",
+      "name": "n8n",
+      "price": "¥1299/月",
+      "accent": "#EA580C",
+      "bullets": [
+        "教程说能变现",
+        "现实是零回复",
+        "焦虑准时敲门"
+      ],
+      "scene_prompt": "worker editing documents with dark circles",
+      "bubble": "准备很久没开始",
+      "effect": "越焦虑越续费"
+    },
+    {
+      "no": "04",
+      "name": "云服务器",
+      "price": "¥5999起",
+      "accent": "#64748B",
+      "bullets": [
+        "设备先到位",
+        "项目没上线",
+        "电费比饭贵"
+      ],
+      "scene_prompt": "home server rack with mini pc and router",
+      "bubble": "以为在造未来",
+      "effect": "电表在转人没动"
+    }
+  ],
+  "footer": {
+    "upgrades": [
+      "焦虑保险",
+      "付费社群",
+      "大师课程",
+      "第二台设备"
+    ],
+    "warning": "本套装不创造收入，只消耗储蓄。请吃饱再理性消费。",
+    "receipt": {
+      "lines": [
+        {
+          "label": "项目一",
+          "amount": "¥999"
+        },
+        {
+          "label": "项目二",
+          "amount": "¥799"
+        },
+        {
+          "label": "项目三",
+          "amount": "¥1299"
+        },
+        {
+          "label": "硬件+电费",
+          "amount": "¥6500"
+        }
+      ],
+      "total": "¥9597",
+      "balance": "-¥9597",
+      "note": "人生已透支"
+    },
+    "tagline": "努力不一定有回报，但盲目跟风一定会变穷。"
+  },
+  "hooks": [
+    "你中了几个？",
+    "哪个最像智商税？",
+    "如果只能留一个？",
+    "你会劝朋友买吗？"
+  ],
+  "copy": {
+    "douyin_tags": [
+      "Agent生产力",
+      "热点",
+      "打工人",
+      "消费主义"
+    ],
+    "xiaohongshu_tags": [
+      "热点",
+      "消费主义",
+      "打工人日常",
+      "避坑"
+    ]
+  }
+}

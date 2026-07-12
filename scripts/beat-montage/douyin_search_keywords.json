@@ -1,0 +1,36 @@
+{
+  "seed_urls": [
+    "https://v.douyin.com/i8EnbJV6/",
+    "https://v.douyin.com/euJwWkJ8-f4/",
+    "https://www.douyin.com/video/7272298676003884347",
+    "https://www.douyin.com/video/7660992367738015022",
+    "https://v.douyin.com/i8EnbJV6/",
+    "https://v.douyin.com/euJwWkJ8-f4/",
+    "https://www.douyin.com/video/7272298676003884347",
+    "https://www.douyin.com/video/7660992367738015022",
+    "https://v.douyin.com/i8EnbJV6/",
+    "https://v.douyin.com/euJwWkJ8-f4/",
+    "https://www.douyin.com/video/7272298676003884347",
+    "https://www.douyin.com/video/7660992367738015022"
+  ],
+  "cold": {
+    "keywords": ["搞笑混剪 卡点", "憨豆 搞笑片段"],
+    "clip_types": ["comedy"],
+    "target_count": 4
+  },
+  "warm": {
+    "keywords": ["拳脚混剪 踩点", "格斗 慢镜蓄力"],
+    "clip_types": ["slow_build", "action_punch"],
+    "target_count": 4
+  },
+  "hot": {
+    "keywords": ["打击乐混剪 拳脚", "枪战卡点 混剪"],
+    "clip_types": ["action_punch", "action_gun"],
+    "target_count": 4
+  },
+  "outro": {
+    "keywords": ["混剪 定格 结尾"],
+    "clip_types": ["hero_shot"],
+    "target_count": 3
+  }
+}

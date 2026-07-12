@@ -1,0 +1,87 @@
+{
+  "id": "stock-all-in-2026",
+  "status": "draft",
+  "meta": {
+    "theme": "股市交易者满仓梭哈",
+    "hot_keywords": ["满仓", "梭哈", "赌一把", "心态"],
+    "tone": "satire",
+    "created_at": "2026-07-12",
+    "category": "stock",
+    "angle": "满仓梭哈",
+    "framing": "交易踩坑清单"
+  },
+  "header": {
+    "title": "满仓梭哈四件套",
+    "subtitle": "一把到位，心态先崩",
+    "badge_top": "越梭越慌",
+    "badge_bottom": "仓位余额不足"
+  },
+  "cards": [
+    {
+      "no": "01",
+      "name": "感觉要涨",
+      "price": "直觉+100",
+      "accent": "#2563EB",
+      "bullets": ["K线看着像突破", "群里都在喊冲", "觉得错过就亏了"],
+      "scene_prompt": "trader excitedly watching stock chart breakout pattern on screen",
+      "bubble": "就是它了",
+      "effect": "直觉很猛，市场更猛"
+    },
+    {
+      "no": "02",
+      "name": "一把梭进去",
+      "price": "仓位100%",
+      "accent": "#DC2626",
+      "bullets": ["工资全填进去", "不留一分钱", "买入手都在抖"],
+      "scene_prompt": "trader placing all-in buy order with nervous sweaty hands",
+      "bubble": "富贵险中求",
+      "effect": "梭哈一时爽，波动火葬场"
+    },
+    {
+      "no": "03",
+      "name": "跌了就装死",
+      "price": "装死技能满级",
+      "accent": "#16A34A",
+      "bullets": ["卸载交易软件", "告诉自己长期", "其实每天偷看"],
+      "scene_prompt": "trader hiding phone and pretending not to care while peeking at market",
+      "bubble": "我不看就不跌",
+      "effect": "眼不见，心还在慌"
+    },
+    {
+      "no": "04",
+      "name": "发誓再也不梭",
+      "price": "誓言1周有效",
+      "accent": "#64748B",
+      "bullets": ["写下交易纪律", "下次看到热点", "又把纪律忘了"],
+      "scene_prompt": "trader writing trading rules then breaking them next week",
+      "bubble": "就这一次",
+      "effect": "纪律写在纸上，冲动长在心上"
+    }
+  ],
+  "footer": {
+    "upgrades": ["仓位管理表", "梭哈冷静期", "交易纪律卡", "韭菜复盘课"],
+    "warning": "满仓风险极高，仅供自嘲，不构成投资建议。",
+    "receipt": {
+      "lines": [
+        { "label": "感觉要涨", "amount": "直觉+100" },
+        { "label": "一把梭进去", "amount": "仓位100%" },
+        { "label": "跌了就装死", "amount": "装死中" },
+        { "label": "发誓不梭", "amount": "有效7天" }
+      ],
+      "total": "心态过山车",
+      "balance": "波动中",
+      "note": "仓位已透支"
+    },
+    "tagline": "留点余地，别一把掏空。"
+  },
+  "hooks": [
+    "你满仓梭哈过吗？",
+    "跌了你装死还是割肉？",
+    "交易纪律你守过几天？",
+    "富贵险中求你信吗？"
+  ],
+  "copy": {
+    "douyin_tags": ["股市", "满仓", "梭哈", "韭菜", "交易"],
+    "xiaohongshu_tags": ["股市", "满仓梭哈", "韭菜自嘲", "交易心态", "仓位管理", "共鸣"]
+  }
+}

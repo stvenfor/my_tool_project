@@ -1,0 +1,23 @@
+{
+  "id": "ai-poverty-narration",
+  "mode": "narration",
+  "series": "认知提升",
+  "title": "AI时代的新贫困",
+  "hook": "不会用AI的人，正在被悄悄甩开",
+  "tags": [
+    "AI",
+    "自我成长",
+    "认知提升"
+  ],
+  "visual_strategy": "stickman",
+  "skip_analyze": true,
+  "status": "draft",
+  "episode": "01",
+  "cta": "建议收藏，持续更新",
+  "reference_url": "",
+  "use_llm": true,
+  "meta": {
+    "created_at": "2026-07-12T13:20:38.641266+00:00",
+    "source": "video-factory:draft"
+  }
+}

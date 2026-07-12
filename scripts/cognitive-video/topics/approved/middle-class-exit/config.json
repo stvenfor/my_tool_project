@@ -1,0 +1,57 @@
+{
+  "topic_id": "middle-class-exit",
+  "reference_url": "https://v.douyin.com/A3HUZVm7ZgM/",
+  "title": "中产退场 低欲生活才是赢家",
+  "series": "认知提升",
+  "episode": "01",
+  "hook": "去换个活法吧！当局者困在围城，局外者活成神仙",
+  "cta": "建议收藏，换个活法",
+  "tags": ["自我成长", "人性洞察", "处世智慧", "人性博弈", "人间清醒"],
+  "duration_sec": 0,
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "voice": "zh-CN-YunjianNeural",
+  "voice_rate": "+24%",
+  "voice_pitch": "-6Hz",
+  "voice_volume": "+5%",
+  "hook_duration_sec": 0,
+  "philosophy_quote": "低欲即赢",
+  "narration_gap_sec": 0.32,
+  "voice_rhythm": {
+    "strong_clause_gap_ms": 280,
+    "comma_clause_gap_ms": 120,
+    "clause_gap_ms": 200,
+    "pitch_bounce_hz": 4,
+    "rate_bounce_pct": 3,
+    "opening_rate_drop_pct": 3,
+    "closing_rate_boost_pct": 4,
+    "segment_gap_by_phase": {
+      "pain": 0.30,
+      "insight": 0.26,
+      "contrast": 0.20,
+      "action": 0.16,
+      "cta": 0.12
+    },
+    "prosody_by_phase": {
+      "pain": {"rate_delta": -6, "pitch_delta": -1},
+      "insight": {"rate_delta": -3, "pitch_delta": 0},
+      "contrast": {"rate_delta": 0, "pitch_delta": 1},
+      "action": {"rate_delta": 2, "pitch_delta": 2},
+      "cta": {"rate_delta": 5, "pitch_delta": 3}
+    }
+  },
+  "voice_enhance": {
+    "warmth_db": 2.0,
+    "presence_db": 0.9,
+    "compressor_ratio": 2.0
+  },
+  "tail_padding_sec": 3.5,
+  "narration_volume": 0.94,
+  "ambient_bgm_volume": 0.1,
+  "use_ambient_bgm": true,
+  "transition_frames": 8,
+  "asset_mode": "stickman",
+  "stickman_series_title": "认知提升",
+  "use_llm": false
+}
