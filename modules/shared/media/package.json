@@ -1,0 +1,5 @@
+{
+  "name": "@tools/shared-media",
+  "private": true,
+  "description": "Shared media cut/slice helpers used by multiple video modules"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "talking-head-demo",
+  "status": "approved",
+  "mode": "talking_head",
+  "series": "认知提升",
+  "episode": "01",
+  "title": "每天3分钟人间清醒",
+  "hook": "今天聊一个很多人不愿意承认的真相",
+  "cta": "关注不迷路，明天继续聊",
+  "tags": ["自我成长", "口播", "认知提升", "人间清醒"],
+  "visual_strategy": "talking_head",
+  "voice_strategy": "edge_tts",
+  "use_llm": false,
+  "skip_analyze": true,
+  "presenter_image": "modules/video-factory/assets/presenter/default.png",
+  "migrate_from_cognitive": false,
+  "meta": {
+    "approved_at": "2026-07-12T00:00:00Z",
+    "source": "talking-head MVP"
+  }
+}

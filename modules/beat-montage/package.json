@@ -1,0 +1,18 @@
+{
+  "name": "@tools/beat-montage",
+  "private": true,
+  "description": "Beat-synced montage pipeline",
+  "type": "module",
+  "scripts": {
+    "setup": "python3 generate_sample_clips.py && cd remotion && npm install",
+    "beats": "python3 analyze_beats.py",
+    "map": "python3 map_clips.py",
+    "render": "node render.mjs",
+    "pipeline": "python3 run_pipeline.py",
+    "web": "python3 run_web_montage.py --source web",
+    "douyin": "python3 fetch_douyin_clips.py",
+    "fetch-web": "python3 fetch_web_clips.py --force",
+    "preview": "cd remotion && npm run preview",
+    "publish": "node publish-to-douyin.mjs"
+  }
+}

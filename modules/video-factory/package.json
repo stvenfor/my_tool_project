@@ -1,0 +1,20 @@
+{
+  "name": "@tools/video-factory",
+  "private": true,
+  "description": "Unified narration / dialogue / talking-head orchestration",
+  "type": "module",
+  "scripts": {
+    "setup": "npm run setup -w @tools/cognitive-video",
+    "init": "python3 init_project.py",
+    "pipeline": "python3 run_pipeline.py",
+    "batch": "python3 batch_run.py",
+    "draft": "python3 draft_topics.py",
+    "approve": "python3 approve_topic.py",
+    "publish": "node publish-to-douyin.mjs",
+    "queue-sync": "python3 send_queue.py --sync",
+    "queue-next": "python3 send_queue.py --next",
+    "mark-sent": "python3 send_queue.py --mark-sent",
+    "qa": "python3 parity_check.py",
+    "validate": "python3 validate_douyin.py"
+  }
+}

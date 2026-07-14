@@ -1,0 +1,17 @@
+{
+  "name": "@tools/city-bilingual-video",
+  "private": true,
+  "description": "City bilingual travel video pipeline",
+  "type": "module",
+  "scripts": {
+    "setup": "python3 -m pip install -r requirements.txt && cd remotion && npm install",
+    "analyze": "python3 analyze_reference.py",
+    "script": "python3 generate_script.py",
+    "assets": "python3 map_reference_shots.py && python3 fetch_city_clips.py",
+    "voice": "python3 synthesize_voice.py",
+    "build": "python3 build_storyboard.py",
+    "render": "node render.mjs",
+    "pipeline": "python3 run_pipeline.py",
+    "preview": "cd remotion && npm run preview"
+  }
+}

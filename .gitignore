@@ -9,23 +9,9 @@ __pycache__/
 *.py[cod]
 *.pyo
 
-# Generated outputs
-_cffex/output/
-_cffex/logs/
-_reports/
-
-# Pipeline work directories (render artifacts, not source)
-_video-factory/*/
-!_video-factory/assets/
-_cognitive-video/
-_cat-drama/
-_city-bilingual/
-_city-healing/
-_three-kingdoms-english/
-_beat-montage/output/
-_hot-topic-infographic/output/
-_hot-topic-infographic/
-_dance-remake/
+# Module work directories (render artifacts, not source)
+modules/*/work/
+!modules/video-factory/work/assets/
 
 # Generated media
 *.wav
@@ -34,26 +20,26 @@ _dance-remake/
 *.webm
 
 # Generated storyboard / clip images
-assets/storyboard/
+**/assets/storyboard/
 
-# ML model weights
+# ML model weights / large local model downloads
 *.pt
+*.onnx
+*.safetensors
+modules/*/pretrained_models/
 
 # Vendor checkouts
-scripts/city-healing-video/vendor/
+modules/city-healing-video/vendor/
+modules/viral-english-dub/vendor/
 
-# Remotion runtime copies (render copies work-dir assets here)
-scripts/*/remotion/public/
-
-# Local backups & migration artifacts
-_backup/
-_migrate/
+# Remotion runtime copies
+modules/*/remotion/public/
 
 # Runtime state
-scripts/cffex-daily/quote_state.json
-scripts/cffex-daily/remotion/public/report-props.json
-scripts/cffex-daily/remotion/public/bgm.mp3
-scripts/cffex-daily/remotion/public/logo.png
+modules/cffex-daily/quote_state.json
+modules/cffex-daily/remotion/public/report-props.json
+modules/cffex-daily/remotion/public/bgm.mp3
+modules/cffex-daily/remotion/public/logo.png
 **/pipeline-result.json
 **/qa-report.json
 **/publish-queue.json

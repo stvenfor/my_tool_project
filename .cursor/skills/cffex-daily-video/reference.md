@@ -3,7 +3,7 @@
 ## 目录结构
 
 ```
-scripts/cffex-daily/
+modules/cffex-daily/
 ├── fetch_and_render.py    # 抓数据 + 渲染 PNG/JSON + 调用视频渲染
 ├── render_video.mjs       # 复制 assets → 调用 remotion render
 ├── config.json            # 输出目录、BGM、图表尺寸
@@ -37,14 +37,14 @@ scripts/cffex-daily/
 ## 抖音发布脚本（项目内）
 
 ```
-scripts/cffex-daily/douyin/
+modules/shared/douyin/
 ├── publish-video.mjs
 ├── auth.mjs
 ├── douyin-browser.mjs
 └── setup.sh
 ```
 
-便捷入口：`scripts/cffex-daily/publish-to-douyin.mjs`（默认 `--skip-music`，视频已含 BGM）。
+便捷入口：`modules/cffex-daily/publish-to-douyin.mjs`（默认 `--skip-music`，视频已含 BGM）。
 
 ## 抖音视频发布 JSON Schema
 
@@ -95,12 +95,12 @@ Top20净空 {top20_net_short_total}  净买入 {net_buy_total}
 手动渲染：
 
 ```bash
-node scripts/cffex-daily/render_video.mjs \
-  --json _cffex/output/citic-net-positions-YYYYMMDD.json \
-  --output _cffex/output/citic-net-positions-YYYYMMDD.mp4
+node modules/cffex-daily/render_video.mjs \
+  --json modules/cffex-daily/work/output/citic-net-positions-YYYYMMDD.json \
+  --output modules/cffex-daily/work/output/citic-net-positions-YYYYMMDD.mp4
 ```
 
 ## 定时任务
 
 `npm run cffex:schedule` 安装 LaunchAgent，每天 22:00 执行 `run.sh`。
-日志目录：`_cffex/logs/`。
+日志目录：`modules/cffex-daily/work/logs/`。

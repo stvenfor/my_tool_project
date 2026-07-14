@@ -1,0 +1,26 @@
+{
+  "name": "@tools/hot-topic-infographic",
+  "private": true,
+  "description": "Hot-topic infographic carousel pipeline",
+  "type": "module",
+  "scripts": {
+    "layout": "python3 lib/generate_layout.py",
+    "validate-layout": "python3 lib/validate_layout.py",
+    "draft": "python3 lib/generate_draft.py",
+    "batch-draft": "python3 lib/batch_generate_topics.py",
+    "migrate-uploads": "python3 lib/migrate_upload_images.py",
+    "validate": "python3 lib/validate.py",
+    "approve": "python3 lib/approve.py",
+    "prompt": "python3 lib/build_ai_prompt.py",
+    "base": "python3 lib/generate_base.py",
+    "compose": "python3 lib/compose.py",
+    "export": "python3 lib/export_copy.py",
+    "one": "python3 lib/batch_run.py --one",
+    "batch": "python3 lib/batch_run.py",
+    "category-previews": "python3 lib/category_previews.py",
+    "send-next": "python3 lib/topic_send_queue.py --next",
+    "mark-sent": "python3 lib/topic_send_queue.py --mark-sent",
+    "topic-images": "python3 lib/category_topic_images.py",
+    "send-status": "python3 lib/topic_send_queue.py --status"
+  }
+}

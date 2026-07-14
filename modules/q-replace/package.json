@@ -1,0 +1,12 @@
+{
+  "name": "@tools/q-replace",
+  "private": true,
+  "description": "Character replacement / talking-head motion",
+  "type": "module",
+  "scripts": {
+    "setup": "python3 -m pip install -r requirements.txt",
+    "run": "python3 run.py",
+    "preview": "python3 run.py --preview-only --no-diffusion --frame-limit 45",
+    "character-ref": "python3 generate_character_ref.py"
+  }
+}

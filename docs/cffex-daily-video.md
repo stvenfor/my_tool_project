@@ -47,7 +47,7 @@ flowchart LR
 pip3 install Pillow playwright
 
 # Remotion 渲染依赖
-cd scripts/cffex-daily/remotion && npm install && cd -
+cd modules/cffex-daily/remotion && npm install && cd -
 
 # 抖音发布依赖
 npm run cffex:setup-douyin
@@ -71,7 +71,7 @@ npm run cffex:daily
 等价于：
 
 ```bash
-python3 scripts/cffex-daily/fetch_and_render.py
+python3 modules/cffex-daily/fetch_and_render.py
 ```
 
 ### 指定日期 / 周末强制运行
@@ -125,7 +125,7 @@ npm run cffex:daily && npm run cffex:publish
 | `npm run cffex:auth` | 抖音扫码登录 |
 | `npm run cffex:setup-douyin` | 安装抖音发布 Playwright 依赖 |
 | `npm run cffex:schedule` | 安装每日 22:00 定时任务 |
-| `cd scripts/cffex-daily/remotion && npm run preview` | Remotion 本地预览 |
+| `cd modules/cffex-daily/remotion && npm run preview` | Remotion 本地预览 |
 
 ### 发布选项
 
@@ -142,7 +142,7 @@ npm run cffex:daily && npm run cffex:publish
 
 ## 输出文件
 
-默认输出目录：`_cffex/output/`
+默认输出目录：`modules/cffex-daily/work/output/`
 
 以 `20260710` 为例：
 
@@ -164,19 +164,19 @@ npm run cffex:daily && npm run cffex:publish
 
 ## 配置说明
 
-主配置文件：`scripts/cffex-daily/config.json`
+主配置文件：`modules/cffex-daily/config.json`
 
 ```json
 {
-  "output_dir": "_cffex/output",
+  "output_dir": "modules/cffex-daily/work/output",
   "theme": "default",
   "chart_width": 632,
   "chart_height": 260,
   "palette": ["#d14d4d", "#3a9a6a", "#b83333", "#257a52", "#4a5568"],
-  "logo": "scripts/cffex-daily/logo.png",
+  "logo": "modules/cffex-daily/logo.png",
   "logo_handle": "@小水獭学AI",
   "bgm": {
-    "file": "scripts/cffex-daily/bgm.mp3",
+    "file": "modules/cffex-daily/bgm.mp3",
     "volume": 0.14,
     "enabled": true
   },
@@ -199,9 +199,9 @@ npm run cffex:daily && npm run cffex:publish
 
 | 文件 | 说明 |
 |------|------|
-| `scripts/cffex-daily/bgm.mp3` | 背景音乐（不存在则视频无声） |
-| `scripts/cffex-daily/logo.png` | 水印 Logo |
-| `scripts/cffex-daily/encouragement_quotes.json` | 每日励志语池 |
+| `modules/cffex-daily/bgm.mp3` | 背景音乐（不存在则视频无声） |
+| `modules/cffex-daily/logo.png` | 水印 Logo |
+| `modules/cffex-daily/encouragement_quotes.json` | 每日励志语池 |
 
 ---
 
@@ -254,7 +254,7 @@ npm run cffex:daily && npm run cffex:publish
 
 ### 发布流程
 
-`publish-to-douyin.mjs` 调用 `scripts/cffex-daily/douyin/publish-video.mjs`，自动完成：
+`publish-to-douyin.mjs` 调用 `modules/shared/douyin/publish-video.mjs`，自动完成：
 
 1. 打开创作者中心视频上传页
 2. 上传 MP4
@@ -290,9 +290,9 @@ npm run cffex:auth
 npm run cffex:schedule
 ```
 
-- Plist 源文件：`scripts/cffex-daily/com.yuque.cffex-daily.plist`
+- Plist 源文件：`modules/cffex-daily/com.yuque.cffex-daily.plist`
 - 安装位置：`~/Library/LaunchAgents/com.yuque.cffex-daily.plist`
-- 日志目录：`_cffex/logs/`
+- 日志目录：`modules/cffex-daily/work/logs/`
 - 手动触发：`npm run cffex:daily`
 
 定时任务只生成视频，**不会**自动发布到抖音。
@@ -317,14 +317,14 @@ npm run cffex:schedule
 
 ```bash
 npm run cffex:video -- \
-  --json _cffex/output/citic-net-positions-20260710.json \
-  --output _cffex/output/citic-net-positions-20260710.mp4
+  --json modules/cffex-daily/work/output/citic-net-positions-20260710.json \
+  --output modules/cffex-daily/work/output/citic-net-positions-20260710.mp4
 ```
 
 ### 本地预览
 
 ```bash
-cd scripts/cffex-daily/remotion && npm run preview
+cd modules/cffex-daily/remotion && npm run preview
 ```
 
 ### 小屏可读性检查（360px）
@@ -342,7 +342,7 @@ npm run cffex:daily -- --date 20260710 --force
 ### 源码结构
 
 ```
-scripts/cffex-daily/remotion/src/
+modules/cffex-daily/remotion/src/
 ├── CiticReportVideo.tsx   # 主画面、动画时序
 ├── AnimatedBarChart.tsx   # 柱状图动画
 ├── AnimatedNumber.tsx     # 数字动画
@@ -356,7 +356,7 @@ scripts/cffex-daily/remotion/src/
 ## 项目目录结构
 
 ```
-scripts/cffex-daily/
+modules/cffex-daily/
 ├── fetch_and_render.py       # 主流程：抓数据、渲染图、写 JSON、调视频、写抖音配置
 ├── render_video.mjs          # 复制 assets → 调用 remotion render
 ├── publish-to-douyin.mjs     # 抖音发布便捷入口
@@ -374,7 +374,7 @@ scripts/cffex-daily/
 └── remotion/                 # Remotion 视频项目
     └── src/
 
-_cffex/
+modules/cffex-daily/work/
 ├── output/                   # 生成的 PNG / JSON / MP4 / 抖音配置
 └── logs/                     # 定时任务日志
 ```
@@ -388,7 +388,7 @@ _cffex/
 | `Skip ... weekend` | 周末默认跳过 | 加 `--force` |
 | CFFEX 404 / 无数据 | 非交易日 | 换 `--date` 或等下一交易日 |
 | Playwright 不可用 | 未安装或启动失败 | 自动降级 Pillow 静态图；视频仍可用 Remotion |
-| `Video render skipped` | Remotion 依赖缺失或超时 | `cd scripts/cffex-daily/remotion && npm install`，重跑 `cffex:video` |
+| `Video render skipped` | Remotion 依赖缺失或超时 | `cd modules/cffex-daily/remotion && npm install`，重跑 `cffex:video` |
 | 视频无声音 | BGM 文件缺失或已禁用 | 确认 `bgm.mp3` 存在且 `bgm.enabled: true` |
 | 抖音跳转登录页 | 登录态过期 | `npm run cffex:auth` |
 | 发布按钮 disabled | 视频未上传完或必填项缺失 | 等待上传完成；检查标题/描述 |

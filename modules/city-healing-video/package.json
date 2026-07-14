@@ -1,0 +1,18 @@
+{
+  "name": "@tools/city-healing-video",
+  "private": true,
+  "description": "City healing narration video pipeline",
+  "type": "module",
+  "scripts": {
+    "setup": "python3 -m pip install -r requirements.txt && cd remotion && npm install",
+    "setup-zipvoice": "bash setup_zipvoice.sh",
+    "voice-ref": "python3 fetch_voice_reference.py",
+    "voice": "python3 synthesize_voice.py",
+    "clips": "python3 generate_clips.py",
+    "placeholders": "python3 generate_placeholder_clips.py",
+    "build": "python3 build_storyboard.py",
+    "render": "node render.mjs",
+    "pipeline": "python3 run_pipeline.py",
+    "preview": "cd remotion && npm run preview"
+  }
+}

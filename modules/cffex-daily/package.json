@@ -1,0 +1,15 @@
+{
+  "name": "@tools/cffex-daily",
+  "private": true,
+  "description": "CFFEX daily futures position report video",
+  "type": "module",
+  "scripts": {
+    "daily": "python3 fetch_and_render.py",
+    "video": "node render_video.mjs",
+    "publish": "node publish-to-douyin.mjs",
+    "auth": "node ../shared/douyin/auth.mjs",
+    "setup-douyin": "zsh ../shared/douyin/setup.sh",
+    "schedule": "zsh install-scheduler.sh",
+    "preview": "cd remotion && npm run preview"
+  }
+}

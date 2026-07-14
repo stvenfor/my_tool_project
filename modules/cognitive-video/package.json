@@ -1,0 +1,21 @@
+{
+  "name": "@tools/cognitive-video",
+  "private": true,
+  "description": "Cognitive / explainer Douyin short video pipeline",
+  "type": "module",
+  "scripts": {
+    "setup": "python3 -m pip install -r requirements.txt && cd remotion && npm install",
+    "analyze": "python3 analyze_reference.py",
+    "script": "python3 generate_script.py",
+    "voice": "python3 synthesize_voice.py",
+    "broll": "python3 fetch_broll.py",
+    "build": "python3 build_storyboard.py",
+    "render": "node render.mjs",
+    "export": "python3 export_douyin.py",
+    "pipeline": "python3 run_pipeline.py",
+    "align": "python3 align_whisper.py",
+    "batch": "python3 batch_run.py",
+    "publish": "node publish-to-douyin.mjs",
+    "preview": "cd remotion && npm run preview"
+  }
+}

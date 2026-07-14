@@ -14,12 +14,12 @@ description: End-to-end CFFEX daily futures report video pipeline — fetch posi
 | 全流程（数据+图+视频+抖音配置） | `npm run cffex:daily` |
 | 指定日期 | `npm run cffex:daily -- --date 20260710` |
 | 周末强制运行 | `npm run cffex:daily -- --force` |
-| 仅重渲染视频 | `npm run cffex:video -- --json _cffex/output/citic-net-positions-YYYYMMDD.json --output _cffex/output/citic-net-positions-YYYYMMDD.mp4` |
+| 仅重渲染视频 | `npm run cffex:video -- --json modules/cffex-daily/work/output/citic-net-positions-YYYYMMDD.json --output modules/cffex-daily/work/output/citic-net-positions-YYYYMMDD.mp4` |
 | 发布到抖音 | `npm run cffex:publish` |
 | 发布指定日期 | `npm run cffex:publish -- --date 20260710` |
 | 抖音扫码登录 | `npm run cffex:auth` |
 | 安装抖音发布依赖 | `npm run cffex:setup-douyin` |
-| Remotion 预览 | `cd scripts/cffex-daily/remotion && npm run preview` |
+| Remotion 预览 | `cd modules/cffex-daily/remotion && npm run preview` |
 | 安装定时任务（22:00） | `npm run cffex:schedule` |
 
 ## Agent 工作流
@@ -42,7 +42,7 @@ Task Progress:
 pip3 install Pillow playwright
 
 # Remotion 依赖（首次或 node_modules 缺失时）
-cd scripts/cffex-daily/remotion && npm install
+cd modules/cffex-daily/remotion && npm install
 
 # 抖音登录与发布依赖（首次发布前）
 npm run cffex:setup-douyin   # 若无 node_modules
@@ -57,7 +57,7 @@ npm run cffex:auth
 npm run cffex:daily
 ```
 
-**输出目录**（默认 `_cffex/output/`）：
+**输出目录**（默认 `modules/cffex-daily/work/output/`）：
 
 | 文件 | 说明 |
 |------|------|
@@ -98,23 +98,23 @@ npm run cffex:publish -- --date 20260710
 
 ## 配置
 
-主配置：`scripts/cffex-daily/config.json`
+主配置：`modules/cffex-daily/config.json`
 
 | 字段 | 说明 |
 |------|------|
-| `output_dir` | 输出目录（默认 `_cffex/output`） |
+| `output_dir` | 输出目录（默认 `modules/cffex-daily/work/output`） |
 | `logo_handle` | 视频水印账号（默认 `@小水獭学AI`） |
 | `bgm.enabled` / `bgm.volume` | 背景音乐开关与音量 |
 | `chart_width` / `chart_height` | 图表尺寸 |
 | `douyin.tags` | 抖音话题标签（最多 5 个） |
 
-BGM 文件：`scripts/cffex-daily/bgm.mp3`（不存在则视频无背景音乐）。
+BGM 文件：`modules/cffex-daily/bgm.mp3`（不存在则视频无背景音乐）。
 
-抖音发布脚本：`scripts/cffex-daily/douyin/`（项目内，与 skill 同源）。
+抖音发布脚本：`modules/shared/douyin/`（全仓共用）。
 
 ## 修改视频样式
 
-Remotion 源码在 `scripts/cffex-daily/remotion/src/`：
+Remotion 源码在 `modules/cffex-daily/remotion/src/`：
 
 | 文件 | 职责 |
 |------|------|
@@ -131,7 +131,7 @@ Remotion 源码在 `scripts/cffex-daily/remotion/src/`：
 |------|------|
 | CFFEX 404 / 无数据 | 非交易日，换 `--date` 或等下一交易日 |
 | Playwright 不可用 | 自动降级 Pillow 静态图；视频仍可用 Remotion 渲染 |
-| Remotion render 失败 | `cd scripts/cffex-daily/remotion && npm install`，再重跑 video 命令 |
+| Remotion render 失败 | `cd modules/cffex-daily/remotion && npm install`，再重跑 video 命令 |
 | 视频无声音 | 确认 `bgm.mp3` 存在且 `bgm.enabled: true` |
 | 抖音未登录 | `npm run cffex:auth` |
 | 发布按钮 disabled | 等视频上传完成；检查标题/描述是否已填 |

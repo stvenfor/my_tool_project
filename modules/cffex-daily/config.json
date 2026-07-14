@@ -1,0 +1,20 @@
+{
+  "output_dir": "modules/cffex-daily/work/output",
+  "theme": "default",
+  "chart_width": 632,
+  "chart_height": 260,
+  "palette": ["#d14d4d", "#3a9a6a", "#b83333", "#257a52", "#4a5568"],
+  "logo": "modules/cffex-daily/logo.png",
+  "logo_handle": "@小水獭学AI",
+  "bgm": {
+    "file": "modules/cffex-daily/bgm.mp3",
+    "volume": 0.14,
+    "enabled": true,
+    "source": "SoundHelix",
+    "license": "Royalty-free",
+    "title": "Song 8 (upbeat electronic)"
+  },
+  "douyin": {
+    "tags": ["期货", "股指期货", "中信期货", "持仓数据", "金融"]
+  }
+}

@@ -1,0 +1,64 @@
+[
+  {
+    "id": "beat_douyin_url_00",
+    "path": "action_punch/beat_douyin_url_00.mp4",
+    "type": "action_punch",
+    "energy": 9,
+    "tags": [
+      "拳脚",
+      "打击",
+      "douyin_url_00"
+    ],
+    "trim_in": 0.0,
+    "duration_hint": 1.012,
+    "source_video": "/Users/mac/Desktop/github/my_tool_project/modules/beat-montage/clips/_downloads/douyin_url_00.mp4",
+    "source_range": [
+      15.18,
+      16.192
+    ],
+    "beat_window": {
+      "interval": 0.506,
+      "peak_global": 15.48
+    },
+    "action_peaks": [
+      {
+        "time": 0.417,
+        "strength": 0.9534
+      }
+    ],
+    "source_duration": 1.01
+  },
+  {
+    "id": "beat_douyin_url_01",
+    "path": "action_punch/beat_douyin_url_01.mp4",
+    "type": "action_punch",
+    "energy": 9,
+    "tags": [
+      "拳脚",
+      "打击",
+      "douyin_url_01"
+    ],
+    "trim_in": 0.0,
+    "duration_hint": 1.012,
+    "source_video": "/Users/mac/Desktop/github/my_tool_project/modules/beat-montage/clips/_downloads/douyin_url_01.mp4",
+    "source_range": [
+      43.263,
+      44.275
+    ],
+    "beat_window": {
+      "interval": 0.506,
+      "peak_global": 43.863
+    },
+    "action_peaks": [
+      {
+        "time": 0.417,
+        "strength": 0.9518
+      },
+      {
+        "time": 0.75,
+        "strength": 0.9071
+      }
+    ],
+    "source_duration": 1.01
+  }
+]

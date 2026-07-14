@@ -1,0 +1,12 @@
+{
+  "name": "@tools/dance-remake",
+  "private": true,
+  "description": "Dance remake beat+motion pipeline",
+  "type": "module",
+  "scripts": {
+    "beats": "python3 extract_beats.py",
+    "cues": "python3 shoot_cues.py",
+    "assemble": "python3 assemble_final.py",
+    "parity": "python3 parity_check.py"
+  }
+}

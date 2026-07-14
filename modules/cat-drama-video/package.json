@@ -1,0 +1,10 @@
+{
+  "name": "@tools/cat-drama-video",
+  "private": true,
+  "description": "Cat drama multi-character dialogue shorts",
+  "type": "module",
+  "scripts": {
+    "voice": "python3 synthesize_dialogue.py",
+    "build": "python3 build_ep01.py"
+  }
+}

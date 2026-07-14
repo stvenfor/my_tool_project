@@ -1,0 +1,21 @@
+{
+  "name": "@tools/three-kingdoms-english-video",
+  "private": true,
+  "description": "Three Kingdoms English narration video",
+  "type": "module",
+  "scripts": {
+    "align-subtitles": "python3 build_subtitles_from_reference.py",
+    "prepare-clips": "python3 prepare_manual_clips.py --config work/output/yijia-xuchang/episode.config.json",
+    "analyze": "python3 analyze_reference.py",
+    "script": "python3 generate_script.py",
+    "voice": "python3 synthesize_voice.py",
+    "clips": "python3 map_narration_shots.py && python3 fetch_clips.py",
+    "build": "python3 build_storyboard.py",
+    "render": "node render.mjs",
+    "pipeline": "python3 run_pipeline.py",
+    "parity": "python3 parity_check.py",
+    "validate-douyin": "node validate-douyin.mjs work/output/yijia-xuchang/douyin-video.json",
+    "preview": "cd remotion && npm run preview",
+    "publish": "node ../shared/douyin/publish-video.mjs work/output/yijia-xuchang/douyin-video.json --dry-run"
+  }
+}

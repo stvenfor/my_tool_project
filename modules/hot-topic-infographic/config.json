@@ -1,0 +1,10 @@
+{
+  "canvas_width": 1080,
+  "canvas_height": 1920,
+  "aspect_ratio": "9:16",
+  "output_root": "modules/hot-topic-infographic/work",
+  "topics_dir": "modules/hot-topic-infographic/topics",
+  "openai_model": "gpt-image-1",
+  "openai_image_size": "1024x1792",
+  "upload_images_subdir": "upload-images"
+}

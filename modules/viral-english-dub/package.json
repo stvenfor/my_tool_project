@@ -1,0 +1,24 @@
+{
+  "name": "@tools/viral-english-dub",
+  "private": true,
+  "description": "Viral Chinese short-video English dub pipeline",
+  "type": "module",
+  "scripts": {
+    "setup": "python3 -m pip install -r requirements.txt && cd remotion && npm install",
+    "setup-cosyvoice": "bash setup_cosyvoice.sh",
+    "analyze": "python3 analyze_reference.py",
+    "diarize": "python3 diarize_speakers.py",
+    "translate": "python3 translate_script.py",
+    "voice": "python3 synthesize_voice.py",
+    "align": "python3 align_audio.py",
+    "build": "python3 build_storyboard.py",
+    "separate-bgm": "python3 separate_bgm.py",
+    "mix-audio": "python3 mix_audio.py",
+    "mux": "python3 mux_final.py",
+    "render": "node render.mjs",
+    "export": "python3 export_douyin.py",
+    "pipeline": "python3 run_pipeline.py",
+    "publish": "node publish-to-douyin.mjs",
+    "preview": "cd remotion && npm run preview"
+  }
+}
