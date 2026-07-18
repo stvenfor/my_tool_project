@@ -12,10 +12,12 @@
     <key>StartCalendarInterval</key>
     <dict>
       <key>Hour</key>
-      <integer>22</integer>
+      <integer>21</integer>
       <key>Minute</key>
       <integer>0</integer>
     </dict>
+    <key>WorkingDirectory</key>
+    <string>/Users/mac/Desktop/github/my_tool_project</string>
     <key>StandardOutPath</key>
     <string>/Users/mac/Desktop/github/my_tool_project/modules/cffex-daily/work/logs/launchd.out.log</string>
     <key>StandardErrorPath</key>

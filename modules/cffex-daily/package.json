@@ -6,10 +6,17 @@
   "scripts": {
     "daily": "python3 fetch_and_render.py",
     "video": "node render_video.mjs",
+    "beautify": "python3 beautify_report.py",
     "publish": "node publish-to-douyin.mjs",
+    "publish-imagetext": "node publish-imagetext-to-douyin.mjs",
     "auth": "node ../shared/douyin/auth.mjs",
     "setup-douyin": "zsh ../shared/douyin/setup.sh",
     "schedule": "zsh install-scheduler.sh",
+    "unschedule": "zsh uninstall-scheduler.sh",
+    "schedule-status": "zsh schedule-status.sh",
+    "auto-on": "python3 set_auto_publish.py on",
+    "auto-off": "python3 set_auto_publish.py off",
+    "pipeline": "zsh run.sh",
     "preview": "cd remotion && npm run preview"
   }
 }

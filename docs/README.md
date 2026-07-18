@@ -40,5 +40,6 @@ npm run cffex:daily
 
 | 文档 | 说明 |
 |------|------|
-| [CFFEX 日报视频](cffex-daily-video.md) | 持仓日报流程（路径已迁到 `modules/cffex-daily`） |
+| [CFFEX 日报完整手册](cffex-daily-video.md) | 持仓日报：生成 / 美化图文 / 21:00 定时 / 抖音发布 |
+| [CFFEX × Agent 对照](cffex-agent-orchestration.md) | 流水线步骤：脚本 vs 主/子 Agent vs 人机闸门 |
 | [器官捐献英配链路](../modules/viral-english-dub/docs/organ-donate-dog-pipeline.md) | viral-english-dub 样例 |

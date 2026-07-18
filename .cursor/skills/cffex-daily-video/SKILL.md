@@ -1,143 +1,74 @@
 ---
 name: cffex-daily-video
-description: End-to-end CFFEX daily futures report video pipeline — fetch position data, render PNG/MP4 with Remotion, generate Douyin metadata, and publish. Use when the user asks to generate, render, preview, or publish CFFEX/中信期货持仓 videos, run cffex:daily, or automate the daily report video workflow.
+description: End-to-end CFFEX/中信期货净持仓日报流水线 — 抓取数据、渲染 PNG/MP4、gpt-image-2 Infographic 美化图文、抖音图文/视频发布，以及交易日 21:00 LaunchAgent 自动发布。Use when the user asks to generate/beautify/publish CFFEX daily reports, 定时/停止自动发抖音, cffex:daily, cffex:schedule, or Douyin imagetext.
 ---
 
-# CFFEX 日报视频生成
+# CFFEX 日报全流程
 
-从 CFFEX 抓取中信期货持仓数据 → 生成静态图 → Remotion 渲染竖屏 MP4 → 发布到抖音。
+**默认路径**：生成底图 → Infographic Engine 美化 → 抖音图文发布。  
+**定时**：交易日相关每晚 **21:00**（每天触发；周末/无数据在脚本内跳过），执行完毕后再发布。
+
+无人值守美化走 **OpenAI `gpt-image-2`**（`beautify_report.py`），不依赖 Cursor Agent；手动调试仍可用 Cursor GenerateImage。
 
 ## 快速命令
 
 | 步骤 | 命令 |
 |------|------|
-| 全流程（数据+图+视频+抖音配置） | `npm run cffex:daily` |
-| 指定日期 | `npm run cffex:daily -- --date 20260710` |
-| 周末强制运行 | `npm run cffex:daily -- --force` |
-| 仅重渲染视频 | `npm run cffex:video -- --json modules/cffex-daily/work/output/citic-net-positions-YYYYMMDD.json --output modules/cffex-daily/work/output/citic-net-positions-YYYYMMDD.mp4` |
-| 发布到抖音 | `npm run cffex:publish` |
-| 发布指定日期 | `npm run cffex:publish -- --date 20260710` |
-| 抖音扫码登录 | `npm run cffex:auth` |
-| 安装抖音发布依赖 | `npm run cffex:setup-douyin` |
-| Remotion 预览 | `cd modules/cffex-daily/remotion && npm run preview` |
-| 安装定时任务（22:00） | `npm run cffex:schedule` |
+| 数据+PNG+MP4 | `npm run cffex:daily` / `--date YYYYMMDD` |
+| 仅美化 | `npm run cffex:beautify -- --date YYYYMMDD` |
+| 发布美化图文 | `npm run cffex:publish-imagetext -- --date YYYYMMDD --image <png>` |
+| 全链路（生成→美化→图文） | `npm run cffex:pipeline` |
+| 发布视频（可选） | `npm run cffex:publish -- --date YYYYMMDD` |
+| 安装 21:00 定时 | `npm run cffex:schedule` |
+| 卸载定时 | `npm run cffex:unschedule` |
+| 定时状态 | `npm run cffex:schedule-status` |
+| 停止自动发送 | `npm run cffex:auto-off` |
+| 恢复自动发送 | `npm run cffex:auto-on` |
+| 抖音登录 | `npm run cffex:auth` |
 
-## Agent 工作流
-
-用户要求「生成今日/某日持仓视频」或「发布到抖音」时，按此清单执行：
+## Agent 工作流（手动美化图文）
 
 ```
 Task Progress:
-- [ ] Step 1: 确认依赖（见下方「首次安装」）
-- [ ] Step 2: 运行 npm run cffex:daily（或 --date / --force）
-- [ ] Step 3: 检查输出文件（PNG / JSON / MP4 / douyin JSON）
-- [ ] Step 4: 若用户要发布，运行 npm run cffex:publish
-- [ ] Step 5: 回报产物路径与发布结果
+- [ ] Step 1: 依赖（Pillow/playwright、remotion、cffex:setup-douyin、cffex:auth）
+- [ ] Step 2: npm run cffex:daily（或 --date）
+- [ ] Step 3: 校验 PNG/JSON
+- [ ] Step 4: cffex:beautify 或 Cursor GenerateImage（Infographic Engine）
+- [ ] Step 5: cffex:publish-imagetext
+- [ ] Step 6: 回报路径与发布结果
 ```
 
-### Step 1 — 首次安装（缺依赖时）
+定时任务勿提交 Codex；勿在 Agent 里重复装定时 unless 用户要求。
 
-```bash
-# Python 依赖
-pip3 install Pillow playwright
+## 定时行为
 
-# Remotion 依赖（首次或 node_modules 缺失时）
-cd modules/cffex-daily/remotion && npm install
+[`run.sh`](../../modules/cffex-daily/run.sh)：
 
-# 抖音登录与发布依赖（首次发布前）
-npm run cffex:setup-douyin   # 若无 node_modules
-npm run cffex:auth
-```
+1. `schedule.auto_publish=false` → 日志 skip，退出 0  
+2. `fetch_and_render.py`（周末 skip → 无 PNG → 不发布）  
+3. `beautify_report.py`（需 `OPENAI_API_KEY` + 风格参考图）  
+4. `publish-imagetext-to-douyin.mjs`（美化成功后才发）
 
-### Step 2 — 生成视频
+配置：[`modules/cffex-daily/config.json`](../../modules/cffex-daily/config.json) 的 `schedule` / `beautify`。
 
-在项目根目录执行：
+前置：机器 21:00 开机且已登录 GUI；抖音 profile 有效；Chrome 可用。
 
-```bash
-npm run cffex:daily
-```
+## 产物
 
-**输出目录**（默认 `modules/cffex-daily/work/output/`）：
-
-| 文件 | 说明 |
+| 路径 | 说明 |
 |------|------|
-| `citic-net-positions-YYYYMMDD.png` | 720×1280 静态报告图 |
-| `citic-net-positions-YYYYMMDD.json` | 报告数据（Remotion props） |
-| `citic-net-positions-YYYYMMDD.mp4` | 竖屏动画视频（约 7.5s，含 BGM） |
-| `citic-net-positions-YYYYMMDD-douyin.json` | 抖音发布配置（按日期归档） |
-| `douyin-video.json` | 最新一条抖音发布配置（便于直接发布） |
-
-**跳过条件**：周末且无 `--force` 时自动跳过；非交易日 CFFEX 无数据时正常退出。
-
-### Step 3 — 验证产物
-
-- MP4 存在且非空
-- JSON 含 `trade_date`、`citic_by_symbol`、`citic_total` 等字段
-- `douyin-video.json` 已自动生成，含 `videoPath`、`title`、`description`、`tags`
-- 视频渲染失败时 stderr 会显示 `Video render skipped`；可单独重跑 video 命令
-
-### Step 4 — 发布到抖音
-
-`fetch_and_render.py` 已自动生成抖音配置，无需手动编写 JSON。
-
-```bash
-npm run cffex:publish
-# 或指定日期
-npm run cffex:publish -- --date 20260710
-```
-
-常用选项：
-
-| 选项 | 说明 |
-|------|------|
-| `--dry-run` | 填完表单不发布 |
-| `--skip-music` | 跳过选音乐（视频已含 BGM 时推荐） |
-| `--keep-open` | 完成后不关闭浏览器 |
-
-发布脚本会自动：上传视频 → 填标题/描述 → 选热门音乐 → AI 封面 → 添加「内容由AI生成」声明。
-
-## 配置
-
-主配置：`modules/cffex-daily/config.json`
-
-| 字段 | 说明 |
-|------|------|
-| `output_dir` | 输出目录（默认 `modules/cffex-daily/work/output`） |
-| `logo_handle` | 视频水印账号（默认 `@小水獭学AI`） |
-| `bgm.enabled` / `bgm.volume` | 背景音乐开关与音量 |
-| `chart_width` / `chart_height` | 图表尺寸 |
-| `douyin.tags` | 抖音话题标签（最多 5 个） |
-
-BGM 文件：`modules/cffex-daily/bgm.mp3`（不存在则视频无背景音乐）。
-
-抖音发布脚本：`modules/shared/douyin/`（全仓共用）。
-
-## 修改视频样式
-
-Remotion 源码在 `modules/cffex-daily/remotion/src/`：
-
-| 文件 | 职责 |
-|------|------|
-| `CiticReportVideo.tsx` | 主画面、动画时序 |
-| `AnimatedBarChart.tsx` | 柱状图动画 |
-| `constants.ts` | 帧数（HOLD 45 + ANIM 180 = 225 帧 @30fps） |
-| `types.ts` | 主题色、数据类型 |
-
-修改 Remotion 代码时，读取 `remotion-video-creation` skill 获取领域最佳实践。
+| `modules/cffex-daily/work/output/citic-net-positions-*.png` | 底图 |
+| `_hot-topic-infographic/beautified/cffex-position-report-*-auto-vN.png` | 定时/CLI 美化图 |
+| `modules/cffex-daily/work/logs/daily-*.log` | 全链路日志 |
 
 ## 故障排查
 
 | 现象 | 处理 |
 |------|------|
-| CFFEX 404 / 无数据 | 非交易日，换 `--date` 或等下一交易日 |
-| Playwright 不可用 | 自动降级 Pillow 静态图；视频仍可用 Remotion 渲染 |
-| Remotion render 失败 | `cd modules/cffex-daily/remotion && npm install`，再重跑 video 命令 |
-| 视频无声音 | 确认 `bgm.mp3` 存在且 `bgm.enabled: true` |
-| 抖音未登录 | `npm run cffex:auth` |
-| 发布按钮 disabled | 等视频上传完成；检查标题/描述是否已填 |
+| beautify 失败 OPENAI_API_KEY | 导出 key；写入 `~/.codex/.env` 或 launchd EnvironmentVariables |
+| 风格参考缺失 | 配置 `beautify.style_reference` 指向现有美化图 |
+| 图文登录失败 | `npm run cffex:auth` |
+| 定时未跑 | `cffex:schedule-status`；确认已登录用户会话 |
+| 误点高清发布 | 使用项目内 `publish-imagetext.mjs`（页脚「发布」） |
 
-更多抖音 DOM 选择器见 [reference.md](reference.md)。
-
-## 相关 Skill
-
-- **remotion-video-creation**：Remotion 动画、音频、图表等实现细节
+更多：[reference.md](reference.md) · [beautify-prompt.md](beautify-prompt.md)

@@ -149,6 +149,11 @@ def synthesize_cosyvoice(
         output_wav=output_wav,
     )
 
+    # Speed re-inference reshapes delivery and flattens emotion. Off by default;
+    # prefer video remapping + mild atempo so tone/pitch stay closer to prompt.
+    if not bool(config.get("cosyvoice_speed_retune", False)):
+        return
+
     if not target_sec or target_sec <= 0.05:
         return
 
@@ -158,7 +163,6 @@ def synthesize_cosyvoice(
 
     ratio = actual / target_sec
     # CosyVoice speed>1 shortens; speed<1 lengthens.
-    # Keep retune gentle so tone/prosody survive; video remapping absorbs the rest.
     if 0.88 <= ratio <= 1.12:
         return
 

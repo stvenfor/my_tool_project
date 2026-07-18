@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import subprocess
+import sys
 from pathlib import Path
 
 import cv2
@@ -55,11 +56,23 @@ def apply_blendshape_mouth(image_bgr: np.ndarray, expression: dict[str, float], 
     return out
 
 
+def _wav2lip_repo() -> Path:
+    return Path.home() / "Wav2Lip"
+
+
 def _wav2lip_available() -> Path | None:
-    checkpoint = Path.home() / "Wav2Lip" / "checkpoints" / "wav2lip_gan.pth"
-    if checkpoint.exists():
+    checkpoint = _wav2lip_repo() / "checkpoints" / "wav2lip_gan.pth"
+    if checkpoint.exists() and checkpoint.stat().st_size > 1_000_000:
         return checkpoint
     return None
+
+
+def _wav2lip_python(repo: Path) -> str:
+    """Prefer the dedicated Wav2Lip venv over the system interpreter."""
+    venv_python = repo / ".venv" / "bin" / "python"
+    if venv_python.exists():
+        return str(venv_python)
+    return sys.executable or "python3"
 
 
 def apply_wav2lip_if_available(
@@ -73,7 +86,7 @@ def apply_wav2lip_if_available(
     if checkpoint is None or not audio_path.exists():
         return None
 
-    wav2lip_repo = Path.home() / "Wav2Lip"
+    wav2lip_repo = _wav2lip_repo()
     inference = wav2lip_repo / "inference.py"
     if not inference.exists():
         return None
@@ -85,7 +98,7 @@ def apply_wav2lip_if_available(
 
     out_path = clip_dir / f"out_{start_time:.3f}.mp4"
     cmd = [
-        "python3",
+        _wav2lip_python(wav2lip_repo),
         str(inference),
         "--checkpoint_path",
         str(checkpoint),

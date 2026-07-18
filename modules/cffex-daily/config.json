@@ -16,5 +16,19 @@
   },
   "douyin": {
     "tags": ["期货", "股指期货", "中信期货", "持仓数据", "金融"]
+  },
+  "schedule": {
+    "hour": 21,
+    "minute": 0,
+    "auto_publish": true
+  },
+  "beautify": {
+    "enabled": true,
+    "model": "gpt-image-2",
+    "size": "1024x1536",
+    "quality": "high",
+    "style_reference": "_hot-topic-infographic/beautified/cffex-position-report-2026-07-14-cursor-v1.png",
+    "output_dir": "_hot-topic-infographic/beautified",
+    "image_gen_cli": "~/.codex/skills/.system/imagegen/scripts/image_gen.py"
   }
 }

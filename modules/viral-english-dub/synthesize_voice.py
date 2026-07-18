@@ -116,15 +116,99 @@ def _resolve_speaker_prompt(work_dir: Path, speaker_id: str) -> tuple[Path, str]
     return prompt_wav, prompt_text
 
 
+def _resolve_prompt_source_audio(work_dir: Path, config: dict[str, Any]) -> Path:
+    """Prefer clean vocal stem so CosyVoice copies tone without BGM bleed."""
+    for candidate in (
+        work_dir / "reference" / "vocals_24k.wav",
+        work_dir / "reference" / "vocals_stem.wav",
+        work_dir / "reference" / "audio.wav",
+    ):
+        if candidate.exists():
+            return candidate
+    raise FileNotFoundError(f"No prompt source audio under {work_dir / 'reference'}")
+
+
+def _build_context_prompt(
+    work_dir: Path,
+    segments: list[dict[str, Any]],
+    index: int,
+    config: dict[str, Any],
+) -> tuple[Path, str] | None:
+    """Widen short prompts so CosyVoice has enough speech to lock timbre + tone.
+
+    CosyVoice warns when English is much shorter than prompt_text, so we only pad
+    when the English line is long enough relative to the expanded Chinese.
+    """
+    min_sec = float(config.get("min_prompt_sec", 3.2))
+    max_sec = float(config.get("max_prompt_sec", 8.0))
+    if min_sec <= 0:
+        return None
+
+    seg = segments[index]
+    start = float(seg["start_sec"])
+    end = float(seg["end_sec"])
+    if end - start >= min_sec * 0.92:
+        return None
+
+    left = index
+    right = index
+    texts = [str(seg.get("prompt_text") or seg.get("text_zh") or "").strip()]
+    while (end - start) < min_sec and (left > 0 or right < len(segments) - 1):
+        grew = False
+        if left > 0:
+            left -= 1
+            neighbor = segments[left]
+            start = float(neighbor["start_sec"])
+            texts.insert(0, str(neighbor.get("prompt_text") or neighbor.get("text_zh") or "").strip())
+            grew = True
+        if (end - start) >= min_sec:
+            break
+        if right < len(segments) - 1:
+            right += 1
+            neighbor = segments[right]
+            end = float(neighbor["end_sec"])
+            texts.append(str(neighbor.get("prompt_text") or neighbor.get("text_zh") or "").strip())
+            grew = True
+        if not grew:
+            break
+
+    if end - start > max_sec:
+        mid = (float(seg["start_sec"]) + float(seg["end_sec"])) / 2.0
+        start = max(0.0, mid - max_sec / 2.0)
+        end = start + max_sec
+
+    prompt_text = "".join(t for t in texts if t)
+    text_en = str(seg.get("en", "")).strip()
+    # CosyVoice: synthesis text should not be << half of prompt text length.
+    if prompt_text and len(text_en) < 0.45 * len(prompt_text):
+        return None
+
+    source = _resolve_prompt_source_audio(work_dir, config)
+    out_dir = work_dir / "reference" / "prosody_prompts"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    prompt_wav = out_dir / f"seg_{index:02d}.wav"
+    from lib import extract_audio_segment  # noqa: E402
+
+    extract_audio_segment(source, prompt_wav, start, end, sample_rate=24000)
+    return prompt_wav, prompt_text
+
+
 def _resolve_segment_prompt(
     work_dir: Path,
     seg: dict[str, Any],
     speaker_id: str,
     config: dict[str, Any],
+    *,
+    segments: list[dict[str, Any]] | None = None,
+    index: int | None = None,
 ) -> tuple[Path, str]:
     use_inline = bool(config.get("use_inline_prompt", config.get("sopro_use_inline_prompt", True)))
     prompt_mode = str(config.get("segment_prompt_mode", "speaker")).strip().lower()
     if use_inline or prompt_mode == "inline":
+        if segments is not None and index is not None and bool(config.get("expand_short_prompts", True)):
+            expanded = _build_context_prompt(work_dir, segments, index, config)
+            if expanded is not None:
+                return expanded
         prompt_rel = str(seg.get("prompt_wav", "")).strip()
         if prompt_rel:
             prompt_wav = work_dir / prompt_rel
@@ -174,15 +258,23 @@ def _clone_segment(
     work_dir: Path,
     *,
     sopro_cloner: SoproVoiceCloner | None = None,
+    segments: list[dict[str, Any]] | None = None,
+    index: int | None = None,
 ) -> str:
     backend = str(config.get("voice_clone_backend", "cosyvoice")).strip().lower()
-    prompt_wav, prompt_text = _resolve_segment_prompt(work_dir, seg, speaker_id, config)
+    prompt_wav, prompt_text = _resolve_segment_prompt(
+        work_dir, seg, speaker_id, config, segments=segments, index=index
+    )
 
     if backend == "cosyvoice":
         from cosyvoice_clone import synthesize_cosyvoice  # noqa: E402
 
         target_sec = float(seg.get("duration_sec", max(0.1, float(seg["end_sec"]) - float(seg["start_sec"]))))
-        print(f"  clone backend=cosyvoice speaker={speaker_id} prompt={prompt_wav.name}")
+        prompt_dur = get_audio_duration(prompt_wav) if prompt_wav.exists() else 0.0
+        print(
+            f"  clone backend=cosyvoice speaker={speaker_id} "
+            f"prompt={prompt_wav.name} ({prompt_dur:.2f}s) text={prompt_text[:24]!r}"
+        )
         synthesize_cosyvoice(
             text,
             prompt_wav,
@@ -247,7 +339,15 @@ def synthesize_segments(config: dict[str, Any], work_dir: Path) -> dict[str, Any
 
         if voice_mode == "cross_lingual_clone":
             backend_used = _clone_segment(
-                text, seg, speaker_id, raw_wav, config, work_dir, sopro_cloner=sopro_cloner
+                text,
+                seg,
+                speaker_id,
+                raw_wav,
+                config,
+                work_dir,
+                sopro_cloner=sopro_cloner,
+                segments=segments,
+                index=index,
             )
         elif voice_mode == "edge-tts":
             voice = default_english_voice(config)

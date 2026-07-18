@@ -16,6 +16,27 @@ DEFAULT_OUTPUT_ROOT = ROOT / "work"
 DOUYIN_DOWNLOADER = PROJECT_ROOT / "modules" / "shared" / "douyin" / "download_douyin_ref.mjs"
 
 
+def load_dotenv(dotenv_path: Path | None = None) -> None:
+    """Load KEY=VALUE lines into os.environ if not already set."""
+    import os
+
+    path = dotenv_path or (PROJECT_ROOT / ".env")
+    if not path.exists():
+        return
+    for raw in path.read_text(encoding="utf-8").splitlines():
+        line = raw.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        key = key.strip()
+        value = value.strip().strip("'").strip('"')
+        if key and key not in os.environ:
+            os.environ[key] = value
+
+
+load_dotenv()
+
+
 def load_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 

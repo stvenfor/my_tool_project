@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "setup": "python3 -m pip install -r requirements.txt",
+    "setup-wav2lip": "bash scripts/setup_wav2lip.sh",
     "run": "python3 run.py",
     "preview": "python3 run.py --preview-only --no-diffusion --frame-limit 45",
     "character-ref": "python3 generate_character_ref.py"

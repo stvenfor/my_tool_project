@@ -100,4 +100,30 @@ python3 modules/q-replace/run.py modules/beat-montage/work/output/123.mp4 \
 
 ## 可选 Wav2Lip
 
-在 `config.yaml` 中设置 `synthesis.wav2lip_enabled: true`，并在 `~/Wav2Lip/checkpoints/wav2lip_gan.pth` 放置权重。
+本地推理环境约定路径：
+
+- 仓库：`~/Wav2Lip`
+- 权重：`~/Wav2Lip/checkpoints/wav2lip_gan.pth`
+- 人脸检测：`~/Wav2Lip/face_detection/detection/sfd/s3fd.pth`
+- Python：优先使用 `~/Wav2Lip/.venv/bin/python`
+
+一键安装（Apple Silicon / Python 3.12 可用）：
+
+```bash
+npm run qreplace:setup-wav2lip
+# 或
+bash modules/q-replace/scripts/setup_wav2lip.sh
+```
+
+启用：在 `config.yaml` 设置 `synthesis.wav2lip_enabled: true`（默认已开）。跳过：`--skip-wav2lip`。
+
+冒烟测试：
+
+```bash
+# 准备一张含人脸的 png/jpg 与一段 wav 后：
+~/Wav2Lip/.venv/bin/python ~/Wav2Lip/inference.py \
+  --checkpoint_path ~/Wav2Lip/checkpoints/wav2lip_gan.pth \
+  --face /path/to/face.png \
+  --audio /path/to/audio.wav \
+  --outfile /tmp/wav2lip_smoke.mp4
+```

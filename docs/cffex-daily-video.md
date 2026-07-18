@@ -1,403 +1,327 @@
-# CFFEX 日报视频完整流程
+# CFFEX 中信期货净持仓日报 — 完整手册
 
-从中金所（CFFEX）抓取中信期货持仓数据，生成 720×1280 竖屏报告图与动画视频，并自动配置、发布到抖音创作者中心。
+从中金所（CFFEX）抓取中信期货持仓数据，生成 720×1280 竖屏底图与 Remotion 动画视频；默认经 **Infographic Engine / gpt-image-2** 美化为图文，发布到抖音创作者中心。支持 **每晚 21:00** LaunchAgent 无人值守全链路（生成 → 美化 → 图文发布）。
+
+- **仓库路径**：`modules/cffex-daily/`
+- **Agent Skill**：`.cursor/skills/cffex-daily-video/`
+- **本地文档副本**：`docs/cffex-daily-video.md`
+- **脚本 vs Agent 对照**：[cffex-agent-orchestration.md](cffex-agent-orchestration.md)
 
 ---
 
-## 流程概览
+## 1. 流程概览
 
 ```mermaid
 flowchart LR
-  A[CFFEX 数据] --> B[fetch_and_render.py]
-  B --> C[PNG 静态图]
-  B --> D[JSON 报告]
-  B --> E[render_video.mjs]
-  E --> F[Remotion MP4]
-  B --> G[抖音配置 JSON]
-  G --> H[publish-to-douyin.mjs]
-  F --> H
-  H --> I[抖音创作者中心]
+  A[CFFEX数据] --> B[fetch_and_render.py]
+  B --> C[PNG底图]
+  B --> D[JSON报告]
+  B --> E[Remotion_MP4]
+  B --> G[抖音文案元数据]
+  C --> H[beautify_report.py]
+  H --> I[美化PNG]
+  I --> J[publish-imagetext]
+  G --> J
+  E --> K[publish-video可选]
+  J --> L[抖音图文]
+  K --> M[抖音视频]
 ```
 
-| 阶段 | 脚本 | 产物 |
+| 阶段 | 工具 | 产物 |
 |------|------|------|
-| 1. 抓数据 | `fetch_and_render.py` | 报告 JSON |
-| 2. 生成静态图 | `fetch_and_render.py` | PNG（Playwright 或 Pillow 降级） |
-| 3. 渲染视频 | `render_video.mjs` + Remotion | MP4（约 7.5s，含 BGM） |
-| 4. 生成发布配置 | `fetch_and_render.py` | douyin JSON |
-| 5. 发布抖音 | `publish-to-douyin.mjs` | 已提交的作品 |
+| 抓数 + 底图 | `fetch_and_render.py` | PNG / JSON / 抖音元数据 |
+| 视频（可选） | Remotion | MP4（约 7.5s，含 BGM） |
+| 美化 | `beautify_report.py` + OpenAI `gpt-image-2` | `*-auto-vN.png` |
+| 图文发布（默认） | `publish-imagetext` | 抖音图文作品 |
+| 视频发布（可选） | `cffex:publish` | 抖音视频作品 |
+| 定时 | LaunchAgent 21:00 → `run.sh` | 日志 + 自动发布 |
+
+**身份约定**
+
+| 场景 | 美化方式 |
+|------|----------|
+| 定时 / `cffex:pipeline` | OpenAI Images API（`OPENAI_API_KEY`），不依赖 Cursor |
+| 手动调试 | 可用 Cursor GenerateImage + `gpt-image-2-style-library` |
 
 ---
 
-## 环境准备
+## 2. 环境准备
 
 ### 系统要求
 
-- macOS（定时任务使用 LaunchAgent）
+- macOS（LaunchAgent）
 - Python 3.10+
 - Node.js 18+
-- Google Chrome（抖音发布脚本依赖）
+- Google Chrome
+- `OPENAI_API_KEY`（美化必需）
 
 ### 首次安装
 
-在项目根目录执行：
-
 ```bash
-# Python 依赖
+# 项目根目录
 pip3 install Pillow playwright
-
-# Remotion 渲染依赖
 cd modules/cffex-daily/remotion && npm install && cd -
-
-# 抖音发布依赖
 npm run cffex:setup-douyin
-
-# 抖音扫码登录（只需一次，登录态持久化）
-npm run cffex:auth
+npm run cffex:auth   # 手机抖音扫码，登录态写入 ~/.douyin-playwright/profile
 ```
 
-登录态保存在 `~/.douyin-playwright/profile`，**不要**提交到 git。
+建议将 `OPENAI_API_KEY` 写入 `~/.codex/.env`（`run.sh` 会自动 source）或 shell 环境。
 
 ---
 
-## 日常使用
-
-### 生成今日视频
-
-```bash
-npm run cffex:daily
-```
-
-等价于：
-
-```bash
-python3 modules/cffex-daily/fetch_and_render.py
-```
-
-### 指定日期 / 周末强制运行
-
-```bash
-# 指定交易日
-npm run cffex:daily -- --date 20260710
-
-# 周末也运行（默认周末会跳过）
-npm run cffex:daily -- --force
-```
-
-### 发布到抖音
-
-生成完成后，直接发布最新一条：
-
-```bash
-npm run cffex:publish
-```
-
-发布指定日期：
-
-```bash
-npm run cffex:publish -- --date 20260710
-```
-
-发布前调试（填完表单但不点发布）：
-
-```bash
-npm run cffex:publish -- --dry-run --keep-open
-```
-
-### 一键完整流程
-
-```bash
-npm run cffex:daily && npm run cffex:publish
-```
-
----
-
-## 命令参考
+## 3. 日常命令
 
 | 命令 | 说明 |
 |------|------|
-| `npm run cffex:daily` | 全流程：数据 + PNG + JSON + MP4 + 抖音配置 |
+| `npm run cffex:daily` | 抓数 + PNG + JSON + MP4 + 抖音元数据 |
 | `npm run cffex:daily -- --date YYYYMMDD` | 指定交易日 |
-| `npm run cffex:daily -- --force` | 周末强制运行 |
-| `npm run cffex:video -- --json ... --output ...` | 仅重渲染视频 |
-| `npm run cffex:publish` | 发布最新视频到抖音 |
-| `npm run cffex:publish -- --date YYYYMMDD` | 发布指定日期视频 |
-| `npm run cffex:auth` | 抖音扫码登录 |
-| `npm run cffex:setup-douyin` | 安装抖音发布 Playwright 依赖 |
-| `npm run cffex:schedule` | 安装每日 22:00 定时任务 |
-| `cd modules/cffex-daily/remotion && npm run preview` | Remotion 本地预览 |
+| `npm run cffex:daily -- --force` | 周末强制生成 |
+| `npm run cffex:beautify -- --date YYYYMMDD` | gpt-image-2 美化 |
+| `npm run cffex:beautify -- --date YYYYMMDD --dry-run` | 只打印提示词与路径 |
+| `npm run cffex:publish-imagetext -- --date YYYYMMDD --image <png>` | 发布美化图文 |
+| `npm run cffex:pipeline` | **全链路**（与定时相同）：生成 → 美化 → 图文 |
+| `npm run cffex:publish -- --date YYYYMMDD` | 发布视频（可选） |
+| `npm run cffex:auth` | 重新扫码登录抖音 |
+| `npm run cffex:schedule` | 安装每晚 21:00 定时 |
+| `npm run cffex:unschedule` | 卸载定时 |
+| `npm run cffex:auto-off` / `cffex:auto-on` | 停止 / 恢复自动发送 |
+| `npm run cffex:schedule-status` | 查看 LaunchAgent 与开关 |
 
-### 发布选项
+### 推荐手动路径（图文）
 
-`npm run cffex:publish` 支持透传以下参数：
+```bash
+npm run cffex:daily -- --date 20260714
+npm run cffex:beautify -- --date 20260714
+npm run cffex:publish-imagetext -- \
+  --date 20260714 \
+  --image _hot-topic-infographic/beautified/cffex-position-report-2026-07-14-auto-v1.png \
+  --skip-music
+```
 
-| 选项 | 说明 |
-|------|------|
-| `--dry-run` | 填完表单不发布 |
-| `--keep-open` | 完成后不关闭浏览器 |
-| `--skip-music` | 跳过选音乐（默认已开启，视频自带 BGM） |
-| `--headless` | 无头模式（不推荐，易触发风控） |
+或一键：
+
+```bash
+npm run cffex:pipeline
+```
 
 ---
 
-## 输出文件
+## 4. 定时任务（21:00 美化图文）
 
-默认输出目录：`modules/cffex-daily/work/output/`
+每天 **21:00**（日历日触发）串行：
 
-以 `20260710` 为例：
+1. 若 `schedule.auto_publish=false` → 记日志后退出  
+2. `fetch_and_render.py`（周末 / 无数据 → 无 PNG → **不发布**）  
+3. `beautify_report.py`（需 API Key + 风格参考图）  
+4. **美化成功后** `publish-imagetext-to-douyin.mjs`
+
+```bash
+npm run cffex:schedule          # 安装
+npm run cffex:unschedule        # 卸载
+npm run cffex:auto-off          # 停止自动发送（保留任务）
+npm run cffex:auto-on           # 恢复
+npm run cffex:schedule-status
+```
+
+| 项 | 路径 / 说明 |
+|------|-------------|
+| Plist 源 | `modules/cffex-daily/com.yuque.cffex-daily.plist` |
+| 安装位置 | `~/Library/LaunchAgents/com.yuque.cffex-daily.plist` |
+| 入口 | `modules/cffex-daily/run.sh` |
+| 日志 | `modules/cffex-daily/work/logs/daily-YYYYMMDD.log` |
+
+**前置**：21:00 机器开机且已登录 GUI；抖音登录态有效；Chrome 可用；`OPENAI_API_KEY` 可被 launchd 读到。
+
+---
+
+## 5. 产物路径
+
+### 底图 / 视频 / 元数据
+
+`modules/cffex-daily/work/output/`
 
 | 文件 | 说明 |
 |------|------|
-| `citic-net-positions-20260710.png` | 720×1280 静态报告图 |
-| `citic-net-positions-20260710.json` | 报告数据（Remotion props） |
-| `citic-net-positions-20260710.mp4` | 竖屏动画视频 |
-| `citic-net-positions-20260710-douyin.json` | 抖音发布配置（按日期归档） |
-| `douyin-video.json` | 最新一条抖音配置（便于直接发布） |
+| `citic-net-positions-YYYYMMDD.png` | 720×1280 底图 |
+| `citic-net-positions-YYYYMMDD.json` | 报告数据 |
+| `citic-net-positions-YYYYMMDD.mp4` | 竖屏视频 |
+| `citic-net-positions-YYYYMMDD-douyin.json` | 视频/文案元数据 |
+| `citic-net-positions-YYYYMMDD-imagetext.json` | 图文发布配置（发布时生成） |
+| `douyin-video.json` | 最新视频配置快捷入口 |
 
-### 跳过与失败
+### 美化图
 
-- **周末**：无 `--force` 时自动跳过，打印 `Skip YYYY-MM-DD: weekend.`
-- **非交易日**：CFFEX 返回 404，正常退出
-- **视频渲染失败**：stderr 显示 `Video render skipped`，PNG/JSON 仍可用，可单独重跑 `cffex:video`
+`_hot-topic-infographic/beautified/`
+
+| 命名 | 说明 |
+|------|------|
+| `cffex-position-report-YYYY-MM-DD-auto-vN.png` | CLI / 定时美化 |
+| `cffex-position-report-YYYY-MM-DD-cursor-vN.png` | Cursor 手动美化 |
+
+风格参考默认指向既有精修图（见配置 `beautify.style_reference`）。
 
 ---
 
-## 配置说明
+## 6. 配置
 
-主配置文件：`modules/cffex-daily/config.json`
+主文件：`modules/cffex-daily/config.json`
 
 ```json
 {
   "output_dir": "modules/cffex-daily/work/output",
-  "theme": "default",
-  "chart_width": 632,
-  "chart_height": 260,
-  "palette": ["#d14d4d", "#3a9a6a", "#b83333", "#257a52", "#4a5568"],
-  "logo": "modules/cffex-daily/logo.png",
   "logo_handle": "@小水獭学AI",
-  "bgm": {
-    "file": "modules/cffex-daily/bgm.mp3",
-    "volume": 0.14,
-    "enabled": true
-  },
-  "douyin": {
-    "tags": ["期货", "股指期货", "中信期货", "持仓数据", "金融"]
+  "bgm": { "file": "modules/cffex-daily/bgm.mp3", "volume": 0.14, "enabled": true },
+  "douyin": { "tags": ["期货", "股指期货", "中信期货", "持仓数据", "金融"] },
+  "schedule": { "hour": 21, "minute": 0, "auto_publish": true },
+  "beautify": {
+    "enabled": true,
+    "model": "gpt-image-2",
+    "size": "1024x1536",
+    "quality": "high",
+    "style_reference": "_hot-topic-infographic/beautified/cffex-position-report-2026-07-14-cursor-v1.png",
+    "output_dir": "_hot-topic-infographic/beautified",
+    "image_gen_cli": "~/.codex/skills/.system/imagegen/scripts/image_gen.py"
   }
 }
 ```
 
 | 字段 | 说明 |
 |------|------|
-| `output_dir` | 输出目录（相对项目根目录） |
-| `logo_handle` | 视频水印账号 |
-| `bgm.enabled` | 是否启用背景音乐 |
-| `bgm.volume` | BGM 音量（0–1） |
-| `chart_width` / `chart_height` | 图表尺寸 |
-| `douyin.tags` | 抖音话题标签，最多 5 个 |
+| `schedule.auto_publish` | `false` 时定时不生成/不美化/不发布 |
+| `beautify.style_reference` | Infographic 风格参考图（必须存在） |
+| `beautify.image_gen_cli` | OpenAI 图像 CLI 路径 |
+| `douyin.tags` | 话题，最多 5 个、不带 `#` |
 
-其他资源文件：
-
-| 文件 | 说明 |
-|------|------|
-| `modules/cffex-daily/bgm.mp3` | 背景音乐（不存在则视频无声） |
-| `modules/cffex-daily/logo.png` | 水印 Logo |
-| `modules/cffex-daily/encouragement_quotes.json` | 每日励志语池 |
+其他资源：`bgm.mp3`、`logo.png`、`encouragement_quotes.json`。
 
 ---
 
-## 数据与 JSON 结构
+## 7. 数据与 JSON
 
 ### 报告 JSON
 
-`fetch_and_render.py` 输出的数据结构：
-
 ```json
 {
-  "trade_date": "20260710",
-  "date_label": "2026年07月10日 周五",
-  "daily_quote": "方向对了，不怕路远，坚持就是胜利！",
+  "trade_date": "20260714",
+  "date_label": "2026年07月14日 周二",
+  "daily_quote": "市场奖励有耐心、有纪律的人！",
   "logo_handle": "@小水獭学AI",
+  "citic_by_symbol": { "IH": -1149, "IF": 463, "IC": 105, "IM": -245 },
+  "citic_total": -826,
+  "top20_net_short_total": 146910,
+  "net_buy_total": -939,
   "bgm_enabled": true,
-  "bgm_volume": 0.14,
-  "citic_by_symbol": { "IH": 163, "IF": -24, "IC": 1510, "IM": -126 },
-  "citic_total": 1523,
-  "top20_net_short_total": 136619,
-  "net_buy_total": 6193
+  "bgm_volume": 0.14
 }
 ```
 
-数据来源：CFFEX 官网持仓排名 CSV（IH / IF / IC / IM 四个品种）。
+数据源：CFFEX 持仓排名（IH / IF / IC / IM）。
 
-### 抖音发布 JSON
-
-自动生成，无需手写：
+### 图文 JSON
 
 ```json
 {
-  "videoPath": "citic-net-positions-20260710.mp4",
-  "title": "20260710中信期货净持仓",
-  "description": "2026年07月10日 周五 中信期货净持仓数据\n\nIH +163  IF -24  IC +1510  IM -126\n中信合计净多 +1523\nTop20净空 136619  净买入 6193\n\n方向对了，不怕路远，坚持就是胜利！",
+  "imagePaths": ["/abs/path/to/beautified.png"],
+  "title": "20260714中信期货净持仓",
+  "description": "…",
   "tags": ["期货", "股指期货", "中信期货", "持仓数据", "金融"]
 }
 ```
 
-| 字段 | 规则 |
-|------|------|
-| `videoPath` | 相对 JSON 所在目录的 MP4 路径 |
-| `title` | ≤30 字，格式 `{YYYYMMDD}中信期货净持仓` |
-| `description` | 日期 + 四品种 + 汇总 + 励志语；不含 `#` 话题 |
-| `tags` | 最多 5 个，不带 `#`（发布时脚本自动追加） |
+可由 `publish-imagetext-to-douyin.mjs --date --image` 从当日 `*-douyin.json` 自动生成。
 
 ---
 
-## 抖音发布
+## 8. 抖音发布说明
 
-### 发布流程
+### 图文（默认）
 
-`publish-to-douyin.mjs` 调用 `modules/shared/douyin/publish-video.mjs`，自动完成：
+- 脚本：`modules/shared/douyin/publish-imagetext.mjs`
+- 入口：`npm run cffex:publish-imagetext`
+- 上传页：`…/upload?default-tab=3`
+- **必须点页脚「发布」**，不要点「高清发布」（会中断编辑流）
 
-1. 打开创作者中心视频上传页
-2. 上传 MP4
-3. 填写标题与描述
-4. 选择 AI 推荐封面
-5. 添加「内容由 AI 生成」声明
-6. 点击发布
+### 视频（可选）
 
-默认 `--skip-music`，因为视频已内嵌 BGM。
+- 脚本：`modules/shared/douyin/publish-video.mjs`
+- 入口：`npm run cffex:publish`（默认 `--skip-music`）
+- 自动：上传 → 标题描述 → AI 封面 →「内容由 AI 生成」→ 发布
 
-### 登录
-
-```bash
-npm run cffex:auth
-```
-
-浏览器打开后，用手机抖音 App 扫码。登录完成后按 Enter 保存。
-
-### 环境变量
-
-| 变量 | 默认值 | 说明 |
-|------|--------|------|
-| `DOUYIN_PROFILE_DIR` | `~/.douyin-playwright/profile` | Playwright 登录态目录 |
-| `DOUYIN_VIDEO_UPLOAD_URL` | 创作者中心上传页 | 覆盖上传入口 URL |
+登录态：`~/.douyin-playwright/profile`（勿提交 git）。
 
 ---
 
-## 定时任务
-
-安装 macOS LaunchAgent，每天 **22:00** 自动运行：
-
-```bash
-npm run cffex:schedule
-```
-
-- Plist 源文件：`modules/cffex-daily/com.yuque.cffex-daily.plist`
-- 安装位置：`~/Library/LaunchAgents/com.yuque.cffex-daily.plist`
-- 日志目录：`modules/cffex-daily/work/logs/`
-- 手动触发：`npm run cffex:daily`
-
-定时任务只生成视频，**不会**自动发布到抖音。
-
----
-
-## 视频渲染（Remotion）
-
-### 参数
+## 9. Remotion 视频
 
 | 项 | 值 |
-|----|-----|
-| Composition ID | `CiticReportVideo` |
-| 尺寸 | 720 × 1280（9:16 竖屏） |
-| FPS | 30 |
-| 总帧数 | 225（前 45 帧静态 + 180 帧动画） |
-| 时长 | 约 7.5 秒 |
-
-### 仅重渲染视频
-
-修改 Remotion 代码或补渲染时：
+|------|------|
+| Composition | `CiticReportVideo` |
+| 尺寸 | 720×1280 @30fps |
+| 帧数 | 225（约 7.5s） |
 
 ```bash
 npm run cffex:video -- \
-  --json modules/cffex-daily/work/output/citic-net-positions-20260710.json \
-  --output modules/cffex-daily/work/output/citic-net-positions-20260710.mp4
-```
-
-### 本地预览
-
-```bash
+  --json modules/cffex-daily/work/output/citic-net-positions-YYYYMMDD.json \
+  --output modules/cffex-daily/work/output/citic-net-positions-YYYYMMDD.mp4
 cd modules/cffex-daily/remotion && npm run preview
 ```
 
-### 小屏可读性检查（360px）
+源码：`modules/cffex-daily/remotion/src/`（`CiticReportVideo.tsx`、`AnimatedBarChart.tsx` 等）。
 
-日报图按 720×1280 设计，发布到抖音后缩略图约 200–360px 宽。建议在每次改 UI 后额外导出一张 360px 宽预览图，确认核心数字与标题仍可读：
-
-```bash
-npm run cffex:daily -- --date 20260710 --force
-# 可选：用 Playwright 对 .report 截图并缩放至 360px 宽做人工检查
-# 核心数字（四品种值、中信整体）应 ≥ 28px 等效；标题距顶/底 ≥ 48px 安全区
-```
-
-当前模板已收敛为 5 档字号（26 / 28–30 / 16 / 12 / 10px），section 副标题 ≥ 12px。
-
-### 源码结构
-
-```
-modules/cffex-daily/remotion/src/
-├── CiticReportVideo.tsx   # 主画面、动画时序
-├── AnimatedBarChart.tsx   # 柱状图动画
-├── AnimatedNumber.tsx     # 数字动画
-├── constants.ts           # 帧数常量
-├── types.ts               # 主题色、数据类型
-└── Root.tsx               # Composition 注册
-```
+日报底图按抖音小屏可读性设计（5 档字号 26 / 28–30 / 16 / 12 / 10px）。
 
 ---
 
-## 项目目录结构
+## 10. 目录结构
 
 ```
 modules/cffex-daily/
-├── fetch_and_render.py       # 主流程：抓数据、渲染图、写 JSON、调视频、写抖音配置
-├── render_video.mjs          # 复制 assets → 调用 remotion render
-├── publish-to-douyin.mjs     # 抖音发布便捷入口
-├── config.json               # 主配置
-├── run.sh                    # 定时任务入口
-├── install-scheduler.sh      # 安装 LaunchAgent
-├── bgm.mp3                   # 背景音乐
-├── logo.png                  # 水印
-├── encouragement_quotes.json # 励志语池
-├── douyin/                   # 抖音发布脚本
-│   ├── publish-video.mjs
-│   ├── auth.mjs
-│   ├── douyin-browser.mjs
-│   └── setup.sh
-└── remotion/                 # Remotion 视频项目
-    └── src/
+├── fetch_and_render.py
+├── beautify_report.py
+├── render_video.mjs
+├── publish-to-douyin.mjs
+├── publish-imagetext-to-douyin.mjs
+├── run.sh / install-scheduler.sh / uninstall-scheduler.sh
+├── set_auto_publish.py / schedule-status.sh
+├── config.json
+├── bgm.mp3 / logo.png / encouragement_quotes.json
+├── remotion/
+└── work/output/  work/logs/
 
-modules/cffex-daily/work/
-├── output/                   # 生成的 PNG / JSON / MP4 / 抖音配置
-└── logs/                     # 定时任务日志
+modules/shared/douyin/
+├── publish-video.mjs
+├── publish-imagetext.mjs
+├── auth.mjs / douyin-browser.mjs / setup.sh
+
+_hot-topic-infographic/beautified/   # 美化成品
+.cursor/skills/cffex-daily-video/    # Agent skill + 提示词骨架
 ```
 
 ---
 
-## 故障排查
+## 11. 故障排查
 
-| 现象 | 原因 | 处理 |
-|------|------|------|
-| `Skip ... weekend` | 周末默认跳过 | 加 `--force` |
-| CFFEX 404 / 无数据 | 非交易日 | 换 `--date` 或等下一交易日 |
-| Playwright 不可用 | 未安装或启动失败 | 自动降级 Pillow 静态图；视频仍可用 Remotion |
-| `Video render skipped` | Remotion 依赖缺失或超时 | `cd modules/cffex-daily/remotion && npm install`，重跑 `cffex:video` |
-| 视频无声音 | BGM 文件缺失或已禁用 | 确认 `bgm.mp3` 存在且 `bgm.enabled: true` |
-| 抖音跳转登录页 | 登录态过期 | `npm run cffex:auth` |
-| 发布按钮 disabled | 视频未上传完或必填项缺失 | 等待上传完成；检查标题/描述 |
-| `Cannot find package 'playwright'` | 抖音脚本依赖未装 | `npm run cffex:setup-douyin` |
+| 现象 | 处理 |
+|------|------|
+| `Skip … weekend` | 加 `--force` 或等交易日 |
+| CFFEX 404 | 非交易日，换 `--date` |
+| beautify：`OPENAI_API_KEY not set` | 导出 key / 写入 `~/.codex/.env` |
+| 风格参考缺失 | 更新 `beautify.style_reference` |
+| 图文登录失败 | `npm run cffex:auth` |
+| 点发布回到上传页 | 勿点「高清发布」 |
+| 定时未跑 | `cffex:schedule-status`；确认 GUI 登录会话 |
+| Remotion 失败 | `cd modules/cffex-daily/remotion && npm install` |
+| Playwright 缺失 | `npm run cffex:setup-douyin` |
 
 ---
 
-## 相关资源
+## 12. 相关链接
 
-- Agent Skill：`.cursor/skills/cffex-daily-video/SKILL.md`（供 Cursor Agent 自动调用）
-- 抖音上传页：https://creator.douyin.com/creator-micro/content/upload
-- CFFEX 数据：http://www.cffex.com.cn/sj/ccpm/
+- 抖音创作者中心：https://creator.douyin.com/creator-micro/content/upload
+- CFFEX 持仓：http://www.cffex.com.cn/sj/ccpm/
+- 模板：Infographic Engine（gpt-image-2-style-library，case 334 / 1 / 8）
+- 提示词骨架：`.cursor/skills/cffex-daily-video/beautify-prompt.md`
+
+---
+
+*文档维护：content-tools / `docs/cffex-daily-video.md`。同步至飞书知识库「AI项目」。*

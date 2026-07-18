@@ -1,106 +1,104 @@
-# CFFEX 日报视频 — 参考
+# CFFEX 日报 — 参考
 
-## 目录结构
+## 目录
 
 ```
 modules/cffex-daily/
-├── fetch_and_render.py    # 抓数据 + 渲染 PNG/JSON + 调用视频渲染
-├── render_video.mjs       # 复制 assets → 调用 remotion render
-├── config.json            # 输出目录、BGM、图表尺寸
-├── bgm.mp3                # 背景音乐（可选）
-├── logo.png               # 水印 logo
-├── encouragement_quotes.json  # 每日励志语池
+├── fetch_and_render.py
+├── render_video.mjs
+├── publish-to-douyin.mjs              # 视频发布入口
+├── publish-imagetext-to-douyin.mjs    # 图文发布入口
+├── config.json
+├── bgm.mp3 / logo.png
 └── remotion/
-    ├── src/CiticReportVideo.tsx
-    └── public/            # 渲染时临时写入 report-props.json、logo、bgm
-```
 
-## 报告 JSON Schema
-
-`fetch_and_render.py` 输出的 JSON 结构：
-
-```json
-{
-  "trade_date": "20260710",
-  "date_label": "2026年07月10日 周五",
-  "daily_quote": "方向对了，不怕路远，坚持就是胜利！",
-  "logo_handle": "@小水獭学AI",
-  "bgm_enabled": true,
-  "bgm_volume": 0.14,
-  "citic_by_symbol": { "IH": 163, "IF": -24, "IC": 1510, "IM": -126 },
-  "citic_total": 1523,
-  "top20_net_short_total": 136619,
-  "net_buy_total": 6193
-}
-```
-
-## 抖音发布脚本（项目内）
-
-```
 modules/shared/douyin/
 ├── publish-video.mjs
+├── publish-imagetext.mjs             # 图文（页脚「发布」，禁「高清发布」）
 ├── auth.mjs
 ├── douyin-browser.mjs
 └── setup.sh
+
+_hot-topic-infographic/beautified/    # 美化成品归档
 ```
 
-便捷入口：`modules/cffex-daily/publish-to-douyin.mjs`（默认 `--skip-music`，视频已含 BGM）。
-
-## 抖音视频发布 JSON Schema
+## 报告 JSON
 
 ```json
 {
-  "videoPath": "string (required, 相对 JSON 目录或绝对路径, .mp4/.mov/.m4v, ≤128MB)",
-  "title": "string (optional, ≤30 字)",
-  "description": "string (optional, 不含 # 话题)",
-  "tags": ["string (optional, max 5, 不带 #)"]
+  "trade_date": "20260714",
+  "date_label": "2026年07月14日 周二",
+  "daily_quote": "…",
+  "logo_handle": "@小水獭学AI",
+  "citic_by_symbol": { "IH": -1149, "IF": 463, "IC": 105, "IM": -245 },
+  "citic_total": -826,
+  "top20_net_short_total": 146910,
+  "net_buy_total": -939,
+  "bgm_enabled": true,
+  "bgm_volume": 0.14
 }
 ```
 
-## 从报告 JSON 生成 description 模板
+## 抖音视频 JSON
+
+`citic-net-positions-YYYYMMDD-douyin.json` / `douyin-video.json`：
+
+```json
+{
+  "videoPath": "citic-net-positions-YYYYMMDD.mp4",
+  "title": "string ≤30",
+  "description": "string，不含 #",
+  "tags": ["最多5个，不带 #"]
+}
+```
+
+## 抖音图文 JSON
+
+`citic-net-positions-YYYYMMDD-imagetext.json`：
+
+```json
+{
+  "imagePaths": ["/abs/path/to/beautified.png"],
+  "title": "可选，≤30",
+  "description": "可选",
+  "tags": ["最多5个"]
+}
+```
+
+由 `publish-imagetext-to-douyin.mjs --date --image` 自动从视频元数据生成。
+
+## description 模板
 
 ```
 {date_label} 中信期货净持仓数据
 
-IH {sign}{IH}  IF {sign}{IF}  IC {sign}{IC}  IM {sign}{IM}
-中信合计{净多/净空} {abs(citic_total)}
-Top20净空 {top20_net_short_total}  净买入 {net_buy_total}
+IH {±IH}  IF {±IF}  IC {±IC}  IM {±IM}
+中信合计{净多|净空} {abs(citic_total)}
+Top20净空 {top20}  净买入 {net_buy}
 
 {daily_quote}
 ```
 
-数值格式：`+163` / `-24`（正数带 `+`）。
+## 关键 URL
 
-## 抖音发布关键 URL
-
-| 页面 | URL |
+| 用途 | URL |
 |------|-----|
 | 视频上传 | `https://creator.douyin.com/creator-micro/content/upload` |
-| 登录 Profile | `~/.douyin-playwright/profile` |
+| 图文上传 | `…/upload?default-tab=3` |
+| Profile | `~/.douyin-playwright/profile` |
 
-环境变量：
+图文编辑页发布：只点 `button.button-dhlUZE.primary-cECiOJ` 文本为「发布」；不要点「高清发布」。
 
-| 变量 | 默认 | 说明 |
-|------|------|------|
-| `DOUYIN_PROFILE_DIR` | `~/.douyin-playwright/profile` | Playwright 持久化 Profile |
-| `DOUYIN_VIDEO_UPLOAD_URL` | 视频上传 URL | 覆盖上传入口 |
+## Remotion
 
-## Remotion 渲染参数
+- ID `CiticReportVideo`，720×1280 @30fps，225 帧
 
-- Composition ID: `CiticReportVideo`
-- 尺寸: 720×1280（9:16 竖屏）
-- FPS: 30
-- 总帧数: 225（前 45 帧静态 hold + 180 帧动画）
+## 定时（21:00 美化图文）
 
-手动渲染：
+`npm run cffex:schedule` → 每天 21:00 `run.sh`：  
+`auto_publish` 门闩 → `fetch_and_render` → `beautify_report.py` → `publish-imagetext`。
 
-```bash
-node modules/cffex-daily/render_video.mjs \
-  --json modules/cffex-daily/work/output/citic-net-positions-YYYYMMDD.json \
-  --output modules/cffex-daily/work/output/citic-net-positions-YYYYMMDD.mp4
-```
-
-## 定时任务
-
-`npm run cffex:schedule` 安装 LaunchAgent，每天 22:00 执行 `run.sh`。
-日志目录：`modules/cffex-daily/work/logs/`。
+- 卸载：`cffex:unschedule`
+- 关发送：`cffex:auto-off`（改 `config.json` `schedule.auto_publish`）
+- 日志：`modules/cffex-daily/work/logs/daily-YYYYMMDD.log`
+- 美化需 `OPENAI_API_KEY` + `beautify.style_reference`

@@ -156,24 +156,45 @@ def translate_script(config: dict[str, Any], work_dir: Path) -> dict[str, Any]:
     if script_path.exists() and config.get("skip_translate_if_script_exists"):
         return load_json(script_path)
 
+    existing_script = load_json(script_path) if script_path.exists() else {}
+    existing_segs = existing_script.get("segments", [])
+
+    # Prefer enriched segments (speaker/prompt) from prior diarize if present.
+    if existing_segs and len(existing_segs) == len(segments):
+        source_segments = existing_segs
+    else:
+        source_segments = segments
+
     accent_preserve = bool(config.get("accent_preserve", True))
     use_llm = bool(config.get("use_llm_translate", True))
     english_lines: list[str] = []
 
     if use_llm and os.environ.get("OPENAI_API_KEY"):
         try:
-            english_lines = _call_openai_translate(segments, accent_preserve)
+            english_lines = _call_openai_translate(source_segments, accent_preserve)
+            print(f"LLM translated {len(english_lines)} segments.")
         except Exception as exc:
             print(f"LLM translate failed ({exc}); using fallback.")
             english_lines = []
 
-    if len(english_lines) != len(segments):
-        english_lines = [_fallback_translate(str(seg.get("text_zh", ""))) for seg in segments]
+    if len(english_lines) != len(source_segments):
+        # Prefer previously accepted English over unusable Chinese placeholders.
+        preserved = [
+            str(seg.get("en", "")).strip()
+            for seg in source_segments
+            if str(seg.get("en", "")).strip() and not re.search(r"[\u4e00-\u9fff]", str(seg.get("en", "")))
+        ]
+        if len(preserved) == len(source_segments):
+            print("Keeping existing English lines after LLM failure.")
+            english_lines = preserved
+        else:
+            english_lines = [_fallback_translate(str(seg.get("text_zh", ""))) for seg in source_segments]
 
     script_segments: list[dict[str, Any]] = []
-    for seg, en in zip(segments, english_lines):
+    for seg, en in zip(source_segments, english_lines):
         start = float(seg["start_sec"])
         end = float(seg["end_sec"])
+        prompt_text = str(seg.get("prompt_text") or seg.get("text_zh", "")).strip()
         script_segments.append(
             {
                 "start_sec": round(start, 3),
@@ -183,7 +204,7 @@ def translate_script(config: dict[str, Any], work_dir: Path) -> dict[str, Any]:
                 "en": en.strip(),
                 "speaker_id": str(seg.get("speaker_id", "spk0")),
                 "prompt_wav": seg.get("prompt_wav", ""),
-                "prompt_text": seg.get("prompt_text", seg.get("text_zh", "")),
+                "prompt_text": prompt_text,
             }
         )
 
