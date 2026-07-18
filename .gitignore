@@ -36,6 +36,10 @@ modules/*/pretrained_models/
 # Vendor checkouts
 modules/city-healing-video/vendor/
 modules/viral-english-dub/vendor/
+modules/openmontage/
+
+# Local video experiments / renders
+videos/
 
 # Remotion runtime copies
 modules/*/remotion/public/
