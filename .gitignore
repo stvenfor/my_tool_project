@@ -12,6 +12,9 @@ node_modules/
 # Isolated Codex worktrees
 .worktrees/
 
+# Superpowers execution ledger and review artifacts
+.superpowers/
+
 # Python
 __pycache__/
 *.py[cod]
