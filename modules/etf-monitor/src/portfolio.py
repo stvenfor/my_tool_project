@@ -37,6 +37,7 @@ _POSITION_KEYS = frozenset(
         "cost_basis_cny",
         "weighted_cost_cny",
         "tranche_count",
+        "entry_tranche_costs_cny",
         "alert_acknowledged",
     }
 )
@@ -121,6 +122,7 @@ def record_buy(
             "cost_basis_cny": 0.0,
             "weighted_cost_cny": 0.0,
             "tranche_count": 0,
+            "entry_tranche_costs_cny": [],
             "alert_acknowledged": _empty_alert_flags(),
         }
         positions[code] = position
@@ -147,6 +149,7 @@ def record_buy(
     position["weighted_cost_cny"] = _money(
         float(position["cost_basis_cny"]) / float(position["shares"])
     )
+    position["entry_tranche_costs_cny"].append(fill_cost)
     position["tranche_count"] = int(position["tranche_count"]) + 1
     updated["cash_cny"] = post_buy_cash
     validate_portfolio_state(updated)
@@ -375,7 +378,9 @@ def validate_portfolio_state(state: Mapping[str, Any]) -> None:
     expected_reserve = _money(max(0.0, initial_capital - MAX_RISK_EXPOSURE_CNY))
     if cash_reserve != expected_reserve:
         raise ValueError("cash_reserve_cny does not match portfolio limits")
-    _require_money(state["cash_cny"], "cash_cny", minimum=0.0)
+    cash = _require_money(state["cash_cny"], "cash_cny", minimum=0.0)
+    if cash + _EPSILON < cash_reserve:
+        raise ValueError("cash_cny cannot be below the cash reserve")
     _require_money(state["realized_pnl_cny"], "realized_pnl_cny")
     _require_money(
         state["high_watermark_equity_cny"],
@@ -445,12 +450,27 @@ def validate_portfolio_state(state: Mapping[str, Any]) -> None:
         )
         if weighted_cost != _money(cost_basis / shares):
             raise ValueError(f"weighted cost for {code} is inconsistent")
-        _require_integer(
+        tranche_count = _require_integer(
             position["tranche_count"],
             f"tranche count for {code}",
             minimum=1,
             maximum=MAX_TRANCHES_PER_ETF,
         )
+        entry_costs = position["entry_tranche_costs_cny"]
+        if not isinstance(entry_costs, list) or len(entry_costs) != tranche_count:
+            raise ValueError(f"entry tranche history length is invalid for {code}")
+        entry_cost_total = 0.0
+        for index, entry_cost in enumerate(entry_costs, start=1):
+            normalized_cost = _require_money(
+                entry_cost,
+                f"entry tranche {index} cost for {code}",
+                minimum=0.01,
+            )
+            if normalized_cost > MAX_SINGLE_TRANCHE_CNY:
+                raise ValueError(f"entry tranche {index} for {code} exceeds the limit")
+            entry_cost_total += normalized_cost
+        if entry_cost_total + 0.01 < cost_basis:
+            raise ValueError(f"entry tranche history is below current cost basis for {code}")
         flags = position["alert_acknowledged"]
         if not isinstance(flags, Mapping) or set(flags.keys()) != _ALERT_FLAG_KEYS:
             raise ValueError(f"invalid alert flags for {code}")

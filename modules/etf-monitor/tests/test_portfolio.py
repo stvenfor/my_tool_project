@@ -81,7 +81,23 @@ class PortfolioTests(unittest.TestCase):
         self.assertEqual(2_000, position["shares"])
         self.assertEqual(9.0, position["weighted_cost_cny"])
         self.assertEqual(18_000, position["cost_basis_cny"])
+        self.assertEqual([10_000, 8_000], position["entry_tranche_costs_cny"])
         self.assertEqual(INITIAL_CAPITAL_CNY - 18_000, after_second["cash_cny"])
+
+    def test_partial_sell_preserves_auditable_entry_tranche_cost_history(self) -> None:
+        state = record_buy(self.state, "510300", price=10, amount=10_000)
+        state = record_buy(
+            state,
+            "510300",
+            price=8,
+            amount=8_000,
+            second_tranche_confirmed=True,
+        )
+        partially_sold = record_sell(state, "510300", price=10, shares=500)
+
+        position = partially_sold["positions"]["510300"]
+        self.assertEqual([10_000, 8_000], position["entry_tranche_costs_cny"])
+        self.assertEqual(13_500, position["cost_basis_cny"])
 
     def test_second_tranche_requires_external_confirmation(self) -> None:
         after_first = record_buy(self.state, "510300", price=10, amount=10_000)
@@ -127,6 +143,13 @@ class PortfolioTests(unittest.TestCase):
 
         with self.assertRaisesRegex(ValueError, "cash reserve"):
             record_buy(state, "510300", price=1, amount=0.01)
+
+    def test_validator_rejects_cash_below_declared_reserve(self) -> None:
+        corrupted = new_portfolio_state()
+        corrupted["cash_cny"] = corrupted["cash_reserve_cny"] - 0.01
+
+        with self.assertRaisesRegex(ValueError, "cash reserve"):
+            portfolio_module.validate_portfolio_state(corrupted)
 
     def test_fills_that_round_to_zero_cost_or_quantity_are_rejected(self) -> None:
         with self.assertRaises(ValueError):
@@ -508,6 +531,55 @@ class PortfolioTests(unittest.TestCase):
             position["code"] = code
             too_many_positions["positions"][code] = position
         corrupt_states.append(("too_many_positions", too_many_positions))
+
+        for label, state in corrupt_states:
+            with self.subTest(label):
+                with self.assertRaises(ValueError):
+                    portfolio_module.validate_portfolio_state(state)
+
+    def test_validator_rejects_corrupt_single_and_double_tranche_history(self) -> None:
+        single = record_buy(self.state, "510300", price=10, amount=10_000)
+        double = record_buy(
+            single,
+            "510300",
+            price=10,
+            amount=10_000,
+            second_tranche_confirmed=True,
+        )
+        corrupt_states = []
+
+        missing = deepcopy(single)
+        del missing["positions"]["510300"]["entry_tranche_costs_cny"]
+        corrupt_states.append(("missing", missing))
+
+        short = deepcopy(double)
+        short["positions"]["510300"]["entry_tranche_costs_cny"] = [10_000]
+        corrupt_states.append(("length", short))
+
+        non_finite = deepcopy(single)
+        non_finite["positions"]["510300"]["entry_tranche_costs_cny"] = [
+            float("nan")
+        ]
+        corrupt_states.append(("nan", non_finite))
+
+        single_oversize = deepcopy(single)
+        single_oversize["positions"]["510300"]["entry_tranche_costs_cny"] = [
+            11_000.01
+        ]
+        corrupt_states.append(("single_oversize", single_oversize))
+
+        double_oversize = deepcopy(double)
+        double_oversize["positions"]["510300"]["entry_tranche_costs_cny"] = [
+            10_000,
+            11_000.01,
+        ]
+        corrupt_states.append(("double_oversize", double_oversize))
+
+        insufficient_history = deepcopy(single)
+        insufficient_history["positions"]["510300"]["entry_tranche_costs_cny"] = [
+            9_999
+        ]
+        corrupt_states.append(("below_current_basis", insufficient_history))
 
         for label, state in corrupt_states:
             with self.subTest(label):
