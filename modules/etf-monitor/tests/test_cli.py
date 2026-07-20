@@ -19,7 +19,13 @@ sys.path.insert(0, str(MODULE_ROOT))
 
 import cli  # noqa: E402
 from src.market_data import MarketDataError  # noqa: E402
-from src.portfolio import new_portfolio_state, record_buy  # noqa: E402
+from src.portfolio import (  # noqa: E402
+    COOLDOWN_TRADING_DAYS,
+    advance_cooldown,
+    new_portfolio_state,
+    record_buy,
+    update_drawdown,
+)
 from tests.test_market_data import FixtureProvider  # noqa: E402
 
 
@@ -50,6 +56,7 @@ class CliTests(unittest.TestCase):
         return fixture_path
 
     def cash_only_recovery_state(self, cooldown_days: int):
+        processed = self.recovery_dates(cooldown_days)
         state = new_portfolio_state()
         state.update(
             {
@@ -61,9 +68,27 @@ class CliTests(unittest.TestCase):
                 "risk_reset_pending": True,
                 "valuation_required": False,
                 "cooldown_remaining_trading_days": cooldown_days,
+                "last_cooldown_trading_day": processed[-1] if processed else None,
+                "processed_cooldown_trading_days": processed,
             }
         )
         return state
+
+    def holding_recovery_state(self, cooldown_days: int):
+        state = record_buy(new_portfolio_state(), self.code, 10, amount=10_000)
+        state, _ = update_drawdown(state, {self.code: 7.9})
+        state, _ = update_drawdown(state, {self.code: 8.4})
+        for session_date in self.recovery_dates(cooldown_days):
+            state = advance_cooldown(
+                state, session_date, confirmed_trading_session=True
+            )
+        return state
+
+    def recovery_dates(self, cooldown_days: int):
+        return [
+            f"2026-07-{day:02d}"
+            for day in range(1, COOLDOWN_TRADING_DAYS - cooldown_days + 1)
+        ]
 
     def mapped_fixture(self, codes):
         provider = FixtureProvider()
@@ -530,7 +555,9 @@ class CliTests(unittest.TestCase):
 
         persisted = json.loads(self.state_path.read_text(encoding="utf-8"))
         self.assertEqual(0, persisted["cooldown_remaining_trading_days"])
-        self.assertEqual(10, len(persisted["processed_cooldown_trading_days"]))
+        self.assertEqual([], persisted["processed_cooldown_trading_days"])
+        self.assertIsNone(persisted["last_cooldown_trading_day"])
+        self.assertFalse(persisted["risk_reset_pending"])
 
     def test_calendar_advances_cooldown_despite_other_provider_errors(self) -> None:
         state = self.cash_only_recovery_state(2)
@@ -544,8 +571,7 @@ class CliTests(unittest.TestCase):
         persisted = json.loads(self.state_path.read_text(encoding="utf-8"))
         self.assertEqual(1, persisted["cooldown_remaining_trading_days"])
 
-        holding = record_buy(new_portfolio_state(), self.code, 10, amount=10_000)
-        holding["cooldown_remaining_trading_days"] = 2
+        holding = self.holding_recovery_state(2)
         self.write_state(holding)
         quote_error = FixtureProvider()
         quote_error.quotes[1]["price"] = 10.8
@@ -770,8 +796,7 @@ class CliTests(unittest.TestCase):
         valuation_gate = cli._portfolio_gate(valuation, self.other_code)
         self.assertIn("buy_blocked_pending_valuation", valuation_gate["reasons"])
 
-        risk_cycle = record_buy(new_portfolio_state(), self.code, 10, amount=10_000)
-        risk_cycle["risk_reset_pending"] = True
+        risk_cycle = self.holding_recovery_state(2)
         risk_gate = cli._portfolio_gate(risk_cycle, self.other_code)
         self.assertIn("buy_blocked_pending_risk_reset", risk_gate["reasons"])
 
