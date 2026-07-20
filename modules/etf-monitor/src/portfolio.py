@@ -178,9 +178,12 @@ def record_sell(
     cost_basis = float(position["cost_basis_cny"])
     remaining_shares = held_shares - sell_shares
     is_full_close = sell_shares == held_shares
-    released_cost = (
-        cost_basis if is_full_close else cost_basis * sell_shares / held_shares
-    )
+    if is_full_close:
+        remaining_basis = 0.0
+    else:
+        remaining_shares = _quantity(remaining_shares)
+        remaining_basis = _money(cost_basis * remaining_shares / held_shares)
+    released_cost = cost_basis - remaining_basis
     updated["cash_cny"] = _money(float(updated["cash_cny"]) + proceeds)
     updated["realized_pnl_cny"] = _money(
         float(updated["realized_pnl_cny"]) + proceeds - released_cost
@@ -199,8 +202,8 @@ def record_sell(
         validate_portfolio_state(updated)
         return updated
 
-    position["shares"] = _quantity(remaining_shares)
-    position["cost_basis_cny"] = _money(cost_basis - released_cost)
+    position["shares"] = remaining_shares
+    position["cost_basis_cny"] = remaining_basis
     position["weighted_cost_cny"] = _money(
         float(position["cost_basis_cny"]) / float(position["shares"])
     )

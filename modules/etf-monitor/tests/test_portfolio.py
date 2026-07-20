@@ -241,6 +241,25 @@ class PortfolioTests(unittest.TestCase):
         self.assertEqual(-0.02, fully_sold["realized_pnl_cny"])
         self.assertEqual(INITIAL_CAPITAL_CNY - 0.02, fully_sold["cash_cny"])
 
+    def test_partial_sell_rounds_remaining_basis_before_realized_pnl(self) -> None:
+        state = record_buy(self.state, "510300", price=1, shares=10_000)
+
+        # The unrounded proportional cost released by this fill is CNY 0.015.
+        partially_sold = record_sell(state, "510300", price=2, shares=0.015)
+
+        position = partially_sold["positions"]["510300"]
+        self.assertEqual(9_999.985, position["shares"])
+        self.assertEqual(9_999.99, position["cost_basis_cny"])
+        self.assertEqual(0.02, partially_sold["realized_pnl_cny"])
+        self.assertEqual(90_000.03, partially_sold["cash_cny"])
+        self.assertEqual(
+            partially_sold["cash_cny"],
+            partially_sold["initial_capital_cny"]
+            + partially_sold["realized_pnl_cny"]
+            - position["cost_basis_cny"],
+        )
+        self.assertIsNone(portfolio_module.validate_portfolio_state(partially_sold))
+
     def test_full_close_then_reopen_starts_a_fresh_alert_cycle(self) -> None:
         state = record_buy(self.state, "510300", price=10, amount=10_000)
         state, first_alerts = evaluate_position_alerts(state, {"510300": 10.45})
