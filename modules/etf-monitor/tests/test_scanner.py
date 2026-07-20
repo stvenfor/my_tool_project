@@ -54,6 +54,18 @@ class ScannerTests(unittest.TestCase):
         self.assertEqual("BUY_CANDIDATE", result["status"])
         self.assertIn("pullback_reclaim_confirmed", result["reasons"])
 
+    def test_breakout_requires_volume_even_when_turnover_is_amplified(self) -> None:
+        self.provider.bars[-1].update(
+            low=10.30,
+            turnover_cny=100_000_000,
+            volume=1_190_000,
+        )
+
+        result = self.scan()
+
+        self.assertEqual("NO_ACTION", result["status"])
+        self.assertIn("no_valid_entry_pattern", result["reasons"])
+
     def test_each_numeric_gate_vetoes_the_candidate(self) -> None:
         cases = []
 
@@ -162,6 +174,31 @@ class ScannerTests(unittest.TestCase):
 
         self.assertEqual("POSITION_ALERT", output["status"])
         self.assertIn("position_monitoring_completed", output["reasons"])
+
+    def test_exact_three_percent_gain_and_five_percent_ma20_distance_pass(self) -> None:
+        exact_gain = FixtureProvider()
+        midpoint = sum(quote["price"] for quote in exact_gain.quotes) / 2
+        for quote in exact_gain.quotes:
+            quote["previous_close"] = midpoint / 1.03
+        gain_result = scan_etf(self.record, exact_gain, as_of=exact_gain.as_of)
+
+        exact_distance = FixtureProvider()
+        previous_19_sum = sum(bar["close"] for bar in exact_distance.bars[-20:-1])
+        exact_close = 1.05 * previous_19_sum / (20 - 1.05)
+        exact_distance.bars[-1].update(
+            open=exact_close - 0.02,
+            close=exact_close,
+            high=exact_close + 0.02,
+            low=exact_close - 0.02,
+        )
+        distance_result = scan_etf(
+            self.record, exact_distance, as_of=exact_distance.as_of
+        )
+
+        self.assertEqual("BUY_CANDIDATE", gain_result["status"])
+        self.assertNotIn("daily_gain_above_3_pct", gain_result["reasons"])
+        self.assertEqual("BUY_CANDIDATE", distance_result["status"])
+        self.assertNotIn("distance_above_ma20_over_5_pct", distance_result["reasons"])
 
 
 if __name__ == "__main__":

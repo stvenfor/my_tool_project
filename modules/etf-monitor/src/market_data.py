@@ -20,6 +20,8 @@ from zoneinfo import ZoneInfo
 QUOTE_MAX_AGE = timedelta(minutes=15)
 SUPPORTING_DATA_MAX_AGE = timedelta(hours=24)
 MAX_QUOTE_PRICE_DISAGREEMENT = 0.003
+MAX_PREVIOUS_CLOSE_DISAGREEMENT = 0.003
+MAX_TURNOVER_DISAGREEMENT = 0.10
 SHANGHAI_TZ = ZoneInfo("Asia/Shanghai")
 
 
@@ -196,7 +198,7 @@ def parse_eastmoney_bars(
                     timestamp=timestamp,
                 )
             )
-        return parsed
+        return _bars(parsed, "missing_eastmoney_bars")
     except (KeyError, TypeError, ValueError, AttributeError) as exc:
         if isinstance(exc, MarketDataError):
             raise
@@ -210,7 +212,7 @@ def collect_market_snapshot(
     as_of: datetime,
 ) -> MarketSnapshot:
     """Collect one fail-closed snapshot from independently injectable inputs."""
-    as_of = _timestamp(as_of, "invalid_as_of_timestamp")
+    as_of = _shanghai_timestamp(as_of, "invalid_as_of_timestamp")
     try:
         code = str(record["code"])
         market = str(record["market"])
@@ -218,8 +220,11 @@ def collect_market_snapshot(
     except KeyError as exc:
         raise MarketDataError("missing_instrument_metadata") from exc
 
-    calendar = _calendar(provider.get_trading_calendar(as_of.date()))
+    requested_session_date = as_of.date()
+    calendar = _calendar(provider.get_trading_calendar(requested_session_date))
     _fresh(calendar.timestamp, as_of, SUPPORTING_DATA_MAX_AGE, "stale_calendar")
+    if calendar.session_date != requested_session_date:
+        raise MarketDataError("session_date_conflict", calendar.timestamp)
     if calendar.is_trading_session is not True:
         raise MarketDataError("not_trading_session", calendar.timestamp)
 
@@ -231,11 +236,17 @@ def collect_market_snapshot(
     )
     _ordered_bars(bars)
     _ordered_bars(benchmark_bars)
+    if tuple(bar.date for bar in bars[-21:]) != tuple(
+        bar.date for bar in benchmark_bars[-21:]
+    ):
+        raise MarketDataError("bar_date_misalignment", calendar.timestamp)
     if bars[-1].date != calendar.session_date or benchmark_bars[-1].date != calendar.session_date:
         raise MarketDataError("session_date_conflict", calendar.timestamp)
 
     aum = _metric(provider.get_aum(code), "missing_aum")
-    premium = _metric(provider.get_premium(code), "missing_premium")
+    premium = _metric(
+        provider.get_premium(code), "missing_premium", allow_negative=True
+    )
     catalyst = _catalyst(provider.get_catalyst(code))
     for timestamp, reason in (
         (aum.timestamp, "stale_aum"),
@@ -287,7 +298,7 @@ def collect_current_quote(
     as_of: datetime,
 ) -> ValidatedQuote:
     """Validate fresh Eastmoney/Tencent agreement without needing catalysts."""
-    as_of = _timestamp(as_of, "invalid_as_of_timestamp")
+    as_of = _shanghai_timestamp(as_of, "invalid_as_of_timestamp")
     raw_quotes = provider.get_current_quotes(code)
     if not raw_quotes:
         raise MarketDataError("missing_current_quotes")
@@ -304,10 +315,27 @@ def collect_current_quote(
         raise MarketDataError(
             "quote_price_conflict", min(eastmoney.timestamp, tencent.timestamp)
         )
+    previous_close_midpoint = (eastmoney.previous_close + tencent.previous_close) / 2
+    if (
+        abs(eastmoney.previous_close - tencent.previous_close)
+        / previous_close_midpoint
+        > MAX_PREVIOUS_CLOSE_DISAGREEMENT
+    ):
+        raise MarketDataError(
+            "quote_previous_close_conflict",
+            min(eastmoney.timestamp, tencent.timestamp),
+        )
+    if (
+        _relative_difference(eastmoney.turnover_cny, tencent.turnover_cny)
+        > MAX_TURNOVER_DISAGREEMENT
+    ):
+        raise MarketDataError(
+            "quote_turnover_conflict", min(eastmoney.timestamp, tencent.timestamp)
+        )
     return ValidatedQuote(
         code=code,
         current_price=midpoint,
-        previous_close=(eastmoney.previous_close + tencent.previous_close) / 2,
+        previous_close=previous_close_midpoint,
         turnover_cny=(eastmoney.turnover_cny + tencent.turnover_cny) / 2,
         source_timestamp=min(eastmoney.timestamp, tencent.timestamp),
         sources=tuple(sorted((eastmoney.source, tencent.source))),
@@ -400,21 +428,38 @@ class PublicMarketDataProvider:
 
 def _quote(value: Any) -> Quote:
     if isinstance(value, Quote):
-        return value
-    if not isinstance(value, Mapping):
+        source = value.source
+        price = value.price
+        previous_close = value.previous_close
+        turnover_cny = value.turnover_cny
+        timestamp = value.timestamp
+        aum_cny = value.aum_cny
+        premium_pct = value.premium_pct
+    elif isinstance(value, Mapping):
+        try:
+            source = value["source"]
+            price = value["price"]
+            previous_close = value["previous_close"]
+            turnover_cny = value["turnover_cny"]
+            timestamp = value["timestamp"]
+            aum_cny = value.get("aum_cny")
+            premium_pct = value.get("premium_pct")
+        except KeyError as exc:
+            raise MarketDataError("malformed_quote") from exc
+    else:
         raise MarketDataError("malformed_quote")
-    try:
-        return Quote(
-            source=_source(value),
-            price=_positive(value["price"], "malformed_quote"),
-            previous_close=_positive(value["previous_close"], "malformed_quote"),
-            turnover_cny=_nonnegative(value["turnover_cny"], "malformed_quote"),
-            timestamp=_timestamp(value["timestamp"], "missing_quote_timestamp"),
-            aum_cny=_optional_number(value.get("aum_cny")),
-            premium_pct=_optional_number(value.get("premium_pct")),
-        )
-    except KeyError as exc:
-        raise MarketDataError("malformed_quote") from exc
+    normalized_aum = _optional_number(aum_cny)
+    if normalized_aum is not None and normalized_aum < 0:
+        raise MarketDataError("malformed_quote")
+    return Quote(
+        source=_source_text(source),
+        price=_positive(price, "malformed_quote"),
+        previous_close=_positive(previous_close, "malformed_quote"),
+        turnover_cny=_nonnegative(turnover_cny, "malformed_quote"),
+        timestamp=_timestamp(timestamp, "missing_quote_timestamp"),
+        aum_cny=normalized_aum,
+        premium_pct=_optional_number(premium_pct),
+    )
 
 
 def _bars(values: Any, missing_reason: str) -> list[DailyBar]:
@@ -423,26 +468,45 @@ def _bars(values: Any, missing_reason: str) -> list[DailyBar]:
     parsed = []
     for value in values:
         if isinstance(value, DailyBar):
-            parsed.append(value)
-            continue
-        if not isinstance(value, Mapping):
+            bar_date = value.date
+            open_price = value.open
+            close = value.close
+            high = value.high
+            low = value.low
+            volume = value.volume
+            turnover_cny = value.turnover_cny
+            source = value.source
+            timestamp = value.timestamp
+        elif isinstance(value, Mapping):
+            try:
+                bar_date = value["date"]
+                open_price = value["open"]
+                close = value["close"]
+                high = value["high"]
+                low = value["low"]
+                volume = value["volume"]
+                turnover_cny = value["turnover_cny"]
+                source = value["source"]
+                timestamp = value["timestamp"]
+            except KeyError as exc:
+                raise MarketDataError("malformed_daily_bar") from exc
+        else:
             raise MarketDataError("malformed_daily_bar")
         try:
-            bar_date = value["date"]
             if isinstance(bar_date, str):
                 bar_date = date.fromisoformat(bar_date)
-            if not isinstance(bar_date, date):
+            if not isinstance(bar_date, date) or isinstance(bar_date, datetime):
                 raise ValueError
             bar = DailyBar(
                 date=bar_date,
-                open=_positive(value["open"], "malformed_daily_bar"),
-                close=_positive(value["close"], "malformed_daily_bar"),
-                high=_positive(value["high"], "malformed_daily_bar"),
-                low=_positive(value["low"], "malformed_daily_bar"),
-                volume=_nonnegative(value["volume"], "malformed_daily_bar"),
-                turnover_cny=_nonnegative(value["turnover_cny"], "malformed_daily_bar"),
-                source=_source(value),
-                timestamp=_timestamp(value["timestamp"], "missing_bar_timestamp"),
+                open=_positive(open_price, "malformed_daily_bar"),
+                close=_positive(close, "malformed_daily_bar"),
+                high=_positive(high, "malformed_daily_bar"),
+                low=_positive(low, "malformed_daily_bar"),
+                volume=_nonnegative(volume, "malformed_daily_bar"),
+                turnover_cny=_nonnegative(turnover_cny, "malformed_daily_bar"),
+                source=_source_text(source),
+                timestamp=_timestamp(timestamp, "missing_bar_timestamp"),
             )
             if bar.low > min(bar.open, bar.close) or bar.high < max(bar.open, bar.close):
                 raise MarketDataError("malformed_daily_bar")
@@ -459,44 +523,66 @@ def _ordered_bars(bars: Sequence[DailyBar]) -> None:
         raise MarketDataError("conflicting_daily_bar_order")
 
 
-def _metric(value: Any, missing_reason: str) -> TimedMetric:
+def _metric(
+    value: Any, missing_reason: str, *, allow_negative: bool = False
+) -> TimedMetric:
     if value is None:
         raise MarketDataError(missing_reason)
     if isinstance(value, TimedMetric):
-        return value
-    if not isinstance(value, Mapping):
+        metric_value = value.value
+        source = value.source
+        timestamp = value.timestamp
+    elif isinstance(value, Mapping):
+        try:
+            metric_value = value["value"]
+            source = value["source"]
+            timestamp = value["timestamp"]
+        except KeyError as exc:
+            raise MarketDataError("malformed_metric") from exc
+    else:
         raise MarketDataError("malformed_metric")
-    try:
-        return TimedMetric(
-            value=_nonnegative(value["value"], "malformed_metric"),
-            source=_source(value),
-            timestamp=_timestamp(value["timestamp"], "missing_metric_timestamp"),
-        )
-    except KeyError as exc:
-        raise MarketDataError("malformed_metric") from exc
+    normalized_value = (
+        _number(metric_value, "malformed_metric")
+        if allow_negative
+        else _nonnegative(metric_value, "malformed_metric")
+    )
+    return TimedMetric(
+        value=normalized_value,
+        source=_source_text(source),
+        timestamp=_timestamp(timestamp, "missing_metric_timestamp"),
+    )
 
 
 def _calendar(value: Any) -> TradingCalendarState:
     if value is None:
         raise MarketDataError("missing_trading_calendar")
     if isinstance(value, TradingCalendarState):
-        return value
-    if not isinstance(value, Mapping):
+        session_date = value.session_date
+        is_session = value.is_trading_session
+        source = value.source
+        timestamp = value.timestamp
+    elif isinstance(value, Mapping):
+        try:
+            session_date = value["session_date"]
+            is_session = value["is_trading_session"]
+            source = value["source"]
+            timestamp = value["timestamp"]
+        except KeyError as exc:
+            raise MarketDataError("malformed_trading_calendar") from exc
+    else:
         raise MarketDataError("malformed_trading_calendar")
     try:
-        session_date = value["session_date"]
         if isinstance(session_date, str):
             session_date = date.fromisoformat(session_date)
-        if not isinstance(session_date, date):
+        if not isinstance(session_date, date) or isinstance(session_date, datetime):
             raise ValueError
-        is_session = value["is_trading_session"]
         if not isinstance(is_session, bool):
             raise ValueError
         return TradingCalendarState(
             session_date=session_date,
             is_trading_session=is_session,
-            source=_source(value),
-            timestamp=_timestamp(value["timestamp"], "missing_calendar_timestamp"),
+            source=_source_text(source),
+            timestamp=_timestamp(timestamp, "missing_calendar_timestamp"),
         )
     except (KeyError, TypeError, ValueError) as exc:
         if isinstance(exc, MarketDataError):
@@ -508,19 +594,30 @@ def _catalyst(value: Any) -> CatalystConfirmation:
     if value is None:
         raise MarketDataError("missing_catalyst")
     if isinstance(value, CatalystConfirmation):
-        return value
-    if not isinstance(value, Mapping):
+        fields = [value.primary_confirmed, value.corroborated, value.adverse]
+        source = value.source
+        timestamp = value.timestamp
+    elif isinstance(value, Mapping):
+        try:
+            fields = [
+                value[key]
+                for key in ("primary_confirmed", "corroborated", "adverse")
+            ]
+            source = value["source"]
+            timestamp = value["timestamp"]
+        except KeyError as exc:
+            raise MarketDataError("malformed_catalyst") from exc
+    else:
         raise MarketDataError("malformed_catalyst")
     try:
-        fields = [value[key] for key in ("primary_confirmed", "corroborated", "adverse")]
         if not all(isinstance(item, bool) for item in fields):
             raise ValueError
         return CatalystConfirmation(
             primary_confirmed=fields[0],
             corroborated=fields[1],
             adverse=fields[2],
-            source=_source(value),
-            timestamp=_timestamp(value["timestamp"], "missing_catalyst_timestamp"),
+            source=_source_text(source),
+            timestamp=_timestamp(timestamp, "missing_catalyst_timestamp"),
         )
     except (KeyError, TypeError, ValueError) as exc:
         if isinstance(exc, MarketDataError):
@@ -529,6 +626,8 @@ def _catalyst(value: Any) -> CatalystConfirmation:
 
 
 def _fresh(timestamp: datetime, as_of: datetime, max_age: timedelta, reason: str) -> None:
+    timestamp = _timestamp(timestamp, reason)
+    as_of = _timestamp(as_of, "invalid_as_of_timestamp")
     if timestamp > as_of + timedelta(minutes=1) or as_of - timestamp > max_age:
         raise MarketDataError(reason, timestamp)
 
@@ -541,14 +640,31 @@ def _timestamp(value: Any, reason: str) -> datetime:
             raise MarketDataError(reason) from exc
     if not isinstance(value, datetime) or value.tzinfo is None:
         raise MarketDataError(reason)
+    try:
+        if value.utcoffset() is None:
+            raise MarketDataError(reason)
+    except MarketDataError:
+        raise
+    except Exception as exc:
+        raise MarketDataError(reason) from exc
     return value
 
 
-def _source(value: Mapping[str, Any]) -> str:
-    source = value.get("source")
+def _shanghai_timestamp(value: Any, reason: str) -> datetime:
+    return _timestamp(value, reason).astimezone(SHANGHAI_TZ)
+
+
+def _source_text(source: Any) -> str:
     if not isinstance(source, str) or not source.strip():
         raise MarketDataError("missing_source")
     return source.strip()
+
+
+def _relative_difference(left: float, right: float) -> float:
+    if left == right:
+        return 0.0
+    midpoint = (abs(left) + abs(right)) / 2
+    return math.inf if midpoint == 0 else abs(left - right) / midpoint
 
 
 def _positive(value: Any, reason: str) -> float:

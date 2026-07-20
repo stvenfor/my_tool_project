@@ -23,6 +23,7 @@ CROSS_BORDER_PREMIUM_CAP_PCT = 1.0
 BREAKOUT_ACTIVITY_MULTIPLE = 1.2
 MAX_DAILY_GAIN_PCT = 3.0
 MAX_DISTANCE_ABOVE_MA20_PCT = 5.0
+_BOUNDARY_EPSILON_PCT = 1e-9
 
 
 def scan_etf(
@@ -88,11 +89,9 @@ def evaluate_snapshot(snapshot: MarketSnapshot) -> dict[str, Any]:
         reasons.append("relative_return_not_positive")
 
     previous_high = max(bar.high for bar in previous_20)
-    previous_turnover = _average(bar.turnover_cny for bar in previous_20)
     previous_volume = _average(bar.volume for bar in previous_20)
-    activity_confirmed = (
-        latest.turnover_cny >= BREAKOUT_ACTIVITY_MULTIPLE * previous_turnover
-        or latest.volume >= BREAKOUT_ACTIVITY_MULTIPLE * previous_volume
+    activity_confirmed = latest.volume >= (
+        BREAKOUT_ACTIVITY_MULTIPLE * previous_volume
     )
     breakout = latest.close > previous_high and activity_confirmed
     pullback_reclaim = latest.low <= ma20 and latest.close > ma20
@@ -100,10 +99,10 @@ def evaluate_snapshot(snapshot: MarketSnapshot) -> dict[str, Any]:
         reasons.append("no_valid_entry_pattern")
 
     daily_gain_pct = (snapshot.current_price / snapshot.previous_close - 1) * 100
-    if daily_gain_pct > MAX_DAILY_GAIN_PCT:
+    if daily_gain_pct > MAX_DAILY_GAIN_PCT + _BOUNDARY_EPSILON_PCT:
         reasons.append("daily_gain_above_3_pct")
     distance_pct = (latest.close / ma20 - 1) * 100
-    if distance_pct > MAX_DISTANCE_ABOVE_MA20_PCT:
+    if distance_pct > MAX_DISTANCE_ABOVE_MA20_PCT + _BOUNDARY_EPSILON_PCT:
         reasons.append("distance_above_ma20_over_5_pct")
 
     if snapshot.catalyst.primary_confirmed is not True:

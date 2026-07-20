@@ -3,10 +3,12 @@
 from __future__ import annotations
 
 import json
+import math
 import sys
 import unittest
 from copy import deepcopy
-from datetime import date, datetime, timedelta
+from dataclasses import replace
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 
@@ -15,7 +17,13 @@ FIXTURE_ROOT = Path(__file__).parent / "fixtures" / "market"
 sys.path.insert(0, str(MODULE_ROOT))
 
 from src.market_data import (  # noqa: E402
+    CatalystConfirmation,
+    DailyBar,
     MarketDataError,
+    Quote,
+    TimedMetric,
+    TradingCalendarState,
+    collect_current_quote,
     collect_market_snapshot,
     parse_eastmoney_bars,
     parse_eastmoney_quote,
@@ -112,6 +120,7 @@ class FixtureProvider:
         return deepcopy(self.benchmark)
 
     def get_trading_calendar(self, session_date):
+        self.requested_calendar_date = session_date
         return deepcopy(self.calendar)
 
     def get_catalyst(self, code):
@@ -142,6 +151,15 @@ class MarketDataTests(unittest.TestCase):
         self.assertEqual(0.4, tencent.premium_pct)
         self.assertEqual(self.provider.timestamp, tencent.timestamp)
         self.assertEqual(75_000_000, bars[-1].turnover_cny)
+
+    def test_public_bar_parser_rejects_invalid_ohlc(self) -> None:
+        payload = _fixture("eastmoney_bars.json")
+        fields = payload["data"]["klines"][-1].split(",")
+        fields[3] = "10.39"
+        payload["data"]["klines"][-1] = ",".join(fields)
+
+        with self.assertRaisesRegex(MarketDataError, "malformed_daily_bar"):
+            parse_eastmoney_bars(payload, self.provider.timestamp)
 
     def test_snapshot_accepts_complete_fresh_agreeing_fixture_data(self) -> None:
         snapshot = collect_market_snapshot(
@@ -179,6 +197,111 @@ class MarketDataTests(unittest.TestCase):
         conflict.calendar["session_date"] = conflict.bars[-1]["date"] - timedelta(days=1)
         with self.assertRaisesRegex(MarketDataError, "session_date_conflict"):
             collect_market_snapshot(self.record, conflict, as_of=conflict.as_of)
+
+    def test_typed_quote_validation_rejects_nonfinite_source_and_naive_timestamp(self) -> None:
+        valid = Quote(
+            source="eastmoney",
+            price=10.4,
+            previous_close=10.36,
+            turnover_cny=75_000_000,
+            timestamp=self.provider.timestamp,
+        )
+        cases = (
+            (replace(valid, price=math.nan), "malformed_quote"),
+            (replace(valid, source=""), "missing_source"),
+            (replace(valid, timestamp=datetime(2026, 7, 20, 15)), "missing_quote_timestamp"),
+        )
+        for invalid, reason in cases:
+            with self.subTest(reason):
+                provider = FixtureProvider()
+                provider.quotes[0] = invalid
+                with self.assertRaisesRegex(MarketDataError, reason):
+                    collect_current_quote("510300", provider, as_of=provider.as_of)
+
+    def test_all_other_typed_inputs_are_validated_fail_closed(self) -> None:
+        provider = FixtureProvider()
+        bar = provider.bars[-1]
+        typed_bar = DailyBar(**bar)
+        typed_aum = TimedMetric(
+            provider.aum["value"], provider.aum["source"], provider.aum["timestamp"]
+        )
+        typed_calendar = TradingCalendarState(
+            provider.calendar["session_date"],
+            provider.calendar["is_trading_session"],
+            provider.calendar["source"],
+            provider.calendar["timestamp"],
+        )
+        typed_catalyst = CatalystConfirmation(
+            provider.catalyst["primary_confirmed"],
+            provider.catalyst["corroborated"],
+            provider.catalyst["adverse"],
+            provider.catalyst["source"],
+            provider.catalyst["timestamp"],
+        )
+
+        cases = (
+            ("bars", replace(typed_bar, high=typed_bar.close - 0.01), "malformed_daily_bar"),
+            ("bars", replace(typed_bar, volume=math.inf), "malformed_daily_bar"),
+            ("aum", replace(typed_aum, value=math.nan), "malformed_metric"),
+            ("calendar", replace(typed_calendar, is_trading_session=1), "malformed_trading_calendar"),
+            ("catalyst", replace(typed_catalyst, primary_confirmed=1), "malformed_catalyst"),
+        )
+        for field, invalid, reason in cases:
+            with self.subTest(field=field, reason=reason):
+                candidate = FixtureProvider()
+                if field == "bars":
+                    candidate.bars[-1] = invalid
+                else:
+                    setattr(candidate, field, invalid)
+                with self.assertRaisesRegex(MarketDataError, reason):
+                    collect_market_snapshot(self.record, candidate, as_of=candidate.as_of)
+
+    def test_typed_and_mapping_premium_allow_finite_discounts_but_aum_stays_nonnegative(self) -> None:
+        for typed in (False, True):
+            with self.subTest(typed=typed):
+                provider = FixtureProvider()
+                provider.premium = (
+                    TimedMetric(-0.25, "tencent", provider.timestamp)
+                    if typed
+                    else {"value": -0.25, "source": "tencent", "timestamp": provider.timestamp}
+                )
+                snapshot = collect_market_snapshot(
+                    self.record, provider, as_of=provider.as_of
+                )
+                self.assertEqual(-0.25, snapshot.premium_pct)
+
+        provider = FixtureProvider()
+        provider.aum = TimedMetric(-1, "tencent", provider.timestamp)
+        with self.assertRaisesRegex(MarketDataError, "malformed_metric"):
+            collect_market_snapshot(self.record, provider, as_of=provider.as_of)
+
+    def test_previous_close_and_turnover_conflicts_fail_closed(self) -> None:
+        cases = (
+            ("previous_close", 10.40, "quote_previous_close_conflict"),
+            ("turnover_cny", 95_000_000, "quote_turnover_conflict"),
+        )
+        for field, value, reason in cases:
+            with self.subTest(field):
+                provider = FixtureProvider()
+                provider.quotes[1][field] = value
+                with self.assertRaisesRegex(MarketDataError, reason):
+                    collect_current_quote("510300", provider, as_of=provider.as_of)
+
+    def test_as_of_uses_shanghai_date_and_calendar_must_match_it(self) -> None:
+        as_of_utc = datetime(2026, 7, 20, 16, 5, tzinfo=timezone.utc)
+
+        with self.assertRaisesRegex(MarketDataError, "session_date_conflict"):
+            collect_market_snapshot(self.record, self.provider, as_of=as_of_utc)
+
+        self.assertEqual(date(2026, 7, 21), self.provider.requested_calendar_date)
+
+    def test_relative_strength_bar_dates_must_align(self) -> None:
+        displaced = self.provider.benchmark.pop(-10)
+        displaced["date"] = self.provider.benchmark[0]["date"] - timedelta(days=1)
+        self.provider.benchmark.insert(0, displaced)
+
+        with self.assertRaisesRegex(MarketDataError, "bar_date_misalignment"):
+            collect_market_snapshot(self.record, self.provider, as_of=self.provider.as_of)
 
 
 if __name__ == "__main__":
