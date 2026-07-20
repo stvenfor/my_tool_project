@@ -311,12 +311,39 @@ class ScannerTests(unittest.TestCase):
                 old_bar["date"] -= timedelta(days=1)
                 provider.benchmark.pop()
                 provider.benchmark.insert(0, old_bar)
+                provider.benchmark_calendar["latest_completed_session_date"] = (
+                    provider.benchmark[-1]["date"]
+                )
                 record = dict(self.record, market=market)
 
                 result = scan_etf(record, provider, as_of=provider.as_of)
 
                 self.assertEqual("BUY_CANDIDATE", result["status"])
                 self.assertIn("all_high_confidence_gates_passed", result["reasons"])
+
+    def test_cross_market_holiday_calendar_accepts_lag_but_old_bars_fail_closed(self) -> None:
+        holiday = FixtureProvider()
+        for _ in range(3):
+            holiday.benchmark.pop()
+        holiday.benchmark_calendar["latest_completed_session_date"] = (
+            holiday.benchmark[-1]["date"]
+        )
+
+        holiday_result = scan_etf(
+            dict(self.record, market="US"), holiday, as_of=holiday.as_of
+        )
+
+        self.assertEqual("BUY_CANDIDATE", holiday_result["status"])
+
+        weeks_old = FixtureProvider()
+        for _ in range(15):
+            weeks_old.benchmark.pop()
+        old_result = scan_etf(
+            dict(self.record, market="US"), weeks_old, as_of=weeks_old.as_of
+        )
+
+        self.assertEqual("DATA_ERROR", old_result["status"])
+        self.assertIn("benchmark_session_date_conflict", old_result["reasons"])
 
     def test_cn_lagged_benchmark_returns_data_error(self) -> None:
         old_bar = deepcopy(self.provider.benchmark[0])
@@ -359,7 +386,12 @@ class ScannerTests(unittest.TestCase):
         )
 
         result = evaluate_snapshot(
-            replace(snapshot, market="HK", benchmark_bars=shifted_benchmark)
+            replace(
+                snapshot,
+                market="HK",
+                benchmark_bars=shifted_benchmark,
+                benchmark_session_date=shifted_benchmark[-1].date,
+            )
         )
 
         self.assertEqual("DATA_ERROR", result["status"])

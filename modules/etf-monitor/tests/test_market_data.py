@@ -97,6 +97,12 @@ class FixtureProvider:
             "source": "exchange_calendar",
             "timestamp": self.timestamp,
         }
+        self.benchmark_calendar = {
+            "latest_completed_session_date": self.benchmark[-1]["date"],
+            "source": "benchmark_exchange_calendar",
+            "timestamp": self.timestamp,
+        }
+        self.benchmark_calendar_calls = []
         self.catalyst = {
             "primary_confirmed": True,
             "corroborated": True,
@@ -123,6 +129,10 @@ class FixtureProvider:
     def get_trading_calendar(self, session_date):
         self.requested_calendar_date = session_date
         return deepcopy(self.calendar)
+
+    def get_benchmark_calendar(self, benchmark, market, as_of_date):
+        self.benchmark_calendar_calls.append((benchmark, market, as_of_date))
+        return deepcopy(self.benchmark_calendar)
 
     def get_catalyst(self, code):
         return deepcopy(self.catalyst)
@@ -171,6 +181,8 @@ class MarketDataTests(unittest.TestCase):
         self.assertAlmostEqual(10.4005, snapshot.current_price)
         self.assertEqual(61, len(snapshot.bars))
         self.assertEqual(self.provider.timestamp, snapshot.source_timestamp)
+        self.assertEqual(self.provider.calendar["session_date"], snapshot.benchmark_session_date)
+        self.assertEqual([], self.provider.benchmark_calendar_calls)
 
     def test_snapshot_rejects_prices_disagreeing_by_more_than_point_three_percent(self) -> None:
         self.provider.quotes[1]["price"] = 10.45
@@ -377,6 +389,9 @@ class MarketDataTests(unittest.TestCase):
                 old_bar["date"] -= timedelta(days=1)
                 provider.benchmark.pop()
                 provider.benchmark.insert(0, old_bar)
+                provider.benchmark_calendar["latest_completed_session_date"] = (
+                    provider.benchmark[-1]["date"]
+                )
                 record = dict(self.record, market=market)
 
                 snapshot = collect_market_snapshot(
@@ -387,6 +402,154 @@ class MarketDataTests(unittest.TestCase):
                 self.assertEqual(
                     provider.benchmark[-1]["date"], snapshot.benchmark_bars[-1].date
                 )
+                self.assertEqual(
+                    provider.benchmark[-1]["date"], snapshot.benchmark_session_date
+                )
+                self.assertEqual(
+                    [("000300", market, provider.as_of.date())],
+                    provider.benchmark_calendar_calls,
+                )
+
+    def test_cross_market_benchmark_calendar_rejects_missing_stale_malformed_and_conflicting_data(self) -> None:
+        cases = []
+        missing = FixtureProvider()
+        missing.benchmark_calendar = None
+        cases.append((missing, "missing_benchmark_calendar"))
+
+        stale = FixtureProvider()
+        stale.benchmark_calendar["timestamp"] = stale.as_of - timedelta(hours=25)
+        cases.append((stale, "stale_benchmark_calendar"))
+
+        malformed = FixtureProvider()
+        malformed.benchmark_calendar["latest_completed_session_date"] = datetime(
+            2026, 7, 20, 0, tzinfo=timezone.utc
+        )
+        cases.append((malformed, "malformed_benchmark_calendar"))
+
+        missing_source = FixtureProvider()
+        missing_source.benchmark_calendar["source"] = ""
+        cases.append((missing_source, "missing_source"))
+
+        conflict = FixtureProvider()
+        conflict.benchmark_calendar["latest_completed_session_date"] -= timedelta(days=1)
+        cases.append((conflict, "benchmark_session_date_conflict"))
+
+        future = FixtureProvider()
+        future.benchmark_calendar["latest_completed_session_date"] += timedelta(days=1)
+        cases.append((future, "future_benchmark_session"))
+
+        for provider, reason in cases:
+            with self.subTest(reason):
+                with self.assertRaisesRegex(MarketDataError, reason):
+                    collect_market_snapshot(
+                        dict(self.record, market="US"),
+                        provider,
+                        as_of=provider.as_of,
+                    )
+
+    def test_freshly_fetched_but_weeks_old_cross_market_bars_fail_closed(self) -> None:
+        for _ in range(15):
+            self.provider.benchmark.pop()
+
+        with self.assertRaisesRegex(
+            MarketDataError, "benchmark_session_date_conflict"
+        ):
+            collect_market_snapshot(
+                dict(self.record, market="US"),
+                self.provider,
+                as_of=self.provider.as_of,
+            )
+
+    def test_cross_market_exchange_holiday_uses_authoritative_completed_session(self) -> None:
+        for _ in range(3):
+            self.provider.benchmark.pop()
+        self.provider.benchmark_calendar["latest_completed_session_date"] = (
+            self.provider.benchmark[-1]["date"]
+        )
+        calendar_timestamp = self.provider.timestamp - timedelta(minutes=30)
+        self.provider.benchmark_calendar["timestamp"] = calendar_timestamp
+
+        snapshot = collect_market_snapshot(
+            dict(self.record, market="US"),
+            self.provider,
+            as_of=self.provider.as_of,
+        )
+
+        self.assertEqual(
+            self.provider.benchmark[-1]["date"], snapshot.benchmark_session_date
+        )
+        self.assertEqual(calendar_timestamp, snapshot.source_timestamp)
+        self.assertIn("benchmark_exchange_calendar", snapshot.sources)
+
+    def test_typed_benchmark_calendar_is_validated_and_direct_snapshot_keeps_expectation(self) -> None:
+        state_type = market_data_module.BenchmarkCalendarState
+        valid_state = state_type(
+            latest_completed_session_date=self.provider.benchmark[-1]["date"],
+            source="benchmark_exchange_calendar",
+            timestamp=self.provider.timestamp,
+        )
+        self.provider.benchmark_calendar = valid_state
+        snapshot = collect_market_snapshot(
+            dict(self.record, market="HK"),
+            self.provider,
+            as_of=self.provider.as_of,
+        )
+
+        with self.assertRaisesRegex(
+            MarketDataError, "benchmark_session_date_conflict"
+        ):
+            market_data_module.validate_market_snapshot(
+                replace(
+                    snapshot,
+                    benchmark_session_date=snapshot.benchmark_session_date
+                    - timedelta(days=1),
+                )
+            )
+
+        invalid = FixtureProvider()
+        invalid.benchmark_calendar = replace(
+            valid_state,
+            latest_completed_session_date=datetime(
+                2026, 7, 20, 0, tzinfo=timezone.utc
+            ),
+        )
+        with self.assertRaisesRegex(
+            MarketDataError, "malformed_benchmark_calendar"
+        ):
+            collect_market_snapshot(
+                dict(self.record, market="HK"), invalid, as_of=invalid.as_of
+            )
+
+    def test_public_provider_delegates_benchmark_calendar_and_fails_when_absent(self) -> None:
+        class CalendarProvider:
+            def __init__(self):
+                self.calls = []
+
+            def get_benchmark_calendar(self, benchmark, market, as_of_date):
+                self.calls.append((benchmark, market, as_of_date))
+                return self_state
+
+        self_state = deepcopy(self.provider.benchmark_calendar)
+        delegate = CalendarProvider()
+        public = market_data_module.PublicMarketDataProvider(
+            calendar_provider=delegate,
+            catalyst_provider=object(),
+        )
+
+        self.assertEqual(
+            self_state,
+            public.get_benchmark_calendar("SPX", "US", self.provider.as_of.date()),
+        )
+        self.assertEqual(
+            [("SPX", "US", self.provider.as_of.date())], delegate.calls
+        )
+
+        missing = market_data_module.PublicMarketDataProvider(
+            calendar_provider=object(),
+            catalyst_provider=object(),
+        )
+        with self.assertRaisesRegex(MarketDataError, "missing_benchmark_calendar"):
+            missing.get_benchmark_calendar("SPX", "US", self.provider.as_of.date())
 
     def test_cn_benchmark_must_end_on_shanghai_session(self) -> None:
         old_bar = deepcopy(self.provider.benchmark[0])
@@ -410,6 +573,10 @@ class MarketDataTests(unittest.TestCase):
                     bar["date"] -= timedelta(days=shift_days)
                 if market == "CN":
                     provider.benchmark[-1]["date"] = provider.bars[-1]["date"]
+                else:
+                    provider.benchmark_calendar[
+                        "latest_completed_session_date"
+                    ] = provider.benchmark[-1]["date"]
                 record = dict(self.record, market=market)
                 with self.assertRaisesRegex(
                     MarketDataError, "insufficient_common_bar_dates"

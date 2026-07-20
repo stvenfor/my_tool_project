@@ -86,6 +86,13 @@ class TradingCalendarState:
 
 
 @dataclass(frozen=True)
+class BenchmarkCalendarState:
+    latest_completed_session_date: date
+    source: str
+    timestamp: datetime
+
+
+@dataclass(frozen=True)
 class CatalystConfirmation:
     primary_confirmed: bool
     corroborated: bool
@@ -107,6 +114,7 @@ class MarketSnapshot:
     premium_pct: float
     catalyst: CatalystConfirmation
     session_date: date
+    benchmark_session_date: date
     source_timestamp: datetime
     sources: tuple[str, ...]
 
@@ -120,6 +128,9 @@ class MarketDataProvider(Protocol):
     def get_premium(self, code: str) -> Any: ...
     def get_benchmark_bars(self, benchmark: str) -> Sequence[Any]: ...
     def get_trading_calendar(self, session_date: date) -> Any: ...
+    def get_benchmark_calendar(
+        self, benchmark: str, market: str, as_of_date: date
+    ) -> Any: ...
     def get_catalyst(self, code: str) -> Any: ...
 
 
@@ -235,6 +246,26 @@ def collect_market_snapshot(
     _ordered_bars(bars)
     _ordered_bars(benchmark_bars)
 
+    if market.upper() == "CN":
+        benchmark_calendar = BenchmarkCalendarState(
+            latest_completed_session_date=calendar.session_date,
+            source=calendar.source,
+            timestamp=calendar.timestamp,
+        )
+    else:
+        getter = getattr(provider, "get_benchmark_calendar", None)
+        if not callable(getter):
+            raise MarketDataError("missing_benchmark_calendar")
+        benchmark_calendar = _benchmark_calendar(
+            getter(benchmark, market, calendar.session_date)
+        )
+        _fresh(
+            benchmark_calendar.timestamp,
+            as_of,
+            SUPPORTING_DATA_MAX_AGE,
+            "stale_benchmark_calendar",
+        )
+
     aum = _metric(provider.get_aum(code), "missing_aum")
     premium = _metric(
         provider.get_premium(code), "missing_premium", allow_negative=True
@@ -256,6 +287,7 @@ def collect_market_snapshot(
         aum.timestamp,
         premium.timestamp,
         calendar.timestamp,
+        benchmark_calendar.timestamp,
         catalyst.timestamp,
     ]
     sources = set(validated_quote.sources) | {
@@ -264,6 +296,7 @@ def collect_market_snapshot(
         aum.source,
         premium.source,
         calendar.source,
+        benchmark_calendar.source,
         catalyst.source,
     }
     return validate_market_snapshot(
@@ -279,6 +312,7 @@ def collect_market_snapshot(
             premium_pct=premium.value,
             catalyst=catalyst,
             session_date=calendar.session_date,
+            benchmark_session_date=benchmark_calendar.latest_completed_session_date,
             source_timestamp=min(timestamps),
             sources=tuple(sorted(sources)),
         )
@@ -377,6 +411,11 @@ def validate_market_snapshot(value: Any) -> MarketSnapshot:
     session_date = value.session_date
     if not isinstance(session_date, date) or isinstance(session_date, datetime):
         raise MarketDataError("malformed_snapshot")
+    benchmark_session_date = value.benchmark_session_date
+    if not isinstance(benchmark_session_date, date) or isinstance(
+        benchmark_session_date, datetime
+    ):
+        raise MarketDataError("malformed_snapshot")
     source_timestamp = _timestamp(value.source_timestamp, "malformed_snapshot")
     if not isinstance(value.sources, (list, tuple)) or not value.sources:
         raise MarketDataError("malformed_snapshot")
@@ -386,7 +425,9 @@ def validate_market_snapshot(value: Any) -> MarketSnapshot:
         raise MarketDataError("session_date_conflict", source_timestamp)
     if benchmark_bars[-1].date > session_date:
         raise MarketDataError("future_benchmark_bar", source_timestamp)
-    if market.upper() == "CN" and benchmark_bars[-1].date != session_date:
+    if benchmark_session_date > session_date:
+        raise MarketDataError("future_benchmark_session", source_timestamp)
+    if benchmark_bars[-1].date != benchmark_session_date:
         raise MarketDataError("benchmark_session_date_conflict", source_timestamp)
     if (
         _relative_difference(current_price, bars[-1].close)
@@ -411,6 +452,7 @@ def validate_market_snapshot(value: Any) -> MarketSnapshot:
         premium_pct=premium_pct,
         catalyst=catalyst,
         session_date=session_date,
+        benchmark_session_date=benchmark_session_date,
         source_timestamp=source_timestamp,
         sources=sources,
     )
@@ -491,6 +533,14 @@ class PublicMarketDataProvider:
 
     def get_trading_calendar(self, session_date: date) -> Any:
         return self.calendar_provider.get_trading_calendar(session_date)
+
+    def get_benchmark_calendar(
+        self, benchmark: str, market: str, as_of_date: date
+    ) -> Any:
+        getter = getattr(self.calendar_provider, "get_benchmark_calendar", None)
+        if not callable(getter):
+            raise MarketDataError("missing_benchmark_calendar")
+        return getter(benchmark, market, as_of_date)
 
     def get_catalyst(self, code: str) -> Any:
         return self.catalyst_provider.get_catalyst(code)
@@ -688,6 +738,40 @@ def _calendar(value: Any) -> TradingCalendarState:
         if isinstance(exc, MarketDataError):
             raise
         raise MarketDataError("malformed_trading_calendar") from exc
+
+
+def _benchmark_calendar(value: Any) -> BenchmarkCalendarState:
+    if value is None:
+        raise MarketDataError("missing_benchmark_calendar")
+    if isinstance(value, BenchmarkCalendarState):
+        latest_session_date = value.latest_completed_session_date
+        source = value.source
+        timestamp = value.timestamp
+    elif isinstance(value, Mapping):
+        try:
+            latest_session_date = value["latest_completed_session_date"]
+            source = value["source"]
+            timestamp = value["timestamp"]
+        except KeyError as exc:
+            raise MarketDataError("malformed_benchmark_calendar") from exc
+    else:
+        raise MarketDataError("malformed_benchmark_calendar")
+    try:
+        if isinstance(latest_session_date, str):
+            latest_session_date = date.fromisoformat(latest_session_date)
+        if not isinstance(latest_session_date, date) or isinstance(
+            latest_session_date, datetime
+        ):
+            raise ValueError
+        return BenchmarkCalendarState(
+            latest_completed_session_date=latest_session_date,
+            source=_source_text(source),
+            timestamp=_timestamp(timestamp, "missing_benchmark_calendar_timestamp"),
+        )
+    except (KeyError, TypeError, ValueError) as exc:
+        if isinstance(exc, MarketDataError):
+            raise
+        raise MarketDataError("malformed_benchmark_calendar") from exc
 
 
 def _catalyst(value: Any) -> CatalystConfirmation:
