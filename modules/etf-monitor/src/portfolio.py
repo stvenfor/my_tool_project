@@ -381,7 +381,7 @@ def validate_portfolio_state(state: Mapping[str, Any]) -> None:
     cash = _require_money(state["cash_cny"], "cash_cny", minimum=0.0)
     if cash + _EPSILON < cash_reserve:
         raise ValueError("cash_cny cannot be below the cash reserve")
-    _require_money(state["realized_pnl_cny"], "realized_pnl_cny")
+    realized_pnl = _require_money(state["realized_pnl_cny"], "realized_pnl_cny")
     _require_money(
         state["high_watermark_equity_cny"],
         "high_watermark_equity_cny",
@@ -479,6 +479,9 @@ def validate_portfolio_state(state: Mapping[str, Any]) -> None:
         exposure += cost_basis
     if exposure > MAX_RISK_EXPOSURE_CNY:
         raise ValueError("portfolio exposure exceeds CNY 40,000")
+    expected_cash = _money(initial_capital + realized_pnl - exposure)
+    if cash != expected_cash:
+        raise ValueError("cash accounting identity is inconsistent")
 
 
 def _empty_alert_flags() -> dict[str, bool]:
@@ -498,12 +501,9 @@ def _update_cash_only_drawdown(state: dict[str, Any]) -> None:
     drawdown = max(0.0, (high_watermark - equity) / high_watermark)
     state["high_watermark_equity_cny"] = _money(high_watermark)
     state["drawdown_pct"] = drawdown
-    if drawdown >= RISK_EXIT_DRAWDOWN_PCT:
-        if not state["risk_drawdown_active"]:
-            _start_risk_cycle(state)
-        state["risk_drawdown_active"] = True
-    else:
-        state["risk_drawdown_active"] = False
+    if drawdown >= BUY_BLOCK_DRAWDOWN_PCT and not state["risk_reset_pending"]:
+        _start_risk_cycle(state)
+    state["risk_drawdown_active"] = drawdown >= RISK_EXIT_DRAWDOWN_PCT
 
 
 def _maybe_complete_risk_reset(state: dict[str, Any]) -> None:

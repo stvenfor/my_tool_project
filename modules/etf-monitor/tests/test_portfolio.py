@@ -140,6 +140,7 @@ class PortfolioTests(unittest.TestCase):
     def test_default_cash_reserve_is_a_hard_post_buy_floor(self) -> None:
         state = new_portfolio_state()
         state["cash_cny"] = state["cash_reserve_cny"]
+        state["realized_pnl_cny"] = -MAX_RISK_EXPOSURE_CNY
 
         with self.assertRaisesRegex(ValueError, "cash reserve"):
             record_buy(state, "510300", price=1, amount=0.01)
@@ -150,6 +151,32 @@ class PortfolioTests(unittest.TestCase):
 
         with self.assertRaisesRegex(ValueError, "cash reserve"):
             portfolio_module.validate_portfolio_state(corrupted)
+
+    def test_validator_rejects_one_cent_cash_inflation_and_understatement(self) -> None:
+        for delta in (-0.01, 0.01):
+            corrupted = new_portfolio_state()
+            corrupted["cash_cny"] += delta
+            with self.subTest(delta=delta):
+                with self.assertRaisesRegex(ValueError, "accounting"):
+                    portfolio_module.validate_portfolio_state(corrupted)
+
+    def test_cash_accounting_identity_accepts_sells_realized_pnl_and_risk_reset(self) -> None:
+        partial = record_buy(self.state, "510300", price=10, amount=10_000)
+        partial = record_sell(partial, "510300", price=11, shares=500)
+        self.assertIsNone(portfolio_module.validate_portfolio_state(partial))
+
+        realized = record_sell(partial, "510300", price=11, shares=500)
+        self.assertEqual(1_000, realized["realized_pnl_cny"])
+        self.assertIsNone(portfolio_module.validate_portfolio_state(realized))
+
+        risk = record_buy(self.state, "159915", price=10, amount=10_000)
+        risk = record_sell(risk, "159915", price=8, shares=1_000)
+        for trading_day in self.TRADING_DAYS:
+            risk = advance_cooldown(
+                risk, trading_day, confirmed_trading_session=True
+            )
+        self.assertFalse(risk["risk_reset_pending"])
+        self.assertIsNone(portfolio_module.validate_portfolio_state(risk))
 
     def test_fills_that_round_to_zero_cost_or_quantity_are_rejected(self) -> None:
         with self.assertRaises(ValueError):
@@ -379,6 +406,43 @@ class PortfolioTests(unittest.TestCase):
         self.assertEqual(0.02, closed["drawdown_pct"])
         self.assertTrue(closed["risk_reset_pending"])
         self.assertEqual(COOLDOWN_TRADING_DAYS, closed["cooldown_remaining_trading_days"])
+
+    def test_empty_portfolio_at_1_6_percent_resets_after_ten_confirmed_sessions(self) -> None:
+        state = record_buy(self.state, "510300", price=10, amount=10_000)
+        state = record_sell(state, "510300", price=8.4, shares=1_000)
+
+        self.assertAlmostEqual(0.016, state["drawdown_pct"])
+        self.assertTrue(state["risk_reset_pending"])
+        self.assertFalse(state["risk_drawdown_active"])
+        self.assertEqual(COOLDOWN_TRADING_DAYS, state["cooldown_remaining_trading_days"])
+        with self.assertRaisesRegex(ValueError, "cooldown"):
+            record_buy(state, "510300", price=8.4, amount=10_000)
+
+        with self.assertRaises(ValueError):
+            advance_cooldown(
+                state, "2026-07-18", confirmed_trading_session=False
+            )
+        state = advance_cooldown(
+            state, self.TRADING_DAYS[0], confirmed_trading_session=True
+        )
+        repeated = advance_cooldown(
+            state, self.TRADING_DAYS[0], confirmed_trading_session=True
+        )
+        for trading_day in self.TRADING_DAYS[1:-1]:
+            repeated = advance_cooldown(
+                repeated, trading_day, confirmed_trading_session=True
+            )
+        self.assertEqual(1, repeated["cooldown_remaining_trading_days"])
+        with self.assertRaisesRegex(ValueError, "cooldown"):
+            record_buy(repeated, "510300", price=8.4, amount=10_000)
+
+        reset = advance_cooldown(
+            repeated, self.TRADING_DAYS[-1], confirmed_trading_session=True
+        )
+        self.assertEqual(0.0, reset["drawdown_pct"])
+        self.assertFalse(reset["risk_reset_pending"])
+        reopened = record_buy(reset, "510300", price=8.4, amount=10_000)
+        self.assertIn("510300", reopened["positions"])
 
     def test_trigger_exit_and_ten_distinct_sessions_reset_risk_cycle_for_buying(self) -> None:
         state = record_buy(self.state, "510300", price=10, amount=10_000)
