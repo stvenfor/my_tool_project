@@ -15,6 +15,7 @@ from typing import Any
 
 INITIAL_CAPITAL_CNY = 100_000
 MAX_RISK_EXPOSURE_CNY = 40_000
+MAX_SINGLE_TRANCHE_CNY = 11_000
 MAX_OPEN_POSITIONS = 2
 MAX_TRANCHES_PER_ETF = 2
 MAX_ETF_COST_CNY = 20_000
@@ -24,27 +25,64 @@ STOP_LOSS_PCT = -0.03
 BUY_BLOCK_DRAWDOWN_PCT = 0.015
 RISK_EXIT_DRAWDOWN_PCT = 0.02
 COOLDOWN_TRADING_DAYS = 10
+PORTFOLIO_SCHEMA_VERSION = 2
 
 _EPSILON = 1e-8
+_ALERT_FLAG_KEYS = frozenset({"profit_4_5", "profit_5", "stop", "risk_exit"})
+_POSITION_KEYS = frozenset(
+    {
+        "code",
+        "cycle_id",
+        "shares",
+        "cost_basis_cny",
+        "weighted_cost_cny",
+        "tranche_count",
+        "alert_acknowledged",
+    }
+)
+_STATE_KEYS = frozenset(
+    {
+        "schema_version",
+        "initial_capital_cny",
+        "cash_reserve_cny",
+        "cash_cny",
+        "realized_pnl_cny",
+        "high_watermark_equity_cny",
+        "drawdown_pct",
+        "risk_drawdown_active",
+        "risk_reset_pending",
+        "valuation_required",
+        "cooldown_remaining_trading_days",
+        "last_cooldown_trading_day",
+        "processed_cooldown_trading_days",
+        "next_cycle_by_code",
+        "positions",
+    }
+)
 
 
 def new_portfolio_state(initial_capital_cny: float = INITIAL_CAPITAL_CNY) -> dict[str, Any]:
     """Create the JSON-compatible initial persistent portfolio state."""
     capital = _positive_number(initial_capital_cny, "initial capital")
-    return {
-        "schema_version": 1,
+    state = {
+        "schema_version": PORTFOLIO_SCHEMA_VERSION,
         "initial_capital_cny": _money(capital),
+        "cash_reserve_cny": _money(max(0.0, capital - MAX_RISK_EXPOSURE_CNY)),
         "cash_cny": _money(capital),
         "realized_pnl_cny": 0.0,
         "high_watermark_equity_cny": _money(capital),
         "drawdown_pct": 0.0,
         "risk_drawdown_active": False,
+        "risk_reset_pending": False,
+        "valuation_required": False,
         "cooldown_remaining_trading_days": 0,
         "last_cooldown_trading_day": None,
         "processed_cooldown_trading_days": [],
         "next_cycle_by_code": {},
         "positions": {},
     }
+    validate_portfolio_state(state)
+    return state
 
 
 def record_buy(
@@ -60,11 +98,15 @@ def record_buy(
 
     Supply exactly one of ``shares`` or ``amount``.  ``amount`` is the actual
     CNY fill amount and is converted to shares at the reported actual price.
+    Each tranche is capped at ``MAX_SINGLE_TRANCHE_CNY`` (CNY 11,000), allowing
+    10% execution/board-lot tolerance around the approximately CNY 10,000 plan.
     """
     updated = _copy_state(state)
     code = _code(code)
     fill_shares, fill_cost = _fill(price, shares, amount)
     _assert_buys_allowed(updated)
+    if fill_cost > MAX_SINGLE_TRANCHE_CNY:
+        raise ValueError("single tranche cannot exceed CNY 11,000")
 
     positions = updated["positions"]
     position = positions.get(code)
@@ -94,7 +136,10 @@ def record_buy(
         raise ValueError("per-ETF cost cannot exceed CNY 20,000")
     if _cost_exposure(updated) + fill_cost > MAX_RISK_EXPOSURE_CNY + _EPSILON:
         raise ValueError("risk-asset exposure cannot exceed CNY 40,000")
-    if float(updated["cash_cny"]) + _EPSILON < fill_cost:
+    post_buy_cash = _money(float(updated["cash_cny"]) - fill_cost)
+    if post_buy_cash < float(updated["cash_reserve_cny"]):
+        raise ValueError("buy would breach the portfolio cash reserve")
+    if float(updated["cash_cny"]) < fill_cost:
         raise ValueError("insufficient cash for buy")
 
     position["shares"] = _quantity(float(position["shares"]) + fill_shares)
@@ -103,7 +148,8 @@ def record_buy(
         float(position["cost_basis_cny"]) / float(position["shares"])
     )
     position["tranche_count"] = int(position["tranche_count"]) + 1
-    updated["cash_cny"] = _money(float(updated["cash_cny"]) - fill_cost)
+    updated["cash_cny"] = post_buy_cash
+    validate_portfolio_state(updated)
     return updated
 
 
@@ -141,6 +187,13 @@ def record_sell(
         cycle_id = int(position["cycle_id"])
         del updated["positions"][code]
         updated["next_cycle_by_code"][code] = cycle_id + 1
+        if updated["positions"]:
+            updated["valuation_required"] = True
+        else:
+            updated["valuation_required"] = False
+            _update_cash_only_drawdown(updated)
+            _maybe_complete_risk_reset(updated)
+        validate_portfolio_state(updated)
         return updated
 
     position["shares"] = _quantity(remaining_shares)
@@ -148,12 +201,14 @@ def record_sell(
     position["weighted_cost_cny"] = _money(
         float(position["cost_basis_cny"]) / float(position["shares"])
     )
+    updated["valuation_required"] = True
+    validate_portfolio_state(updated)
     return updated
 
 
 def portfolio_equity(state: Mapping[str, Any], prices: Mapping[str, float]) -> dict[str, float]:
     """Calculate cash, realized, unrealized, market-value, and total equity."""
-    _require_state(state)
+    validate_portfolio_state(state)
     market_value = 0.0
     cost_basis = 0.0
     for code, position in state["positions"].items():
@@ -181,13 +236,12 @@ def update_drawdown(
     drawdown = max(0.0, (high_watermark - equity) / high_watermark)
     updated["high_watermark_equity_cny"] = _money(high_watermark)
     updated["drawdown_pct"] = drawdown
+    updated["valuation_required"] = False
 
     alerts: list[dict[str, Any]] = []
     if drawdown >= RISK_EXIT_DRAWDOWN_PCT:
         if not bool(updated["risk_drawdown_active"]):
-            updated["cooldown_remaining_trading_days"] = COOLDOWN_TRADING_DAYS
-            updated["last_cooldown_trading_day"] = None
-            updated["processed_cooldown_trading_days"] = []
+            _start_risk_cycle(updated)
         updated["risk_drawdown_active"] = True
         for code, position in updated["positions"].items():
             flags = position["alert_acknowledged"]
@@ -200,6 +254,8 @@ def update_drawdown(
         updated["risk_drawdown_active"] = False
         for position in updated["positions"].values():
             position["alert_acknowledged"]["risk_exit"] = False
+    _maybe_complete_risk_reset(updated)
+    validate_portfolio_state(updated)
     return updated, alerts
 
 
@@ -221,6 +277,8 @@ def advance_cooldown(
         updated["cooldown_remaining_trading_days"] -= 1
         updated["last_cooldown_trading_day"] = trading_day
         processed_days.append(trading_day)
+    _maybe_complete_risk_reset(updated)
+    validate_portfolio_state(updated)
     return updated
 
 
@@ -257,12 +315,17 @@ def evaluate_position_alerts(
                     reason="signal_invalidation" if code in invalidated else "stop_loss",
                 )
             )
+    validate_portfolio_state(updated)
     return updated, alerts
 
 
 def _assert_buys_allowed(state: Mapping[str, Any]) -> None:
     if int(state["cooldown_remaining_trading_days"]) > 0:
         raise ValueError("buy blocked during cooldown")
+    if bool(state["valuation_required"]):
+        raise ValueError("buy blocked until complete portfolio valuation")
+    if bool(state["risk_reset_pending"]):
+        raise ValueError("buy blocked until risk reset completes")
     if float(state["drawdown_pct"]) >= BUY_BLOCK_DRAWDOWN_PCT:
         raise ValueError("buy blocked by portfolio drawdown")
 
@@ -289,30 +352,151 @@ def _fill(price: float, shares: float | None, amount: float | None) -> tuple[flo
 
 
 def _copy_state(state: Mapping[str, Any]) -> dict[str, Any]:
-    _require_state(state)
-    updated = deepcopy(dict(state))
-    updated.setdefault("processed_cooldown_trading_days", [])
-    return updated
+    validate_portfolio_state(state)
+    return deepcopy(dict(state))
 
 
-def _require_state(state: Mapping[str, Any]) -> None:
-    required = {
-        "cash_cny",
-        "realized_pnl_cny",
+def validate_portfolio_state(state: Mapping[str, Any]) -> None:
+    """Strictly validate the complete persisted portfolio state schema."""
+    if not isinstance(state, Mapping) or set(state.keys()) != _STATE_KEYS:
+        raise ValueError("invalid portfolio state fields")
+    _require_integer(
+        state["schema_version"],
+        "schema_version",
+        minimum=PORTFOLIO_SCHEMA_VERSION,
+        maximum=PORTFOLIO_SCHEMA_VERSION,
+    )
+    initial_capital = _require_money(
+        state["initial_capital_cny"], "initial_capital_cny", minimum=0.01
+    )
+    cash_reserve = _require_money(
+        state["cash_reserve_cny"], "cash_reserve_cny", minimum=0.0
+    )
+    expected_reserve = _money(max(0.0, initial_capital - MAX_RISK_EXPOSURE_CNY))
+    if cash_reserve != expected_reserve:
+        raise ValueError("cash_reserve_cny does not match portfolio limits")
+    _require_money(state["cash_cny"], "cash_cny", minimum=0.0)
+    _require_money(state["realized_pnl_cny"], "realized_pnl_cny")
+    _require_money(
+        state["high_watermark_equity_cny"],
         "high_watermark_equity_cny",
-        "drawdown_pct",
-        "risk_drawdown_active",
+        minimum=0.01,
+    )
+    drawdown = _require_number(state["drawdown_pct"], "drawdown_pct")
+    if not 0.0 <= drawdown <= 1.0:
+        raise ValueError("drawdown_pct must be between 0 and 1")
+    for field in ("risk_drawdown_active", "risk_reset_pending", "valuation_required"):
+        if type(state[field]) is not bool:
+            raise ValueError(f"{field} must be a boolean")
+    if state["risk_drawdown_active"] and not state["risk_reset_pending"]:
+        raise ValueError("active risk drawdown requires a pending reset")
+
+    _require_integer(
+        state["cooldown_remaining_trading_days"],
         "cooldown_remaining_trading_days",
-        "last_cooldown_trading_day",
-        "next_cycle_by_code",
-        "positions",
-    }
-    if not isinstance(state, Mapping) or required - state.keys():
-        raise ValueError("invalid portfolio state")
+        minimum=0,
+        maximum=COOLDOWN_TRADING_DAYS,
+    )
+    processed_days = state["processed_cooldown_trading_days"]
+    if not isinstance(processed_days, list) or len(processed_days) > COOLDOWN_TRADING_DAYS:
+        raise ValueError("processed cooldown days must be a bounded list")
+    if len(processed_days) != len(set(processed_days)):
+        raise ValueError("processed cooldown days must be unique")
+    for trading_day in processed_days:
+        _valid_trading_day(trading_day)
+    last_day = state["last_cooldown_trading_day"]
+    if last_day is not None:
+        _valid_trading_day(last_day)
+    if processed_days and last_day != processed_days[-1]:
+        raise ValueError("last cooldown day must match the latest processed day")
+    if not processed_days and last_day is not None:
+        raise ValueError("last cooldown day requires a processed day")
+
+    cycles = state["next_cycle_by_code"]
+    if not isinstance(cycles, dict):
+        raise ValueError("next_cycle_by_code must be an object")
+    for code, cycle_id in cycles.items():
+        _code(code)
+        _require_integer(cycle_id, f"next cycle for {code}", minimum=1)
+
+    positions = state["positions"]
+    if not isinstance(positions, dict) or len(positions) > MAX_OPEN_POSITIONS:
+        raise ValueError("positions must contain at most two ETFs")
+    if state["valuation_required"] and not positions:
+        raise ValueError("valuation cannot be required without an open position")
+    exposure = 0.0
+    for code, position in positions.items():
+        _code(code)
+        if not isinstance(position, Mapping) or set(position.keys()) != _POSITION_KEYS:
+            raise ValueError(f"invalid position fields for {code}")
+        if position["code"] != code:
+            raise ValueError(f"position code mismatch for {code}")
+        _require_integer(position["cycle_id"], f"cycle_id for {code}", minimum=1)
+        shares = _require_number(position["shares"], f"shares for {code}")
+        if shares <= 0 or _quantity(shares) != shares:
+            raise ValueError(f"shares for {code} must be positive and normalized")
+        cost_basis = _require_money(
+            position["cost_basis_cny"], f"cost basis for {code}", minimum=0.01
+        )
+        if cost_basis > MAX_ETF_COST_CNY:
+            raise ValueError(f"cost basis for {code} exceeds the per-ETF limit")
+        weighted_cost = _require_money(
+            position["weighted_cost_cny"], f"weighted cost for {code}", minimum=0.01
+        )
+        if weighted_cost != _money(cost_basis / shares):
+            raise ValueError(f"weighted cost for {code} is inconsistent")
+        _require_integer(
+            position["tranche_count"],
+            f"tranche count for {code}",
+            minimum=1,
+            maximum=MAX_TRANCHES_PER_ETF,
+        )
+        flags = position["alert_acknowledged"]
+        if not isinstance(flags, Mapping) or set(flags.keys()) != _ALERT_FLAG_KEYS:
+            raise ValueError(f"invalid alert flags for {code}")
+        if any(type(value) is not bool for value in flags.values()):
+            raise ValueError(f"alert flags for {code} must be booleans")
+        exposure += cost_basis
+    if exposure > MAX_RISK_EXPOSURE_CNY:
+        raise ValueError("portfolio exposure exceeds CNY 40,000")
 
 
 def _empty_alert_flags() -> dict[str, bool]:
     return {"profit_4_5": False, "profit_5": False, "stop": False, "risk_exit": False}
+
+
+def _start_risk_cycle(state: dict[str, Any]) -> None:
+    state["risk_reset_pending"] = True
+    state["cooldown_remaining_trading_days"] = COOLDOWN_TRADING_DAYS
+    state["last_cooldown_trading_day"] = None
+    state["processed_cooldown_trading_days"] = []
+
+
+def _update_cash_only_drawdown(state: dict[str, Any]) -> None:
+    equity = float(state["cash_cny"])
+    high_watermark = max(float(state["high_watermark_equity_cny"]), equity)
+    drawdown = max(0.0, (high_watermark - equity) / high_watermark)
+    state["high_watermark_equity_cny"] = _money(high_watermark)
+    state["drawdown_pct"] = drawdown
+    if drawdown >= RISK_EXIT_DRAWDOWN_PCT:
+        if not state["risk_drawdown_active"]:
+            _start_risk_cycle(state)
+        state["risk_drawdown_active"] = True
+    else:
+        state["risk_drawdown_active"] = False
+
+
+def _maybe_complete_risk_reset(state: dict[str, Any]) -> None:
+    if (
+        state["risk_reset_pending"]
+        and int(state["cooldown_remaining_trading_days"]) == 0
+        and not state["positions"]
+    ):
+        state["high_watermark_equity_cny"] = _money(float(state["cash_cny"]))
+        state["drawdown_pct"] = 0.0
+        state["risk_drawdown_active"] = False
+        state["risk_reset_pending"] = False
+        state["valuation_required"] = False
 
 
 def _invalidated_set(values: Iterable[str] | Mapping[str, bool]) -> set[str]:
@@ -334,6 +518,43 @@ def _price_for(prices: Mapping[str, float], code: str) -> float:
 def _code(value: str) -> str:
     if not isinstance(value, str) or not value:
         raise ValueError("ETF code must be a non-empty string")
+    return value
+
+
+def _require_number(value: object, label: str) -> float:
+    if (
+        isinstance(value, bool)
+        or not isinstance(value, (int, float))
+        or not math.isfinite(value)
+    ):
+        raise ValueError(f"{label} must be a finite number")
+    return float(value)
+
+
+def _require_money(
+    value: object, label: str, *, minimum: float | None = None
+) -> float:
+    number = _require_number(value, label)
+    if _money(number) != number:
+        raise ValueError(f"{label} must use cent precision")
+    if minimum is not None and number < minimum:
+        raise ValueError(f"{label} is below its minimum")
+    return number
+
+
+def _require_integer(
+    value: object,
+    label: str,
+    *,
+    minimum: int | None = None,
+    maximum: int | None = None,
+) -> int:
+    if isinstance(value, bool) or not isinstance(value, int):
+        raise ValueError(f"{label} must be an integer")
+    if minimum is not None and value < minimum:
+        raise ValueError(f"{label} is below its minimum")
+    if maximum is not None and value > maximum:
+        raise ValueError(f"{label} exceeds its maximum")
     return value
 
 

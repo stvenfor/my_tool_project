@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from copy import deepcopy
 import sys
 import unittest
 from pathlib import Path
@@ -10,6 +11,7 @@ from pathlib import Path
 MODULE_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(MODULE_ROOT))
 
+from src import portfolio as portfolio_module  # noqa: E402
 from src.portfolio import (  # noqa: E402  (module root is deliberately local)
     COOLDOWN_TRADING_DAYS,
     INITIAL_CAPITAL_CNY,
@@ -27,8 +29,43 @@ from src.portfolio import (  # noqa: E402  (module root is deliberately local)
 
 
 class PortfolioTests(unittest.TestCase):
+    TRADING_DAYS = (
+        "2026-07-20",
+        "2026-07-21",
+        "2026-07-22",
+        "2026-07-23",
+        "2026-07-24",
+        "2026-07-27",
+        "2026-07-28",
+        "2026-07-29",
+        "2026-07-30",
+        "2026-07-31",
+    )
+
     def setUp(self) -> None:
         self.state = new_portfolio_state()
+
+    def fully_invested_state(self) -> dict[str, object]:
+        state = new_portfolio_state()
+        for code in ("510300", "159915"):
+            state = record_buy(state, code, price=10, amount=10_000)
+            state = record_buy(
+                state,
+                code,
+                price=10,
+                amount=10_000,
+                second_tranche_confirmed=True,
+            )
+        return state
+
+    def test_new_state_has_auditable_schema_reserve_and_risk_lifecycle(self) -> None:
+        state = new_portfolio_state()
+
+        self.assertEqual(portfolio_module.PORTFOLIO_SCHEMA_VERSION, state["schema_version"])
+        self.assertEqual(60_000, state["cash_reserve_cny"])
+        self.assertFalse(state["valuation_required"])
+        self.assertFalse(state["risk_reset_pending"])
+        self.assertIsNone(portfolio_module.validate_portfolio_state(state))
 
     def test_two_buys_calculate_weighted_cost_from_shares_and_amount(self) -> None:
         after_first = record_buy(self.state, "510300", price=10, shares=1_000)
@@ -63,6 +100,33 @@ class PortfolioTests(unittest.TestCase):
                 amount=8_000,
                 second_tranche_confirmed="false",  # type: ignore[arg-type]
             )
+
+    def test_each_tranche_is_limited_to_cny_11000(self) -> None:
+        at_limit = record_buy(
+            self.state,
+            "510300",
+            price=10,
+            amount=portfolio_module.MAX_SINGLE_TRANCHE_CNY,
+        )
+
+        self.assertEqual(
+            portfolio_module.MAX_SINGLE_TRANCHE_CNY,
+            at_limit["positions"]["510300"]["cost_basis_cny"],
+        )
+        with self.assertRaisesRegex(ValueError, "single tranche"):
+            record_buy(
+                self.state,
+                "510300",
+                price=10,
+                amount=portfolio_module.MAX_SINGLE_TRANCHE_CNY + 0.01,
+            )
+
+    def test_default_cash_reserve_is_a_hard_post_buy_floor(self) -> None:
+        state = new_portfolio_state()
+        state["cash_cny"] = state["cash_reserve_cny"]
+
+        with self.assertRaisesRegex(ValueError, "cash reserve"):
+            record_buy(state, "510300", price=1, amount=0.01)
 
     def test_fills_that_round_to_zero_cost_or_quantity_are_rejected(self) -> None:
         with self.assertRaises(ValueError):
@@ -152,14 +216,21 @@ class PortfolioTests(unittest.TestCase):
             record_buy(state, "510300", price=10, amount=1)
         with self.assertRaisesRegex(ValueError, "CNY 20,000"):
             record_buy(
-                record_buy(self.state, "159915", price=10, amount=15_000),
+                record_buy(self.state, "159915", price=10, amount=11_000),
                 "159915",
                 price=10,
-                amount=6_000,
+                amount=10_000,
                 second_tranche_confirmed=True,
             )
 
-        state = record_buy(state, "159915", price=10, amount=20_000)
+        state = record_buy(state, "159915", price=10, amount=10_000)
+        state = record_buy(
+            state,
+            "159915",
+            price=10,
+            amount=10_000,
+            second_tranche_confirmed=True,
+        )
         self.assertEqual(MAX_OPEN_POSITIONS, len(state["positions"]))
         self.assertEqual(MAX_RISK_EXPOSURE_CNY, sum(
             position["cost_basis_cny"] for position in state["positions"].values()
@@ -202,8 +273,7 @@ class PortfolioTests(unittest.TestCase):
         self.assertEqual(["stop"], [alert["kind"] for alert in exact_stop])
 
     def test_drawdown_blocks_buys_and_starts_distinct_day_cooldown_with_risk_alerts(self) -> None:
-        state = record_buy(self.state, "510300", price=10, amount=20_000)
-        state = record_buy(state, "159915", price=10, amount=20_000)
+        state = self.fully_invested_state()
         state, no_risk_alerts = update_drawdown(state, {"510300": 9.625, "159915": 9.625})
         self.assertEqual([], no_risk_alerts)
         with self.assertRaisesRegex(ValueError, "drawdown"):
@@ -237,12 +307,11 @@ class PortfolioTests(unittest.TestCase):
             state = advance_cooldown(state, day, confirmed_trading_session=True)
         self.assertEqual(0, state["cooldown_remaining_trading_days"])
         state, _ = update_drawdown(state, {"510300": 10, "159915": 10})
-        with self.assertRaisesRegex(ValueError, "two open ETFs"):
+        with self.assertRaisesRegex(ValueError, "risk reset"):
             record_buy(state, "510500", price=10, amount=1)
 
     def test_recovery_then_new_drawdown_breach_alerts_every_open_risk_position_again(self) -> None:
-        state = record_buy(self.state, "510300", price=10, amount=20_000)
-        state = record_buy(state, "159915", price=10, amount=20_000)
+        state = self.fully_invested_state()
         state, first_breach = update_drawdown(state, {"510300": 9.5, "159915": 9.5})
         state, recovery = update_drawdown(state, {"510300": 10, "159915": 10})
         state, second_breach = update_drawdown(state, {"510300": 9.5, "159915": 9.5})
@@ -251,6 +320,97 @@ class PortfolioTests(unittest.TestCase):
         self.assertEqual([], recovery)
         self.assertEqual(2, len(second_breach))
         self.assertTrue(all(alert["kind"] == "risk_exit" for alert in second_breach))
+
+    def test_partial_sell_blocks_buy_until_complete_revaluation(self) -> None:
+        state = record_buy(self.state, "510300", price=10, amount=10_000)
+        state = record_sell(state, "510300", price=10, shares=100)
+
+        self.assertTrue(state["valuation_required"])
+        with self.assertRaisesRegex(ValueError, "valuation"):
+            record_buy(
+                state,
+                "510300",
+                price=10,
+                amount=1_000,
+                second_tranche_confirmed=True,
+            )
+        with self.assertRaisesRegex(ValueError, "missing price"):
+            update_drawdown(state, {})
+
+        state, _ = update_drawdown(state, {"510300": 10})
+        self.assertFalse(state["valuation_required"])
+        state = record_buy(
+            state,
+            "510300",
+            price=10,
+            amount=1_000,
+            second_tranche_confirmed=True,
+        )
+        self.assertEqual(10_000, state["positions"]["510300"]["cost_basis_cny"])
+
+    def test_full_close_at_two_percent_starts_cooldown_without_prior_valuation(self) -> None:
+        state = record_buy(self.state, "510300", price=10, amount=10_000)
+        closed = record_sell(state, "510300", price=8, shares=1_000)
+
+        self.assertEqual({}, closed["positions"])
+        self.assertEqual(0.02, closed["drawdown_pct"])
+        self.assertTrue(closed["risk_reset_pending"])
+        self.assertEqual(COOLDOWN_TRADING_DAYS, closed["cooldown_remaining_trading_days"])
+
+    def test_trigger_exit_and_ten_distinct_sessions_reset_risk_cycle_for_buying(self) -> None:
+        state = record_buy(self.state, "510300", price=10, amount=10_000)
+        state, alerts = update_drawdown(state, {"510300": 8})
+        state = record_sell(state, "510300", price=8, shares=1_000)
+
+        self.assertEqual(["risk_exit"], [alert["kind"] for alert in alerts])
+        with self.assertRaisesRegex(ValueError, "cooldown"):
+            record_buy(state, "510300", price=8, amount=10_000)
+
+        for trading_day in self.TRADING_DAYS[:-1]:
+            state = advance_cooldown(
+                state, trading_day, confirmed_trading_session=True
+            )
+        repeated = advance_cooldown(
+            state, self.TRADING_DAYS[0], confirmed_trading_session=True
+        )
+        self.assertEqual(1, repeated["cooldown_remaining_trading_days"])
+        with self.assertRaisesRegex(ValueError, "cooldown"):
+            record_buy(repeated, "510300", price=8, amount=10_000)
+
+        reset = advance_cooldown(
+            repeated, self.TRADING_DAYS[-1], confirmed_trading_session=True
+        )
+        self.assertFalse(reset["risk_reset_pending"])
+        self.assertFalse(reset["risk_drawdown_active"])
+        self.assertEqual(0.0, reset["drawdown_pct"])
+        self.assertEqual(reset["cash_cny"], reset["high_watermark_equity_cny"])
+        reopened = record_buy(reset, "510300", price=8, amount=10_000)
+        self.assertIn("510300", reopened["positions"])
+
+    def test_completed_cooldown_waits_for_full_exit_before_risk_reset(self) -> None:
+        state = record_buy(self.state, "510300", price=10, amount=10_000)
+        state, _ = update_drawdown(state, {"510300": 8})
+        for trading_day in self.TRADING_DAYS:
+            state = advance_cooldown(
+                state, trading_day, confirmed_trading_session=True
+            )
+
+        self.assertEqual(0, state["cooldown_remaining_trading_days"])
+        self.assertTrue(state["risk_reset_pending"])
+        with self.assertRaisesRegex(ValueError, "risk reset"):
+            record_buy(
+                state,
+                "510300",
+                price=8,
+                amount=1_000,
+                second_tranche_confirmed=True,
+            )
+
+        closed = record_sell(state, "510300", price=8, shares=1_000)
+        self.assertFalse(closed["risk_reset_pending"])
+        self.assertEqual(0.0, closed["drawdown_pct"])
+        reopened = record_buy(closed, "510300", price=8, amount=10_000)
+        self.assertIn("510300", reopened["positions"])
 
     def test_cooldown_uses_each_valid_trading_day_label_at_most_once(self) -> None:
         state = new_portfolio_state()
@@ -295,6 +455,83 @@ class PortfolioTests(unittest.TestCase):
                 record_buy(self.state, "510300", price=10, shares=non_finite)
             with self.assertRaises(ValueError):
                 record_buy(self.state, "510300", price=10, amount=non_finite)
+
+    def test_strict_state_validation_rejects_corrupt_top_level_and_positions(self) -> None:
+        holding = record_buy(self.state, "510300", price=10, amount=10_000)
+        corrupt_states = []
+
+        missing_field = deepcopy(self.state)
+        del missing_field["cash_cny"]
+        corrupt_states.append(("missing_field", missing_field))
+        for field, value in (
+            ("schema_version", 999),
+            ("cash_cny", float("nan")),
+            ("drawdown_pct", -0.01),
+            ("cooldown_remaining_trading_days", 11),
+            ("risk_drawdown_active", "false"),
+        ):
+            corrupted = deepcopy(self.state)
+            corrupted[field] = value
+            corrupt_states.append((field, corrupted))
+
+        duplicate_days = deepcopy(self.state)
+        duplicate_days["processed_cooldown_trading_days"] = [
+            "2026-07-20",
+            "2026-07-20",
+        ]
+        duplicate_days["last_cooldown_trading_day"] = "2026-07-20"
+        corrupt_states.append(("duplicate_days", duplicate_days))
+
+        bad_cycle = deepcopy(self.state)
+        bad_cycle["next_cycle_by_code"] = {"510300": 0}
+        corrupt_states.append(("bad_cycle", bad_cycle))
+
+        position_mutations = (
+            ("code", "159915"),
+            ("shares", 0),
+            ("cost_basis_cny", float("inf")),
+            ("weighted_cost_cny", 9.99),
+            ("tranche_count", 3),
+        )
+        for field, value in position_mutations:
+            corrupted = deepcopy(holding)
+            corrupted["positions"]["510300"][field] = value
+            corrupt_states.append((f"position_{field}", corrupted))
+
+        bad_alert = deepcopy(holding)
+        bad_alert["positions"]["510300"]["alert_acknowledged"]["stop"] = "false"
+        corrupt_states.append(("bad_alert", bad_alert))
+
+        too_many_positions = deepcopy(holding)
+        for code in ("159915", "512000"):
+            position = deepcopy(holding["positions"]["510300"])
+            position["code"] = code
+            too_many_positions["positions"][code] = position
+        corrupt_states.append(("too_many_positions", too_many_positions))
+
+        for label, state in corrupt_states:
+            with self.subTest(label):
+                with self.assertRaises(ValueError):
+                    portfolio_module.validate_portfolio_state(state)
+
+    def test_every_public_operation_rejects_non_finite_state(self) -> None:
+        corrupted = deepcopy(self.state)
+        corrupted["cash_cny"] = float("nan")
+        operations = (
+            lambda: record_buy(corrupted, "510300", price=10, amount=1),
+            lambda: record_sell(corrupted, "510300", price=10, amount=1),
+            lambda: portfolio_equity(corrupted, {}),
+            lambda: update_drawdown(corrupted, {}),
+            lambda: advance_cooldown(
+                corrupted, "2026-07-20", confirmed_trading_session=True
+            ),
+            lambda: evaluate_position_alerts(corrupted, {}),
+        )
+
+        for operation in operations:
+            with self.subTest(operation=operation):
+                with self.assertRaises(ValueError):
+                    operation()
 
     def test_drawdown_updates_high_watermark_from_realized_portfolio_equity(self) -> None:
         state = record_buy(self.state, "510300", price=10, amount=10_000)
