@@ -488,6 +488,10 @@ class ScannerTests(unittest.TestCase):
         quotes = snapshot.quotes
         cases = (
             (
+                replace(snapshot, quotes=42),
+                "malformed_quote",
+            ),
+            (
                 replace(snapshot, quotes=quotes[:1]),
                 "missing_independent_quote",
             ),

@@ -370,9 +370,15 @@ def _validate_quotes(
     code: str, raw_quotes: Any, as_of: datetime
 ) -> ValidatedQuote:
     """Normalize and cross-check the two independent quote sources."""
-    if not raw_quotes:
+    if raw_quotes is None:
         raise MarketDataError("missing_current_quotes")
-    quotes = [_quote(item) for item in raw_quotes]
+    try:
+        iterator = iter(raw_quotes)
+    except TypeError as exc:
+        raise MarketDataError("malformed_quote") from exc
+    quotes = [_quote(item) for item in iterator]
+    if not quotes:
+        raise MarketDataError("missing_current_quotes")
     by_source = {quote.source.lower(): quote for quote in quotes}
     if "eastmoney" not in by_source or "tencent" not in by_source:
         raise MarketDataError("missing_independent_quote")
