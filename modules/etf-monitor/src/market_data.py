@@ -386,6 +386,8 @@ def validate_market_snapshot(value: Any) -> MarketSnapshot:
         raise MarketDataError("session_date_conflict", source_timestamp)
     if benchmark_bars[-1].date > session_date:
         raise MarketDataError("future_benchmark_bar", source_timestamp)
+    if market.upper() == "CN" and benchmark_bars[-1].date != session_date:
+        raise MarketDataError("benchmark_session_date_conflict", source_timestamp)
     if (
         _relative_difference(current_price, bars[-1].close)
         > MAX_QUOTE_BAR_DISAGREEMENT

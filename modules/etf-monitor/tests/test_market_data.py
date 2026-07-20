@@ -360,27 +360,56 @@ class MarketDataTests(unittest.TestCase):
                     )
 
     def test_cross_market_benchmark_may_lag_one_session(self) -> None:
+        for market in (
+            "US",
+            "HK",
+            "DE",
+            "JP",
+            "BR",
+            "SEA",
+            "CN_KR",
+            "CHINA_OFFSHORE",
+            "COMMODITY",
+        ):
+            with self.subTest(market):
+                provider = FixtureProvider()
+                old_bar = deepcopy(provider.benchmark[0])
+                old_bar["date"] -= timedelta(days=1)
+                provider.benchmark.pop()
+                provider.benchmark.insert(0, old_bar)
+                record = dict(self.record, market=market)
+
+                snapshot = collect_market_snapshot(
+                    record, provider, as_of=provider.as_of
+                )
+
+                self.assertEqual(provider.bars[-1]["date"], snapshot.session_date)
+                self.assertEqual(
+                    provider.benchmark[-1]["date"], snapshot.benchmark_bars[-1].date
+                )
+
+    def test_cn_benchmark_must_end_on_shanghai_session(self) -> None:
         old_bar = deepcopy(self.provider.benchmark[0])
         old_bar["date"] -= timedelta(days=1)
         self.provider.benchmark.pop()
         self.provider.benchmark.insert(0, old_bar)
-        record = dict(self.record, market="HK")
 
-        snapshot = collect_market_snapshot(
-            record, self.provider, as_of=self.provider.as_of
-        )
-
-        self.assertEqual(self.provider.bars[-1]["date"], snapshot.session_date)
-        self.assertEqual(
-            self.provider.benchmark[-1]["date"], snapshot.benchmark_bars[-1].date
-        )
+        with self.assertRaisesRegex(
+            MarketDataError, "benchmark_session_date_conflict"
+        ):
+            collect_market_snapshot(
+                self.record, self.provider, as_of=self.provider.as_of
+            )
 
     def test_domestic_and_cross_market_require_twenty_one_common_dates(self) -> None:
         for market in ("CN", "HK"):
             with self.subTest(market):
                 provider = FixtureProvider()
+                shift_days = 42 if market == "CN" else 41
                 for bar in provider.benchmark:
-                    bar["date"] -= timedelta(days=41)
+                    bar["date"] -= timedelta(days=shift_days)
+                if market == "CN":
+                    provider.benchmark[-1]["date"] = provider.bars[-1]["date"]
                 record = dict(self.record, market=market)
                 with self.assertRaisesRegex(
                     MarketDataError, "insufficient_common_bar_dates"

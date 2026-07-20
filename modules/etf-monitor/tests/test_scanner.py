@@ -111,7 +111,17 @@ class ScannerTests(unittest.TestCase):
                 self.assertIn(expected_reason, result["reasons"])
 
     def test_cross_border_and_commodity_use_one_percent_premium_cap(self) -> None:
-        for market in ("HK", "US", "COMMODITY"):
+        for market in (
+            "US",
+            "HK",
+            "DE",
+            "JP",
+            "BR",
+            "SEA",
+            "CN_KR",
+            "CHINA_OFFSHORE",
+            "COMMODITY",
+        ):
             with self.subTest(market):
                 provider = FixtureProvider()
                 provider.premium["value"] = 0.99
@@ -259,16 +269,30 @@ class ScannerTests(unittest.TestCase):
         self.assertNotIn("distance_above_ma20_over_5_pct", distance_result["reasons"])
 
     def test_cross_market_lag_uses_last_twenty_one_common_dates(self) -> None:
+        for market in ("HK", "US", "COMMODITY"):
+            with self.subTest(market):
+                provider = FixtureProvider()
+                old_bar = deepcopy(provider.benchmark[0])
+                old_bar["date"] -= timedelta(days=1)
+                provider.benchmark.pop()
+                provider.benchmark.insert(0, old_bar)
+                record = dict(self.record, market=market)
+
+                result = scan_etf(record, provider, as_of=provider.as_of)
+
+                self.assertEqual("BUY_CANDIDATE", result["status"])
+                self.assertIn("all_high_confidence_gates_passed", result["reasons"])
+
+    def test_cn_lagged_benchmark_returns_data_error(self) -> None:
         old_bar = deepcopy(self.provider.benchmark[0])
         old_bar["date"] -= timedelta(days=1)
         self.provider.benchmark.pop()
         self.provider.benchmark.insert(0, old_bar)
-        record = dict(self.record, market="HK")
 
-        result = scan_etf(record, self.provider, as_of=self.provider.as_of)
+        result = self.scan()
 
-        self.assertEqual("BUY_CANDIDATE", result["status"])
-        self.assertIn("all_high_confidence_gates_passed", result["reasons"])
+        self.assertEqual("DATA_ERROR", result["status"])
+        self.assertIn("benchmark_session_date_conflict", result["reasons"])
 
     def test_direct_nan_snapshot_returns_data_error(self) -> None:
         snapshot = collect_market_snapshot(
@@ -300,7 +324,7 @@ class ScannerTests(unittest.TestCase):
         )
 
         result = evaluate_snapshot(
-            replace(snapshot, benchmark_bars=shifted_benchmark)
+            replace(snapshot, market="HK", benchmark_bars=shifted_benchmark)
         )
 
         self.assertEqual("DATA_ERROR", result["status"])
