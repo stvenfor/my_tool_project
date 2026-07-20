@@ -141,6 +141,7 @@ class PortfolioTests(unittest.TestCase):
         state = new_portfolio_state()
         state["cash_cny"] = state["cash_reserve_cny"]
         state["realized_pnl_cny"] = -MAX_RISK_EXPOSURE_CNY
+        state["high_watermark_equity_cny"] = state["cash_cny"]
 
         with self.assertRaisesRegex(ValueError, "cash reserve"):
             record_buy(state, "510300", price=1, amount=0.01)
@@ -177,6 +178,91 @@ class PortfolioTests(unittest.TestCase):
             )
         self.assertFalse(risk["risk_reset_pending"])
         self.assertIsNone(portfolio_module.validate_portfolio_state(risk))
+
+    def test_validator_rejects_forged_empty_portfolio_drawdown_and_high_watermark(self) -> None:
+        forged_drawdown = new_portfolio_state()
+        forged_drawdown["cash_cny"] = 70_000.0
+        forged_drawdown["realized_pnl_cny"] = -30_000.0
+        with self.assertRaisesRegex(ValueError, "drawdown"):
+            portfolio_module.validate_portfolio_state(forged_drawdown)
+
+        low_high_watermark = new_portfolio_state()
+        low_high_watermark["high_watermark_equity_cny"] = 99_999.99
+        with self.assertRaisesRegex(ValueError, "high watermark"):
+            portfolio_module.validate_portfolio_state(low_high_watermark)
+
+    def test_validator_rejects_empty_portfolio_risk_lifecycle_contradictions(self) -> None:
+        one_six_percent = record_buy(
+            self.state, "510300", price=10, amount=10_000
+        )
+        one_six_percent = record_sell(
+            one_six_percent, "510300", price=8.4, shares=1_000
+        )
+        two_percent = record_buy(self.state, "510300", price=10, amount=10_000)
+        two_percent = record_sell(two_percent, "510300", price=8, shares=1_000)
+
+        contradictions = []
+        below_threshold_pending = new_portfolio_state()
+        below_threshold_pending["risk_reset_pending"] = True
+        below_threshold_pending["cooldown_remaining_trading_days"] = 1
+        contradictions.append(("below_threshold_pending", below_threshold_pending))
+
+        below_threshold_cooldown = new_portfolio_state()
+        below_threshold_cooldown["cooldown_remaining_trading_days"] = 1
+        contradictions.append(("below_threshold_cooldown", below_threshold_cooldown))
+
+        wrong_drawdown = deepcopy(one_six_percent)
+        wrong_drawdown["drawdown_pct"] += 0.000001
+        contradictions.append(("drawdown_mismatch", wrong_drawdown))
+
+        wrong_active = deepcopy(one_six_percent)
+        wrong_active["risk_drawdown_active"] = True
+        contradictions.append(("one_six_active", wrong_active))
+
+        missing_pending = deepcopy(one_six_percent)
+        missing_pending["risk_reset_pending"] = False
+        contradictions.append(("one_six_missing_pending", missing_pending))
+
+        zero_cooldown = deepcopy(one_six_percent)
+        zero_cooldown["cooldown_remaining_trading_days"] = 0
+        contradictions.append(("one_six_zero_cooldown", zero_cooldown))
+
+        missing_active = deepcopy(two_percent)
+        missing_active["risk_drawdown_active"] = False
+        contradictions.append(("two_percent_missing_active", missing_active))
+
+        for label, state in contradictions:
+            with self.subTest(label):
+                with self.assertRaises(ValueError):
+                    portfolio_module.validate_portfolio_state(state)
+
+    def test_validator_accepts_empty_portfolio_cooldowns_and_completed_reset(self) -> None:
+        one_six_percent = record_buy(
+            self.state, "510300", price=10, amount=10_000
+        )
+        one_six_percent = record_sell(
+            one_six_percent, "510300", price=8.4, shares=1_000
+        )
+        two_percent = record_buy(self.state, "510300", price=10, amount=10_000)
+        two_percent = record_sell(two_percent, "510300", price=8, shares=1_000)
+
+        self.assertIsNone(portfolio_module.validate_portfolio_state(one_six_percent))
+        self.assertIsNone(portfolio_module.validate_portfolio_state(two_percent))
+        epsilon_close = deepcopy(one_six_percent)
+        epsilon_close["drawdown_pct"] += 0.000000005
+        self.assertIsNone(portfolio_module.validate_portfolio_state(epsilon_close))
+
+        reset = one_six_percent
+        for trading_day in self.TRADING_DAYS:
+            reset = advance_cooldown(
+                reset, trading_day, confirmed_trading_session=True
+            )
+        self.assertEqual(reset["cash_cny"], reset["high_watermark_equity_cny"])
+        self.assertEqual(0.0, reset["drawdown_pct"])
+        self.assertFalse(reset["risk_drawdown_active"])
+        self.assertFalse(reset["risk_reset_pending"])
+        self.assertEqual(0, reset["cooldown_remaining_trading_days"])
+        self.assertIsNone(portfolio_module.validate_portfolio_state(reset))
 
     def test_fills_that_round_to_zero_cost_or_quantity_are_rejected(self) -> None:
         with self.assertRaises(ValueError):
@@ -519,8 +605,8 @@ class PortfolioTests(unittest.TestCase):
         self.assertIn("510300", reopened["positions"])
 
     def test_cooldown_uses_each_valid_trading_day_label_at_most_once(self) -> None:
-        state = new_portfolio_state()
-        state["cooldown_remaining_trading_days"] = 3
+        state = record_buy(self.state, "510300", price=10, amount=10_000)
+        state = record_sell(state, "510300", price=8.4, shares=1_000)
         state = advance_cooldown(
             state, "2026-07-20", confirmed_trading_session=True
         )
@@ -531,7 +617,10 @@ class PortfolioTests(unittest.TestCase):
             state, "2026-07-20", confirmed_trading_session=True
         )
 
-        self.assertEqual(1, replayed["cooldown_remaining_trading_days"])
+        self.assertEqual(
+            COOLDOWN_TRADING_DAYS - 2,
+            replayed["cooldown_remaining_trading_days"],
+        )
         for invalid_day in ("", "not-a-date", "2026-02-30", 20260720):
             with self.assertRaises(ValueError):
                 advance_cooldown(  # type: ignore[arg-type]
@@ -539,8 +628,8 @@ class PortfolioTests(unittest.TestCase):
                 )
 
     def test_cooldown_requires_authoritative_trading_session_confirmation(self) -> None:
-        state = new_portfolio_state()
-        state["cooldown_remaining_trading_days"] = 2
+        state = record_buy(self.state, "510300", price=10, amount=10_000)
+        state = record_sell(state, "510300", price=8.4, shares=1_000)
 
         with self.assertRaises(TypeError):
             advance_cooldown(state, "2026-07-20")
@@ -549,7 +638,10 @@ class PortfolioTests(unittest.TestCase):
                 advance_cooldown(
                     state, non_trading_day, confirmed_trading_session=False
                 )
-        self.assertEqual(2, state["cooldown_remaining_trading_days"])
+        self.assertEqual(
+            COOLDOWN_TRADING_DAYS,
+            state["cooldown_remaining_trading_days"],
+        )
 
     def test_non_finite_fill_and_capital_inputs_are_rejected(self) -> None:
         for non_finite in (float("nan"), float("inf"), float("-inf")):

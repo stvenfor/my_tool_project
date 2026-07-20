@@ -385,7 +385,7 @@ def validate_portfolio_state(state: Mapping[str, Any]) -> None:
     if cash + _EPSILON < cash_reserve:
         raise ValueError("cash_cny cannot be below the cash reserve")
     realized_pnl = _require_money(state["realized_pnl_cny"], "realized_pnl_cny")
-    _require_money(
+    high_watermark = _require_money(
         state["high_watermark_equity_cny"],
         "high_watermark_equity_cny",
         minimum=0.01,
@@ -399,7 +399,7 @@ def validate_portfolio_state(state: Mapping[str, Any]) -> None:
     if state["risk_drawdown_active"] and not state["risk_reset_pending"]:
         raise ValueError("active risk drawdown requires a pending reset")
 
-    _require_integer(
+    cooldown_remaining = _require_integer(
         state["cooldown_remaining_trading_days"],
         "cooldown_remaining_trading_days",
         minimum=0,
@@ -485,6 +485,22 @@ def validate_portfolio_state(state: Mapping[str, Any]) -> None:
     expected_cash = _money(initial_capital + realized_pnl - exposure)
     if cash != expected_cash:
         raise ValueError("cash accounting identity is inconsistent")
+    if not positions:
+        if high_watermark < cash:
+            raise ValueError("cash-only high watermark cannot be below cash")
+        expected_drawdown = max(
+            0.0, (high_watermark - cash) / high_watermark
+        )
+        if abs(drawdown - expected_drawdown) > _EPSILON:
+            raise ValueError("cash-only drawdown_pct is inconsistent")
+        expected_active = expected_drawdown >= RISK_EXIT_DRAWDOWN_PCT
+        if state["risk_drawdown_active"] is not expected_active:
+            raise ValueError("cash-only risk_drawdown_active is inconsistent")
+        if expected_drawdown >= BUY_BLOCK_DRAWDOWN_PCT:
+            if not state["risk_reset_pending"] or cooldown_remaining <= 0:
+                raise ValueError("cash-only drawdown requires an active reset cooldown")
+        elif state["risk_reset_pending"] or cooldown_remaining != 0:
+            raise ValueError("cash-only recovered state cannot have a pending cooldown")
 
 
 def _empty_alert_flags() -> dict[str, bool]:
