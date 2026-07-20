@@ -80,6 +80,16 @@ class PortfolioTests(unittest.TestCase):
         self.assertEqual(cash_before_sale, state["cash_cny"])
         self.assertEqual(0.00000001, state["positions"]["510300"]["shares"])
 
+    def test_one_normalized_share_quantum_remaining_is_not_a_full_close(self) -> None:
+        state = record_buy(self.state, "510300", price=1_000_000, shares=0.00000002)
+        partially_sold = record_sell(state, "510300", price=1_000_000, shares=0.00000001)
+
+        position = partially_sold["positions"]["510300"]
+        self.assertEqual(0.00000001, position["shares"])
+        self.assertEqual(0.01, position["cost_basis_cny"])
+        self.assertEqual(1, position["cycle_id"])
+        self.assertEqual(INITIAL_CAPITAL_CNY - 0.01, partially_sold["cash_cny"])
+
     def test_partial_sell_keeps_average_cost_and_calculates_realized_and_unrealized_pnl(self) -> None:
         state = record_buy(self.state, "510300", price=10, shares=1_000)
         state = record_buy(

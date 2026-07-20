@@ -128,7 +128,7 @@ def record_sell(
 
     cost_basis = float(position["cost_basis_cny"])
     remaining_shares = held_shares - sell_shares
-    is_full_close = remaining_shares <= _EPSILON
+    is_full_close = sell_shares == held_shares
     released_cost = (
         cost_basis if is_full_close else cost_basis * sell_shares / held_shares
     )
