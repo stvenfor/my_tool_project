@@ -106,7 +106,9 @@ npm run etf:record-sell -- 512890 --price 1.300 --shares 4000
 
 已有一笔的 ETF 即使通过门控，`portfolio_gate.requires_renewed_confirmation` 仍为 true，并给出 `second_tranche_requires_renewed_confirmation`；这只是提示仍需人工 renewed confirmation，不代表自动许可。实际记账依然必须显式传 `--confirm-second-tranche`。
 
-组合高水位回撤 2% 触发风险退出提醒并开始 10 个已确认交易日冷静期。风险周期只有在冷静期结束且全部持仓已经关闭后才清除 `risk_reset_pending`；清除前禁止新买入。部分卖出，或多持仓组合中只平掉其中一只，会设置 `valuation_required` 并暂停买入；后续已确认开市的 scheduled-check 必须取得所有剩余持仓的完整、同期估值，才能重新计算权益并解除估值阻断。scheduled-check 先独立核验权威交易日历：仅 `is_trading_session=true` 且 session date 与上海当日一致时递减，同一交易日只递减一次；休市、过期或冲突日历不递减。行情或催化的其他错误不会阻止一个已经权威确认的交易日递减。完整数值门槛见 `src/scanner.py`，持仓规则见 `src/portfolio.py`。
+组合回撤分成两个不同级别。仍有持仓时，1.5%-<2% 只停止新买入和加仓；若后续完整估值显示回撤恢复到 1.5% 以下，买入阻断会自动解除（其他门控仍须满足）。若在 1.5%-<2% 区间全部平仓，为避免空仓状态永久锁定，系统启动 10 个已确认交易日恢复期，但不触发 2% risk-exit alert。回撤达到 2% 时则触发高优先级退出提醒并开始 10 个已确认交易日冷静期。
+
+风险周期只有在冷静期结束且全部持仓已经关闭后才清除 `risk_reset_pending`；清除前禁止新买入。部分卖出，或多持仓组合中只平掉其中一只，会设置 `valuation_required` 并暂停买入；后续已确认开市的 scheduled-check 必须取得所有剩余持仓的完整、同期估值，才能重新计算权益并解除估值阻断。scheduled-check 先独立核验权威交易日历：仅 `is_trading_session=true` 且 session date 与上海当日一致时递减，同一交易日只递减一次；休市、过期或冲突日历不递减。行情或催化的其他错误不会阻止一个已经权威确认的交易日递减。完整数值门槛见 `src/scanner.py`，持仓规则见 `src/portfolio.py`。
 
 ## 持仓信号失效输入
 

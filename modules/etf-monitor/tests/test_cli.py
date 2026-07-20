@@ -49,6 +49,22 @@ class CliTests(unittest.TestCase):
         )
         return fixture_path
 
+    def cash_only_recovery_state(self, cooldown_days: int):
+        state = new_portfolio_state()
+        state.update(
+            {
+                "cash_cny": 98_400.0,
+                "realized_pnl_cny": -1_600.0,
+                "high_watermark_equity_cny": 100_000.0,
+                "drawdown_pct": 0.016,
+                "risk_drawdown_active": False,
+                "risk_reset_pending": True,
+                "valuation_required": False,
+                "cooldown_remaining_trading_days": cooldown_days,
+            }
+        )
+        return state
+
     def mapped_fixture(self, codes):
         provider = FixtureProvider()
         direct = cli.fixture_payload_from_provider(provider)
@@ -319,8 +335,7 @@ class CliTests(unittest.TestCase):
         drawdown["high_watermark_equity_cny"] = round(current_equity / 0.985, 2)
         cases.append(("buy_blocked_by_drawdown", drawdown, self.code))
 
-        cooldown = new_portfolio_state()
-        cooldown["cooldown_remaining_trading_days"] = 5
+        cooldown = self.cash_only_recovery_state(5)
         cases.append(("buy_blocked_during_cooldown", cooldown, self.code))
 
         two_positions = record_buy(new_portfolio_state(), self.code, 10, amount=10_000)
@@ -429,8 +444,7 @@ class CliTests(unittest.TestCase):
         self.assertEqual("DATA_ERROR", result["scan_results"][0]["status"])
 
     def test_scheduled_holiday_is_no_action_and_never_advances_by_guess(self) -> None:
-        state = new_portfolio_state()
-        state["cooldown_remaining_trading_days"] = 10
+        state = self.cash_only_recovery_state(10)
         self.write_state(state)
         provider = FixtureProvider()
         provider.calendar["is_trading_session"] = False
@@ -498,8 +512,7 @@ class CliTests(unittest.TestCase):
                 )
 
     def test_scheduled_check_advances_cooldown_once_per_confirmed_trading_day(self) -> None:
-        state = new_portfolio_state()
-        state["cooldown_remaining_trading_days"] = 10
+        state = self.cash_only_recovery_state(10)
         self.write_state(state)
 
         first_provider = FixtureProvider()
@@ -520,8 +533,7 @@ class CliTests(unittest.TestCase):
         self.assertEqual(10, len(persisted["processed_cooldown_trading_days"]))
 
     def test_calendar_advances_cooldown_despite_other_provider_errors(self) -> None:
-        state = new_portfolio_state()
-        state["cooldown_remaining_trading_days"] = 2
+        state = self.cash_only_recovery_state(2)
         self.write_state(state)
         missing_catalyst = FixtureProvider()
         missing_catalyst.catalyst = None
@@ -740,6 +752,12 @@ class CliTests(unittest.TestCase):
         cash = new_portfolio_state()
         cash["cash_cny"] = 65_000.0
         cash["realized_pnl_cny"] = -35_000.0
+        cash["high_watermark_equity_cny"] = 65_000.0
+        cash["drawdown_pct"] = 0.0
+        cash["risk_drawdown_active"] = False
+        cash["risk_reset_pending"] = False
+        cash["valuation_required"] = False
+        cash["cooldown_remaining_trading_days"] = 0
         cash_gate = cli._portfolio_gate(cash, self.code)
         self.assertFalse(cash_gate["allowed"])
         self.assertIn("cash_reserve_floor_cny_60000", cash_gate["reasons"])
@@ -758,14 +776,19 @@ class CliTests(unittest.TestCase):
         self.assertIn("buy_blocked_pending_risk_reset", risk_gate["reasons"])
 
     def test_scanner_data_errors_are_not_downgraded_by_portfolio_gates(self) -> None:
-        cooldown = new_portfolio_state()
-        cooldown["cooldown_remaining_trading_days"] = 5
+        cooldown = self.cash_only_recovery_state(5)
         stale = FixtureProvider()
         stale.bars[-1]["timestamp"] = stale.as_of - timedelta(hours=25)
 
         cash = new_portfolio_state()
         cash["cash_cny"] = 65_000.0
         cash["realized_pnl_cny"] = -35_000.0
+        cash["high_watermark_equity_cny"] = 65_000.0
+        cash["drawdown_pct"] = 0.0
+        cash["risk_drawdown_active"] = False
+        cash["risk_reset_pending"] = False
+        cash["valuation_required"] = False
+        cash["cooldown_remaining_trading_days"] = 0
         conflict = FixtureProvider()
         conflict.quotes[1]["price"] = 12.0
 
@@ -869,6 +892,12 @@ class CliTests(unittest.TestCase):
             "latest_completed_session_date",
             "目标市场",
             "权威",
+            "1.5%-<2%",
+            "只停止新买入和加仓",
+            "自动解除",
+            "10 个已确认交易日",
+            "不触发 2% risk-exit alert",
+            "高优先级退出",
         ):
             self.assertIn(phrase, readme)
         for phrase in (
