@@ -112,7 +112,7 @@ npm run etf:record-sell -- 512890 --price 1.300 --shares 4000
 
 每个非 CN benchmark 都必须从其权威目标市场交易日历取得 `latest_completed_session_date`、`source` 和带时区的 `timestamp`；该日期必须与所提供 benchmark 日线的最后日期一致。不得根据上海工作日、时差、周末规则或最近一根行情猜测目标市场已完成交易日。缺失、过期、格式错误、未来日期或与 benchmark bars 冲突时返回 `DATA_ERROR`。CN benchmark 直接使用已经核验的上海交易日历，不要求额外调用。
 
-催化输入必须使用上述结构化证据格式。`primary_evidence` 与 `corroboration_evidence` 都必须提供非空的 `source`、`reference`、`event_timestamp` 和 `collected_at`；两套 `source` 与两套 `reference` 分别按不区分大小写比较后必须不同。四个时间必须带时区、在扫描时点前 24 小时内且不得位于未来，事件时间也不得晚于对应采集时间。旧的共享 `source` + `timestamp` 格式会 fail-closed 为 `DATA_ERROR`。数值门槛通过但确认布尔值尚未全部满足时，仍须提供用于审计该判断的两套证据；成功解析的扫描结果会原样输出 `catalyst_provenance`。
+催化输入必须使用上述结构化证据格式。`primary_evidence` 与 `corroboration_evidence` 都必须提供非空的 `source`、`reference`、`event_timestamp` 和 `collected_at`；两套 `source` 与两套 `reference` 分别按不区分大小写比较后必须不同。四个时间必须带时区，距扫描时点不得超过 24 小时；系统允许最多 1 分钟的时钟偏差，晚于扫描时点超过 1 分钟即返回 `DATA_ERROR`，且事件时间不得晚于对应采集时间。旧的共享 `source` + `timestamp` 格式会 fail-closed 为 `DATA_ERROR`。数值门槛通过但确认布尔值尚未全部满足时，仍须提供用于审计该判断的两套证据；成功解析的扫描结果会在 `catalyst_provenance` 中以 `primary` / `corroboration` 两个键输出规范化后的证据。
 
 `as_of`、所有 `timestamp`、`event_timestamp` 与 `collected_at` 必须是带时区 ISO 8601；`date`、`session_date` 使用 `YYYY-MM-DD`。fixture 必须包含相互独立的现价来源、至少 61 根 ETF 日线、benchmark 日线、AUM、溢折价、权威交易日历和催化确认。
 
