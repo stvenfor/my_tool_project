@@ -3,11 +3,12 @@
   "private": true,
   "description": "Local advisory-only ETF audit and monitoring CLI",
   "scripts": {
-    "audit": "python3 cli.py audit",
-    "record-buy": "python3 cli.py record-buy",
-    "record-sell": "python3 cli.py record-sell",
-    "scan": "python3 cli.py scan",
-    "scheduled-check": "python3 cli.py scheduled-check",
-    "test": "python3 -m unittest discover -s tests -p 'test_*.py'"
+    "audit": "python3.12 cli.py audit",
+    "record-buy": "python3.12 cli.py record-buy",
+    "record-sell": "python3.12 cli.py record-sell",
+    "scan": "python3.12 cli.py scan",
+    "scheduled-check": "python3.12 cli.py scheduled-check",
+    "report": "python3.12 generate_review.py",
+    "test": "python3.12 -m unittest discover -s tests -p 'test_*.py'"
   }
 }

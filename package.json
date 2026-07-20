@@ -143,6 +143,7 @@
     "etf:record-sell": "npm run record-sell -w @tools/etf-monitor --",
     "etf:scan": "npm run scan -w @tools/etf-monitor --",
     "etf:scheduled-check": "npm run scheduled-check -w @tools/etf-monitor --",
+    "etf:report": "npm run report -w @tools/etf-monitor --",
     "etf:test": "npm run test -w @tools/etf-monitor"
   },
   "devDependencies": {

@@ -241,6 +241,46 @@ def parse_eastmoney_bars(
         raise MarketDataError("malformed_eastmoney_bars") from exc
 
 
+def parse_tencent_bars(
+    payload: Mapping[str, Any], code: str, fetched_at: datetime
+) -> list[DailyBar]:
+    """Parse Tencent forward-adjusted daily rows used as a public fallback."""
+
+    symbol = _tencent_symbol(code)
+    try:
+        if payload.get("code") not in (0, "0"):
+            raise ValueError
+        block = payload["data"][symbol]
+        rows = block.get("qfqday") or block.get("day")
+        if not isinstance(rows, list):
+            raise TypeError
+        timestamp = _timestamp(fetched_at, "malformed_tencent_timestamp")
+        parsed = []
+        for row in rows:
+            if not isinstance(row, list) or len(row) < 6:
+                raise ValueError
+            close = _positive(row[2], "malformed_tencent_bars")
+            volume = _nonnegative(row[5], "malformed_tencent_bars")
+            parsed.append(
+                DailyBar(
+                    date=date.fromisoformat(str(row[0])),
+                    open=_positive(row[1], "malformed_tencent_bars"),
+                    close=close,
+                    high=_positive(row[3], "malformed_tencent_bars"),
+                    low=_positive(row[4], "malformed_tencent_bars"),
+                    volume=volume,
+                    turnover_cny=volume * close,
+                    source="tencent",
+                    timestamp=timestamp,
+                )
+            )
+        return _bars(parsed, "missing_tencent_bars")
+    except (KeyError, TypeError, ValueError, AttributeError) as exc:
+        if isinstance(exc, MarketDataError):
+            raise
+        raise MarketDataError("malformed_tencent_bars") from exc
+
+
 def collect_market_snapshot(
     record: Mapping[str, Any],
     provider: MarketDataProvider,
@@ -634,6 +674,7 @@ class PublicMarketDataProvider:
 
     EASTMONEY_QUOTE = "https://push2.eastmoney.com/api/qt/stock/get?secid={secid}&fields=f43,f44,f45,f46,f47,f48,f60,f169,f170"
     EASTMONEY_BARS = "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid={secid}&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&end=20500101&lmt=120&fields1=f1,f2,f3,f4,f5,f6&fields2=f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61"
+    TENCENT_BARS = "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param={symbol},day,,,120,qfq"
     TENCENT_QUOTE = "https://qt.gtimg.cn/q={symbol}"
 
     def __init__(
@@ -663,8 +704,14 @@ class PublicMarketDataProvider:
 
     def get_daily_bars(self, code: str) -> Sequence[DailyBar]:
         fetched_at = self.clock()
-        payload = self._json(self.EASTMONEY_BARS.format(secid=_secid(code)))
-        return parse_eastmoney_bars(payload, fetched_at)
+        try:
+            payload = self._json(self.EASTMONEY_BARS.format(secid=_secid(code)))
+            return parse_eastmoney_bars(payload, fetched_at)
+        except MarketDataError:
+            payload = self._json(
+                self.TENCENT_BARS.format(symbol=_tencent_symbol(code))
+            )
+            return parse_tencent_bars(payload, code, fetched_at)
 
     def get_aum(self, code: str) -> TimedMetric:
         quote = self._tencent(code)

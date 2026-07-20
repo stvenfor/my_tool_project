@@ -28,6 +28,7 @@ from src.market_data import (  # noqa: E402
     collect_market_snapshot,
     parse_eastmoney_bars,
     parse_eastmoney_quote,
+    parse_tencent_bars,
     parse_tencent_quote,
 )
 import src.market_data as market_data_module  # noqa: E402
@@ -184,6 +185,28 @@ class MarketDataTests(unittest.TestCase):
 
         with self.assertRaisesRegex(MarketDataError, "malformed_daily_bar"):
             parse_eastmoney_bars(payload, self.provider.timestamp)
+
+    def test_tencent_bar_parser_normalizes_adjusted_daily_rows(self) -> None:
+        payload = {
+            "code": 0,
+            "data": {
+                "sh510050": {
+                    "qfqday": [
+                        ["2026-07-17", "3.100", "3.120", "3.130", "3.090", "1000"],
+                        ["2026-07-20", "3.120", "3.150", "3.160", "3.110", "1200"],
+                    ]
+                }
+            },
+        }
+
+        bars = parse_tencent_bars(payload, "510050", self.provider.timestamp)
+
+        self.assertEqual(2, len(bars))
+        self.assertEqual(date(2026, 7, 20), bars[-1].date)
+        self.assertEqual(3.15, bars[-1].close)
+        self.assertEqual(1200, bars[-1].volume)
+        self.assertEqual(3780, bars[-1].turnover_cny)
+        self.assertEqual("tencent", bars[-1].source)
 
     def test_snapshot_accepts_complete_fresh_agreeing_fixture_data(self) -> None:
         snapshot = collect_market_snapshot(

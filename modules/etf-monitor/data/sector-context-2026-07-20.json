@@ -1,0 +1,262 @@
+{
+  "as_of": "2026-07-20",
+  "method": "行业到主题的一对一映射；政策与基本面只作背景证据，不单独构成买入信号。",
+  "themes": {
+    "capital_market": {
+      "policy": {
+        "text": "证监会强调维护资本市场平稳健康运行、强化监管与投资者保护；方向偏支持，但不代表指数短期必涨。",
+        "title": "中国证监会召开投资者座谈会",
+        "publisher": "中国证监会",
+        "date": "2026-07-20",
+        "url": "https://www.csrc.gov.cn/csrc/c100028/c7646232/content.shtml"
+      },
+      "fundamental": {
+        "text": "2026年上半年国内生产总值同比增长4.7%，规模以上制造业增加值增长5.6%；宏观仍扩张，但行业盈利分化需要继续跟踪。",
+        "title": "上半年国民经济顶住压力延续平稳增长态势",
+        "publisher": "国家统计局",
+        "date": "2026-07-15",
+        "url": "https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html"
+      }
+    },
+    "ai_digital": {
+      "policy": {
+        "text": "六部门部署智能工厂梯度培育，政策支持人工智能与制造业融合和场景落地；执行节奏与商业化质量仍需验证。",
+        "title": "关于开展2026年度智能工厂梯度培育行动的通知",
+        "publisher": "工业和信息化部等六部门",
+        "date": "2026-07-15",
+        "url": "https://www.ncsti.gov.cn/kjdt/tzgg/202607/t20260720_251553.html"
+      },
+      "fundamental": {
+        "text": "上半年制造业增加值同比增长5.6%，为数字化和AI应用提供需求基础；ETF成份股估值与订单兑现差异较大。",
+        "title": "上半年国民经济顶住压力延续平稳增长态势",
+        "publisher": "国家统计局",
+        "date": "2026-07-15",
+        "url": "https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html"
+      }
+    },
+    "semiconductor_electronics": {
+      "policy": {
+        "text": "近90日未发现新增直接政策催化；4月公布的集成电路和软件企业税收优惠清单覆盖设计、制造、封测和关键材料设备，体现中长期政策连续性。",
+        "title": "关于做好2026年享受税收优惠政策的集成电路企业或项目、软件企业清单制定工作的通知",
+        "publisher": "国家发展改革委等部门",
+        "date": "2026-04-09",
+        "url": "https://www.ndrc.gov.cn/xxgk/zcfb/tz/202604/t20260409_1404580.html"
+      },
+      "fundamental": {
+        "text": "AI驱动全球技术链需求，但行业景气和估值对资本开支、终端需求及外部限制高度敏感，需结合价格与份额流验证。",
+        "title": "World Economic Outlook Update, July 2026",
+        "publisher": "International Monetary Fund",
+        "date": "2026-07-08",
+        "url": "https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026"
+      }
+    },
+    "advanced_manufacturing": {
+      "policy": {
+        "text": "智能工厂培育覆盖基础级、先进级、卓越级和领航级，利好自动化、机器人与高端装备应用扩散；主题兑现取决于订单。",
+        "title": "关于开展2026年度智能工厂梯度培育行动的通知",
+        "publisher": "工业和信息化部等六部门",
+        "date": "2026-07-15",
+        "url": "https://www.ncsti.gov.cn/kjdt/tzgg/202607/t20260720_251553.html"
+      },
+      "fundamental": {
+        "text": "上半年制造业增加值同比增长5.6%，制造业基本面有韧性；细分装备的盈利需继续核对订单、回款和产能利用率。",
+        "title": "上半年国民经济顶住压力延续平稳增长态势",
+        "publisher": "国家统计局",
+        "date": "2026-07-15",
+        "url": "https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html"
+      }
+    },
+    "clean_energy_auto": {
+      "policy": {
+        "text": "2026年汽车标准化工作聚焦新能源汽车、智能网联、汽车芯片、固态电池等方向；同时部分税收优惠未来调整，需兼顾支持与退坡风险。",
+        "title": "2026年汽车标准化工作要点",
+        "publisher": "工业和信息化部",
+        "date": "2026-06-12",
+        "url": "https://www.miit.gov.cn/xwfb/gxdt/sjdt/art/2026/art_202b76b65f354309a28d38686d988108.html"
+      },
+      "fundamental": {
+        "text": "制造业整体保持增长，但新能源链仍受价格竞争、产能利用率与海外需求影响；仅凭政策不能替代盈利和资金验证。",
+        "title": "上半年国民经济顶住压力延续平稳增长态势",
+        "publisher": "国家统计局",
+        "date": "2026-07-15",
+        "url": "https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html"
+      }
+    },
+    "healthcare": {
+      "policy": {
+        "text": "医保部门推进2026年药品目录与创新药目录形式审查，政策继续支持临床价值明确的创新，但准入和价格仍有约束。",
+        "title": "2026年国家基本医疗保险、生育保险和工伤保险药品目录及商业健康保险创新药品目录调整通过形式审查的申报药品名单",
+        "publisher": "国家医疗保障局",
+        "date": "2026-07-14",
+        "url": "https://www.nhsa.gov.cn/art/2026/7/14/art_109_21421.html"
+      },
+      "fundamental": {
+        "text": "医保局披露2026年上半年创新药对外授权交易总金额约1100亿美元，显示研发资产国际化活跃；里程碑兑现与个股差异仍大。",
+        "title": "我国创新药对外授权交易保持活跃",
+        "publisher": "国家医疗保障局",
+        "date": "2026-07-14",
+        "url": "https://www.nhsa.gov.cn/art/2026/7/14/art_14_21423.html"
+      }
+    },
+    "consumer_agriculture": {
+      "policy": {
+        "text": "近90日未发现新增直接政策催化；2月中央一号文件强调农业综合生产能力、农民增收和县域产业，构成中长期政策背景。",
+        "title": "2026年中央一号文件发布 部署扎实推进乡村全面振兴",
+        "publisher": "国家林业和草原局（新华社稿）",
+        "date": "2026-02-03",
+        "url": "https://www.forestry.gov.cn/c/www/szxx/659115.jhtml"
+      },
+      "fundamental": {
+        "text": "上半年社会消费品零售总额同比增长1.3%，粮油食品和饮料类分别增长7.4%和6.0%；消费恢复但总体增速温和。",
+        "title": "上半年消费市场基本平稳 新型消费成长壮大",
+        "publisher": "国家统计局",
+        "date": "2026-07-15",
+        "url": "https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964127.html"
+      }
+    },
+    "property_infrastructure": {
+      "policy": {
+        "text": "近90日未发现新增全国性直接政策催化；年初住房城乡建设工作强调因城施策、去库存、保障交付和好房子建设，重心是稳定和转型。",
+        "title": "住建部：2026年全国住房城乡建设着力抓好四个方面工作",
+        "publisher": "住房和城乡建设部",
+        "date": "2026-01-16",
+        "url": "https://www.dhms.gov.cn/stsx/Web/_F0_0_6GKSXVBA02A5928A8F0E406FA4.htm"
+      },
+      "fundamental": {
+        "text": "上半年房地产开发投资下降18.0%，新建商品房销售面积下降11.6%、销售额下降13.6%，行业基本面仍偏弱。",
+        "title": "2026年1—6月份全国房地产市场基本情况",
+        "publisher": "国家统计局",
+        "date": "2026-07-15",
+        "url": "https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964126.html"
+      }
+    },
+    "energy_materials": {
+      "policy": {
+        "text": "近90日未发现新增直接政策催化；3月国家能源局年度标准计划覆盖煤炭、油气和新能源等领域，侧重安全、绿色和标准化转型。",
+        "title": "2026年能源行业标准计划立项指南",
+        "publisher": "国家能源局",
+        "date": "2026-03-24",
+        "url": "https://www.nea.gov.cn/20260324/a3810b8d733c4972a67ef5891a17b8ea/20260324a3810b8d733c4972a67ef5891a17b8ea_49f3818b8b71ed439ca1d10cceef0bc714.pdf"
+      },
+      "fundamental": {
+        "text": "全球增长仍有韧性但能源与地缘风险并存，资源品价格可能保持高波动；应以趋势、库存和份额申赎共同确认。",
+        "title": "World Economic Outlook Update, July 2026",
+        "publisher": "International Monetary Fund",
+        "date": "2026-07-08",
+        "url": "https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026"
+      }
+    },
+    "fixed_income": {
+      "policy": {
+        "text": "资本市场监管强调防风险和稳定运行；债券ETF仍受利率、信用利差和久期影响，不能当作无波动现金。",
+        "title": "中国证监会召开投资者座谈会",
+        "publisher": "中国证监会",
+        "date": "2026-07-20",
+        "url": "https://www.csrc.gov.cn/csrc/c100028/c7646232/content.shtml"
+      },
+      "fundamental": {
+        "text": "上半年经济同比增长4.7%，增长与价格环境共同影响利率方向；长久期国债和信用债需分别控制久期与信用风险。",
+        "title": "上半年国民经济顶住压力延续平稳增长态势",
+        "publisher": "国家统计局",
+        "date": "2026-07-15",
+        "url": "https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html"
+      }
+    },
+    "global_equity": {
+      "policy": {
+        "text": "跨境ETF同时受境外市场规则、汇率和QDII额度影响；本报告不把境内政策背景视为海外指数催化。",
+        "title": "World Economic Outlook Update, July 2026",
+        "publisher": "International Monetary Fund",
+        "date": "2026-07-08",
+        "url": "https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026"
+      },
+      "fundamental": {
+        "text": "IMF预计2026年全球增长3.0%，但地区分化、冲突和金融市场重定价风险仍在；海外ETF需额外核对溢价与汇率。",
+        "title": "World Economic Outlook Update, July 2026",
+        "publisher": "International Monetary Fund",
+        "date": "2026-07-08",
+        "url": "https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026"
+      }
+    },
+    "gold_commodity": {
+      "policy": {
+        "text": "商品和黄金ETF主要受全球定价、汇率和地缘风险影响，本报告不设置方向性政策利好结论。",
+        "title": "World Economic Outlook Update, July 2026",
+        "publisher": "International Monetary Fund",
+        "date": "2026-07-08",
+        "url": "https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026"
+      },
+      "fundamental": {
+        "text": "全球通胀回落受阻且冲突与市场重定价风险仍存，黄金与商品具备对冲叙事但价格可能高波动。",
+        "title": "World Economic Outlook Update, July 2026",
+        "publisher": "International Monetary Fund",
+        "date": "2026-07-08",
+        "url": "https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026"
+      }
+    }
+  },
+  "sector_theme": {
+    "advanced_equipment": "advanced_manufacturing",
+    "agriculture": "consumer_agriculture",
+    "agriculture_commodity": "gold_commodity",
+    "artificial_intelligence": "ai_digital",
+    "bank": "capital_market",
+    "battery": "clean_energy_auto",
+    "biotechnology": "healthcare",
+    "broad_market": "capital_market",
+    "broad_tech": "ai_digital",
+    "building_materials": "property_infrastructure",
+    "cashflow_factor": "capital_market",
+    "coal": "energy_materials",
+    "commodity_equity": "energy_materials",
+    "communication": "ai_digital",
+    "consumer": "consumer_agriculture",
+    "consumer_electronics": "semiconductor_electronics",
+    "convertible_bond": "fixed_income",
+    "credit_bond": "fixed_income",
+    "defense": "advanced_manufacturing",
+    "dividend_factor": "capital_market",
+    "education": "ai_digital",
+    "electric_utility": "clean_energy_auto",
+    "electronics": "semiconductor_electronics",
+    "energy": "energy_materials",
+    "energy_chemical": "energy_materials",
+    "food_beverage": "consumer_agriculture",
+    "gaming": "ai_digital",
+    "gold": "gold_commodity",
+    "government_bond": "fixed_income",
+    "growth_board": "capital_market",
+    "healthcare": "healthcare",
+    "infrastructure": "property_infrastructure",
+    "innovative_drug": "healthcare",
+    "intelligent_manufacturing": "advanced_manufacturing",
+    "internet": "ai_digital",
+    "large_cap": "capital_market",
+    "liquor": "consumer_agriculture",
+    "livestock": "consumer_agriculture",
+    "machinery": "advanced_manufacturing",
+    "media": "ai_digital",
+    "mid_cap": "capital_market",
+    "mid_cap_factor": "capital_market",
+    "new_energy": "clean_energy_auto",
+    "new_energy_vehicle": "clean_energy_auto",
+    "new_materials": "advanced_manufacturing",
+    "nonferrous_metals": "energy_materials",
+    "oil_gas": "energy_materials",
+    "rare_earth": "energy_materials",
+    "real_estate": "property_infrastructure",
+    "robotics": "advanced_manufacturing",
+    "satellite": "advanced_manufacturing",
+    "securities": "capital_market",
+    "securities_insurance": "capital_market",
+    "semiconductor": "semiconductor_electronics",
+    "small_cap": "capital_market",
+    "smart_driving": "clean_energy_auto",
+    "software": "ai_digital",
+    "solar": "clean_energy_auto",
+    "star_50": "ai_digital",
+    "state_owned_enterprise": "capital_market",
+    "steel": "energy_materials",
+    "technology": "global_equity"
+  }
+}
