@@ -52,6 +52,24 @@ class PortfolioTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "confirmation"):
             record_buy(after_first, "510300", price=8, amount=8_000)
 
+    def test_second_tranche_confirmation_must_be_literal_true(self) -> None:
+        after_first = record_buy(self.state, "510300", price=10, amount=10_000)
+
+        with self.assertRaisesRegex(ValueError, "confirmation"):
+            record_buy(
+                after_first,
+                "510300",
+                price=8,
+                amount=8_000,
+                second_tranche_confirmed="false",  # type: ignore[arg-type]
+            )
+
+    def test_fills_that_round_to_zero_cost_or_quantity_are_rejected(self) -> None:
+        with self.assertRaises(ValueError):
+            record_buy(self.state, "510300", price=1, shares=0.0001)
+        with self.assertRaises(ValueError):
+            record_buy(self.state, "510300", price=10_000_000, amount=0.01)
+
     def test_partial_sell_keeps_average_cost_and_calculates_realized_and_unrealized_pnl(self) -> None:
         state = record_buy(self.state, "510300", price=10, shares=1_000)
         state = record_buy(

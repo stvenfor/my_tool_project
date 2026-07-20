@@ -84,7 +84,10 @@ def record_buy(
         positions[code] = position
     elif int(position["tranche_count"]) >= MAX_TRANCHES_PER_ETF:
         raise ValueError("at most two tranches per ETF are allowed")
-    elif int(position["tranche_count"]) == 1 and not second_tranche_confirmed:
+    elif (
+        int(position["tranche_count"]) == 1
+        and second_tranche_confirmed is not True
+    ):
         raise ValueError("second tranche requires external confirmation")
 
     if float(position["cost_basis_cny"]) + fill_cost > MAX_ETF_COST_CNY + _EPSILON:
@@ -273,10 +276,16 @@ def _fill(price: float, shares: float | None, amount: float | None) -> tuple[flo
     if (shares is None) == (amount is None):
         raise ValueError("provide exactly one of shares or amount")
     if shares is not None:
-        quantity = _positive_number(shares, "shares")
-        return _quantity(quantity), _money(actual_price * quantity)
-    cost = _positive_number(amount, "amount")
-    return _quantity(cost / actual_price), _money(cost)
+        raw_quantity = _positive_number(shares, "shares")
+        quantity = _quantity(raw_quantity)
+        cost = _money(actual_price * raw_quantity)
+    else:
+        raw_cost = _positive_number(amount, "amount")
+        quantity = _quantity(raw_cost / actual_price)
+        cost = _money(raw_cost)
+    if quantity <= 0 or cost <= 0:
+        raise ValueError("rounded fill shares and amount must both be positive")
+    return quantity, cost
 
 
 def _copy_state(state: Mapping[str, Any]) -> dict[str, Any]:
