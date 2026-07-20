@@ -222,11 +222,7 @@ def collect_market_snapshot(
     except KeyError as exc:
         raise MarketDataError("missing_instrument_metadata") from exc
 
-    requested_session_date = as_of.date()
-    calendar = _calendar(provider.get_trading_calendar(requested_session_date))
-    _fresh(calendar.timestamp, as_of, SUPPORTING_DATA_MAX_AGE, "stale_calendar")
-    if calendar.session_date != requested_session_date:
-        raise MarketDataError("session_date_conflict", calendar.timestamp)
+    calendar = collect_trading_session(provider, as_of)
     if calendar.is_trading_session is not True:
         raise MarketDataError("not_trading_session", calendar.timestamp)
 
@@ -287,6 +283,24 @@ def collect_market_snapshot(
             sources=tuple(sorted(sources)),
         )
     )
+
+
+def collect_trading_session(
+    provider: MarketDataProvider, as_of: datetime
+) -> TradingCalendarState:
+    """Return authoritative Shanghai session state after fail-closed validation."""
+    observed_at = _shanghai_timestamp(as_of, "invalid_as_of_timestamp")
+    requested_session_date = observed_at.date()
+    calendar = _calendar(provider.get_trading_calendar(requested_session_date))
+    _fresh(
+        calendar.timestamp,
+        observed_at,
+        SUPPORTING_DATA_MAX_AGE,
+        "stale_calendar",
+    )
+    if calendar.session_date != requested_session_date:
+        raise MarketDataError("session_date_conflict", calendar.timestamp)
+    return calendar
 
 
 def collect_current_quote(

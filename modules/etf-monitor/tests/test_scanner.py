@@ -193,6 +193,37 @@ class ScannerTests(unittest.TestCase):
         self.assertEqual("POSITION_ALERT", output["status"])
         self.assertIn("position_monitoring_completed", output["reasons"])
 
+    def test_provider_position_alerts_use_each_codes_quote_timestamp(self) -> None:
+        state = new_portfolio_state()
+        state = record_buy(state, "510300", price=9.9, amount=20_000)
+        state = record_buy(state, "159915", price=9.9, amount=20_000)
+        timestamps = {
+            "510300": self.provider.timestamp - timedelta(minutes=4),
+            "159915": self.provider.timestamp - timedelta(minutes=1),
+        }
+        base_quotes = deepcopy(self.provider.quotes)
+
+        def quotes_for(code):
+            quotes = deepcopy(base_quotes)
+            for quote in quotes:
+                quote["timestamp"] = timestamps[code]
+            return quotes
+
+        self.provider.get_current_quotes = quotes_for
+
+        _, output = monitor_positions_from_provider(
+            state, self.provider, as_of=self.provider.as_of
+        )
+
+        self.assertEqual(
+            timestamps["510300"].isoformat(), output["source_timestamp"]
+        )
+        for alert in output["alerts"]:
+            self.assertEqual(
+                timestamps[alert["code"]].isoformat(),
+                alert.get("source_timestamp"),
+            )
+
     def test_exact_three_percent_gain_and_five_percent_ma20_distance_pass(self) -> None:
         exact_gain = FixtureProvider()
         midpoint = sum(quote["price"] for quote in exact_gain.quotes) / 2

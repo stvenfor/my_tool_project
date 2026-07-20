@@ -29,6 +29,7 @@ from src.market_data import (  # noqa: E402
     parse_eastmoney_quote,
     parse_tencent_quote,
 )
+import src.market_data as market_data_module  # noqa: E402
 
 
 def _fixture(name: str):
@@ -294,6 +295,54 @@ class MarketDataTests(unittest.TestCase):
             collect_market_snapshot(self.record, self.provider, as_of=as_of_utc)
 
         self.assertEqual(date(2026, 7, 21), self.provider.requested_calendar_date)
+
+    def test_public_trading_session_normalizes_shanghai_date_and_returns_closure(self) -> None:
+        as_of_utc = datetime(2026, 7, 20, 16, 5, tzinfo=timezone.utc)
+        self.provider.calendar.update(
+            session_date=date(2026, 7, 21), is_trading_session=False
+        )
+
+        state = market_data_module.collect_trading_session(
+            self.provider, as_of=as_of_utc
+        )
+
+        self.assertFalse(state.is_trading_session)
+        self.assertEqual(date(2026, 7, 21), state.session_date)
+        self.assertEqual(date(2026, 7, 21), self.provider.requested_calendar_date)
+
+    def test_public_trading_session_validates_typed_state(self) -> None:
+        self.provider.calendar = TradingCalendarState(
+            session_date=self.provider.as_of.date(),
+            is_trading_session=False,
+            source="exchange_calendar",
+            timestamp=self.provider.timestamp,
+        )
+
+        state = market_data_module.collect_trading_session(
+            self.provider, as_of=self.provider.as_of
+        )
+
+        self.assertIsInstance(state, TradingCalendarState)
+        self.assertFalse(state.is_trading_session)
+
+    def test_public_trading_session_rejects_stale_conflicting_and_malformed_states(self) -> None:
+        cases = []
+        stale = FixtureProvider()
+        stale.calendar["timestamp"] = stale.as_of - timedelta(hours=25)
+        cases.append((stale, "stale_calendar"))
+        conflict = FixtureProvider()
+        conflict.calendar["session_date"] -= timedelta(days=1)
+        cases.append((conflict, "session_date_conflict"))
+        malformed = FixtureProvider()
+        malformed.calendar["is_trading_session"] = "false"
+        cases.append((malformed, "malformed_trading_calendar"))
+
+        for provider, reason in cases:
+            with self.subTest(reason):
+                with self.assertRaisesRegex(MarketDataError, reason):
+                    market_data_module.collect_trading_session(
+                        provider, as_of=provider.as_of
+                    )
 
     def test_quote_prices_must_agree_with_latest_and_previous_etf_bars(self) -> None:
         cases = (

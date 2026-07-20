@@ -163,12 +163,12 @@ def monitor_positions_from_provider(
     """Validate held-position quotes without fetching catalyst or scan inputs."""
     observed_at = as_of or datetime.now().astimezone()
     prices: dict[str, float] = {}
-    timestamps = []
+    timestamps_by_code: dict[str, datetime] = {}
     try:
         for code in state.get("positions", {}):
             quote = collect_current_quote(str(code), provider, as_of=observed_at)
             prices[str(code)] = quote.current_price
-            timestamps.append(quote.source_timestamp)
+            timestamps_by_code[str(code)] = quote.source_timestamp
     except MarketDataError as exc:
         timestamp = exc.source_timestamp or observed_at
         return state, {
@@ -177,13 +177,23 @@ def monitor_positions_from_provider(
             "reasons": [exc.reason],
             "alerts": [],
         }
-    source_timestamp = min(timestamps) if timestamps else observed_at
-    return monitor_positions(
+    source_timestamp = (
+        min(timestamps_by_code.values()) if timestamps_by_code else observed_at
+    )
+    updated, output = monitor_positions(
         state,
         prices,
         source_timestamp=source_timestamp,
         invalidated_codes=invalidated_codes,
     )
+    output["alerts"] = [
+        {
+            **alert,
+            "source_timestamp": timestamps_by_code[alert["code"]].isoformat(),
+        }
+        for alert in output["alerts"]
+    ]
+    return updated, output
 
 
 def _scan_result(
