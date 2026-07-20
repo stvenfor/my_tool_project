@@ -5,7 +5,9 @@
 ```text
 在仓库根目录执行 ETF advisory-only scheduled check。先用证券交易所正式交易日历确认今天是否为中国交易日；不要以工作日推测开市。若休市，输出 NO_ACTION 和核验来源后结束。
 
-为审阅池中的候选与现有持仓准备完整、带时区的 provider JSON，并只写入被忽略的 modules/etf-monitor/state/。行情必须有两个独立来源且时间一致；同时取得至少 61 根 ETF 日线、明确映射的 benchmark 日线、AUM、溢折价和交易日历。涉及多只 ETF 时，current_quotes/daily_bars/AUM/premium/catalyst 必须按每只 ETF code 映射，benchmark_bars 必须按明确的 benchmark key 映射；不得复用单标 payload。不得猜测缺失的 calendar、catalyst 或 benchmark mapping。
+为审阅池中的候选与现有持仓准备完整、带时区的 provider JSON，并只写入被忽略的 modules/etf-monitor/state/。行情必须有两个独立来源且时间一致；同时取得至少 61 根 ETF 日线、明确映射的 benchmark 日线、AUM、溢折价和交易日历。涉及多只 ETF 时，current_quotes/daily_bars/AUM/premium/catalyst 必须按每只 ETF code 映射，benchmark_bars 与 benchmark_calendar 必须按明确的 benchmark key 映射；不得复用单标 payload。
+
+对每个非 CN benchmark，必须从权威目标市场交易日历取得 `latest_completed_session_date`、`source` 和带时区的 `timestamp`，并确认日期与该 benchmark 最后一根日线一致。不得猜测缺失的上海 calendar、目标市场 benchmark_calendar、catalyst、benchmark mapping 或目标市场最新已完成交易日；缺失、过期、冲突、格式错误或未来日期一律按 DATA_ERROR 处理。CN benchmark 使用已核验的上海交易日历，无需单独目标市场日历。
 
 催化必须先由权威一级来源确认，例如交易所/监管机构/政府部门正式公告、基金管理人正式公告或标的公司法定披露；再取得与一级来源相互独立的可靠来源确认。记录来源、事件发生时间和数据时间。搜索摘要、转述或单一媒体报道不能代替权威一级来源；来源不独立不能算独立确认。
 

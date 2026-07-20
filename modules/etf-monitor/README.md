@@ -83,17 +83,24 @@ npm run etf:record-sell -- 512890 --price 1.300 --shares 4000
   "premium": {},
   "benchmark_bars": [],
   "calendar": {},
+  "benchmark_calendar": {
+    "latest_completed_session_date": "2026-07-20",
+    "source": "authoritative_target_market_calendar",
+    "timestamp": "2026-07-20T14:45:00+08:00"
+  },
   "catalyst": {}
 }
 ```
 
-单标运行且恰好只涉及一个选中代码时，上述数据字段可直接承载该标的数据。多标 fixture 不允许复用单份 payload：`current_quotes`、`daily_bars`、`aum`、`premium`、`catalyst` 必须按 ETF code 映射，`benchmark_bars` 必须按每条 universe 记录的 tracking-index / benchmark key 映射。若 scheduled-check 的现有持仓与选中代码合计涉及多只 ETF，`current_quotes` 同样必须逐 code 映射。缺映射或缺 key 返回 `DATA_ERROR`，绝不静默把一只 ETF 的数据用于另一只。
+单标运行且恰好只涉及一个选中代码时，上述数据字段可直接承载该标的数据。多标 fixture 不允许复用单份 payload：`current_quotes`、`daily_bars`、`aum`、`premium`、`catalyst` 必须按 ETF code 映射，`benchmark_bars` 和 `benchmark_calendar` 必须按每条 universe 记录的 tracking-index / benchmark key 映射。若 scheduled-check 的现有持仓与选中代码合计涉及多只 ETF，`current_quotes` 同样必须逐 code 映射。缺映射或缺 key 返回 `DATA_ERROR`，绝不静默把一只 ETF 的数据用于另一只。
+
+每个非 CN benchmark 都必须从其权威目标市场交易日历取得 `latest_completed_session_date`、`source` 和带时区的 `timestamp`；该日期必须与所提供 benchmark 日线的最后日期一致。不得根据上海工作日、时差、周末规则或最近一根行情猜测目标市场已完成交易日。缺失、过期、格式错误、未来日期或与 benchmark bars 冲突时返回 `DATA_ERROR`。CN benchmark 直接使用已经核验的上海交易日历，不要求额外调用。
 
 `as_of`、所有 `timestamp` 必须是带时区 ISO 8601；`date`、`session_date` 使用 `YYYY-MM-DD`。fixture 必须包含相互独立的现价来源、至少 61 根 ETF 日线、benchmark 日线、AUM、溢折价、权威交易日历和催化确认。
 
 ## 数据与风险边界
 
-默认 public 模式只有公开行情端点适配器，不内置权威交易日历、催化来源或 tracking-index → benchmark code 映射。CLI 在这些依赖未显式提供时返回 `DATA_ERROR`，不会用周一至周五猜交易日、把新闻搜索当一级来源，或把 tracking-index 文本猜成行情代码。公开端点可能延迟、变更、限流或互相冲突。
+默认 public 模式只有公开行情端点适配器，不内置权威上海交易日历、非 CN 目标市场 benchmark calendar、催化来源或 tracking-index → benchmark code 映射。CLI 在这些依赖未显式提供时返回 `DATA_ERROR`（包括 `missing_live_benchmark_calendar_provider`），不会用周一至周五猜交易日、把新闻搜索当一级来源，或把 tracking-index 文本猜成行情代码。公开端点可能延迟、变更、限流或互相冲突。
 
 初始资金假设为 CNY 100,000，其中风险资产最多 CNY 40,000、保留现金 CNY 60,000；这笔现金是每次买入后都必须满足的硬底线，而非初始配置提示。目标单笔为 CNY 10,000，实际单笔成交金额最多 CNY 11,000；额外 10% 仅用于整手/成交容差，不把目标仓位提高到 CNY 11,000。最多两只 ETF，每只最多两笔、成本最多 CNY 20,000。scheduled-check 在技术/催化扫描后用更新后的组合状态计算 `portfolio_gate`；回撤 >=1.5%、冷静期未结束、`valuation_required`、`risk_reset_pending`、买入后现金低于状态中的硬底线、持仓数/总风险敞口/单笔/单 ETF 成本/两笔上限任一不满足时，顶层不得是 `BUY_CANDIDATE` 或 `BUY_CANDIDATE_NEEDS_CATALYST`，而是 `NO_ACTION` 并给出稳定门控原因。
 

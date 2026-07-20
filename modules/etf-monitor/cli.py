@@ -44,6 +44,7 @@ STATE_DIR = MODULE_ROOT / "state"
 STATE_PATH = STATE_DIR / "portfolio.json"
 LIVE_PROVIDER_REASONS = [
     "missing_live_trading_calendar_provider",
+    "missing_live_benchmark_calendar_provider",
     "missing_live_catalyst_provider",
     "missing_live_benchmark_mapping",
 ]
@@ -155,6 +156,33 @@ class JsonFixtureProvider:
             return deepcopy(calendar[session_date.isoformat()])
         return deepcopy(calendar)
 
+    def get_benchmark_calendar(
+        self, benchmark: str, market: str, as_of_date: date
+    ) -> Any:
+        calendar = self.payload.get("benchmark_calendar")
+        if (
+            self.multicode_scan
+            and isinstance(calendar, Mapping)
+            and {
+                "latest_completed_session_date",
+                "source",
+                "timestamp",
+            }
+            <= calendar.keys()
+        ):
+            raise MarketDataError(
+                "fixture_benchmark_calendar_requires_benchmark_mapping"
+            )
+        return deepcopy(
+            _fixture_value(
+                self.payload,
+                "benchmark_calendar",
+                benchmark,
+                require_mapping=self.multicode_scan,
+                mapping_kind="benchmark",
+            )
+        )
+
     def get_catalyst(self, code: str) -> Any:
         return deepcopy(
             _fixture_value(
@@ -178,6 +206,7 @@ def fixture_payload_from_provider(provider: Any) -> dict[str, Any]:
             "premium": provider.premium,
             "benchmark_bars": provider.benchmark,
             "calendar": provider.calendar,
+            "benchmark_calendar": provider.benchmark_calendar,
             "catalyst": provider.catalyst,
         }
     )
@@ -469,26 +498,25 @@ def _scheduled_terminal_result(
 
 def _scheduled_scan_status(result: Mapping[str, Any]) -> str:
     gate = result.get("portfolio_gate", {})
-    if isinstance(gate, Mapping) and gate.get("allowed") is False:
-        return "NO_ACTION"
     reasons = set(result.get("reasons", []))
     gate_reasons = (
         set(gate.get("reasons", [])) if isinstance(gate, Mapping) else set()
     )
     scanner_reasons = reasons - gate_reasons
-    if result.get("status") == "DATA_ERROR" and scanner_reasons == {
-        "not_trading_session"
-    }:
-        return "NO_ACTION"
-    if result.get("status") == "BUY_CANDIDATE":
-        return "BUY_CANDIDATE"
-    if (
-        result.get("status") == "NO_ACTION"
+    status = str(result.get("status", "DATA_ERROR"))
+    if status == "BUY_CANDIDATE":
+        candidate_status = "BUY_CANDIDATE"
+    elif (
+        status == "NO_ACTION"
         and scanner_reasons
         and scanner_reasons <= CATALYST_PENDING_REASONS
     ):
-        return "BUY_CANDIDATE_NEEDS_CATALYST"
-    return str(result.get("status", "DATA_ERROR"))
+        candidate_status = "BUY_CANDIDATE_NEEDS_CATALYST"
+    else:
+        return status
+    if isinstance(gate, Mapping) and gate.get("allowed") is False:
+        return "NO_ACTION"
+    return candidate_status
 
 
 def _advisory_scan(scan: Mapping[str, Any]) -> dict[str, Any]:
@@ -766,7 +794,11 @@ def _typed_fixture(value: Any, key: Optional[str] = None) -> Any:
         return {item_key: _typed_fixture(item, item_key) for item_key, item in value.items()}
     if isinstance(value, str) and key in {"timestamp", "source_timestamp", "as_of"}:
         return _aware_datetime(value)
-    if isinstance(value, str) and key in {"date", "session_date"}:
+    if isinstance(value, str) and key in {
+        "date",
+        "session_date",
+        "latest_completed_session_date",
+    }:
         return date.fromisoformat(value)
     return value
 

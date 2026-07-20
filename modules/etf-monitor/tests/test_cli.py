@@ -60,6 +60,10 @@ class CliTests(unittest.TestCase):
             str(record["tracking_index"]): deepcopy(direct["benchmark_bars"])
             for record in records
         }
+        payload["benchmark_calendar"] = {
+            str(record["tracking_index"]): deepcopy(direct["benchmark_calendar"])
+            for record in records
+        }
         return provider, payload
 
     def test_audit_returns_stable_reviewed_universe_summary(self) -> None:
@@ -188,6 +192,70 @@ class CliTests(unittest.TestCase):
         )
         self.assertEqual(provider.timestamp.isoformat(), result["source_timestamp"])
 
+    def test_single_cross_market_fixture_accepts_direct_benchmark_calendar(self) -> None:
+        code = "159659"
+        provider = FixtureProvider()
+        payload = cli.fixture_payload_from_provider(provider)
+        fixture_path = self.write_fixture(payload)
+
+        result = self.execute(
+            ["scan", "--code", code, "--fixture", str(fixture_path)]
+        )
+
+        self.assertEqual("BUY_CANDIDATE", result["status"])
+        self.assertEqual(code, result["results"][0]["code"])
+        self.assertIn("benchmark_calendar", payload)
+
+    def test_multicode_cross_market_fixture_requires_benchmark_calendar_mapping(self) -> None:
+        codes = ["159659", "513650"]
+        _, payload = self.mapped_fixture(codes)
+        payload["benchmark_calendar"] = next(
+            iter(payload["benchmark_calendar"].values())
+        )
+        fixture_path = self.write_fixture(payload)
+
+        result = self.execute(
+            [
+                "scheduled-check",
+                "--code",
+                codes[0],
+                "--code",
+                codes[1],
+                "--fixture",
+                str(fixture_path),
+            ]
+        )
+
+        self.assertEqual("DATA_ERROR", result["status"])
+        self.assertIn(
+            "fixture_benchmark_calendar_requires_benchmark_mapping",
+            result["reasons"],
+        )
+
+    def test_multicode_cross_market_fixture_uses_benchmark_calendar_mapping(self) -> None:
+        codes = ["159659", "513650"]
+        provider, payload = self.mapped_fixture(codes)
+        fixture_path = self.write_fixture(payload)
+
+        result = self.execute(
+            [
+                "scheduled-check",
+                "--code",
+                codes[0],
+                "--code",
+                codes[1],
+                "--fixture",
+                str(fixture_path),
+            ]
+        )
+
+        self.assertEqual("BUY_CANDIDATE", result["status"])
+        self.assertEqual(
+            {codes[0], codes[1]},
+            {scan["code"] for scan in result["scan_results"]},
+        )
+        self.assertEqual(provider.timestamp.isoformat(), result["source_timestamp"])
+
     def test_multicode_json_fixture_requires_benchmark_key_mapping(self) -> None:
         _, payload = self.mapped_fixture([self.code, self.other_code])
         payload["benchmark_bars"] = next(iter(payload["benchmark_bars"].values()))
@@ -217,6 +285,7 @@ class CliTests(unittest.TestCase):
         self.assertEqual(
             [
                 "missing_live_trading_calendar_provider",
+                "missing_live_benchmark_calendar_provider",
                 "missing_live_catalyst_provider",
                 "missing_live_benchmark_mapping",
             ],
@@ -670,6 +739,7 @@ class CliTests(unittest.TestCase):
     def test_portfolio_gate_enforces_cash_tranche_and_lifecycle_contract(self) -> None:
         cash = new_portfolio_state()
         cash["cash_cny"] = 65_000.0
+        cash["realized_pnl_cny"] = -35_000.0
         cash_gate = cli._portfolio_gate(cash, self.code)
         self.assertFalse(cash_gate["allowed"])
         self.assertIn("cash_reserve_floor_cny_60000", cash_gate["reasons"])
@@ -686,6 +756,65 @@ class CliTests(unittest.TestCase):
         risk_cycle["risk_reset_pending"] = True
         risk_gate = cli._portfolio_gate(risk_cycle, self.other_code)
         self.assertIn("buy_blocked_pending_risk_reset", risk_gate["reasons"])
+
+    def test_scanner_data_errors_are_not_downgraded_by_portfolio_gates(self) -> None:
+        cooldown = new_portfolio_state()
+        cooldown["cooldown_remaining_trading_days"] = 5
+        stale = FixtureProvider()
+        stale.bars[-1]["timestamp"] = stale.as_of - timedelta(hours=25)
+
+        cash = new_portfolio_state()
+        cash["cash_cny"] = 65_000.0
+        cash["realized_pnl_cny"] = -35_000.0
+        conflict = FixtureProvider()
+        conflict.quotes[1]["price"] = 12.0
+
+        exposure = record_buy(new_portfolio_state(), self.code, 10, amount=10_000)
+        exposure = record_buy(
+            exposure,
+            self.code,
+            10,
+            amount=10_000,
+            second_tranche_confirmed=True,
+        )
+        exposure = record_buy(exposure, self.other_code, 10, amount=11_000)
+        missing = FixtureProvider()
+        missing.benchmark = []
+
+        cases = (
+            (
+                "buy_blocked_during_cooldown",
+                "stale_daily_bars",
+                cooldown,
+                self.code,
+                stale,
+            ),
+            (
+                "cash_reserve_floor_cny_60000",
+                "quote_price_conflict",
+                cash,
+                self.code,
+                conflict,
+            ),
+            (
+                "risk_exposure_limit_cny_40000",
+                "missing_benchmark_bars",
+                exposure,
+                "159937",
+                missing,
+            ),
+        )
+        for gate_reason, data_reason, state, code, provider in cases:
+            with self.subTest(gate_reason):
+                self.write_state(state)
+                result = self.execute(
+                    ["scheduled-check", "--code", code], provider=provider
+                )
+                self.assertEqual("DATA_ERROR", result["status"])
+                self.assertIn(data_reason, result["reasons"])
+                scan = result["scan_results"][0]
+                self.assertEqual("DATA_ERROR", scan["status"])
+                self.assertIn(gate_reason, scan["portfolio_gate"]["reasons"])
 
     def test_main_prints_one_canonical_json_document(self) -> None:
         output = io.StringIO()
@@ -736,6 +865,10 @@ class CliTests(unittest.TestCase):
             "MA20",
             "MA60",
             "20日相对强度不再为正",
+            "benchmark_calendar",
+            "latest_completed_session_date",
+            "目标市场",
+            "权威",
         ):
             self.assertIn(phrase, readme)
         for phrase in (
@@ -757,6 +890,12 @@ class CliTests(unittest.TestCase):
             "核心催化反转",
             "歧义",
             "依据与时间",
+            "benchmark_calendar",
+            "latest_completed_session_date",
+            "source",
+            "timestamp",
+            "目标市场",
+            "不得猜测",
         ):
             self.assertIn(phrase, prompt)
         self.assertIn("modules/etf-monitor/state/", gitignore)
