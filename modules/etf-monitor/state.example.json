@@ -8,6 +8,7 @@
   "risk_drawdown_active": false,
   "cooldown_remaining_trading_days": 0,
   "last_cooldown_trading_day": null,
+  "processed_cooldown_trading_days": [],
   "next_cycle_by_code": {},
   "positions": {}
 }

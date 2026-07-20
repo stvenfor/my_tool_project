@@ -8,6 +8,8 @@ from __future__ import annotations
 
 from copy import deepcopy
 from collections.abc import Iterable, Mapping
+from datetime import date
+import math
 from typing import Any
 
 
@@ -39,6 +41,7 @@ def new_portfolio_state(initial_capital_cny: float = INITIAL_CAPITAL_CNY) -> dic
         "risk_drawdown_active": False,
         "cooldown_remaining_trading_days": 0,
         "last_cooldown_trading_day": None,
+        "processed_cooldown_trading_days": [],
         "next_cycle_by_code": {},
         "positions": {},
     }
@@ -120,22 +123,25 @@ def record_sell(
     if sell_shares > held_shares + _EPSILON:
         raise ValueError("cannot sell more shares than are held")
 
-    weighted_cost = float(position["weighted_cost_cny"])
-    released_cost = weighted_cost * sell_shares
+    cost_basis = float(position["cost_basis_cny"])
     remaining_shares = held_shares - sell_shares
+    is_full_close = remaining_shares <= _EPSILON
+    released_cost = (
+        cost_basis if is_full_close else cost_basis * sell_shares / held_shares
+    )
     updated["cash_cny"] = _money(float(updated["cash_cny"]) + proceeds)
     updated["realized_pnl_cny"] = _money(
         float(updated["realized_pnl_cny"]) + proceeds - released_cost
     )
 
-    if remaining_shares <= _EPSILON:
+    if is_full_close:
         cycle_id = int(position["cycle_id"])
         del updated["positions"][code]
         updated["next_cycle_by_code"][code] = cycle_id + 1
         return updated
 
     position["shares"] = _quantity(remaining_shares)
-    position["cost_basis_cny"] = _money(float(position["cost_basis_cny"]) - released_cost)
+    position["cost_basis_cny"] = _money(cost_basis - released_cost)
     position["weighted_cost_cny"] = _money(
         float(position["cost_basis_cny"]) / float(position["shares"])
     )
@@ -176,9 +182,9 @@ def update_drawdown(
     alerts: list[dict[str, Any]] = []
     if drawdown >= RISK_EXIT_DRAWDOWN_PCT:
         if not bool(updated["risk_drawdown_active"]):
-            updated["cooldown_remaining_trading_days"] = max(
-                int(updated["cooldown_remaining_trading_days"]), COOLDOWN_TRADING_DAYS
-            )
+            updated["cooldown_remaining_trading_days"] = COOLDOWN_TRADING_DAYS
+            updated["last_cooldown_trading_day"] = None
+            updated["processed_cooldown_trading_days"] = []
         updated["risk_drawdown_active"] = True
         for code, position in updated["positions"].items():
             flags = position["alert_acknowledged"]
@@ -189,19 +195,22 @@ def update_drawdown(
                 )
     else:
         updated["risk_drawdown_active"] = False
+        for position in updated["positions"].values():
+            position["alert_acknowledged"]["risk_exit"] = False
     return updated, alerts
 
 
 def advance_cooldown(state: Mapping[str, Any], trading_day: str) -> dict[str, Any]:
     """Consume one cooldown day only once for each distinct trading-day label."""
     updated = _copy_state(state)
-    if not isinstance(trading_day, str) or not trading_day:
-        raise ValueError("trading day must be a non-empty string")
+    _valid_trading_day(trading_day)
     if int(updated["cooldown_remaining_trading_days"]) <= 0:
         return updated
-    if updated["last_cooldown_trading_day"] != trading_day:
+    processed_days = updated["processed_cooldown_trading_days"]
+    if trading_day not in processed_days:
         updated["cooldown_remaining_trading_days"] -= 1
         updated["last_cooldown_trading_day"] = trading_day
+        processed_days.append(trading_day)
     return updated
 
 
@@ -262,7 +271,9 @@ def _fill(price: float, shares: float | None, amount: float | None) -> tuple[flo
 
 def _copy_state(state: Mapping[str, Any]) -> dict[str, Any]:
     _require_state(state)
-    return deepcopy(dict(state))
+    updated = deepcopy(dict(state))
+    updated.setdefault("processed_cooldown_trading_days", [])
+    return updated
 
 
 def _require_state(state: Mapping[str, Any]) -> None:
@@ -308,9 +319,25 @@ def _code(value: str) -> str:
 
 
 def _positive_number(value: float, label: str) -> float:
-    if isinstance(value, bool) or not isinstance(value, (int, float)) or value <= 0:
+    if (
+        isinstance(value, bool)
+        or not isinstance(value, (int, float))
+        or not math.isfinite(value)
+        or value <= 0
+    ):
         raise ValueError(f"{label} must be a positive number")
     return float(value)
+
+
+def _valid_trading_day(value: object) -> None:
+    if not isinstance(value, str):
+        raise ValueError("trading day must be an ISO YYYY-MM-DD string")
+    try:
+        parsed = date.fromisoformat(value)
+    except ValueError as error:
+        raise ValueError("trading day must be an ISO YYYY-MM-DD string") from error
+    if parsed.isoformat() != value:
+        raise ValueError("trading day must be an ISO YYYY-MM-DD string")
 
 
 def _money(value: float) -> float:

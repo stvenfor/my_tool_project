@@ -71,6 +71,24 @@ class PortfolioTests(unittest.TestCase):
         self.assertEqual(1_500, equity["unrealized_pnl_cny"])
         self.assertEqual(INITIAL_CAPITAL_CNY + 2_000, equity["equity_cny"])
 
+    def test_non_cent_average_partial_and_full_sells_release_exact_cost_basis(self) -> None:
+        state = record_buy(self.state, "510300", price=10, shares=3)
+        state = record_buy(
+            state,
+            "510300",
+            price=10.01,
+            shares=2,
+            second_tranche_confirmed=True,
+        )
+        partially_sold = record_sell(state, "510300", price=10, shares=2)
+        fully_sold = record_sell(partially_sold, "510300", price=10, shares=3)
+
+        self.assertEqual(30.01, partially_sold["positions"]["510300"]["cost_basis_cny"])
+        self.assertEqual(-0.01, partially_sold["realized_pnl_cny"])
+        self.assertNotIn("510300", fully_sold["positions"])
+        self.assertEqual(-0.02, fully_sold["realized_pnl_cny"])
+        self.assertEqual(INITIAL_CAPITAL_CNY - 0.02, fully_sold["cash_cny"])
+
     def test_full_close_then_reopen_starts_a_fresh_alert_cycle(self) -> None:
         state = record_buy(self.state, "510300", price=10, amount=10_000)
         state, first_alerts = evaluate_position_alerts(state, {"510300": 10.45})
@@ -151,6 +169,41 @@ class PortfolioTests(unittest.TestCase):
         state, _ = update_drawdown(state, {"510300": 10, "159915": 10})
         with self.assertRaisesRegex(ValueError, "two open ETFs"):
             record_buy(state, "510500", price=10, amount=1)
+
+    def test_recovery_then_new_drawdown_breach_alerts_every_open_risk_position_again(self) -> None:
+        state = record_buy(self.state, "510300", price=10, amount=20_000)
+        state = record_buy(state, "159915", price=10, amount=20_000)
+        state, first_breach = update_drawdown(state, {"510300": 9.5, "159915": 9.5})
+        state, recovery = update_drawdown(state, {"510300": 10, "159915": 10})
+        state, second_breach = update_drawdown(state, {"510300": 9.5, "159915": 9.5})
+
+        self.assertEqual(2, len(first_breach))
+        self.assertEqual([], recovery)
+        self.assertEqual(2, len(second_breach))
+        self.assertTrue(all(alert["kind"] == "risk_exit" for alert in second_breach))
+
+    def test_cooldown_uses_each_valid_trading_day_label_at_most_once(self) -> None:
+        state = new_portfolio_state()
+        state["cooldown_remaining_trading_days"] = 3
+        state = advance_cooldown(state, "2026-07-20")
+        state = advance_cooldown(state, "2026-07-21")
+        replayed = advance_cooldown(state, "2026-07-20")
+
+        self.assertEqual(1, replayed["cooldown_remaining_trading_days"])
+        for invalid_day in ("", "not-a-date", "2026-02-30", 20260720):
+            with self.assertRaises(ValueError):
+                advance_cooldown(replayed, invalid_day)  # type: ignore[arg-type]
+
+    def test_non_finite_fill_and_capital_inputs_are_rejected(self) -> None:
+        for non_finite in (float("nan"), float("inf"), float("-inf")):
+            with self.assertRaises(ValueError):
+                new_portfolio_state(non_finite)
+            with self.assertRaises(ValueError):
+                record_buy(self.state, "510300", price=non_finite, amount=1)
+            with self.assertRaises(ValueError):
+                record_buy(self.state, "510300", price=10, shares=non_finite)
+            with self.assertRaises(ValueError):
+                record_buy(self.state, "510300", price=10, amount=non_finite)
 
     def test_drawdown_updates_high_watermark_from_realized_portfolio_equity(self) -> None:
         state = record_buy(self.state, "510300", price=10, amount=10_000)
