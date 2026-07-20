@@ -9,6 +9,7 @@ import sys
 import tempfile
 import unittest
 from copy import deepcopy
+from datetime import timedelta
 from pathlib import Path
 
 
@@ -17,6 +18,7 @@ REPO_ROOT = MODULE_ROOT.parents[1]
 sys.path.insert(0, str(MODULE_ROOT))
 
 import cli  # noqa: E402
+from src.market_data import MarketDataError  # noqa: E402
 from src.portfolio import new_portfolio_state, record_buy  # noqa: E402
 from tests.test_market_data import FixtureProvider  # noqa: E402
 
@@ -27,6 +29,7 @@ class CliTests(unittest.TestCase):
         self.addCleanup(self.temporary.cleanup)
         self.state_path = Path(self.temporary.name) / "state" / "portfolio.json"
         self.code = "512890"
+        self.other_code = "159500"
 
     def execute(self, arguments, *, provider=None):
         return cli.execute(
@@ -34,6 +37,30 @@ class CliTests(unittest.TestCase):
             provider=provider,
             state_path=self.state_path,
         )
+
+    def write_state(self, state) -> None:
+        self.state_path.parent.mkdir(parents=True, exist_ok=True)
+        self.state_path.write_text(json.dumps(state), encoding="utf-8")
+
+    def write_fixture(self, payload) -> Path:
+        fixture_path = Path(self.temporary.name) / "provider.json"
+        fixture_path.write_text(
+            json.dumps(payload, ensure_ascii=False), encoding="utf-8"
+        )
+        return fixture_path
+
+    def mapped_fixture(self, codes):
+        provider = FixtureProvider()
+        direct = cli.fixture_payload_from_provider(provider)
+        records = cli._scan_records(codes)
+        payload = {"as_of": direct["as_of"], "calendar": direct["calendar"]}
+        for field in ("current_quotes", "daily_bars", "aum", "premium", "catalyst"):
+            payload[field] = {code: deepcopy(direct[field]) for code in codes}
+        payload["benchmark_bars"] = {
+            str(record["tracking_index"]): deepcopy(direct["benchmark_bars"])
+            for record in records
+        }
+        return provider, payload
 
     def test_audit_returns_stable_reviewed_universe_summary(self) -> None:
         first = self.execute(["audit"])
@@ -115,6 +142,74 @@ class CliTests(unittest.TestCase):
         self.assertEqual("BUY_CANDIDATE", result["status"])
         self.assertEqual(provider.timestamp.isoformat(), result["source_timestamp"])
 
+    def test_multicode_json_fixture_requires_code_and_benchmark_mappings(self) -> None:
+        direct = cli.fixture_payload_from_provider(FixtureProvider())
+        fixture_path = self.write_fixture(direct)
+
+        result = self.execute(
+            [
+                "scheduled-check",
+                "--code",
+                self.code,
+                "--code",
+                self.other_code,
+                "--fixture",
+                str(fixture_path),
+            ]
+        )
+
+        self.assertEqual("DATA_ERROR", result["status"])
+        self.assertTrue(
+            any("requires_code_mapping" in reason for reason in result["reasons"])
+        )
+        self.assertEqual([], result["alerts"])
+        self.assertEqual(2, len(result["scan_results"]))
+
+    def test_multicode_json_fixture_uses_explicit_mappings(self) -> None:
+        provider, payload = self.mapped_fixture([self.code, self.other_code])
+        fixture_path = self.write_fixture(payload)
+
+        result = self.execute(
+            [
+                "scheduled-check",
+                "--code",
+                self.code,
+                "--code",
+                self.other_code,
+                "--fixture",
+                str(fixture_path),
+            ]
+        )
+
+        self.assertEqual("BUY_CANDIDATE", result["status"])
+        self.assertEqual(
+            {self.code, self.other_code},
+            {scan["code"] for scan in result["scan_results"]},
+        )
+        self.assertEqual(provider.timestamp.isoformat(), result["source_timestamp"])
+
+    def test_multicode_json_fixture_requires_benchmark_key_mapping(self) -> None:
+        _, payload = self.mapped_fixture([self.code, self.other_code])
+        payload["benchmark_bars"] = next(iter(payload["benchmark_bars"].values()))
+        fixture_path = self.write_fixture(payload)
+
+        result = self.execute(
+            [
+                "scheduled-check",
+                "--code",
+                self.code,
+                "--code",
+                self.other_code,
+                "--fixture",
+                str(fixture_path),
+            ]
+        )
+
+        self.assertEqual("DATA_ERROR", result["status"])
+        self.assertIn(
+            "fixture_benchmark_bars_requires_benchmark_mapping", result["reasons"]
+        )
+
     def test_unconfigured_live_dependencies_fail_closed(self) -> None:
         result = self.execute(["scan", "--code", self.code, "--provider", "public"])
 
@@ -146,12 +241,74 @@ class CliTests(unittest.TestCase):
         self.assertTrue(actionable["advisory_only"])
         self.assertFalse(actionable["orders_placed"])
 
+    def test_scheduled_check_applies_every_portfolio_buy_gate(self) -> None:
+        third_code = "159937"
+        cases = []
+
+        drawdown = record_buy(new_portfolio_state(), self.code, 10.40, amount=10_000)
+        current_equity = drawdown["cash_cny"] + 10_000 / 10.40 * 10.4005
+        drawdown["high_watermark_equity_cny"] = current_equity / 0.985
+        cases.append(("buy_blocked_by_drawdown", drawdown, self.code))
+
+        cooldown = new_portfolio_state()
+        cooldown["cooldown_remaining_trading_days"] = 5
+        cases.append(("buy_blocked_during_cooldown", cooldown, self.code))
+
+        two_positions = record_buy(new_portfolio_state(), self.code, 10, amount=10_000)
+        two_positions = record_buy(two_positions, self.other_code, 10, amount=10_000)
+        cases.append(("max_open_positions_reached", two_positions, third_code))
+
+        exposure = record_buy(new_portfolio_state(), self.code, 10, amount=20_000)
+        exposure = record_buy(exposure, self.other_code, 10, amount=11_000)
+        cases.append(("risk_exposure_limit_cny_40000", exposure, third_code))
+
+        etf_limit = record_buy(new_portfolio_state(), self.code, 10, amount=15_000)
+        cases.append(("per_etf_cost_limit_cny_20000", etf_limit, self.code))
+
+        tranches = record_buy(new_portfolio_state(), self.code, 10, amount=5_000)
+        tranches = record_buy(
+            tranches,
+            self.code,
+            10,
+            amount=5_000,
+            second_tranche_confirmed=True,
+        )
+        cases.append(("max_tranches_per_etf_reached", tranches, self.code))
+
+        for reason, state, candidate in cases:
+            with self.subTest(reason):
+                self.write_state(state)
+                result = self.execute(
+                    ["scheduled-check", "--code", candidate],
+                    provider=FixtureProvider(),
+                )
+                self.assertEqual("NO_ACTION", result["status"])
+                self.assertIn(reason, result["reasons"])
+                gate = result["scan_results"][0]["portfolio_gate"]
+                self.assertFalse(gate["allowed"])
+                self.assertIn(reason, gate["reasons"])
+
+    def test_second_tranche_candidate_requires_manual_renewed_confirmation(self) -> None:
+        state = record_buy(new_portfolio_state(), self.code, 10, amount=10_000)
+        self.write_state(state)
+
+        result = self.execute(
+            ["scheduled-check", "--code", self.code], provider=FixtureProvider()
+        )
+
+        self.assertEqual("BUY_CANDIDATE", result["status"])
+        gate = result["scan_results"][0]["portfolio_gate"]
+        self.assertTrue(gate["allowed"])
+        self.assertTrue(gate["requires_renewed_confirmation"])
+        self.assertIn(
+            "second_tranche_requires_renewed_confirmation", result["reasons"]
+        )
+
     def test_scheduled_check_deduplicates_position_alerts_across_runs(self) -> None:
         state = record_buy(
             new_portfolio_state(), self.code, 9.90, amount=9_900
         )
-        self.state_path.parent.mkdir(parents=True)
-        self.state_path.write_text(json.dumps(state), encoding="utf-8")
+        self.write_state(state)
         provider = FixtureProvider()
         provider.catalyst["primary_confirmed"] = False
         provider.catalyst["corroborated"] = False
@@ -176,8 +333,7 @@ class CliTests(unittest.TestCase):
 
     def test_position_alerts_remain_available_when_catalyst_data_is_missing(self) -> None:
         state = record_buy(new_portfolio_state(), self.code, 10.80, amount=10_800)
-        self.state_path.parent.mkdir(parents=True)
-        self.state_path.write_text(json.dumps(state), encoding="utf-8")
+        self.write_state(state)
         provider = FixtureProvider()
         provider.catalyst = None
 
@@ -190,6 +346,9 @@ class CliTests(unittest.TestCase):
         self.assertEqual("DATA_ERROR", result["scan_results"][0]["status"])
 
     def test_scheduled_holiday_is_no_action_and_never_advances_by_guess(self) -> None:
+        state = new_portfolio_state()
+        state["cooldown_remaining_trading_days"] = 10
+        self.write_state(state)
         provider = FixtureProvider()
         provider.calendar["is_trading_session"] = False
 
@@ -199,6 +358,179 @@ class CliTests(unittest.TestCase):
 
         self.assertEqual("NO_ACTION", result["status"])
         self.assertIn("not_trading_session", result["reasons"])
+        persisted = json.loads(self.state_path.read_text(encoding="utf-8"))
+        self.assertEqual(10, persisted["cooldown_remaining_trading_days"])
+
+    def test_scheduled_check_advances_cooldown_once_per_confirmed_trading_day(self) -> None:
+        state = new_portfolio_state()
+        state["cooldown_remaining_trading_days"] = 10
+        self.write_state(state)
+
+        first_provider = FixtureProvider()
+        self.execute(["scheduled-check", "--code", self.code], provider=first_provider)
+        self.execute(["scheduled-check", "--code", self.code], provider=first_provider)
+        persisted = json.loads(self.state_path.read_text(encoding="utf-8"))
+        self.assertEqual(9, persisted["cooldown_remaining_trading_days"])
+
+        for offset in range(1, 10):
+            provider = FixtureProvider()
+            provider.as_of += timedelta(days=offset)
+            provider.calendar["session_date"] += timedelta(days=offset)
+            provider.calendar["timestamp"] += timedelta(days=offset)
+            self.execute(["scheduled-check", "--code", self.code], provider=provider)
+
+        persisted = json.loads(self.state_path.read_text(encoding="utf-8"))
+        self.assertEqual(0, persisted["cooldown_remaining_trading_days"])
+        self.assertEqual(10, len(persisted["processed_cooldown_trading_days"]))
+
+    def test_calendar_advances_cooldown_despite_other_provider_errors(self) -> None:
+        state = new_portfolio_state()
+        state["cooldown_remaining_trading_days"] = 2
+        self.write_state(state)
+        missing_catalyst = FixtureProvider()
+        missing_catalyst.catalyst = None
+
+        self.execute(
+            ["scheduled-check", "--code", self.code], provider=missing_catalyst
+        )
+        persisted = json.loads(self.state_path.read_text(encoding="utf-8"))
+        self.assertEqual(1, persisted["cooldown_remaining_trading_days"])
+
+        holding = record_buy(new_portfolio_state(), self.code, 10, amount=10_000)
+        holding["cooldown_remaining_trading_days"] = 2
+        self.write_state(holding)
+        quote_error = FixtureProvider()
+        quote_error.quotes[1]["price"] = 10.8
+
+        self.execute(["scheduled-check", "--code", self.code], provider=quote_error)
+        persisted = json.loads(self.state_path.read_text(encoding="utf-8"))
+        self.assertEqual(1, persisted["cooldown_remaining_trading_days"])
+
+    def test_cli_preserves_each_holdings_own_alert_timestamp(self) -> None:
+        state = record_buy(new_portfolio_state(), self.code, 9.9, amount=10_000)
+        state = record_buy(state, self.other_code, 9.9, amount=10_000)
+        self.write_state(state)
+        provider = FixtureProvider()
+        timestamps = {
+            self.code: provider.timestamp - timedelta(minutes=4),
+            self.other_code: provider.timestamp - timedelta(minutes=1),
+        }
+        base_quotes = deepcopy(provider.quotes)
+
+        def quotes_for(code):
+            quotes = deepcopy(base_quotes)
+            for quote in quotes:
+                quote["timestamp"] = timestamps[code]
+            return quotes
+
+        provider.get_current_quotes = quotes_for
+
+        result = self.execute(
+            ["scheduled-check", "--code", self.code], provider=provider
+        )
+
+        by_code = {alert["code"]: alert for alert in result["alerts"]}
+        self.assertEqual(
+            timestamps[self.code].isoformat(),
+            by_code[self.code]["source_timestamp"],
+        )
+        self.assertEqual(
+            timestamps[self.other_code].isoformat(),
+            by_code[self.other_code]["source_timestamp"],
+        )
+
+    def test_oldest_timestamp_compares_instants_and_rejects_invalid_values(self) -> None:
+        fallback = FixtureProvider().as_of
+        earlier = "2026-07-20T15:00:00+08:00"
+        later_but_lexically_first = "2026-07-20T08:00:00+00:00"
+
+        self.assertEqual(
+            earlier,
+            cli._oldest_timestamp(
+                [
+                    {"source_timestamp": later_but_lexically_first},
+                    {"source_timestamp": earlier},
+                ],
+                fallback,
+            ),
+        )
+        for invalid in ("not-a-timestamp", "2026-07-20T15:00:00"):
+            with self.subTest(invalid):
+                with self.assertRaisesRegex(
+                    MarketDataError, "invalid_source_timestamp"
+                ):
+                    cli._oldest_timestamp([{"source_timestamp": invalid}], fallback)
+
+    def test_command_errors_keep_command_specific_json_fields(self) -> None:
+        cases = (
+            (
+                ["audit", "--bad"],
+                {
+                    "record_count",
+                    "tradable_count",
+                    "exact_duplicate_group_count",
+                    "excluded_codes",
+                    "reports",
+                },
+            ),
+            (
+                ["record-buy", self.code, "--price", "10"],
+                {"code", "position", "state"},
+            ),
+            (["scan"], {"source_timestamp", "results"}),
+            (
+                ["scheduled-check", "--bad"],
+                {"source_timestamp", "alerts", "scan_results"},
+            ),
+        )
+        for arguments, fields in cases:
+            with self.subTest(arguments):
+                result = self.execute(arguments)
+                self.assertEqual("INPUT_ERROR", result["status"])
+                self.assertTrue(fields <= result.keys())
+
+    def test_corrupt_nested_state_returns_one_scheduled_json_error(self) -> None:
+        state = new_portfolio_state()
+        state["positions"] = {self.code: {}}
+        self.write_state(state)
+        fixture_path = self.write_fixture(
+            cli.fixture_payload_from_provider(FixtureProvider())
+        )
+
+        output = io.StringIO()
+        with contextlib.redirect_stdout(output):
+            exit_code = cli.main(
+                [
+                    "scheduled-check",
+                    "--code",
+                    self.code,
+                    "--fixture",
+                    str(fixture_path),
+                ],
+                state_path=self.state_path,
+            )
+
+        result = json.loads(output.getvalue())
+        self.assertEqual(2, exit_code)
+        self.assertEqual("INPUT_ERROR", result["status"])
+        self.assertEqual([], result["alerts"])
+        self.assertEqual([], result["scan_results"])
+        self.assertIn("source_timestamp", result)
+
+    def test_record_commands_reject_unknown_and_non_tradable_codes(self) -> None:
+        for command in ("record-buy", "record-sell"):
+            for code in ("883432", "000000"):
+                with self.subTest(command=command, code=code):
+                    result = self.execute(
+                        [command, code, "--price", "10", "--shares", "100"]
+                    )
+                    self.assertEqual("INPUT_ERROR", result["status"])
+                    self.assertEqual(code, result["code"])
+                    self.assertIsNone(result["position"])
+                    self.assertIsNone(result["state"])
+                    self.assertIn(
+                        "unknown or non-tradable ETF code", result["reasons"][0]
+                    )
 
     def test_main_prints_one_canonical_json_document(self) -> None:
         output = io.StringIO()
@@ -231,6 +563,12 @@ class CliTests(unittest.TestCase):
             "券商",
             "实时价",
             "溢折价",
+            "portfolio_gate",
+            "多标 fixture",
+            "按 ETF code",
+            "benchmark key",
+            "同一交易日只递减一次",
+            "renewed confirmation",
         ):
             self.assertIn(phrase, readme)
         for phrase in (
@@ -241,6 +579,10 @@ class CliTests(unittest.TestCase):
             "独立确认",
             "休市",
             "冲突",
+            "每只 ETF code",
+            "benchmark key",
+            "portfolio_gate",
+            "冷静期",
         ):
             self.assertIn(phrase, prompt)
         self.assertIn("modules/etf-monitor/state/", gitignore)

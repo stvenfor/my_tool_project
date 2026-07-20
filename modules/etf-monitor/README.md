@@ -51,7 +51,9 @@ npm run etf:record-sell -- 512890 --price 1.300 --shares 4000
 - `audit`: `record_count`、`tradable_count`、`exact_duplicate_group_count`、`excluded_codes`、`reports`。
 - `record-buy` / `record-sell`: `code`、成交后的 `position`（完全平仓为 `null`）和完整 `state`。
 - `scan`: `source_timestamp` 和逐 ETF 的 `results`；每项含 `risk_controls`。
-- `scheduled-check`: `source_timestamp`、已去重的 `alerts` 与 `scan_results`；每条告警自带 `source_timestamp` 和 `risk_controls`（-3%/信号失效、二次确认、券商复核等）。
+- `scheduled-check`: `source_timestamp`、已去重的 `alerts` 与 `scan_results`；每项扫描还含 `portfolio_gate`，每条告警自带它自己的 `source_timestamp` 和 `risk_controls`（-3%/信号失效、二次确认、券商复核等）。
+
+即使命令失败，命令特有字段仍存在并使用空值：scan 保留 `source_timestamp/results`，scheduled-check 保留 `source_timestamp/alerts/scan_results`，record 命令保留可为 `null` 的 `code/position/state`，audit 保留其五个汇总字段。因此自动化只需解析一个固定 JSON 文档。
 
 `scheduled-check` 顶层 `status` 只会是：
 
@@ -62,7 +64,7 @@ npm run etf:record-sell -- 512890 --price 1.300 --shares 4000
 - `DATA_ERROR`：数据缺失、过期、冲突，或实时 provider 依赖不完整；
 - `INPUT_ERROR`：命令、成交或状态输入无效。
 
-同一持仓周期的 +4.5%、+5%、止损和风险退出标志会持久化，因此重复执行不会重复提醒。完全平仓后重新建仓会开始新的持仓周期。任何结果均含 `orders_placed: false`。
+同一持仓周期的 +4.5%、+5%、止损和风险退出标志会持久化，因此重复执行不会重复提醒。完全平仓后重新建仓会开始新的持仓周期。每条持仓 alert 保留该持仓行情自己的时间戳，不用其他代码较早的时间覆盖。任何结果均含 `orders_placed: false`。
 
 ## 离线 fixture / provider 协议
 
@@ -81,13 +83,19 @@ npm run etf:record-sell -- 512890 --price 1.300 --shares 4000
 }
 ```
 
-各数据字段既可直接提供单标的数据，也可用 ETF code / benchmark 名称作键提供映射。`as_of`、所有 `timestamp` 必须是带时区 ISO 8601；`date`、`session_date` 使用 `YYYY-MM-DD`。fixture 必须包含相互独立的现价来源、至少 61 根 ETF 日线、benchmark 日线、AUM、溢折价、权威交易日历和催化确认。
+单标运行且恰好只涉及一个选中代码时，上述数据字段可直接承载该标的数据。多标 fixture 不允许复用单份 payload：`current_quotes`、`daily_bars`、`aum`、`premium`、`catalyst` 必须按 ETF code 映射，`benchmark_bars` 必须按每条 universe 记录的 tracking-index / benchmark key 映射。若 scheduled-check 的现有持仓与选中代码合计涉及多只 ETF，`current_quotes` 同样必须逐 code 映射。缺映射或缺 key 返回 `DATA_ERROR`，绝不静默把一只 ETF 的数据用于另一只。
+
+`as_of`、所有 `timestamp` 必须是带时区 ISO 8601；`date`、`session_date` 使用 `YYYY-MM-DD`。fixture 必须包含相互独立的现价来源、至少 61 根 ETF 日线、benchmark 日线、AUM、溢折价、权威交易日历和催化确认。
 
 ## 数据与风险边界
 
 默认 public 模式只有公开行情端点适配器，不内置权威交易日历、催化来源或 tracking-index → benchmark code 映射。CLI 在这些依赖未显式提供时返回 `DATA_ERROR`，不会用周一至周五猜交易日、把新闻搜索当一级来源，或把 tracking-index 文本猜成行情代码。公开端点可能延迟、变更、限流或互相冲突。
 
-初始资金假设为 CNY 100,000，其中风险资产最多 CNY 40,000、保留现金 CNY 60,000；最多两只 ETF，每只最多两笔、成本最多 CNY 20,000。组合高水位回撤 1.5% 阻止新买入/加仓，2% 触发风险退出提醒并开始 10 个已确认交易日冷静期。完整数值门槛见 `src/scanner.py`，持仓规则见 `src/portfolio.py`。
+初始资金假设为 CNY 100,000，其中风险资产最多 CNY 40,000、保留现金 CNY 60,000；最多两只 ETF，每只最多两笔、成本最多 CNY 20,000。scheduled-check 在技术/催化扫描后用更新后的组合状态计算 `portfolio_gate`；回撤 >=1.5%、冷静期未结束、持仓数/总风险敞口/单 ETF 成本/两笔上限任一不满足时，顶层不得是 `BUY_CANDIDATE` 或 `BUY_CANDIDATE_NEEDS_CATALYST`，而是 `NO_ACTION` 并给出稳定门控原因。
+
+已有一笔的 ETF 即使通过门控，`portfolio_gate.requires_renewed_confirmation` 仍为 true，并给出 `second_tranche_requires_renewed_confirmation`；这只是提示仍需人工 renewed confirmation，不代表自动许可。实际记账依然必须显式传 `--confirm-second-tranche`。
+
+组合高水位回撤 2% 触发风险退出提醒并开始 10 个已确认交易日冷静期。scheduled-check 先独立核验权威交易日历：仅 `is_trading_session=true` 且 session date 与上海当日一致时递减，同一交易日只递减一次；休市、过期或冲突日历不递减。行情或催化的其他错误不会阻止一个已经权威确认的交易日递减。完整数值门槛见 `src/scanner.py`，持仓规则见 `src/portfolio.py`。
 
 在人工决策或操作前，必须在券商终端再次核对可交易状态、实时价、买卖盘、溢折价、份额与实际成交金额；同时核对输出的 `source_timestamp`、风险字段和失效条件。程序输出不是收益保证，也不替代券商成交回报或适合性判断。
 

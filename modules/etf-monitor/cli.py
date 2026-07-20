@@ -20,8 +20,18 @@ from src.audit import (
     sector_market_groups,
     tradable_records,
 )
-from src.market_data import SHANGHAI_TZ
-from src.portfolio import new_portfolio_state, record_buy, record_sell
+from src.market_data import MarketDataError, SHANGHAI_TZ, collect_trading_session
+from src.portfolio import (
+    BUY_BLOCK_DRAWDOWN_PCT,
+    MAX_ETF_COST_CNY,
+    MAX_OPEN_POSITIONS,
+    MAX_RISK_EXPOSURE_CNY,
+    MAX_TRANCHES_PER_ETF,
+    advance_cooldown,
+    new_portfolio_state,
+    record_buy,
+    record_sell,
+)
 from src.scanner import monitor_positions_from_provider, scan_etf
 
 
@@ -50,7 +60,13 @@ class JsonArgumentParser(argparse.ArgumentParser):
 class JsonFixtureProvider:
     """Offline provider backed by the documented JSON fixture contract."""
 
-    def __init__(self, path: Path) -> None:
+    def __init__(
+        self,
+        path: Path,
+        records: Sequence[Mapping[str, Any]],
+        *,
+        position_codes: Sequence[str] = (),
+    ) -> None:
         try:
             raw = json.loads(path.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError) as exc:
@@ -61,21 +77,65 @@ class JsonFixtureProvider:
         self.as_of = self.payload.get("as_of")
         if self.as_of is not None and not isinstance(self.as_of, datetime):
             raise ValueError("provider fixture as_of must be an ISO timestamp")
+        self.scan_codes = _unique(str(record["code"]) for record in records)
+        self.quote_codes = _unique(list(self.scan_codes) + list(position_codes))
+        self.multicode_scan = len(self.scan_codes) > 1
+        self.multicode_quotes = len(self.quote_codes) > 1
 
     def get_current_quotes(self, code: str) -> Any:
-        return deepcopy(_fixture_value(self.payload, "current_quotes", code))
+        return deepcopy(
+            _fixture_value(
+                self.payload,
+                "current_quotes",
+                code,
+                require_mapping=self.multicode_quotes,
+                mapping_kind="code",
+            )
+        )
 
     def get_daily_bars(self, code: str) -> Any:
-        return deepcopy(_fixture_value(self.payload, "daily_bars", code))
+        return deepcopy(
+            _fixture_value(
+                self.payload,
+                "daily_bars",
+                code,
+                require_mapping=self.multicode_scan,
+                mapping_kind="code",
+            )
+        )
 
     def get_aum(self, code: str) -> Any:
-        return deepcopy(_fixture_value(self.payload, "aum", code))
+        return deepcopy(
+            _fixture_value(
+                self.payload,
+                "aum",
+                code,
+                require_mapping=self.multicode_scan,
+                mapping_kind="code",
+            )
+        )
 
     def get_premium(self, code: str) -> Any:
-        return deepcopy(_fixture_value(self.payload, "premium", code))
+        return deepcopy(
+            _fixture_value(
+                self.payload,
+                "premium",
+                code,
+                require_mapping=self.multicode_scan,
+                mapping_kind="code",
+            )
+        )
 
     def get_benchmark_bars(self, benchmark: str) -> Any:
-        return deepcopy(_fixture_value(self.payload, "benchmark_bars", benchmark))
+        return deepcopy(
+            _fixture_value(
+                self.payload,
+                "benchmark_bars",
+                benchmark,
+                require_mapping=self.multicode_scan,
+                mapping_kind="benchmark",
+            )
+        )
 
     def get_trading_calendar(self, session_date: date) -> Any:
         calendar = self.payload.get("calendar")
@@ -84,7 +144,15 @@ class JsonFixtureProvider:
         return deepcopy(calendar)
 
     def get_catalyst(self, code: str) -> Any:
-        return deepcopy(_fixture_value(self.payload, "catalyst", code))
+        return deepcopy(
+            _fixture_value(
+                self.payload,
+                "catalyst",
+                code,
+                require_mapping=self.multicode_scan,
+                mapping_kind="code",
+            )
+        )
 
 
 def fixture_payload_from_provider(provider: Any) -> dict[str, Any]:
@@ -146,6 +214,7 @@ def execute(
 ) -> dict[str, Any]:
     """Execute one command and return its JSON-compatible result."""
     command = str(arguments[0]) if arguments else ""
+    fallback_at = datetime.now(SHANGHAI_TZ)
     try:
         namespace = build_parser().parse_args(list(arguments))
         state_file = Path(state_path) if state_path is not None else STATE_PATH
@@ -158,7 +227,18 @@ def execute(
 
         records = _scan_records(namespace.codes)
         if provider is None and namespace.fixture is not None:
-            provider = JsonFixtureProvider(namespace.fixture)
+            position_codes: list[str] = []
+            if namespace.command == "scheduled-check":
+                fixture_state = _load_state(state_file)
+                positions = fixture_state["positions"]
+                if not isinstance(positions, Mapping):
+                    raise ValueError("invalid portfolio state")
+                position_codes = [str(code) for code in positions]
+            provider = JsonFixtureProvider(
+                namespace.fixture,
+                records,
+                position_codes=position_codes,
+            )
         observed_at = namespace.as_of or getattr(provider, "as_of", None)
         if observed_at is None:
             observed_at = datetime.now(SHANGHAI_TZ)
@@ -173,8 +253,22 @@ def execute(
             state_file,
             namespace.invalidated_code,
         )
-    except (OSError, TypeError, ValueError, json.JSONDecodeError) as exc:
-        return _base_result(command, "INPUT_ERROR", reasons=[str(exc)])
+    except MarketDataError as exc:
+        return _command_error_result(
+            arguments,
+            command,
+            "DATA_ERROR",
+            [exc.reason],
+            source_timestamp=exc.source_timestamp or fallback_at,
+        )
+    except (KeyError, IndexError, OSError, TypeError, ValueError) as exc:
+        return _command_error_result(
+            arguments,
+            command,
+            "INPUT_ERROR",
+            [str(exc)],
+            source_timestamp=fallback_at,
+        )
 
 
 def main(
@@ -211,6 +305,7 @@ def _audit_result() -> dict[str, Any]:
 
 
 def _record_buy_result(namespace: argparse.Namespace, state_path: Path) -> dict[str, Any]:
+    _require_tradable_code(namespace.code)
     state = _load_state(state_path)
     updated = record_buy(
         state,
@@ -229,6 +324,7 @@ def _record_buy_result(namespace: argparse.Namespace, state_path: Path) -> dict[
 
 
 def _record_sell_result(namespace: argparse.Namespace, state_path: Path) -> dict[str, Any]:
+    _require_tradable_code(namespace.code)
     state = _load_state(state_path)
     updated = record_sell(
         state,
@@ -274,19 +370,35 @@ def _scheduled_result(
     invalidated_codes: Sequence[str],
 ) -> dict[str, Any]:
     state = _load_state(state_path)
+    calendar_error: Optional[MarketDataError] = None
+    calendar_updated = state
+    try:
+        session = collect_trading_session(provider, observed_at)
+        if session.is_trading_session is True:
+            calendar_updated = advance_cooldown(
+                state,
+                session.session_date.isoformat(),
+                confirmed_trading_session=True,
+            )
+    except MarketDataError as exc:
+        calendar_error = exc
+
     updated, position_result = monitor_positions_from_provider(
-        state,
+        calendar_updated,
         provider,
         as_of=observed_at,
         invalidated_codes=invalidated_codes,
     )
+    scans = []
+    for record in records:
+        scan = _advisory_scan(scan_etf(record, provider, as_of=observed_at))
+        gate = _portfolio_gate(updated, str(record["code"]))
+        scan["portfolio_gate"] = gate
+        scan["reasons"] = _unique(list(scan["reasons"]) + list(gate["reasons"]))
+        scans.append(scan)
     if updated != state:
         _write_state(state_path, updated)
 
-    scans = [
-        _advisory_scan(scan_etf(record, provider, as_of=observed_at))
-        for record in records
-    ]
     classified = [_scheduled_scan_status(scan) for scan in scans]
     alerts = [
         _advisory_alert(alert, str(position_result["source_timestamp"]))
@@ -305,8 +417,10 @@ def _scheduled_result(
     else:
         status = "NO_ACTION"
 
+    calendar_reasons = [calendar_error.reason] if calendar_error is not None else []
     reasons = _unique(
         list(position_result.get("reasons", []))
+        + calendar_reasons
         + [reason for scan in scans for reason in scan["reasons"]]
     )
     result = _base_result("scheduled-check", status, reasons=reasons)
@@ -323,15 +437,22 @@ def _scheduled_result(
 
 
 def _scheduled_scan_status(result: Mapping[str, Any]) -> str:
+    gate = result.get("portfolio_gate", {})
+    if isinstance(gate, Mapping) and gate.get("allowed") is False:
+        return "NO_ACTION"
     reasons = set(result.get("reasons", []))
+    gate_reasons = (
+        set(gate.get("reasons", [])) if isinstance(gate, Mapping) else set()
+    )
+    scanner_reasons = reasons - gate_reasons
     if result.get("status") == "DATA_ERROR" and reasons == {"not_trading_session"}:
         return "NO_ACTION"
     if result.get("status") == "BUY_CANDIDATE":
         return "BUY_CANDIDATE"
     if (
         result.get("status") == "NO_ACTION"
-        and reasons
-        and reasons <= CATALYST_PENDING_REASONS
+        and scanner_reasons
+        and scanner_reasons <= CATALYST_PENDING_REASONS
     ):
         return "BUY_CANDIDATE_NEEDS_CATALYST"
     return str(result.get("status", "DATA_ERROR"))
@@ -345,9 +466,56 @@ def _advisory_scan(scan: Mapping[str, Any]) -> dict[str, Any]:
 
 def _advisory_alert(alert: Mapping[str, Any], source_timestamp: str) -> dict[str, Any]:
     enriched = dict(alert)
-    enriched["source_timestamp"] = source_timestamp
+    if "source_timestamp" not in enriched:
+        enriched["source_timestamp"] = source_timestamp
+    _timestamp_text(enriched["source_timestamp"])
     enriched["risk_controls"] = _risk_controls()
     return enriched
+
+
+def _portfolio_gate(state: Mapping[str, Any], code: str) -> dict[str, Any]:
+    positions = state["positions"]
+    if not isinstance(positions, Mapping):
+        raise ValueError("invalid portfolio state")
+
+    blocking: list[str] = []
+    if float(state["drawdown_pct"]) >= BUY_BLOCK_DRAWDOWN_PCT:
+        blocking.append("buy_blocked_by_drawdown")
+    if int(state["cooldown_remaining_trading_days"]) > 0:
+        blocking.append("buy_blocked_during_cooldown")
+
+    position = positions.get(code)
+    if position is None and len(positions) >= MAX_OPEN_POSITIONS:
+        blocking.append("max_open_positions_reached")
+
+    exposure = 0.0
+    for candidate in positions.values():
+        if not isinstance(candidate, Mapping):
+            raise ValueError("invalid portfolio state")
+        exposure += float(candidate["cost_basis_cny"])
+    if exposure + 10_000 > MAX_RISK_EXPOSURE_CNY:
+        blocking.append("risk_exposure_limit_cny_40000")
+
+    requires_confirmation = False
+    if position is not None:
+        if not isinstance(position, Mapping):
+            raise ValueError("invalid portfolio state")
+        if float(position["cost_basis_cny"]) + 10_000 > MAX_ETF_COST_CNY:
+            blocking.append("per_etf_cost_limit_cny_20000")
+        tranche_count = int(position["tranche_count"])
+        if tranche_count >= MAX_TRANCHES_PER_ETF:
+            blocking.append("max_tranches_per_etf_reached")
+        requires_confirmation = tranche_count == 1
+
+    reasons = list(blocking)
+    if requires_confirmation:
+        reasons.append("second_tranche_requires_renewed_confirmation")
+    return {
+        "allowed": not blocking,
+        "reasons": reasons,
+        "requires_renewed_confirmation": requires_confirmation,
+        "target_tranche_cny": 10_000,
+    }
 
 
 def _risk_controls() -> dict[str, Any]:
@@ -383,6 +551,14 @@ def _scan_records(codes: Optional[Sequence[str]]) -> list[Mapping[str, Any]]:
     if missing:
         raise ValueError("unknown or non-tradable ETF code: " + ",".join(sorted(missing)))
     return [by_code[code] for code in _unique(selected_codes)]
+
+
+def _require_tradable_code(code: str) -> None:
+    tradable_codes = {
+        str(record["code"]) for record in tradable_records(load_universe())
+    }
+    if code not in tradable_codes:
+        raise ValueError(f"unknown or non-tradable ETF code: {code}")
 
 
 def _default_scan_codes(universe: Sequence[Mapping[str, Any]]) -> list[str]:
@@ -433,19 +609,86 @@ def _base_result(command: str, status: str, *, reasons: Optional[Sequence[str]] 
     }
 
 
+def _command_error_result(
+    arguments: Sequence[str],
+    command: str,
+    status: str,
+    reasons: Sequence[str],
+    *,
+    source_timestamp: datetime,
+) -> dict[str, Any]:
+    result = _base_result(command, status, reasons=reasons)
+    if command == "audit":
+        result.update(
+            {
+                "record_count": None,
+                "tradable_count": None,
+                "exact_duplicate_group_count": None,
+                "excluded_codes": [],
+                "reports": {},
+            }
+        )
+    elif command in {"record-buy", "record-sell"}:
+        code = str(arguments[1]) if len(arguments) > 1 else None
+        result.update({"code": code, "position": None, "state": None})
+    elif command == "scan":
+        result.update(
+            {"source_timestamp": source_timestamp.isoformat(), "results": []}
+        )
+    elif command == "scheduled-check":
+        result.update(
+            {
+                "source_timestamp": source_timestamp.isoformat(),
+                "alerts": [],
+                "scan_results": [],
+            }
+        )
+    return result
+
+
 def _oldest_timestamp(results: Sequence[Mapping[str, Any]], fallback: datetime) -> str:
     timestamps = [
-        str(result["source_timestamp"])
+        (_timestamp_text(result["source_timestamp"]), result["source_timestamp"])
         for result in results
         if result.get("source_timestamp")
     ]
-    return min(timestamps) if timestamps else fallback.isoformat()
+    if timestamps:
+        _, original = min(timestamps, key=lambda item: item[0])
+        return str(original)
+    return _timestamp_text(fallback).isoformat()
 
 
-def _fixture_value(payload: Mapping[str, Any], field: str, key: str) -> Any:
+def _timestamp_text(value: Any) -> datetime:
+    try:
+        parsed = (
+            value if isinstance(value, datetime) else datetime.fromisoformat(value)
+        )
+        if parsed.tzinfo is None or parsed.utcoffset() is None:
+            raise ValueError
+        return parsed
+    except (TypeError, ValueError) as exc:
+        raise MarketDataError("invalid_source_timestamp") from exc
+
+
+def _fixture_value(
+    payload: Mapping[str, Any],
+    field: str,
+    key: str,
+    *,
+    require_mapping: bool,
+    mapping_kind: str,
+) -> Any:
     if field not in payload:
         return None
     value = payload[field]
+    if require_mapping:
+        if not isinstance(value, dict):
+            raise MarketDataError(
+                f"fixture_{field}_requires_{mapping_kind}_mapping"
+            )
+        if key not in value:
+            raise MarketDataError(f"fixture_{field}_missing_{mapping_kind}_key")
+        return value[key]
     if isinstance(value, dict) and key in value:
         return value[key]
     return value
