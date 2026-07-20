@@ -189,6 +189,13 @@ class MarketDataTests(unittest.TestCase):
         self.assertEqual(
             self.provider.calendar["timestamp"], snapshot.benchmark_calendar.timestamp
         )
+        self.assertEqual(2, len(snapshot.quotes))
+        self.assertEqual(
+            {"eastmoney", "tencent"}, {quote.source for quote in snapshot.quotes}
+        )
+        self.assertEqual(snapshot.aum_cny, snapshot.aum_metric.value)
+        self.assertEqual(snapshot.premium_pct, snapshot.premium_metric.value)
+        self.assertEqual(snapshot.session_date, snapshot.trading_calendar.session_date)
         self.assertEqual([], self.provider.benchmark_calendar_calls)
 
     def test_snapshot_rejects_prices_disagreeing_by_more_than_point_three_percent(self) -> None:

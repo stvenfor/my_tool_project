@@ -55,6 +55,7 @@ class ValidatedQuote:
     turnover_cny: float
     source_timestamp: datetime
     sources: tuple[str, ...]
+    quotes: tuple[Quote, ...]
 
 
 @dataclass(frozen=True)
@@ -108,12 +109,16 @@ class MarketSnapshot:
     benchmark: str
     current_price: float
     previous_close: float
+    quotes: tuple[Quote, ...]
     bars: tuple[DailyBar, ...]
     benchmark_bars: tuple[DailyBar, ...]
     aum_cny: float
     premium_pct: float
+    aum_metric: TimedMetric
+    premium_metric: TimedMetric
     catalyst: CatalystConfirmation
     session_date: date
+    trading_calendar: TradingCalendarState
     benchmark_calendar: BenchmarkCalendarState
     observed_at: datetime
     source_timestamp: datetime
@@ -280,30 +285,33 @@ def collect_market_snapshot(
         (aum.timestamp, "stale_aum"),
         (premium.timestamp, "stale_premium"),
         (catalyst.timestamp, "stale_catalyst"),
-        (bars[-1].timestamp, "stale_daily_bars"),
-        (benchmark_bars[-1].timestamp, "stale_benchmark_bars"),
+        *((bar.timestamp, "stale_daily_bars") for bar in bars),
+        *((bar.timestamp, "stale_benchmark_bars") for bar in benchmark_bars),
     ):
         _fresh(timestamp, as_of, SUPPORTING_DATA_MAX_AGE, reason)
 
     timestamps = [
-        validated_quote.source_timestamp,
-        bars[-1].timestamp,
-        benchmark_bars[-1].timestamp,
+        *(quote.timestamp for quote in validated_quote.quotes),
+        *(bar.timestamp for bar in bars),
+        *(bar.timestamp for bar in benchmark_bars),
         aum.timestamp,
         premium.timestamp,
         calendar.timestamp,
         benchmark_calendar.timestamp,
         catalyst.timestamp,
     ]
-    sources = set(validated_quote.sources) | {
-        bars[-1].source,
-        benchmark_bars[-1].source,
+    sources = (
+        {quote.source for quote in validated_quote.quotes}
+        | {bar.source for bar in bars}
+        | {bar.source for bar in benchmark_bars}
+        | {
         aum.source,
         premium.source,
         calendar.source,
         benchmark_calendar.source,
         catalyst.source,
-    }
+        }
+    )
     return validate_market_snapshot(
         MarketSnapshot(
             code=code,
@@ -311,12 +319,16 @@ def collect_market_snapshot(
             benchmark=benchmark,
             current_price=validated_quote.current_price,
             previous_close=validated_quote.previous_close,
+            quotes=validated_quote.quotes,
             bars=bars,
             benchmark_bars=benchmark_bars,
             aum_cny=aum.value,
             premium_pct=premium.value,
+            aum_metric=aum,
+            premium_metric=premium,
             catalyst=catalyst,
             session_date=calendar.session_date,
+            trading_calendar=calendar,
             benchmark_calendar=benchmark_calendar,
             observed_at=as_of,
             source_timestamp=min(timestamps),
@@ -351,7 +363,13 @@ def collect_current_quote(
 ) -> ValidatedQuote:
     """Validate fresh Eastmoney/Tencent agreement without needing catalysts."""
     as_of = _shanghai_timestamp(as_of, "invalid_as_of_timestamp")
-    raw_quotes = provider.get_current_quotes(code)
+    return _validate_quotes(code, provider.get_current_quotes(code), as_of)
+
+
+def _validate_quotes(
+    code: str, raw_quotes: Any, as_of: datetime
+) -> ValidatedQuote:
+    """Normalize and cross-check the two independent quote sources."""
     if not raw_quotes:
         raise MarketDataError("missing_current_quotes")
     quotes = [_quote(item) for item in raw_quotes]
@@ -391,6 +409,7 @@ def collect_current_quote(
         turnover_cny=(eastmoney.turnover_cny + tencent.turnover_cny) / 2,
         source_timestamp=min(eastmoney.timestamp, tencent.timestamp),
         sources=tuple(sorted((eastmoney.source, tencent.source))),
+        quotes=tuple(sorted((eastmoney, tencent), key=lambda quote: quote.source)),
     )
 
 
@@ -403,6 +422,20 @@ def validate_market_snapshot(value: Any) -> MarketSnapshot:
     benchmark = _nonempty_text(value.benchmark, "malformed_snapshot")
     current_price = _positive(value.current_price, "malformed_snapshot")
     previous_close = _positive(value.previous_close, "malformed_snapshot")
+    aum_cny = _nonnegative(value.aum_cny, "malformed_snapshot")
+    premium_pct = _number(value.premium_pct, "malformed_snapshot")
+    session_date = value.session_date
+    if not isinstance(session_date, date) or isinstance(session_date, datetime):
+        raise MarketDataError("malformed_snapshot")
+    observed_at = _timestamp(value.observed_at, "malformed_snapshot")
+    source_timestamp = _timestamp(value.source_timestamp, "malformed_snapshot")
+    if observed_at.astimezone(SHANGHAI_TZ).date() != session_date:
+        raise MarketDataError(
+            "observation_session_date_conflict", source_timestamp
+        )
+
+    validated_quote = _validate_quotes(code, value.quotes, observed_at)
+    quotes = validated_quote.quotes
     bars = tuple(_bars(value.bars, "missing_daily_bars"))
     benchmark_bars = tuple(
         _bars(value.benchmark_bars, "missing_benchmark_bars")
@@ -411,37 +444,68 @@ def validate_market_snapshot(value: Any) -> MarketSnapshot:
         raise MarketDataError("insufficient_bars")
     _ordered_bars(bars)
     _ordered_bars(benchmark_bars)
-    aum_cny = _nonnegative(value.aum_cny, "malformed_snapshot")
-    premium_pct = _number(value.premium_pct, "malformed_snapshot")
-    catalyst = _catalyst(value.catalyst)
-    session_date = value.session_date
-    if not isinstance(session_date, date) or isinstance(session_date, datetime):
-        raise MarketDataError("malformed_snapshot")
-    observed_at = _timestamp(value.observed_at, "malformed_snapshot")
-    benchmark_calendar = _benchmark_calendar(value.benchmark_calendar)
-    _fresh(
-        benchmark_calendar.timestamp,
-        observed_at,
-        SUPPORTING_DATA_MAX_AGE,
-        "stale_benchmark_calendar",
+    aum_metric = _metric(value.aum_metric, "missing_aum")
+    premium_metric = _metric(
+        value.premium_metric, "missing_premium", allow_negative=True
     )
-    source_timestamp = _timestamp(value.source_timestamp, "malformed_snapshot")
+    catalyst = _catalyst(value.catalyst)
+    trading_calendar = _calendar(value.trading_calendar)
+    benchmark_calendar = _benchmark_calendar(value.benchmark_calendar)
+    for timestamp, reason in (
+        *((bar.timestamp, "stale_daily_bars") for bar in bars),
+        *((bar.timestamp, "stale_benchmark_bars") for bar in benchmark_bars),
+        (aum_metric.timestamp, "stale_aum"),
+        (premium_metric.timestamp, "stale_premium"),
+        (catalyst.timestamp, "stale_catalyst"),
+        (trading_calendar.timestamp, "stale_calendar"),
+        (benchmark_calendar.timestamp, "stale_benchmark_calendar"),
+    ):
+        _fresh(timestamp, observed_at, SUPPORTING_DATA_MAX_AGE, reason)
+
     if not isinstance(value.sources, (list, tuple)) or not value.sources:
         raise MarketDataError("malformed_snapshot")
     sources = tuple(_source_text(source) for source in value.sources)
-    if observed_at.astimezone(SHANGHAI_TZ).date() != session_date:
-        raise MarketDataError(
-            "observation_session_date_conflict", source_timestamp
-        )
     if benchmark_calendar.source not in sources:
         raise MarketDataError(
             "benchmark_calendar_source_missing", source_timestamp
         )
+    component_sources = (
+        tuple(quote.source for quote in quotes)
+        + tuple(bar.source for bar in bars)
+        + tuple(bar.source for bar in benchmark_bars)
+        + (
+            aum_metric.source,
+            premium_metric.source,
+            catalyst.source,
+            trading_calendar.source,
+            benchmark_calendar.source,
+        )
+    )
+    if any(source not in sources for source in component_sources):
+        raise MarketDataError("snapshot_source_missing", source_timestamp)
     if source_timestamp > benchmark_calendar.timestamp:
         raise MarketDataError(
             "benchmark_calendar_timestamp_conflict", source_timestamp
         )
+    component_timestamps = (
+        tuple(quote.timestamp for quote in quotes)
+        + tuple(bar.timestamp for bar in bars)
+        + tuple(bar.timestamp for bar in benchmark_bars)
+        + (
+            aum_metric.timestamp,
+            premium_metric.timestamp,
+            catalyst.timestamp,
+            trading_calendar.timestamp,
+            benchmark_calendar.timestamp,
+        )
+    )
+    if source_timestamp != min(component_timestamps):
+        raise MarketDataError("source_timestamp_conflict", source_timestamp)
 
+    if trading_calendar.is_trading_session is not True:
+        raise MarketDataError("not_trading_session", source_timestamp)
+    if trading_calendar.session_date != session_date:
+        raise MarketDataError("session_date_conflict", source_timestamp)
     if bars[-1].date != session_date:
         raise MarketDataError("session_date_conflict", source_timestamp)
     if benchmark_bars[-1].date > session_date:
@@ -453,6 +517,33 @@ def validate_market_snapshot(value: Any) -> MarketSnapshot:
         != benchmark_calendar.latest_completed_session_date
     ):
         raise MarketDataError("benchmark_session_date_conflict", source_timestamp)
+    if not math.isclose(
+        current_price,
+        validated_quote.current_price,
+        rel_tol=1e-12,
+        abs_tol=1e-12,
+    ):
+        raise MarketDataError("quote_snapshot_price_conflict", source_timestamp)
+    if not math.isclose(
+        previous_close,
+        validated_quote.previous_close,
+        rel_tol=1e-12,
+        abs_tol=1e-12,
+    ):
+        raise MarketDataError(
+            "quote_snapshot_previous_close_conflict", source_timestamp
+        )
+    if not math.isclose(
+        aum_cny, aum_metric.value, rel_tol=1e-12, abs_tol=1e-12
+    ):
+        raise MarketDataError("aum_metric_conflict", source_timestamp)
+    if not math.isclose(
+        premium_pct,
+        premium_metric.value,
+        rel_tol=1e-12,
+        abs_tol=1e-12,
+    ):
+        raise MarketDataError("premium_metric_conflict", source_timestamp)
     if (
         _relative_difference(current_price, bars[-1].close)
         > MAX_QUOTE_BAR_DISAGREEMENT
@@ -470,12 +561,16 @@ def validate_market_snapshot(value: Any) -> MarketSnapshot:
         benchmark=benchmark,
         current_price=current_price,
         previous_close=previous_close,
+        quotes=quotes,
         bars=bars,
         benchmark_bars=benchmark_bars,
         aum_cny=aum_cny,
         premium_pct=premium_pct,
+        aum_metric=aum_metric,
+        premium_metric=premium_metric,
         catalyst=catalyst,
         session_date=session_date,
+        trading_calendar=trading_calendar,
         benchmark_calendar=benchmark_calendar,
         observed_at=observed_at,
         source_timestamp=source_timestamp,

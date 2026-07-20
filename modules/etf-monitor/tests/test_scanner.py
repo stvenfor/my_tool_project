@@ -481,6 +481,159 @@ class ScannerTests(unittest.TestCase):
                 self.assertEqual("DATA_ERROR", result["status"])
                 self.assertIn(reason, result["reasons"])
 
+    def test_direct_snapshot_revalidates_both_quote_sources_and_freshness(self) -> None:
+        snapshot = collect_market_snapshot(
+            self.record, self.provider, as_of=self.provider.as_of
+        )
+        quotes = snapshot.quotes
+        cases = (
+            (
+                replace(snapshot, quotes=quotes[:1]),
+                "missing_independent_quote",
+            ),
+            (
+                replace(
+                    snapshot,
+                    quotes=(
+                        quotes[0],
+                        replace(
+                            quotes[1],
+                            timestamp=snapshot.observed_at - timedelta(minutes=16),
+                        ),
+                    ),
+                ),
+                "stale_quote",
+            ),
+            (
+                replace(
+                    snapshot,
+                    quotes=(
+                        replace(
+                            quotes[0],
+                            timestamp=quotes[0].timestamp.replace(tzinfo=None),
+                        ),
+                        quotes[1],
+                    ),
+                ),
+                "missing_quote_timestamp",
+            ),
+            (
+                replace(snapshot, current_price=snapshot.current_price + 0.01),
+                "quote_snapshot_price_conflict",
+            ),
+        )
+        for candidate, reason in cases:
+            with self.subTest(reason):
+                result = evaluate_snapshot(candidate)
+                self.assertEqual("DATA_ERROR", result["status"])
+                self.assertIn(reason, result["reasons"])
+
+    def test_direct_snapshot_revalidates_all_supporting_data_freshness(self) -> None:
+        snapshot = collect_market_snapshot(
+            self.record, self.provider, as_of=self.provider.as_of
+        )
+        stale_at = snapshot.observed_at - timedelta(hours=25)
+        cases = (
+            (
+                replace(
+                    snapshot,
+                    bars=(replace(snapshot.bars[0], timestamp=stale_at),)
+                    + snapshot.bars[1:],
+                ),
+                "stale_daily_bars",
+            ),
+            (
+                replace(
+                    snapshot,
+                    benchmark_bars=(
+                        replace(snapshot.benchmark_bars[0], timestamp=stale_at),
+                    )
+                    + snapshot.benchmark_bars[1:],
+                ),
+                "stale_benchmark_bars",
+            ),
+            (
+                replace(
+                    snapshot,
+                    catalyst=replace(snapshot.catalyst, timestamp=stale_at),
+                ),
+                "stale_catalyst",
+            ),
+            (
+                replace(
+                    snapshot,
+                    aum_metric=replace(snapshot.aum_metric, timestamp=stale_at),
+                ),
+                "stale_aum",
+            ),
+            (
+                replace(
+                    snapshot,
+                    premium_metric=replace(
+                        snapshot.premium_metric,
+                        timestamp=snapshot.premium_metric.timestamp.replace(
+                            tzinfo=None
+                        ),
+                    ),
+                ),
+                "missing_metric_timestamp",
+            ),
+        )
+        for candidate, reason in cases:
+            with self.subTest(reason):
+                result = evaluate_snapshot(candidate)
+                self.assertEqual("DATA_ERROR", result["status"])
+                self.assertIn(reason, result["reasons"])
+
+    def test_direct_snapshot_revalidates_structured_values_and_all_provenance(self) -> None:
+        snapshot = collect_market_snapshot(
+            self.record, self.provider, as_of=self.provider.as_of
+        )
+        cases = (
+            (
+                replace(
+                    snapshot,
+                    aum_metric=replace(
+                        snapshot.aum_metric, value=snapshot.aum_cny + 1
+                    ),
+                ),
+                "aum_metric_conflict",
+            ),
+            (
+                replace(
+                    snapshot,
+                    premium_metric=replace(
+                        snapshot.premium_metric, value=snapshot.premium_pct + 0.01
+                    ),
+                ),
+                "premium_metric_conflict",
+            ),
+            (
+                replace(
+                    snapshot,
+                    aum_metric=replace(snapshot.aum_metric, source="aum_authority"),
+                ),
+                "snapshot_source_missing",
+            ),
+            (
+                replace(snapshot, trading_calendar=None),
+                "missing_trading_calendar",
+            ),
+            (
+                replace(
+                    snapshot,
+                    source_timestamp=snapshot.source_timestamp
+                    - timedelta(minutes=1),
+                ),
+                "source_timestamp_conflict",
+            ),
+        )
+        for candidate, reason in cases:
+            with self.subTest(reason):
+                result = evaluate_snapshot(candidate)
+                self.assertEqual("DATA_ERROR", result["status"])
+                self.assertIn(reason, result["reasons"])
+
     def test_direct_snapshot_with_insufficient_common_dates_returns_data_error(self) -> None:
         snapshot = collect_market_snapshot(
             self.record, self.provider, as_of=self.provider.as_of
