@@ -295,13 +295,56 @@ class MarketDataTests(unittest.TestCase):
 
         self.assertEqual(date(2026, 7, 21), self.provider.requested_calendar_date)
 
-    def test_relative_strength_bar_dates_must_align(self) -> None:
-        displaced = self.provider.benchmark.pop(-10)
-        displaced["date"] = self.provider.benchmark[0]["date"] - timedelta(days=1)
-        self.provider.benchmark.insert(0, displaced)
+    def test_quote_prices_must_agree_with_latest_and_previous_etf_bars(self) -> None:
+        cases = (
+            ("price", 10.45, "quote_bar_price_conflict"),
+            ("previous_close", 10.40, "previous_close_bar_conflict"),
+        )
+        for field, value, reason in cases:
+            with self.subTest(field):
+                provider = FixtureProvider()
+                for quote in provider.quotes:
+                    quote[field] = value
+                with self.assertRaisesRegex(MarketDataError, reason):
+                    collect_market_snapshot(
+                        self.record, provider, as_of=provider.as_of
+                    )
 
-        with self.assertRaisesRegex(MarketDataError, "bar_date_misalignment"):
-            collect_market_snapshot(self.record, self.provider, as_of=self.provider.as_of)
+    def test_cross_market_benchmark_may_lag_one_session(self) -> None:
+        old_bar = deepcopy(self.provider.benchmark[0])
+        old_bar["date"] -= timedelta(days=1)
+        self.provider.benchmark.pop()
+        self.provider.benchmark.insert(0, old_bar)
+        record = dict(self.record, market="HK")
+
+        snapshot = collect_market_snapshot(
+            record, self.provider, as_of=self.provider.as_of
+        )
+
+        self.assertEqual(self.provider.bars[-1]["date"], snapshot.session_date)
+        self.assertEqual(
+            self.provider.benchmark[-1]["date"], snapshot.benchmark_bars[-1].date
+        )
+
+    def test_domestic_and_cross_market_require_twenty_one_common_dates(self) -> None:
+        for market in ("CN", "HK"):
+            with self.subTest(market):
+                provider = FixtureProvider()
+                for bar in provider.benchmark:
+                    bar["date"] -= timedelta(days=41)
+                record = dict(self.record, market=market)
+                with self.assertRaisesRegex(
+                    MarketDataError, "insufficient_common_bar_dates"
+                ):
+                    collect_market_snapshot(record, provider, as_of=provider.as_of)
+
+    def test_benchmark_bars_cannot_be_from_a_future_session(self) -> None:
+        self.provider.benchmark[-1]["date"] += timedelta(days=1)
+
+        with self.assertRaisesRegex(MarketDataError, "future_benchmark_bar"):
+            collect_market_snapshot(
+                self.record, self.provider, as_of=self.provider.as_of
+            )
 
 
 if __name__ == "__main__":

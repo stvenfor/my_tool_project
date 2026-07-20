@@ -9,8 +9,10 @@ from .market_data import (
     MarketDataError,
     MarketDataProvider,
     MarketSnapshot,
+    common_bar_window,
     collect_current_quote,
     collect_market_snapshot,
+    validate_market_snapshot,
 )
 from .portfolio import evaluate_position_alerts, update_drawdown
 
@@ -49,12 +51,15 @@ def scan_etf(
 
 def evaluate_snapshot(snapshot: MarketSnapshot) -> dict[str, Any]:
     """Apply every binding scanner gate to a validated market snapshot."""
+    try:
+        snapshot = validate_market_snapshot(snapshot)
+    except MarketDataError as exc:
+        return _snapshot_data_error(snapshot, exc)
     reasons: list[str] = []
     bars = snapshot.bars
-    benchmark = snapshot.benchmark_bars
-    if len(bars) < MIN_BARS or len(benchmark) < MIN_BARS:
+    if len(bars) < MIN_BARS:
         reasons.append("insufficient_bars")
-    if len(bars) < 21 or len(benchmark) < 21:
+    if len(bars) < 21:
         return _scan_result(snapshot, "NO_ACTION", reasons)
 
     latest = bars[-1]
@@ -83,8 +88,11 @@ def evaluate_snapshot(snapshot: MarketSnapshot) -> dict[str, Any]:
     if ma20 <= previous_ma20:
         reasons.append("ma20_not_rising")
 
-    etf_return_20 = latest.close / bars[-21].close - 1
-    benchmark_return_20 = benchmark[-1].close / benchmark[-21].close - 1
+    common_etf, common_benchmark = common_bar_window(snapshot)
+    etf_return_20 = common_etf[-1].close / common_etf[0].close - 1
+    benchmark_return_20 = (
+        common_benchmark[-1].close / common_benchmark[0].close - 1
+    )
     if etf_return_20 - benchmark_return_20 <= 0:
         reasons.append("relative_return_not_positive")
 
@@ -186,6 +194,32 @@ def _scan_result(
         "status": status,
         "source_timestamp": snapshot.source_timestamp.isoformat(),
         "reasons": reasons,
+    }
+
+
+def _snapshot_data_error(
+    snapshot: Any, error: MarketDataError
+) -> dict[str, Any]:
+    timestamp = error.source_timestamp
+    if timestamp is None:
+        candidate = getattr(snapshot, "source_timestamp", None)
+        try:
+            if (
+                isinstance(candidate, datetime)
+                and candidate.tzinfo is not None
+                and candidate.utcoffset() is not None
+            ):
+                timestamp = candidate
+        except Exception:
+            timestamp = None
+    if timestamp is None:
+        timestamp = datetime.now().astimezone()
+    code = getattr(snapshot, "code", "")
+    return {
+        "code": code if isinstance(code, str) else "",
+        "status": "DATA_ERROR",
+        "source_timestamp": timestamp.isoformat(),
+        "reasons": [error.reason],
     }
 
 

@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
+import math
 import sys
 import unittest
 from copy import deepcopy
+from dataclasses import replace
 from datetime import timedelta
 from pathlib import Path
 
@@ -48,6 +50,8 @@ class ScannerTests(unittest.TestCase):
             turnover_cny=60_000_000,
             volume=1_000_000,
         )
+        for quote in self.provider.quotes:
+            quote["price"] = 10.36
 
         result = self.scan()
 
@@ -74,17 +78,31 @@ class ScannerTests(unittest.TestCase):
             mutate(provider)
             cases.append((reason, provider))
 
+        def set_latest(provider, *, open_price, close, high, low):
+            provider.bars[-1].update(
+                open=open_price, close=close, high=high, low=low
+            )
+            for quote in provider.quotes:
+                quote["price"] = close
+
+        def set_previous_close(provider, close):
+            for quote in provider.quotes:
+                quote["previous_close"] = close
+            provider.bars[-2].update(
+                open=close, close=close, high=close + 0.01, low=close - 0.01
+            )
+
         case("insufficient_bars", lambda p: p.bars.pop(0))
         case("average_turnover_below_cny_50000000", lambda p: [bar.update(turnover_cny=49_000_000) for bar in p.bars[-20:]])
         case("aum_below_cny_200000000", lambda p: p.aum.update(value=199_999_999))
         case("premium_above_0.5_pct", lambda p: p.premium.update(value=0.51))
-        case("close_not_above_ma20", lambda p: p.bars[-1].update(open=9.0, close=9.0, high=9.01, low=8.99))
+        case("close_not_above_ma20", lambda p: set_latest(p, open_price=9.0, close=9.0, high=9.01, low=8.99))
         case("close_not_above_ma60", lambda p: [bar.update(open=11.0, close=11.0, high=11.01, low=10.99) for bar in p.bars[:41]])
         case("ma20_not_rising", lambda p: p.bars[-21].update(open=20.0, close=20.0, high=20.01, low=19.99))
         case("relative_return_not_positive", lambda p: p.benchmark[-21].update(open=5.0, close=5.0, high=5.01, low=4.99))
-        case("no_valid_entry_pattern", lambda p: p.bars[-1].update(open=10.34, close=10.36, high=p.bars[-2]["high"], low=10.30, turnover_cny=60_000_000, volume=1_000_000))
-        case("daily_gain_above_3_pct", lambda p: [quote.update(previous_close=10.0) for quote in p.quotes])
-        case("distance_above_ma20_over_5_pct", lambda p: p.bars[-1].update(open=10.58, close=10.6, high=10.62, low=10.57))
+        case("no_valid_entry_pattern", lambda p: (set_latest(p, open_price=10.34, close=10.36, high=p.bars[-2]["high"], low=10.30), p.bars[-1].update(turnover_cny=60_000_000, volume=1_000_000)))
+        case("daily_gain_above_3_pct", lambda p: set_previous_close(p, 10.0))
+        case("distance_above_ma20_over_5_pct", lambda p: set_latest(p, open_price=10.58, close=10.6, high=10.62, low=10.57))
 
         for expected_reason, provider in cases:
             with self.subTest(expected_reason):
@@ -178,8 +196,15 @@ class ScannerTests(unittest.TestCase):
     def test_exact_three_percent_gain_and_five_percent_ma20_distance_pass(self) -> None:
         exact_gain = FixtureProvider()
         midpoint = sum(quote["price"] for quote in exact_gain.quotes) / 2
+        exact_previous_close = midpoint / 1.03
         for quote in exact_gain.quotes:
-            quote["previous_close"] = midpoint / 1.03
+            quote["previous_close"] = exact_previous_close
+        exact_gain.bars[-2].update(
+            open=exact_previous_close,
+            close=exact_previous_close,
+            high=exact_previous_close + 0.01,
+            low=exact_previous_close - 0.01,
+        )
         gain_result = scan_etf(self.record, exact_gain, as_of=exact_gain.as_of)
 
         exact_distance = FixtureProvider()
@@ -191,6 +216,8 @@ class ScannerTests(unittest.TestCase):
             high=exact_close + 0.02,
             low=exact_close - 0.02,
         )
+        for quote in exact_distance.quotes:
+            quote["price"] = exact_close
         distance_result = scan_etf(
             self.record, exact_distance, as_of=exact_distance.as_of
         )
@@ -199,6 +226,54 @@ class ScannerTests(unittest.TestCase):
         self.assertNotIn("daily_gain_above_3_pct", gain_result["reasons"])
         self.assertEqual("BUY_CANDIDATE", distance_result["status"])
         self.assertNotIn("distance_above_ma20_over_5_pct", distance_result["reasons"])
+
+    def test_cross_market_lag_uses_last_twenty_one_common_dates(self) -> None:
+        old_bar = deepcopy(self.provider.benchmark[0])
+        old_bar["date"] -= timedelta(days=1)
+        self.provider.benchmark.pop()
+        self.provider.benchmark.insert(0, old_bar)
+        record = dict(self.record, market="HK")
+
+        result = scan_etf(record, self.provider, as_of=self.provider.as_of)
+
+        self.assertEqual("BUY_CANDIDATE", result["status"])
+        self.assertIn("all_high_confidence_gates_passed", result["reasons"])
+
+    def test_direct_nan_snapshot_returns_data_error(self) -> None:
+        snapshot = collect_market_snapshot(
+            self.record, self.provider, as_of=self.provider.as_of
+        )
+
+        result = evaluate_snapshot(replace(snapshot, current_price=math.nan))
+
+        self.assertEqual("DATA_ERROR", result["status"])
+        self.assertIn("malformed_snapshot", result["reasons"])
+
+    def test_direct_malformed_bar_collection_returns_data_error(self) -> None:
+        snapshot = collect_market_snapshot(
+            self.record, self.provider, as_of=self.provider.as_of
+        )
+
+        result = evaluate_snapshot(replace(snapshot, bars=42))
+
+        self.assertEqual("DATA_ERROR", result["status"])
+        self.assertIn("malformed_daily_bar", result["reasons"])
+
+    def test_direct_snapshot_with_insufficient_common_dates_returns_data_error(self) -> None:
+        snapshot = collect_market_snapshot(
+            self.record, self.provider, as_of=self.provider.as_of
+        )
+        shifted_benchmark = tuple(
+            replace(bar, date=bar.date - timedelta(days=41))
+            for bar in snapshot.benchmark_bars
+        )
+
+        result = evaluate_snapshot(
+            replace(snapshot, benchmark_bars=shifted_benchmark)
+        )
+
+        self.assertEqual("DATA_ERROR", result["status"])
+        self.assertIn("insufficient_common_bar_dates", result["reasons"])
 
 
 if __name__ == "__main__":

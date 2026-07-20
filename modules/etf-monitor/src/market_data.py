@@ -22,6 +22,8 @@ SUPPORTING_DATA_MAX_AGE = timedelta(hours=24)
 MAX_QUOTE_PRICE_DISAGREEMENT = 0.003
 MAX_PREVIOUS_CLOSE_DISAGREEMENT = 0.003
 MAX_TURNOVER_DISAGREEMENT = 0.10
+MAX_QUOTE_BAR_DISAGREEMENT = 0.003
+MIN_COMMON_RETURN_DATES = 21
 SHANGHAI_TZ = ZoneInfo("Asia/Shanghai")
 
 
@@ -236,12 +238,6 @@ def collect_market_snapshot(
     )
     _ordered_bars(bars)
     _ordered_bars(benchmark_bars)
-    if tuple(bar.date for bar in bars[-21:]) != tuple(
-        bar.date for bar in benchmark_bars[-21:]
-    ):
-        raise MarketDataError("bar_date_misalignment", calendar.timestamp)
-    if bars[-1].date != calendar.session_date or benchmark_bars[-1].date != calendar.session_date:
-        raise MarketDataError("session_date_conflict", calendar.timestamp)
 
     aum = _metric(provider.get_aum(code), "missing_aum")
     premium = _metric(
@@ -274,20 +270,22 @@ def collect_market_snapshot(
         calendar.source,
         catalyst.source,
     }
-    return MarketSnapshot(
-        code=code,
-        market=market,
-        benchmark=benchmark,
-        current_price=validated_quote.current_price,
-        previous_close=validated_quote.previous_close,
-        bars=bars,
-        benchmark_bars=benchmark_bars,
-        aum_cny=aum.value,
-        premium_pct=premium.value,
-        catalyst=catalyst,
-        session_date=calendar.session_date,
-        source_timestamp=min(timestamps),
-        sources=tuple(sorted(sources)),
+    return validate_market_snapshot(
+        MarketSnapshot(
+            code=code,
+            market=market,
+            benchmark=benchmark,
+            current_price=validated_quote.current_price,
+            previous_close=validated_quote.previous_close,
+            bars=bars,
+            benchmark_bars=benchmark_bars,
+            aum_cny=aum.value,
+            premium_pct=premium.value,
+            catalyst=catalyst,
+            session_date=calendar.session_date,
+            source_timestamp=min(timestamps),
+            sources=tuple(sorted(sources)),
+        )
     )
 
 
@@ -339,6 +337,86 @@ def collect_current_quote(
         turnover_cny=(eastmoney.turnover_cny + tencent.turnover_cny) / 2,
         source_timestamp=min(eastmoney.timestamp, tencent.timestamp),
         sources=tuple(sorted((eastmoney.source, tencent.source))),
+    )
+
+
+def validate_market_snapshot(value: Any) -> MarketSnapshot:
+    """Normalize and fail closed on directly constructed market snapshots."""
+    if not isinstance(value, MarketSnapshot):
+        raise MarketDataError("malformed_snapshot")
+    code = _nonempty_text(value.code, "malformed_snapshot")
+    market = _nonempty_text(value.market, "malformed_snapshot")
+    benchmark = _nonempty_text(value.benchmark, "malformed_snapshot")
+    current_price = _positive(value.current_price, "malformed_snapshot")
+    previous_close = _positive(value.previous_close, "malformed_snapshot")
+    bars = tuple(_bars(value.bars, "missing_daily_bars"))
+    benchmark_bars = tuple(
+        _bars(value.benchmark_bars, "missing_benchmark_bars")
+    )
+    if len(bars) < 2:
+        raise MarketDataError("insufficient_bars")
+    _ordered_bars(bars)
+    _ordered_bars(benchmark_bars)
+    aum_cny = _nonnegative(value.aum_cny, "malformed_snapshot")
+    premium_pct = _number(value.premium_pct, "malformed_snapshot")
+    catalyst = _catalyst(value.catalyst)
+    session_date = value.session_date
+    if not isinstance(session_date, date) or isinstance(session_date, datetime):
+        raise MarketDataError("malformed_snapshot")
+    source_timestamp = _timestamp(value.source_timestamp, "malformed_snapshot")
+    if not isinstance(value.sources, (list, tuple)) or not value.sources:
+        raise MarketDataError("malformed_snapshot")
+    sources = tuple(_source_text(source) for source in value.sources)
+
+    if bars[-1].date != session_date:
+        raise MarketDataError("session_date_conflict", source_timestamp)
+    if benchmark_bars[-1].date > session_date:
+        raise MarketDataError("future_benchmark_bar", source_timestamp)
+    if (
+        _relative_difference(current_price, bars[-1].close)
+        > MAX_QUOTE_BAR_DISAGREEMENT
+    ):
+        raise MarketDataError("quote_bar_price_conflict", source_timestamp)
+    if (
+        _relative_difference(previous_close, bars[-2].close)
+        > MAX_QUOTE_BAR_DISAGREEMENT
+    ):
+        raise MarketDataError("previous_close_bar_conflict", source_timestamp)
+
+    normalized = MarketSnapshot(
+        code=code,
+        market=market,
+        benchmark=benchmark,
+        current_price=current_price,
+        previous_close=previous_close,
+        bars=bars,
+        benchmark_bars=benchmark_bars,
+        aum_cny=aum_cny,
+        premium_pct=premium_pct,
+        catalyst=catalyst,
+        session_date=session_date,
+        source_timestamp=source_timestamp,
+        sources=sources,
+    )
+    common_bar_window(normalized)
+    return normalized
+
+
+def common_bar_window(
+    snapshot: MarketSnapshot,
+) -> tuple[tuple[DailyBar, ...], tuple[DailyBar, ...]]:
+    """Return the latest 21 ETF/benchmark bars sharing completed dates."""
+    etf_by_date = {bar.date: bar for bar in snapshot.bars}
+    benchmark_by_date = {bar.date: bar for bar in snapshot.benchmark_bars}
+    common_dates = sorted(etf_by_date.keys() & benchmark_by_date.keys())
+    if len(common_dates) < MIN_COMMON_RETURN_DATES:
+        raise MarketDataError(
+            "insufficient_common_bar_dates", snapshot.source_timestamp
+        )
+    window_dates = common_dates[-MIN_COMMON_RETURN_DATES:]
+    return (
+        tuple(etf_by_date[bar_date] for bar_date in window_dates),
+        tuple(benchmark_by_date[bar_date] for bar_date in window_dates),
     )
 
 
@@ -463,10 +541,14 @@ def _quote(value: Any) -> Quote:
 
 
 def _bars(values: Any, missing_reason: str) -> list[DailyBar]:
-    if not values:
+    if values is None:
         raise MarketDataError(missing_reason)
+    try:
+        iterator = iter(values)
+    except TypeError as exc:
+        raise MarketDataError("malformed_daily_bar") from exc
     parsed = []
-    for value in values:
+    for value in iterator:
         if isinstance(value, DailyBar):
             bar_date = value.date
             open_price = value.open
@@ -515,6 +597,8 @@ def _bars(values: Any, missing_reason: str) -> list[DailyBar]:
             if isinstance(exc, MarketDataError):
                 raise
             raise MarketDataError("malformed_daily_bar") from exc
+    if not parsed:
+        raise MarketDataError(missing_reason)
     return parsed
 
 
@@ -658,6 +742,12 @@ def _source_text(source: Any) -> str:
     if not isinstance(source, str) or not source.strip():
         raise MarketDataError("missing_source")
     return source.strip()
+
+
+def _nonempty_text(value: Any, reason: str) -> str:
+    if not isinstance(value, str) or not value.strip():
+        raise MarketDataError(reason)
+    return value.strip()
 
 
 def _relative_difference(left: float, right: float) -> float:
