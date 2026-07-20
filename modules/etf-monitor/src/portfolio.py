@@ -171,7 +171,7 @@ def portfolio_equity(state: Mapping[str, Any], prices: Mapping[str, float]) -> d
 def update_drawdown(
     state: Mapping[str, Any], prices: Mapping[str, float]
 ) -> tuple[dict[str, Any], list[dict[str, Any]]]:
-    """Update the high watermark and emit once-per-cycle 2% risk-exit alerts."""
+    """Update the high watermark and emit 2% risk-exit alerts once per breach."""
     updated = _copy_state(state)
     equity = portfolio_equity(updated, prices)["equity_cny"]
     high_watermark = max(float(updated["high_watermark_equity_cny"]), equity)
@@ -200,10 +200,17 @@ def update_drawdown(
     return updated, alerts
 
 
-def advance_cooldown(state: Mapping[str, Any], trading_day: str) -> dict[str, Any]:
-    """Consume one cooldown day only once for each distinct trading-day label."""
+def advance_cooldown(
+    state: Mapping[str, Any],
+    trading_day: str,
+    *,
+    confirmed_trading_session: bool,
+) -> dict[str, Any]:
+    """Consume a confirmed trading session once for the active cooldown."""
     updated = _copy_state(state)
     _valid_trading_day(trading_day)
+    if confirmed_trading_session is not True:
+        raise ValueError("trading session must be authoritatively confirmed")
     if int(updated["cooldown_remaining_trading_days"]) <= 0:
         return updated
     processed_days = updated["processed_cooldown_trading_days"]
@@ -225,7 +232,10 @@ def evaluate_position_alerts(
     alerts: list[dict[str, Any]] = []
     for code, position in updated["positions"].items():
         price = _price_for(prices, code)
-        return_pct = price / float(position["weighted_cost_cny"]) - 1
+        exact_cost_per_share = (
+            float(position["cost_basis_cny"]) / float(position["shares"])
+        )
+        return_pct = price / exact_cost_per_share - 1
         flags = position["alert_acknowledged"]
         if return_pct >= PROFIT_4_5_PCT - _EPSILON and not flags["profit_4_5"]:
             flags["profit_4_5"] = True

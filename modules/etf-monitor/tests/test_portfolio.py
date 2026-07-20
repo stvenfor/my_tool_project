@@ -145,6 +145,24 @@ class PortfolioTests(unittest.TestCase):
         self.assertEqual(["stop"], [alert["kind"] for alert in stop_alerts])
         self.assertEqual([], repeated_stop_alerts)
 
+    def test_alert_thresholds_use_exact_cost_basis_not_rounded_weighted_display(self) -> None:
+        state = record_buy(self.state, "510300", price=10, shares=3)
+        state = record_buy(
+            state,
+            "510300",
+            price=10.01,
+            shares=2,
+            second_tranche_confirmed=True,
+        )
+        state, early_profit = evaluate_position_alerts(state, {"510300": 10.45})
+        state, exact_profit = evaluate_position_alerts(state, {"510300": 10.4542})
+        state, exact_stop = evaluate_position_alerts(state, {"510300": 9.702})
+
+        self.assertEqual(10.0, state["positions"]["510300"]["weighted_cost_cny"])
+        self.assertEqual([], early_profit)
+        self.assertEqual(["profit_4_5"], [alert["kind"] for alert in exact_profit])
+        self.assertEqual(["stop"], [alert["kind"] for alert in exact_stop])
+
     def test_drawdown_blocks_buys_and_starts_distinct_day_cooldown_with_risk_alerts(self) -> None:
         state = record_buy(self.state, "510300", price=10, amount=20_000)
         state = record_buy(state, "159915", price=10, amount=20_000)
@@ -160,11 +178,25 @@ class PortfolioTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "cooldown"):
             record_buy(state, "510500", price=10, amount=1)
 
-        state = advance_cooldown(state, "2026-07-20")
-        state = advance_cooldown(state, "2026-07-20")
+        state = advance_cooldown(
+            state, "2026-07-20", confirmed_trading_session=True
+        )
+        state = advance_cooldown(
+            state, "2026-07-20", confirmed_trading_session=True
+        )
         self.assertEqual(COOLDOWN_TRADING_DAYS - 1, state["cooldown_remaining_trading_days"])
-        for day in range(21, 30):
-            state = advance_cooldown(state, f"2026-07-{day}")
+        for day in (
+            "2026-07-21",
+            "2026-07-22",
+            "2026-07-23",
+            "2026-07-24",
+            "2026-07-27",
+            "2026-07-28",
+            "2026-07-29",
+            "2026-07-30",
+            "2026-07-31",
+        ):
+            state = advance_cooldown(state, day, confirmed_trading_session=True)
         self.assertEqual(0, state["cooldown_remaining_trading_days"])
         state, _ = update_drawdown(state, {"510300": 10, "159915": 10})
         with self.assertRaisesRegex(ValueError, "two open ETFs"):
@@ -185,14 +217,35 @@ class PortfolioTests(unittest.TestCase):
     def test_cooldown_uses_each_valid_trading_day_label_at_most_once(self) -> None:
         state = new_portfolio_state()
         state["cooldown_remaining_trading_days"] = 3
-        state = advance_cooldown(state, "2026-07-20")
-        state = advance_cooldown(state, "2026-07-21")
-        replayed = advance_cooldown(state, "2026-07-20")
+        state = advance_cooldown(
+            state, "2026-07-20", confirmed_trading_session=True
+        )
+        state = advance_cooldown(
+            state, "2026-07-21", confirmed_trading_session=True
+        )
+        replayed = advance_cooldown(
+            state, "2026-07-20", confirmed_trading_session=True
+        )
 
         self.assertEqual(1, replayed["cooldown_remaining_trading_days"])
         for invalid_day in ("", "not-a-date", "2026-02-30", 20260720):
             with self.assertRaises(ValueError):
-                advance_cooldown(replayed, invalid_day)  # type: ignore[arg-type]
+                advance_cooldown(  # type: ignore[arg-type]
+                    replayed, invalid_day, confirmed_trading_session=True
+                )
+
+    def test_cooldown_requires_authoritative_trading_session_confirmation(self) -> None:
+        state = new_portfolio_state()
+        state["cooldown_remaining_trading_days"] = 2
+
+        with self.assertRaises(TypeError):
+            advance_cooldown(state, "2026-07-20")
+        for non_trading_day in ("2026-07-18", "2026-10-01"):
+            with self.assertRaises(ValueError):
+                advance_cooldown(
+                    state, non_trading_day, confirmed_trading_session=False
+                )
+        self.assertEqual(2, state["cooldown_remaining_trading_days"])
 
     def test_non_finite_fill_and_capital_inputs_are_rejected(self) -> None:
         for non_finite in (float("nan"), float("inf"), float("-inf")):
