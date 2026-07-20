@@ -182,6 +182,13 @@ class MarketDataTests(unittest.TestCase):
         self.assertEqual(61, len(snapshot.bars))
         self.assertEqual(self.provider.timestamp, snapshot.source_timestamp)
         self.assertEqual(self.provider.calendar["session_date"], snapshot.benchmark_session_date)
+        self.assertEqual(self.provider.as_of, snapshot.observed_at)
+        self.assertEqual(
+            self.provider.calendar["source"], snapshot.benchmark_calendar.source
+        )
+        self.assertEqual(
+            self.provider.calendar["timestamp"], snapshot.benchmark_calendar.timestamp
+        )
         self.assertEqual([], self.provider.benchmark_calendar_calls)
 
     def test_snapshot_rejects_prices_disagreeing_by_more_than_point_three_percent(self) -> None:
@@ -501,8 +508,11 @@ class MarketDataTests(unittest.TestCase):
             market_data_module.validate_market_snapshot(
                 replace(
                     snapshot,
-                    benchmark_session_date=snapshot.benchmark_session_date
-                    - timedelta(days=1),
+                    benchmark_calendar=replace(
+                        snapshot.benchmark_calendar,
+                        latest_completed_session_date=snapshot.benchmark_session_date
+                        - timedelta(days=1),
+                    ),
                 )
             )
 

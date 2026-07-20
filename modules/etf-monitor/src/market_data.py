@@ -114,9 +114,14 @@ class MarketSnapshot:
     premium_pct: float
     catalyst: CatalystConfirmation
     session_date: date
-    benchmark_session_date: date
+    benchmark_calendar: BenchmarkCalendarState
+    observed_at: datetime
     source_timestamp: datetime
     sources: tuple[str, ...]
+
+    @property
+    def benchmark_session_date(self) -> date:
+        return self.benchmark_calendar.latest_completed_session_date
 
 
 class MarketDataProvider(Protocol):
@@ -312,7 +317,8 @@ def collect_market_snapshot(
             premium_pct=premium.value,
             catalyst=catalyst,
             session_date=calendar.session_date,
-            benchmark_session_date=benchmark_calendar.latest_completed_session_date,
+            benchmark_calendar=benchmark_calendar,
+            observed_at=as_of,
             source_timestamp=min(timestamps),
             sources=tuple(sorted(sources)),
         )
@@ -411,23 +417,41 @@ def validate_market_snapshot(value: Any) -> MarketSnapshot:
     session_date = value.session_date
     if not isinstance(session_date, date) or isinstance(session_date, datetime):
         raise MarketDataError("malformed_snapshot")
-    benchmark_session_date = value.benchmark_session_date
-    if not isinstance(benchmark_session_date, date) or isinstance(
-        benchmark_session_date, datetime
-    ):
-        raise MarketDataError("malformed_snapshot")
+    observed_at = _timestamp(value.observed_at, "malformed_snapshot")
+    benchmark_calendar = _benchmark_calendar(value.benchmark_calendar)
+    _fresh(
+        benchmark_calendar.timestamp,
+        observed_at,
+        SUPPORTING_DATA_MAX_AGE,
+        "stale_benchmark_calendar",
+    )
     source_timestamp = _timestamp(value.source_timestamp, "malformed_snapshot")
     if not isinstance(value.sources, (list, tuple)) or not value.sources:
         raise MarketDataError("malformed_snapshot")
     sources = tuple(_source_text(source) for source in value.sources)
+    if observed_at.astimezone(SHANGHAI_TZ).date() != session_date:
+        raise MarketDataError(
+            "observation_session_date_conflict", source_timestamp
+        )
+    if benchmark_calendar.source not in sources:
+        raise MarketDataError(
+            "benchmark_calendar_source_missing", source_timestamp
+        )
+    if source_timestamp > benchmark_calendar.timestamp:
+        raise MarketDataError(
+            "benchmark_calendar_timestamp_conflict", source_timestamp
+        )
 
     if bars[-1].date != session_date:
         raise MarketDataError("session_date_conflict", source_timestamp)
     if benchmark_bars[-1].date > session_date:
         raise MarketDataError("future_benchmark_bar", source_timestamp)
-    if benchmark_session_date > session_date:
+    if benchmark_calendar.latest_completed_session_date > session_date:
         raise MarketDataError("future_benchmark_session", source_timestamp)
-    if benchmark_bars[-1].date != benchmark_session_date:
+    if (
+        benchmark_bars[-1].date
+        != benchmark_calendar.latest_completed_session_date
+    ):
         raise MarketDataError("benchmark_session_date_conflict", source_timestamp)
     if (
         _relative_difference(current_price, bars[-1].close)
@@ -452,7 +476,8 @@ def validate_market_snapshot(value: Any) -> MarketSnapshot:
         premium_pct=premium_pct,
         catalyst=catalyst,
         session_date=session_date,
-        benchmark_session_date=benchmark_session_date,
+        benchmark_calendar=benchmark_calendar,
+        observed_at=observed_at,
         source_timestamp=source_timestamp,
         sources=sources,
     )

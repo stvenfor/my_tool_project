@@ -376,6 +376,111 @@ class ScannerTests(unittest.TestCase):
         self.assertEqual("DATA_ERROR", result["status"])
         self.assertIn("malformed_daily_bar", result["reasons"])
 
+    def test_direct_cross_market_snapshot_requires_fresh_authoritative_calendar(self) -> None:
+        snapshot = collect_market_snapshot(
+            dict(self.record, market="US"),
+            self.provider,
+            as_of=self.provider.as_of,
+        )
+
+        valid = evaluate_snapshot(snapshot)
+        self.assertEqual("BUY_CANDIDATE", valid["status"])
+
+        calendar = snapshot.benchmark_calendar
+        cases = (
+            (replace(snapshot, benchmark_calendar=None), "missing_benchmark_calendar"),
+            (
+                replace(
+                    snapshot,
+                    benchmark_calendar=replace(
+                        calendar, timestamp=calendar.timestamp.replace(tzinfo=None)
+                    ),
+                ),
+                "missing_benchmark_calendar_timestamp",
+            ),
+            (
+                replace(
+                    snapshot,
+                    benchmark_calendar=replace(
+                        calendar, timestamp=snapshot.observed_at - timedelta(hours=25)
+                    ),
+                ),
+                "stale_benchmark_calendar",
+            ),
+            (
+                replace(
+                    snapshot,
+                    benchmark_calendar=replace(calendar, source=""),
+                ),
+                "missing_source",
+            ),
+            (
+                replace(
+                    snapshot,
+                    benchmark_calendar=replace(
+                        calendar,
+                        latest_completed_session_date=calendar.latest_completed_session_date
+                        - timedelta(days=1),
+                    ),
+                ),
+                "benchmark_session_date_conflict",
+            ),
+        )
+        for candidate, reason in cases:
+            with self.subTest(reason):
+                result = evaluate_snapshot(candidate)
+                self.assertEqual("DATA_ERROR", result["status"])
+                self.assertIn(reason, result["reasons"])
+
+    def test_direct_cross_market_snapshot_requires_observation_and_calendar_provenance(self) -> None:
+        snapshot = collect_market_snapshot(
+            dict(self.record, market="HK"),
+            self.provider,
+            as_of=self.provider.as_of,
+        )
+        calendar = snapshot.benchmark_calendar
+        previous_observation = snapshot.observed_at - timedelta(days=1)
+        cases = (
+            (
+                replace(snapshot, observed_at=snapshot.observed_at.replace(tzinfo=None)),
+                "malformed_snapshot",
+            ),
+            (
+                replace(
+                    snapshot,
+                    sources=tuple(
+                        source
+                        for source in snapshot.sources
+                        if source != calendar.source
+                    ),
+                ),
+                "benchmark_calendar_source_missing",
+            ),
+            (
+                replace(
+                    snapshot,
+                    source_timestamp=calendar.timestamp + timedelta(minutes=1),
+                ),
+                "benchmark_calendar_timestamp_conflict",
+            ),
+            (
+                replace(
+                    snapshot,
+                    observed_at=previous_observation,
+                    benchmark_calendar=replace(
+                        calendar, timestamp=calendar.timestamp - timedelta(days=1)
+                    ),
+                    source_timestamp=snapshot.source_timestamp - timedelta(days=1),
+                ),
+                "observation_session_date_conflict",
+            ),
+        )
+        for candidate, reason in cases:
+            with self.subTest(reason):
+                result = evaluate_snapshot(candidate)
+                self.assertEqual("DATA_ERROR", result["status"])
+                self.assertIn(reason, result["reasons"])
+
     def test_direct_snapshot_with_insufficient_common_dates_returns_data_error(self) -> None:
         snapshot = collect_market_snapshot(
             self.record, self.provider, as_of=self.provider.as_of
@@ -390,7 +495,10 @@ class ScannerTests(unittest.TestCase):
                 snapshot,
                 market="HK",
                 benchmark_bars=shifted_benchmark,
-                benchmark_session_date=shifted_benchmark[-1].date,
+                benchmark_calendar=replace(
+                    snapshot.benchmark_calendar,
+                    latest_completed_session_date=shifted_benchmark[-1].date,
+                ),
             )
         )
 
