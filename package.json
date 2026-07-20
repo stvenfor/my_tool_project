@@ -137,7 +137,13 @@
     "video-factory:queue-next": "npm run queue-next -w @tools/video-factory --",
     "video-factory:mark-sent": "npm run mark-sent -w @tools/video-factory --",
     "video-factory:qa": "npm run qa -w @tools/video-factory --",
-    "video-factory:validate": "npm run validate -w @tools/video-factory --"
+    "video-factory:validate": "npm run validate -w @tools/video-factory --",
+    "etf:audit": "npm run audit -w @tools/etf-monitor --",
+    "etf:record-buy": "npm run record-buy -w @tools/etf-monitor --",
+    "etf:record-sell": "npm run record-sell -w @tools/etf-monitor --",
+    "etf:scan": "npm run scan -w @tools/etf-monitor --",
+    "etf:scheduled-check": "npm run scheduled-check -w @tools/etf-monitor --",
+    "etf:test": "npm run test -w @tools/etf-monitor"
   },
   "devDependencies": {
     "playwright": "^1.52.0"

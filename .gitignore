@@ -51,6 +51,7 @@ videos/
 modules/*/remotion/public/
 
 # Runtime state
+modules/etf-monitor/state/
 modules/cffex-daily/quote_state.json
 modules/cffex-daily/remotion/public/report-props.json
 modules/cffex-daily/remotion/public/bgm.mp3

@@ -18,6 +18,7 @@
 | [@tools/three-kingdoms-english-video](../modules/three-kingdoms-english-video/) | 三国英配叙事 | `modules/three-kingdoms-english-video/work/` |
 | [@tools/hot-topic-infographic](../modules/hot-topic-infographic/) | 热点信息图 | `modules/hot-topic-infographic/work/` |
 | [@tools/cat-drama-video](../modules/cat-drama-video/) | 猫短剧对白 | `modules/cat-drama-video/work/` |
+| [@tools/etf-monitor](../modules/etf-monitor/) | ETF 静态审计、真实成交记账与 advisory-only 定时检查 | `modules/etf-monitor/state/`（本地忽略） |
 | [@tools/shared-douyin](../modules/shared/douyin/) | 抖音登录 / 发布 | — |
 | [@tools/shared-media](../modules/shared/media/) | 参考片切片工具 | — |
 
@@ -34,6 +35,8 @@ npm run viral-dub:pipeline -- --config modules/viral-english-dub/work/organ-dona
 npm run cognitive:pipeline -- --id middle-class-exit
 npm run video-factory:pipeline -- --id middle-class-exit
 npm run cffex:daily
+npm run etf:audit
+npm run etf:scheduled-check -- --fixture modules/etf-monitor/state/provider.json
 ```
 
 ## 文档
