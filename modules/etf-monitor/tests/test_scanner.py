@@ -171,8 +171,22 @@ class ScannerTests(unittest.TestCase):
 
     def test_position_monitoring_runs_without_catalyst_and_emits_profit_stop_drawdown(self) -> None:
         state = new_portfolio_state()
-        state = record_buy(state, "510300", price=10, amount=20_000)
-        state = record_buy(state, "159915", price=10, amount=20_000)
+        state = record_buy(state, "510300", price=10, amount=10_000)
+        state = record_buy(
+            state,
+            "510300",
+            price=10,
+            amount=10_000,
+            second_tranche_confirmed=True,
+        )
+        state = record_buy(state, "159915", price=10, amount=10_000)
+        state = record_buy(
+            state,
+            "159915",
+            price=10,
+            amount=10_000,
+            second_tranche_confirmed=True,
+        )
 
         updated, output = monitor_positions(
             state,
@@ -192,7 +206,14 @@ class ScannerTests(unittest.TestCase):
 
     def test_provider_backed_position_monitoring_does_not_require_catalyst(self) -> None:
         state = record_buy(
-            new_portfolio_state(), "510300", price=9.9, amount=20_000
+            new_portfolio_state(), "510300", price=9.9, amount=10_000
+        )
+        state = record_buy(
+            state,
+            "510300",
+            price=9.9,
+            amount=10_000,
+            second_tranche_confirmed=True,
         )
         self.provider.catalyst = None
 
@@ -205,8 +226,22 @@ class ScannerTests(unittest.TestCase):
 
     def test_provider_position_alerts_use_each_codes_quote_timestamp(self) -> None:
         state = new_portfolio_state()
-        state = record_buy(state, "510300", price=9.9, amount=20_000)
-        state = record_buy(state, "159915", price=9.9, amount=20_000)
+        state = record_buy(state, "510300", price=9.9, amount=10_000)
+        state = record_buy(
+            state,
+            "510300",
+            price=9.9,
+            amount=10_000,
+            second_tranche_confirmed=True,
+        )
+        state = record_buy(state, "159915", price=9.9, amount=10_000)
+        state = record_buy(
+            state,
+            "159915",
+            price=9.9,
+            amount=10_000,
+            second_tranche_confirmed=True,
+        )
         timestamps = {
             "510300": self.provider.timestamp - timedelta(minutes=4),
             "159915": self.provider.timestamp - timedelta(minutes=1),
