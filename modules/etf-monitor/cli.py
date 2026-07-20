@@ -445,7 +445,9 @@ def _scheduled_scan_status(result: Mapping[str, Any]) -> str:
         set(gate.get("reasons", [])) if isinstance(gate, Mapping) else set()
     )
     scanner_reasons = reasons - gate_reasons
-    if result.get("status") == "DATA_ERROR" and reasons == {"not_trading_session"}:
+    if result.get("status") == "DATA_ERROR" and scanner_reasons == {
+        "not_trading_session"
+    }:
         return "NO_ACTION"
     if result.get("status") == "BUY_CANDIDATE":
         return "BUY_CANDIDATE"

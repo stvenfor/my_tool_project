@@ -361,6 +361,25 @@ class CliTests(unittest.TestCase):
         persisted = json.loads(self.state_path.read_text(encoding="utf-8"))
         self.assertEqual(10, persisted["cooldown_remaining_trading_days"])
 
+    def test_scheduled_holiday_with_first_tranche_stays_no_action(self) -> None:
+        state = record_buy(new_portfolio_state(), self.code, 10, amount=10_000)
+        self.write_state(state)
+        provider = FixtureProvider()
+        provider.calendar["is_trading_session"] = False
+
+        result = self.execute(
+            ["scheduled-check", "--code", self.code], provider=provider
+        )
+
+        self.assertEqual("NO_ACTION", result["status"])
+        self.assertIn("not_trading_session", result["reasons"])
+        self.assertIn(
+            "second_tranche_requires_renewed_confirmation", result["reasons"]
+        )
+        gate = result["scan_results"][0]["portfolio_gate"]
+        self.assertTrue(gate["allowed"])
+        self.assertTrue(gate["requires_renewed_confirmation"])
+
     def test_scheduled_check_advances_cooldown_once_per_confirmed_trading_day(self) -> None:
         state = new_portfolio_state()
         state["cooldown_remaining_trading_days"] = 10
