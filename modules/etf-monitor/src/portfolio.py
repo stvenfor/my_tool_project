@@ -123,7 +123,7 @@ def record_sell(
     if position is None:
         raise ValueError(f"no open position for {code}")
     held_shares = float(position["shares"])
-    if sell_shares > held_shares + _EPSILON:
+    if sell_shares > held_shares:
         raise ValueError("cannot sell more shares than are held")
 
     cost_basis = float(position["cost_basis_cny"])

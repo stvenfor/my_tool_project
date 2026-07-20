@@ -70,6 +70,16 @@ class PortfolioTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             record_buy(self.state, "510300", price=10_000_000, amount=0.01)
 
+    def test_tiny_holding_cannot_be_oversold_with_tolerance(self) -> None:
+        state = record_buy(self.state, "510300", price=1_000_000, shares=0.00000001)
+        cash_before_sale = state["cash_cny"]
+
+        with self.assertRaisesRegex(ValueError, "more shares"):
+            record_sell(state, "510300", price=1_000_000, shares=0.00000002)
+
+        self.assertEqual(cash_before_sale, state["cash_cny"])
+        self.assertEqual(0.00000001, state["positions"]["510300"]["shares"])
+
     def test_partial_sell_keeps_average_cost_and_calculates_realized_and_unrealized_pnl(self) -> None:
         state = record_buy(self.state, "510300", price=10, shares=1_000)
         state = record_buy(
