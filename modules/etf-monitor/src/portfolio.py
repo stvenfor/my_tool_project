@@ -469,7 +469,7 @@ def validate_portfolio_state(state: Mapping[str, Any]) -> None:
             if normalized_cost > MAX_SINGLE_TRANCHE_CNY:
                 raise ValueError(f"entry tranche {index} for {code} exceeds the limit")
             entry_cost_total += normalized_cost
-        if entry_cost_total + 0.01 < cost_basis:
+        if _money(entry_cost_total) < cost_basis:
             raise ValueError(f"entry tranche history is below current cost basis for {code}")
         flags = position["alert_acknowledged"]
         if not isinstance(flags, Mapping) or set(flags.keys()) != _ALERT_FLAG_KEYS:

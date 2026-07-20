@@ -577,9 +577,9 @@ class PortfolioTests(unittest.TestCase):
 
         insufficient_history = deepcopy(single)
         insufficient_history["positions"]["510300"]["entry_tranche_costs_cny"] = [
-            9_999
+            9_999.99
         ]
-        corrupt_states.append(("below_current_basis", insufficient_history))
+        corrupt_states.append(("one_cent_below_current_basis", insufficient_history))
 
         for label, state in corrupt_states:
             with self.subTest(label):
