@@ -549,6 +549,80 @@ class PortfolioTests(unittest.TestCase):
         reopened = record_buy(reset, "510300", price=8.4, amount=10_000)
         self.assertIn("510300", reopened["positions"])
 
+    def test_recovered_empty_portfolio_finishes_existing_risk_cooldown(self) -> None:
+        state = record_buy(self.state, "510300", price=10, amount=10_000)
+        state, _ = update_drawdown(state, {"510300": 8})
+        for trading_day in self.TRADING_DAYS[:-1]:
+            state = advance_cooldown(
+                state, trading_day, confirmed_trading_session=True
+            )
+
+        state, _ = update_drawdown(state, {"510300": 10})
+        closed = record_sell(state, "510300", price=10, shares=1_000)
+
+        self.assertEqual({}, closed["positions"])
+        self.assertEqual(0.0, closed["drawdown_pct"])
+        self.assertFalse(closed["risk_drawdown_active"])
+        self.assertTrue(closed["risk_reset_pending"])
+        self.assertEqual(1, closed["cooldown_remaining_trading_days"])
+        self.assertEqual(9, len(closed["processed_cooldown_trading_days"]))
+        self.assertIsNone(portfolio_module.validate_portfolio_state(closed))
+
+        reset = advance_cooldown(
+            closed,
+            self.TRADING_DAYS[-1],
+            confirmed_trading_session=True,
+        )
+        self.assertFalse(reset["risk_reset_pending"])
+        self.assertEqual(0, reset["cooldown_remaining_trading_days"])
+        self.assertEqual([], reset["processed_cooldown_trading_days"])
+        self.assertIsNone(reset["last_cooldown_trading_day"])
+        self.assertIsNone(portfolio_module.validate_portfolio_state(reset))
+
+    def test_validator_rejects_forged_cooldown_progress_and_last_day(self) -> None:
+        risk = record_buy(self.state, "510300", price=10, amount=10_000)
+        risk = record_sell(risk, "510300", price=8.4, shares=1_000)
+        after_one_day = advance_cooldown(
+            risk, self.TRADING_DAYS[0], confirmed_trading_session=True
+        )
+        corrupt_states = []
+
+        remaining_without_history = deepcopy(risk)
+        remaining_without_history["cooldown_remaining_trading_days"] = 1
+        corrupt_states.append(("remaining_without_history", remaining_without_history))
+
+        mismatched_progress = deepcopy(after_one_day)
+        mismatched_progress["cooldown_remaining_trading_days"] = 8
+        corrupt_states.append(("mismatched_progress", mismatched_progress))
+
+        missing_last_day = deepcopy(after_one_day)
+        missing_last_day["last_cooldown_trading_day"] = None
+        corrupt_states.append(("missing_last_day", missing_last_day))
+
+        wrong_last_day = deepcopy(after_one_day)
+        wrong_last_day["last_cooldown_trading_day"] = self.TRADING_DAYS[1]
+        corrupt_states.append(("wrong_last_day", wrong_last_day))
+
+        inactive_with_history = new_portfolio_state()
+        inactive_with_history["processed_cooldown_trading_days"] = [
+            self.TRADING_DAYS[0]
+        ]
+        inactive_with_history["last_cooldown_trading_day"] = self.TRADING_DAYS[0]
+        corrupt_states.append(("inactive_with_history", inactive_with_history))
+
+        empty_pending_at_zero = deepcopy(risk)
+        empty_pending_at_zero["cooldown_remaining_trading_days"] = 0
+        empty_pending_at_zero["processed_cooldown_trading_days"] = list(
+            self.TRADING_DAYS
+        )
+        empty_pending_at_zero["last_cooldown_trading_day"] = self.TRADING_DAYS[-1]
+        corrupt_states.append(("empty_pending_at_zero", empty_pending_at_zero))
+
+        for label, state in corrupt_states:
+            with self.subTest(label):
+                with self.assertRaises(ValueError):
+                    portfolio_module.validate_portfolio_state(state)
+
     def test_trigger_exit_and_ten_distinct_sessions_reset_risk_cycle_for_buying(self) -> None:
         state = record_buy(self.state, "510300", price=10, amount=10_000)
         state, alerts = update_drawdown(state, {"510300": 8})

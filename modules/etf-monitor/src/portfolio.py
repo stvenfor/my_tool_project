@@ -419,6 +419,11 @@ def validate_portfolio_state(state: Mapping[str, Any]) -> None:
         raise ValueError("last cooldown day must match the latest processed day")
     if not processed_days and last_day is not None:
         raise ValueError("last cooldown day requires a processed day")
+    if state["risk_reset_pending"]:
+        if cooldown_remaining + len(processed_days) != COOLDOWN_TRADING_DAYS:
+            raise ValueError("pending risk reset has inconsistent cooldown progress")
+    elif cooldown_remaining != 0 or processed_days or last_day is not None:
+        raise ValueError("inactive risk reset cannot retain cooldown progress")
 
     cycles = state["next_cycle_by_code"]
     if not isinstance(cycles, dict):
@@ -432,6 +437,8 @@ def validate_portfolio_state(state: Mapping[str, Any]) -> None:
         raise ValueError("positions must contain at most two ETFs")
     if state["valuation_required"] and not positions:
         raise ValueError("valuation cannot be required without an open position")
+    if not positions and state["risk_reset_pending"] and cooldown_remaining == 0:
+        raise ValueError("cash-only pending risk reset requires remaining cooldown")
     exposure = 0.0
     for code, position in positions.items():
         _code(code)
@@ -497,10 +504,8 @@ def validate_portfolio_state(state: Mapping[str, Any]) -> None:
         if state["risk_drawdown_active"] is not expected_active:
             raise ValueError("cash-only risk_drawdown_active is inconsistent")
         if expected_drawdown >= BUY_BLOCK_DRAWDOWN_PCT:
-            if not state["risk_reset_pending"] or cooldown_remaining <= 0:
-                raise ValueError("cash-only drawdown requires an active reset cooldown")
-        elif state["risk_reset_pending"] or cooldown_remaining != 0:
-            raise ValueError("cash-only recovered state cannot have a pending cooldown")
+            if not state["risk_reset_pending"]:
+                raise ValueError("cash-only drawdown requires a pending risk reset")
 
 
 def _empty_alert_flags() -> dict[str, bool]:
@@ -536,6 +541,8 @@ def _maybe_complete_risk_reset(state: dict[str, Any]) -> None:
         state["risk_drawdown_active"] = False
         state["risk_reset_pending"] = False
         state["valuation_required"] = False
+        state["last_cooldown_trading_day"] = None
+        state["processed_cooldown_trading_days"] = []
 
 
 def _invalidated_set(values: Iterable[str] | Mapping[str, bool]) -> set[str]:
