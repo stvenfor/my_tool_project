@@ -26,16 +26,19 @@ from src.portfolio import (
     MAX_ETF_COST_CNY,
     MAX_OPEN_POSITIONS,
     MAX_RISK_EXPOSURE_CNY,
+    MAX_SINGLE_TRANCHE_CNY,
     MAX_TRANCHES_PER_ETF,
     advance_cooldown,
     new_portfolio_state,
     record_buy,
     record_sell,
+    validate_portfolio_state,
 )
 from src.scanner import monitor_positions_from_provider, scan_etf
 
 
 SCHEMA_VERSION = 1
+TARGET_TRANCHE_CNY = 10_000
 MODULE_ROOT = Path(__file__).resolve().parent
 STATE_DIR = MODULE_ROOT / "state"
 STATE_PATH = STATE_DIR / "portfolio.json"
@@ -68,15 +71,24 @@ class JsonFixtureProvider:
         position_codes: Sequence[str] = (),
     ) -> None:
         try:
-            raw = json.loads(path.read_text(encoding="utf-8"))
-        except (OSError, json.JSONDecodeError) as exc:
-            raise ValueError("invalid provider fixture") from exc
-        if not isinstance(raw, dict):
-            raise ValueError("provider fixture must be a JSON object")
-        self.payload = _typed_fixture(raw)
-        self.as_of = self.payload.get("as_of")
-        if self.as_of is not None and not isinstance(self.as_of, datetime):
-            raise ValueError("provider fixture as_of must be an ISO timestamp")
+            raw = json.loads(
+                path.read_text(encoding="utf-8"),
+                parse_constant=_reject_json_constant,
+            )
+            if not isinstance(raw, dict):
+                raise ValueError("provider fixture must be a JSON object")
+            self.payload = _typed_fixture(raw)
+            self.as_of = self.payload.get("as_of")
+            if self.as_of is not None and not isinstance(self.as_of, datetime):
+                raise ValueError("provider fixture as_of must be an ISO timestamp")
+        except (
+            argparse.ArgumentTypeError,
+            json.JSONDecodeError,
+            OSError,
+            TypeError,
+            ValueError,
+        ) as exc:
+            raise ValueError(f"invalid provider fixture: {exc}") from exc
         self.scan_codes = _unique(str(record["code"]) for record in records)
         self.quote_codes = _unique(list(self.scan_codes) + list(position_codes))
         self.multicode_scan = len(self.scan_codes) > 1
@@ -370,18 +382,25 @@ def _scheduled_result(
     invalidated_codes: Sequence[str],
 ) -> dict[str, Any]:
     state = _load_state(state_path)
-    calendar_error: Optional[MarketDataError] = None
-    calendar_updated = state
     try:
         session = collect_trading_session(provider, observed_at)
-        if session.is_trading_session is True:
-            calendar_updated = advance_cooldown(
-                state,
-                session.session_date.isoformat(),
-                confirmed_trading_session=True,
-            )
     except MarketDataError as exc:
-        calendar_error = exc
+        return _scheduled_terminal_result(
+            "DATA_ERROR",
+            [exc.reason],
+            exc.source_timestamp or observed_at,
+        )
+    if session.is_trading_session is not True:
+        return _scheduled_terminal_result(
+            "NO_ACTION",
+            ["not_trading_session"],
+            session.timestamp,
+        )
+    calendar_updated = advance_cooldown(
+        state,
+        session.session_date.isoformat(),
+        confirmed_trading_session=True,
+    )
 
     updated, position_result = monitor_positions_from_provider(
         calendar_updated,
@@ -417,10 +436,8 @@ def _scheduled_result(
     else:
         status = "NO_ACTION"
 
-    calendar_reasons = [calendar_error.reason] if calendar_error is not None else []
     reasons = _unique(
         list(position_result.get("reasons", []))
-        + calendar_reasons
         + [reason for scan in scans for reason in scan["reasons"]]
     )
     result = _base_result("scheduled-check", status, reasons=reasons)
@@ -431,6 +448,20 @@ def _scheduled_result(
             ),
             "alerts": alerts,
             "scan_results": scans,
+        }
+    )
+    return result
+
+
+def _scheduled_terminal_result(
+    status: str, reasons: Sequence[str], source_timestamp: datetime
+) -> dict[str, Any]:
+    result = _base_result("scheduled-check", status, reasons=reasons)
+    result.update(
+        {
+            "source_timestamp": _timestamp_text(source_timestamp).isoformat(),
+            "alerts": [],
+            "scan_results": [],
         }
     )
     return result
@@ -476,15 +507,25 @@ def _advisory_alert(alert: Mapping[str, Any], source_timestamp: str) -> dict[str
 
 
 def _portfolio_gate(state: Mapping[str, Any], code: str) -> dict[str, Any]:
+    validate_portfolio_state(state)
     positions = state["positions"]
-    if not isinstance(positions, Mapping):
-        raise ValueError("invalid portfolio state")
 
     blocking: list[str] = []
     if float(state["drawdown_pct"]) >= BUY_BLOCK_DRAWDOWN_PCT:
         blocking.append("buy_blocked_by_drawdown")
     if int(state["cooldown_remaining_trading_days"]) > 0:
         blocking.append("buy_blocked_during_cooldown")
+    if bool(state["valuation_required"]):
+        blocking.append("buy_blocked_pending_valuation")
+    if bool(state["risk_reset_pending"]):
+        blocking.append("buy_blocked_pending_risk_reset")
+    if TARGET_TRANCHE_CNY > MAX_SINGLE_TRANCHE_CNY:
+        blocking.append("target_tranche_exceeds_single_tranche_limit")
+    post_buy_cash = round(float(state["cash_cny"]) - TARGET_TRANCHE_CNY, 2)
+    if post_buy_cash < float(state["cash_reserve_cny"]):
+        blocking.append(
+            f"cash_reserve_floor_cny_{int(float(state['cash_reserve_cny']))}"
+        )
 
     position = positions.get(code)
     if position is None and len(positions) >= MAX_OPEN_POSITIONS:
@@ -495,14 +536,17 @@ def _portfolio_gate(state: Mapping[str, Any], code: str) -> dict[str, Any]:
         if not isinstance(candidate, Mapping):
             raise ValueError("invalid portfolio state")
         exposure += float(candidate["cost_basis_cny"])
-    if exposure + 10_000 > MAX_RISK_EXPOSURE_CNY:
+    if exposure + TARGET_TRANCHE_CNY > MAX_RISK_EXPOSURE_CNY:
         blocking.append("risk_exposure_limit_cny_40000")
 
     requires_confirmation = False
     if position is not None:
         if not isinstance(position, Mapping):
             raise ValueError("invalid portfolio state")
-        if float(position["cost_basis_cny"]) + 10_000 > MAX_ETF_COST_CNY:
+        if (
+            float(position["cost_basis_cny"]) + TARGET_TRANCHE_CNY
+            > MAX_ETF_COST_CNY
+        ):
             blocking.append("per_etf_cost_limit_cny_20000")
         tranche_count = int(position["tranche_count"])
         if tranche_count >= MAX_TRANCHES_PER_ETF:
@@ -516,18 +560,21 @@ def _portfolio_gate(state: Mapping[str, Any], code: str) -> dict[str, Any]:
         "allowed": not blocking,
         "reasons": reasons,
         "requires_renewed_confirmation": requires_confirmation,
-        "target_tranche_cny": 10_000,
+        "target_tranche_cny": TARGET_TRANCHE_CNY,
+        "max_single_tranche_cny": MAX_SINGLE_TRANCHE_CNY,
+        "cash_reserve_cny": float(state["cash_reserve_cny"]),
     }
 
 
 def _risk_controls() -> dict[str, Any]:
     return {
         "broker_recheck_required": True,
+        "max_single_tranche_cny": MAX_SINGLE_TRANCHE_CNY,
         "invalidation": "signal_invalidation_or_minus_3_pct_from_weighted_cost",
         "max_position_cost_cny": 20_000,
         "second_tranche_requires_renewed_confirmation": True,
         "stop_loss_pct": -3.0,
-        "target_tranche_cny": 10_000,
+        "target_tranche_cny": TARGET_TRANCHE_CNY,
     }
 
 
@@ -575,20 +622,32 @@ def _default_scan_codes(universe: Sequence[Mapping[str, Any]]) -> list[str]:
 def _load_state(path: Path) -> dict[str, Any]:
     if not path.exists():
         return new_portfolio_state()
-    payload = json.loads(path.read_text(encoding="utf-8"))
+    payload = json.loads(
+        path.read_text(encoding="utf-8"),
+        parse_constant=_reject_json_constant,
+    )
     if not isinstance(payload, dict):
         raise ValueError("portfolio state must be a JSON object")
+    validate_portfolio_state(payload)
     return payload
 
 
 def _write_state(path: Path, state: Mapping[str, Any]) -> None:
+    validate_portfolio_state(state)
     path.parent.mkdir(parents=True, exist_ok=True)
     descriptor, temporary_name = tempfile.mkstemp(
         prefix=f".{path.name}.", suffix=".tmp", dir=str(path.parent)
     )
     try:
         with os.fdopen(descriptor, "w", encoding="utf-8") as handle:
-            json.dump(state, handle, ensure_ascii=False, sort_keys=True, indent=2)
+            json.dump(
+                state,
+                handle,
+                allow_nan=False,
+                ensure_ascii=False,
+                sort_keys=True,
+                indent=2,
+            )
             handle.write("\n")
             handle.flush()
             os.fsync(handle.fileno())
@@ -598,6 +657,10 @@ def _write_state(path: Path, state: Mapping[str, Any]) -> None:
             os.unlink(temporary_name)
         except FileNotFoundError:
             pass
+
+
+def _reject_json_constant(value: str) -> None:
+    raise ValueError(f"invalid JSON constant: {value}")
 
 
 def _base_result(command: str, status: str, *, reasons: Optional[Sequence[str]] = None) -> dict[str, Any]:

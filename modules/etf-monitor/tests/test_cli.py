@@ -247,7 +247,7 @@ class CliTests(unittest.TestCase):
 
         drawdown = record_buy(new_portfolio_state(), self.code, 10.40, amount=10_000)
         current_equity = drawdown["cash_cny"] + 10_000 / 10.40 * 10.4005
-        drawdown["high_watermark_equity_cny"] = current_equity / 0.985
+        drawdown["high_watermark_equity_cny"] = round(current_equity / 0.985, 2)
         cases.append(("buy_blocked_by_drawdown", drawdown, self.code))
 
         cooldown = new_portfolio_state()
@@ -258,11 +258,25 @@ class CliTests(unittest.TestCase):
         two_positions = record_buy(two_positions, self.other_code, 10, amount=10_000)
         cases.append(("max_open_positions_reached", two_positions, third_code))
 
-        exposure = record_buy(new_portfolio_state(), self.code, 10, amount=20_000)
+        exposure = record_buy(new_portfolio_state(), self.code, 10, amount=10_000)
+        exposure = record_buy(
+            exposure,
+            self.code,
+            10,
+            amount=10_000,
+            second_tranche_confirmed=True,
+        )
         exposure = record_buy(exposure, self.other_code, 10, amount=11_000)
         cases.append(("risk_exposure_limit_cny_40000", exposure, third_code))
 
-        etf_limit = record_buy(new_portfolio_state(), self.code, 10, amount=15_000)
+        etf_limit = record_buy(new_portfolio_state(), self.code, 10, amount=7_500)
+        etf_limit = record_buy(
+            etf_limit,
+            self.code,
+            10,
+            amount=7_500,
+            second_tranche_confirmed=True,
+        )
         cases.append(("per_etf_cost_limit_cny_20000", etf_limit, self.code))
 
         tranches = record_buy(new_portfolio_state(), self.code, 10, amount=5_000)
@@ -362,10 +376,14 @@ class CliTests(unittest.TestCase):
         self.assertEqual(10, persisted["cooldown_remaining_trading_days"])
 
     def test_scheduled_holiday_with_first_tranche_stays_no_action(self) -> None:
-        state = record_buy(new_portfolio_state(), self.code, 10, amount=10_000)
+        state = record_buy(new_portfolio_state(), self.code, 9.9, amount=10_000)
+        original = deepcopy(state)
         self.write_state(state)
         provider = FixtureProvider()
         provider.calendar["is_trading_session"] = False
+        provider.get_current_quotes = lambda code: self.fail(
+            "closed-session check consumed position quotes"
+        )
 
         result = self.execute(
             ["scheduled-check", "--code", self.code], provider=provider
@@ -373,12 +391,42 @@ class CliTests(unittest.TestCase):
 
         self.assertEqual("NO_ACTION", result["status"])
         self.assertIn("not_trading_session", result["reasons"])
-        self.assertIn(
-            "second_tranche_requires_renewed_confirmation", result["reasons"]
+        self.assertEqual([], result["alerts"])
+        self.assertEqual([], result["scan_results"])
+        self.assertEqual(
+            original, json.loads(self.state_path.read_text(encoding="utf-8"))
         )
-        gate = result["scan_results"][0]["portfolio_gate"]
-        self.assertTrue(gate["allowed"])
-        self.assertTrue(gate["requires_renewed_confirmation"])
+
+    def test_invalid_calendar_fails_before_alerts_or_state_changes(self) -> None:
+        original = record_buy(new_portfolio_state(), self.code, 9.9, amount=10_000)
+        cases = []
+        malformed = FixtureProvider()
+        malformed.calendar["is_trading_session"] = "false"
+        cases.append(("malformed_trading_calendar", malformed))
+        stale = FixtureProvider()
+        stale.calendar["timestamp"] = stale.as_of - timedelta(hours=25)
+        cases.append(("stale_calendar", stale))
+        conflict = FixtureProvider()
+        conflict.calendar["session_date"] -= timedelta(days=1)
+        cases.append(("session_date_conflict", conflict))
+
+        for reason, provider in cases:
+            with self.subTest(reason):
+                self.write_state(original)
+                provider.get_current_quotes = lambda code: self.fail(
+                    "invalid-calendar check consumed position quotes"
+                )
+                result = self.execute(
+                    ["scheduled-check", "--code", self.code], provider=provider
+                )
+                self.assertEqual("DATA_ERROR", result["status"])
+                self.assertEqual([reason], result["reasons"])
+                self.assertEqual([], result["alerts"])
+                self.assertEqual([], result["scan_results"])
+                self.assertEqual(
+                    original,
+                    json.loads(self.state_path.read_text(encoding="utf-8")),
+                )
 
     def test_scheduled_check_advances_cooldown_once_per_confirmed_trading_day(self) -> None:
         state = new_portfolio_state()
@@ -551,6 +599,94 @@ class CliTests(unittest.TestCase):
                         "unknown or non-tradable ETF code", result["reasons"][0]
                     )
 
+    def test_state_json_rejects_nonstandard_constants_and_wrong_schema(self) -> None:
+        state = new_portfolio_state()
+        raw = json.dumps(state).replace('"cash_cny": 100000.0', '"cash_cny": NaN')
+        self.state_path.parent.mkdir(parents=True, exist_ok=True)
+        self.state_path.write_text(raw, encoding="utf-8")
+
+        nonstandard = self.execute(
+            ["record-buy", self.code, "--price", "10", "--amount", "10000"]
+        )
+        self.assertEqual("INPUT_ERROR", nonstandard["status"])
+        self.assertIn("invalid JSON constant", nonstandard["reasons"][0])
+        self.assertIsNone(nonstandard["state"])
+
+        state = new_portfolio_state()
+        state["schema_version"] = 1
+        self.write_state(state)
+        wrong_schema = self.execute(
+            ["record-buy", self.code, "--price", "10", "--amount", "10000"]
+        )
+        self.assertEqual("INPUT_ERROR", wrong_schema["status"])
+        self.assertIn("schema_version", wrong_schema["reasons"][0])
+
+    def test_write_state_validates_before_serializing_nonfinite_values(self) -> None:
+        invalid = new_portfolio_state()
+        invalid["cash_cny"] = float("nan")
+
+        with self.assertRaisesRegex(ValueError, "finite"):
+            cli._write_state(self.state_path, invalid)
+
+        self.assertFalse(self.state_path.exists())
+
+    def test_invalid_fixture_timestamps_return_canonical_input_error(self) -> None:
+        valid = cli.fixture_payload_from_provider(FixtureProvider())
+        cases = []
+        invalid_json = Path(self.temporary.name) / "invalid.json"
+        invalid_json.write_text("{not-json", encoding="utf-8")
+        cases.append(invalid_json)
+
+        naive_as_of = deepcopy(valid)
+        naive_as_of["as_of"] = "2026-07-20T15:05:00"
+        cases.append(self.write_fixture(naive_as_of))
+
+        naive_quote = deepcopy(valid)
+        naive_quote["current_quotes"][0]["timestamp"] = "2026-07-20T15:00:00"
+        quote_path = Path(self.temporary.name) / "naive-quote.json"
+        quote_path.write_text(json.dumps(naive_quote), encoding="utf-8")
+        cases.append(quote_path)
+
+        for fixture_path in cases:
+            with self.subTest(fixture_path.name):
+                output = io.StringIO()
+                with contextlib.redirect_stdout(output):
+                    exit_code = cli.main(
+                        [
+                            "scan",
+                            "--code",
+                            self.code,
+                            "--fixture",
+                            str(fixture_path),
+                        ],
+                        state_path=self.state_path,
+                    )
+                result = json.loads(output.getvalue())
+                self.assertEqual(2, exit_code)
+                self.assertEqual("INPUT_ERROR", result["status"])
+                self.assertEqual([], result["results"])
+                self.assertIn("source_timestamp", result)
+
+    def test_portfolio_gate_enforces_cash_tranche_and_lifecycle_contract(self) -> None:
+        cash = new_portfolio_state()
+        cash["cash_cny"] = 65_000.0
+        cash_gate = cli._portfolio_gate(cash, self.code)
+        self.assertFalse(cash_gate["allowed"])
+        self.assertIn("cash_reserve_floor_cny_60000", cash_gate["reasons"])
+        self.assertEqual(60_000, cash_gate["cash_reserve_cny"])
+        self.assertEqual(10_000, cash_gate["target_tranche_cny"])
+        self.assertEqual(11_000, cash_gate["max_single_tranche_cny"])
+
+        valuation = record_buy(new_portfolio_state(), self.code, 10, amount=10_000)
+        valuation["valuation_required"] = True
+        valuation_gate = cli._portfolio_gate(valuation, self.other_code)
+        self.assertIn("buy_blocked_pending_valuation", valuation_gate["reasons"])
+
+        risk_cycle = record_buy(new_portfolio_state(), self.code, 10, amount=10_000)
+        risk_cycle["risk_reset_pending"] = True
+        risk_gate = cli._portfolio_gate(risk_cycle, self.other_code)
+        self.assertIn("buy_blocked_pending_risk_reset", risk_gate["reasons"])
+
     def test_main_prints_one_canonical_json_document(self) -> None:
         output = io.StringIO()
         with contextlib.redirect_stdout(output):
@@ -588,6 +724,18 @@ class CliTests(unittest.TestCase):
             "benchmark key",
             "同一交易日只递减一次",
             "renewed confirmation",
+            "schema_version` 2",
+            "CNY 60,000",
+            "硬底线",
+            "CNY 11,000",
+            "10%",
+            "整手/成交容差",
+            "risk_reset_pending",
+            "valuation_required",
+            "--invalidated-code CODE",
+            "MA20",
+            "MA60",
+            "20日相对强度不再为正",
         ):
             self.assertIn(phrase, readme)
         for phrase in (
@@ -602,6 +750,13 @@ class CliTests(unittest.TestCase):
             "benchmark key",
             "portfolio_gate",
             "冷静期",
+            "--invalidated-code CODE",
+            "MA20",
+            "MA60",
+            "20日相对强度不再为正",
+            "核心催化反转",
+            "歧义",
+            "依据与时间",
         ):
             self.assertIn(phrase, prompt)
         self.assertIn("modules/etf-monitor/state/", gitignore)
