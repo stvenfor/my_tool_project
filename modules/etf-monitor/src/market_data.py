@@ -519,6 +519,11 @@ def validate_market_snapshot(value: Any) -> MarketSnapshot:
     if benchmark_calendar.latest_completed_session_date > session_date:
         raise MarketDataError("future_benchmark_session", source_timestamp)
     if (
+        market.upper() == "CN"
+        and benchmark_calendar.latest_completed_session_date != session_date
+    ):
+        raise MarketDataError("benchmark_session_date_conflict", source_timestamp)
+    if (
         benchmark_bars[-1].date
         != benchmark_calendar.latest_completed_session_date
     ):

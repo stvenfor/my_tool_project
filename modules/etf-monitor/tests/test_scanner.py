@@ -356,6 +356,31 @@ class ScannerTests(unittest.TestCase):
         self.assertEqual("DATA_ERROR", result["status"])
         self.assertIn("benchmark_session_date_conflict", result["reasons"])
 
+    def test_direct_cn_snapshot_cannot_roll_back_calendar_with_latest_bar(self) -> None:
+        snapshot = collect_market_snapshot(
+            self.record, self.provider, as_of=self.provider.as_of
+        )
+        old_first = replace(
+            snapshot.benchmark_bars[0],
+            date=snapshot.benchmark_bars[0].date - timedelta(days=1),
+        )
+        lagged_bars = (old_first,) + snapshot.benchmark_bars[:-1]
+        lagged_calendar = replace(
+            snapshot.benchmark_calendar,
+            latest_completed_session_date=lagged_bars[-1].date,
+        )
+
+        result = evaluate_snapshot(
+            replace(
+                snapshot,
+                benchmark_bars=lagged_bars,
+                benchmark_calendar=lagged_calendar,
+            )
+        )
+
+        self.assertEqual("DATA_ERROR", result["status"])
+        self.assertIn("benchmark_session_date_conflict", result["reasons"])
+
     def test_direct_nan_snapshot_returns_data_error(self) -> None:
         snapshot = collect_market_snapshot(
             self.record, self.provider, as_of=self.provider.as_of
