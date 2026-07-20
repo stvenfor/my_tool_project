@@ -43,6 +43,7 @@ npm run etf:scheduled-check -- --fixture modules/etf-monitor/state/provider.json
 
 | 文档 | 说明 |
 |------|------|
+| [Python 3.12 统一环境与迁移指南](python-3.12-standardization.md) | 全仓解释器统一、模块依赖隔离、迁移顺序与验收门禁 |
 | [CFFEX 日报完整手册](cffex-daily-video.md) | 持仓日报：生成 / 美化图文 / 21:00 定时 / 抖音发布 |
 | [CFFEX × Agent 对照](cffex-agent-orchestration.md) | 流水线步骤：脚本 vs 主/子 Agent vs 人机闸门 |
 | [器官捐献英配链路](../modules/viral-english-dub/docs/organ-donate-dog-pipeline.md) | viral-english-dub 样例 |
