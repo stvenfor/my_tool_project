@@ -85,10 +85,19 @@ class CliTests(unittest.TestCase):
         return state
 
     def recovery_dates(self, cooldown_days: int):
-        return [
-            f"2026-07-{day:02d}"
-            for day in range(1, COOLDOWN_TRADING_DAYS - cooldown_days + 1)
+        confirmed_sessions = [
+            "2026-07-01",
+            "2026-07-02",
+            "2026-07-03",
+            "2026-07-06",
+            "2026-07-07",
+            "2026-07-08",
+            "2026-07-09",
+            "2026-07-10",
+            "2026-07-13",
+            "2026-07-14",
         ]
+        return confirmed_sessions[: COOLDOWN_TRADING_DAYS - cooldown_days]
 
     def mapped_fixture(self, codes):
         provider = FixtureProvider()
