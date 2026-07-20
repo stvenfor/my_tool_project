@@ -503,7 +503,7 @@ def validate_portfolio_state(state: Mapping[str, Any]) -> None:
         expected_active = expected_drawdown >= RISK_EXIT_DRAWDOWN_PCT
         if state["risk_drawdown_active"] is not expected_active:
             raise ValueError("cash-only risk_drawdown_active is inconsistent")
-        if expected_drawdown >= BUY_BLOCK_DRAWDOWN_PCT:
+        if expected_drawdown >= RISK_EXIT_DRAWDOWN_PCT:
             if not state["risk_reset_pending"]:
                 raise ValueError("cash-only drawdown requires a pending risk reset")
 
@@ -525,7 +525,7 @@ def _update_cash_only_drawdown(state: dict[str, Any]) -> None:
     drawdown = max(0.0, (high_watermark - equity) / high_watermark)
     state["high_watermark_equity_cny"] = _money(high_watermark)
     state["drawdown_pct"] = drawdown
-    if drawdown >= BUY_BLOCK_DRAWDOWN_PCT and not state["risk_reset_pending"]:
+    if drawdown >= RISK_EXIT_DRAWDOWN_PCT and not state["risk_reset_pending"]:
         _start_risk_cycle(state)
     state["risk_drawdown_active"] = drawdown >= RISK_EXIT_DRAWDOWN_PCT
 
@@ -568,13 +568,15 @@ def _code(value: str) -> str:
 
 
 def _require_number(value: object, label: str) -> float:
-    if (
-        isinstance(value, bool)
-        or not isinstance(value, (int, float))
-        or not math.isfinite(value)
-    ):
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
         raise ValueError(f"{label} must be a finite number")
-    return float(value)
+    try:
+        number = float(value)
+    except (OverflowError, ValueError):
+        raise ValueError(f"{label} must be a finite number") from None
+    if not math.isfinite(number):
+        raise ValueError(f"{label} must be a finite number")
+    return number
 
 
 def _require_money(
@@ -605,14 +607,15 @@ def _require_integer(
 
 
 def _positive_number(value: float, label: str) -> float:
-    if (
-        isinstance(value, bool)
-        or not isinstance(value, (int, float))
-        or not math.isfinite(value)
-        or value <= 0
-    ):
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
         raise ValueError(f"{label} must be a positive number")
-    return float(value)
+    try:
+        number = float(value)
+    except (OverflowError, ValueError):
+        raise ValueError(f"{label} must be a positive number") from None
+    if not math.isfinite(number) or number <= 0:
+        raise ValueError(f"{label} must be a positive number")
+    return number
 
 
 def _valid_trading_day(value: object) -> None:

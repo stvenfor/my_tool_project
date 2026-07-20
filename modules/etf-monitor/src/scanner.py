@@ -204,6 +204,27 @@ def _scan_result(
         "status": status,
         "source_timestamp": snapshot.source_timestamp.isoformat(),
         "reasons": reasons,
+        "catalyst_provenance": _catalyst_provenance(snapshot),
+    }
+
+
+def _catalyst_provenance(snapshot: MarketSnapshot) -> dict[str, Any]:
+    catalyst = snapshot.catalyst
+
+    def evidence(value: Any) -> dict[str, str]:
+        return {
+            "source": value.source,
+            "reference": value.reference,
+            "event_timestamp": value.event_timestamp.isoformat(),
+            "collected_at": value.collected_at.isoformat(),
+        }
+
+    return {
+        "primary_confirmed": catalyst.primary_confirmed,
+        "corroborated": catalyst.corroborated,
+        "adverse": catalyst.adverse,
+        "primary": evidence(catalyst.primary_evidence),
+        "corroboration": evidence(catalyst.corroboration_evidence),
     }
 
 

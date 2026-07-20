@@ -39,6 +39,26 @@ class ScannerTests(unittest.TestCase):
         self.assertEqual("BUY_CANDIDATE", result["status"])
         self.assertIn("breakout_confirmed", result["reasons"])
         self.assertEqual(self.provider.timestamp.isoformat(), result["source_timestamp"])
+        self.assertEqual(
+            {
+                "primary_confirmed": True,
+                "corroborated": True,
+                "adverse": False,
+                "primary": {
+                    "source": "policy_authority",
+                    "reference": "https://authority.example/policy/510300",
+                    "event_timestamp": self.provider.timestamp.isoformat(),
+                    "collected_at": self.provider.timestamp.isoformat(),
+                },
+                "corroboration": {
+                    "source": "industry_data_provider",
+                    "reference": "industry-report-510300-20260720",
+                    "event_timestamp": self.provider.timestamp.isoformat(),
+                    "collected_at": self.provider.timestamp.isoformat(),
+                },
+            },
+            result["catalyst_provenance"],
+        )
 
     def test_pullback_reclaim_path_is_valid_without_breakout_volume(self) -> None:
         current_ma20 = sum(bar["close"] for bar in self.provider.bars[-20:]) / 20
@@ -168,6 +188,17 @@ class ScannerTests(unittest.TestCase):
                 self.assertEqual("DATA_ERROR", result["status"])
                 self.assertIn(reason, result["reasons"])
                 self.assertIn("source_timestamp", result)
+
+    def test_provider_numeric_overflow_is_reported_as_data_error(self) -> None:
+        self.provider.aum["value"] = 10**400
+
+        try:
+            result = self.scan()
+        except Exception as exc:
+            self.fail(f"provider numeric error leaked from scanner: {exc!r}")
+
+        self.assertEqual("DATA_ERROR", result["status"])
+        self.assertIn("malformed_metric", result["reasons"])
 
     def test_position_monitoring_runs_without_catalyst_and_emits_profit_stop_drawdown(self) -> None:
         state = new_portfolio_state()
@@ -584,9 +615,15 @@ class ScannerTests(unittest.TestCase):
             (
                 replace(
                     snapshot,
-                    catalyst=replace(snapshot.catalyst, timestamp=stale_at),
+                    catalyst=replace(
+                        snapshot.catalyst,
+                        primary_evidence=replace(
+                            snapshot.catalyst.primary_evidence,
+                            collected_at=stale_at,
+                        ),
+                    ),
                 ),
-                "stale_catalyst",
+                "stale_primary_catalyst_collection",
             ),
             (
                 replace(
@@ -618,6 +655,8 @@ class ScannerTests(unittest.TestCase):
         snapshot = collect_market_snapshot(
             self.record, self.provider, as_of=self.provider.as_of
         )
+        primary_source = snapshot.catalyst.primary_evidence.source
+        corroboration_source = snapshot.catalyst.corroboration_evidence.source
         cases = (
             (
                 replace(
@@ -653,6 +692,44 @@ class ScannerTests(unittest.TestCase):
                     snapshot,
                     source_timestamp=snapshot.source_timestamp
                     - timedelta(minutes=1),
+                ),
+                "source_timestamp_conflict",
+            ),
+            (
+                replace(
+                    snapshot,
+                    sources=tuple(
+                        source
+                        for source in snapshot.sources
+                        if source != primary_source
+                    ),
+                ),
+                "snapshot_source_missing",
+            ),
+            (
+                replace(
+                    snapshot,
+                    sources=tuple(
+                        source
+                        for source in snapshot.sources
+                        if source != corroboration_source
+                    ),
+                ),
+                "snapshot_source_missing",
+            ),
+            (
+                replace(
+                    snapshot,
+                    catalyst=replace(
+                        snapshot.catalyst,
+                        primary_evidence=replace(
+                            snapshot.catalyst.primary_evidence,
+                            event_timestamp=(
+                                snapshot.catalyst.primary_evidence.event_timestamp
+                                - timedelta(minutes=1)
+                            ),
+                        ),
+                    ),
                 ),
                 "source_timestamp_conflict",
             ),

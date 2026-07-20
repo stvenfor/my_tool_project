@@ -18,6 +18,7 @@ sys.path.insert(0, str(MODULE_ROOT))
 
 from src.market_data import (  # noqa: E402
     CatalystConfirmation,
+    CatalystEvidence,
     DailyBar,
     MarketDataError,
     Quote,
@@ -109,6 +110,18 @@ class FixtureProvider:
             "adverse": False,
             "source": "primary+independent",
             "timestamp": self.timestamp,
+            "primary_evidence": {
+                "source": "policy_authority",
+                "reference": "https://authority.example/policy/510300",
+                "event_timestamp": self.timestamp,
+                "collected_at": self.timestamp,
+            },
+            "corroboration_evidence": {
+                "source": "industry_data_provider",
+                "reference": "industry-report-510300-20260720",
+                "event_timestamp": self.timestamp,
+                "collected_at": self.timestamp,
+            },
         }
 
     def get_current_quotes(self, code):
@@ -215,6 +228,127 @@ class MarketDataTests(unittest.TestCase):
         with self.assertRaisesRegex(MarketDataError, "missing_aum"):
             collect_market_snapshot(self.record, missing, as_of=missing.as_of)
 
+    def test_catalyst_keeps_separate_auditable_evidence(self) -> None:
+        snapshot = collect_market_snapshot(
+            self.record, self.provider, as_of=self.provider.as_of
+        )
+
+        self.assertTrue(hasattr(snapshot.catalyst, "primary_evidence"))
+        self.assertTrue(hasattr(snapshot.catalyst, "corroboration_evidence"))
+        self.assertEqual(
+            "policy_authority", snapshot.catalyst.primary_evidence.source
+        )
+        self.assertEqual(
+            "https://authority.example/policy/510300",
+            snapshot.catalyst.primary_evidence.reference,
+        )
+        self.assertEqual(
+            "industry_data_provider",
+            snapshot.catalyst.corroboration_evidence.source,
+        )
+        self.assertEqual(
+            self.provider.timestamp,
+            snapshot.catalyst.primary_evidence.event_timestamp,
+        )
+        self.assertEqual(
+            self.provider.timestamp,
+            snapshot.catalyst.corroboration_evidence.collected_at,
+        )
+        self.assertIn("policy_authority", snapshot.sources)
+        self.assertIn("industry_data_provider", snapshot.sources)
+
+    def test_catalyst_event_participates_in_snapshot_source_timestamp(self) -> None:
+        earlier_event = self.provider.timestamp - timedelta(hours=1)
+        self.provider.catalyst["primary_evidence"][
+            "event_timestamp"
+        ] = earlier_event
+
+        snapshot = collect_market_snapshot(
+            self.record, self.provider, as_of=self.provider.as_of
+        )
+
+        self.assertEqual(earlier_event, snapshot.source_timestamp)
+
+    def test_catalyst_rejects_legacy_and_non_independent_provenance(self) -> None:
+        legacy = {
+            "primary_confirmed": True,
+            "corroborated": True,
+            "adverse": False,
+            "source": "primary+independent",
+            "timestamp": self.provider.timestamp,
+        }
+        same_source = deepcopy(self.provider.catalyst)
+        same_source["corroboration_evidence"]["source"] = "POLICY_AUTHORITY"
+        same_reference = deepcopy(self.provider.catalyst)
+        same_reference["corroboration_evidence"]["reference"] = (
+            "https://authority.example/policy/510300"
+        )
+        missing_reference = deepcopy(self.provider.catalyst)
+        missing_reference["primary_evidence"]["reference"] = "  "
+        cases = (
+            (legacy, "missing_catalyst_evidence"),
+            (same_source, "catalyst_sources_not_independent"),
+            (same_reference, "catalyst_references_not_independent"),
+            (missing_reference, "missing_catalyst_reference"),
+        )
+
+        for catalyst, reason in cases:
+            with self.subTest(reason=reason):
+                provider = FixtureProvider()
+                provider.catalyst = catalyst
+                with self.assertRaisesRegex(MarketDataError, reason):
+                    collect_market_snapshot(
+                        self.record, provider, as_of=provider.as_of
+                    )
+
+    def test_catalyst_rejects_invalid_stale_future_and_impossible_times(self) -> None:
+        cases = []
+
+        def case(reason, evidence_name, field, value):
+            catalyst = deepcopy(self.provider.catalyst)
+            catalyst[evidence_name][field] = value
+            cases.append((catalyst, reason))
+
+        case(
+            "missing_catalyst_event_timestamp",
+            "primary_evidence",
+            "event_timestamp",
+            self.provider.timestamp.replace(tzinfo=None),
+        )
+        case(
+            "stale_corroboration_catalyst_collection",
+            "corroboration_evidence",
+            "collected_at",
+            self.provider.as_of - timedelta(hours=25),
+        )
+        case(
+            "stale_primary_catalyst_event",
+            "primary_evidence",
+            "event_timestamp",
+            self.provider.as_of + timedelta(minutes=2),
+        )
+        case(
+            "stale_corroboration_catalyst_collection",
+            "corroboration_evidence",
+            "collected_at",
+            self.provider.as_of + timedelta(minutes=2),
+        )
+        case(
+            "catalyst_event_after_collection",
+            "primary_evidence",
+            "event_timestamp",
+            self.provider.timestamp + timedelta(minutes=2),
+        )
+
+        for catalyst, reason in cases:
+            with self.subTest(reason=reason):
+                provider = FixtureProvider()
+                provider.catalyst = catalyst
+                with self.assertRaisesRegex(MarketDataError, reason):
+                    collect_market_snapshot(
+                        self.record, provider, as_of=provider.as_of
+                    )
+
     def test_snapshot_rejects_holidays_and_conflicting_session_dates(self) -> None:
         self.provider.calendar["is_trading_session"] = False
         with self.assertRaisesRegex(MarketDataError, "not_trading_session"):
@@ -262,8 +396,8 @@ class MarketDataTests(unittest.TestCase):
             provider.catalyst["primary_confirmed"],
             provider.catalyst["corroborated"],
             provider.catalyst["adverse"],
-            provider.catalyst["source"],
-            provider.catalyst["timestamp"],
+            CatalystEvidence(**provider.catalyst["primary_evidence"]),
+            CatalystEvidence(**provider.catalyst["corroboration_evidence"]),
         )
 
         cases = (
@@ -301,6 +435,50 @@ class MarketDataTests(unittest.TestCase):
         provider.aum = TimedMetric(-1, "tencent", provider.timestamp)
         with self.assertRaisesRegex(MarketDataError, "malformed_metric"):
             collect_market_snapshot(self.record, provider, as_of=provider.as_of)
+
+    def test_provider_and_typed_numeric_overflow_fail_as_market_data_errors(self) -> None:
+        providers = []
+        mapping = FixtureProvider()
+        mapping.aum["value"] = 10**400
+        providers.append(mapping)
+        typed_metric = FixtureProvider()
+        typed_metric.aum = TimedMetric(
+            10**400, typed_metric.aum["source"], typed_metric.timestamp
+        )
+        providers.append(typed_metric)
+        typed_quote = FixtureProvider()
+        typed_quote.quotes[0] = Quote(
+            source="eastmoney",
+            price=10**400,
+            previous_close=10.36,
+            turnover_cny=75_000_000,
+            timestamp=typed_quote.timestamp,
+        )
+        providers.append(typed_quote)
+
+        for provider in providers:
+            with self.subTest(value_type=type(provider.aum).__name__):
+                try:
+                    collect_market_snapshot(
+                        self.record, provider, as_of=provider.as_of
+                    )
+                except Exception as exc:
+                    self.assertIsInstance(exc, MarketDataError)
+                else:
+                    self.fail("oversized numeric input was accepted")
+
+    def test_quote_aggregates_never_return_infinity(self) -> None:
+        for field in ("price", "previous_close", "turnover_cny"):
+            with self.subTest(field=field):
+                provider = FixtureProvider()
+                for quote in provider.quotes:
+                    quote[field] = 1e308
+                with self.assertRaisesRegex(
+                    MarketDataError, "malformed_quote_aggregate"
+                ):
+                    collect_current_quote(
+                        "510300", provider, as_of=provider.as_of
+                    )
 
     def test_previous_close_and_turnover_conflicts_fail_closed(self) -> None:
         cases = (

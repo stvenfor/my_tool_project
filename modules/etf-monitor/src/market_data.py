@@ -94,12 +94,25 @@ class BenchmarkCalendarState:
 
 
 @dataclass(frozen=True)
-class CatalystConfirmation:
+class CatalystEvidence:
+    source: str
+    reference: str
+    event_timestamp: datetime
+    collected_at: datetime
+
+
+@dataclass(frozen=True)
+class CatalystSnapshot:
     primary_confirmed: bool
     corroborated: bool
     adverse: bool
-    source: str
-    timestamp: datetime
+    primary_evidence: CatalystEvidence
+    corroboration_evidence: CatalystEvidence
+
+
+# Compatibility import for callers that used the former public type name.  The
+# constructor is intentionally the stricter structured-evidence constructor.
+CatalystConfirmation = CatalystSnapshot
 
 
 @dataclass(frozen=True)
@@ -116,7 +129,7 @@ class MarketSnapshot:
     premium_pct: float
     aum_metric: TimedMetric
     premium_metric: TimedMetric
-    catalyst: CatalystConfirmation
+    catalyst: CatalystSnapshot
     session_date: date
     trading_calendar: TradingCalendarState
     benchmark_calendar: BenchmarkCalendarState
@@ -281,10 +294,10 @@ def collect_market_snapshot(
         provider.get_premium(code), "missing_premium", allow_negative=True
     )
     catalyst = _catalyst(provider.get_catalyst(code))
+    _validate_catalyst_freshness(catalyst, as_of)
     for timestamp, reason in (
         (aum.timestamp, "stale_aum"),
         (premium.timestamp, "stale_premium"),
-        (catalyst.timestamp, "stale_catalyst"),
         *((bar.timestamp, "stale_daily_bars") for bar in bars),
         *((bar.timestamp, "stale_benchmark_bars") for bar in benchmark_bars),
     ):
@@ -298,7 +311,7 @@ def collect_market_snapshot(
         premium.timestamp,
         calendar.timestamp,
         benchmark_calendar.timestamp,
-        catalyst.timestamp,
+        *_catalyst_timestamps(catalyst),
     ]
     sources = (
         {quote.source for quote in validated_quote.quotes}
@@ -309,7 +322,8 @@ def collect_market_snapshot(
         premium.source,
         calendar.source,
         benchmark_calendar.source,
-        catalyst.source,
+        catalyst.primary_evidence.source,
+        catalyst.corroboration_evidence.source,
         }
     )
     return validate_market_snapshot(
@@ -386,12 +400,14 @@ def _validate_quotes(
     tencent = by_source["tencent"]
     for quote in (eastmoney, tencent):
         _fresh(quote.timestamp, as_of, QUOTE_MAX_AGE, "stale_quote")
-    midpoint = (eastmoney.price + tencent.price) / 2
+    midpoint = _quote_average(eastmoney.price, tencent.price)
     if abs(eastmoney.price - tencent.price) / midpoint > MAX_QUOTE_PRICE_DISAGREEMENT:
         raise MarketDataError(
             "quote_price_conflict", min(eastmoney.timestamp, tencent.timestamp)
         )
-    previous_close_midpoint = (eastmoney.previous_close + tencent.previous_close) / 2
+    previous_close_midpoint = _quote_average(
+        eastmoney.previous_close, tencent.previous_close
+    )
     if (
         abs(eastmoney.previous_close - tencent.previous_close)
         / previous_close_midpoint
@@ -401,6 +417,9 @@ def _validate_quotes(
             "quote_previous_close_conflict",
             min(eastmoney.timestamp, tencent.timestamp),
         )
+    turnover_midpoint = _quote_average(
+        eastmoney.turnover_cny, tencent.turnover_cny
+    )
     if (
         _relative_difference(eastmoney.turnover_cny, tencent.turnover_cny)
         > MAX_TURNOVER_DISAGREEMENT
@@ -412,7 +431,7 @@ def _validate_quotes(
         code=code,
         current_price=midpoint,
         previous_close=previous_close_midpoint,
-        turnover_cny=(eastmoney.turnover_cny + tencent.turnover_cny) / 2,
+        turnover_cny=turnover_midpoint,
         source_timestamp=min(eastmoney.timestamp, tencent.timestamp),
         sources=tuple(sorted((eastmoney.source, tencent.source))),
         quotes=tuple(sorted((eastmoney, tencent), key=lambda quote: quote.source)),
@@ -455,6 +474,7 @@ def validate_market_snapshot(value: Any) -> MarketSnapshot:
         value.premium_metric, "missing_premium", allow_negative=True
     )
     catalyst = _catalyst(value.catalyst)
+    _validate_catalyst_freshness(catalyst, observed_at)
     trading_calendar = _calendar(value.trading_calendar)
     benchmark_calendar = _benchmark_calendar(value.benchmark_calendar)
     for timestamp, reason in (
@@ -462,7 +482,6 @@ def validate_market_snapshot(value: Any) -> MarketSnapshot:
         *((bar.timestamp, "stale_benchmark_bars") for bar in benchmark_bars),
         (aum_metric.timestamp, "stale_aum"),
         (premium_metric.timestamp, "stale_premium"),
-        (catalyst.timestamp, "stale_catalyst"),
         (trading_calendar.timestamp, "stale_calendar"),
         (benchmark_calendar.timestamp, "stale_benchmark_calendar"),
     ):
@@ -482,7 +501,8 @@ def validate_market_snapshot(value: Any) -> MarketSnapshot:
         + (
             aum_metric.source,
             premium_metric.source,
-            catalyst.source,
+            catalyst.primary_evidence.source,
+            catalyst.corroboration_evidence.source,
             trading_calendar.source,
             benchmark_calendar.source,
         )
@@ -500,7 +520,7 @@ def validate_market_snapshot(value: Any) -> MarketSnapshot:
         + (
             aum_metric.timestamp,
             premium_metric.timestamp,
-            catalyst.timestamp,
+            *_catalyst_timestamps(catalyst),
             trading_calendar.timestamp,
             benchmark_calendar.timestamp,
         )
@@ -905,39 +925,112 @@ def _benchmark_calendar(value: Any) -> BenchmarkCalendarState:
         raise MarketDataError("malformed_benchmark_calendar") from exc
 
 
-def _catalyst(value: Any) -> CatalystConfirmation:
+def _catalyst(value: Any) -> CatalystSnapshot:
     if value is None:
         raise MarketDataError("missing_catalyst")
-    if isinstance(value, CatalystConfirmation):
+    if isinstance(value, CatalystSnapshot):
         fields = [value.primary_confirmed, value.corroborated, value.adverse]
-        source = value.source
-        timestamp = value.timestamp
+        primary_value = value.primary_evidence
+        corroboration_value = value.corroboration_evidence
     elif isinstance(value, Mapping):
         try:
             fields = [
                 value[key]
                 for key in ("primary_confirmed", "corroborated", "adverse")
             ]
-            source = value["source"]
-            timestamp = value["timestamp"]
         except KeyError as exc:
             raise MarketDataError("malformed_catalyst") from exc
+        if "primary_evidence" not in value or "corroboration_evidence" not in value:
+            raise MarketDataError("missing_catalyst_evidence")
+        primary_value = value["primary_evidence"]
+        corroboration_value = value["corroboration_evidence"]
     else:
         raise MarketDataError("malformed_catalyst")
     try:
         if not all(isinstance(item, bool) for item in fields):
             raise ValueError
-        return CatalystConfirmation(
+        primary_evidence = _catalyst_evidence(primary_value)
+        corroboration_evidence = _catalyst_evidence(corroboration_value)
+        if (
+            primary_evidence.source.casefold()
+            == corroboration_evidence.source.casefold()
+        ):
+            raise MarketDataError("catalyst_sources_not_independent")
+        if (
+            primary_evidence.reference.casefold()
+            == corroboration_evidence.reference.casefold()
+        ):
+            raise MarketDataError("catalyst_references_not_independent")
+        return CatalystSnapshot(
             primary_confirmed=fields[0],
             corroborated=fields[1],
             adverse=fields[2],
-            source=_source_text(source),
-            timestamp=_timestamp(timestamp, "missing_catalyst_timestamp"),
+            primary_evidence=primary_evidence,
+            corroboration_evidence=corroboration_evidence,
         )
     except (KeyError, TypeError, ValueError) as exc:
         if isinstance(exc, MarketDataError):
             raise
         raise MarketDataError("malformed_catalyst") from exc
+
+
+def _catalyst_evidence(value: Any) -> CatalystEvidence:
+    if isinstance(value, CatalystEvidence):
+        source = value.source
+        reference = value.reference
+        event_timestamp = value.event_timestamp
+        collected_at = value.collected_at
+    elif isinstance(value, Mapping):
+        source = value.get("source")
+        reference = value.get("reference")
+        event_timestamp = value.get("event_timestamp")
+        collected_at = value.get("collected_at")
+    else:
+        raise MarketDataError("malformed_catalyst_evidence")
+    return CatalystEvidence(
+        source=_source_text(source),
+        reference=_nonempty_text(reference, "missing_catalyst_reference"),
+        event_timestamp=_timestamp(
+            event_timestamp, "missing_catalyst_event_timestamp"
+        ),
+        collected_at=_timestamp(
+            collected_at, "missing_catalyst_collection_timestamp"
+        ),
+    )
+
+
+def _catalyst_timestamps(value: CatalystSnapshot) -> tuple[datetime, ...]:
+    return (
+        value.primary_evidence.event_timestamp,
+        value.primary_evidence.collected_at,
+        value.corroboration_evidence.event_timestamp,
+        value.corroboration_evidence.collected_at,
+    )
+
+
+def _validate_catalyst_freshness(
+    value: CatalystSnapshot, as_of: datetime
+) -> None:
+    for label, evidence in (
+        ("primary", value.primary_evidence),
+        ("corroboration", value.corroboration_evidence),
+    ):
+        _fresh(
+            evidence.collected_at,
+            as_of,
+            SUPPORTING_DATA_MAX_AGE,
+            f"stale_{label}_catalyst_collection",
+        )
+        _fresh(
+            evidence.event_timestamp,
+            as_of,
+            SUPPORTING_DATA_MAX_AGE,
+            f"stale_{label}_catalyst_event",
+        )
+        if evidence.event_timestamp > evidence.collected_at:
+            raise MarketDataError(
+                "catalyst_event_after_collection", evidence.event_timestamp
+            )
 
 
 def _fresh(timestamp: datetime, as_of: datetime, max_age: timedelta, reason: str) -> None:
@@ -988,6 +1081,10 @@ def _relative_difference(left: float, right: float) -> float:
     return math.inf if midpoint == 0 else abs(left - right) / midpoint
 
 
+def _quote_average(left: float, right: float) -> float:
+    return _number((left + right) / 2, "malformed_quote_aggregate")
+
+
 def _positive(value: Any, reason: str) -> float:
     number = _number(value, reason)
     if number <= 0:
@@ -1007,7 +1104,7 @@ def _number(value: Any, reason: str) -> float:
         raise MarketDataError(reason)
     try:
         number = float(value)
-    except (TypeError, ValueError) as exc:
+    except (TypeError, ValueError, OverflowError) as exc:
         raise MarketDataError(reason) from exc
     if not math.isfinite(number):
         raise MarketDataError(reason)

@@ -219,14 +219,6 @@ class PortfolioTests(unittest.TestCase):
         wrong_active["risk_drawdown_active"] = True
         contradictions.append(("one_six_active", wrong_active))
 
-        missing_pending = deepcopy(one_six_percent)
-        missing_pending["risk_reset_pending"] = False
-        contradictions.append(("one_six_missing_pending", missing_pending))
-
-        zero_cooldown = deepcopy(one_six_percent)
-        zero_cooldown["cooldown_remaining_trading_days"] = 0
-        contradictions.append(("one_six_zero_cooldown", zero_cooldown))
-
         missing_active = deepcopy(two_percent)
         missing_active["risk_drawdown_active"] = False
         contradictions.append(("two_percent_missing_active", missing_active))
@@ -236,7 +228,7 @@ class PortfolioTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     portfolio_module.validate_portfolio_state(state)
 
-    def test_validator_accepts_empty_portfolio_cooldowns_and_completed_reset(self) -> None:
+    def test_validator_accepts_empty_portfolio_buy_block_and_completed_risk_reset(self) -> None:
         one_six_percent = record_buy(
             self.state, "510300", price=10, amount=10_000
         )
@@ -252,7 +244,14 @@ class PortfolioTests(unittest.TestCase):
         epsilon_close["drawdown_pct"] += 0.000000005
         self.assertIsNone(portfolio_module.validate_portfolio_state(epsilon_close))
 
-        reset = one_six_percent
+        unchanged = one_six_percent
+        for trading_day in self.TRADING_DAYS:
+            unchanged = advance_cooldown(
+                unchanged, trading_day, confirmed_trading_session=True
+            )
+        self.assertEqual(one_six_percent, unchanged)
+
+        reset = two_percent
         for trading_day in self.TRADING_DAYS:
             reset = advance_cooldown(
                 reset, trading_day, confirmed_trading_session=True
@@ -512,42 +511,40 @@ class PortfolioTests(unittest.TestCase):
         self.assertTrue(closed["risk_reset_pending"])
         self.assertEqual(COOLDOWN_TRADING_DAYS, closed["cooldown_remaining_trading_days"])
 
-    def test_empty_portfolio_at_1_6_percent_resets_after_ten_confirmed_sessions(self) -> None:
+    def test_empty_portfolio_at_1_6_percent_only_blocks_buys_without_cooldown_or_reset(self) -> None:
         state = record_buy(self.state, "510300", price=10, amount=10_000)
         state = record_sell(state, "510300", price=8.4, shares=1_000)
 
         self.assertAlmostEqual(0.016, state["drawdown_pct"])
-        self.assertTrue(state["risk_reset_pending"])
         self.assertFalse(state["risk_drawdown_active"])
-        self.assertEqual(COOLDOWN_TRADING_DAYS, state["cooldown_remaining_trading_days"])
-        with self.assertRaisesRegex(ValueError, "cooldown"):
+        self.assertFalse(state["risk_reset_pending"])
+        self.assertEqual(0, state["cooldown_remaining_trading_days"])
+        self.assertEqual(100_000, state["high_watermark_equity_cny"])
+        with self.assertRaisesRegex(ValueError, "drawdown"):
             record_buy(state, "510300", price=8.4, amount=10_000)
 
-        with self.assertRaises(ValueError):
-            advance_cooldown(
-                state, "2026-07-18", confirmed_trading_session=False
+        unchanged = state
+        for trading_day in self.TRADING_DAYS:
+            unchanged = advance_cooldown(
+                unchanged, trading_day, confirmed_trading_session=True
             )
-        state = advance_cooldown(
-            state, self.TRADING_DAYS[0], confirmed_trading_session=True
-        )
-        repeated = advance_cooldown(
-            state, self.TRADING_DAYS[0], confirmed_trading_session=True
-        )
-        for trading_day in self.TRADING_DAYS[1:-1]:
-            repeated = advance_cooldown(
-                repeated, trading_day, confirmed_trading_session=True
-            )
-        self.assertEqual(1, repeated["cooldown_remaining_trading_days"])
-        with self.assertRaisesRegex(ValueError, "cooldown"):
-            record_buy(repeated, "510300", price=8.4, amount=10_000)
+        self.assertEqual(state, unchanged)
+        self.assertEqual(100_000, unchanged["high_watermark_equity_cny"])
+        self.assertAlmostEqual(0.016, unchanged["drawdown_pct"])
 
-        reset = advance_cooldown(
-            repeated, self.TRADING_DAYS[-1], confirmed_trading_session=True
+    def test_prior_two_percent_breach_keeps_cooldown_after_recovery_and_close_at_1_6_percent(self) -> None:
+        state = record_buy(self.state, "510300", price=10, amount=10_000)
+        state, _ = update_drawdown(state, {"510300": 8})
+        state, _ = update_drawdown(state, {"510300": 8.4})
+        closed = record_sell(state, "510300", price=8.4, shares=1_000)
+
+        self.assertAlmostEqual(0.016, closed["drawdown_pct"])
+        self.assertFalse(closed["risk_drawdown_active"])
+        self.assertTrue(closed["risk_reset_pending"])
+        self.assertEqual(
+            COOLDOWN_TRADING_DAYS, closed["cooldown_remaining_trading_days"]
         )
-        self.assertEqual(0.0, reset["drawdown_pct"])
-        self.assertFalse(reset["risk_reset_pending"])
-        reopened = record_buy(reset, "510300", price=8.4, amount=10_000)
-        self.assertIn("510300", reopened["positions"])
+        self.assertIsNone(portfolio_module.validate_portfolio_state(closed))
 
     def test_recovered_empty_portfolio_finishes_existing_risk_cooldown(self) -> None:
         state = record_buy(self.state, "510300", price=10, amount=10_000)
@@ -581,7 +578,7 @@ class PortfolioTests(unittest.TestCase):
 
     def test_validator_rejects_forged_cooldown_progress_and_last_day(self) -> None:
         risk = record_buy(self.state, "510300", price=10, amount=10_000)
-        risk = record_sell(risk, "510300", price=8.4, shares=1_000)
+        risk = record_sell(risk, "510300", price=8, shares=1_000)
         after_one_day = advance_cooldown(
             risk, self.TRADING_DAYS[0], confirmed_trading_session=True
         )
@@ -680,7 +677,7 @@ class PortfolioTests(unittest.TestCase):
 
     def test_cooldown_uses_each_valid_trading_day_label_at_most_once(self) -> None:
         state = record_buy(self.state, "510300", price=10, amount=10_000)
-        state = record_sell(state, "510300", price=8.4, shares=1_000)
+        state = record_sell(state, "510300", price=8, shares=1_000)
         state = advance_cooldown(
             state, "2026-07-20", confirmed_trading_session=True
         )
@@ -703,7 +700,7 @@ class PortfolioTests(unittest.TestCase):
 
     def test_cooldown_requires_authoritative_trading_session_confirmation(self) -> None:
         state = record_buy(self.state, "510300", price=10, amount=10_000)
-        state = record_sell(state, "510300", price=8.4, shares=1_000)
+        state = record_sell(state, "510300", price=8, shares=1_000)
 
         with self.assertRaises(TypeError):
             advance_cooldown(state, "2026-07-20")
@@ -853,6 +850,39 @@ class PortfolioTests(unittest.TestCase):
             with self.subTest(operation=operation):
                 with self.assertRaises(ValueError):
                     operation()
+
+    def test_validator_rejects_nested_huge_integer_as_value_error(self) -> None:
+        corrupted = record_buy(
+            self.state, "510300", price=10, amount=10_000
+        )
+        corrupted["positions"]["510300"]["entry_tranche_costs_cny"] = [
+            10**10_000
+        ]
+
+        try:
+            portfolio_module.validate_portfolio_state(corrupted)
+        except Exception as error:  # The exception type is the regression contract.
+            self.assertIs(type(error), ValueError)
+            self.assertIn("finite", str(error))
+        else:
+            self.fail("nested huge integer was accepted")
+
+    def test_public_numeric_inputs_reject_huge_integer_as_value_error(self) -> None:
+        huge = 10**10_000
+        operations = (
+            lambda: new_portfolio_state(huge),
+            lambda: record_buy(self.state, "510300", price=huge, amount=1),
+            lambda: record_buy(self.state, "510300", price=10, amount=huge),
+        )
+
+        for operation in operations:
+            with self.subTest(operation=operation):
+                try:
+                    operation()
+                except Exception as error:
+                    self.assertIs(type(error), ValueError)
+                else:
+                    self.fail("huge numeric input was accepted")
 
     def test_drawdown_updates_high_watermark_from_realized_portfolio_equity(self) -> None:
         state = record_buy(self.state, "510300", price=10, amount=10_000)

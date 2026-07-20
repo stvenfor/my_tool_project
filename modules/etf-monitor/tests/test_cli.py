@@ -60,11 +60,11 @@ class CliTests(unittest.TestCase):
         state = new_portfolio_state()
         state.update(
             {
-                "cash_cny": 98_400.0,
-                "realized_pnl_cny": -1_600.0,
+                "cash_cny": 98_000.0,
+                "realized_pnl_cny": -2_000.0,
                 "high_watermark_equity_cny": 100_000.0,
-                "drawdown_pct": 0.016,
-                "risk_drawdown_active": False,
+                "drawdown_pct": 0.02,
+                "risk_drawdown_active": True,
                 "risk_reset_pending": True,
                 "valuation_required": False,
                 "cooldown_remaining_trading_days": cooldown_days,
@@ -195,6 +195,76 @@ class CliTests(unittest.TestCase):
 
         self.assertEqual("BUY_CANDIDATE", result["status"])
         self.assertEqual(provider.timestamp.isoformat(), result["source_timestamp"])
+
+    def test_json_fixture_buy_candidate_preserves_exact_catalyst_provenance(self) -> None:
+        provider = FixtureProvider()
+        fixture_path = self.write_fixture(
+            cli.fixture_payload_from_provider(provider)
+        )
+
+        result = self.execute(
+            ["scan", "--code", self.code, "--fixture", str(fixture_path)]
+        )
+
+        self.assertEqual("BUY_CANDIDATE", result["status"])
+        self.assertEqual(
+            {
+                "primary_confirmed": True,
+                "corroborated": True,
+                "adverse": False,
+                "primary": {
+                    "source": "policy_authority",
+                    "reference": "https://authority.example/policy/510300",
+                    "event_timestamp": provider.timestamp.isoformat(),
+                    "collected_at": provider.timestamp.isoformat(),
+                },
+                "corroboration": {
+                    "source": "industry_data_provider",
+                    "reference": "industry-report-510300-20260720",
+                    "event_timestamp": provider.timestamp.isoformat(),
+                    "collected_at": provider.timestamp.isoformat(),
+                },
+            },
+            result["results"][0]["catalyst_provenance"],
+        )
+
+    def test_legacy_shared_catalyst_fixture_returns_canonical_data_error(self) -> None:
+        provider = FixtureProvider()
+        payload = cli.fixture_payload_from_provider(provider)
+        payload["catalyst"] = {
+            "primary_confirmed": True,
+            "corroborated": True,
+            "adverse": False,
+            "source": "primary+independent",
+            "timestamp": provider.timestamp.isoformat(),
+        }
+        fixture_path = self.write_fixture(payload)
+
+        result = self.execute(
+            ["scan", "--code", self.code, "--fixture", str(fixture_path)]
+        )
+
+        self.assertEqual("DATA_ERROR", result["status"])
+        self.assertNotEqual("INPUT_ERROR", result["status"])
+        self.assertEqual("DATA_ERROR", result["results"][0]["status"])
+        self.assertIn("missing_catalyst_evidence", result["reasons"])
+        self.assertIn("source_timestamp", result)
+        self.assertFalse(result["orders_placed"])
+
+    def test_huge_market_number_fixture_returns_data_error_not_input_error(self) -> None:
+        payload = cli.fixture_payload_from_provider(FixtureProvider())
+        payload["aum"]["value"] = 10**400
+        fixture_path = self.write_fixture(payload)
+
+        result = self.execute(
+            ["scan", "--code", self.code, "--fixture", str(fixture_path)]
+        )
+
+        self.assertEqual("DATA_ERROR", result["status"])
+        self.assertNotEqual("INPUT_ERROR", result["status"])
+        self.assertEqual("DATA_ERROR", result["results"][0]["status"])
+        self.assertIn("malformed_metric", result["reasons"])
+        self.assertFalse(result["orders_placed"])
 
     def test_multicode_json_fixture_requires_code_and_benchmark_mappings(self) -> None:
         direct = cli.fixture_payload_from_provider(FixtureProvider())
@@ -700,6 +770,42 @@ class CliTests(unittest.TestCase):
         self.assertEqual([], result["scan_results"])
         self.assertIn("source_timestamp", result)
 
+    def test_nested_huge_json_integer_returns_stable_input_error_envelope(self) -> None:
+        state = record_buy(new_portfolio_state(), self.code, 10, amount=10_000)
+        state["positions"][self.code]["entry_tranche_costs_cny"] = [10**1_000]
+        self.write_state(state)
+        original_state_json = self.state_path.read_text(encoding="utf-8")
+        fixture_path = self.write_fixture(
+            cli.fixture_payload_from_provider(FixtureProvider())
+        )
+
+        output = io.StringIO()
+        try:
+            with contextlib.redirect_stdout(output):
+                exit_code = cli.main(
+                    [
+                        "scheduled-check",
+                        "--code",
+                        self.code,
+                        "--fixture",
+                        str(fixture_path),
+                    ],
+                    state_path=self.state_path,
+                )
+        except Exception as error:
+            self.fail(f"CLI leaked {type(error).__name__}: {error}")
+
+        result = json.loads(output.getvalue())
+        self.assertEqual(2, exit_code)
+        self.assertEqual("INPUT_ERROR", result["status"])
+        self.assertEqual([], result["alerts"])
+        self.assertEqual([], result["scan_results"])
+        self.assertIn("finite", result["reasons"][0])
+        self.assertIn("source_timestamp", result)
+        self.assertEqual(
+            original_state_json, self.state_path.read_text(encoding="utf-8")
+        )
+
     def test_record_commands_reject_unknown_and_non_tradable_codes(self) -> None:
         for command in ("record-buy", "record-sell"):
             for code in ("883432", "000000"):
@@ -926,9 +1032,16 @@ class CliTests(unittest.TestCase):
             "latest_completed_session_date",
             "目标市场",
             "权威",
+            "primary_evidence",
+            "corroboration_evidence",
+            "event_timestamp",
+            "collected_at",
+            "catalyst_provenance",
             "1.5%-<2%",
             "只停止新买入和加仓",
             "自动解除",
+            "不会启动 10 个已确认交易日冷静期",
+            "不会重置高水位",
             "10 个已确认交易日",
             "不触发 2% risk-exit alert",
             "高优先级退出",
@@ -957,6 +1070,12 @@ class CliTests(unittest.TestCase):
             "latest_completed_session_date",
             "source",
             "timestamp",
+            "primary_evidence",
+            "corroboration_evidence",
+            "event_timestamp",
+            "collected_at",
+            "catalyst_provenance",
+            "只有回撤达到或超过 2%",
             "目标市场",
             "不得猜测",
         ):

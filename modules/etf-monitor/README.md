@@ -52,7 +52,7 @@ npm run etf:record-sell -- 512890 --price 1.300 --shares 4000
 
 - `audit`: `record_count`、`tradable_count`、`exact_duplicate_group_count`、`excluded_codes`、`reports`。
 - `record-buy` / `record-sell`: `code`、成交后的 `position`（完全平仓为 `null`）和完整 `state`。
-- `scan`: `source_timestamp` 和逐 ETF 的 `results`；每项含 `risk_controls`。
+- `scan`: `source_timestamp` 和逐 ETF 的 `results`；每个有效快照结果含 `risk_controls` 与可审计的 `catalyst_provenance`。
 - `scheduled-check`: `source_timestamp`、已去重的 `alerts` 与 `scan_results`；每项扫描还含 `portfolio_gate`，每条告警自带它自己的 `source_timestamp` 和 `risk_controls`（-3%/信号失效、二次确认、券商复核等）。
 
 即使命令失败，命令特有字段仍存在并使用空值：scan 保留 `source_timestamp/results`，scheduled-check 保留 `source_timestamp/alerts/scan_results`，record 命令保留可为 `null` 的 `code/position/state`，audit 保留其五个汇总字段。因此自动化只需解析一个固定 JSON 文档。
@@ -88,7 +88,23 @@ npm run etf:record-sell -- 512890 --price 1.300 --shares 4000
     "source": "authoritative_target_market_calendar",
     "timestamp": "2026-07-20T14:45:00+08:00"
   },
-  "catalyst": {}
+  "catalyst": {
+    "primary_confirmed": true,
+    "corroborated": true,
+    "adverse": false,
+    "primary_evidence": {
+      "source": "official_primary_source",
+      "reference": "https://official.example/disclosure/123",
+      "event_timestamp": "2026-07-20T13:30:00+08:00",
+      "collected_at": "2026-07-20T14:40:00+08:00"
+    },
+    "corroboration_evidence": {
+      "source": "independent_reliable_source",
+      "reference": "independent-report-20260720-123",
+      "event_timestamp": "2026-07-20T13:45:00+08:00",
+      "collected_at": "2026-07-20T14:42:00+08:00"
+    }
+  }
 }
 ```
 
@@ -96,7 +112,9 @@ npm run etf:record-sell -- 512890 --price 1.300 --shares 4000
 
 每个非 CN benchmark 都必须从其权威目标市场交易日历取得 `latest_completed_session_date`、`source` 和带时区的 `timestamp`；该日期必须与所提供 benchmark 日线的最后日期一致。不得根据上海工作日、时差、周末规则或最近一根行情猜测目标市场已完成交易日。缺失、过期、格式错误、未来日期或与 benchmark bars 冲突时返回 `DATA_ERROR`。CN benchmark 直接使用已经核验的上海交易日历，不要求额外调用。
 
-`as_of`、所有 `timestamp` 必须是带时区 ISO 8601；`date`、`session_date` 使用 `YYYY-MM-DD`。fixture 必须包含相互独立的现价来源、至少 61 根 ETF 日线、benchmark 日线、AUM、溢折价、权威交易日历和催化确认。
+催化输入必须使用上述结构化证据格式。`primary_evidence` 与 `corroboration_evidence` 都必须提供非空的 `source`、`reference`、`event_timestamp` 和 `collected_at`；两套 `source` 与两套 `reference` 分别按不区分大小写比较后必须不同。四个时间必须带时区、在扫描时点前 24 小时内且不得位于未来，事件时间也不得晚于对应采集时间。旧的共享 `source` + `timestamp` 格式会 fail-closed 为 `DATA_ERROR`。数值门槛通过但确认布尔值尚未全部满足时，仍须提供用于审计该判断的两套证据；成功解析的扫描结果会原样输出 `catalyst_provenance`。
+
+`as_of`、所有 `timestamp`、`event_timestamp` 与 `collected_at` 必须是带时区 ISO 8601；`date`、`session_date` 使用 `YYYY-MM-DD`。fixture 必须包含相互独立的现价来源、至少 61 根 ETF 日线、benchmark 日线、AUM、溢折价、权威交易日历和催化确认。
 
 ## 数据与风险边界
 
@@ -106,7 +124,7 @@ npm run etf:record-sell -- 512890 --price 1.300 --shares 4000
 
 已有一笔的 ETF 即使通过门控，`portfolio_gate.requires_renewed_confirmation` 仍为 true，并给出 `second_tranche_requires_renewed_confirmation`；这只是提示仍需人工 renewed confirmation，不代表自动许可。实际记账依然必须显式传 `--confirm-second-tranche`。
 
-组合回撤分成两个不同级别。仍有持仓时，1.5%-<2% 只停止新买入和加仓；若后续完整估值显示回撤恢复到 1.5% 以下，买入阻断会自动解除（其他门控仍须满足）。若在 1.5%-<2% 区间全部平仓，为避免空仓状态永久锁定，系统启动 10 个已确认交易日恢复期，但不触发 2% risk-exit alert。回撤达到 2% 时则触发高优先级退出提醒并开始 10 个已确认交易日冷静期。
+组合回撤分成两个不同级别。无论是否空仓，1.5%-<2% 只停止新买入和加仓，不触发 2% risk-exit alert、不会启动 10 个已确认交易日冷静期，也不会重置高水位；仍有持仓且后续完整估值恢复到 1.5% 以下时，买入阻断会自动解除（其他门控仍须满足）。回撤达到或超过 2% 时才触发高优先级退出提醒并开始 10 个已确认交易日冷静期。若风险周期曾因达到 2% 启动，即使之后回撤改善到 1.5%-<2%，既有 `risk_reset_pending` 与冷静期仍继续，直至完成风险重置条件。
 
 风险周期只有在冷静期结束且全部持仓已经关闭后才清除 `risk_reset_pending`；清除前禁止新买入。部分卖出，或多持仓组合中只平掉其中一只，会设置 `valuation_required` 并暂停买入；后续已确认开市的 scheduled-check 必须取得所有剩余持仓的完整、同期估值，才能重新计算权益并解除估值阻断。scheduled-check 先独立核验权威交易日历：仅 `is_trading_session=true` 且 session date 与上海当日一致时递减，同一交易日只递减一次；休市、过期或冲突日历不递减。行情或催化的其他错误不会阻止一个已经权威确认的交易日递减。完整数值门槛见 `src/scanner.py`，持仓规则见 `src/portfolio.py`。
 
