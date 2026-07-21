@@ -1,0 +1,20 @@
+{
+  "source": "/Users/mac/Desktop/github/my_tool_project/modules/etf-monitor/reports/representative-technical-review-2026-07-21.json",
+  "filter": {
+    "trend": "多头"
+  },
+  "count": 5,
+  "codes": [
+    "515630",
+    "159992",
+    "159985",
+    "511190",
+    "513120"
+  ],
+  "actions": {
+    "技术候选": 5
+  },
+  "drawio": "/Users/mac/Desktop/github/my_tool_project/modules/etf-monitor/reports/diagrams/bullish-trend-map-2026-07-21.drawio",
+  "preview_png": "/Users/mac/Desktop/github/my_tool_project/modules/etf-monitor/reports/diagrams/bullish-trend-map-2026-07-21.preview.png",
+  "preview_svg": "/Users/mac/Desktop/github/my_tool_project/modules/etf-monitor/reports/diagrams/bullish-trend-map-2026-07-21.preview.svg"
+}

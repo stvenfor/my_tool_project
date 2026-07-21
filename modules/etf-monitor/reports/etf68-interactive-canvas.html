@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>68只代表ETF明细｜2026-07-21</title>
+<style>
+  :root {
+    --bg: #0f1115; --panel: #171a21; --text: #e8eaed; --muted: #9aa0a6;
+    --line: #2a2f3a; --accent: #8ab4f8; --ok: #81c995; --warn: #fdd663; --bad: #f28b82;
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; background:var(--bg); color:var(--text); }
+  .wrap { max-width:1280px; margin:0 auto; padding:24px; }
+  h1 { font-size:28px; margin:0 0 8px; font-weight:650; }
+  .sub { color:var(--muted); margin-bottom:16px; }
+  .callout { background:#3c2f15; border:1px solid #5c4a1e; color:#fdd663; padding:12px 14px; border-radius:8px; margin-bottom:16px; }
+  .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:16px; }
+  .stat { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:14px; }
+  .stat .v { font-size:28px; font-weight:650; }
+  .stat .l { color:var(--muted); margin-top:4px; }
+  .ok .v { color:var(--ok); } .warn .v { color:var(--warn); } .info .v { color:var(--accent); }
+  .filters { display:flex; flex-wrap:wrap; gap:10px; margin:12px 0 16px; }
+  select { background:var(--panel); color:var(--text); border:1px solid var(--line); border-radius:6px; padding:8px 10px; }
+  .table-wrap { overflow:auto; border:1px solid var(--line); border-radius:8px; }
+  table { width:100%; border-collapse:collapse; min-width:1100px; }
+  th, td { padding:8px 10px; border-bottom:1px solid var(--line); white-space:nowrap; }
+  th { position:sticky; top:0; background:#1d2230; text-align:left; font-weight:600; }
+  td.num, th.num { text-align:right; font-variant-numeric:tabular-nums; }
+  tr.success { background:rgba(129,201,149,.08); }
+  tr.warning { background:rgba(253,214,99,.08); }
+  tr.danger { background:rgba(242,139,130,.08); }
+  .pill { display:inline-block; padding:2px 8px; border-radius:999px; font-size:12px; border:1px solid var(--line); }
+  .pill.ok { color:var(--ok); border-color:#2f5d3f; }
+  .pill.warn { color:var(--warn); border-color:#6b5720; }
+  .pill.info { color:var(--accent); border-color:#35507a; }
+  .pill.bad { color:var(--bad); border-color:#7a3b36; }
+  .pos { color:var(--bad); } .neg { color:var(--ok); }
+  @media (max-width:800px) { .stats { grid-template-columns:repeat(2,1fr); } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>68 只代表 ETF 明细（技术面审阅）</h1>
+  <div class="sub" id="subtitle"></div>
+  <div class="callout">本表为规则化观察，不构成买入指令。技术候选仍需完成 24h 双来源催化、实时溢折价与相对基准强度复核。</div>
+  <div class="stats" id="stats"></div>
+  <h2 id="count"></h2>
+  <div class="filters">
+    <select id="action"></select>
+    <select id="trend"></select>
+    <select id="ret30"></select>
+    <select id="sort"></select>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>状态</th><th>代码</th><th>名称</th><th>趋势</th>
+          <th class="num">30日至今</th><th class="num">当日</th><th class="num">5日</th><th class="num">10日</th><th class="num">20日</th>
+          <th class="num">RSI14</th><th>KDJ</th><th>MACD</th><th>情绪</th>
+          <th class="num">5日净流入</th><th class="num">10日净流入</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</div>
+<script>
+const DATA = {"dataDate": "2026-07-21", "generatedAt": "2026-07-21T16:49:39.663718+08:00", "breadthPct": 42.6, "ret30Entry": "2026-06-08", "ret30AsOf": "2026-07-21", "lookbackTradingDays": 30, "rows": [{"action": "不追涨", "code": "588170", "name": "科创半导体ETF华夏", "trend": "震荡", "ret30Hold": 36.48, "ret1": 19.02, "ret5": -11.93, "ret10": -13.15, "ret20": -0.47, "rsi": 35.0, "kdj": "超卖", "macd": "收敛", "sentiment": 59.3, "sentimentLabel": "中性", "flow5": 1.9418, "flow10": 115.808, "sector": "semiconductor", "reportIndex": 29}, {"action": "技术候选", "code": "159992", "name": "创新药ETF银华", "trend": "多头", "ret30Hold": 24.33, "ret1": 1.03, "ret5": 0.11, "ret10": 5.78, "ret20": 16.89, "rsi": 56.5, "kdj": "空头", "macd": "零轴上多头", "sentiment": 61.9, "sentimentLabel": "偏热", "flow5": 1.5867, "flow10": 1.998, "sector": "healthcare", "reportIndex": 1}, {"action": "不追涨", "code": "588000", "name": "科创50ETF华夏", "trend": "震荡", "ret30Hold": 20.02, "ret1": 11.29, "ret5": -4.94, "ret10": -4.99, "ret20": -0.15, "rsi": 38.7, "kdj": "金叉", "macd": "收敛", "sentiment": 76.8, "sentimentLabel": "偏热", "flow5": 228.3403, "flow10": 261.9623, "sector": "star_50", "reportIndex": 27}, {"action": "技术候选", "code": "513120", "name": "港股创新药ETF广发", "trend": "多头", "ret30Hold": 19.37, "ret1": 0.26, "ret5": 0.26, "ret10": 3.06, "ret20": 19.25, "rsi": 58.5, "kdj": "空头", "macd": "零轴上多头", "sentiment": 57.1, "sentimentLabel": "中性", "flow5": 0.9432, "flow10": 1.0297, "sector": "innovative_drug", "reportIndex": 4}, {"action": "观察", "code": "159502", "name": "标普生物科技ETF嘉实", "trend": "震荡", "ret30Hold": 18.63, "ret1": -0.97, "ret5": -2.49, "ret10": -6.66, "ret20": 5.89, "rsi": 43.6, "kdj": "空头", "macd": "收敛", "sentiment": 46.0, "sentimentLabel": "中性", "flow5": 0.048, "flow10": 0.131, "sector": "biotechnology", "reportIndex": 23}, {"action": "观察", "code": "512880", "name": "证券ETF国泰", "trend": "震荡", "ret30Hold": 12.19, "ret1": 0.45, "ret5": 1.72, "ret10": 0.0, "ret20": -0.71, "rsi": 38.5, "kdj": "多头", "macd": "收敛", "sentiment": 55.5, "sentimentLabel": "中性", "flow5": 5.4408, "flow10": 26.9583, "sector": "securities", "reportIndex": 17}, {"action": "技术候选", "code": "515630", "name": "证券保险ETF鹏华", "trend": "多头", "ret30Hold": 10.65, "ret1": 0.0, "ret5": 2.61, "ret10": 1.33, "ret20": 0.78, "rsi": 42.5, "kdj": "多头", "macd": "收敛", "sentiment": 75.9, "sentimentLabel": "偏热", "flow5": 3.7603, "flow10": 3.8888, "sector": "securities_insurance", "reportIndex": 0}, {"action": "技术候选", "code": "159985", "name": "豆粕ETF华夏", "trend": "多头", "ret30Hold": 10.35, "ret1": 0.78, "ret5": -0.27, "ret10": 2.14, "ret20": 10.18, "rsi": 70.2, "kdj": "空头", "macd": "零轴上多头", "sentiment": 60.5, "sentimentLabel": "偏热", "flow5": 0.1306, "flow10": 0.2607, "sector": "agriculture_commodity", "reportIndex": 2}, {"action": "暂缓", "code": "159997", "name": "电子ETF天弘", "trend": "空头", "ret30Hold": 7.05, "ret1": 10.0, "ret5": -9.71, "ret10": -10.32, "ret20": -8.77, "rsi": 33.3, "kdj": "超卖", "macd": "收敛", "sentiment": 51.7, "sentimentLabel": "中性", "flow5": 0.1586, "flow10": -0.1763, "sector": "electronics", "reportIndex": 52}, {"action": "不追涨", "code": "159819", "name": "人工智能ETF易方达", "trend": "震荡", "ret30Hold": 6.88, "ret1": 7.68, "ret5": -3.84, "ret10": -0.5, "ret20": -2.24, "rsi": 41.3, "kdj": "金叉", "macd": "收敛", "sentiment": 68.7, "sentimentLabel": "偏热", "flow5": 7.187, "flow10": 7.8808, "sector": "artificial_intelligence", "reportIndex": 28}, {"action": "观察", "code": "510050", "name": "上证50ETF华夏", "trend": "震荡", "ret30Hold": 6.17, "ret1": 2.43, "ret5": 0.72, "ret10": 2.26, "ret20": 2.5, "rsi": 50.5, "kdj": "金叉", "macd": "收敛", "sentiment": 76.0, "sentimentLabel": "偏热", "flow5": 49.9752, "flow10": 57.7995, "sector": "large_cap", "reportIndex": 7}, {"action": "观察", "code": "159100", "name": "巴西ETF华夏", "trend": "震荡", "ret30Hold": 4.83, "ret1": 0.82, "ret5": -0.45, "ret10": 2.03, "ret20": 5.23, "rsi": 58.2, "kdj": "空头", "macd": "收敛", "sentiment": 47.2, "sentimentLabel": "中性", "flow5": 0.0, "flow10": 0.0109, "sector": "broad_market", "reportIndex": 21}, {"action": "不追涨", "code": "159928", "name": "消费ETF汇添富", "trend": "震荡", "ret30Hold": 3.72, "ret1": -0.89, "ret5": 6.01, "ret10": 6.35, "ret20": 8.59, "rsi": 65.9, "kdj": "多头", "macd": "收敛", "sentiment": 50.5, "sentimentLabel": "中性", "flow5": -1.1464, "flow10": -1.1727, "sector": "consumer", "reportIndex": 30}, {"action": "观察", "code": "510810", "name": "上海国企ETF汇添富", "trend": "震荡", "ret30Hold": 3.69, "ret1": 1.08, "ret5": 1.57, "ret10": 2.44, "ret20": 1.08, "rsi": 52.1, "kdj": "金叉", "macd": "收敛", "sentiment": 55.4, "sentimentLabel": "中性", "flow5": -0.3025, "flow10": -0.3138, "sector": "state_owned_enterprise", "reportIndex": 18}, {"action": "暂缓", "code": "516800", "name": "智能制造ETF华宝", "trend": "空头", "ret30Hold": 3.0, "ret1": 8.42, "ret5": -8.61, "ret10": -9.57, "ret20": -9.33, "rsi": 30.4, "kdj": "超卖", "macd": "收敛", "sentiment": 58.0, "sentimentLabel": "中性", "flow5": 0.038, "flow10": -0.0562, "sector": "intelligent_manufacturing", "reportIndex": 48}, {"action": "不追涨", "code": "159605", "name": "中概互联ETF广发", "trend": "震荡", "ret30Hold": 2.95, "ret1": -0.12, "ret5": 4.23, "ret10": 8.7, "ret20": 12.96, "rsi": 77.9, "kdj": "金叉", "macd": "收敛", "sentiment": 38.1, "sentimentLabel": "偏冷", "flow5": -1.9471, "flow10": -3.0123, "sector": "internet", "reportIndex": 33}, {"action": "技术候选", "code": "513650", "name": "标普500ETF南方", "trend": "多头", "ret30Hold": 2.58, "ret1": 1.33, "ret5": -0.1, "ret10": -0.05, "ret20": 2.03, "rsi": 56.3, "kdj": "空头", "macd": "收敛", "sentiment": 60.4, "sentimentLabel": "偏热", "flow5": 0.8044, "flow10": 1.7547, "sector": "broad_market", "reportIndex": 3}, {"action": "不追涨", "code": "515710", "name": "食品饮料ETF华宝", "trend": "震荡", "ret30Hold": 2.46, "ret1": -0.6, "ret5": 5.93, "ret10": 7.07, "ret20": 6.16, "rsi": 66.3, "kdj": "多头", "macd": "收敛", "sentiment": 39.8, "sentimentLabel": "偏冷", "flow5": -0.2001, "flow10": -0.1937, "sector": "food_beverage", "reportIndex": 32}, {"action": "观察", "code": "159865", "name": "养殖ETF国泰", "trend": "震荡", "ret30Hold": 2.33, "ret1": -1.68, "ret5": 0.96, "ret10": -0.75, "ret20": 6.48, "rsi": 53.8, "kdj": "空头", "macd": "收敛", "sentiment": 57.7, "sentimentLabel": "中性", "flow5": 0.6047, "flow10": 3.9213, "sector": "livestock", "reportIndex": 16}, {"action": "观察", "code": "159825", "name": "农业ETF富国", "trend": "震荡", "ret30Hold": 2.17, "ret1": -0.98, "ret5": 2.77, "ret10": 0.71, "ret20": 5.22, "rsi": 56.1, "kdj": "多头", "macd": "收敛", "sentiment": 63.8, "sentimentLabel": "偏热", "flow5": 0.2438, "flow10": -0.0118, "sector": "agriculture", "reportIndex": 15}, {"action": "观察", "code": "513730", "name": "东南亚科技ETF华泰柏瑞", "trend": "震荡", "ret30Hold": 1.76, "ret1": 1.14, "ret5": -1.2, "ret10": -0.17, "ret20": 1.94, "rsi": 50.0, "kdj": "空头", "macd": "收敛", "sentiment": 46.3, "sentimentLabel": "中性", "flow5": 0.0237, "flow10": -0.0813, "sector": "technology", "reportIndex": 22}, {"action": "暂缓", "code": "512260", "name": "中证500低波动ETF华安", "trend": "空头", "ret30Hold": 1.69, "ret1": 2.34, "ret5": -0.52, "ret10": -1.69, "ret20": -3.41, "rsi": 33.4, "kdj": "金叉", "macd": "零轴下空头", "sentiment": 57.3, "sentimentLabel": "中性", "flow5": 0.0002, "flow10": 0.0002, "sector": "mid_cap_factor", "reportIndex": 50}, {"action": "观察", "code": "159740", "name": "恒生科技ETF大成", "trend": "震荡", "ret30Hold": 1.35, "ret1": 1.35, "ret5": 2.21, "ret10": 6.56, "ret20": 9.07, "rsi": 65.0, "kdj": "空头", "macd": "收敛", "sentiment": 34.3, "sentimentLabel": "偏冷", "flow5": -2.957, "flow10": -5.886, "sector": "technology", "reportIndex": 25}, {"action": "暂缓", "code": "159941", "name": "纳指ETF广发", "trend": "空头", "ret30Hold": 1.34, "ret1": 2.51, "ret5": -1.43, "ret10": -2.09, "ret20": -2.33, "rsi": 37.7, "kdj": "空头", "macd": "零轴下空头", "sentiment": 42.3, "sentimentLabel": "中性", "flow5": 0.1035, "flow10": 0.2084, "sector": "broad_tech", "reportIndex": 56}, {"action": "不追涨", "code": "512690", "name": "酒ETF鹏华", "trend": "震荡", "ret30Hold": 1.18, "ret1": -0.46, "ret5": 8.59, "ret10": 10.26, "ret20": 7.77, "rsi": 66.3, "kdj": "多头", "macd": "收敛", "sentiment": 40.1, "sentimentLabel": "中性", "flow5": -3.6151, "flow10": -4.5762, "sector": "liquor", "reportIndex": 31}, {"action": "暂缓", "code": "159561", "name": "德国ETF嘉实", "trend": "空头", "ret30Hold": 1.02, "ret1": 0.7, "ret5": 0.16, "ret10": -4.02, "ret20": 0.55, "rsi": 49.7, "kdj": "空头", "macd": "零轴下空头", "sentiment": 34.0, "sentimentLabel": "偏冷", "flow5": -0.1789, "flow10": -0.1263, "sector": "broad_market", "reportIndex": 60}, {"action": "观察", "code": "511180", "name": "可转债ETF海富通", "trend": "震荡", "ret30Hold": 0.41, "ret1": 0.93, "ret5": 0.63, "ret10": 0.81, "ret20": 0.34, "rsi": 54.0, "kdj": "金叉", "macd": "收敛", "sentiment": 65.4, "sentimentLabel": "偏热", "flow5": 1.9623, "flow10": 12.5737, "sector": "convertible_bond", "reportIndex": 13}, {"action": "观察", "code": "159887", "name": "银行ETF富国", "trend": "震荡", "ret30Hold": 0.23, "ret1": -2.13, "ret5": 1.34, "ret10": 3.95, "ret20": 1.58, "rsi": 72.2, "kdj": "死叉", "macd": "零轴上多头", "sentiment": 69.0, "sentimentLabel": "偏热", "flow5": 0.6314, "flow10": 0.075, "sector": "bank", "reportIndex": 8}, {"action": "技术候选", "code": "511190", "name": "信用债ETF海富通", "trend": "多头", "ret30Hold": 0.09, "ret1": 0.01, "ret5": 0.09, "ret10": 0.07, "ret20": 0.15, "rsi": 71.4, "kdj": "超买", "macd": "收敛", "sentiment": 57.0, "sentimentLabel": "中性", "flow5": 1.0233, "flow10": 2.18, "sector": "credit_bond", "reportIndex": 5}, {"action": "暂缓", "code": "513520", "name": "日经ETF华夏", "trend": "空头", "ret30Hold": 0.0, "ret1": 3.48, "ret5": -2.96, "ret10": -7.39, "ret20": -8.79, "rsi": 32.8, "kdj": "金叉", "macd": "零轴下空头", "sentiment": 47.5, "sentimentLabel": "中性", "flow5": 0.0455, "flow10": 0.104, "sector": "broad_market", "reportIndex": 54}, {"action": "观察", "code": "511090", "name": "30年国债ETF鹏扬", "trend": "震荡", "ret30Hold": -0.08, "ret1": 0.05, "ret5": 0.13, "ret10": 0.09, "ret20": -0.04, "rsi": 55.2, "kdj": "多头", "macd": "收敛", "sentiment": 66.1, "sentimentLabel": "偏热", "flow5": 8.1607, "flow10": 30.3209, "sector": "government_bond", "reportIndex": 11}, {"action": "暂缓", "code": "159869", "name": "游戏ETF华夏", "trend": "空头", "ret30Hold": -0.36, "ret1": 1.58, "ret5": 3.41, "ret10": -2.67, "ret20": 3.12, "rsi": 48.2, "kdj": "空头", "macd": "收敛", "sentiment": 67.5, "sentimentLabel": "偏热", "flow5": 1.932, "flow10": 5.4579, "sector": "gaming", "reportIndex": 39}, {"action": "暂缓", "code": "159703", "name": "新材料ETF天弘", "trend": "空头", "ret30Hold": -1.31, "ret1": 7.35, "ret5": -6.89, "ret10": -14.3, "ret20": -14.94, "rsi": 24.3, "kdj": "超卖", "macd": "零轴下空头", "sentiment": 33.3, "sentimentLabel": "偏冷", "flow5": -0.0055, "flow10": 0.1217, "sector": "new_materials", "reportIndex": 61}, {"action": "暂缓", "code": "510500", "name": "中证500ETF南方", "trend": "空头", "ret30Hold": -1.63, "ret1": 4.9, "ret5": -5.74, "ret10": -8.44, "ret20": -10.11, "rsi": 28.0, "kdj": "金叉", "macd": "零轴下空头", "sentiment": 73.8, "sentimentLabel": "偏热", "flow5": 71.5815, "flow10": 143.3264, "sector": "mid_cap", "reportIndex": 36}, {"action": "观察", "code": "516950", "name": "基建ETF银华", "trend": "震荡", "ret30Hold": -2.08, "ret1": 0.97, "ret5": 1.97, "ret10": 0.29, "ret20": -1.24, "rsi": 50.9, "kdj": "多头", "macd": "收敛", "sentiment": 31.1, "sentimentLabel": "偏冷", "flow5": -0.0308, "flow10": 0.0206, "sector": "infrastructure", "reportIndex": 26}, {"action": "暂缓", "code": "159732", "name": "消费电子ETF华夏", "trend": "空头", "ret30Hold": -2.08, "ret1": 8.86, "ret5": -10.53, "ret10": -13.29, "ret20": -14.45, "rsi": 31.3, "kdj": "超卖", "macd": "零轴下空头", "sentiment": 25.0, "sentimentLabel": "偏冷", "flow5": -0.7212, "flow10": -1.6394, "sector": "consumer_electronics", "reportIndex": 65}, {"action": "观察", "code": "159852", "name": "软件ETF嘉实", "trend": "震荡", "ret30Hold": -2.12, "ret1": 2.36, "ret5": 2.82, "ret10": 5.32, "ret20": -3.21, "rsi": 46.9, "kdj": "金叉", "macd": "收敛", "sentiment": 68.6, "sentimentLabel": "偏热", "flow5": 3.2768, "flow10": 2.507, "sector": "software", "reportIndex": 9}, {"action": "观察", "code": "510880", "name": "红利ETF华泰柏瑞", "trend": "震荡", "ret30Hold": -2.85, "ret1": -0.99, "ret5": 2.29, "ret10": 5.45, "ret20": 3.41, "rsi": 71.3, "kdj": "多头", "macd": "收敛", "sentiment": 35.6, "sentimentLabel": "偏冷", "flow5": -8.9796, "flow10": -9.4575, "sector": "dividend_factor", "reportIndex": 24}, {"action": "观察", "code": "159691", "name": "港股红利ETF工银", "trend": "震荡", "ret30Hold": -2.96, "ret1": -0.76, "ret5": 1.37, "ret10": 5.08, "ret20": 4.33, "rsi": 69.9, "kdj": "多头", "macd": "收敛", "sentiment": 54.2, "sentimentLabel": "中性", "flow5": -0.0236, "flow10": 0.4314, "sector": "dividend_factor", "reportIndex": 19}, {"action": "暂缓", "code": "513360", "name": "教育ETF博时", "trend": "空头", "ret30Hold": -2.96, "ret1": 0.71, "ret5": -2.29, "ret10": -3.18, "ret20": 0.0, "rsi": 47.0, "kdj": "空头", "macd": "收敛", "sentiment": 57.4, "sentimentLabel": "中性", "flow5": 0.0194, "flow10": 0.0524, "sector": "education", "reportIndex": 49}, {"action": "暂缓", "code": "159915", "name": "创业板ETF易方达", "trend": "空头", "ret30Hold": -3.06, "ret1": 6.7, "ret5": -4.06, "ret10": -5.65, "ret20": -11.88, "rsi": 32.8, "kdj": "金叉", "macd": "零轴下空头", "sentiment": 74.3, "sentimentLabel": "偏热", "flow5": 185.9129, "flow10": 231.8475, "sector": "growth_board", "reportIndex": 35}, {"action": "观察", "code": "159399", "name": "现金流ETF国泰", "trend": "震荡", "ret30Hold": -3.16, "ret1": -1.21, "ret5": 3.59, "ret10": 4.93, "ret20": 2.62, "rsi": 68.0, "kdj": "多头", "macd": "收敛", "sentiment": 64.7, "sentimentLabel": "偏热", "flow5": 0.6809, "flow10": 1.1304, "sector": "cashflow_factor", "reportIndex": 14}, {"action": "观察", "code": "561260", "name": "能源ETF工银", "trend": "震荡", "ret30Hold": -4.39, "ret1": -0.4, "ret5": 2.22, "ret10": 3.59, "ret20": -1.04, "rsi": 57.7, "kdj": "多头", "macd": "收敛", "sentiment": 67.2, "sentimentLabel": "偏热", "flow5": 0.0349, "flow10": 0.0396, "sector": "energy", "reportIndex": 10}, {"action": "暂缓", "code": "513310", "name": "中韩半导体ETF华泰柏瑞", "trend": "空头", "ret30Hold": -5.04, "ret1": 10.01, "ret5": -11.86, "ret10": -15.66, "ret20": -18.12, "rsi": 28.6, "kdj": "超卖", "macd": "零轴下空头", "sentiment": 51.2, "sentimentLabel": "中性", "flow5": 0.6276, "flow10": 1.5115, "sector": "semiconductor", "reportIndex": 53}, {"action": "观察", "code": "518880", "name": "黄金ETF华安", "trend": "震荡", "ret30Hold": -5.39, "ret1": 1.83, "ret5": 1.16, "ret10": -1.48, "ret20": -0.78, "rsi": 60.8, "kdj": "金叉", "macd": "收敛", "sentiment": 51.4, "sentimentLabel": "中性", "flow5": 2.8746, "flow10": 2.6054, "sector": "gold", "reportIndex": 20}, {"action": "暂缓", "code": "512400", "name": "有色金属ETF南方", "trend": "空头", "ret30Hold": -6.04, "ret1": 5.23, "ret5": -3.61, "ret10": -5.16, "ret20": -13.46, "rsi": 38.7, "kdj": "金叉", "macd": "零轴下空头", "sentiment": 39.4, "sentimentLabel": "偏冷", "flow5": -1.229, "flow10": -7.3731, "sector": "nonferrous_metals", "reportIndex": 58}, {"action": "暂缓", "code": "512980", "name": "传媒ETF广发", "trend": "空头", "ret30Hold": -6.21, "ret1": 1.39, "ret5": 2.17, "ret10": -0.87, "ret20": -2.91, "rsi": 44.8, "kdj": "空头", "macd": "收敛", "sentiment": 39.5, "sentimentLabel": "偏冷", "flow5": -0.3996, "flow10": 1.3025, "sector": "media", "reportIndex": 57}, {"action": "观察", "code": "562350", "name": "电力ETF银华", "trend": "震荡", "ret30Hold": -6.3, "ret1": -0.88, "ret5": 5.51, "ret10": 6.2, "ret20": -0.62, "rsi": 57.1, "kdj": "多头", "macd": "收敛", "sentiment": 77.9, "sentimentLabel": "偏热", "flow5": 0.2549, "flow10": 0.2655, "sector": "electric_utility", "reportIndex": 6}, {"action": "暂缓", "code": "510170", "name": "大宗商品ETF国联安", "trend": "空头", "ret30Hold": -6.72, "ret1": 2.48, "ret5": -2.81, "ret10": -3.1, "ret20": -8.96, "rsi": 36.7, "kdj": "金叉", "macd": "零轴下空头", "sentiment": 24.8, "sentimentLabel": "偏冷", "flow5": -0.3663, "flow10": -0.4417, "sector": "commodity_equity", "reportIndex": 66}, {"action": "暂缓", "code": "159309", "name": "油气ETF汇添富", "trend": "空头", "ret30Hold": -7.17, "ret1": -1.25, "ret5": -2.38, "ret10": -0.63, "ret20": -7.37, "rsi": 49.3, "kdj": "多头", "macd": "收敛", "sentiment": 61.8, "sentimentLabel": "偏热", "flow5": 0.0831, "flow10": -0.7093, "sector": "oil_gas", "reportIndex": 43}, {"action": "暂缓", "code": "561590", "name": "中证1000增强ETF华泰柏瑞", "trend": "空头", "ret30Hold": -7.77, "ret1": 4.47, "ret5": -7.95, "ret10": -12.31, "ret20": -14.87, "rsi": 23.0, "kdj": "超卖", "macd": "零轴下空头", "sentiment": 68.5, "sentimentLabel": "偏热", "flow5": 0.4628, "flow10": 0.5025, "sector": "small_cap", "reportIndex": 38}, {"action": "暂缓", "code": "516520", "name": "智能驾驶ETF华泰柏瑞", "trend": "空头", "ret30Hold": -8.48, "ret1": 3.79, "ret5": -3.52, "ret10": -7.77, "ret20": -9.48, "rsi": 32.0, "kdj": "金叉", "macd": "零轴下空头", "sentiment": 29.5, "sentimentLabel": "偏冷", "flow5": -0.4409, "flow10": -0.386, "sector": "smart_driving", "reportIndex": 63}, {"action": "暂缓", "code": "515210", "name": "钢铁ETF国泰", "trend": "空头", "ret30Hold": -8.94, "ret1": 0.0, "ret5": -0.53, "ret10": -2.95, "ret20": -6.74, "rsi": 36.0, "kdj": "多头", "macd": "收敛", "sentiment": 66.3, "sentimentLabel": "偏热", "flow5": 0.665, "flow10": -0.0206, "sector": "steel", "reportIndex": 40}, {"action": "暂缓", "code": "516960", "name": "机械ETF国泰", "trend": "空头", "ret30Hold": -9.65, "ret1": 2.8, "ret5": -0.23, "ret10": -7.17, "ret20": -11.74, "rsi": 31.8, "kdj": "金叉", "macd": "零轴下空头", "sentiment": 63.5, "sentimentLabel": "偏热", "flow5": 0.0086, "flow10": 0.0086, "sector": "machinery", "reportIndex": 42}, {"action": "暂缓", "code": "512200", "name": "房地产ETF南方", "trend": "空头", "ret30Hold": -9.67, "ret1": -0.52, "ret5": -3.96, "ret10": -2.65, "ret20": -7.54, "rsi": 34.7, "kdj": "空头", "macd": "收敛", "sentiment": 65.0, "sentimentLabel": "偏热", "flow5": 1.6934, "flow10": 2.2663, "sector": "real_estate", "reportIndex": 41}, {"action": "暂缓", "code": "159755", "name": "电池ETF广发", "trend": "空头", "ret30Hold": -10.0, "ret1": 4.82, "ret5": -2.9, "ret10": -11.11, "ret20": -16.2, "rsi": 24.5, "kdj": "金叉", "macd": "零轴下空头", "sentiment": 31.6, "sentimentLabel": "偏冷", "flow5": -1.3408, "flow10": -3.2311, "sector": "battery", "reportIndex": 62}, {"action": "暂缓", "code": "516320", "name": "高端装备ETF华夏", "trend": "空头", "ret30Hold": -10.55, "ret1": 3.39, "ret5": -2.03, "ret10": -9.49, "ret20": -13.18, "rsi": 25.1, "kdj": "超卖", "macd": "零轴下空头", "sentiment": 60.4, "sentimentLabel": "偏热", "flow5": 0.054, "flow10": 0.0535, "sector": "advanced_equipment", "reportIndex": 45}, {"action": "暂缓", "code": "512660", "name": "军工ETF国泰", "trend": "空头", "ret30Hold": -10.66, "ret1": 3.32, "ret5": -5.87, "ret10": -12.38, "ret20": -12.94, "rsi": 29.3, "kdj": "超卖", "macd": "零轴下空头", "sentiment": 61.3, "sentimentLabel": "偏热", "flow5": 5.0937, "flow10": 5.3273, "sector": "defense", "reportIndex": 44}, {"action": "观察", "code": "159981", "name": "能源化工ETF建信", "trend": "震荡", "ret30Hold": -10.71, "ret1": -2.33, "ret5": 0.07, "ret10": 7.02, "ret20": 3.43, "rsi": 69.0, "kdj": "死叉", "macd": "收敛", "sentiment": 65.7, "sentimentLabel": "偏热", "flow5": 0.6583, "flow10": 0.5869, "sector": "energy_chemical", "reportIndex": 12}, {"action": "暂缓", "code": "159745", "name": "建材ETF国泰", "trend": "空头", "ret30Hold": -11.02, "ret1": 0.58, "ret5": -0.58, "ret10": -4.44, "ret20": -8.17, "rsi": 22.9, "kdj": "金叉", "macd": "零轴下空头", "sentiment": 38.8, "sentimentLabel": "偏冷", "flow5": -0.0496, "flow10": 0.0121, "sector": "building_materials", "reportIndex": 59}, {"action": "暂缓", "code": "515880", "name": "通信ETF国泰", "trend": "空头", "ret30Hold": -12.61, "ret1": 8.53, "ret5": -10.26, "ret10": -8.02, "ret20": -21.96, "rsi": 32.9, "kdj": "金叉", "macd": "零轴下空头", "sentiment": 72.0, "sentimentLabel": "偏热", "flow5": 23.3462, "flow10": 52.2375, "sector": "communication", "reportIndex": 37}, {"action": "暂缓", "code": "159713", "name": "稀土ETF富国", "trend": "空头", "ret30Hold": -13.06, "ret1": 5.15, "ret5": -7.28, "ret10": -16.73, "ret20": -21.78, "rsi": 20.6, "kdj": "超卖", "macd": "零轴下空头", "sentiment": 45.7, "sentimentLabel": "中性", "flow5": 0.0507, "flow10": 0.234, "sector": "rare_earth", "reportIndex": 55}, {"action": "暂缓", "code": "516390", "name": "新能源车ETF汇添富", "trend": "空头", "ret30Hold": -13.6, "ret1": 4.06, "ret5": -3.32, "ret10": -13.42, "ret20": -16.67, "rsi": 21.8, "kdj": "超卖", "macd": "零轴下空头", "sentiment": 59.3, "sentimentLabel": "中性", "flow5": 0.0496, "flow10": 0.1446, "sector": "new_energy_vehicle", "reportIndex": 46}, {"action": "不追涨", "code": "515220", "name": "煤炭ETF国泰", "trend": "震荡", "ret30Hold": -14.33, "ret1": -1.9, "ret5": 2.06, "ret10": 5.5, "ret20": 2.15, "rsi": 63.5, "kdj": "多头", "macd": "收敛", "sentiment": 36.0, "sentimentLabel": "偏冷", "flow5": -3.3131, "flow10": 0.1098, "sector": "coal", "reportIndex": 34}, {"action": "暂缓", "code": "516160", "name": "新能源ETF南方", "trend": "空头", "ret30Hold": -14.62, "ret1": 3.85, "ret5": -4.08, "ret10": -13.04, "ret20": -19.19, "rsi": 17.2, "kdj": "超卖", "macd": "零轴下空头", "sentiment": 57.3, "sentimentLabel": "中性", "flow5": 0.8956, "flow10": 0.49, "sector": "new_energy", "reportIndex": 51}, {"action": "暂缓", "code": "562500", "name": "机器人ETF华夏", "trend": "空头", "ret30Hold": -16.27, "ret1": 4.71, "ret5": -6.86, "ret10": -13.83, "ret20": -13.98, "rsi": 31.9, "kdj": "超卖", "macd": "零轴下空头", "sentiment": 58.1, "sentimentLabel": "中性", "flow5": 8.0848, "flow10": 15.8648, "sector": "robotics", "reportIndex": 47}, {"action": "暂缓", "code": "515790", "name": "光伏ETF华泰柏瑞", "trend": "空头", "ret30Hold": -17.43, "ret1": 3.82, "ret5": -4.57, "ret10": -12.08, "ret20": -18.34, "rsi": 16.0, "kdj": "超卖", "macd": "零轴下空头", "sentiment": 26.6, "sentimentLabel": "偏冷", "flow5": -1.4071, "flow10": -2.1356, "sector": "solar", "reportIndex": 64}, {"action": "暂缓", "code": "159206", "name": "卫星ETF永赢", "trend": "空头", "ret30Hold": -18.58, "ret1": 5.96, "ret5": -13.54, "ret10": -20.69, "ret20": -17.86, "rsi": 29.8, "kdj": "超卖", "macd": "零轴下空头", "sentiment": 22.0, "sentimentLabel": "偏冷", "flow5": -23.3382, "flow10": -6.7881, "sector": "satellite", "reportIndex": 67}]};
+const ACTIONS = ["全部","技术候选","观察","不追涨","暂缓"];
+const TRENDS = ["全部","多头","震荡","空头"];
+const RET30S = ["全部","正收益","负收益","持平/--"];
+const SORTS = [
+  {value:"ret30_desc",label:"排序：30日至今↓"},
+  {value:"ret30_asc",label:"排序：30日至今↑"},
+  {value:"ret5_desc",label:"排序：5日↓"},
+  {value:"ret5_asc",label:"排序：5日↑"},
+  {value:"ret10_desc",label:"排序：10日↓"},
+  {value:"ret10_asc",label:"排序：10日↑"},
+  {value:"ret20_desc",label:"排序：20日↓"},
+  {value:"ret20_asc",label:"排序：20日↑"},
+  {value:"report",label:"排序：报告原序"},
+];
+function fmtPct(v){
+  if(v===null||v===undefined||Number.isNaN(v)) return "--";
+  const s=(v>0?"+":"")+v.toFixed(2)+"%";
+  return s;
+}
+function pctClass(v){
+  if(v===null||v===undefined||Number.isNaN(v)||v===0) return "";
+  return v>0?"pos":"neg";
+}
+function fmtFlow(v){
+  if(v===null||v===undefined) return "N/A";
+  const sign=v>0?"+":"";
+  if(Math.abs(v)>=1) return sign+v.toFixed(2)+"亿";
+  return sign+(v*10000).toFixed(2)+"万";
+}
+function actionClass(a){
+  if(a==="技术候选") return "ok";
+  if(a==="观察") return "info";
+  if(a==="不追涨") return "warn";
+  return "";
+}
+function trendClass(t){
+  if(t==="多头") return "ok";
+  if(t==="空头") return "bad";
+  return "";
+}
+function fillSelect(el, options, prefix){
+  el.innerHTML = options.map(o=>{
+    const v=typeof o==="string"?o:o.value;
+    const label=typeof o==="string"?(o==="全部"?prefix+"：全部":prefix+"："+o):o.label;
+    return `<option value="${v}">${label}</option>`;
+  }).join("");
+}
+const counts={byAction:{},byTrend:{}};
+for(const r of DATA.rows){
+  counts.byAction[r.action]=(counts.byAction[r.action]||0)+1;
+  counts.byTrend[r.trend]=(counts.byTrend[r.trend]||0)+1;
+}
+document.getElementById("subtitle").textContent =
+  `数据日期 ${DATA.dataDate} · 生成于 ${DATA.generatedAt} · 共 ${DATA.rows.length} 只 · 「30日至今」= ${DATA.ret30Entry} 收盘买入持有至 ${DATA.ret30AsOf}；用下方筛选项按状态/趋势/收益筛选与排序`;
+document.getElementById("stats").innerHTML = `
+  <div class="stat ok"><div class="v">${counts.byAction["技术候选"]||0}</div><div class="l">技术候选</div></div>
+  <div class="stat info"><div class="v">${counts.byAction["观察"]||0}</div><div class="l">观察</div></div>
+  <div class="stat warn"><div class="v">${counts.byAction["不追涨"]||0}</div><div class="l">不追涨</div></div>
+  <div class="stat"><div class="v">${counts.byAction["暂缓"]||0}</div><div class="l">暂缓 · 宽度 ${DATA.breadthPct}%</div></div>`;
+fillSelect(document.getElementById("action"), ACTIONS, "状态");
+fillSelect(document.getElementById("trend"), TRENDS, "趋势");
+fillSelect(document.getElementById("ret30"), RET30S, "30日至今");
+fillSelect(document.getElementById("sort"), SORTS, "");
+document.getElementById("sort").value="ret30_desc";
+function render(){
+  const action=document.getElementById("action").value;
+  const trend=document.getElementById("trend").value;
+  const ret30=document.getElementById("ret30").value;
+  const sortBy=document.getElementById("sort").value;
+  let rows=DATA.rows.filter(r=>{
+    if(action!=="全部"&&r.action!==action) return false;
+    if(trend!=="全部"&&r.trend!==trend) return false;
+    if(ret30==="正收益"&&(r.ret30Hold===null||r.ret30Hold<=0)) return false;
+    if(ret30==="负收益"&&(r.ret30Hold===null||r.ret30Hold>=0)) return false;
+    if(ret30==="持平/--"&&r.ret30Hold!==null&&r.ret30Hold!==0) return false;
+    return true;
+  });
+  const cmpNull=(get,desc)=>(a,b)=>{
+    const av=get(a), bv=get(b);
+    if(av===null&&bv===null) return a.reportIndex-b.reportIndex;
+    if(av===null) return 1; if(bv===null) return -1;
+    return desc?(bv-av):(av-bv);
+  };
+  const cmpNum=(get,desc)=>(a,b)=> (desc?get(b)-get(a):get(a)-get(b)) || a.reportIndex-b.reportIndex;
+  if(sortBy==="ret30_desc") rows.sort(cmpNull(r=>r.ret30Hold,true));
+  else if(sortBy==="ret30_asc") rows.sort(cmpNull(r=>r.ret30Hold,false));
+  else if(sortBy==="ret5_desc") rows.sort(cmpNum(r=>r.ret5,true));
+  else if(sortBy==="ret5_asc") rows.sort(cmpNum(r=>r.ret5,false));
+  else if(sortBy==="ret10_desc") rows.sort(cmpNum(r=>r.ret10,true));
+  else if(sortBy==="ret10_asc") rows.sort(cmpNum(r=>r.ret10,false));
+  else if(sortBy==="ret20_desc") rows.sort(cmpNum(r=>r.ret20,true));
+  else if(sortBy==="ret20_asc") rows.sort(cmpNum(r=>r.ret20,false));
+  else rows.sort((a,b)=>a.reportIndex-b.reportIndex);
+  document.getElementById("count").textContent=`明细（${rows.length} / ${DATA.rows.length}）`;
+  document.getElementById("tbody").innerHTML=rows.map(r=>{
+    let tone="";
+    if(r.action==="技术候选") tone="success";
+    else if(r.action==="不追涨") tone="warning";
+    else if(r.trend==="空头") tone="danger";
+    return `<tr class="${tone}">
+      <td><span class="pill ${actionClass(r.action)}">${r.action}</span></td>
+      <td>${r.code}</td><td>${r.name}</td>
+      <td><span class="pill ${trendClass(r.trend)}">${r.trend}</span></td>
+      <td class="num ${pctClass(r.ret30Hold)}">${fmtPct(r.ret30Hold)}</td>
+      <td class="num ${pctClass(r.ret1)}">${fmtPct(r.ret1)}</td>
+      <td class="num ${pctClass(r.ret5)}">${fmtPct(r.ret5)}</td>
+      <td class="num ${pctClass(r.ret10)}">${fmtPct(r.ret10)}</td>
+      <td class="num ${pctClass(r.ret20)}">${fmtPct(r.ret20)}</td>
+      <td class="num">${r.rsi.toFixed(1)}</td><td>${r.kdj}</td><td>${r.macd}</td>
+      <td>${r.sentiment.toFixed(1)}（${r.sentimentLabel}）</td>
+      <td class="num">${fmtFlow(r.flow5)}</td><td class="num">${fmtFlow(r.flow10)}</td>
+    </tr>`;
+  }).join("");
+}
+["action","trend","ret30","sort"].forEach(id=>document.getElementById(id).addEventListener("change", render));
+render();
+</script>
+</body>
+</html>

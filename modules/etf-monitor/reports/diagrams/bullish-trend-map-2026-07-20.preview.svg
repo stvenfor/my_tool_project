@@ -1,0 +1,225 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1760" height="1360" viewBox="0 0 1760 1360">
+<rect width="1760" height="1360" fill="#ffffff"/>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#6b7280"/></marker></defs>
+<text x="40" y="52" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">
+<tspan x="40" dy="0">ETF 多头趋势图</tspan>
+<tspan x="40" dy="30">2026-07-20</tspan>
+<tspan x="40" dy="30">基于完整 JSON rows，仅筛选 trend = 多头</tspan>
+</text>
+<rect x="40" y="100" width="300" height="90" rx="8" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+<text x="58" y="126" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700">
+<tspan x="58" dy="0">完整 JSON 数据</tspan>
+<tspan x="58" dy="18">rows = 68</tspan>
+<tspan x="58" dy="18">representative</tspan>
+<tspan x="58" dy="18">technical review</tspan>
+</text>
+<rect x="390" y="100" width="280" height="90" rx="8" fill="#fff2cc" stroke="#d6b656" stroke-width="2"/>
+<text x="408" y="126" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700">
+<tspan x="408" dy="0">筛选条件</tspan>
+<tspan x="408" dy="18">trend == 多头</tspan>
+<tspan x="408" dy="18">保留完整指标字段</tspan>
+</text>
+<rect x="720" y="100" width="300" height="90" rx="8" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+<text x="738" y="126" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700">
+<tspan x="738" dy="0">筛选结果</tspan>
+<tspan x="738" dy="18">5 只 ETF</tspan>
+<tspan x="738" dy="18">技术候选 3</tspan>
+<tspan x="738" dy="18">不追涨 2</tspan>
+</text>
+<rect x="1080" y="85" width="620" height="120" rx="8" fill="#f8cecc" stroke="#b85450" stroke-width="2"/>
+<text x="1100" y="115" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700">
+<tspan x="1100" dy="0">交易闸门</tspan>
+<tspan x="1100" dy="18">本图是筛选与解释，不是买入指令。正式提醒前仍需核对实时溢折价、相对强度、一级来源催化和风险事件。</tspan>
+</text>
+<line x1="340" y1="145" x2="390" y2="145" stroke="#6b7280" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="340.0" y="137.0" fill="#374151" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400">
+<tspan x="340.0" dy="0">读取</tspan>
+</text>
+<line x1="670" y1="145" x2="720" y2="145" stroke="#6b7280" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="670.0" y="137.0" fill="#374151" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400">
+<tspan x="670.0" dy="0">筛选</tspan>
+</text>
+<line x1="1020" y1="145" x2="1080" y2="145" stroke="#6b7280" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="1025.0" y="137.0" fill="#374151" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400">
+<tspan x="1025.0" dy="0">核验</tspan>
+</text>
+<rect x="40" y="240" width="1660" height="510" rx="4" fill="#f9fafb" stroke="#86b7a6" stroke-width="2"/>
+<rect x="40" y="240" width="1660" height="36" rx="4" fill="#d5e8d4" stroke="#86b7a6" stroke-width="2"/>
+<text x="58" y="264" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">
+<tspan x="58" dy="0">技术候选：进入下一交易日核验队列（3）</tspan>
+</text>
+<rect x="40" y="780" width="1090" height="530" rx="4" fill="#fffaf0" stroke="#d79b00" stroke-width="2"/>
+<rect x="40" y="780" width="1090" height="36" rx="4" fill="#ffe6cc" stroke="#d79b00" stroke-width="2"/>
+<text x="58" y="804" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">
+<tspan x="58" dy="0">不追涨：趋势虽多头，但涨幅或情绪已偏热（2）</tspan>
+</text>
+<rect x="1170" y="780" width="530" height="530" rx="4" fill="#f5f5f5" stroke="#666666" stroke-width="2"/>
+<rect x="1170" y="780" width="530" height="36" rx="4" fill="#e5e7eb" stroke="#666666" stroke-width="2"/>
+<text x="1188" y="804" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">
+<tspan x="1188" dy="0">下一步动作</tspan>
+</text>
+<rect x="70" y="296" width="510" height="410" rx="8" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+<text x="84" y="320" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400">
+<tspan x="84" dy="0">515630  证券保险ETF鹏华</tspan>
+<tspan x="84" dy="16">状态: 技术候选</tspan>
+<tspan x="84" dy="16">市场: CN</tspan>
+<tspan x="84" dy="16">赛道: 证券保险</tspan>
+<tspan x="84" dy="16">指数: 中证800证券保险指数</tspan>
+<tspan x="84" dy="16">价格: 1.299</tspan>
+<tspan x="84" dy="16">MA20 1.284</tspan>
+<tspan x="84" dy="16">MA60 1.254</tspan>
+<tspan x="84" dy="16">涨跌: 5D +3.34%</tspan>
+<tspan x="84" dy="16">10D -1.14%</tspan>
+<tspan x="84" dy="16">20D +0.23%</tspan>
+<tspan x="84" dy="16">技术: RSI14 55.2</tspan>
+<tspan x="84" dy="16">KDJ 多头 K/D/J 54.2/42.3/78.0</tspan>
+<tspan x="84" dy="16">MACD: 收敛</tspan>
+<tspan x="84" dy="16">DIF 0.0084</tspan>
+<tspan x="84" dy="16">DEA 0.0101</tspan>
+<tspan x="84" dy="16">资金: 5D +3.76亿</tspan>
+<tspan x="84" dy="16">10D +3.89亿</tspan>
+<tspan x="84" dy="16">20D +5.03亿</tspan>
+<tspan x="84" dy="16">情绪: 偏热 75.9</tspan>
+<tspan x="84" dy="16">净流入截至 2026-07-20</tspan>
+<tspan x="84" dy="16">政策:</tspan>
+<tspan x="84" dy="16">证监会强调维护资本市场平稳健康运行、强化监管与投资者保护；方向偏支持，但不代表指数短期必涨。</tspan>
+<tspan x="84" dy="16">基本:</tspan>
+<tspan x="84" dy="16">2026年上半年国内生产总值同比增长4.7%，规模以上制造业增加值增长5.6%；宏观仍扩张…</tspan>
+<tspan x="84" dy="16">结论: 可进入下一交易日高置信核验队列。</tspan>
+</text>
+<rect x="620" y="296" width="510" height="410" rx="8" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+<text x="634" y="320" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400">
+<tspan x="634" dy="0">159985  豆粕ETF华夏</tspan>
+<tspan x="634" dy="16">状态: 技术候选</tspan>
+<tspan x="634" dy="16">市场: COMMODITY</tspan>
+<tspan x="634" dy="16">赛道: 农产品商品</tspan>
+<tspan x="634" dy="16">指数: 大商所豆粕期货价格指数</tspan>
+<tspan x="634" dy="16">价格: 2.180</tspan>
+<tspan x="634" dy="16">MA20 2.098</tspan>
+<tspan x="634" dy="16">MA60 2.089</tspan>
+<tspan x="634" dy="16">涨跌: 5D -1.18%</tspan>
+<tspan x="634" dy="16">10D +2.59%</tspan>
+<tspan x="634" dy="16">20D +9.60%</tspan>
+<tspan x="634" dy="16">技术: RSI14 69.9</tspan>
+<tspan x="634" dy="16">KDJ 空头 K/D/J 55.4/66.3/33.6</tspan>
+<tspan x="634" dy="16">MACD: 零轴上多头</tspan>
+<tspan x="634" dy="16">DIF 0.0366</tspan>
+<tspan x="634" dy="16">DEA 0.0297</tspan>
+<tspan x="634" dy="16">资金: 5D +0.13亿</tspan>
+<tspan x="634" dy="16">10D +0.26亿</tspan>
+<tspan x="634" dy="16">20D +0.50亿</tspan>
+<tspan x="634" dy="16">情绪: 偏热 61.3</tspan>
+<tspan x="634" dy="16">净流入截至 2026-07-20</tspan>
+<tspan x="634" dy="16">政策: 商品和黄金ETF主要受全球定价、汇率和地缘风险影响，本报告不设置方向性政策利好结论。</tspan>
+<tspan x="634" dy="16">基本: 全球通胀回落受阻且冲突与市场重定价风险仍存，黄金与商品具备对冲叙事但价格可能高波动。</tspan>
+<tspan x="634" dy="16">结论: 多头成立，但非权益机会，需单独风控。</tspan>
+</text>
+<rect x="1170" y="296" width="510" height="410" rx="8" fill="#e1d5e7" stroke="#9673a6" stroke-width="2"/>
+<text x="1184" y="320" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400">
+<tspan x="1184" dy="0">511190  信用债ETF海富通</tspan>
+<tspan x="1184" dy="16">状态: 技术候选</tspan>
+<tspan x="1184" dy="16">市场: CN</tspan>
+<tspan x="1184" dy="16">赛道: 信用债</tspan>
+<tspan x="1184" dy="16">指数: 上证基准做市公司债指数</tspan>
+<tspan x="1184" dy="16">价格: 102.410</tspan>
+<tspan x="1184" dy="16">MA20 102.339</tspan>
+<tspan x="1184" dy="16">MA60 102.098</tspan>
+<tspan x="1184" dy="16">涨跌: 5D +0.02%</tspan>
+<tspan x="1184" dy="16">10D +0.07%</tspan>
+<tspan x="1184" dy="16">20D +0.15%</tspan>
+<tspan x="1184" dy="16">技术: RSI14 61.6</tspan>
+<tspan x="1184" dy="16">KDJ 超买 K/D/J 88.2/84.8/94.9</tspan>
+<tspan x="1184" dy="16">MACD: 收敛</tspan>
+<tspan x="1184" dy="16">DIF 0.0688</tspan>
+<tspan x="1184" dy="16">DEA 0.0747</tspan>
+<tspan x="1184" dy="16">资金: 5D +1.02亿</tspan>
+<tspan x="1184" dy="16">10D +2.18亿</tspan>
+<tspan x="1184" dy="16">20D +3.18亿</tspan>
+<tspan x="1184" dy="16">情绪: 中性 53.3</tspan>
+<tspan x="1184" dy="16">净流入截至 2026-07-20</tspan>
+<tspan x="1184" dy="16">政策:</tspan>
+<tspan x="1184" dy="16">资本市场监管强调防风险和稳定运行；债券ETF仍受利率、信用利差和久期影响，不能当作无波动现…</tspan>
+<tspan x="1184" dy="16">基本:</tspan>
+<tspan x="1184" dy="16">上半年经济同比增长4.7%，增长与价格环境共同影响利率方向；长久期国债和信用债需分别控制久…</tspan>
+<tspan x="1184" dy="16">结论: 多头成立，但非权益机会，需单独风控。</tspan>
+</text>
+<rect x="70" y="836" width="510" height="430" rx="8" fill="#ffe6cc" stroke="#d79b00" stroke-width="2"/>
+<text x="84" y="860" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400">
+<tspan x="84" dy="0">159992  创新药ETF银华</tspan>
+<tspan x="84" dy="16">状态: 不追涨</tspan>
+<tspan x="84" dy="16">市场: CN</tspan>
+<tspan x="84" dy="16">赛道: 创新药/医疗</tspan>
+<tspan x="84" dy="16">指数: 中证创新药产业指数</tspan>
+<tspan x="84" dy="16">价格: 0.870</tspan>
+<tspan x="84" dy="16">MA20 0.834</tspan>
+<tspan x="84" dy="16">MA60 0.797</tspan>
+<tspan x="84" dy="16">涨跌: 5D +2.59%</tspan>
+<tspan x="84" dy="16">10D +0.00%</tspan>
+<tspan x="84" dy="16">20D +17.09%</tspan>
+<tspan x="84" dy="16">技术: RSI14 59.9</tspan>
+<tspan x="84" dy="16">KDJ 空头 K/D/J 57.8/63.5/46.5</tspan>
+<tspan x="84" dy="16">MACD: 零轴上多头</tspan>
+<tspan x="84" dy="16">DIF 0.0285</tspan>
+<tspan x="84" dy="16">DEA 0.0254</tspan>
+<tspan x="84" dy="16">资金: 5D +1.59亿</tspan>
+<tspan x="84" dy="16">10D +2.00亿</tspan>
+<tspan x="84" dy="16">20D +8.22亿</tspan>
+<tspan x="84" dy="16">情绪: 偏热 62.3</tspan>
+<tspan x="84" dy="16">净流入截至 2026-07-20</tspan>
+<tspan x="84" dy="16">政策:</tspan>
+<tspan x="84" dy="16">医保部门推进2026年药品目录与创新药目录形式审查，政策继续支持临床价值明确的创新，但准入…</tspan>
+<tspan x="84" dy="16">基本:</tspan>
+<tspan x="84" dy="16">医保局披露2026年上半年创新药对外授权交易总金额约1100亿美元，显示研发资产国际化活跃…</tspan>
+<tspan x="84" dy="16">结论: 趋势多头但不追涨，等待回踩或情绪冷却。</tspan>
+</text>
+<rect x="620" y="836" width="510" height="430" rx="8" fill="#ffe6cc" stroke="#d79b00" stroke-width="2"/>
+<text x="634" y="860" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400">
+<tspan x="634" dy="0">513120  港股创新药ETF广发</tspan>
+<tspan x="634" dy="16">状态: 不追涨</tspan>
+<tspan x="634" dy="16">市场: HK</tspan>
+<tspan x="634" dy="16">赛道: 港股创新药</tspan>
+<tspan x="634" dy="16">指数: 中证香港创新药港币指数</tspan>
+<tspan x="634" dy="16">价格: 1.174</tspan>
+<tspan x="634" dy="16">MA20 1.121</tspan>
+<tspan x="634" dy="16">MA60 1.118</tspan>
+<tspan x="634" dy="16">涨跌: 5D +0.95%</tspan>
+<tspan x="634" dy="16">10D -1.26%</tspan>
+<tspan x="634" dy="16">20D +17.52%</tspan>
+<tspan x="634" dy="16">技术: RSI14 62.3</tspan>
+<tspan x="634" dy="16">KDJ 空头 K/D/J 47.3/56.8/28.4</tspan>
+<tspan x="634" dy="16">MACD: 零轴上多头</tspan>
+<tspan x="634" dy="16">DIF 0.0300</tspan>
+<tspan x="634" dy="16">DEA 0.0244</tspan>
+<tspan x="634" dy="16">资金: 5D +0.94亿</tspan>
+<tspan x="634" dy="16">10D +1.03亿</tspan>
+<tspan x="634" dy="16">20D +11.05亿</tspan>
+<tspan x="634" dy="16">情绪: 中性 57.7</tspan>
+<tspan x="634" dy="16">净流入截至 2026-07-20</tspan>
+<tspan x="634" dy="16">政策:</tspan>
+<tspan x="634" dy="16">医保部门推进2026年药品目录与创新药目录形式审查，政策继续支持临床价值明确的创新，但准入…</tspan>
+<tspan x="634" dy="16">基本:</tspan>
+<tspan x="634" dy="16">医保局披露2026年上半年创新药对外授权交易总金额约1100亿美元，显示研发资产国际化活跃…</tspan>
+<tspan x="634" dy="16">结论: 趋势多头但不追涨，等待回踩或情绪冷却。</tspan>
+</text>
+<rect x="1194" y="840" width="482" height="285" rx="8" fill="#ffffff" stroke="#666666" stroke-width="2"/>
+<text x="1210" y="868" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400">
+<tspan x="1210" dy="0">1. 515630 证券保险ETF鹏华：唯一权益类技术候选，优先进入 11:15</tspan>
+<tspan x="1210" dy="18">/ 14:45 实时核验。</tspan>
+<tspan x="1210" dy="18">2. 159985 豆粕ETF华夏：商品期货属性，不能占用权益机会仓，单独观察。</tspan>
+<tspan x="1210" dy="18">3. 511190 信用债ETF海富通：偏低波动债券属性，不按权益 5%</tspan>
+<tspan x="1210" dy="18">止盈框架处理。</tspan>
+<tspan x="1210" dy="18">4. 159992 /</tspan>
+<tspan x="1210" dy="18">513120：20日涨幅已高，图形标为不追涨；等待回踩收复或情绪降温。</tspan>
+<tspan x="1210" dy="18">5. 任一买入提醒必须补齐：实时溢折价、相对基准强度、官方催化、独立确认、无重大反</tspan>
+<tspan x="1210" dy="18">向信息。</tspan>
+</text>
+<rect x="1194" y="1145" width="482" height="130" rx="8" fill="#ffffff" stroke="#666666" stroke-width="2"/>
+<text x="1210" y="1172" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400">
+<tspan x="1210" dy="0">图例</tspan>
+<tspan x="1210" dy="18">绿色: 权益类技术候选</tspan>
+<tspan x="1210" dy="18">蓝色: 商品/另类技术候选</tspan>
+<tspan x="1210" dy="18">紫色: 债券技术候选</tspan>
+<tspan x="1210" dy="18">橙色: 多头但不追涨</tspan>
+<tspan x="1210" dy="18">红色: 交易闸门/风险约束</tspan>
+</text>
+</svg>

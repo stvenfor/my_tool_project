@@ -9,6 +9,8 @@
     "scan": "python3.12 cli.py scan",
     "scheduled-check": "python3.12 cli.py scheduled-check",
     "report": "python3.12 generate_review.py",
+    "edge": "python3.12 analyze_edge_conditions.py",
+    "snapshot": "python3.12 save_snapshot.py",
     "test": "python3.12 -m unittest discover -s tests -p 'test_*.py'"
   }
 }

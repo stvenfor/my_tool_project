@@ -1,0 +1,20 @@
+{
+  "date": "2026-07-21",
+  "saved_at": "2026-07-21T22:20:55.138313+08:00",
+  "snapshot_dir": "/Users/mac/Desktop/github/my_tool_project/modules/etf-monitor/reports/snapshots/2026-07-21",
+  "files": {
+    "canvas": "/Users/mac/Desktop/github/my_tool_project/modules/etf-monitor/reports/etf-68-status-2026-07-21.canvas.tsx",
+    "canvas_data": "/Users/mac/Desktop/github/my_tool_project/modules/etf-monitor/reports/etf68-canvas-data-2026-07-21.json",
+    "edge": "/Users/mac/Desktop/github/my_tool_project/modules/etf-monitor/reports/etf68-edge-conditions-2026-07-21.json",
+    "review": "/Users/mac/Desktop/github/my_tool_project/modules/etf-monitor/reports/representative-technical-review-2026-07-21.json",
+    "html": "/Users/mac/Desktop/github/my_tool_project/modules/etf-monitor/reports/etf68-interactive-canvas.html",
+    "canvas_live": "/Users/mac/.cursor/projects/Users-mac-Desktop-github-my-tool-project/canvases/etf-68-status-2026-07-21.canvas.tsx"
+  },
+  "snapshot_contents": [
+    "canvas-data.json",
+    "edge-conditions.json",
+    "etf-68-status.canvas.tsx",
+    "interactive-canvas.html",
+    "representative-technical-review.json"
+  ]
+}
