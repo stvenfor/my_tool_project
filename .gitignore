@@ -52,6 +52,11 @@ modules/*/remotion/public/
 
 # Runtime state
 modules/etf-monitor/state/
+
+# ETF monitor ephemeral artifacts (auth QR, Feishu sync drafts, import temps)
+modules/etf-monitor/reports/_auth/
+modules/etf-monitor/reports/_etf68_*
+modules/etf-monitor/reports/_feishu_*
 modules/cffex-daily/quote_state.json
 modules/cffex-daily/remotion/public/report-props.json
 modules/cffex-daily/remotion/public/bgm.mp3
