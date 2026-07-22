@@ -1,0 +1,3284 @@
+{
+  "generated_at": "2026-07-22T15:36:11.415244+08:00",
+  "data_date": "2026-07-22",
+  "methodology": {
+    "dd_windows": [
+      10,
+      20,
+      30,
+      60,
+      120
+    ],
+    "forward_days": 10,
+    "min_samples": 8,
+    "score": "mean_fwd_ret - std/sqrt(n)",
+    "bar_limit": 400,
+    "note": "确定性收益=历史同条件下前瞻收益均值的保守下界；非实盘保证。"
+  },
+  "rows": [
+    {
+      "code": "515630",
+      "name": "证券保险ETF鹏华",
+      "bars": 401,
+      "dd10": 0.0,
+      "dd20": 2.48,
+      "dd30": 2.48,
+      "dd60": 2.48,
+      "dd120": 11.21,
+      "best_edge": "近120日深回撤(8-15%)+趋势空头｜样本10｜胜率100%｜此后10日均+4.24%｜确定性+3.71%",
+      "best_detail": {
+        "condition": "近120日深回撤(8-15%)+趋势空头",
+        "samples": 10,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 4.24,
+        "deterministic_score_pct": 3.71,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近120日深回撤(8-15%)+趋势空头",
+          "samples": 10,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 4.24,
+          "deterministic_score_pct": 3.71
+        },
+        {
+          "condition": "近120日深回撤(8-15%)+MACD收敛",
+          "samples": 9,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 3.98,
+          "deterministic_score_pct": 3.67
+        },
+        {
+          "condition": "近120日深回撤(8-15%)+MACD零轴下空头",
+          "samples": 9,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 4.1,
+          "deterministic_score_pct": 3.51
+        }
+      ],
+      "current_tech": {
+        "rsi14": 46.5,
+        "kdj": "多头",
+        "macd": "收敛",
+        "trend": "多头"
+      }
+    },
+    {
+      "code": "159985",
+      "name": "豆粕ETF华夏",
+      "bars": 401,
+      "dd10": 0.81,
+      "dd20": 0.81,
+      "dd30": 0.81,
+      "dd60": 0.81,
+      "dd120": 4.65,
+      "best_edge": "近120日深回撤(8-15%)+MACD收敛｜样本12｜胜率100%｜此后10日均+6.96%｜确定性+6.07%",
+      "best_detail": {
+        "condition": "近120日深回撤(8-15%)+MACD收敛",
+        "samples": 12,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 6.96,
+        "deterministic_score_pct": 6.07,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近120日深回撤(8-15%)+MACD收敛",
+          "samples": 12,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 6.96,
+          "deterministic_score_pct": 6.07
+        },
+        {
+          "condition": "近120日深回撤(8-15%)+趋势空头",
+          "samples": 14,
+          "win_rate_pct": 71.4,
+          "avg_fwd_ret_pct": 5.18,
+          "deterministic_score_pct": 3.94
+        },
+        {
+          "condition": "近60日浅回撤(<3%)+KDJ多头",
+          "samples": 13,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 5.12,
+          "deterministic_score_pct": 3.68
+        }
+      ],
+      "current_tech": {
+        "rsi14": 66.6,
+        "kdj": "空头",
+        "macd": "零轴上多头",
+        "trend": "多头"
+      }
+    },
+    {
+      "code": "513650",
+      "name": "标普500ETF南方",
+      "bars": 401,
+      "dd10": 2.26,
+      "dd20": 2.26,
+      "dd30": 2.26,
+      "dd60": 2.96,
+      "dd120": 2.96,
+      "best_edge": "近120日深回撤(8-15%)+RSI偏低｜样本8｜胜率100%｜此后10日均+4.97%｜确定性+4.36%",
+      "best_detail": {
+        "condition": "近120日深回撤(8-15%)+RSI偏低",
+        "samples": 8,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 4.97,
+        "deterministic_score_pct": 4.36,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近120日深回撤(8-15%)+RSI偏低",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 4.97,
+          "deterministic_score_pct": 4.36
+        },
+        {
+          "condition": "近120日回撤≥8%+RSI偏低",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 4.97,
+          "deterministic_score_pct": 4.36
+        },
+        {
+          "condition": "近120日深回撤(8-15%)+趋势空头",
+          "samples": 13,
+          "win_rate_pct": 84.6,
+          "avg_fwd_ret_pct": 4.13,
+          "deterministic_score_pct": 3.29
+        }
+      ],
+      "current_tech": {
+        "rsi14": 56.9,
+        "kdj": "空头",
+        "macd": "收敛",
+        "trend": "多头"
+      }
+    },
+    {
+      "code": "513120",
+      "name": "港股创新药ETF广发",
+      "bars": 401,
+      "dd10": 2.86,
+      "dd20": 2.86,
+      "dd30": 2.86,
+      "dd60": 4.12,
+      "dd120": 11.01,
+      "best_edge": "近20日回撤≥8%+RSI中性｜样本8｜胜率75%｜此后10日均+7.85%｜确定性+5.77%",
+      "best_detail": {
+        "condition": "近20日回撤≥8%+RSI中性",
+        "samples": 8,
+        "win_rate_pct": 75.0,
+        "avg_fwd_ret_pct": 7.85,
+        "deterministic_score_pct": 5.77,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近20日回撤≥8%+RSI中性",
+          "samples": 8,
+          "win_rate_pct": 75.0,
+          "avg_fwd_ret_pct": 7.85,
+          "deterministic_score_pct": 5.77
+        },
+        {
+          "condition": "近20日中回撤(3-8%)+趋势多头",
+          "samples": 9,
+          "win_rate_pct": 88.9,
+          "avg_fwd_ret_pct": 8.27,
+          "deterministic_score_pct": 5.77
+        },
+        {
+          "condition": "近30日回撤≥8%+RSI中性",
+          "samples": 17,
+          "win_rate_pct": 64.7,
+          "avg_fwd_ret_pct": 5.1,
+          "deterministic_score_pct": 3.56
+        }
+      ],
+      "current_tech": {
+        "rsi14": 59.3,
+        "kdj": "空头",
+        "macd": "零轴上多头",
+        "trend": "多头"
+      }
+    },
+    {
+      "code": "159992",
+      "name": "创新药ETF银华",
+      "bars": 401,
+      "dd10": 3.51,
+      "dd20": 3.51,
+      "dd30": 3.51,
+      "dd60": 3.51,
+      "dd120": 3.51,
+      "best_edge": "趋势多头+RSI中性｜样本8｜胜率88%｜此后10日均+5.56%｜确定性+4.22%",
+      "best_detail": {
+        "condition": "趋势多头+RSI中性",
+        "samples": 8,
+        "win_rate_pct": 87.5,
+        "avg_fwd_ret_pct": 5.56,
+        "deterministic_score_pct": 4.22,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "趋势多头+RSI中性",
+          "samples": 8,
+          "win_rate_pct": 87.5,
+          "avg_fwd_ret_pct": 5.56,
+          "deterministic_score_pct": 4.22
+        },
+        {
+          "condition": "近120日极深回撤(≥15%)+MACD收敛",
+          "samples": 27,
+          "win_rate_pct": 77.8,
+          "avg_fwd_ret_pct": 5.42,
+          "deterministic_score_pct": 4.16
+        },
+        {
+          "condition": "近30日回撤≥8%+KDJ多头",
+          "samples": 16,
+          "win_rate_pct": 50.0,
+          "avg_fwd_ret_pct": 5.0,
+          "deterministic_score_pct": 2.85
+        }
+      ],
+      "current_tech": {
+        "rsi14": 56.5,
+        "kdj": "空头",
+        "macd": "零轴上多头",
+        "trend": "多头"
+      }
+    },
+    {
+      "code": "511190",
+      "name": "信用债ETF海富通",
+      "bars": 357,
+      "dd10": 0.0,
+      "dd20": 0.0,
+      "dd30": 0.0,
+      "dd60": 0.0,
+      "dd120": 0.0,
+      "best_edge": "RSI超买+KDJ超买+MACD收敛｜样本9｜胜率100%｜此后10日均+0.31%｜确定性+0.25%",
+      "best_detail": {
+        "condition": "RSI超买+KDJ超买+MACD收敛",
+        "samples": 9,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 0.31,
+        "deterministic_score_pct": 0.25,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "RSI超买+KDJ超买+MACD收敛",
+          "samples": 9,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 0.31,
+          "deterministic_score_pct": 0.25
+        },
+        {
+          "condition": "近10日浅回撤(<3%)+RSI超买+KDJ多头",
+          "samples": 9,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 0.28,
+          "deterministic_score_pct": 0.24
+        },
+        {
+          "condition": "近120日浅回撤(<3%)+MACD零轴下空头",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 0.26,
+          "deterministic_score_pct": 0.23
+        }
+      ],
+      "current_tech": {
+        "rsi14": 71.3,
+        "kdj": "超买",
+        "macd": "收敛",
+        "trend": "多头"
+      }
+    },
+    {
+      "code": "510050",
+      "name": "上证50ETF华夏",
+      "bars": 401,
+      "dd10": 0.0,
+      "dd20": 0.0,
+      "dd30": 0.23,
+      "dd60": 1.06,
+      "dd120": 3.32,
+      "best_edge": "近120日回撤≥8%+RSI偏低｜样本11｜胜率100%｜此后10日均+3.16%｜确定性+2.83%",
+      "best_detail": {
+        "condition": "近120日回撤≥8%+RSI偏低",
+        "samples": 11,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 3.16,
+        "deterministic_score_pct": 2.83,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近120日回撤≥8%+RSI偏低",
+          "samples": 11,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 3.16,
+          "deterministic_score_pct": 2.83
+        },
+        {
+          "condition": "近60日深回撤(8-15%)+KDJ多头",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 2.87,
+          "deterministic_score_pct": 2.62
+        },
+        {
+          "condition": "近60日回撤≥8%+KDJ多头",
+          "samples": 9,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 2.71,
+          "deterministic_score_pct": 2.44
+        }
+      ],
+      "current_tech": {
+        "rsi14": 57.5,
+        "kdj": "多头",
+        "macd": "金叉",
+        "trend": "震荡"
+      }
+    },
+    {
+      "code": "588000",
+      "name": "科创50ETF华夏",
+      "bars": 401,
+      "dd10": 15.81,
+      "dd20": 16.38,
+      "dd30": 16.38,
+      "dd60": 16.38,
+      "dd120": 16.38,
+      "best_edge": "趋势震荡+RSI超买｜样本13｜胜率100%｜此后10日均+12.72%｜确定性+11.14%",
+      "best_detail": {
+        "condition": "趋势震荡+RSI超买",
+        "samples": 13,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 12.72,
+        "deterministic_score_pct": 11.14,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "趋势震荡+RSI超买",
+          "samples": 13,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 12.72,
+          "deterministic_score_pct": 11.14
+        },
+        {
+          "condition": "近60日深回撤(8-15%)+趋势震荡",
+          "samples": 23,
+          "win_rate_pct": 91.3,
+          "avg_fwd_ret_pct": 8.1,
+          "deterministic_score_pct": 6.98
+        },
+        {
+          "condition": "近120日中回撤(3-8%)+KDJ空头",
+          "samples": 8,
+          "win_rate_pct": 87.5,
+          "avg_fwd_ret_pct": 9.55,
+          "deterministic_score_pct": 6.85
+        }
+      ],
+      "current_tech": {
+        "rsi14": 42.6,
+        "kdj": "多头",
+        "macd": "收敛",
+        "trend": "震荡"
+      }
+    },
+    {
+      "code": "561260",
+      "name": "能源ETF工银",
+      "bars": 401,
+      "dd10": 0.0,
+      "dd20": 0.0,
+      "dd30": 3.31,
+      "dd60": 11.47,
+      "dd120": 16.41,
+      "best_edge": "近60日浅回撤(<3%)+趋势震荡｜样本10｜胜率100%｜此后10日均+4.78%｜确定性+4.54%",
+      "best_detail": {
+        "condition": "近60日浅回撤(<3%)+趋势震荡",
+        "samples": 10,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 4.78,
+        "deterministic_score_pct": 4.54,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近60日浅回撤(<3%)+趋势震荡",
+          "samples": 10,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 4.78,
+          "deterministic_score_pct": 4.54
+        },
+        {
+          "condition": "RSI中性+KDJ空头+MACD收敛",
+          "samples": 15,
+          "win_rate_pct": 86.7,
+          "avg_fwd_ret_pct": 4.11,
+          "deterministic_score_pct": 3.1
+        },
+        {
+          "condition": "近60日浅回撤(<3%)+MACD收敛",
+          "samples": 8,
+          "win_rate_pct": 75.0,
+          "avg_fwd_ret_pct": 3.51,
+          "deterministic_score_pct": 2.55
+        }
+      ],
+      "current_tech": {
+        "rsi14": 63.0,
+        "kdj": "多头",
+        "macd": "收敛",
+        "trend": "震荡"
+      }
+    },
+    {
+      "code": "159887",
+      "name": "银行ETF富国",
+      "bars": 401,
+      "dd10": 1.06,
+      "dd20": 1.06,
+      "dd30": 2.03,
+      "dd60": 2.03,
+      "dd120": 2.03,
+      "best_edge": "近30日回撤≥8%+RSI超卖｜样本10｜胜率100%｜此后10日均+5.56%｜确定性+5.13%",
+      "best_detail": {
+        "condition": "近30日回撤≥8%+RSI超卖",
+        "samples": 10,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 5.56,
+        "deterministic_score_pct": 5.13,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近30日回撤≥8%+RSI超卖",
+          "samples": 10,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 5.56,
+          "deterministic_score_pct": 5.13
+        },
+        {
+          "condition": "近60日回撤≥8%+RSI超卖",
+          "samples": 21,
+          "win_rate_pct": 90.5,
+          "avg_fwd_ret_pct": 3.5,
+          "deterministic_score_pct": 2.96
+        },
+        {
+          "condition": "近10日浅回撤(<3%)+KDJ多头",
+          "samples": 8,
+          "win_rate_pct": 87.5,
+          "avg_fwd_ret_pct": 3.64,
+          "deterministic_score_pct": 2.82
+        }
+      ],
+      "current_tech": {
+        "rsi14": 72.0,
+        "kdj": "空头",
+        "macd": "零轴上多头",
+        "trend": "震荡"
+      }
+    },
+    {
+      "code": "159852",
+      "name": "软件ETF嘉实",
+      "bars": 401,
+      "dd10": 2.97,
+      "dd20": 2.97,
+      "dd30": 6.53,
+      "dd60": 20.49,
+      "dd120": 31.23,
+      "best_edge": "近120日深回撤(8-15%)+MACD收敛｜样本9｜胜率100%｜此后10日均+12.69%｜确定性+11.18%",
+      "best_detail": {
+        "condition": "近120日深回撤(8-15%)+MACD收敛",
+        "samples": 9,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 12.69,
+        "deterministic_score_pct": 11.18,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近120日深回撤(8-15%)+MACD收敛",
+          "samples": 9,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 12.69,
+          "deterministic_score_pct": 11.18
+        },
+        {
+          "condition": "近120日深回撤(8-15%)+RSI偏高",
+          "samples": 10,
+          "win_rate_pct": 90.0,
+          "avg_fwd_ret_pct": 9.71,
+          "deterministic_score_pct": 7.91
+        },
+        {
+          "condition": "近120日深回撤(8-15%)+趋势多头",
+          "samples": 15,
+          "win_rate_pct": 73.3,
+          "avg_fwd_ret_pct": 5.91,
+          "deterministic_score_pct": 4.38
+        }
+      ],
+      "current_tech": {
+        "rsi14": 48.5,
+        "kdj": "多头",
+        "macd": "收敛",
+        "trend": "震荡"
+      }
+    },
+    {
+      "code": "511180",
+      "name": "可转债ETF海富通",
+      "bars": 401,
+      "dd10": 0.3,
+      "dd20": 0.4,
+      "dd30": 1.76,
+      "dd60": 3.36,
+      "dd120": 6.13,
+      "best_edge": "近60日中回撤(3-8%)+RSI偏低｜样本9｜胜率100%｜此后10日均+2.41%｜确定性+1.98%",
+      "best_detail": {
+        "condition": "近60日中回撤(3-8%)+RSI偏低",
+        "samples": 9,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 2.41,
+        "deterministic_score_pct": 1.98,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近60日中回撤(3-8%)+RSI偏低",
+          "samples": 9,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 2.41,
+          "deterministic_score_pct": 1.98
+        },
+        {
+          "condition": "近60日浅回撤(<3%)+RSI偏高+KDJ空头",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 2.17,
+          "deterministic_score_pct": 1.79
+        },
+        {
+          "condition": "近60日浅回撤(<3%)+KDJ空头",
+          "samples": 10,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 2.0,
+          "deterministic_score_pct": 1.67
+        }
+      ],
+      "current_tech": {
+        "rsi14": 51.0,
+        "kdj": "多头",
+        "macd": "收敛",
+        "trend": "震荡"
+      }
+    },
+    {
+      "code": "159825",
+      "name": "农业ETF富国",
+      "bars": 401,
+      "dd10": 0.0,
+      "dd20": 0.0,
+      "dd30": 0.0,
+      "dd60": 16.0,
+      "dd120": 22.48,
+      "best_edge": "近20日浅回撤(<3%)+RSI中性｜样本11｜胜率82%｜此后10日均+3.07%｜确定性+2.12%",
+      "best_detail": {
+        "condition": "近20日浅回撤(<3%)+RSI中性",
+        "samples": 11,
+        "win_rate_pct": 81.8,
+        "avg_fwd_ret_pct": 3.07,
+        "deterministic_score_pct": 2.12,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近20日浅回撤(<3%)+RSI中性",
+          "samples": 11,
+          "win_rate_pct": 81.8,
+          "avg_fwd_ret_pct": 3.07,
+          "deterministic_score_pct": 2.12
+        },
+        {
+          "condition": "RSI中性+KDJ空头+MACD收敛",
+          "samples": 25,
+          "win_rate_pct": 92.0,
+          "avg_fwd_ret_pct": 2.33,
+          "deterministic_score_pct": 1.98
+        },
+        {
+          "condition": "近120日极深回撤(≥15%)+MACD收敛",
+          "samples": 13,
+          "win_rate_pct": 92.3,
+          "avg_fwd_ret_pct": 2.38,
+          "deterministic_score_pct": 1.9
+        }
+      ],
+      "current_tech": {
+        "rsi14": 57.6,
+        "kdj": "多头",
+        "macd": "收敛",
+        "trend": "震荡"
+      }
+    },
+    {
+      "code": "159865",
+      "name": "养殖ETF国泰",
+      "bars": 401,
+      "dd10": 2.94,
+      "dd20": 2.94,
+      "dd30": 2.94,
+      "dd60": 14.7,
+      "dd120": 20.84,
+      "best_edge": "近120日极深回撤(≥15%)+趋势空头｜样本12｜胜率83%｜此后10日均+4.14%｜确定性+2.82%",
+      "best_detail": {
+        "condition": "近120日极深回撤(≥15%)+趋势空头",
+        "samples": 12,
+        "win_rate_pct": 83.3,
+        "avg_fwd_ret_pct": 4.14,
+        "deterministic_score_pct": 2.82,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近120日极深回撤(≥15%)+趋势空头",
+          "samples": 12,
+          "win_rate_pct": 83.3,
+          "avg_fwd_ret_pct": 4.14,
+          "deterministic_score_pct": 2.82
+        },
+        {
+          "condition": "近120日极深回撤(≥15%)+RSI超卖",
+          "samples": 10,
+          "win_rate_pct": 80.0,
+          "avg_fwd_ret_pct": 3.78,
+          "deterministic_score_pct": 2.23
+        },
+        {
+          "condition": "近120日极深回撤(≥15%)+MACD零轴下空头",
+          "samples": 10,
+          "win_rate_pct": 80.0,
+          "avg_fwd_ret_pct": 3.78,
+          "deterministic_score_pct": 2.23
+        }
+      ],
+      "current_tech": {
+        "rsi14": 53.8,
+        "kdj": "空头",
+        "macd": "收敛",
+        "trend": "震荡"
+      }
+    },
+    {
+      "code": "511090",
+      "name": "30年国债ETF鹏扬",
+      "bars": 401,
+      "dd10": 0.0,
+      "dd20": 0.13,
+      "dd30": 0.13,
+      "dd60": 0.16,
+      "dd120": 0.16,
+      "best_edge": "近120日浅回撤(<3%)+RSI偏高+KDJ多头｜样本9｜胜率78%｜此后10日均+0.41%｜确定性+0.18%",
+      "best_detail": {
+        "condition": "近120日浅回撤(<3%)+RSI偏高+KDJ多头",
+        "samples": 9,
+        "win_rate_pct": 77.8,
+        "avg_fwd_ret_pct": 0.41,
+        "deterministic_score_pct": 0.18,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近120日浅回撤(<3%)+RSI偏高+KDJ多头",
+          "samples": 9,
+          "win_rate_pct": 77.8,
+          "avg_fwd_ret_pct": 0.41,
+          "deterministic_score_pct": 0.18
+        },
+        {
+          "condition": "近120日浅回撤(<3%)+趋势震荡",
+          "samples": 31,
+          "win_rate_pct": 64.5,
+          "avg_fwd_ret_pct": 0.27,
+          "deterministic_score_pct": 0.1
+        },
+        {
+          "condition": "趋势震荡+RSI偏高",
+          "samples": 36,
+          "win_rate_pct": 61.1,
+          "avg_fwd_ret_pct": 0.23,
+          "deterministic_score_pct": 0.07
+        }
+      ],
+      "current_tech": {
+        "rsi14": 60.4,
+        "kdj": "多头",
+        "macd": "金叉",
+        "trend": "震荡"
+      }
+    },
+    {
+      "code": "512880",
+      "name": "证券ETF国泰",
+      "bars": 401,
+      "dd10": 1.59,
+      "dd20": 5.27,
+      "dd30": 5.27,
+      "dd60": 5.27,
+      "dd120": 8.09,
+      "best_edge": "近120日极深回撤(≥15%)+RSI超卖+KDJ超卖｜样本12｜胜率83%｜此后10日均+3.81%｜确定性+2.79%",
+      "best_detail": {
+        "condition": "近120日极深回撤(≥15%)+RSI超卖+KDJ超卖",
+        "samples": 12,
+        "win_rate_pct": 83.3,
+        "avg_fwd_ret_pct": 3.81,
+        "deterministic_score_pct": 2.79,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近120日极深回撤(≥15%)+RSI超卖+KDJ超卖",
+          "samples": 12,
+          "win_rate_pct": 83.3,
+          "avg_fwd_ret_pct": 3.81,
+          "deterministic_score_pct": 2.79
+        },
+        {
+          "condition": "近20日回撤≥8%+KDJ超卖",
+          "samples": 16,
+          "win_rate_pct": 81.2,
+          "avg_fwd_ret_pct": 3.59,
+          "deterministic_score_pct": 2.61
+        },
+        {
+          "condition": "近120日极深回撤(≥15%)+KDJ超卖",
+          "samples": 19,
+          "win_rate_pct": 78.9,
+          "avg_fwd_ret_pct": 3.46,
+          "deterministic_score_pct": 2.59
+        }
+      ],
+      "current_tech": {
+        "rsi14": 41.6,
+        "kdj": "多头",
+        "macd": "收敛",
+        "trend": "震荡"
+      }
+    },
+    {
+      "code": "518880",
+      "name": "黄金ETF华安",
+      "bars": 401,
+      "dd10": 0.0,
+      "dd20": 1.29,
+      "dd30": 4.43,
+      "dd60": 13.61,
+      "dd120": 28.09,
+      "best_edge": "近10日浅回撤(<3%)+RSI偏高｜样本17｜胜率94%｜此后10日均+10.26%｜确定性+8.99%",
+      "best_detail": {
+        "condition": "近10日浅回撤(<3%)+RSI偏高",
+        "samples": 17,
+        "win_rate_pct": 94.1,
+        "avg_fwd_ret_pct": 10.26,
+        "deterministic_score_pct": 8.99,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近10日浅回撤(<3%)+RSI偏高",
+          "samples": 17,
+          "win_rate_pct": 94.1,
+          "avg_fwd_ret_pct": 10.26,
+          "deterministic_score_pct": 8.99
+        },
+        {
+          "condition": "近10日浅回撤(<3%)+KDJ空头",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 7.74,
+          "deterministic_score_pct": 6.68
+        },
+        {
+          "condition": "近10日深回撤(8-15%)+KDJ空头",
+          "samples": 9,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 4.71,
+          "deterministic_score_pct": 3.88
+        }
+      ],
+      "current_tech": {
+        "rsi14": 55.3,
+        "kdj": "多头",
+        "macd": "收敛",
+        "trend": "震荡"
+      }
+    },
+    {
+      "code": "510810",
+      "name": "上海国企ETF汇添富",
+      "bars": 401,
+      "dd10": 0.0,
+      "dd20": 0.0,
+      "dd30": 0.0,
+      "dd60": 5.35,
+      "dd120": 12.01,
+      "best_edge": "近60日中回撤(3-8%)+RSI偏高｜样本8｜胜率100%｜此后10日均+4.89%｜确定性+4.40%",
+      "best_detail": {
+        "condition": "近60日中回撤(3-8%)+RSI偏高",
+        "samples": 8,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 4.89,
+        "deterministic_score_pct": 4.4,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近60日中回撤(3-8%)+RSI偏高",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 4.89,
+          "deterministic_score_pct": 4.4
+        },
+        {
+          "condition": "近60日中回撤(3-8%)+趋势震荡",
+          "samples": 9,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 4.72,
+          "deterministic_score_pct": 4.1
+        },
+        {
+          "condition": "近60日中回撤(3-8%)+MACD收敛",
+          "samples": 13,
+          "win_rate_pct": 92.3,
+          "avg_fwd_ret_pct": 3.52,
+          "deterministic_score_pct": 2.84
+        }
+      ],
+      "current_tech": {
+        "rsi14": 63.4,
+        "kdj": "多头",
+        "macd": "收敛",
+        "trend": "震荡"
+      }
+    },
+    {
+      "code": "159100",
+      "name": "巴西ETF华夏",
+      "bars": 167,
+      "dd10": 2.48,
+      "dd20": 2.48,
+      "dd30": 2.48,
+      "dd60": 12.89,
+      "dd120": 18.37,
+      "best_edge": "近120日极深回撤(≥15%)+MACD收敛｜样本16｜胜率88%｜此后10日均+1.89%｜确定性+1.44%",
+      "best_detail": {
+        "condition": "近120日极深回撤(≥15%)+MACD收敛",
+        "samples": 16,
+        "win_rate_pct": 87.5,
+        "avg_fwd_ret_pct": 1.89,
+        "deterministic_score_pct": 1.44,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近120日极深回撤(≥15%)+MACD收敛",
+          "samples": 16,
+          "win_rate_pct": 87.5,
+          "avg_fwd_ret_pct": 1.89,
+          "deterministic_score_pct": 1.44
+        },
+        {
+          "condition": "近120日极深回撤(≥15%)+RSI偏低",
+          "samples": 12,
+          "win_rate_pct": 50.0,
+          "avg_fwd_ret_pct": -0.02,
+          "deterministic_score_pct": -0.7
+        },
+        {
+          "condition": "近120日极深回撤(≥15%)+趋势空头",
+          "samples": 25,
+          "win_rate_pct": 44.0,
+          "avg_fwd_ret_pct": -0.62,
+          "deterministic_score_pct": -1.22
+        }
+      ],
+      "current_tech": {
+        "rsi14": 61.8,
+        "kdj": "空头",
+        "macd": "收敛",
+        "trend": "震荡"
+      }
+    },
+    {
+      "code": "159691",
+      "name": "港股红利ETF工银",
+      "bars": 401,
+      "dd10": 0.0,
+      "dd20": 0.0,
+      "dd30": 1.9,
+      "dd60": 10.79,
+      "dd120": 15.06,
+      "best_edge": "近60日中回撤(3-8%)+趋势震荡｜样本15｜胜率93%｜此后10日均+2.72%｜确定性+2.28%",
+      "best_detail": {
+        "condition": "近60日中回撤(3-8%)+趋势震荡",
+        "samples": 15,
+        "win_rate_pct": 93.3,
+        "avg_fwd_ret_pct": 2.72,
+        "deterministic_score_pct": 2.28,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近60日中回撤(3-8%)+趋势震荡",
+          "samples": 15,
+          "win_rate_pct": 93.3,
+          "avg_fwd_ret_pct": 2.72,
+          "deterministic_score_pct": 2.28
+        },
+        {
+          "condition": "近60日中回撤(3-8%)+RSI偏高",
+          "samples": 15,
+          "win_rate_pct": 93.3,
+          "avg_fwd_ret_pct": 2.64,
+          "deterministic_score_pct": 2.19
+        },
+        {
+          "condition": "近60日中回撤(3-8%)+MACD收敛",
+          "samples": 11,
+          "win_rate_pct": 90.9,
+          "avg_fwd_ret_pct": 2.72,
+          "deterministic_score_pct": 2.12
+        }
+      ],
+      "current_tech": {
+        "rsi14": 70.3,
+        "kdj": "多头",
+        "macd": "收敛",
+        "trend": "震荡"
+      }
+    },
+    {
+      "code": "159502",
+      "name": "标普生物科技ETF嘉实",
+      "bars": 401,
+      "dd10": 8.38,
+      "dd20": 10.82,
+      "dd30": 10.82,
+      "dd60": 10.82,
+      "dd120": 10.82,
+      "best_edge": "RSI偏高+KDJ多头+MACD收敛｜样本11｜胜率82%｜此后10日均+7.85%｜确定性+5.68%",
+      "best_detail": {
+        "condition": "RSI偏高+KDJ多头+MACD收敛",
+        "samples": 11,
+        "win_rate_pct": 81.8,
+        "avg_fwd_ret_pct": 7.85,
+        "deterministic_score_pct": 5.68,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "RSI偏高+KDJ多头+MACD收敛",
+          "samples": 11,
+          "win_rate_pct": 81.8,
+          "avg_fwd_ret_pct": 7.85,
+          "deterministic_score_pct": 5.68
+        },
+        {
+          "condition": "近10日浅回撤(<3%)+RSI偏高+KDJ多头",
+          "samples": 23,
+          "win_rate_pct": 87.0,
+          "avg_fwd_ret_pct": 6.75,
+          "deterministic_score_pct": 5.41
+        },
+        {
+          "condition": "近10日浅回撤(<3%)+KDJ多头",
+          "samples": 33,
+          "win_rate_pct": 78.8,
+          "avg_fwd_ret_pct": 5.99,
+          "deterministic_score_pct": 4.81
+        }
+      ],
+      "current_tech": {
+        "rsi14": 44.6,
+        "kdj": "空头",
+        "macd": "收敛",
+        "trend": "震荡"
+      }
+    },
+    {
+      "code": "588170",
+      "name": "科创半导体ETF华夏",
+      "bars": 314,
+      "dd10": 26.99,
+      "dd20": 26.99,
+      "dd30": 26.99,
+      "dd60": 26.99,
+      "dd120": 26.99,
+      "best_edge": "近10日浅回撤(<3%)+KDJ多头｜样本8｜胜率100%｜此后10日均+29.17%｜确定性+23.56%",
+      "best_detail": {
+        "condition": "近10日浅回撤(<3%)+KDJ多头",
+        "samples": 8,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 29.17,
+        "deterministic_score_pct": 23.56,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近10日浅回撤(<3%)+KDJ多头",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 29.17,
+          "deterministic_score_pct": 23.56
+        },
+        {
+          "condition": "趋势震荡+RSI超买",
+          "samples": 14,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 14.01,
+          "deterministic_score_pct": 11.6
+        },
+        {
+          "condition": "趋势多头+RSI中性",
+          "samples": 9,
+          "win_rate_pct": 55.6,
+          "avg_fwd_ret_pct": 16.83,
+          "deterministic_score_pct": 9.91
+        }
+      ],
+      "current_tech": {
+        "rsi14": 38.9,
+        "kdj": "金叉",
+        "macd": "收敛",
+        "trend": "震荡"
+      }
+    },
+    {
+      "code": "516950",
+      "name": "基建ETF银华",
+      "bars": 401,
+      "dd10": 0.0,
+      "dd20": 0.95,
+      "dd30": 4.24,
+      "dd60": 11.34,
+      "dd120": 18.11,
+      "best_edge": "近120日浅回撤(<3%)+KDJ超买｜样本9｜胜率100%｜此后10日均+6.98%｜确定性+5.55%",
+      "best_detail": {
+        "condition": "近120日浅回撤(<3%)+KDJ超买",
+        "samples": 9,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 6.98,
+        "deterministic_score_pct": 5.55,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近120日浅回撤(<3%)+KDJ超买",
+          "samples": 9,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 6.98,
+          "deterministic_score_pct": 5.55
+        },
+        {
+          "condition": "近120日浅回撤(<3%)+RSI超买",
+          "samples": 15,
+          "win_rate_pct": 93.3,
+          "avg_fwd_ret_pct": 4.05,
+          "deterministic_score_pct": 3.23
+        },
+        {
+          "condition": "近120日浅回撤(<3%)+MACD零轴上多头",
+          "samples": 23,
+          "win_rate_pct": 82.6,
+          "avg_fwd_ret_pct": 3.76,
+          "deterministic_score_pct": 2.91
+        }
+      ],
+      "current_tech": {
+        "rsi14": 52.8,
+        "kdj": "多头",
+        "macd": "收敛",
+        "trend": "震荡"
+      }
+    },
+    {
+      "code": "159605",
+      "name": "中概互联ETF广发",
+      "bars": 401,
+      "dd10": 4.29,
+      "dd20": 4.29,
+      "dd30": 4.29,
+      "dd60": 12.53,
+      "dd120": 28.24,
+      "best_edge": "近120日中回撤(3-8%)+趋势多头｜样本10｜胜率80%｜此后10日均+5.77%｜确定性+4.00%",
+      "best_detail": {
+        "condition": "近120日中回撤(3-8%)+趋势多头",
+        "samples": 10,
+        "win_rate_pct": 80.0,
+        "avg_fwd_ret_pct": 5.77,
+        "deterministic_score_pct": 4.0,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近120日中回撤(3-8%)+趋势多头",
+          "samples": 10,
+          "win_rate_pct": 80.0,
+          "avg_fwd_ret_pct": 5.77,
+          "deterministic_score_pct": 4.0
+        },
+        {
+          "condition": "近10日回撤≥8%+KDJ超卖",
+          "samples": 11,
+          "win_rate_pct": 81.8,
+          "avg_fwd_ret_pct": 5.08,
+          "deterministic_score_pct": 3.41
+        },
+        {
+          "condition": "近120日中回撤(3-8%)+MACD零轴上多头",
+          "samples": 9,
+          "win_rate_pct": 77.8,
+          "avg_fwd_ret_pct": 4.1,
+          "deterministic_score_pct": 2.3
+        }
+      ],
+      "current_tech": {
+        "rsi14": 63.5,
+        "kdj": "死叉",
+        "macd": "零轴上多头",
+        "trend": "震荡"
+      }
+    },
+    {
+      "code": "159740",
+      "name": "恒生科技ETF大成",
+      "bars": 401,
+      "dd10": 3.64,
+      "dd20": 3.64,
+      "dd30": 3.64,
+      "dd60": 9.61,
+      "dd120": 23.09,
+      "best_edge": "近120日中回撤(3-8%)+RSI偏高｜样本9｜胜率89%｜此后10日均+5.17%｜确定性+4.12%",
+      "best_detail": {
+        "condition": "近120日中回撤(3-8%)+RSI偏高",
+        "samples": 9,
+        "win_rate_pct": 88.9,
+        "avg_fwd_ret_pct": 5.17,
+        "deterministic_score_pct": 4.12,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近120日中回撤(3-8%)+RSI偏高",
+          "samples": 9,
+          "win_rate_pct": 88.9,
+          "avg_fwd_ret_pct": 5.17,
+          "deterministic_score_pct": 4.12
+        },
+        {
+          "condition": "近60日极深回撤(≥15%)+RSI偏低",
+          "samples": 14,
+          "win_rate_pct": 92.9,
+          "avg_fwd_ret_pct": 3.24,
+          "deterministic_score_pct": 2.76
+        },
+        {
+          "condition": "RSI偏高+KDJ空头+MACD收敛",
+          "samples": 11,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 3.55,
+          "deterministic_score_pct": 2.73
+        }
+      ],
+      "current_tech": {
+        "rsi14": 58.7,
+        "kdj": "空头",
+        "macd": "收敛",
+        "trend": "震荡"
+      }
+    },
+    {
+      "code": "562350",
+      "name": "电力ETF银华",
+      "bars": 401,
+      "dd10": 0.0,
+      "dd20": 0.0,
+      "dd30": 4.97,
+      "dd60": 13.16,
+      "dd120": 13.16,
+      "best_edge": "近120日中回撤(3-8%)+RSI偏低+KDJ多头｜样本10｜胜率80%｜此后10日均+5.22%｜确定性+3.87%",
+      "best_detail": {
+        "condition": "近120日中回撤(3-8%)+RSI偏低+KDJ多头",
+        "samples": 10,
+        "win_rate_pct": 80.0,
+        "avg_fwd_ret_pct": 5.22,
+        "deterministic_score_pct": 3.87,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近120日中回撤(3-8%)+RSI偏低+KDJ多头",
+          "samples": 10,
+          "win_rate_pct": 80.0,
+          "avg_fwd_ret_pct": 5.22,
+          "deterministic_score_pct": 3.87
+        },
+        {
+          "condition": "近120日中回撤(3-8%)+KDJ多头",
+          "samples": 20,
+          "win_rate_pct": 85.0,
+          "avg_fwd_ret_pct": 4.59,
+          "deterministic_score_pct": 3.64
+        },
+        {
+          "condition": "近120日中回撤(3-8%)+RSI偏低",
+          "samples": 14,
+          "win_rate_pct": 78.6,
+          "avg_fwd_ret_pct": 4.23,
+          "deterministic_score_pct": 3.13
+        }
+      ],
+      "current_tech": {
+        "rsi14": 63.6,
+        "kdj": "多头",
+        "macd": "收敛",
+        "trend": "震荡"
+      }
+    },
+    {
+      "code": "159981",
+      "name": "能源化工ETF建信",
+      "bars": 401,
+      "dd10": 0.84,
+      "dd20": 0.84,
+      "dd30": 8.1,
+      "dd60": 12.06,
+      "dd120": 14.22,
+      "best_edge": "近10日浅回撤(<3%)+KDJ多头｜样本10｜胜率100%｜此后10日均+10.76%｜确定性+9.05%",
+      "best_detail": {
+        "condition": "近10日浅回撤(<3%)+KDJ多头",
+        "samples": 10,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 10.76,
+        "deterministic_score_pct": 9.05,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近10日浅回撤(<3%)+KDJ多头",
+          "samples": 10,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 10.76,
+          "deterministic_score_pct": 9.05
+        },
+        {
+          "condition": "近10日浅回撤(<3%)+RSI超买+KDJ多头",
+          "samples": 10,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 10.76,
+          "deterministic_score_pct": 9.05
+        },
+        {
+          "condition": "近20日中回撤(3-8%)+MACD收敛",
+          "samples": 10,
+          "win_rate_pct": 70.0,
+          "avg_fwd_ret_pct": 11.86,
+          "deterministic_score_pct": 8.33
+        }
+      ],
+      "current_tech": {
+        "rsi14": 75.5,
+        "kdj": "金叉",
+        "macd": "收敛",
+        "trend": "震荡"
+      }
+    },
+    {
+      "code": "159399",
+      "name": "现金流ETF国泰",
+      "bars": 341,
+      "dd10": 0.2,
+      "dd20": 0.2,
+      "dd30": 1.88,
+      "dd60": 11.53,
+      "dd120": 18.65,
+      "best_edge": "近30日回撤≥8%+KDJ多头｜样本14｜胜率79%｜此后10日均+2.03%｜确定性+1.44%",
+      "best_detail": {
+        "condition": "近30日回撤≥8%+KDJ多头",
+        "samples": 14,
+        "win_rate_pct": 78.6,
+        "avg_fwd_ret_pct": 2.03,
+        "deterministic_score_pct": 1.44,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近30日回撤≥8%+KDJ多头",
+          "samples": 14,
+          "win_rate_pct": 78.6,
+          "avg_fwd_ret_pct": 2.03,
+          "deterministic_score_pct": 1.44
+        },
+        {
+          "condition": "近20日回撤≥8%+KDJ多头",
+          "samples": 8,
+          "win_rate_pct": 87.5,
+          "avg_fwd_ret_pct": 1.73,
+          "deterministic_score_pct": 1.3
+        },
+        {
+          "condition": "近20日深回撤(8-15%)+RSI超卖",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 1.35,
+          "deterministic_score_pct": 1.18
+        }
+      ],
+      "current_tech": {
+        "rsi14": 70.2,
+        "kdj": "超买",
+        "macd": "收敛",
+        "trend": "震荡"
+      }
+    },
+    {
+      "code": "159928",
+      "name": "消费ETF汇添富",
+      "bars": 401,
+      "dd10": 0.89,
+      "dd20": 0.89,
+      "dd30": 0.89,
+      "dd60": 10.31,
+      "dd120": 17.08,
+      "best_edge": "近120日浅回撤(<3%)+趋势多头｜样本9｜胜率89%｜此后10日均+4.59%｜确定性+3.82%",
+      "best_detail": {
+        "condition": "近120日浅回撤(<3%)+趋势多头",
+        "samples": 9,
+        "win_rate_pct": 88.9,
+        "avg_fwd_ret_pct": 4.59,
+        "deterministic_score_pct": 3.82,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近120日浅回撤(<3%)+趋势多头",
+          "samples": 9,
+          "win_rate_pct": 88.9,
+          "avg_fwd_ret_pct": 4.59,
+          "deterministic_score_pct": 3.82
+        },
+        {
+          "condition": "近120日浅回撤(<3%)+KDJ多头",
+          "samples": 9,
+          "win_rate_pct": 88.9,
+          "avg_fwd_ret_pct": 4.36,
+          "deterministic_score_pct": 3.4
+        },
+        {
+          "condition": "近120日中回撤(3-8%)+MACD收敛",
+          "samples": 19,
+          "win_rate_pct": 84.2,
+          "avg_fwd_ret_pct": 2.3,
+          "deterministic_score_pct": 1.9
+        }
+      ],
+      "current_tech": {
+        "rsi14": 66.7,
+        "kdj": "超买",
+        "macd": "收敛",
+        "trend": "震荡"
+      }
+    },
+    {
+      "code": "512690",
+      "name": "酒ETF鹏华",
+      "bars": 401,
+      "dd10": 0.46,
+      "dd20": 0.46,
+      "dd30": 0.46,
+      "dd60": 12.42,
+      "dd120": 24.3,
+      "best_edge": "近120日深回撤(8-15%)+趋势多头｜样本10｜胜率100%｜此后10日均+5.90%｜确定性+5.40%",
+      "best_detail": {
+        "condition": "近120日深回撤(8-15%)+趋势多头",
+        "samples": 10,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 5.9,
+        "deterministic_score_pct": 5.4,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近120日深回撤(8-15%)+趋势多头",
+          "samples": 10,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 5.9,
+          "deterministic_score_pct": 5.4
+        },
+        {
+          "condition": "近120日深回撤(8-15%)+MACD零轴上多头",
+          "samples": 13,
+          "win_rate_pct": 76.9,
+          "avg_fwd_ret_pct": 2.71,
+          "deterministic_score_pct": 1.74
+        },
+        {
+          "condition": "近20日回撤≥8%+KDJ多头",
+          "samples": 8,
+          "win_rate_pct": 75.0,
+          "avg_fwd_ret_pct": 3.33,
+          "deterministic_score_pct": 1.53
+        }
+      ],
+      "current_tech": {
+        "rsi14": 66.0,
+        "kdj": "多头",
+        "macd": "收敛",
+        "trend": "震荡"
+      }
+    },
+    {
+      "code": "515220",
+      "name": "煤炭ETF国泰",
+      "bars": 401,
+      "dd10": 0.0,
+      "dd20": 0.0,
+      "dd30": 7.44,
+      "dd60": 14.69,
+      "dd120": 14.69,
+      "best_edge": "近120日中回撤(3-8%)+KDJ多头｜样本9｜胜率100%｜此后10日均+9.26%｜确定性+8.53%",
+      "best_detail": {
+        "condition": "近120日中回撤(3-8%)+KDJ多头",
+        "samples": 9,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 9.26,
+        "deterministic_score_pct": 8.53,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近120日中回撤(3-8%)+KDJ多头",
+          "samples": 9,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 9.26,
+          "deterministic_score_pct": 8.53
+        },
+        {
+          "condition": "近120日中回撤(3-8%)+MACD零轴上多头",
+          "samples": 16,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 8.97,
+          "deterministic_score_pct": 8.14
+        },
+        {
+          "condition": "近120日中回撤(3-8%)+趋势多头",
+          "samples": 18,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 8.51,
+          "deterministic_score_pct": 7.72
+        }
+      ],
+      "current_tech": {
+        "rsi14": 65.9,
+        "kdj": "多头",
+        "macd": "收敛",
+        "trend": "震荡"
+      }
+    },
+    {
+      "code": "510880",
+      "name": "红利ETF华泰柏瑞",
+      "bars": 401,
+      "dd10": 0.0,
+      "dd20": 0.0,
+      "dd30": 1.6,
+      "dd60": 2.9,
+      "dd120": 3.87,
+      "best_edge": "近120日浅回撤(<3%)+RSI偏高+KDJ多头｜样本8｜胜率100%｜此后10日均+3.73%｜确定性+3.22%",
+      "best_detail": {
+        "condition": "近120日浅回撤(<3%)+RSI偏高+KDJ多头",
+        "samples": 8,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 3.73,
+        "deterministic_score_pct": 3.22,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近120日浅回撤(<3%)+RSI偏高+KDJ多头",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 3.73,
+          "deterministic_score_pct": 3.22
+        },
+        {
+          "condition": "近20日回撤≥8%+RSI超卖",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 4.04,
+          "deterministic_score_pct": 3.2
+        },
+        {
+          "condition": "近30日回撤≥8%+RSI超卖",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 4.04,
+          "deterministic_score_pct": 3.2
+        }
+      ],
+      "current_tech": {
+        "rsi14": 71.4,
+        "kdj": "超买",
+        "macd": "收敛",
+        "trend": "震荡"
+      }
+    },
+    {
+      "code": "159309",
+      "name": "油气ETF汇添富",
+      "bars": 401,
+      "dd10": 0.0,
+      "dd20": 2.9,
+      "dd30": 5.49,
+      "dd60": 15.72,
+      "dd120": 29.34,
+      "best_edge": "近10日中回撤(3-8%)+趋势多头｜样本9｜胜率67%｜此后10日均+9.02%｜确定性+5.20%",
+      "best_detail": {
+        "condition": "近10日中回撤(3-8%)+趋势多头",
+        "samples": 9,
+        "win_rate_pct": 66.7,
+        "avg_fwd_ret_pct": 9.02,
+        "deterministic_score_pct": 5.2,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近10日中回撤(3-8%)+趋势多头",
+          "samples": 9,
+          "win_rate_pct": 66.7,
+          "avg_fwd_ret_pct": 9.02,
+          "deterministic_score_pct": 5.2
+        },
+        {
+          "condition": "近10日浅回撤(<3%)+MACD收敛",
+          "samples": 14,
+          "win_rate_pct": 92.9,
+          "avg_fwd_ret_pct": 7.96,
+          "deterministic_score_pct": 5.07
+        },
+        {
+          "condition": "近10日浅回撤(<3%)+RSI偏高+KDJ空头",
+          "samples": 12,
+          "win_rate_pct": 91.7,
+          "avg_fwd_ret_pct": 7.82,
+          "deterministic_score_pct": 4.77
+        }
+      ],
+      "current_tech": {
+        "rsi14": 56.5,
+        "kdj": "多头",
+        "macd": "收敛",
+        "trend": "震荡"
+      }
+    },
+    {
+      "code": "515710",
+      "name": "食品饮料ETF华宝",
+      "bars": 401,
+      "dd10": 0.0,
+      "dd20": 0.0,
+      "dd30": 0.0,
+      "dd60": 8.38,
+      "dd120": 16.86,
+      "best_edge": "近120日中回撤(3-8%)+趋势多头｜样本13｜胜率92%｜此后10日均+2.96%｜确定性+2.29%",
+      "best_detail": {
+        "condition": "近120日中回撤(3-8%)+趋势多头",
+        "samples": 13,
+        "win_rate_pct": 92.3,
+        "avg_fwd_ret_pct": 2.96,
+        "deterministic_score_pct": 2.29,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近120日中回撤(3-8%)+趋势多头",
+          "samples": 13,
+          "win_rate_pct": 92.3,
+          "avg_fwd_ret_pct": 2.96,
+          "deterministic_score_pct": 2.29
+        },
+        {
+          "condition": "近120日中回撤(3-8%)+MACD零轴上多头",
+          "samples": 16,
+          "win_rate_pct": 81.2,
+          "avg_fwd_ret_pct": 1.72,
+          "deterministic_score_pct": 1.18
+        },
+        {
+          "condition": "近60日中回撤(3-8%)+MACD零轴下空头",
+          "samples": 12,
+          "win_rate_pct": 83.3,
+          "avg_fwd_ret_pct": 1.65,
+          "deterministic_score_pct": 1.12
+        }
+      ],
+      "current_tech": {
+        "rsi14": 67.4,
+        "kdj": "多头",
+        "macd": "收敛",
+        "trend": "震荡"
+      }
+    },
+    {
+      "code": "159915",
+      "name": "创业板ETF易方达",
+      "bars": 401,
+      "dd10": 11.14,
+      "dd20": 18.32,
+      "dd30": 18.32,
+      "dd60": 18.32,
+      "dd120": 18.32,
+      "best_edge": "近60日中回撤(3-8%)+RSI偏低｜样本8｜胜率100%｜此后10日均+10.12%｜确定性+7.97%",
+      "best_detail": {
+        "condition": "近60日中回撤(3-8%)+RSI偏低",
+        "samples": 8,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 10.12,
+        "deterministic_score_pct": 7.97,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近60日中回撤(3-8%)+RSI偏低",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 10.12,
+          "deterministic_score_pct": 7.97
+        },
+        {
+          "condition": "近60日中回撤(3-8%)+RSI偏低+KDJ空头",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 10.12,
+          "deterministic_score_pct": 7.97
+        },
+        {
+          "condition": "近60日中回撤(3-8%)+趋势空头",
+          "samples": 15,
+          "win_rate_pct": 93.3,
+          "avg_fwd_ret_pct": 7.21,
+          "deterministic_score_pct": 5.7
+        }
+      ],
+      "current_tech": {
+        "rsi14": 35.3,
+        "kdj": "多头",
+        "macd": "零轴下空头",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "510500",
+      "name": "中证500ETF南方",
+      "bars": 401,
+      "dd10": 10.57,
+      "dd20": 14.43,
+      "dd30": 14.43,
+      "dd60": 14.43,
+      "dd120": 14.43,
+      "best_edge": "近30日深回撤(8-15%)+RSI偏低｜样本9｜胜率100%｜此后10日均+7.83%｜确定性+6.94%",
+      "best_detail": {
+        "condition": "近30日深回撤(8-15%)+RSI偏低",
+        "samples": 9,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 7.83,
+        "deterministic_score_pct": 6.94,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近30日深回撤(8-15%)+RSI偏低",
+          "samples": 9,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 7.83,
+          "deterministic_score_pct": 6.94
+        },
+        {
+          "condition": "近30日深回撤(8-15%)+MACD零轴下空头",
+          "samples": 10,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 7.61,
+          "deterministic_score_pct": 6.79
+        },
+        {
+          "condition": "近30日深回撤(8-15%)+趋势空头",
+          "samples": 10,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 7.61,
+          "deterministic_score_pct": 6.79
+        }
+      ],
+      "current_tech": {
+        "rsi14": 31.1,
+        "kdj": "多头",
+        "macd": "零轴下空头",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "561590",
+      "name": "中证1000增强ETF华泰柏瑞",
+      "bars": 401,
+      "dd10": 12.82,
+      "dd20": 17.95,
+      "dd30": 17.95,
+      "dd60": 17.95,
+      "dd120": 17.95,
+      "best_edge": "近30日回撤≥8%+RSI偏低｜样本10｜胜率100%｜此后10日均+6.77%｜确定性+5.89%",
+      "best_detail": {
+        "condition": "近30日回撤≥8%+RSI偏低",
+        "samples": 10,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 6.77,
+        "deterministic_score_pct": 5.89,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近30日回撤≥8%+RSI偏低",
+          "samples": 10,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 6.77,
+          "deterministic_score_pct": 5.89
+        },
+        {
+          "condition": "近60日回撤≥8%+RSI偏低",
+          "samples": 10,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 6.77,
+          "deterministic_score_pct": 5.89
+        },
+        {
+          "condition": "近120日回撤≥8%+RSI偏低",
+          "samples": 10,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 6.77,
+          "deterministic_score_pct": 5.89
+        }
+      ],
+      "current_tech": {
+        "rsi14": 24.3,
+        "kdj": "多头",
+        "macd": "零轴下空头",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "515210",
+      "name": "钢铁ETF国泰",
+      "bars": 401,
+      "dd10": 1.31,
+      "dd20": 4.32,
+      "dd30": 10.6,
+      "dd60": 22.87,
+      "dd120": 32.58,
+      "best_edge": "近30日中回撤(3-8%)+MACD收敛｜样本8｜胜率100%｜此后10日均+5.77%｜确定性+5.02%",
+      "best_detail": {
+        "condition": "近30日中回撤(3-8%)+MACD收敛",
+        "samples": 8,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 5.77,
+        "deterministic_score_pct": 5.02,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近30日中回撤(3-8%)+MACD收敛",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 5.77,
+          "deterministic_score_pct": 5.02
+        },
+        {
+          "condition": "近120日深回撤(8-15%)+趋势空头",
+          "samples": 8,
+          "win_rate_pct": 87.5,
+          "avg_fwd_ret_pct": 6.05,
+          "deterministic_score_pct": 4.82
+        },
+        {
+          "condition": "近30日中回撤(3-8%)+RSI中性",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 5.19,
+          "deterministic_score_pct": 4.77
+        }
+      ],
+      "current_tech": {
+        "rsi14": 38.0,
+        "kdj": "多头",
+        "macd": "收敛",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "516960",
+      "name": "机械ETF国泰",
+      "bars": 401,
+      "dd10": 5.41,
+      "dd20": 12.07,
+      "dd30": 15.64,
+      "dd60": 22.03,
+      "dd120": 22.03,
+      "best_edge": "近120日中回撤(3-8%)+MACD零轴上多头｜样本10｜胜率100%｜此后10日均+4.68%｜确定性+4.34%",
+      "best_detail": {
+        "condition": "近120日中回撤(3-8%)+MACD零轴上多头",
+        "samples": 10,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 4.68,
+        "deterministic_score_pct": 4.34,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近120日中回撤(3-8%)+MACD零轴上多头",
+          "samples": 10,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 4.68,
+          "deterministic_score_pct": 4.34
+        },
+        {
+          "condition": "近120日中回撤(3-8%)+RSI超买",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 4.7,
+          "deterministic_score_pct": 4.33
+        },
+        {
+          "condition": "近120日中回撤(3-8%)+KDJ超买",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 4.67,
+          "deterministic_score_pct": 4.27
+        }
+      ],
+      "current_tech": {
+        "rsi14": 34.5,
+        "kdj": "多头",
+        "macd": "零轴下空头",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "512200",
+      "name": "房地产ETF南方",
+      "bars": 401,
+      "dd10": 4.61,
+      "dd20": 4.61,
+      "dd30": 9.73,
+      "dd60": 23.18,
+      "dd120": 27.73,
+      "best_edge": "近10日中回撤(3-8%)+KDJ空头｜样本16｜胜率100%｜此后10日均+4.51%｜确定性+3.91%",
+      "best_detail": {
+        "condition": "近10日中回撤(3-8%)+KDJ空头",
+        "samples": 16,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 4.51,
+        "deterministic_score_pct": 3.91,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近10日中回撤(3-8%)+KDJ空头",
+          "samples": 16,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 4.51,
+          "deterministic_score_pct": 3.91
+        },
+        {
+          "condition": "近10日中回撤(3-8%)+MACD收敛",
+          "samples": 12,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 4.61,
+          "deterministic_score_pct": 3.85
+        },
+        {
+          "condition": "近10日中回撤(3-8%)+趋势震荡",
+          "samples": 13,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 4.51,
+          "deterministic_score_pct": 3.81
+        }
+      ],
+      "current_tech": {
+        "rsi14": 43.5,
+        "kdj": "空头",
+        "macd": "收敛",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "159869",
+      "name": "游戏ETF华夏",
+      "bars": 401,
+      "dd10": 7.17,
+      "dd20": 7.17,
+      "dd30": 7.17,
+      "dd60": 22.54,
+      "dd120": 37.28,
+      "best_edge": "近120日深回撤(8-15%)+趋势震荡｜样本10｜胜率100%｜此后10日均+8.66%｜确定性+6.69%",
+      "best_detail": {
+        "condition": "近120日深回撤(8-15%)+趋势震荡",
+        "samples": 10,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 8.66,
+        "deterministic_score_pct": 6.69,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近120日深回撤(8-15%)+趋势震荡",
+          "samples": 10,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 8.66,
+          "deterministic_score_pct": 6.69
+        },
+        {
+          "condition": "近120日深回撤(8-15%)+RSI偏高",
+          "samples": 15,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 7.7,
+          "deterministic_score_pct": 6.47
+        },
+        {
+          "condition": "近120日深回撤(8-15%)+MACD零轴上多头",
+          "samples": 21,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 6.52,
+          "deterministic_score_pct": 5.42
+        }
+      ],
+      "current_tech": {
+        "rsi14": 42.6,
+        "kdj": "空头",
+        "macd": "死叉",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "516320",
+      "name": "高端装备ETF华夏",
+      "bars": 401,
+      "dd10": 7.42,
+      "dd20": 13.57,
+      "dd30": 16.8,
+      "dd60": 22.14,
+      "dd120": 22.14,
+      "best_edge": "近60日中回撤(3-8%)+趋势震荡｜样本10｜胜率100%｜此后10日均+6.55%｜确定性+5.97%",
+      "best_detail": {
+        "condition": "近60日中回撤(3-8%)+趋势震荡",
+        "samples": 10,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 6.55,
+        "deterministic_score_pct": 5.97,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近60日中回撤(3-8%)+趋势震荡",
+          "samples": 10,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 6.55,
+          "deterministic_score_pct": 5.97
+        },
+        {
+          "condition": "近20日深回撤(8-15%)+MACD零轴下空头",
+          "samples": 11,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 5.51,
+          "deterministic_score_pct": 4.56
+        },
+        {
+          "condition": "趋势震荡+RSI偏高",
+          "samples": 23,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 4.64,
+          "deterministic_score_pct": 4.2
+        }
+      ],
+      "current_tech": {
+        "rsi14": 27.2,
+        "kdj": "多头",
+        "macd": "零轴下空头",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "159745",
+      "name": "建材ETF国泰",
+      "bars": 401,
+      "dd10": 4.1,
+      "dd20": 8.54,
+      "dd30": 12.73,
+      "dd60": 22.94,
+      "dd120": 32.1,
+      "best_edge": "近120日中回撤(3-8%)+RSI超买｜样本8｜胜率100%｜此后10日均+8.48%｜确定性+6.82%",
+      "best_detail": {
+        "condition": "近120日中回撤(3-8%)+RSI超买",
+        "samples": 8,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 8.48,
+        "deterministic_score_pct": 6.82,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近120日中回撤(3-8%)+RSI超买",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 8.48,
+          "deterministic_score_pct": 6.82
+        },
+        {
+          "condition": "趋势震荡+RSI超买",
+          "samples": 10,
+          "win_rate_pct": 90.0,
+          "avg_fwd_ret_pct": 7.29,
+          "deterministic_score_pct": 5.54
+        },
+        {
+          "condition": "RSI超买+KDJ超买+MACD零轴上多头",
+          "samples": 11,
+          "win_rate_pct": 81.8,
+          "avg_fwd_ret_pct": 6.52,
+          "deterministic_score_pct": 4.83
+        }
+      ],
+      "current_tech": {
+        "rsi14": 23.2,
+        "kdj": "多头",
+        "macd": "零轴下空头",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "516160",
+      "name": "新能源ETF南方",
+      "bars": 401,
+      "dd10": 9.74,
+      "dd20": 20.09,
+      "dd30": 23.35,
+      "dd60": 29.35,
+      "dd120": 29.35,
+      "best_edge": "近10日浅回撤(<3%)+RSI超买+KDJ超买｜样本28｜胜率71%｜此后10日均+5.75%｜确定性+4.40%",
+      "best_detail": {
+        "condition": "近10日浅回撤(<3%)+RSI超买+KDJ超买",
+        "samples": 28,
+        "win_rate_pct": 71.4,
+        "avg_fwd_ret_pct": 5.75,
+        "deterministic_score_pct": 4.4,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近10日浅回撤(<3%)+RSI超买+KDJ超买",
+          "samples": 28,
+          "win_rate_pct": 71.4,
+          "avg_fwd_ret_pct": 5.75,
+          "deterministic_score_pct": 4.4
+        },
+        {
+          "condition": "近10日深回撤(8-15%)+KDJ空头",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 5.85,
+          "deterministic_score_pct": 4.35
+        },
+        {
+          "condition": "近10日深回撤(8-15%)+MACD收敛",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 5.85,
+          "deterministic_score_pct": 4.35
+        }
+      ],
+      "current_tech": {
+        "rsi14": 19.1,
+        "kdj": "多头",
+        "macd": "零轴下空头",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "512660",
+      "name": "军工ETF国泰",
+      "bars": 401,
+      "dd10": 15.46,
+      "dd20": 16.76,
+      "dd30": 16.76,
+      "dd60": 27.22,
+      "dd120": 31.8,
+      "best_edge": "近120日中回撤(3-8%)+RSI超买｜样本8｜胜率100%｜此后10日均+12.77%｜确定性+11.32%",
+      "best_detail": {
+        "condition": "近120日中回撤(3-8%)+RSI超买",
+        "samples": 8,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 12.77,
+        "deterministic_score_pct": 11.32,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近120日中回撤(3-8%)+RSI超买",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 12.77,
+          "deterministic_score_pct": 11.32
+        },
+        {
+          "condition": "近120日中回撤(3-8%)+MACD零轴上多头",
+          "samples": 12,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 10.1,
+          "deterministic_score_pct": 8.58
+        },
+        {
+          "condition": "近120日中回撤(3-8%)+KDJ空头",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 9.14,
+          "deterministic_score_pct": 7.74
+        }
+      ],
+      "current_tech": {
+        "rsi14": 31.1,
+        "kdj": "超卖",
+        "macd": "零轴下空头",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "516800",
+      "name": "智能制造ETF华宝",
+      "bars": 401,
+      "dd10": 15.3,
+      "dd20": 19.28,
+      "dd30": 19.28,
+      "dd60": 19.28,
+      "dd120": 19.28,
+      "best_edge": "趋势震荡+RSI超买｜样本11｜胜率100%｜此后10日均+9.88%｜确定性+8.76%",
+      "best_detail": {
+        "condition": "趋势震荡+RSI超买",
+        "samples": 11,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 9.88,
+        "deterministic_score_pct": 8.76,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "趋势震荡+RSI超买",
+          "samples": 11,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 9.88,
+          "deterministic_score_pct": 8.76
+        },
+        {
+          "condition": "近120日中回撤(3-8%)+趋势多头",
+          "samples": 14,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 9.15,
+          "deterministic_score_pct": 7.7
+        },
+        {
+          "condition": "近120日中回撤(3-8%)+MACD零轴上多头",
+          "samples": 16,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 8.9,
+          "deterministic_score_pct": 7.61
+        }
+      ],
+      "current_tech": {
+        "rsi14": 35.2,
+        "kdj": "多头",
+        "macd": "零轴下空头",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "159819",
+      "name": "人工智能ETF易方达",
+      "bars": 401,
+      "dd10": 9.43,
+      "dd20": 11.34,
+      "dd30": 11.34,
+      "dd60": 11.34,
+      "dd120": 11.34,
+      "best_edge": "近60日中回撤(3-8%)+KDJ多头｜样本8｜胜率100%｜此后10日均+8.18%｜确定性+7.42%",
+      "best_detail": {
+        "condition": "近60日中回撤(3-8%)+KDJ多头",
+        "samples": 8,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 8.18,
+        "deterministic_score_pct": 7.42,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近60日中回撤(3-8%)+KDJ多头",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 8.18,
+          "deterministic_score_pct": 7.42
+        },
+        {
+          "condition": "近10日回撤≥8%+RSI偏低",
+          "samples": 10,
+          "win_rate_pct": 90.0,
+          "avg_fwd_ret_pct": 8.21,
+          "deterministic_score_pct": 6.78
+        },
+        {
+          "condition": "RSI超买+KDJ空头+MACD零轴上多头",
+          "samples": 14,
+          "win_rate_pct": 85.7,
+          "avg_fwd_ret_pct": 7.99,
+          "deterministic_score_pct": 6.47
+        }
+      ],
+      "current_tech": {
+        "rsi14": 47.3,
+        "kdj": "多头",
+        "macd": "收敛",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "562500",
+      "name": "机器人ETF华夏",
+      "bars": 401,
+      "dd10": 13.35,
+      "dd20": 20.12,
+      "dd30": 20.12,
+      "dd60": 20.97,
+      "dd120": 20.97,
+      "best_edge": "趋势震荡+RSI超买｜样本12｜胜率100%｜此后10日均+9.54%｜确定性+8.76%",
+      "best_detail": {
+        "condition": "趋势震荡+RSI超买",
+        "samples": 12,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 9.54,
+        "deterministic_score_pct": 8.76,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "趋势震荡+RSI超买",
+          "samples": 12,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 9.54,
+          "deterministic_score_pct": 8.76
+        },
+        {
+          "condition": "近120日回撤≥8%+RSI超买",
+          "samples": 18,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 7.66,
+          "deterministic_score_pct": 6.95
+        },
+        {
+          "condition": "近120日深回撤(8-15%)+RSI偏高",
+          "samples": 10,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 8.55,
+          "deterministic_score_pct": 6.82
+        }
+      ],
+      "current_tech": {
+        "rsi14": 32.4,
+        "kdj": "超卖",
+        "macd": "零轴下空头",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "513310",
+      "name": "中韩半导体ETF华泰柏瑞",
+      "bars": 401,
+      "dd10": 18.02,
+      "dd20": 24.6,
+      "dd30": 24.6,
+      "dd60": 24.6,
+      "dd120": 24.6,
+      "best_edge": "近60日深回撤(8-15%)+趋势震荡｜样本18｜胜率100%｜此后10日均+23.76%｜确定性+20.62%",
+      "best_detail": {
+        "condition": "近60日深回撤(8-15%)+趋势震荡",
+        "samples": 18,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 23.76,
+        "deterministic_score_pct": 20.62,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近60日深回撤(8-15%)+趋势震荡",
+          "samples": 18,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 23.76,
+          "deterministic_score_pct": 20.62
+        },
+        {
+          "condition": "近60日深回撤(8-15%)+MACD收敛",
+          "samples": 9,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 23.65,
+          "deterministic_score_pct": 20.14
+        },
+        {
+          "condition": "趋势震荡+RSI超买",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 25.84,
+          "deterministic_score_pct": 18.02
+        }
+      ],
+      "current_tech": {
+        "rsi14": 34.6,
+        "kdj": "多头",
+        "macd": "零轴下空头",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "512260",
+      "name": "中证500低波动ETF华安",
+      "bars": 401,
+      "dd10": 3.08,
+      "dd20": 5.65,
+      "dd30": 5.65,
+      "dd60": 6.34,
+      "dd120": 8.79,
+      "best_edge": "近120日浅回撤(<3%)+RSI超买｜样本9｜胜率100%｜此后10日均+3.86%｜确定性+3.43%",
+      "best_detail": {
+        "condition": "近120日浅回撤(<3%)+RSI超买",
+        "samples": 9,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 3.86,
+        "deterministic_score_pct": 3.43,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近120日浅回撤(<3%)+RSI超买",
+          "samples": 9,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 3.86,
+          "deterministic_score_pct": 3.43
+        },
+        {
+          "condition": "近120日浅回撤(<3%)+MACD零轴上多头",
+          "samples": 9,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 3.86,
+          "deterministic_score_pct": 3.43
+        },
+        {
+          "condition": "近120日浅回撤(<3%)+趋势多头",
+          "samples": 9,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 3.86,
+          "deterministic_score_pct": 3.43
+        }
+      ],
+      "current_tech": {
+        "rsi14": 37.4,
+        "kdj": "多头",
+        "macd": "零轴下空头",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "513360",
+      "name": "教育ETF博时",
+      "bars": 401,
+      "dd10": 4.94,
+      "dd20": 4.94,
+      "dd30": 4.94,
+      "dd60": 15.9,
+      "dd120": 26.43,
+      "best_edge": "近60日中回撤(3-8%)+KDJ空头｜样本9｜胜率89%｜此后10日均+5.81%｜确定性+4.48%",
+      "best_detail": {
+        "condition": "近60日中回撤(3-8%)+KDJ空头",
+        "samples": 9,
+        "win_rate_pct": 88.9,
+        "avg_fwd_ret_pct": 5.81,
+        "deterministic_score_pct": 4.48,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近60日中回撤(3-8%)+KDJ空头",
+          "samples": 9,
+          "win_rate_pct": 88.9,
+          "avg_fwd_ret_pct": 5.81,
+          "deterministic_score_pct": 4.48
+        },
+        {
+          "condition": "近60日中回撤(3-8%)+RSI中性",
+          "samples": 11,
+          "win_rate_pct": 63.6,
+          "avg_fwd_ret_pct": 3.94,
+          "deterministic_score_pct": 2.6
+        },
+        {
+          "condition": "近60日中回撤(3-8%)+MACD收敛",
+          "samples": 19,
+          "win_rate_pct": 78.9,
+          "avg_fwd_ret_pct": 3.35,
+          "deterministic_score_pct": 2.5
+        }
+      ],
+      "current_tech": {
+        "rsi14": 46.3,
+        "kdj": "空头",
+        "macd": "收敛",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "159997",
+      "name": "电子ETF天弘",
+      "bars": 401,
+      "dd10": 18.05,
+      "dd20": 22.0,
+      "dd30": 22.0,
+      "dd60": 22.0,
+      "dd120": 22.0,
+      "best_edge": "趋势震荡+RSI超买｜样本10｜胜率100%｜此后10日均+11.24%｜确定性+9.56%",
+      "best_detail": {
+        "condition": "趋势震荡+RSI超买",
+        "samples": 10,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 11.24,
+        "deterministic_score_pct": 9.56,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "趋势震荡+RSI超买",
+          "samples": 10,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 11.24,
+          "deterministic_score_pct": 9.56
+        },
+        {
+          "condition": "近120日中回撤(3-8%)+KDJ空头",
+          "samples": 10,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 9.59,
+          "deterministic_score_pct": 7.95
+        },
+        {
+          "condition": "近20日深回撤(8-15%)+KDJ空头",
+          "samples": 8,
+          "win_rate_pct": 75.0,
+          "avg_fwd_ret_pct": 11.72,
+          "deterministic_score_pct": 7.52
+        }
+      ],
+      "current_tech": {
+        "rsi14": 37.7,
+        "kdj": "多头",
+        "macd": "收敛",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "516390",
+      "name": "新能源车ETF汇添富",
+      "bars": 401,
+      "dd10": 9.46,
+      "dd20": 17.93,
+      "dd30": 21.34,
+      "dd60": 29.88,
+      "dd120": 29.88,
+      "best_edge": "近120日中回撤(3-8%)+KDJ空头｜样本11｜胜率100%｜此后10日均+6.52%｜确定性+6.13%",
+      "best_detail": {
+        "condition": "近120日中回撤(3-8%)+KDJ空头",
+        "samples": 11,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 6.52,
+        "deterministic_score_pct": 6.13,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近120日中回撤(3-8%)+KDJ空头",
+          "samples": 11,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 6.52,
+          "deterministic_score_pct": 6.13
+        },
+        {
+          "condition": "近120日中回撤(3-8%)+RSI偏高+KDJ空头",
+          "samples": 9,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 6.32,
+          "deterministic_score_pct": 5.9
+        },
+        {
+          "condition": "近10日浅回撤(<3%)+KDJ多头",
+          "samples": 9,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 6.58,
+          "deterministic_score_pct": 5.75
+        }
+      ],
+      "current_tech": {
+        "rsi14": 21.6,
+        "kdj": "多头",
+        "macd": "零轴下空头",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "512980",
+      "name": "传媒ETF广发",
+      "bars": 401,
+      "dd10": 6.92,
+      "dd20": 6.92,
+      "dd30": 8.56,
+      "dd60": 24.86,
+      "dd120": 38.29,
+      "best_edge": "近120日深回撤(8-15%)+MACD收敛｜样本8｜胜率100%｜此后10日均+15.48%｜确定性+10.51%",
+      "best_detail": {
+        "condition": "近120日深回撤(8-15%)+MACD收敛",
+        "samples": 8,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 15.48,
+        "deterministic_score_pct": 10.51,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近120日深回撤(8-15%)+MACD收敛",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 15.48,
+          "deterministic_score_pct": 10.51
+        },
+        {
+          "condition": "近120日深回撤(8-15%)+RSI中性+KDJ多头",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 14.68,
+          "deterministic_score_pct": 9.48
+        },
+        {
+          "condition": "近120日深回撤(8-15%)+RSI中性",
+          "samples": 12,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 11.51,
+          "deterministic_score_pct": 7.81
+        }
+      ],
+      "current_tech": {
+        "rsi14": 39.4,
+        "kdj": "空头",
+        "macd": "收敛",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "515880",
+      "name": "通信ETF国泰",
+      "bars": 401,
+      "dd10": 16.98,
+      "dd20": 28.87,
+      "dd30": 28.87,
+      "dd60": 28.87,
+      "dd120": 28.87,
+      "best_edge": "RSI超买+KDJ空头+MACD零轴上多头｜样本13｜胜率100%｜此后10日均+12.97%｜确定性+11.59%",
+      "best_detail": {
+        "condition": "RSI超买+KDJ空头+MACD零轴上多头",
+        "samples": 13,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 12.97,
+        "deterministic_score_pct": 11.59,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "RSI超买+KDJ空头+MACD零轴上多头",
+          "samples": 13,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 12.97,
+          "deterministic_score_pct": 11.59
+        },
+        {
+          "condition": "近10日浅回撤(<3%)+RSI超买+KDJ超买",
+          "samples": 44,
+          "win_rate_pct": 97.7,
+          "avg_fwd_ret_pct": 9.74,
+          "deterministic_score_pct": 8.56
+        },
+        {
+          "condition": "近10日浅回撤(<3%)+RSI超买+KDJ空头",
+          "samples": 13,
+          "win_rate_pct": 84.6,
+          "avg_fwd_ret_pct": 10.87,
+          "deterministic_score_pct": 8.51
+        }
+      ],
+      "current_tech": {
+        "rsi14": 36.2,
+        "kdj": "多头",
+        "macd": "零轴下空头",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "513520",
+      "name": "日经ETF华夏",
+      "bars": 401,
+      "dd10": 6.09,
+      "dd20": 14.89,
+      "dd30": 15.31,
+      "dd60": 15.31,
+      "dd120": 15.31,
+      "best_edge": "近30日深回撤(8-15%)+趋势空头｜样本9｜胜率100%｜此后10日均+7.27%｜确定性+6.16%",
+      "best_detail": {
+        "condition": "近30日深回撤(8-15%)+趋势空头",
+        "samples": 9,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 7.27,
+        "deterministic_score_pct": 6.16,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近30日深回撤(8-15%)+趋势空头",
+          "samples": 9,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 7.27,
+          "deterministic_score_pct": 6.16
+        },
+        {
+          "condition": "近30日深回撤(8-15%)+MACD零轴下空头",
+          "samples": 10,
+          "win_rate_pct": 90.0,
+          "avg_fwd_ret_pct": 6.51,
+          "deterministic_score_pct": 5.28
+        },
+        {
+          "condition": "近120日中回撤(3-8%)+RSI中性",
+          "samples": 11,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 6.46,
+          "deterministic_score_pct": 5.12
+        }
+      ],
+      "current_tech": {
+        "rsi14": 36.2,
+        "kdj": "多头",
+        "macd": "零轴下空头",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "159941",
+      "name": "纳指ETF广发",
+      "bars": 401,
+      "dd10": 2.39,
+      "dd20": 4.04,
+      "dd30": 6.36,
+      "dd60": 9.86,
+      "dd120": 9.86,
+      "best_edge": "近120日中回撤(3-8%)+趋势震荡｜样本11｜胜率91%｜此后10日均+6.59%｜确定性+5.30%",
+      "best_detail": {
+        "condition": "近120日中回撤(3-8%)+趋势震荡",
+        "samples": 11,
+        "win_rate_pct": 90.9,
+        "avg_fwd_ret_pct": 6.59,
+        "deterministic_score_pct": 5.3,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近120日中回撤(3-8%)+趋势震荡",
+          "samples": 11,
+          "win_rate_pct": 90.9,
+          "avg_fwd_ret_pct": 6.59,
+          "deterministic_score_pct": 5.3
+        },
+        {
+          "condition": "近120日中回撤(3-8%)+RSI超买+KDJ超买",
+          "samples": 11,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 6.19,
+          "deterministic_score_pct": 4.93
+        },
+        {
+          "condition": "近120日深回撤(8-15%)+MACD收敛",
+          "samples": 10,
+          "win_rate_pct": 90.0,
+          "avg_fwd_ret_pct": 5.68,
+          "deterministic_score_pct": 4.69
+        }
+      ],
+      "current_tech": {
+        "rsi14": 44.4,
+        "kdj": "金叉",
+        "macd": "零轴下空头",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "513730",
+      "name": "东南亚科技ETF华泰柏瑞",
+      "bars": 401,
+      "dd10": 2.22,
+      "dd20": 2.22,
+      "dd30": 3.46,
+      "dd60": 8.04,
+      "dd120": 18.69,
+      "best_edge": "近120日深回撤(8-15%)+趋势多头｜样本9｜胜率100%｜此后10日均+4.59%｜确定性+4.33%",
+      "best_detail": {
+        "condition": "近120日深回撤(8-15%)+趋势多头",
+        "samples": 9,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 4.59,
+        "deterministic_score_pct": 4.33,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近120日深回撤(8-15%)+趋势多头",
+          "samples": 9,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 4.59,
+          "deterministic_score_pct": 4.33
+        },
+        {
+          "condition": "近10日中回撤(3-8%)+MACD收敛",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 2.92,
+          "deterministic_score_pct": 2.37
+        },
+        {
+          "condition": "近120日中回撤(3-8%)+RSI偏高",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 3.2,
+          "deterministic_score_pct": 2.3
+        }
+      ],
+      "current_tech": {
+        "rsi14": 49.2,
+        "kdj": "空头",
+        "macd": "死叉",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "159561",
+      "name": "德国ETF嘉实",
+      "bars": 401,
+      "dd10": 1.38,
+      "dd20": 4.1,
+      "dd30": 4.1,
+      "dd60": 4.53,
+      "dd120": 12.45,
+      "best_edge": "近120日极深回撤(≥15%)+趋势震荡｜样本10｜胜率100%｜此后10日均+4.23%｜确定性+3.94%",
+      "best_detail": {
+        "condition": "近120日极深回撤(≥15%)+趋势震荡",
+        "samples": 10,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 4.23,
+        "deterministic_score_pct": 3.94,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近120日极深回撤(≥15%)+趋势震荡",
+          "samples": 10,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 4.23,
+          "deterministic_score_pct": 3.94
+        },
+        {
+          "condition": "近30日回撤≥8%+KDJ多头",
+          "samples": 12,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 4.62,
+          "deterministic_score_pct": 3.93
+        },
+        {
+          "condition": "近20日中回撤(3-8%)+KDJ空头",
+          "samples": 9,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 4.62,
+          "deterministic_score_pct": 3.92
+        }
+      ],
+      "current_tech": {
+        "rsi14": 50.7,
+        "kdj": "金叉",
+        "macd": "零轴下空头",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "159713",
+      "name": "稀土ETF富国",
+      "bars": 401,
+      "dd10": 12.12,
+      "dd20": 22.9,
+      "dd30": 27.47,
+      "dd60": 27.47,
+      "dd120": 29.26,
+      "best_edge": "近10日浅回撤(<3%)+MACD收敛｜样本10｜胜率100%｜此后10日均+9.83%｜确定性+7.87%",
+      "best_detail": {
+        "condition": "近10日浅回撤(<3%)+MACD收敛",
+        "samples": 10,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 9.83,
+        "deterministic_score_pct": 7.87,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近10日浅回撤(<3%)+MACD收敛",
+          "samples": 10,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 9.83,
+          "deterministic_score_pct": 7.87
+        },
+        {
+          "condition": "近20日浅回撤(<3%)+MACD收敛",
+          "samples": 8,
+          "win_rate_pct": 75.0,
+          "avg_fwd_ret_pct": 10.24,
+          "deterministic_score_pct": 6.52
+        },
+        {
+          "condition": "近30日极深回撤(≥15%)+MACD零轴下空头",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 7.28,
+          "deterministic_score_pct": 6.24
+        }
+      ],
+      "current_tech": {
+        "rsi14": 20.6,
+        "kdj": "超卖",
+        "macd": "零轴下空头",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "159703",
+      "name": "新材料ETF天弘",
+      "bars": 401,
+      "dd10": 15.38,
+      "dd20": 23.52,
+      "dd30": 23.52,
+      "dd60": 23.52,
+      "dd120": 23.52,
+      "best_edge": "近60日浅回撤(<3%)+MACD零轴上多头｜样本9｜胜率100%｜此后10日均+6.33%｜确定性+5.73%",
+      "best_detail": {
+        "condition": "近60日浅回撤(<3%)+MACD零轴上多头",
+        "samples": 9,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 6.33,
+        "deterministic_score_pct": 5.73,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近60日浅回撤(<3%)+MACD零轴上多头",
+          "samples": 9,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 6.33,
+          "deterministic_score_pct": 5.73
+        },
+        {
+          "condition": "近60日浅回撤(<3%)+RSI偏高",
+          "samples": 11,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 6.02,
+          "deterministic_score_pct": 5.47
+        },
+        {
+          "condition": "近60日浅回撤(<3%)+趋势震荡",
+          "samples": 9,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 6.0,
+          "deterministic_score_pct": 5.38
+        }
+      ],
+      "current_tech": {
+        "rsi14": 27.0,
+        "kdj": "超卖",
+        "macd": "零轴下空头",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "159755",
+      "name": "电池ETF广发",
+      "bars": 401,
+      "dd10": 8.96,
+      "dd20": 18.9,
+      "dd30": 22.08,
+      "dd60": 28.03,
+      "dd120": 28.03,
+      "best_edge": "RSI中性+KDJ空头+MACD零轴下空头｜样本8｜胜率100%｜此后10日均+6.04%｜确定性+5.30%",
+      "best_detail": {
+        "condition": "RSI中性+KDJ空头+MACD零轴下空头",
+        "samples": 8,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 6.04,
+        "deterministic_score_pct": 5.3,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "RSI中性+KDJ空头+MACD零轴下空头",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 6.04,
+          "deterministic_score_pct": 5.3
+        },
+        {
+          "condition": "RSI超买+KDJ空头+MACD零轴上多头",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 6.82,
+          "deterministic_score_pct": 4.75
+        },
+        {
+          "condition": "近10日浅回撤(<3%)+RSI超买",
+          "samples": 41,
+          "win_rate_pct": 70.7,
+          "avg_fwd_ret_pct": 5.92,
+          "deterministic_score_pct": 4.62
+        }
+      ],
+      "current_tech": {
+        "rsi14": 23.6,
+        "kdj": "多头",
+        "macd": "零轴下空头",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "515790",
+      "name": "光伏ETF华泰柏瑞",
+      "bars": 401,
+      "dd10": 10.19,
+      "dd20": 21.31,
+      "dd30": 21.38,
+      "dd60": 28.45,
+      "dd120": 30.68,
+      "best_edge": "近120日中回撤(3-8%)+MACD收敛｜样本9｜胜率100%｜此后10日均+8.15%｜确定性+7.50%",
+      "best_detail": {
+        "condition": "近120日中回撤(3-8%)+MACD收敛",
+        "samples": 9,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 8.15,
+        "deterministic_score_pct": 7.5,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近120日中回撤(3-8%)+MACD收敛",
+          "samples": 9,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 8.15,
+          "deterministic_score_pct": 7.5
+        },
+        {
+          "condition": "近60日深回撤(8-15%)+RSI中性",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 7.57,
+          "deterministic_score_pct": 7.0
+        },
+        {
+          "condition": "近120日中回撤(3-8%)+RSI中性",
+          "samples": 10,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 7.58,
+          "deterministic_score_pct": 6.78
+        }
+      ],
+      "current_tech": {
+        "rsi14": 20.2,
+        "kdj": "多头",
+        "macd": "零轴下空头",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "512400",
+      "name": "有色金属ETF南方",
+      "bars": 401,
+      "dd10": 0.23,
+      "dd20": 7.91,
+      "dd30": 17.87,
+      "dd60": 19.87,
+      "dd120": 31.79,
+      "best_edge": "近10日中回撤(3-8%)+MACD收敛｜样本8｜胜率88%｜此后10日均+10.82%｜确定性+8.05%",
+      "best_detail": {
+        "condition": "近10日中回撤(3-8%)+MACD收敛",
+        "samples": 8,
+        "win_rate_pct": 87.5,
+        "avg_fwd_ret_pct": 10.82,
+        "deterministic_score_pct": 8.05,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近10日中回撤(3-8%)+MACD收敛",
+          "samples": 8,
+          "win_rate_pct": 87.5,
+          "avg_fwd_ret_pct": 10.82,
+          "deterministic_score_pct": 8.05
+        },
+        {
+          "condition": "近10日中回撤(3-8%)+KDJ空头",
+          "samples": 16,
+          "win_rate_pct": 93.8,
+          "avg_fwd_ret_pct": 8.93,
+          "deterministic_score_pct": 7.37
+        },
+        {
+          "condition": "近10日浅回撤(<3%)+RSI偏高",
+          "samples": 47,
+          "win_rate_pct": 93.6,
+          "avg_fwd_ret_pct": 7.66,
+          "deterministic_score_pct": 6.95
+        }
+      ],
+      "current_tech": {
+        "rsi14": 41.4,
+        "kdj": "多头",
+        "macd": "零轴下空头",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "510170",
+      "name": "大宗商品ETF国联安",
+      "bars": 401,
+      "dd10": 0.53,
+      "dd20": 6.76,
+      "dd30": 12.37,
+      "dd60": 13.3,
+      "dd120": 20.65,
+      "best_edge": "近10日深回撤(8-15%)+KDJ空头｜样本9｜胜率100%｜此后10日均+9.60%｜确定性+8.19%",
+      "best_detail": {
+        "condition": "近10日深回撤(8-15%)+KDJ空头",
+        "samples": 9,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 9.6,
+        "deterministic_score_pct": 8.19,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近10日深回撤(8-15%)+KDJ空头",
+          "samples": 9,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 9.6,
+          "deterministic_score_pct": 8.19
+        },
+        {
+          "condition": "近10日深回撤(8-15%)+MACD收敛",
+          "samples": 8,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 9.25,
+          "deterministic_score_pct": 7.71
+        },
+        {
+          "condition": "近20日浅回撤(<3%)+MACD收敛",
+          "samples": 13,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 5.11,
+          "deterministic_score_pct": 4.53
+        }
+      ],
+      "current_tech": {
+        "rsi14": 42.8,
+        "kdj": "多头",
+        "macd": "零轴下空头",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "159732",
+      "name": "消费电子ETF华夏",
+      "bars": 401,
+      "dd10": 19.73,
+      "dd20": 25.83,
+      "dd30": 25.83,
+      "dd60": 25.83,
+      "dd120": 25.83,
+      "best_edge": "近60日深回撤(8-15%)+RSI偏低+KDJ空头｜样本11｜胜率91%｜此后10日均+10.69%｜确定性+8.79%",
+      "best_detail": {
+        "condition": "近60日深回撤(8-15%)+RSI偏低+KDJ空头",
+        "samples": 11,
+        "win_rate_pct": 90.9,
+        "avg_fwd_ret_pct": 10.69,
+        "deterministic_score_pct": 8.79,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近60日深回撤(8-15%)+RSI偏低+KDJ空头",
+          "samples": 11,
+          "win_rate_pct": 90.9,
+          "avg_fwd_ret_pct": 10.69,
+          "deterministic_score_pct": 8.79
+        },
+        {
+          "condition": "近60日深回撤(8-15%)+KDJ空头",
+          "samples": 16,
+          "win_rate_pct": 93.8,
+          "avg_fwd_ret_pct": 9.33,
+          "deterministic_score_pct": 7.88
+        },
+        {
+          "condition": "近60日深回撤(8-15%)+RSI偏低",
+          "samples": 13,
+          "win_rate_pct": 92.3,
+          "avg_fwd_ret_pct": 9.61,
+          "deterministic_score_pct": 7.85
+        }
+      ],
+      "current_tech": {
+        "rsi14": 34.4,
+        "kdj": "多头",
+        "macd": "零轴下空头",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "516520",
+      "name": "智能驾驶ETF华泰柏瑞",
+      "bars": 401,
+      "dd10": 10.94,
+      "dd20": 13.79,
+      "dd30": 13.79,
+      "dd60": 19.35,
+      "dd120": 25.58,
+      "best_edge": "近60日深回撤(8-15%)+RSI偏高｜样本15｜胜率100%｜此后10日均+5.95%｜确定性+5.16%",
+      "best_detail": {
+        "condition": "近60日深回撤(8-15%)+RSI偏高",
+        "samples": 15,
+        "win_rate_pct": 100.0,
+        "avg_fwd_ret_pct": 5.95,
+        "deterministic_score_pct": 5.16,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近60日深回撤(8-15%)+RSI偏高",
+          "samples": 15,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 5.95,
+          "deterministic_score_pct": 5.16
+        },
+        {
+          "condition": "近60日深回撤(8-15%)+RSI偏高+KDJ多头",
+          "samples": 9,
+          "win_rate_pct": 100.0,
+          "avg_fwd_ret_pct": 5.93,
+          "deterministic_score_pct": 4.71
+        },
+        {
+          "condition": "近60日深回撤(8-15%)+趋势震荡",
+          "samples": 21,
+          "win_rate_pct": 95.2,
+          "avg_fwd_ret_pct": 4.9,
+          "deterministic_score_pct": 4.08
+        }
+      ],
+      "current_tech": {
+        "rsi14": 32.6,
+        "kdj": "多头",
+        "macd": "零轴下空头",
+        "trend": "空头"
+      }
+    },
+    {
+      "code": "159206",
+      "name": "卫星ETF永赢",
+      "bars": 330,
+      "dd10": 27.97,
+      "dd20": 27.97,
+      "dd30": 27.97,
+      "dd60": 36.34,
+      "dd120": 39.32,
+      "best_edge": "近10日浅回撤(<3%)+RSI超买｜样本23｜胜率96%｜此后10日均+17.31%｜确定性+14.76%",
+      "best_detail": {
+        "condition": "近10日浅回撤(<3%)+RSI超买",
+        "samples": 23,
+        "win_rate_pct": 95.7,
+        "avg_fwd_ret_pct": 17.31,
+        "deterministic_score_pct": 14.76,
+        "forward_days": 10
+      },
+      "top3": [
+        {
+          "condition": "近10日浅回撤(<3%)+RSI超买",
+          "samples": 23,
+          "win_rate_pct": 95.7,
+          "avg_fwd_ret_pct": 17.31,
+          "deterministic_score_pct": 14.76
+        },
+        {
+          "condition": "近10日浅回撤(<3%)+MACD零轴上多头",
+          "samples": 25,
+          "win_rate_pct": 96.0,
+          "avg_fwd_ret_pct": 16.85,
+          "deterministic_score_pct": 14.48
+        },
+        {
+          "condition": "近10日浅回撤(<3%)+趋势多头",
+          "samples": 25,
+          "win_rate_pct": 96.0,
+          "avg_fwd_ret_pct": 16.85,
+          "deterministic_score_pct": 14.48
+        }
+      ],
+      "current_tech": {
+        "rsi14": 31.1,
+        "kdj": "超卖",
+        "macd": "零轴下空头",
+        "trend": "空头"
+      }
+    }
+  ]
+}

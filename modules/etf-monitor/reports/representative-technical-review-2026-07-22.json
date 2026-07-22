@@ -1,0 +1,4512 @@
+{
+  "title": "2026-07-22 ETF精简代表池技术面审阅",
+  "generated_at": "2026-07-22T15:35:45.361554+08:00",
+  "data_date": "2026-07-22",
+  "flow_definition": "交易所基金份额变化 × 当日收盘价",
+  "flow_price_basis": "close",
+  "flow_sources": {
+    "SSE": "上交所ETF规模（TOT_VOL，万份）",
+    "SZSE": "深交所基金规模（份）"
+  },
+  "breadth_pct": 40.294117647058826,
+  "rows": [
+    {
+      "code": "515630",
+      "name": "证券保险ETF鹏华",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "securities_insurance",
+      "tracking_index": "中证800证券保险指数",
+      "screenshot_turnover_cny": 131000000,
+      "date": "2026-07-22",
+      "close": 1.299,
+      "ma20": 1.28635,
+      "ma60": 1.25505,
+      "ma20_rising": true,
+      "ret5_pct": 0.15420200462605838,
+      "ret10_pct": 2.525651144435681,
+      "ret20_pct": 2.6066350710900466,
+      "rsi14": 46.50000000000001,
+      "distance_ma20_pct": 0.9834026509114802,
+      "trend": "多头",
+      "action": "技术候选",
+      "ret1_pct": 0.0,
+      "volume_ratio": 0.9223195081628807,
+      "kdj": {
+        "k": 68.23788489035,
+        "d": 55.466658941421635,
+        "j": 93.78033678820672,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": 0.009813302950417935,
+        "dea": 0.009916899161333481,
+        "histogram": -0.00020719242183109277,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 361474000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 372858500.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 1360335792.3,
+      "sentiment": {
+        "score": 65.55701861104058,
+        "label": "偏热",
+        "missing_inputs": []
+      },
+      "policy_reason": "证监会强调维护资本市场平稳健康运行、强化监管与投资者保护；方向偏支持，但不代表指数短期必涨。 [中国证监会｜2026-07-20｜中国证监会召开投资者座谈会](https://www.csrc.gov.cn/csrc/c100028/c7646232/content.shtml)",
+      "fundamental_reason": "2026年上半年国内生产总值同比增长4.7%，规模以上制造业增加值增长5.6%；宏观仍扩张，但行业盈利分化需要继续跟踪。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20上方、MA60上方，MA20上行；5/10/20日涨跌幅分别为+0.15%/+2.53%/+2.61%，RSI14=46.5，KDJ=多头，MACD=收敛。",
+      "sentiment_reason": "情绪分数65.6（偏热）；5/10/20日份额净流入为+3.61亿/+3.73亿/N/A(missing_share_date)，5日成交量相对前20日为0.92倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "159985",
+      "name": "豆粕ETF华夏",
+      "kind": "ETF",
+      "market": "COMMODITY",
+      "sector": "agriculture_commodity",
+      "tracking_index": "大商所豆粕期货价格指数",
+      "screenshot_turnover_cny": 504000000,
+      "date": "2026-07-22",
+      "close": 2.213,
+      "ma20": 2.1191500000000003,
+      "ma60": 2.089933333333333,
+      "ma20_rising": true,
+      "ret5_pct": -0.8068130883012059,
+      "ret10_pct": 1.513761467889907,
+      "ret20_pct": 10.650000000000004,
+      "rsi14": 66.5914221218962,
+      "distance_ma20_pct": 4.428662435410402,
+      "trend": "多头",
+      "action": "技术候选",
+      "ret1_pct": 0.7282658170232104,
+      "volume_ratio": 1.5296667292992758,
+      "kdj": {
+        "k": 62.582299327387716,
+        "d": 63.24641844018263,
+        "j": 61.25406110179789,
+        "state": "空头"
+      },
+      "macd": {
+        "dif": 0.03983845006756814,
+        "dea": 0.03307624431590676,
+        "histogram": 0.013524411503322772,
+        "state": "零轴上多头"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 13054800.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 26122800.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 3379525558.058,
+      "sentiment": {
+        "score": 59.1446784888336,
+        "label": "中性",
+        "missing_inputs": []
+      },
+      "policy_reason": "商品和黄金ETF主要受全球定价、汇率和地缘风险影响，本报告不设置方向性政策利好结论。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "fundamental_reason": "全球通胀回落受阻且冲突与市场重定价风险仍存，黄金与商品具备对冲叙事但价格可能高波动。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "technical_reason": "收盘价位于MA20上方、MA60上方，MA20上行；5/10/20日涨跌幅分别为-0.81%/+1.51%/+10.65%，RSI14=66.6，KDJ=空头，MACD=零轴上多头。",
+      "sentiment_reason": "情绪分数59.1（中性）；5/10/20日份额净流入为+0.13亿/+0.26亿/N/A(missing_share_date)，5日成交量相对前20日为1.53倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "513650",
+      "name": "标普500ETF南方",
+      "kind": "ETF",
+      "market": "US",
+      "sector": "broad_market",
+      "tracking_index": "标准普尔500指数",
+      "screenshot_turnover_cny": 283000000,
+      "date": "2026-07-22",
+      "close": 1.901,
+      "ma20": 1.89325,
+      "ma60": 1.8744666666666667,
+      "ma20_rising": true,
+      "ret5_pct": -1.5535991714137776,
+      "ret10_pct": 0.5288207297726055,
+      "ret20_pct": 0.9559214020180562,
+      "rsi14": 56.872037914691916,
+      "distance_ma20_pct": 0.4093490030371072,
+      "trend": "多头",
+      "action": "技术候选",
+      "ret1_pct": -0.2623294858342007,
+      "volume_ratio": 1.3080347280714242,
+      "kdj": {
+        "k": 37.15926393530625,
+        "d": 49.67153656755914,
+        "j": 12.134718670800467,
+        "state": "空头"
+      },
+      "macd": {
+        "dif": 0.006954128912765922,
+        "dea": 0.00818827056256283,
+        "histogram": -0.0024682832995938167,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 65174000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 160214000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 8185200334.0,
+      "sentiment": {
+        "score": 57.668491797629855,
+        "label": "中性",
+        "missing_inputs": []
+      },
+      "policy_reason": "跨境ETF同时受境外市场规则、汇率和QDII额度影响；本报告不把境内政策背景视为海外指数催化。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "fundamental_reason": "IMF预计2026年全球增长3.0%，但地区分化、冲突和金融市场重定价风险仍在；海外ETF需额外核对溢价与汇率。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "technical_reason": "收盘价位于MA20上方、MA60上方，MA20上行；5/10/20日涨跌幅分别为-1.55%/+0.53%/+0.96%，RSI14=56.9，KDJ=空头，MACD=收敛。",
+      "sentiment_reason": "情绪分数57.7（中性）；5/10/20日份额净流入为+0.65亿/+1.60亿/N/A(missing_share_date)，5日成交量相对前20日为1.31倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "513120",
+      "name": "港股创新药ETF广发",
+      "kind": "ETF",
+      "market": "HK",
+      "sector": "innovative_drug",
+      "tracking_index": "中证香港创新药港币指数",
+      "screenshot_turnover_cny": 9002000000,
+      "date": "2026-07-22",
+      "close": 1.188,
+      "ma20": 1.13835,
+      "ma60": 1.1157166666666667,
+      "ma20_rising": true,
+      "ret5_pct": -2.861815208503693,
+      "ret10_pct": 5.319148936170226,
+      "ret20_pct": 16.015625,
+      "rsi14": 59.26773455377572,
+      "distance_ma20_pct": 4.361575965212805,
+      "trend": "多头",
+      "action": "技术候选",
+      "ret1_pct": 0.9345794392523255,
+      "volume_ratio": 1.1533716303082475,
+      "kdj": {
+        "k": 48.764453841795266,
+        "d": 51.955474422148974,
+        "j": 42.38241268108784,
+        "state": "空头"
+      },
+      "macd": {
+        "dif": 0.029776443297547805,
+        "dea": 0.02633177890315163,
+        "histogram": 0.006889328788792351,
+        "state": "零轴上多头"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 6238000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 106008500.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 27423358855.199997,
+      "sentiment": {
+        "score": 51.46834981103517,
+        "label": "中性",
+        "missing_inputs": []
+      },
+      "policy_reason": "医保部门推进2026年药品目录与创新药目录形式审查，政策继续支持临床价值明确的创新，但准入和价格仍有约束。 [国家医疗保障局｜2026-07-14｜2026年国家基本医疗保险、生育保险和工伤保险药品目录及商业健康保险创新药品目录调整通过形式审查的申报药品名单](https://www.nhsa.gov.cn/art/2026/7/14/art_109_21421.html)",
+      "fundamental_reason": "医保局披露2026年上半年创新药对外授权交易总金额约1100亿美元，显示研发资产国际化活跃；里程碑兑现与个股差异仍大。 [国家医疗保障局｜2026-07-14｜我国创新药对外授权交易保持活跃](https://www.nhsa.gov.cn/art/2026/7/14/art_14_21423.html)",
+      "technical_reason": "收盘价位于MA20上方、MA60上方，MA20上行；5/10/20日涨跌幅分别为-2.86%/+5.32%/+16.02%，RSI14=59.3，KDJ=空头，MACD=零轴上多头。",
+      "sentiment_reason": "情绪分数51.5（中性）；5/10/20日份额净流入为+0.06亿/+1.06亿/N/A(missing_share_date)，5日成交量相对前20日为1.15倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "159992",
+      "name": "创新药ETF银华",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "healthcare",
+      "tracking_index": "中证创新药产业指数",
+      "screenshot_turnover_cny": 1316000000,
+      "date": "2026-07-22",
+      "close": 0.88,
+      "ma20": 0.8455,
+      "ma60": 0.7982166666666667,
+      "ma20_rising": true,
+      "ret5_pct": -3.508771929824561,
+      "ret10_pct": 8.374384236453203,
+      "ret20_pct": 13.842173350582154,
+      "rsi14": 56.493506493506494,
+      "distance_ma20_pct": 4.080425783560027,
+      "trend": "多头",
+      "action": "技术候选",
+      "ret1_pct": 0.11376564277587597,
+      "volume_ratio": 1.1552868045356341,
+      "kdj": {
+        "k": 57.13179767391038,
+        "d": 60.22241417319781,
+        "j": 50.950564675335514,
+        "state": "空头"
+      },
+      "macd": {
+        "dif": 0.02778290488518087,
+        "dea": 0.026320100894717334,
+        "histogram": 0.0029256079809270724,
+        "state": "零轴上多头"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": -19335600.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 190866000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 18096655470.96,
+      "sentiment": {
+        "score": 50.07613742764133,
+        "label": "中性",
+        "missing_inputs": []
+      },
+      "policy_reason": "医保部门推进2026年药品目录与创新药目录形式审查，政策继续支持临床价值明确的创新，但准入和价格仍有约束。 [国家医疗保障局｜2026-07-14｜2026年国家基本医疗保险、生育保险和工伤保险药品目录及商业健康保险创新药品目录调整通过形式审查的申报药品名单](https://www.nhsa.gov.cn/art/2026/7/14/art_109_21421.html)",
+      "fundamental_reason": "医保局披露2026年上半年创新药对外授权交易总金额约1100亿美元，显示研发资产国际化活跃；里程碑兑现与个股差异仍大。 [国家医疗保障局｜2026-07-14｜我国创新药对外授权交易保持活跃](https://www.nhsa.gov.cn/art/2026/7/14/art_14_21423.html)",
+      "technical_reason": "收盘价位于MA20上方、MA60上方，MA20上行；5/10/20日涨跌幅分别为-3.51%/+8.37%/+13.84%，RSI14=56.5，KDJ=空头，MACD=零轴上多头。",
+      "sentiment_reason": "情绪分数50.1（中性）；5/10/20日份额净流入为-0.19亿/+1.91亿/N/A(missing_share_date)，5日成交量相对前20日为1.16倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "511190",
+      "name": "信用债ETF海富通",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "credit_bond",
+      "tracking_index": "上证基准做市公司债指数",
+      "screenshot_turnover_cny": 467000000,
+      "date": "2026-07-22",
+      "close": 102.45,
+      "ma20": 102.35665,
+      "ma60": 102.12195,
+      "ma20_rising": true,
+      "ret5_pct": 0.05859947260475895,
+      "ret10_pct": 0.08303619401164308,
+      "ret20_pct": 0.19559902200489976,
+      "rsi14": 71.25984251968424,
+      "distance_ma20_pct": 0.09120071827282139,
+      "trend": "多头",
+      "action": "技术候选",
+      "ret1_pct": 0.033197937822215806,
+      "volume_ratio": 0.4387457747416384,
+      "kdj": {
+        "k": 92.04751483624078,
+        "d": 88.3951515369471,
+        "j": 99.35224143482813,
+        "state": "超买"
+      },
+      "macd": {
+        "dif": 0.0684813741059287,
+        "dea": 0.0723314925277743,
+        "histogram": -0.007700236843691199,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 0.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 162730550.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 12808739535.0,
+      "sentiment": {
+        "score": 47.57226552879658,
+        "label": "中性",
+        "missing_inputs": []
+      },
+      "policy_reason": "资本市场监管强调防风险和稳定运行；债券ETF仍受利率、信用利差和久期影响，不能当作无波动现金。 [中国证监会｜2026-07-20｜中国证监会召开投资者座谈会](https://www.csrc.gov.cn/csrc/c100028/c7646232/content.shtml)",
+      "fundamental_reason": "上半年经济同比增长4.7%，增长与价格环境共同影响利率方向；长久期国债和信用债需分别控制久期与信用风险。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20上方、MA60上方，MA20上行；5/10/20日涨跌幅分别为+0.06%/+0.08%/+0.20%，RSI14=71.3，KDJ=超买，MACD=收敛。",
+      "sentiment_reason": "情绪分数47.6（中性）；5/10/20日份额净流入为+0.00亿/+1.63亿/N/A(missing_share_date)，5日成交量相对前20日为0.44倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "510050",
+      "name": "上证50ETF华夏",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "large_cap",
+      "tracking_index": "上证50指数",
+      "screenshot_turnover_cny": 4383000000,
+      "date": "2026-07-22",
+      "close": 3.09,
+      "ma20": 3.0391000000000004,
+      "ma60": 3.025116666666667,
+      "ma20_rising": false,
+      "ret5_pct": 0.8485639686683921,
+      "ret10_pct": 2.6919242273180544,
+      "ret20_pct": 2.182539682539675,
+      "rsi14": 57.46140651801027,
+      "distance_ma20_pct": 1.674837945444363,
+      "trend": "震荡",
+      "action": "观察",
+      "ret1_pct": 0.3572588502760432,
+      "volume_ratio": 1.7755806197267014,
+      "kdj": {
+        "k": 60.2274655068484,
+        "d": 47.6168052540037,
+        "j": 85.44878601253778,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": 0.007280846282022413,
+        "dea": 0.005330800131101714,
+        "histogram": 0.003900092301841398,
+        "state": "金叉"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 1828487700.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 2754943200.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 23101046412.0,
+      "sentiment": {
+        "score": 76.68577037847982,
+        "label": "偏热",
+        "missing_inputs": []
+      },
+      "policy_reason": "证监会强调维护资本市场平稳健康运行、强化监管与投资者保护；方向偏支持，但不代表指数短期必涨。 [中国证监会｜2026-07-20｜中国证监会召开投资者座谈会](https://www.csrc.gov.cn/csrc/c100028/c7646232/content.shtml)",
+      "fundamental_reason": "2026年上半年国内生产总值同比增长4.7%，规模以上制造业增加值增长5.6%；宏观仍扩张，但行业盈利分化需要继续跟踪。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20上方、MA60上方，MA20未上行；5/10/20日涨跌幅分别为+0.85%/+2.69%/+2.18%，RSI14=57.5，KDJ=多头，MACD=金叉。",
+      "sentiment_reason": "情绪分数76.7（偏热）；5/10/20日份额净流入为+18.28亿/+27.55亿/N/A(missing_share_date)，5日成交量相对前20日为1.78倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "588000",
+      "name": "科创50ETF华夏",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "star_50",
+      "tracking_index": "上证科创板50成份指数",
+      "screenshot_turnover_cny": 18419000000,
+      "exact_duplicate_group": "588000/588060/588950",
+      "date": "2026-07-22",
+      "close": 1.96,
+      "ma20": 2.1067,
+      "ma60": 1.9146500000000002,
+      "ma20_rising": false,
+      "ret5_pct": -3.3530571992110514,
+      "ret10_pct": -8.624708624708632,
+      "ret20_pct": -6.488549618320616,
+      "rsi14": 42.63206672845226,
+      "distance_ma20_pct": -6.963497413015618,
+      "trend": "震荡",
+      "action": "观察",
+      "ret1_pct": -2.777777777777779,
+      "volume_ratio": 2.0964715354685186,
+      "kdj": {
+        "k": 26.991511597463276,
+        "d": 24.05676170165327,
+        "j": 32.861011389083295,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": -0.008023472083739325,
+        "dea": 0.031009138285604487,
+        "histogram": -0.07806522073868763,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 22707498000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 27612684000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 89204829672.0,
+      "sentiment": {
+        "score": 75.947030202257,
+        "label": "偏热",
+        "missing_inputs": []
+      },
+      "policy_reason": "六部门部署智能工厂梯度培育，政策支持人工智能与制造业融合和场景落地；执行节奏与商业化质量仍需验证。 [工业和信息化部等六部门｜2026-07-15｜关于开展2026年度智能工厂梯度培育行动的通知](https://www.ncsti.gov.cn/kjdt/tzgg/202607/t20260720_251553.html)",
+      "fundamental_reason": "上半年制造业增加值同比增长5.6%，为数字化和AI应用提供需求基础；ETF成份股估值与订单兑现差异较大。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20下方、MA60上方，MA20未上行；5/10/20日涨跌幅分别为-3.35%/-8.62%/-6.49%，RSI14=42.6，KDJ=多头，MACD=收敛。",
+      "sentiment_reason": "情绪分数75.9（偏热）；5/10/20日份额净流入为+227.07亿/+276.13亿/N/A(missing_share_date)，5日成交量相对前20日为2.10倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "561260",
+      "name": "能源ETF工银",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "energy",
+      "tracking_index": "中证国新央企现代能源指数",
+      "screenshot_turnover_cny": 4686000,
+      "date": "2026-07-22",
+      "close": 1.258,
+      "ma20": 1.213,
+      "ma60": 1.301,
+      "ma20_rising": false,
+      "ret5_pct": 3.1147540983606614,
+      "ret10_pct": 5.271966527196659,
+      "ret20_pct": 1.0441767068273045,
+      "rsi14": 63.03317535545025,
+      "distance_ma20_pct": 3.70981038746907,
+      "trend": "震荡",
+      "action": "观察",
+      "ret1_pct": 1.3698630136986134,
+      "volume_ratio": 1.2005441820059335,
+      "kdj": {
+        "k": 52.66901263950445,
+        "d": 49.72745761314196,
+        "j": 58.552122692229446,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": -0.013262966398955633,
+        "dea": -0.02394708157268993,
+        "histogram": 0.02136823034746859,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 3488800.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 3963200.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 35846961.6,
+      "sentiment": {
+        "score": 69.99258288501613,
+        "label": "偏热",
+        "missing_inputs": []
+      },
+      "policy_reason": "近90日未发现新增直接政策催化；3月国家能源局年度标准计划覆盖煤炭、油气和新能源等领域，侧重安全、绿色和标准化转型。 [国家能源局｜2026-03-24｜2026年能源行业标准计划立项指南](https://www.nea.gov.cn/20260324/a3810b8d733c4972a67ef5891a17b8ea/20260324a3810b8d733c4972a67ef5891a17b8ea_49f3818b8b71ed439ca1d10cceef0bc714.pdf)",
+      "fundamental_reason": "全球增长仍有韧性但能源与地缘风险并存，资源品价格可能保持高波动；应以趋势、库存和份额申赎共同确认。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "technical_reason": "收盘价位于MA20上方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为+3.11%/+5.27%/+1.04%，RSI14=63.0，KDJ=多头，MACD=收敛。",
+      "sentiment_reason": "情绪分数70.0（偏热）；5/10/20日份额净流入为+0.03亿/+0.04亿/N/A(missing_share_date)，5日成交量相对前20日为1.20倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "159887",
+      "name": "银行ETF富国",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "bank",
+      "tracking_index": "中证800银行指数",
+      "screenshot_turnover_cny": 110000000,
+      "date": "2026-07-22",
+      "close": 1.303,
+      "ma20": 1.2519,
+      "ma60": 1.2685833333333332,
+      "ma20_rising": true,
+      "ret5_pct": 1.1645962732919068,
+      "ret10_pct": 3.990422984836406,
+      "ret20_pct": 5.08064516129032,
+      "rsi14": 72.02072538860102,
+      "distance_ma20_pct": 4.081795670580712,
+      "trend": "震荡",
+      "action": "观察",
+      "ret1_pct": 1.0861132660977546,
+      "volume_ratio": 1.1023507956338416,
+      "kdj": {
+        "k": 76.75729573235951,
+        "d": 81.8404246637287,
+        "j": 66.59103786962112,
+        "state": "空头"
+      },
+      "macd": {
+        "dif": 0.010612528560792978,
+        "dea": 0.002764485454720497,
+        "histogram": 0.01569608621214496,
+        "state": "零轴上多头"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 58481100.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 16575600.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 910035982.8499999,
+      "sentiment": {
+        "score": 69.53440402461028,
+        "label": "偏热",
+        "missing_inputs": []
+      },
+      "policy_reason": "证监会强调维护资本市场平稳健康运行、强化监管与投资者保护；方向偏支持，但不代表指数短期必涨。 [中国证监会｜2026-07-20｜中国证监会召开投资者座谈会](https://www.csrc.gov.cn/csrc/c100028/c7646232/content.shtml)",
+      "fundamental_reason": "2026年上半年国内生产总值同比增长4.7%，规模以上制造业增加值增长5.6%；宏观仍扩张，但行业盈利分化需要继续跟踪。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20上方、MA60上方，MA20上行；5/10/20日涨跌幅分别为+1.16%/+3.99%/+5.08%，RSI14=72.0，KDJ=空头，MACD=零轴上多头。",
+      "sentiment_reason": "情绪分数69.5（偏热）；5/10/20日份额净流入为+0.58亿/+0.17亿/N/A(missing_share_date)，5日成交量相对前20日为1.10倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "159852",
+      "name": "软件ETF嘉实",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "software",
+      "tracking_index": "中证软件服务指数",
+      "screenshot_turnover_cny": 376000000,
+      "date": "2026-07-22",
+      "close": 0.687,
+      "ma20": 0.6839999999999999,
+      "ma60": 0.744,
+      "ma20_rising": false,
+      "ret5_pct": 0.7331378299120228,
+      "ret10_pct": 1.0294117647058787,
+      "ret20_pct": -2.691218130311601,
+      "rsi14": 48.529411764705905,
+      "distance_ma20_pct": 0.43859649122808264,
+      "trend": "震荡",
+      "action": "观察",
+      "ret1_pct": -0.8658008658008476,
+      "volume_ratio": 1.1445197406680072,
+      "kdj": {
+        "k": 41.524299510563544,
+        "d": 38.40445302977264,
+        "j": 47.76399247214536,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": -0.011238808628351804,
+        "dea": -0.014520236660597383,
+        "histogram": 0.006562856064491158,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 182147000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 214527000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 8179163633.727,
+      "sentiment": {
+        "score": 67.98196211256243,
+        "label": "偏热",
+        "missing_inputs": []
+      },
+      "policy_reason": "六部门部署智能工厂梯度培育，政策支持人工智能与制造业融合和场景落地；执行节奏与商业化质量仍需验证。 [工业和信息化部等六部门｜2026-07-15｜关于开展2026年度智能工厂梯度培育行动的通知](https://www.ncsti.gov.cn/kjdt/tzgg/202607/t20260720_251553.html)",
+      "fundamental_reason": "上半年制造业增加值同比增长5.6%，为数字化和AI应用提供需求基础；ETF成份股估值与订单兑现差异较大。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20上方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为+0.73%/+1.03%/-2.69%，RSI14=48.5，KDJ=多头，MACD=收敛。",
+      "sentiment_reason": "情绪分数68.0（偏热）；5/10/20日份额净流入为+1.82亿/+2.15亿/N/A(missing_share_date)，5日成交量相对前20日为1.14倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "511180",
+      "name": "可转债ETF海富通",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "convertible_bond",
+      "tracking_index": "上证投资级可转债及可交换债券指数",
+      "screenshot_turnover_cny": 2409000000,
+      "date": "2026-07-22",
+      "close": 12.72,
+      "ma20": 12.6627,
+      "ma60": 12.820616666666666,
+      "ma20_rising": false,
+      "ret5_pct": 0.4898088165587122,
+      "ret10_pct": 0.34711265383402523,
+      "ret20_pct": 0.09442870632672129,
+      "rsi14": 51.00133511348469,
+      "distance_ma20_pct": 0.45251012817173475,
+      "trend": "震荡",
+      "action": "观察",
+      "ret1_pct": -0.29785232795107586,
+      "volume_ratio": 1.1067726203511292,
+      "kdj": {
+        "k": 63.93235081690375,
+        "d": 50.820745688255066,
+        "j": 90.15556107420112,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": -0.025748527052913417,
+        "dea": -0.0393506002503021,
+        "histogram": 0.027204146394777362,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 259785300.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 769892900.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 12607551384.0,
+      "sentiment": {
+        "score": 67.85168324427153,
+        "label": "偏热",
+        "missing_inputs": []
+      },
+      "policy_reason": "资本市场监管强调防风险和稳定运行；债券ETF仍受利率、信用利差和久期影响，不能当作无波动现金。 [中国证监会｜2026-07-20｜中国证监会召开投资者座谈会](https://www.csrc.gov.cn/csrc/c100028/c7646232/content.shtml)",
+      "fundamental_reason": "上半年经济同比增长4.7%，增长与价格环境共同影响利率方向；长久期国债和信用债需分别控制久期与信用风险。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20上方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为+0.49%/+0.35%/+0.09%，RSI14=51.0，KDJ=多头，MACD=收敛。",
+      "sentiment_reason": "情绪分数67.9（偏热）；5/10/20日份额净流入为+2.60亿/+7.70亿/N/A(missing_share_date)，5日成交量相对前20日为1.11倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "159825",
+      "name": "农业ETF富国",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "agriculture",
+      "tracking_index": "中证农业主题指数",
+      "screenshot_turnover_cny": 103000000,
+      "date": "2026-07-22",
+      "close": 0.714,
+      "ma20": 0.68855,
+      "ma60": 0.7304499999999999,
+      "ma20_rising": true,
+      "ret5_pct": 1.2765957446808418,
+      "ret10_pct": 4.999999999999982,
+      "ret20_pct": 8.18181818181818,
+      "rsi14": 57.63888888888891,
+      "distance_ma20_pct": 3.6961731174206536,
+      "trend": "震荡",
+      "action": "观察",
+      "ret1_pct": 1.2765957446808418,
+      "volume_ratio": 1.1172279395214486,
+      "kdj": {
+        "k": 84.11526361315629,
+        "d": 76.53612112058399,
+        "j": 99.27354859830089,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": 0.0004965650827271073,
+        "dea": -0.005055174936303237,
+        "histogram": 0.011103480038060689,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 20545000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 1000000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 1649395268.5979998,
+      "sentiment": {
+        "score": 62.01906212264759,
+        "label": "偏热",
+        "missing_inputs": []
+      },
+      "policy_reason": "近90日未发现新增直接政策催化；2月中央一号文件强调农业综合生产能力、农民增收和县域产业，构成中长期政策背景。 [国家林业和草原局（新华社稿）｜2026-02-03｜2026年中央一号文件发布 部署扎实推进乡村全面振兴](https://www.forestry.gov.cn/c/www/szxx/659115.jhtml)",
+      "fundamental_reason": "上半年社会消费品零售总额同比增长1.3%，粮油食品和饮料类分别增长7.4%和6.0%；消费恢复但总体增速温和。 [国家统计局｜2026-07-15｜上半年消费市场基本平稳 新型消费成长壮大](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964127.html)",
+      "technical_reason": "收盘价位于MA20上方、MA60下方，MA20上行；5/10/20日涨跌幅分别为+1.28%/+5.00%/+8.18%，RSI14=57.6，KDJ=多头，MACD=收敛。",
+      "sentiment_reason": "情绪分数62.0（偏热）；5/10/20日份额净流入为+0.21亿/+0.01亿/N/A(missing_share_date)，5日成交量相对前20日为1.12倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "159865",
+      "name": "养殖ETF国泰",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "livestock",
+      "tracking_index": "中证畜牧养殖指数",
+      "screenshot_turnover_cny": 239000000,
+      "date": "2026-07-22",
+      "close": 0.528,
+      "ma20": 0.51745,
+      "ma60": 0.5425333333333333,
+      "ma20_rising": true,
+      "ret5_pct": -1.1235955056179803,
+      "ret10_pct": 2.5242718446601975,
+      "ret20_pct": 9.316770186335411,
+      "rsi14": 53.846153846153854,
+      "distance_ma20_pct": 2.038844332785783,
+      "trend": "震荡",
+      "action": "观察",
+      "ret1_pct": 0.3802281368821214,
+      "volume_ratio": 1.064078271016936,
+      "kdj": {
+        "k": 62.35715306098314,
+        "d": 67.86783518895847,
+        "j": 51.33578880503248,
+        "state": "空头"
+      },
+      "macd": {
+        "dif": 0.0019995385705814384,
+        "dea": -0.0008234466459266874,
+        "histogram": 0.0056459704330162515,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 100916000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 283745000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 6396432587.952001,
+      "sentiment": {
+        "score": 61.76402590937264,
+        "label": "偏热",
+        "missing_inputs": []
+      },
+      "policy_reason": "近90日未发现新增直接政策催化；2月中央一号文件强调农业综合生产能力、农民增收和县域产业，构成中长期政策背景。 [国家林业和草原局（新华社稿）｜2026-02-03｜2026年中央一号文件发布 部署扎实推进乡村全面振兴](https://www.forestry.gov.cn/c/www/szxx/659115.jhtml)",
+      "fundamental_reason": "上半年社会消费品零售总额同比增长1.3%，粮油食品和饮料类分别增长7.4%和6.0%；消费恢复但总体增速温和。 [国家统计局｜2026-07-15｜上半年消费市场基本平稳 新型消费成长壮大](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964127.html)",
+      "technical_reason": "收盘价位于MA20上方、MA60下方，MA20上行；5/10/20日涨跌幅分别为-1.12%/+2.52%/+9.32%，RSI14=53.8，KDJ=空头，MACD=收敛。",
+      "sentiment_reason": "情绪分数61.8（偏热）；5/10/20日份额净流入为+1.01亿/+2.84亿/N/A(missing_share_date)，5日成交量相对前20日为1.06倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "511090",
+      "name": "30年国债ETF鹏扬",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "government_bond",
+      "tracking_index": "中债-30年期国债财富(总值)指数",
+      "screenshot_turnover_cny": 2751000000,
+      "date": "2026-07-22",
+      "close": 117.05,
+      "ma20": 116.5978,
+      "ma60": 116.32469999999999,
+      "ma20_rising": false,
+      "ret5_pct": 0.48935439560438,
+      "ret10_pct": 0.2947577673812818,
+      "ret20_pct": 0.4445130951155063,
+      "rsi14": 60.382736156351534,
+      "distance_ma20_pct": 0.38782892987687667,
+      "trend": "震荡",
+      "action": "观察",
+      "ret1_pct": 0.4729654331796951,
+      "volume_ratio": 0.864002868870954,
+      "kdj": {
+        "k": 59.56019994159343,
+        "d": 45.27138973855352,
+        "j": 88.13782034767326,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": 0.04092486513411586,
+        "dea": 0.02942929259664869,
+        "histogram": 0.02299114507493434,
+        "state": "金叉"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 348332500.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 2820221860.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 33205692105.0,
+      "sentiment": {
+        "score": 59.54100204980454,
+        "label": "中性",
+        "missing_inputs": []
+      },
+      "policy_reason": "资本市场监管强调防风险和稳定运行；债券ETF仍受利率、信用利差和久期影响，不能当作无波动现金。 [中国证监会｜2026-07-20｜中国证监会召开投资者座谈会](https://www.csrc.gov.cn/csrc/c100028/c7646232/content.shtml)",
+      "fundamental_reason": "上半年经济同比增长4.7%，增长与价格环境共同影响利率方向；长久期国债和信用债需分别控制久期与信用风险。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20上方、MA60上方，MA20未上行；5/10/20日涨跌幅分别为+0.49%/+0.29%/+0.44%，RSI14=60.4，KDJ=多头，MACD=金叉。",
+      "sentiment_reason": "情绪分数59.5（中性）；5/10/20日份额净流入为+3.48亿/+28.20亿/N/A(missing_share_date)，5日成交量相对前20日为0.86倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "512880",
+      "name": "证券ETF国泰",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "securities",
+      "tracking_index": "中证全指证券公司指数",
+      "screenshot_turnover_cny": 2868000000,
+      "exact_duplicate_group": "512000/512880",
+      "date": "2026-07-22",
+      "close": 1.114,
+      "ma20": 1.12595,
+      "ma60": 1.0808833333333332,
+      "ma20_rising": true,
+      "ret5_pct": -1.4159292035398008,
+      "ret10_pct": 0.27002700270029045,
+      "ret20_pct": 0.27002700270029045,
+      "rsi14": 41.588785046728994,
+      "distance_ma20_pct": -1.0613259913850426,
+      "trend": "震荡",
+      "action": "观察",
+      "ret1_pct": -0.8014247551202058,
+      "volume_ratio": 0.8713581354521124,
+      "kdj": {
+        "k": 50.032553065570255,
+        "d": 41.06682123715759,
+        "j": 67.96401672239558,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": 0.007423910586622284,
+        "dea": 0.011408110180462403,
+        "histogram": -0.007968399187680237,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 876805000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 2269089000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 63072776731.00001,
+      "sentiment": {
+        "score": 59.22007916173404,
+        "label": "中性",
+        "missing_inputs": []
+      },
+      "policy_reason": "证监会强调维护资本市场平稳健康运行、强化监管与投资者保护；方向偏支持，但不代表指数短期必涨。 [中国证监会｜2026-07-20｜中国证监会召开投资者座谈会](https://www.csrc.gov.cn/csrc/c100028/c7646232/content.shtml)",
+      "fundamental_reason": "2026年上半年国内生产总值同比增长4.7%，规模以上制造业增加值增长5.6%；宏观仍扩张，但行业盈利分化需要继续跟踪。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20下方、MA60上方，MA20上行；5/10/20日涨跌幅分别为-1.42%/+0.27%/+0.27%，RSI14=41.6，KDJ=多头，MACD=收敛。",
+      "sentiment_reason": "情绪分数59.2（中性）；5/10/20日份额净流入为+8.77亿/+22.69亿/N/A(missing_share_date)，5日成交量相对前20日为0.87倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "518880",
+      "name": "黄金ETF华安",
+      "kind": "ETF",
+      "market": "COMMODITY",
+      "sector": "gold",
+      "tracking_index": "黄金9999",
+      "screenshot_turnover_cny": 1576000000,
+      "exact_duplicate_group": "159937/518880",
+      "date": "2026-07-22",
+      "close": 8.56,
+      "ma20": 8.45025,
+      "ma60": 9.036333333333335,
+      "ma20_rising": false,
+      "ret5_pct": 2.2822320468395274,
+      "ret10_pct": -0.33764116893700846,
+      "ret20_pct": 0.5284791544333478,
+      "rsi14": 55.266418835192106,
+      "distance_ma20_pct": 1.2987781426585077,
+      "trend": "震荡",
+      "action": "观察",
+      "ret1_pct": 1.0864430798299463,
+      "volume_ratio": 0.9631651396160174,
+      "kdj": {
+        "k": 52.204433111019114,
+        "d": 38.374469018024406,
+        "j": 79.86436129700853,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": -0.12435206416774669,
+        "dea": -0.15802192999362916,
+        "histogram": 0.06733973165176493,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 358750800.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 357516200.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 89423245248.0,
+      "sentiment": {
+        "score": 52.8524674917289,
+        "label": "中性",
+        "missing_inputs": []
+      },
+      "policy_reason": "商品和黄金ETF主要受全球定价、汇率和地缘风险影响，本报告不设置方向性政策利好结论。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "fundamental_reason": "全球通胀回落受阻且冲突与市场重定价风险仍存，黄金与商品具备对冲叙事但价格可能高波动。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "technical_reason": "收盘价位于MA20上方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为+2.28%/-0.34%/+0.53%，RSI14=55.3，KDJ=多头，MACD=收敛。",
+      "sentiment_reason": "情绪分数52.9（中性）；5/10/20日份额净流入为+3.59亿/+3.58亿/N/A(missing_share_date)，5日成交量相对前20日为0.96倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "510810",
+      "name": "上海国企ETF汇添富",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "state_owned_enterprise",
+      "tracking_index": "中证上海国企指数",
+      "screenshot_turnover_cny": 34698700,
+      "date": "2026-07-22",
+      "close": 0.85,
+      "ma20": 0.8288,
+      "ma60": 0.8484333333333333,
+      "ma20_rising": true,
+      "ret5_pct": 2.0408163265306145,
+      "ret10_pct": 2.7811366384522307,
+      "ret20_pct": 3.658536585365857,
+      "rsi14": 63.39285714285714,
+      "distance_ma20_pct": 2.55791505791505,
+      "trend": "震荡",
+      "action": "观察",
+      "ret1_pct": 0.7109004739336511,
+      "volume_ratio": 3.6754039160252234,
+      "kdj": {
+        "k": 70.29074092240164,
+        "d": 55.73048356863348,
+        "j": 99.41125562993794,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": 6.465721887694009e-05,
+        "dea": -0.0030617490134881398,
+        "histogram": 0.00625281246473016,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": -60905000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": -59879300.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 5092684645.0,
+      "sentiment": {
+        "score": 50.05871203184145,
+        "label": "中性",
+        "missing_inputs": []
+      },
+      "policy_reason": "证监会强调维护资本市场平稳健康运行、强化监管与投资者保护；方向偏支持，但不代表指数短期必涨。 [中国证监会｜2026-07-20｜中国证监会召开投资者座谈会](https://www.csrc.gov.cn/csrc/c100028/c7646232/content.shtml)",
+      "fundamental_reason": "2026年上半年国内生产总值同比增长4.7%，规模以上制造业增加值增长5.6%；宏观仍扩张，但行业盈利分化需要继续跟踪。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20上方、MA60上方，MA20上行；5/10/20日涨跌幅分别为+2.04%/+2.78%/+3.66%，RSI14=63.4，KDJ=多头，MACD=收敛。",
+      "sentiment_reason": "情绪分数50.1（中性）；5/10/20日份额净流入为-0.61亿/-0.60亿/N/A(missing_share_date)，5日成交量相对前20日为3.68倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "159100",
+      "name": "巴西ETF华夏",
+      "kind": "ETF",
+      "market": "BR",
+      "sector": "broad_market",
+      "tracking_index": "巴西BOVESPA指数",
+      "screenshot_turnover_cny": 17083400,
+      "date": "2026-07-22",
+      "close": 1.102,
+      "ma20": 1.0909,
+      "ma60": 1.1269,
+      "ma20_rising": true,
+      "ret5_pct": -2.4778761061946764,
+      "ret10_pct": 1.8484288354898348,
+      "ret20_pct": 2.6070763500931182,
+      "rsi14": 61.797752808988825,
+      "distance_ma20_pct": 1.017508479237339,
+      "trend": "震荡",
+      "action": "观察",
+      "ret1_pct": -0.4516711833784881,
+      "volume_ratio": 0.7782242066341777,
+      "kdj": {
+        "k": 48.379077929328695,
+        "d": 56.31585408896307,
+        "j": 32.505525610059934,
+        "state": "空头"
+      },
+      "macd": {
+        "dif": 0.0013767913531408382,
+        "dea": -0.002165167927227939,
+        "histogram": 0.007083918560737554,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 0.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 544000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 514134722.37000006,
+      "sentiment": {
+        "score": 45.89584087665243,
+        "label": "中性",
+        "missing_inputs": []
+      },
+      "policy_reason": "跨境ETF同时受境外市场规则、汇率和QDII额度影响；本报告不把境内政策背景视为海外指数催化。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "fundamental_reason": "IMF预计2026年全球增长3.0%，但地区分化、冲突和金融市场重定价风险仍在；海外ETF需额外核对溢价与汇率。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "technical_reason": "收盘价位于MA20上方、MA60下方，MA20上行；5/10/20日涨跌幅分别为-2.48%/+1.85%/+2.61%，RSI14=61.8，KDJ=空头，MACD=收敛。",
+      "sentiment_reason": "情绪分数45.9（中性）；5/10/20日份额净流入为+0.00亿/+0.01亿/N/A(missing_share_date)，5日成交量相对前20日为0.78倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "159691",
+      "name": "港股红利ETF工银",
+      "kind": "ETF",
+      "market": "HK",
+      "sector": "dividend_factor",
+      "tracking_index": "中证港股通高股息精选港元指数",
+      "screenshot_turnover_cny": 257000000,
+      "date": "2026-07-22",
+      "close": 1.19,
+      "ma20": 1.1385999999999998,
+      "ma60": 1.2086000000000001,
+      "ma20_rising": true,
+      "ret5_pct": 1.2765957446808418,
+      "ret10_pct": 4.020979020979021,
+      "ret20_pct": 5.3097345132743445,
+      "rsi14": 70.27027027027023,
+      "distance_ma20_pct": 4.514315826453541,
+      "trend": "震荡",
+      "action": "观察",
+      "ret1_pct": 0.6768189509306355,
+      "volume_ratio": 1.2206873307491815,
+      "kdj": {
+        "k": 83.7520945263909,
+        "d": 79.63548559248584,
+        "j": 91.98531239420103,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": 0.000895353933915155,
+        "dea": -0.00993155470324623,
+        "histogram": 0.02165381727432277,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": -48455000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 17254000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 4753218649.34,
+      "sentiment": {
+        "score": 44.4978470125076,
+        "label": "中性",
+        "missing_inputs": []
+      },
+      "policy_reason": "证监会强调维护资本市场平稳健康运行、强化监管与投资者保护；方向偏支持，但不代表指数短期必涨。 [中国证监会｜2026-07-20｜中国证监会召开投资者座谈会](https://www.csrc.gov.cn/csrc/c100028/c7646232/content.shtml)",
+      "fundamental_reason": "2026年上半年国内生产总值同比增长4.7%，规模以上制造业增加值增长5.6%；宏观仍扩张，但行业盈利分化需要继续跟踪。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20上方、MA60下方，MA20上行；5/10/20日涨跌幅分别为+1.28%/+4.02%/+5.31%，RSI14=70.3，KDJ=多头，MACD=收敛。",
+      "sentiment_reason": "情绪分数44.5（中性）；5/10/20日份额净流入为-0.48亿/+0.17亿/N/A(missing_share_date)，5日成交量相对前20日为1.22倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "159502",
+      "name": "标普生物科技ETF嘉实",
+      "kind": "ETF",
+      "market": "US",
+      "sector": "biotechnology",
+      "tracking_index": "标普生物科技精选行业指数",
+      "screenshot_turnover_cny": 189000000,
+      "date": "2026-07-22",
+      "close": 1.542,
+      "ma20": 1.60695,
+      "ma60": 1.42935,
+      "ma20_rising": true,
+      "ret5_pct": -4.283054003724396,
+      "ret10_pct": -9.453904873752206,
+      "ret20_pct": 4.048582995951411,
+      "rsi14": 44.6372239747634,
+      "distance_ma20_pct": -4.04181835153552,
+      "trend": "震荡",
+      "action": "观察",
+      "ret1_pct": 0.9162303664921545,
+      "volume_ratio": 0.5230150588497833,
+      "kdj": {
+        "k": 18.833834211666673,
+        "d": 22.999802964908145,
+        "j": 10.501896705183732,
+        "state": "空头"
+      },
+      "macd": {
+        "dif": 0.026698547697123765,
+        "dea": 0.04977652042444687,
+        "histogram": -0.04615594545464621,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 4765000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 12991000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 1738332095.298,
+      "sentiment": {
+        "score": 44.02618815646977,
+        "label": "中性",
+        "missing_inputs": []
+      },
+      "policy_reason": "跨境ETF同时受境外市场规则、汇率和QDII额度影响；本报告不把境内政策背景视为海外指数催化。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "fundamental_reason": "IMF预计2026年全球增长3.0%，但地区分化、冲突和金融市场重定价风险仍在；海外ETF需额外核对溢价与汇率。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "technical_reason": "收盘价位于MA20下方、MA60上方，MA20上行；5/10/20日涨跌幅分别为-4.28%/-9.45%/+4.05%，RSI14=44.6，KDJ=空头，MACD=收敛。",
+      "sentiment_reason": "情绪分数44.0（中性）；5/10/20日份额净流入为+0.05亿/+0.13亿/N/A(missing_share_date)，5日成交量相对前20日为0.52倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "588170",
+      "name": "科创半导体ETF华夏",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "semiconductor",
+      "tracking_index": "上证科创板半导体材料设备主题指数",
+      "screenshot_turnover_cny": 5980000000,
+      "exact_duplicate_group": "588170/589020",
+      "date": "2026-07-22",
+      "close": 1.02,
+      "ma20": 1.19125,
+      "ma60": 0.9484166666666667,
+      "ma20_rising": false,
+      "ret5_pct": -9.090909090909093,
+      "ret10_pct": -19.74822974036191,
+      "ret20_pct": -9.734513274336276,
+      "rsi14": 38.90608875128999,
+      "distance_ma20_pct": -14.375655823714585,
+      "trend": "震荡",
+      "action": "观察",
+      "ret1_pct": -4.672897196261683,
+      "volume_ratio": 2.4078519753752534,
+      "kdj": {
+        "k": 22.08687955166771,
+        "d": 20.258881685904168,
+        "j": 25.7428752831948,
+        "state": "金叉"
+      },
+      "macd": {
+        "dif": 0.0006511434244196312,
+        "dea": 0.04515876828215383,
+        "histogram": -0.0890152497154684,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": -1953791999.9999998,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 10207404000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 30193475940.0,
+      "sentiment": {
+        "score": 41.324432404540765,
+        "label": "中性",
+        "missing_inputs": []
+      },
+      "policy_reason": "近90日未发现新增直接政策催化；4月公布的集成电路和软件企业税收优惠清单覆盖设计、制造、封测和关键材料设备，体现中长期政策连续性。 [国家发展改革委等部门｜2026-04-09｜关于做好2026年享受税收优惠政策的集成电路企业或项目、软件企业清单制定工作的通知](https://www.ndrc.gov.cn/xxgk/zcfb/tz/202604/t20260409_1404580.html)",
+      "fundamental_reason": "AI驱动全球技术链需求，但行业景气和估值对资本开支、终端需求及外部限制高度敏感，需结合价格与份额流验证。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "technical_reason": "收盘价位于MA20下方、MA60上方，MA20未上行；5/10/20日涨跌幅分别为-9.09%/-19.75%/-9.73%，RSI14=38.9，KDJ=金叉，MACD=收敛。",
+      "sentiment_reason": "情绪分数41.3（中性）；5/10/20日份额净流入为-19.54亿/+102.07亿/N/A(missing_share_date)，5日成交量相对前20日为2.41倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "516950",
+      "name": "基建ETF银华",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "infrastructure",
+      "tracking_index": "中证基建指数",
+      "screenshot_turnover_cny": 8684700,
+      "date": "2026-07-22",
+      "close": 1.04,
+      "ma20": 1.02795,
+      "ma60": 1.0752666666666668,
+      "ma20_rising": false,
+      "ret5_pct": 0.6776379477250849,
+      "ret10_pct": 1.5625,
+      "ret20_pct": 0.09624639076035724,
+      "rsi14": 52.76073619631906,
+      "distance_ma20_pct": 1.1722360036966917,
+      "trend": "震荡",
+      "action": "观察",
+      "ret1_pct": 0.38610038610038533,
+      "volume_ratio": 0.8689440962265587,
+      "kdj": {
+        "k": 68.60371063915275,
+        "d": 51.901387603513115,
+        "j": 102.00835671043203,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": -0.009516026560465018,
+        "dea": -0.013115162446165812,
+        "histogram": 0.007198271771401588,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": -2065999.9999999998,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 1028000.0000000002,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 125653840.0,
+      "sentiment": {
+        "score": 33.76259115634155,
+        "label": "偏冷",
+        "missing_inputs": []
+      },
+      "policy_reason": "近90日未发现新增全国性直接政策催化；年初住房城乡建设工作强调因城施策、去库存、保障交付和好房子建设，重心是稳定和转型。 [住房和城乡建设部｜2026-01-16｜住建部：2026年全国住房城乡建设着力抓好四个方面工作](https://www.dhms.gov.cn/stsx/Web/_F0_0_6GKSXVBA02A5928A8F0E406FA4.htm)",
+      "fundamental_reason": "上半年房地产开发投资下降18.0%，新建商品房销售面积下降11.6%、销售额下降13.6%，行业基本面仍偏弱。 [国家统计局｜2026-07-15｜2026年1—6月份全国房地产市场基本情况](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964126.html)",
+      "technical_reason": "收盘价位于MA20上方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为+0.68%/+1.56%/+0.10%，RSI14=52.8，KDJ=多头，MACD=收敛。",
+      "sentiment_reason": "情绪分数33.8（偏冷）；5/10/20日份额净流入为-0.02亿/+0.01亿/N/A(missing_share_date)，5日成交量相对前20日为0.87倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "159605",
+      "name": "中概互联ETF广发",
+      "kind": "ETF",
+      "market": "CHINA_OFFSHORE",
+      "sector": "internet",
+      "tracking_index": "中证海外中国互联网30人民币指数",
+      "screenshot_turnover_cny": 483000000,
+      "date": "2026-07-22",
+      "close": 0.803,
+      "ma20": 0.7814,
+      "ma60": 0.8247166666666667,
+      "ma20_rising": true,
+      "ret5_pct": -1.833740831295827,
+      "ret10_pct": -0.8641975308641969,
+      "ret20_pct": 7.7852348993288745,
+      "rsi14": 63.461538461538495,
+      "distance_ma20_pct": 2.7642692603020214,
+      "trend": "震荡",
+      "action": "观察",
+      "ret1_pct": -4.062126642771791,
+      "volume_ratio": 1.1205101912440496,
+      "kdj": {
+        "k": 60.35499405610836,
+        "d": 71.67217923629282,
+        "j": 37.72062369573945,
+        "state": "死叉"
+      },
+      "macd": {
+        "dif": 0.007905664691536307,
+        "dea": 0.0007133065693222428,
+        "histogram": 0.01438471624442813,
+        "state": "零轴上多头"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": -153011000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": -342246000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 3397080382.465,
+      "sentiment": {
+        "score": 33.11007928800611,
+        "label": "偏冷",
+        "missing_inputs": []
+      },
+      "policy_reason": "六部门部署智能工厂梯度培育，政策支持人工智能与制造业融合和场景落地；执行节奏与商业化质量仍需验证。 [工业和信息化部等六部门｜2026-07-15｜关于开展2026年度智能工厂梯度培育行动的通知](https://www.ncsti.gov.cn/kjdt/tzgg/202607/t20260720_251553.html)",
+      "fundamental_reason": "上半年制造业增加值同比增长5.6%，为数字化和AI应用提供需求基础；ETF成份股估值与订单兑现差异较大。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20上方、MA60下方，MA20上行；5/10/20日涨跌幅分别为-1.83%/-0.86%/+7.79%，RSI14=63.5，KDJ=死叉，MACD=零轴上多头。",
+      "sentiment_reason": "情绪分数33.1（偏冷）；5/10/20日份额净流入为-1.53亿/-3.42亿/N/A(missing_share_date)，5日成交量相对前20日为1.12倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "159740",
+      "name": "恒生科技ETF大成",
+      "kind": "ETF",
+      "market": "HK",
+      "sector": "technology",
+      "tracking_index": "恒生科技指数",
+      "screenshot_turnover_cny": 1602000000,
+      "date": "2026-07-22",
+      "close": 0.583,
+      "ma20": 0.5757,
+      "ma60": 0.59875,
+      "ma20_rising": true,
+      "ret5_pct": -1.851851851851849,
+      "ret10_pct": -1.5202702702702742,
+      "ret20_pct": 3.5523978685612745,
+      "rsi14": 58.70967741935481,
+      "distance_ma20_pct": 1.2680215389959892,
+      "trend": "震荡",
+      "action": "观察",
+      "ret1_pct": -2.9950083194675514,
+      "volume_ratio": 1.075774421832879,
+      "kdj": {
+        "k": 50.610084744101336,
+        "d": 59.14462806496917,
+        "j": 33.54099810236568,
+        "state": "空头"
+      },
+      "macd": {
+        "dif": 0.0017994046361535787,
+        "dea": -0.0010567185647448146,
+        "histogram": 0.005712246401796787,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": -297000000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": -592300000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 15976019221.183998,
+      "sentiment": {
+        "score": 32.295967679378904,
+        "label": "偏冷",
+        "missing_inputs": []
+      },
+      "policy_reason": "跨境ETF同时受境外市场规则、汇率和QDII额度影响；本报告不把境内政策背景视为海外指数催化。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "fundamental_reason": "IMF预计2026年全球增长3.0%，但地区分化、冲突和金融市场重定价风险仍在；海外ETF需额外核对溢价与汇率。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "technical_reason": "收盘价位于MA20上方、MA60下方，MA20上行；5/10/20日涨跌幅分别为-1.85%/-1.52%/+3.55%，RSI14=58.7，KDJ=空头，MACD=收敛。",
+      "sentiment_reason": "情绪分数32.3（偏冷）；5/10/20日份额净流入为-2.97亿/-5.92亿/N/A(missing_share_date)，5日成交量相对前20日为1.08倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "562350",
+      "name": "电力ETF银华",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "electric_utility",
+      "tracking_index": "中证全指电力公用事业指数",
+      "screenshot_turnover_cny": 42088700,
+      "date": "2026-07-22",
+      "close": 1.148,
+      "ma20": 1.0887,
+      "ma60": 1.1744333333333332,
+      "ma20_rising": false,
+      "ret5_pct": 6.197964847363546,
+      "ret10_pct": 8.19981149858624,
+      "ret20_pct": 2.5915996425379673,
+      "rsi14": 63.6363636363636,
+      "distance_ma20_pct": 5.446863231376864,
+      "trend": "震荡",
+      "action": "不追涨",
+      "ret1_pct": 1.5929203539823078,
+      "volume_ratio": 2.381475645852523,
+      "kdj": {
+        "k": 82.71946784355104,
+        "d": 65.63739016928226,
+        "j": 116.8836231920886,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": -0.012017929803390892,
+        "dea": -0.02514995113939969,
+        "histogram": 0.026264042672017596,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 33396000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 33396000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 193335713.2,
+      "sentiment": {
+        "score": 78.04745989304813,
+        "label": "偏热",
+        "missing_inputs": []
+      },
+      "policy_reason": "2026年汽车标准化工作聚焦新能源汽车、智能网联、汽车芯片、固态电池等方向；同时部分税收优惠未来调整，需兼顾支持与退坡风险。 [工业和信息化部｜2026-06-12｜2026年汽车标准化工作要点](https://www.miit.gov.cn/xwfb/gxdt/sjdt/art/2026/art_202b76b65f354309a28d38686d988108.html)",
+      "fundamental_reason": "制造业整体保持增长，但新能源链仍受价格竞争、产能利用率与海外需求影响；仅凭政策不能替代盈利和资金验证。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20上方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为+6.20%/+8.20%/+2.59%，RSI14=63.6，KDJ=多头，MACD=收敛。",
+      "sentiment_reason": "情绪分数78.0（偏热）；5/10/20日份额净流入为+0.33亿/+0.33亿/N/A(missing_share_date)，5日成交量相对前20日为2.38倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "159981",
+      "name": "能源化工ETF建信",
+      "kind": "ETF",
+      "market": "COMMODITY",
+      "sector": "energy_chemical",
+      "tracking_index": "易盛郑商所能源化工指数A",
+      "screenshot_turnover_cny": 471000000,
+      "date": "2026-07-22",
+      "close": 1.532,
+      "ma20": 1.44585,
+      "ma60": 1.5640666666666665,
+      "ma20_rising": true,
+      "ret5_pct": 2.201467645096722,
+      "ret10_pct": 5.947441217150762,
+      "ret20_pct": 6.315058986814703,
+      "rsi14": 75.46012269938652,
+      "distance_ma20_pct": 5.958432755818377,
+      "trend": "震荡",
+      "action": "不追涨",
+      "ret1_pct": 1.5241882041086896,
+      "volume_ratio": 1.0083886759632203,
+      "kdj": {
+        "k": 77.36265260265772,
+        "d": 75.87768319160513,
+        "j": 80.33259142476291,
+        "state": "金叉"
+      },
+      "macd": {
+        "dif": -0.0017712028136349645,
+        "dea": -0.020137252595622556,
+        "histogram": 0.03673209956397518,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 50742000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 48024000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 2700206618.124,
+      "sentiment": {
+        "score": 69.00663092828619,
+        "label": "偏热",
+        "missing_inputs": []
+      },
+      "policy_reason": "近90日未发现新增直接政策催化；3月国家能源局年度标准计划覆盖煤炭、油气和新能源等领域，侧重安全、绿色和标准化转型。 [国家能源局｜2026-03-24｜2026年能源行业标准计划立项指南](https://www.nea.gov.cn/20260324/a3810b8d733c4972a67ef5891a17b8ea/20260324a3810b8d733c4972a67ef5891a17b8ea_49f3818b8b71ed439ca1d10cceef0bc714.pdf)",
+      "fundamental_reason": "全球增长仍有韧性但能源与地缘风险并存，资源品价格可能保持高波动；应以趋势、库存和份额申赎共同确认。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "technical_reason": "收盘价位于MA20上方、MA60下方，MA20上行；5/10/20日涨跌幅分别为+2.20%/+5.95%/+6.32%，RSI14=75.5，KDJ=金叉，MACD=收敛。",
+      "sentiment_reason": "情绪分数69.0（偏热）；5/10/20日份额净流入为+0.51亿/+0.48亿/N/A(missing_share_date)，5日成交量相对前20日为1.01倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "159399",
+      "name": "现金流ETF国泰",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "cashflow_factor",
+      "tracking_index": "富时中国A股自由现金流聚焦指数",
+      "screenshot_turnover_cny": 241000000,
+      "date": "2026-07-22",
+      "close": 0.99,
+      "ma20": 0.9418,
+      "ma60": 1.0150833333333333,
+      "ma20_rising": true,
+      "ret5_pct": 2.2727272727272707,
+      "ret10_pct": 6.451612903225801,
+      "ret20_pct": 4.984093319194072,
+      "rsi14": 70.17543859649123,
+      "distance_ma20_pct": 5.117859418135495,
+      "trend": "震荡",
+      "action": "不追涨",
+      "ret1_pct": 0.6097560975609762,
+      "volume_ratio": 1.0166490911136985,
+      "kdj": {
+        "k": 83.58299385404972,
+        "d": 80.12927678063585,
+        "j": 90.49042800087744,
+        "state": "超买"
+      },
+      "macd": {
+        "dif": -0.0027253464740810696,
+        "dea": -0.013786278001679336,
+        "histogram": 0.022121863055196533,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 77740000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 83402000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 4345302886.65,
+      "sentiment": {
+        "score": 68.8971180317771,
+        "label": "偏热",
+        "missing_inputs": []
+      },
+      "policy_reason": "证监会强调维护资本市场平稳健康运行、强化监管与投资者保护；方向偏支持，但不代表指数短期必涨。 [中国证监会｜2026-07-20｜中国证监会召开投资者座谈会](https://www.csrc.gov.cn/csrc/c100028/c7646232/content.shtml)",
+      "fundamental_reason": "2026年上半年国内生产总值同比增长4.7%，规模以上制造业增加值增长5.6%；宏观仍扩张，但行业盈利分化需要继续跟踪。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20上方、MA60下方，MA20上行；5/10/20日涨跌幅分别为+2.27%/+6.45%/+4.98%，RSI14=70.2，KDJ=超买，MACD=收敛。",
+      "sentiment_reason": "情绪分数68.9（偏热）；5/10/20日份额净流入为+0.78亿/+0.83亿/N/A(missing_share_date)，5日成交量相对前20日为1.02倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "159928",
+      "name": "消费ETF汇添富",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "consumer",
+      "tracking_index": "中证主要消费指数",
+      "screenshot_turnover_cny": 524000000,
+      "date": "2026-07-22",
+      "close": 0.67,
+      "ma20": 0.63665,
+      "ma60": 0.6688500000000001,
+      "ma20_rising": true,
+      "ret5_pct": 2.1341463414634054,
+      "ret10_pct": 7.200000000000006,
+      "ret20_pct": 10.197368421052634,
+      "rsi14": 66.66666666666666,
+      "distance_ma20_pct": 5.23835702505302,
+      "trend": "震荡",
+      "action": "不追涨",
+      "ret1_pct": 0.1494768310911887,
+      "volume_ratio": 1.4295747068193312,
+      "kdj": {
+        "k": 81.48495079744534,
+        "d": 80.48411902010245,
+        "j": 83.48661435213111,
+        "state": "超买"
+      },
+      "macd": {
+        "dif": 0.004592258603701049,
+        "dea": -0.0025487306542098256,
+        "histogram": 0.01428197851582175,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": -54056000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": -68074000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 15577921456.800001,
+      "sentiment": {
+        "score": 53.984952858090374,
+        "label": "中性",
+        "missing_inputs": []
+      },
+      "policy_reason": "近90日未发现新增直接政策催化；2月中央一号文件强调农业综合生产能力、农民增收和县域产业，构成中长期政策背景。 [国家林业和草原局（新华社稿）｜2026-02-03｜2026年中央一号文件发布 部署扎实推进乡村全面振兴](https://www.forestry.gov.cn/c/www/szxx/659115.jhtml)",
+      "fundamental_reason": "上半年社会消费品零售总额同比增长1.3%，粮油食品和饮料类分别增长7.4%和6.0%；消费恢复但总体增速温和。 [国家统计局｜2026-07-15｜上半年消费市场基本平稳 新型消费成长壮大](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964127.html)",
+      "technical_reason": "收盘价位于MA20上方、MA60上方，MA20上行；5/10/20日涨跌幅分别为+2.13%/+7.20%/+10.20%，RSI14=66.7，KDJ=超买，MACD=收敛。",
+      "sentiment_reason": "情绪分数54.0（中性）；5/10/20日份额净流入为-0.54亿/-0.68亿/N/A(missing_share_date)，5日成交量相对前20日为1.43倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "512690",
+      "name": "酒ETF鹏华",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "liquor",
+      "tracking_index": "中证酒指数",
+      "screenshot_turnover_cny": 1240000000,
+      "date": "2026-07-22",
+      "close": 0.43,
+      "ma20": 0.40245,
+      "ma60": 0.43216666666666664,
+      "ma20_rising": true,
+      "ret5_pct": 3.3653846153846256,
+      "ret10_pct": 10.256410256410241,
+      "ret20_pct": 10.256410256410241,
+      "rsi14": 66.03773584905659,
+      "distance_ma20_pct": 6.845570878369989,
+      "trend": "震荡",
+      "action": "不追涨",
+      "ret1_pct": 1.17647058823529,
+      "volume_ratio": 1.4353338287450534,
+      "kdj": {
+        "k": 83.84554293753395,
+        "d": 78.712413510038,
+        "j": 94.11180179252585,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": 0.0011524158695548903,
+        "dea": -0.004890082575345558,
+        "histogram": 0.012084996889800897,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": -186730200.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": -481897800.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 14516090586.0,
+      "sentiment": {
+        "score": 43.88522409079144,
+        "label": "中性",
+        "missing_inputs": []
+      },
+      "policy_reason": "近90日未发现新增直接政策催化；2月中央一号文件强调农业综合生产能力、农民增收和县域产业，构成中长期政策背景。 [国家林业和草原局（新华社稿）｜2026-02-03｜2026年中央一号文件发布 部署扎实推进乡村全面振兴](https://www.forestry.gov.cn/c/www/szxx/659115.jhtml)",
+      "fundamental_reason": "上半年社会消费品零售总额同比增长1.3%，粮油食品和饮料类分别增长7.4%和6.0%；消费恢复但总体增速温和。 [国家统计局｜2026-07-15｜上半年消费市场基本平稳 新型消费成长壮大](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964127.html)",
+      "technical_reason": "收盘价位于MA20上方、MA60下方，MA20上行；5/10/20日涨跌幅分别为+3.37%/+10.26%/+10.26%，RSI14=66.0，KDJ=多头，MACD=收敛。",
+      "sentiment_reason": "情绪分数43.9（中性）；5/10/20日份额净流入为-1.87亿/-4.82亿/N/A(missing_share_date)，5日成交量相对前20日为1.44倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "515220",
+      "name": "煤炭ETF国泰",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "coal",
+      "tracking_index": "中证煤炭指数",
+      "screenshot_turnover_cny": 1098000000,
+      "date": "2026-07-22",
+      "close": 1.22,
+      "ma20": 1.1366,
+      "ma60": 1.2228999999999999,
+      "ma20_rising": true,
+      "ret5_pct": 2.866779089376048,
+      "ret10_pct": 6.923751095530228,
+      "ret20_pct": 8.060230292294058,
+      "rsi14": 65.85365853658536,
+      "distance_ma20_pct": 7.3376737638571,
+      "trend": "震荡",
+      "action": "不追涨",
+      "ret1_pct": 2.434928631402178,
+      "volume_ratio": 1.305794593494875,
+      "kdj": {
+        "k": 85.20275956911608,
+        "d": 77.22824123807482,
+        "j": 101.1517962311986,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": -0.0033690489739877094,
+        "dea": -0.018337888816852117,
+        "histogram": 0.029937679685728816,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": -216253999.99999988,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 159873000.00000012,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 15572295818.0,
+      "sentiment": {
+        "score": 41.6759244617959,
+        "label": "中性",
+        "missing_inputs": []
+      },
+      "policy_reason": "近90日未发现新增直接政策催化；3月国家能源局年度标准计划覆盖煤炭、油气和新能源等领域，侧重安全、绿色和标准化转型。 [国家能源局｜2026-03-24｜2026年能源行业标准计划立项指南](https://www.nea.gov.cn/20260324/a3810b8d733c4972a67ef5891a17b8ea/20260324a3810b8d733c4972a67ef5891a17b8ea_49f3818b8b71ed439ca1d10cceef0bc714.pdf)",
+      "fundamental_reason": "全球增长仍有韧性但能源与地缘风险并存，资源品价格可能保持高波动；应以趋势、库存和份额申赎共同确认。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "technical_reason": "收盘价位于MA20上方、MA60下方，MA20上行；5/10/20日涨跌幅分别为+2.87%/+6.92%/+8.06%，RSI14=65.9，KDJ=多头，MACD=收敛。",
+      "sentiment_reason": "情绪分数41.7（中性）；5/10/20日份额净流入为-2.16亿/+1.60亿/N/A(missing_share_date)，5日成交量相对前20日为1.31倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "510880",
+      "name": "红利ETF华泰柏瑞",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "dividend_factor",
+      "tracking_index": "上证红利指数",
+      "screenshot_turnover_cny": 1623000000,
+      "date": "2026-07-22",
+      "close": 3.25,
+      "ma20": 3.07465,
+      "ma60": 3.1838333333333333,
+      "ma20_rising": true,
+      "ret5_pct": 2.0408163265306145,
+      "ret10_pct": 5.519480519480524,
+      "ret20_pct": 6.627296587926512,
+      "rsi14": 71.3810316139767,
+      "distance_ma20_pct": 5.703088156375524,
+      "trend": "震荡",
+      "action": "不追涨",
+      "ret1_pct": 1.4040561622464809,
+      "volume_ratio": 1.187783186050809,
+      "kdj": {
+        "k": 82.60628947456082,
+        "d": 80.07105718717183,
+        "j": 87.67675404933883,
+        "state": "超买"
+      },
+      "macd": {
+        "dif": 0.018407433056745415,
+        "dea": -0.010011787611274792,
+        "histogram": 0.056838441336040414,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": -583606000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": -586093500.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 25282321024.999996,
+      "sentiment": {
+        "score": 37.57475855131753,
+        "label": "偏冷",
+        "missing_inputs": []
+      },
+      "policy_reason": "证监会强调维护资本市场平稳健康运行、强化监管与投资者保护；方向偏支持，但不代表指数短期必涨。 [中国证监会｜2026-07-20｜中国证监会召开投资者座谈会](https://www.csrc.gov.cn/csrc/c100028/c7646232/content.shtml)",
+      "fundamental_reason": "2026年上半年国内生产总值同比增长4.7%，规模以上制造业增加值增长5.6%；宏观仍扩张，但行业盈利分化需要继续跟踪。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20上方、MA60上方，MA20上行；5/10/20日涨跌幅分别为+2.04%/+5.52%/+6.63%，RSI14=71.4，KDJ=超买，MACD=收敛。",
+      "sentiment_reason": "情绪分数37.6（偏冷）；5/10/20日份额净流入为-5.84亿/-5.86亿/N/A(missing_share_date)，5日成交量相对前20日为1.19倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "159309",
+      "name": "油气ETF汇添富",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "oil_gas",
+      "tracking_index": "中证油气资源指数",
+      "screenshot_turnover_cny": 88658300,
+      "date": "2026-07-22",
+      "close": 1.308,
+      "ma20": 1.28185,
+      "ma60": 1.3821333333333332,
+      "ma20_rising": false,
+      "ret5_pct": 1.710730948678063,
+      "ret10_pct": 2.91109362706532,
+      "ret20_pct": -5.148658448150833,
+      "rsi14": 56.47382920110194,
+      "distance_ma20_pct": 2.0400202831844627,
+      "trend": "震荡",
+      "action": "不追涨",
+      "ret1_pct": 3.073286052009472,
+      "volume_ratio": 1.4078281600982387,
+      "kdj": {
+        "k": 61.27868584823326,
+        "d": 42.99544867834948,
+        "j": 97.8451601880008,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": -0.022495290366282505,
+        "dea": -0.02879943876055252,
+        "histogram": 0.01260829678854003,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": -34368000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 12132999.999999996,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 755202230.6880001,
+      "sentiment": {
+        "score": 36.40948805050435,
+        "label": "偏冷",
+        "missing_inputs": []
+      },
+      "policy_reason": "近90日未发现新增直接政策催化；3月国家能源局年度标准计划覆盖煤炭、油气和新能源等领域，侧重安全、绿色和标准化转型。 [国家能源局｜2026-03-24｜2026年能源行业标准计划立项指南](https://www.nea.gov.cn/20260324/a3810b8d733c4972a67ef5891a17b8ea/20260324a3810b8d733c4972a67ef5891a17b8ea_49f3818b8b71ed439ca1d10cceef0bc714.pdf)",
+      "fundamental_reason": "全球增长仍有韧性但能源与地缘风险并存，资源品价格可能保持高波动；应以趋势、库存和份额申赎共同确认。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "technical_reason": "收盘价位于MA20上方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为+1.71%/+2.91%/-5.15%，RSI14=56.5，KDJ=多头，MACD=收敛。",
+      "sentiment_reason": "情绪分数36.4（偏冷）；5/10/20日份额净流入为-0.34亿/+0.12亿/N/A(missing_share_date)，5日成交量相对前20日为1.41倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "515710",
+      "name": "食品饮料ETF华宝",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "food_beverage",
+      "tracking_index": "中证细分食品饮料产业主题指数",
+      "screenshot_turnover_cny": 36853000,
+      "date": "2026-07-22",
+      "close": 0.503,
+      "ma20": 0.47695,
+      "ma60": 0.5004333333333333,
+      "ma20_rising": true,
+      "ret5_pct": 2.443991853360483,
+      "ret10_pct": 7.478632478632474,
+      "ret20_pct": 7.70877944325481,
+      "rsi14": 67.39130434782611,
+      "distance_ma20_pct": 5.461788447426352,
+      "trend": "震荡",
+      "action": "不追涨",
+      "ret1_pct": 0.6000000000000005,
+      "volume_ratio": 1.104077880595528,
+      "kdj": {
+        "k": 83.22410305202041,
+        "d": 78.67166171822355,
+        "j": 92.32898571961414,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": 0.0023696960887333307,
+        "dea": -0.0029302950563241227,
+        "histogram": 0.010599982290114907,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": -25257000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": -32322000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 1216807199.4,
+      "sentiment": {
+        "score": 34.46373277014966,
+        "label": "偏冷",
+        "missing_inputs": []
+      },
+      "policy_reason": "近90日未发现新增直接政策催化；2月中央一号文件强调农业综合生产能力、农民增收和县域产业，构成中长期政策背景。 [国家林业和草原局（新华社稿）｜2026-02-03｜2026年中央一号文件发布 部署扎实推进乡村全面振兴](https://www.forestry.gov.cn/c/www/szxx/659115.jhtml)",
+      "fundamental_reason": "上半年社会消费品零售总额同比增长1.3%，粮油食品和饮料类分别增长7.4%和6.0%；消费恢复但总体增速温和。 [国家统计局｜2026-07-15｜上半年消费市场基本平稳 新型消费成长壮大](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964127.html)",
+      "technical_reason": "收盘价位于MA20上方、MA60上方，MA20上行；5/10/20日涨跌幅分别为+2.44%/+7.48%/+7.71%，RSI14=67.4，KDJ=多头，MACD=收敛。",
+      "sentiment_reason": "情绪分数34.5（偏冷）；5/10/20日份额净流入为-0.25亿/-0.32亿/N/A(missing_share_date)，5日成交量相对前20日为1.10倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "159915",
+      "name": "创业板ETF易方达",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "growth_board",
+      "tracking_index": "创业板指数",
+      "screenshot_turnover_cny": 16316000000,
+      "date": "2026-07-22",
+      "close": 3.59,
+      "ma20": 3.9318,
+      "ma60": 3.953533333333333,
+      "ma20_rising": false,
+      "ret5_pct": -6.217345872518287,
+      "ret10_pct": -7.163175588311354,
+      "ret20_pct": -15.688116486613435,
+      "rsi14": 35.30961791831358,
+      "distance_ma20_pct": -8.693219390609897,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": -3.2084119708816417,
+      "volume_ratio": 2.4058161203728257,
+      "kdj": {
+        "k": 28.334185744088874,
+        "d": 23.42071724879281,
+        "j": 38.16112273468101,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": -0.12420512050496102,
+        "dea": -0.07677209724030656,
+        "histogram": -0.09486604652930891,
+        "state": "零轴下空头"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 15874147000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 19440704000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 61186003220.24,
+      "sentiment": {
+        "score": 73.33978532124313,
+        "label": "偏热",
+        "missing_inputs": []
+      },
+      "policy_reason": "证监会强调维护资本市场平稳健康运行、强化监管与投资者保护；方向偏支持，但不代表指数短期必涨。 [中国证监会｜2026-07-20｜中国证监会召开投资者座谈会](https://www.csrc.gov.cn/csrc/c100028/c7646232/content.shtml)",
+      "fundamental_reason": "2026年上半年国内生产总值同比增长4.7%，规模以上制造业增加值增长5.6%；宏观仍扩张，但行业盈利分化需要继续跟踪。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为-6.22%/-7.16%/-15.69%，RSI14=35.3，KDJ=多头，MACD=零轴下空头。",
+      "sentiment_reason": "情绪分数73.3（偏热）；5/10/20日份额净流入为+158.74亿/+194.41亿/N/A(missing_share_date)，5日成交量相对前20日为2.41倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "510500",
+      "name": "中证500ETF南方",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "mid_cap",
+      "tracking_index": "中证500指数",
+      "screenshot_turnover_cny": 8481000000,
+      "exact_duplicate_group": "159500/510500",
+      "date": "2026-07-22",
+      "close": 7.74,
+      "ma20": 8.387649999999999,
+      "ma60": 8.415616666666667,
+      "ma20_rising": false,
+      "ret5_pct": -5.042326094957672,
+      "ret10_pct": -7.879076410378472,
+      "ret20_pct": -12.40380262562245,
+      "rsi14": 31.13207547169813,
+      "distance_ma20_pct": -7.7214714490947856,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": -0.6673511293634471,
+      "volume_ratio": 2.2669470442717006,
+      "kdj": {
+        "k": 24.401098480956147,
+        "d": 19.97013540609798,
+        "j": 33.263024630672476,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": -0.2232548139987518,
+        "dea": -0.1150575503087885,
+        "histogram": -0.2163945273799266,
+        "state": "零轴下空头"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 5041144400.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 13334589200.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 47528000964.0,
+      "sentiment": {
+        "score": 72.92203107658158,
+        "label": "偏热",
+        "missing_inputs": []
+      },
+      "policy_reason": "证监会强调维护资本市场平稳健康运行、强化监管与投资者保护；方向偏支持，但不代表指数短期必涨。 [中国证监会｜2026-07-20｜中国证监会召开投资者座谈会](https://www.csrc.gov.cn/csrc/c100028/c7646232/content.shtml)",
+      "fundamental_reason": "2026年上半年国内生产总值同比增长4.7%，规模以上制造业增加值增长5.6%；宏观仍扩张，但行业盈利分化需要继续跟踪。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为-5.04%/-7.88%/-12.40%，RSI14=31.1，KDJ=多头，MACD=零轴下空头。",
+      "sentiment_reason": "情绪分数72.9（偏热）；5/10/20日份额净流入为+50.41亿/+133.35亿/N/A(missing_share_date)，5日成交量相对前20日为2.27倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "561590",
+      "name": "中证1000增强ETF华泰柏瑞",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "small_cap",
+      "tracking_index": "中证1000指数",
+      "screenshot_turnover_cny": 26233300,
+      "date": "2026-07-22",
+      "close": 1.408,
+      "ma20": 1.5817,
+      "ma60": 1.6123,
+      "ma20_rising": false,
+      "ret5_pct": -8.333333333333337,
+      "ret10_pct": -10.942441492726129,
+      "ret20_pct": -17.322372284204356,
+      "rsi14": 24.31372549019609,
+      "distance_ma20_pct": -10.981854966175641,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": -1.1929824561403568,
+      "volume_ratio": 2.784785902240651,
+      "kdj": {
+        "k": 21.45603937113619,
+        "d": 18.012944565792907,
+        "j": 28.342228981822757,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": -0.060217735661900695,
+        "dea": -0.034876720170136155,
+        "histogram": -0.05068203098352908,
+        "state": "零轴下空头"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 38539999.99999998,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 50247499.99999998,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 153471436.79999998,
+      "sentiment": {
+        "score": 72.24019607843138,
+        "label": "偏热",
+        "missing_inputs": []
+      },
+      "policy_reason": "证监会强调维护资本市场平稳健康运行、强化监管与投资者保护；方向偏支持，但不代表指数短期必涨。 [中国证监会｜2026-07-20｜中国证监会召开投资者座谈会](https://www.csrc.gov.cn/csrc/c100028/c7646232/content.shtml)",
+      "fundamental_reason": "2026年上半年国内生产总值同比增长4.7%，规模以上制造业增加值增长5.6%；宏观仍扩张，但行业盈利分化需要继续跟踪。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为-8.33%/-10.94%/-17.32%，RSI14=24.3，KDJ=多头，MACD=零轴下空头。",
+      "sentiment_reason": "情绪分数72.2（偏热）；5/10/20日份额净流入为+0.39亿/+0.50亿/N/A(missing_share_date)，5日成交量相对前20日为2.78倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "515210",
+      "name": "钢铁ETF国泰",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "steel",
+      "tracking_index": "中证钢铁指数",
+      "screenshot_turnover_cny": 87624800,
+      "date": "2026-07-22",
+      "close": 1.13,
+      "ma20": 1.14175,
+      "ma60": 1.2643,
+      "ma20_rising": false,
+      "ret5_pct": -1.310043668122285,
+      "ret10_pct": -0.702987697715296,
+      "ret20_pct": -5.676126878130228,
+      "rsi14": 38.020833333333314,
+      "distance_ma20_pct": -1.0291219619006031,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": 0.7130124777183333,
+      "volume_ratio": 1.1072728556155842,
+      "kdj": {
+        "k": 48.47733031346721,
+        "d": 40.76896220512784,
+        "j": 63.89406653014596,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": -0.031072155926710643,
+        "dea": -0.03587557626811583,
+        "histogram": 0.00960684068281037,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 63112000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 12827999.999999996,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 1060195492.9999999,
+      "sentiment": {
+        "score": 66.55863541890093,
+        "label": "偏热",
+        "missing_inputs": []
+      },
+      "policy_reason": "近90日未发现新增直接政策催化；3月国家能源局年度标准计划覆盖煤炭、油气和新能源等领域，侧重安全、绿色和标准化转型。 [国家能源局｜2026-03-24｜2026年能源行业标准计划立项指南](https://www.nea.gov.cn/20260324/a3810b8d733c4972a67ef5891a17b8ea/20260324a3810b8d733c4972a67ef5891a17b8ea_49f3818b8b71ed439ca1d10cceef0bc714.pdf)",
+      "fundamental_reason": "全球增长仍有韧性但能源与地缘风险并存，资源品价格可能保持高波动；应以趋势、库存和份额申赎共同确认。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为-1.31%/-0.70%/-5.68%，RSI14=38.0，KDJ=多头，MACD=收敛。",
+      "sentiment_reason": "情绪分数66.6（偏热）；5/10/20日份额净流入为+0.63亿/+0.13亿/N/A(missing_share_date)，5日成交量相对前20日为1.11倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "516960",
+      "name": "机械ETF国泰",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "machinery",
+      "tracking_index": "中证细分机械设备产业主题指数",
+      "screenshot_turnover_cny": 999200,
+      "date": "2026-07-22",
+      "close": 0.874,
+      "ma20": 0.92095,
+      "ma60": 1.0048833333333334,
+      "ma20_rising": false,
+      "ret5_pct": -1.9079685746352437,
+      "ret10_pct": -4.480874316939898,
+      "ret20_pct": -12.68731268731268,
+      "rsi14": 34.468085106383,
+      "distance_ma20_pct": -5.09799663391064,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": -0.6818181818181834,
+      "volume_ratio": 1.234243081725096,
+      "kdj": {
+        "k": 29.259357410353015,
+        "d": 21.482410125251572,
+        "j": 44.8132519805559,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": -0.03679914568017295,
+        "dea": -0.0343049367630213,
+        "histogram": -0.004988417834303302,
+        "state": "零轴下空头"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 856000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 856000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 13154661.399999999,
+      "sentiment": {
+        "score": 65.59806285730103,
+        "label": "偏热",
+        "missing_inputs": []
+      },
+      "policy_reason": "智能工厂培育覆盖基础级、先进级、卓越级和领航级，利好自动化、机器人与高端装备应用扩散；主题兑现取决于订单。 [工业和信息化部等六部门｜2026-07-15｜关于开展2026年度智能工厂梯度培育行动的通知](https://www.ncsti.gov.cn/kjdt/tzgg/202607/t20260720_251553.html)",
+      "fundamental_reason": "上半年制造业增加值同比增长5.6%，制造业基本面有韧性；细分装备的盈利需继续核对订单、回款和产能利用率。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为-1.91%/-4.48%/-12.69%，RSI14=34.5，KDJ=多头，MACD=零轴下空头。",
+      "sentiment_reason": "情绪分数65.6（偏热）；5/10/20日份额净流入为+0.01亿/+0.01亿/N/A(missing_share_date)，5日成交量相对前20日为1.23倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "512200",
+      "name": "房地产ETF南方",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "real_estate",
+      "tracking_index": "中证全指房地产指数",
+      "screenshot_turnover_cny": 145000000,
+      "date": "2026-07-22",
+      "close": 1.16,
+      "ma20": 1.1842000000000001,
+      "ma60": 1.2989166666666667,
+      "ma20_rising": false,
+      "ret5_pct": -2.9288702928870425,
+      "ret10_pct": -1.4443500424808908,
+      "ret20_pct": -4.290429042904298,
+      "rsi14": 43.47826086956522,
+      "distance_ma20_pct": -2.0435737206553117,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": 1.3986013986013957,
+      "volume_ratio": 1.004978411056899,
+      "kdj": {
+        "k": 28.59745329229175,
+        "d": 30.919323885809465,
+        "j": 23.953712105256322,
+        "state": "空头"
+      },
+      "macd": {
+        "dif": -0.02912652021022777,
+        "dea": -0.030557905029058675,
+        "histogram": 0.0028627696376618134,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 157379500.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 233598250.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 3248113564.0,
+      "sentiment": {
+        "score": 63.83143372693728,
+        "label": "偏热",
+        "missing_inputs": []
+      },
+      "policy_reason": "近90日未发现新增全国性直接政策催化；年初住房城乡建设工作强调因城施策、去库存、保障交付和好房子建设，重心是稳定和转型。 [住房和城乡建设部｜2026-01-16｜住建部：2026年全国住房城乡建设着力抓好四个方面工作](https://www.dhms.gov.cn/stsx/Web/_F0_0_6GKSXVBA02A5928A8F0E406FA4.htm)",
+      "fundamental_reason": "上半年房地产开发投资下降18.0%，新建商品房销售面积下降11.6%、销售额下降13.6%，行业基本面仍偏弱。 [国家统计局｜2026-07-15｜2026年1—6月份全国房地产市场基本情况](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964126.html)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为-2.93%/-1.44%/-4.29%，RSI14=43.5，KDJ=空头，MACD=收敛。",
+      "sentiment_reason": "情绪分数63.8（偏热）；5/10/20日份额净流入为+1.57亿/+2.34亿/N/A(missing_share_date)，5日成交量相对前20日为1.00倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "159869",
+      "name": "游戏ETF华夏",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "gaming",
+      "tracking_index": "中证动漫游戏指数",
+      "screenshot_turnover_cny": 689000000,
+      "date": "2026-07-22",
+      "close": 1.048,
+      "ma20": 1.0926,
+      "ma60": 1.1558333333333333,
+      "ma20_rising": true,
+      "ret5_pct": -6.177260519247985,
+      "ret10_pct": -4.986400725294649,
+      "ret20_pct": -1.411100658513631,
+      "rsi14": 42.571428571428584,
+      "distance_ma20_pct": -4.082006223686618,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": -4.029304029304037,
+      "volume_ratio": 1.1368292192068048,
+      "kdj": {
+        "k": 33.37591398052738,
+        "d": 40.16967289546798,
+        "j": 19.78839615064618,
+        "state": "空头"
+      },
+      "macd": {
+        "dif": -0.01270458953021203,
+        "dea": -0.012421596410371303,
+        "histogram": -0.0005659862396814527,
+        "state": "死叉"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 404029000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 643561000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 8946862069.096,
+      "sentiment": {
+        "score": 63.559258578622675,
+        "label": "偏热",
+        "missing_inputs": []
+      },
+      "policy_reason": "六部门部署智能工厂梯度培育，政策支持人工智能与制造业融合和场景落地；执行节奏与商业化质量仍需验证。 [工业和信息化部等六部门｜2026-07-15｜关于开展2026年度智能工厂梯度培育行动的通知](https://www.ncsti.gov.cn/kjdt/tzgg/202607/t20260720_251553.html)",
+      "fundamental_reason": "上半年制造业增加值同比增长5.6%，为数字化和AI应用提供需求基础；ETF成份股估值与订单兑现差异较大。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20上行；5/10/20日涨跌幅分别为-6.18%/-4.99%/-1.41%，RSI14=42.6，KDJ=空头，MACD=死叉。",
+      "sentiment_reason": "情绪分数63.6（偏热）；5/10/20日份额净流入为+4.04亿/+6.44亿/N/A(missing_share_date)，5日成交量相对前20日为1.14倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "516320",
+      "name": "高端装备ETF华夏",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "advanced_equipment",
+      "tracking_index": "中证装备产业指数",
+      "screenshot_turnover_cny": 5915800,
+      "date": "2026-07-22",
+      "close": 0.911,
+      "ma20": 0.976,
+      "ma60": 1.0565833333333334,
+      "ma20_rising": false,
+      "ret5_pct": -2.4625267665952966,
+      "ret10_pct": -6.945863125638397,
+      "ret20_pct": -13.649289099526063,
+      "rsi14": 27.232142857142904,
+      "distance_ma20_pct": -6.659836065573765,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": -0.545851528384278,
+      "volume_ratio": 1.0743458385978975,
+      "kdj": {
+        "k": 23.310307076113265,
+        "d": 18.04836222279307,
+        "j": 33.83419678275366,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": -0.04171541256815825,
+        "dea": -0.03570076228530661,
+        "histogram": -0.012029300565703283,
+        "state": "零轴下空头"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 3565000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 3519000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 82526852.3,
+      "sentiment": {
+        "score": 63.275496201105035,
+        "label": "偏热",
+        "missing_inputs": []
+      },
+      "policy_reason": "智能工厂培育覆盖基础级、先进级、卓越级和领航级，利好自动化、机器人与高端装备应用扩散；主题兑现取决于订单。 [工业和信息化部等六部门｜2026-07-15｜关于开展2026年度智能工厂梯度培育行动的通知](https://www.ncsti.gov.cn/kjdt/tzgg/202607/t20260720_251553.html)",
+      "fundamental_reason": "上半年制造业增加值同比增长5.6%，制造业基本面有韧性；细分装备的盈利需继续核对订单、回款和产能利用率。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为-2.46%/-6.95%/-13.65%，RSI14=27.2，KDJ=多头，MACD=零轴下空头。",
+      "sentiment_reason": "情绪分数63.3（偏热）；5/10/20日份额净流入为+0.04亿/+0.04亿/N/A(missing_share_date)，5日成交量相对前20日为1.07倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "159745",
+      "name": "建材ETF国泰",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "building_materials",
+      "tracking_index": "中证全指建筑材料指数",
+      "screenshot_turnover_cny": 44095600,
+      "exact_duplicate_group": "516750/159745",
+      "date": "2026-07-22",
+      "close": 0.514,
+      "ma20": 0.5381,
+      "ma60": 0.5879166666666666,
+      "ma20_rising": false,
+      "ret5_pct": -3.018867924528301,
+      "ret10_pct": -3.9252336448598157,
+      "ret20_pct": -7.38738738738739,
+      "rsi14": 23.170731707317074,
+      "distance_ma20_pct": -4.478721427244004,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": -0.5802707930367523,
+      "volume_ratio": 1.01439230308022,
+      "kdj": {
+        "k": 22.538827740940828,
+        "d": 21.778130557346742,
+        "j": 24.060222108128997,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": -0.017692722121348536,
+        "dea": -0.017433531424313843,
+        "histogram": -0.0005183813940693865,
+        "state": "零轴下空头"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 43642000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 48772000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 660843768.21,
+      "sentiment": {
+        "score": 62.26981973094568,
+        "label": "偏热",
+        "missing_inputs": []
+      },
+      "policy_reason": "近90日未发现新增全国性直接政策催化；年初住房城乡建设工作强调因城施策、去库存、保障交付和好房子建设，重心是稳定和转型。 [住房和城乡建设部｜2026-01-16｜住建部：2026年全国住房城乡建设着力抓好四个方面工作](https://www.dhms.gov.cn/stsx/Web/_F0_0_6GKSXVBA02A5928A8F0E406FA4.htm)",
+      "fundamental_reason": "上半年房地产开发投资下降18.0%，新建商品房销售面积下降11.6%、销售额下降13.6%，行业基本面仍偏弱。 [国家统计局｜2026-07-15｜2026年1—6月份全国房地产市场基本情况](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964126.html)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为-3.02%/-3.93%/-7.39%，RSI14=23.2，KDJ=多头，MACD=零轴下空头。",
+      "sentiment_reason": "情绪分数62.3（偏热）；5/10/20日份额净流入为+0.44亿/+0.49亿/N/A(missing_share_date)，5日成交量相对前20日为1.01倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "516160",
+      "name": "新能源ETF南方",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "new_energy",
+      "tracking_index": "中证新能源指数",
+      "screenshot_turnover_cny": 165000000,
+      "exact_duplicate_group": "159875/516160",
+      "date": "2026-07-22",
+      "close": 2.39,
+      "ma20": 2.66025,
+      "ma60": 2.9715166666666666,
+      "ma20_rising": false,
+      "ret5_pct": -4.054596547571254,
+      "ret10_pct": -9.297912713472478,
+      "ret20_pct": -20.226969292389853,
+      "rsi14": 19.121447028423788,
+      "distance_ma20_pct": -10.158819659806406,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": -0.540990428630872,
+      "volume_ratio": 1.069154230706578,
+      "kdj": {
+        "k": 21.280557334971373,
+        "d": 14.698616811790297,
+        "j": 34.444438381333526,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": -0.1661052037158668,
+        "dea": -0.14338352156510253,
+        "histogram": -0.04544336430152851,
+        "state": "零轴下空头"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 73001000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 54827000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 3776539380.0,
+      "sentiment": {
+        "score": 61.82637494605093,
+        "label": "偏热",
+        "missing_inputs": []
+      },
+      "policy_reason": "2026年汽车标准化工作聚焦新能源汽车、智能网联、汽车芯片、固态电池等方向；同时部分税收优惠未来调整，需兼顾支持与退坡风险。 [工业和信息化部｜2026-06-12｜2026年汽车标准化工作要点](https://www.miit.gov.cn/xwfb/gxdt/sjdt/art/2026/art_202b76b65f354309a28d38686d988108.html)",
+      "fundamental_reason": "制造业整体保持增长，但新能源链仍受价格竞争、产能利用率与海外需求影响；仅凭政策不能替代盈利和资金验证。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为-4.05%/-9.30%/-20.23%，RSI14=19.1，KDJ=多头，MACD=零轴下空头。",
+      "sentiment_reason": "情绪分数61.8（偏热）；5/10/20日份额净流入为+0.73亿/+0.55亿/N/A(missing_share_date)，5日成交量相对前20日为1.07倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "512660",
+      "name": "军工ETF国泰",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "defense",
+      "tracking_index": "中证军工指数",
+      "screenshot_turnover_cny": 389000000,
+      "date": "2026-07-22",
+      "close": 1.083,
+      "ma20": 1.2018499999999999,
+      "ma60": 1.2914333333333334,
+      "ma20_rising": false,
+      "ret5_pct": -5.249343832021003,
+      "ret10_pct": -11.156685808039391,
+      "ret20_pct": -14.183835182250403,
+      "rsi14": 31.072210065645507,
+      "distance_ma20_pct": -9.888921246411774,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": -0.6422018348623992,
+      "volume_ratio": 1.252308431667232,
+      "kdj": {
+        "k": 13.92995784543015,
+        "d": 14.936732546348331,
+        "j": 11.916408443593788,
+        "state": "超卖"
+      },
+      "macd": {
+        "dif": -0.05450681704836935,
+        "dea": -0.03939868659084428,
+        "histogram": -0.03021626091505014,
+        "state": "零轴下空头"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 355963000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 416194000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 6351881640.0,
+      "sentiment": {
+        "score": 61.314128852648636,
+        "label": "偏热",
+        "missing_inputs": []
+      },
+      "policy_reason": "智能工厂培育覆盖基础级、先进级、卓越级和领航级，利好自动化、机器人与高端装备应用扩散；主题兑现取决于订单。 [工业和信息化部等六部门｜2026-07-15｜关于开展2026年度智能工厂梯度培育行动的通知](https://www.ncsti.gov.cn/kjdt/tzgg/202607/t20260720_251553.html)",
+      "fundamental_reason": "上半年制造业增加值同比增长5.6%，制造业基本面有韧性；细分装备的盈利需继续核对订单、回款和产能利用率。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为-5.25%/-11.16%/-14.18%，RSI14=31.1，KDJ=超卖，MACD=零轴下空头。",
+      "sentiment_reason": "情绪分数61.3（偏热）；5/10/20日份额净流入为+3.56亿/+4.16亿/N/A(missing_share_date)，5日成交量相对前20日为1.25倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "516800",
+      "name": "智能制造ETF华宝",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "intelligent_manufacturing",
+      "tracking_index": "中证智能制造主题指数",
+      "screenshot_turnover_cny": 10238300,
+      "date": "2026-07-22",
+      "close": 1.03,
+      "ma20": 1.1332499999999999,
+      "ma60": 1.0643666666666667,
+      "ma20_rising": false,
+      "ret5_pct": -5.67765567765568,
+      "ret10_pct": -9.490333919156402,
+      "ret20_pct": -13.080168776371314,
+      "rsi14": 35.20833333333334,
+      "distance_ma20_pct": -9.110964041473624,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": 0.09718172983479434,
+      "volume_ratio": 0.792317194308865,
+      "kdj": {
+        "k": 24.0297080878195,
+        "d": 19.910197798250206,
+        "j": 32.26872866695809,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": -0.02391981896480333,
+        "dea": -0.0009728237607294091,
+        "histogram": -0.045893990408147844,
+        "state": "零轴下空头"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 3800000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": -1064000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 187777240.0,
+      "sentiment": {
+        "score": 61.25282880583375,
+        "label": "偏热",
+        "missing_inputs": []
+      },
+      "policy_reason": "智能工厂培育覆盖基础级、先进级、卓越级和领航级，利好自动化、机器人与高端装备应用扩散；主题兑现取决于订单。 [工业和信息化部等六部门｜2026-07-15｜关于开展2026年度智能工厂梯度培育行动的通知](https://www.ncsti.gov.cn/kjdt/tzgg/202607/t20260720_251553.html)",
+      "fundamental_reason": "上半年制造业增加值同比增长5.6%，制造业基本面有韧性；细分装备的盈利需继续核对订单、回款和产能利用率。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为-5.68%/-9.49%/-13.08%，RSI14=35.2，KDJ=多头，MACD=零轴下空头。",
+      "sentiment_reason": "情绪分数61.3（偏热）；5/10/20日份额净流入为+0.04亿/-0.01亿/N/A(missing_share_date)，5日成交量相对前20日为0.79倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "159819",
+      "name": "人工智能ETF易方达",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "artificial_intelligence",
+      "tracking_index": "中证人工智能主题指数",
+      "screenshot_turnover_cny": 907000000,
+      "date": "2026-07-22",
+      "close": 1.979,
+      "ma20": 2.0518,
+      "ma60": 1.9816833333333332,
+      "ma20_rising": false,
+      "ret5_pct": -2.4642681123706156,
+      "ret10_pct": -3.557504873294348,
+      "ret20_pct": -5.717008099094811,
+      "rsi14": 47.30679156908666,
+      "distance_ma20_pct": -3.5481041037138117,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": -1.2967581047381493,
+      "volume_ratio": 1.1906119672274575,
+      "kdj": {
+        "k": 31.7171329410595,
+        "d": 27.787812856863443,
+        "j": 39.57577310945161,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": -0.016213993320933096,
+        "dea": 0.004050924898685082,
+        "histogram": -0.040529836439236355,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 224210000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 487090000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 22590739514.951,
+      "sentiment": {
+        "score": 59.5048776867644,
+        "label": "中性",
+        "missing_inputs": []
+      },
+      "policy_reason": "六部门部署智能工厂梯度培育，政策支持人工智能与制造业融合和场景落地；执行节奏与商业化质量仍需验证。 [工业和信息化部等六部门｜2026-07-15｜关于开展2026年度智能工厂梯度培育行动的通知](https://www.ncsti.gov.cn/kjdt/tzgg/202607/t20260720_251553.html)",
+      "fundamental_reason": "上半年制造业增加值同比增长5.6%，为数字化和AI应用提供需求基础；ETF成份股估值与订单兑现差异较大。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为-2.46%/-3.56%/-5.72%，RSI14=47.3，KDJ=多头，MACD=收敛。",
+      "sentiment_reason": "情绪分数59.5（中性）；5/10/20日份额净流入为+2.24亿/+4.87亿/N/A(missing_share_date)，5日成交量相对前20日为1.19倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "562500",
+      "name": "机器人ETF华夏",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "robotics",
+      "tracking_index": "中证机器人指数",
+      "screenshot_turnover_cny": 838000000,
+      "date": "2026-07-22",
+      "close": 0.961,
+      "ma20": 1.07775,
+      "ma60": 1.1133666666666668,
+      "ma20_rising": false,
+      "ret5_pct": -8.126195028680694,
+      "ret10_pct": -11.346863468634695,
+      "ret20_pct": -16.143106457242585,
+      "rsi14": 32.415254237288124,
+      "distance_ma20_pct": -10.832753421479936,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": -1.7382413087934534,
+      "volume_ratio": 0.9052353464173216,
+      "kdj": {
+        "k": 17.915724548118565,
+        "d": 17.175863938119743,
+        "j": 19.39544576811621,
+        "state": "超卖"
+      },
+      "macd": {
+        "dif": -0.04348561001279605,
+        "dea": -0.02678044422778899,
+        "histogram": -0.03341033157001412,
+        "state": "零轴下空头"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 665877000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 1307253000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 17206884995.3,
+      "sentiment": {
+        "score": 57.97770241731379,
+        "label": "中性",
+        "missing_inputs": []
+      },
+      "policy_reason": "智能工厂培育覆盖基础级、先进级、卓越级和领航级，利好自动化、机器人与高端装备应用扩散；主题兑现取决于订单。 [工业和信息化部等六部门｜2026-07-15｜关于开展2026年度智能工厂梯度培育行动的通知](https://www.ncsti.gov.cn/kjdt/tzgg/202607/t20260720_251553.html)",
+      "fundamental_reason": "上半年制造业增加值同比增长5.6%，制造业基本面有韧性；细分装备的盈利需继续核对订单、回款和产能利用率。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为-8.13%/-11.35%/-16.14%，RSI14=32.4，KDJ=超卖，MACD=零轴下空头。",
+      "sentiment_reason": "情绪分数58.0（中性）；5/10/20日份额净流入为+6.66亿/+13.07亿/N/A(missing_share_date)，5日成交量相对前20日为0.91倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "513310",
+      "name": "中韩半导体ETF华泰柏瑞",
+      "kind": "ETF",
+      "market": "CN_KR",
+      "sector": "semiconductor",
+      "tracking_index": "中证韩交所中韩半导体指数",
+      "screenshot_turnover_cny": 17764000000,
+      "date": "2026-07-22",
+      "close": 5.042,
+      "ma20": 5.8031,
+      "ma60": 5.67605,
+      "ma20_rising": false,
+      "ret5_pct": -9.544312881234307,
+      "ret10_pct": -13.531126736408861,
+      "ret20_pct": -20.082421936915516,
+      "rsi14": 34.6344690704598,
+      "distance_ma20_pct": -13.115403835880823,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": 1.0623371417117555,
+      "volume_ratio": 1.6485806271221721,
+      "kdj": {
+        "k": 20.519556278520565,
+        "d": 15.955943620361749,
+        "j": 29.646781594838192,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": -0.2772138126386441,
+        "dea": -0.13261772149298165,
+        "histogram": -0.2891921822913249,
+        "state": "零轴下空头"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 60747000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 148371000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 11800432934.0,
+      "sentiment": {
+        "score": 56.7624559365848,
+        "label": "中性",
+        "missing_inputs": []
+      },
+      "policy_reason": "近90日未发现新增直接政策催化；4月公布的集成电路和软件企业税收优惠清单覆盖设计、制造、封测和关键材料设备，体现中长期政策连续性。 [国家发展改革委等部门｜2026-04-09｜关于做好2026年享受税收优惠政策的集成电路企业或项目、软件企业清单制定工作的通知](https://www.ndrc.gov.cn/xxgk/zcfb/tz/202604/t20260409_1404580.html)",
+      "fundamental_reason": "AI驱动全球技术链需求，但行业景气和估值对资本开支、终端需求及外部限制高度敏感，需结合价格与份额流验证。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为-9.54%/-13.53%/-20.08%，RSI14=34.6，KDJ=多头，MACD=零轴下空头。",
+      "sentiment_reason": "情绪分数56.8（中性）；5/10/20日份额净流入为+0.61亿/+1.48亿/N/A(missing_share_date)，5日成交量相对前20日为1.65倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "512260",
+      "name": "中证500低波动ETF华安",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "mid_cap_factor",
+      "tracking_index": "中证500行业中性低波动指数",
+      "screenshot_turnover_cny": 3773800,
+      "date": "2026-07-22",
+      "close": 1.919,
+      "ma20": 1.9545000000000001,
+      "ma60": 1.9691666666666667,
+      "ma20_rising": false,
+      "ret5_pct": -0.36344755970924014,
+      "ret10_pct": -1.690573770491799,
+      "ret20_pct": -3.3736153071500463,
+      "rsi14": 37.37373737373736,
+      "distance_ma20_pct": -1.816321309797908,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": -0.25987525987525295,
+      "volume_ratio": 2.201162399731015,
+      "kdj": {
+        "k": 38.68456579155889,
+        "d": 31.582004119887074,
+        "j": 52.88968913490251,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": -0.01875857377343748,
+        "dea": -0.012294488603841542,
+        "histogram": -0.012928170339191879,
+        "state": "零轴下空头"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 20000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 20000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 42405486.300000004,
+      "sentiment": {
+        "score": 56.45887971726361,
+        "label": "中性",
+        "missing_inputs": []
+      },
+      "policy_reason": "证监会强调维护资本市场平稳健康运行、强化监管与投资者保护；方向偏支持，但不代表指数短期必涨。 [中国证监会｜2026-07-20｜中国证监会召开投资者座谈会](https://www.csrc.gov.cn/csrc/c100028/c7646232/content.shtml)",
+      "fundamental_reason": "2026年上半年国内生产总值同比增长4.7%，规模以上制造业增加值增长5.6%；宏观仍扩张，但行业盈利分化需要继续跟踪。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为-0.36%/-1.69%/-3.37%，RSI14=37.4，KDJ=多头，MACD=零轴下空头。",
+      "sentiment_reason": "情绪分数56.5（中性）；5/10/20日份额净流入为+0.00亿/+0.00亿/N/A(missing_share_date)，5日成交量相对前20日为2.20倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "513360",
+      "name": "教育ETF博时",
+      "kind": "ETF",
+      "market": "CHINA_OFFSHORE",
+      "sector": "education",
+      "tracking_index": "中证全球中国教育主题人民币指数",
+      "screenshot_turnover_cny": 75010900,
+      "date": "2026-07-22",
+      "close": 0.423,
+      "ma20": 0.43034999999999995,
+      "ma60": 0.4558,
+      "ma20_rising": false,
+      "ret5_pct": -3.203661327231122,
+      "ret10_pct": -4.081632653061229,
+      "ret20_pct": -0.936768149882905,
+      "rsi14": 46.268656716417915,
+      "distance_ma20_pct": -1.7079121645172446,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": -0.7042253521126751,
+      "volume_ratio": 1.3631632578269999,
+      "kdj": {
+        "k": 24.768605586368107,
+        "d": 31.76547660671608,
+        "j": 10.774863545672154,
+        "state": "空头"
+      },
+      "macd": {
+        "dif": -0.0046755937119081215,
+        "dea": -0.004690480868915954,
+        "histogram": 2.9774314015665673e-05,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 1929000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 5221500.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 286038479.7,
+      "sentiment": {
+        "score": 56.09318868985343,
+        "label": "中性",
+        "missing_inputs": []
+      },
+      "policy_reason": "六部门部署智能工厂梯度培育，政策支持人工智能与制造业融合和场景落地；执行节奏与商业化质量仍需验证。 [工业和信息化部等六部门｜2026-07-15｜关于开展2026年度智能工厂梯度培育行动的通知](https://www.ncsti.gov.cn/kjdt/tzgg/202607/t20260720_251553.html)",
+      "fundamental_reason": "上半年制造业增加值同比增长5.6%，为数字化和AI应用提供需求基础；ETF成份股估值与订单兑现差异较大。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为-3.20%/-4.08%/-0.94%，RSI14=46.3，KDJ=空头，MACD=收敛。",
+      "sentiment_reason": "情绪分数56.1（中性）；5/10/20日份额净流入为+0.02亿/+0.05亿/N/A(missing_share_date)，5日成交量相对前20日为1.36倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "159997",
+      "name": "电子ETF天弘",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "electronics",
+      "tracking_index": "中证电子指数",
+      "screenshot_turnover_cny": 136000000,
+      "date": "2026-07-22",
+      "close": 2.234,
+      "ma20": 2.5088999999999997,
+      "ma60": 2.3129166666666667,
+      "ma20_rising": false,
+      "ret5_pct": -6.683375104427746,
+      "ret10_pct": -11.349206349206353,
+      "ret20_pct": -14.602446483180431,
+      "rsi14": 37.660377358490564,
+      "distance_ma20_pct": -10.956993104547797,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": -1.8884497145366774,
+      "volume_ratio": 0.9559105266582073,
+      "kdj": {
+        "k": 22.949497126426593,
+        "d": 19.414347928928795,
+        "j": 30.01979552142219,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": -0.051132925873490276,
+        "dea": 0.006688569149119269,
+        "histogram": -0.1156429900452191,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 8542999.999999996,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 8022999.999999996,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 1488529020.356,
+      "sentiment": {
+        "score": 52.530786662841905,
+        "label": "中性",
+        "missing_inputs": []
+      },
+      "policy_reason": "近90日未发现新增直接政策催化；4月公布的集成电路和软件企业税收优惠清单覆盖设计、制造、封测和关键材料设备，体现中长期政策连续性。 [国家发展改革委等部门｜2026-04-09｜关于做好2026年享受税收优惠政策的集成电路企业或项目、软件企业清单制定工作的通知](https://www.ndrc.gov.cn/xxgk/zcfb/tz/202604/t20260409_1404580.html)",
+      "fundamental_reason": "AI驱动全球技术链需求，但行业景气和估值对资本开支、终端需求及外部限制高度敏感，需结合价格与份额流验证。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为-6.68%/-11.35%/-14.60%，RSI14=37.7，KDJ=多头，MACD=收敛。",
+      "sentiment_reason": "情绪分数52.5（中性）；5/10/20日份额净流入为+0.09亿/+0.08亿/N/A(missing_share_date)，5日成交量相对前20日为0.96倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "516390",
+      "name": "新能源车ETF汇添富",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "new_energy_vehicle",
+      "tracking_index": "中证新能源汽车产业指数",
+      "screenshot_turnover_cny": 6347200,
+      "date": "2026-07-22",
+      "close": 0.833,
+      "ma20": 0.92165,
+      "ma60": 1.0249666666666666,
+      "ma20_rising": false,
+      "ret5_pct": -4.142692750287691,
+      "ret10_pct": -9.945945945945954,
+      "ret20_pct": -19.047619047619047,
+      "rsi14": 21.602787456445952,
+      "distance_ma20_pct": -9.618618781533117,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": -1.4201183431952646,
+      "volume_ratio": 1.111355403833984,
+      "kdj": {
+        "k": 20.60020165714132,
+        "d": 16.46968384684406,
+        "j": 28.86123727773584,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": -0.051514906566680674,
+        "dea": -0.043728369478107966,
+        "histogram": -0.015573074177145416,
+        "state": "零轴下空头"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 1155000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 10657500.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 150990413.0,
+      "sentiment": {
+        "score": 52.27596206652372,
+        "label": "中性",
+        "missing_inputs": []
+      },
+      "policy_reason": "2026年汽车标准化工作聚焦新能源汽车、智能网联、汽车芯片、固态电池等方向；同时部分税收优惠未来调整，需兼顾支持与退坡风险。 [工业和信息化部｜2026-06-12｜2026年汽车标准化工作要点](https://www.miit.gov.cn/xwfb/gxdt/sjdt/art/2026/art_202b76b65f354309a28d38686d988108.html)",
+      "fundamental_reason": "制造业整体保持增长，但新能源链仍受价格竞争、产能利用率与海外需求影响；仅凭政策不能替代盈利和资金验证。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为-4.14%/-9.95%/-19.05%，RSI14=21.6，KDJ=多头，MACD=零轴下空头。",
+      "sentiment_reason": "情绪分数52.3（中性）；5/10/20日份额净流入为+0.01亿/+0.11亿/N/A(missing_share_date)，5日成交量相对前20日为1.11倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "512980",
+      "name": "传媒ETF广发",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "media",
+      "tracking_index": "中证传媒指数",
+      "screenshot_turnover_cny": 209000000,
+      "date": "2026-07-22",
+      "close": 0.78,
+      "ma20": 0.8089000000000001,
+      "ma60": 0.8858999999999999,
+      "ma20_rising": false,
+      "ret5_pct": -4.411764705882348,
+      "ret10_pct": -3.4653465346534684,
+      "ret20_pct": -4.993909866017043,
+      "rsi14": 39.406779661016955,
+      "distance_ma20_pct": -3.5727531215230646,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": -2.621722846441954,
+      "volume_ratio": 1.1391855420748633,
+      "kdj": {
+        "k": 30.722068606692943,
+        "d": 36.48742177209395,
+        "j": 19.191362275890924,
+        "state": "空头"
+      },
+      "macd": {
+        "dif": -0.018748129902320887,
+        "dea": -0.020088093543144447,
+        "histogram": 0.002679927281647121,
+        "state": "收敛"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 2940000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 95349000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 3466651032.0,
+      "sentiment": {
+        "score": 48.00842757069305,
+        "label": "中性",
+        "missing_inputs": []
+      },
+      "policy_reason": "六部门部署智能工厂梯度培育，政策支持人工智能与制造业融合和场景落地；执行节奏与商业化质量仍需验证。 [工业和信息化部等六部门｜2026-07-15｜关于开展2026年度智能工厂梯度培育行动的通知](https://www.ncsti.gov.cn/kjdt/tzgg/202607/t20260720_251553.html)",
+      "fundamental_reason": "上半年制造业增加值同比增长5.6%，为数字化和AI应用提供需求基础；ETF成份股估值与订单兑现差异较大。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为-4.41%/-3.47%/-4.99%，RSI14=39.4，KDJ=空头，MACD=收敛。",
+      "sentiment_reason": "情绪分数48.0（中性）；5/10/20日份额净流入为+0.03亿/+0.95亿/N/A(missing_share_date)，5日成交量相对前20日为1.14倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "515880",
+      "name": "通信ETF国泰",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "communication",
+      "tracking_index": "中证全指通信设备指数",
+      "screenshot_turnover_cny": 5275000000,
+      "date": "2026-07-22",
+      "close": 0.67,
+      "ma20": 0.77795,
+      "ma60": 0.7815333333333334,
+      "ma20_rising": false,
+      "ret5_pct": -11.725955204216065,
+      "ret10_pct": -11.492734478203426,
+      "ret20_pct": -26.69584245076586,
+      "rsi14": 36.15023474178404,
+      "distance_ma20_pct": -13.87621312423677,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": -4.422253922967179,
+      "volume_ratio": 1.8039995276546354,
+      "kdj": {
+        "k": 24.962444518427674,
+        "d": 21.786334450229162,
+        "j": 31.314664654824696,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": -0.038070566215099966,
+        "dea": -0.0229876440445471,
+        "histogram": -0.03016584434110573,
+        "state": "零轴下空头"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": -330738000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 2672518000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 47378228580.0,
+      "sentiment": {
+        "score": 47.855641136411954,
+        "label": "中性",
+        "missing_inputs": []
+      },
+      "policy_reason": "六部门部署智能工厂梯度培育，政策支持人工智能与制造业融合和场景落地；执行节奏与商业化质量仍需验证。 [工业和信息化部等六部门｜2026-07-15｜关于开展2026年度智能工厂梯度培育行动的通知](https://www.ncsti.gov.cn/kjdt/tzgg/202607/t20260720_251553.html)",
+      "fundamental_reason": "上半年制造业增加值同比增长5.6%，为数字化和AI应用提供需求基础；ETF成份股估值与订单兑现差异较大。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为-11.73%/-11.49%/-26.70%，RSI14=36.2，KDJ=多头，MACD=零轴下空头。",
+      "sentiment_reason": "情绪分数47.9（中性）；5/10/20日份额净流入为-3.31亿/+26.73亿/N/A(missing_share_date)，5日成交量相对前20日为1.80倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "513520",
+      "name": "日经ETF华夏",
+      "kind": "ETF",
+      "market": "JP",
+      "sector": "broad_market",
+      "tracking_index": "东京日经225指数",
+      "screenshot_turnover_cny": 324000000,
+      "date": "2026-07-22",
+      "close": 2.207,
+      "ma20": 2.36515,
+      "ma60": 2.2730666666666663,
+      "ma20_rising": false,
+      "ret5_pct": -6.085106382978733,
+      "ret10_pct": -5.80452411438327,
+      "ret20_pct": -10.575364667747166,
+      "rsi14": 36.15384615384618,
+      "distance_ma20_pct": -6.686679491786995,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": -1.1200716845878311,
+      "volume_ratio": 0.9353340743238394,
+      "kdj": {
+        "k": 26.22519313535211,
+        "d": 21.77768976079885,
+        "j": 35.12019988445863,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": -0.04096261558039105,
+        "dea": -0.01201432525617752,
+        "histogram": -0.05789658064842706,
+        "state": "零轴下空头"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 4512500.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 10315500.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 2345792050.3999996,
+      "sentiment": {
+        "score": 46.960749024776106,
+        "label": "中性",
+        "missing_inputs": []
+      },
+      "policy_reason": "跨境ETF同时受境外市场规则、汇率和QDII额度影响；本报告不把境内政策背景视为海外指数催化。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "fundamental_reason": "IMF预计2026年全球增长3.0%，但地区分化、冲突和金融市场重定价风险仍在；海外ETF需额外核对溢价与汇率。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为-6.09%/-5.80%/-10.58%，RSI14=36.2，KDJ=多头，MACD=零轴下空头。",
+      "sentiment_reason": "情绪分数47.0（中性）；5/10/20日份额净流入为+0.05亿/+0.10亿/N/A(missing_share_date)，5日成交量相对前20日为0.94倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "159941",
+      "name": "纳指ETF广发",
+      "kind": "ETF",
+      "market": "US",
+      "sector": "broad_tech",
+      "tracking_index": "纳斯达克100指数",
+      "screenshot_turnover_cny": 981000000,
+      "exact_duplicate_group": "159659/159941/159660",
+      "date": "2026-07-22",
+      "close": 1.59,
+      "ma20": 1.6132000000000002,
+      "ma60": 1.6014833333333334,
+      "ma20_rising": false,
+      "ret5_pct": -2.3941068139963106,
+      "ret10_pct": -0.31347962382444194,
+      "ret20_pct": -3.2846715328467058,
+      "rsi14": 44.392523364485974,
+      "distance_ma20_pct": -1.4381353830895227,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": 0.06293266205161796,
+      "volume_ratio": 0.7850425893506815,
+      "kdj": {
+        "k": 37.88643364903606,
+        "d": 36.26945035529468,
+        "j": 41.120400236518805,
+        "state": "金叉"
+      },
+      "macd": {
+        "dif": -0.010618432686751333,
+        "dea": -0.004505940606038915,
+        "histogram": -0.012224984161424837,
+        "state": "零轴下空头"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 10322000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 20790900.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 35780263160.76,
+      "sentiment": {
+        "score": 45.60092444165491,
+        "label": "中性",
+        "missing_inputs": []
+      },
+      "policy_reason": "跨境ETF同时受境外市场规则、汇率和QDII额度影响；本报告不把境内政策背景视为海外指数催化。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "fundamental_reason": "IMF预计2026年全球增长3.0%，但地区分化、冲突和金融市场重定价风险仍在；海外ETF需额外核对溢价与汇率。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为-2.39%/-0.31%/-3.28%，RSI14=44.4，KDJ=金叉，MACD=零轴下空头。",
+      "sentiment_reason": "情绪分数45.6（中性）；5/10/20日份额净流入为+0.10亿/+0.21亿/N/A(missing_share_date)，5日成交量相对前20日为0.79倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "513730",
+      "name": "东南亚科技ETF华泰柏瑞",
+      "kind": "ETF",
+      "market": "SEA",
+      "sector": "technology",
+      "tracking_index": "新交所泛东南亚科技指数",
+      "screenshot_turnover_cny": 24921700,
+      "date": "2026-07-22",
+      "close": 1.144,
+      "ma20": 1.1545,
+      "ma60": 1.1762166666666665,
+      "ma20_rising": false,
+      "ret5_pct": -2.2222222222222254,
+      "ret10_pct": -0.7805724197745167,
+      "ret20_pct": 0.2629272567922669,
+      "rsi14": 49.19354838709677,
+      "distance_ma20_pct": -0.9094846253789646,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": -1.038062283737029,
+      "volume_ratio": 0.674343340225056,
+      "kdj": {
+        "k": 29.7026452982423,
+        "d": 40.46275926373704,
+        "j": 8.18241736725281,
+        "state": "空头"
+      },
+      "macd": {
+        "dif": -0.004775271112870572,
+        "dea": -0.004761266665690137,
+        "histogram": -2.800889436086959e-05,
+        "state": "死叉"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": 1199000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": -8125000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 978526119.9999999,
+      "sentiment": {
+        "score": 43.16875995176137,
+        "label": "中性",
+        "missing_inputs": []
+      },
+      "policy_reason": "跨境ETF同时受境外市场规则、汇率和QDII额度影响；本报告不把境内政策背景视为海外指数催化。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "fundamental_reason": "IMF预计2026年全球增长3.0%，但地区分化、冲突和金融市场重定价风险仍在；海外ETF需额外核对溢价与汇率。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为-2.22%/-0.78%/+0.26%，RSI14=49.2，KDJ=空头，MACD=死叉。",
+      "sentiment_reason": "情绪分数43.2（中性）；5/10/20日份额净流入为+0.01亿/-0.08亿/N/A(missing_share_date)，5日成交量相对前20日为0.67倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "159561",
+      "name": "德国ETF嘉实",
+      "kind": "ETF",
+      "market": "DE",
+      "sector": "broad_market",
+      "tracking_index": "法兰克福DAX指数",
+      "screenshot_turnover_cny": 46000100,
+      "date": "2026-07-22",
+      "close": 1.287,
+      "ma20": 1.2957,
+      "ma60": 1.3019666666666665,
+      "ma20_rising": false,
+      "ret5_pct": -0.5409582689335446,
+      "ret10_pct": -2.129277566539922,
+      "ret20_pct": 0.4683840749414525,
+      "rsi14": 50.66666666666667,
+      "distance_ma20_pct": -0.671451724936345,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": -0.07763975155280489,
+      "volume_ratio": 0.7378170973880223,
+      "kdj": {
+        "k": 31.250433766979853,
+        "d": 28.178198666892552,
+        "j": 37.394903967154455,
+        "state": "金叉"
+      },
+      "macd": {
+        "dif": -0.003627993336849711,
+        "dea": -0.001672792329821963,
+        "histogram": -0.003910402014055496,
+        "state": "零轴下空头"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": -17888000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": -12680000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 1777989842.343,
+      "sentiment": {
+        "score": 36.700461271260636,
+        "label": "偏冷",
+        "missing_inputs": []
+      },
+      "policy_reason": "跨境ETF同时受境外市场规则、汇率和QDII额度影响；本报告不把境内政策背景视为海外指数催化。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "fundamental_reason": "IMF预计2026年全球增长3.0%，但地区分化、冲突和金融市场重定价风险仍在；海外ETF需额外核对溢价与汇率。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为-0.54%/-2.13%/+0.47%，RSI14=50.7，KDJ=金叉，MACD=零轴下空头。",
+      "sentiment_reason": "情绪分数36.7（偏冷）；5/10/20日份额净流入为-0.18亿/-0.13亿/N/A(missing_share_date)，5日成交量相对前20日为0.74倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "159713",
+      "name": "稀土ETF富国",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "rare_earth",
+      "tracking_index": "中证稀土产业指数",
+      "screenshot_turnover_cny": 76394700,
+      "exact_duplicate_group": "159713/516780",
+      "date": "2026-07-22",
+      "close": 1.175,
+      "ma20": 1.34545,
+      "ma60": 1.4234166666666668,
+      "ma20_rising": false,
+      "ret5_pct": -6.1501597444089455,
+      "ret10_pct": -13.348082595870213,
+      "ret20_pct": -22.74819197896121,
+      "rsi14": 20.622568093385198,
+      "distance_ma20_pct": -12.668623880486084,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": -0.8438818565400852,
+      "volume_ratio": 0.9020230253775766,
+      "kdj": {
+        "k": 17.457332372026347,
+        "d": 13.125303467798716,
+        "j": 26.12139018048161,
+        "state": "超卖"
+      },
+      "macd": {
+        "dif": -0.07912804144072605,
+        "dea": -0.0567034762318064,
+        "histogram": -0.04484913041783929,
+        "state": "零轴下空头"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": -3308000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 15824000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 648312184.9250001,
+      "sentiment": {
+        "score": 34.80164053494438,
+        "label": "偏冷",
+        "missing_inputs": []
+      },
+      "policy_reason": "近90日未发现新增直接政策催化；3月国家能源局年度标准计划覆盖煤炭、油气和新能源等领域，侧重安全、绿色和标准化转型。 [国家能源局｜2026-03-24｜2026年能源行业标准计划立项指南](https://www.nea.gov.cn/20260324/a3810b8d733c4972a67ef5891a17b8ea/20260324a3810b8d733c4972a67ef5891a17b8ea_49f3818b8b71ed439ca1d10cceef0bc714.pdf)",
+      "fundamental_reason": "全球增长仍有韧性但能源与地缘风险并存，资源品价格可能保持高波动；应以趋势、库存和份额申赎共同确认。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为-6.15%/-13.35%/-22.75%，RSI14=20.6，KDJ=超卖，MACD=零轴下空头。",
+      "sentiment_reason": "情绪分数34.8（偏冷）；5/10/20日份额净流入为-0.03亿/+0.16亿/N/A(missing_share_date)，5日成交量相对前20日为0.90倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "159703",
+      "name": "新材料ETF天弘",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "new_materials",
+      "tracking_index": "中证新材料主题指数",
+      "screenshot_turnover_cny": 6206000,
+      "date": "2026-07-22",
+      "close": 0.891,
+      "ma20": 1.0173,
+      "ma60": 1.0043333333333333,
+      "ma20_rising": false,
+      "ret5_pct": -5.714285714285705,
+      "ret10_pct": -12.130177514792894,
+      "ret20_pct": -19.07356948228882,
+      "rsi14": 26.973684210526315,
+      "distance_ma20_pct": -12.41521675022118,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": -1.5469613259668558,
+      "volume_ratio": 1.0012305341131402,
+      "kdj": {
+        "k": 18.060207567987607,
+        "d": 14.171418489266458,
+        "j": 25.83778572542991,
+        "state": "超卖"
+      },
+      "macd": {
+        "dif": -0.042108994550748235,
+        "dea": -0.02165286776809195,
+        "histogram": -0.04091225356531257,
+        "state": "零轴下空头"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": -465000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": 11083799.999999998,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 56829397.581,
+      "sentiment": {
+        "score": 33.7339105755819,
+        "label": "偏冷",
+        "missing_inputs": []
+      },
+      "policy_reason": "智能工厂培育覆盖基础级、先进级、卓越级和领航级，利好自动化、机器人与高端装备应用扩散；主题兑现取决于订单。 [工业和信息化部等六部门｜2026-07-15｜关于开展2026年度智能工厂梯度培育行动的通知](https://www.ncsti.gov.cn/kjdt/tzgg/202607/t20260720_251553.html)",
+      "fundamental_reason": "上半年制造业增加值同比增长5.6%，制造业基本面有韧性；细分装备的盈利需继续核对订单、回款和产能利用率。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为-5.71%/-12.13%/-19.07%，RSI14=27.0，KDJ=超卖，MACD=零轴下空头。",
+      "sentiment_reason": "情绪分数33.7（偏冷）；5/10/20日份额净流入为-0.00亿/+0.11亿/N/A(missing_share_date)，5日成交量相对前20日为1.00倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "159755",
+      "name": "电池ETF广发",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "battery",
+      "tracking_index": "国证新能源车电池指数",
+      "screenshot_turnover_cny": 474000000,
+      "date": "2026-07-22",
+      "close": 0.914,
+      "ma20": 1.01085,
+      "ma60": 1.10455,
+      "ma20_rising": false,
+      "ret5_pct": -4.592901878914402,
+      "ret10_pct": -9.145129224652083,
+      "ret20_pct": -19.329214474845536,
+      "rsi14": 23.636363636363626,
+      "distance_ma20_pct": -9.581045654647081,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": -2.350427350427353,
+      "volume_ratio": 0.9990944805288049,
+      "kdj": {
+        "k": 22.5294229384169,
+        "d": 17.112877721332577,
+        "j": 33.362513372585546,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": -0.051616734062893466,
+        "dea": -0.04297891396826109,
+        "histogram": -0.01727564018926475,
+        "state": "零轴下空头"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": -130908000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": -411792000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 8274119125.844,
+      "sentiment": {
+        "score": 30.819695385253752,
+        "label": "偏冷",
+        "missing_inputs": []
+      },
+      "policy_reason": "2026年汽车标准化工作聚焦新能源汽车、智能网联、汽车芯片、固态电池等方向；同时部分税收优惠未来调整，需兼顾支持与退坡风险。 [工业和信息化部｜2026-06-12｜2026年汽车标准化工作要点](https://www.miit.gov.cn/xwfb/gxdt/sjdt/art/2026/art_202b76b65f354309a28d38686d988108.html)",
+      "fundamental_reason": "制造业整体保持增长，但新能源链仍受价格竞争、产能利用率与海外需求影响；仅凭政策不能替代盈利和资金验证。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为-4.59%/-9.15%/-19.33%，RSI14=23.6，KDJ=多头，MACD=零轴下空头。",
+      "sentiment_reason": "情绪分数30.8（偏冷）；5/10/20日份额净流入为-1.31亿/-4.12亿/N/A(missing_share_date)，5日成交量相对前20日为1.00倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "515790",
+      "name": "光伏ETF华泰柏瑞",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "solar",
+      "tracking_index": "中证光伏产业指数",
+      "screenshot_turnover_cny": 298000000,
+      "exact_duplicate_group": "159857/515790",
+      "date": "2026-07-22",
+      "close": 0.82,
+      "ma20": 0.9096,
+      "ma60": 1.0151666666666666,
+      "ma20_rising": false,
+      "ret5_pct": -3.529411764705881,
+      "ret10_pct": -8.787541713014468,
+      "ret20_pct": -17.835671342685377,
+      "rsi14": 20.22471910112357,
+      "distance_ma20_pct": -9.850483729111703,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": 0.6134969325153339,
+      "volume_ratio": 1.368338731945928,
+      "kdj": {
+        "k": 20.572423185684418,
+        "d": 14.634174757129328,
+        "j": 32.4489200427946,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": -0.058283392384467336,
+        "dea": -0.05074025006960155,
+        "histogram": -0.015086284629731578,
+        "state": "零轴下空头"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": -424172000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": -504146000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 5154105080.0,
+      "sentiment": {
+        "score": 30.514682758983405,
+        "label": "偏冷",
+        "missing_inputs": []
+      },
+      "policy_reason": "2026年汽车标准化工作聚焦新能源汽车、智能网联、汽车芯片、固态电池等方向；同时部分税收优惠未来调整，需兼顾支持与退坡风险。 [工业和信息化部｜2026-06-12｜2026年汽车标准化工作要点](https://www.miit.gov.cn/xwfb/gxdt/sjdt/art/2026/art_202b76b65f354309a28d38686d988108.html)",
+      "fundamental_reason": "制造业整体保持增长，但新能源链仍受价格竞争、产能利用率与海外需求影响；仅凭政策不能替代盈利和资金验证。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为-3.53%/-8.79%/-17.84%，RSI14=20.2，KDJ=多头，MACD=零轴下空头。",
+      "sentiment_reason": "情绪分数30.5（偏冷）；5/10/20日份额净流入为-4.24亿/-5.04亿/N/A(missing_share_date)，5日成交量相对前20日为1.37倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "512400",
+      "name": "有色金属ETF南方",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "nonferrous_metals",
+      "tracking_index": "中证申万有色金属指数",
+      "screenshot_turnover_cny": 729000000,
+      "date": "2026-07-22",
+      "close": 1.77,
+      "ma20": 1.7838,
+      "ma60": 1.9534166666666666,
+      "ma20_rising": false,
+      "ret5_pct": 1.7826336975273138,
+      "ret10_pct": 1.1428571428571344,
+      "ret20_pct": -10.606060606060607,
+      "rsi14": 41.35220125786164,
+      "distance_ma20_pct": -0.7736293306424558,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": 3.5087719298245723,
+      "volume_ratio": 0.8161072100202613,
+      "kdj": {
+        "k": 46.294885816322385,
+        "d": 30.079278052688647,
+        "j": 78.72610134358985,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": -0.06861122989131152,
+        "dea": -0.06840139570555674,
+        "histogram": -0.00041966837150955727,
+        "state": "零轴下空头"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": -354905500.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": -1089731000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 21310869030.0,
+      "sentiment": {
+        "score": 30.033100317511103,
+        "label": "偏冷",
+        "missing_inputs": []
+      },
+      "policy_reason": "近90日未发现新增直接政策催化；3月国家能源局年度标准计划覆盖煤炭、油气和新能源等领域，侧重安全、绿色和标准化转型。 [国家能源局｜2026-03-24｜2026年能源行业标准计划立项指南](https://www.nea.gov.cn/20260324/a3810b8d733c4972a67ef5891a17b8ea/20260324a3810b8d733c4972a67ef5891a17b8ea_49f3818b8b71ed439ca1d10cceef0bc714.pdf)",
+      "fundamental_reason": "全球增长仍有韧性但能源与地缘风险并存，资源品价格可能保持高波动；应以趋势、库存和份额申赎共同确认。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为+1.78%/+1.14%/-10.61%，RSI14=41.4，KDJ=多头，MACD=零轴下空头。",
+      "sentiment_reason": "情绪分数30.0（偏冷）；5/10/20日份额净流入为-3.55亿/-10.90亿/N/A(missing_share_date)，5日成交量相对前20日为0.82倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "510170",
+      "name": "大宗商品ETF国联安",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "commodity_equity",
+      "tracking_index": "上证商品",
+      "screenshot_turnover_cny": 12316500,
+      "date": "2026-07-22",
+      "close": 1.31,
+      "ma20": 1.3223,
+      "ma60": 1.3982333333333334,
+      "ma20_rising": false,
+      "ret5_pct": 0.6917755572636519,
+      "ret10_pct": 0.5372217958557357,
+      "ret20_pct": -7.746478873239426,
+      "rsi14": 42.81767955801104,
+      "distance_ma20_pct": -0.9301973833471977,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": 2.5039123630672844,
+      "volume_ratio": 0.5759774912831336,
+      "kdj": {
+        "k": 47.21910217507599,
+        "d": 30.759848974722143,
+        "j": 80.13760857578367,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": -0.03504605436261832,
+        "dea": -0.03414936005213122,
+        "histogram": -0.0017933886209741956,
+        "state": "零轴下空头"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": -7576000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": -46726000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 443978388.0000001,
+      "sentiment": {
+        "score": 27.41945944587968,
+        "label": "偏冷",
+        "missing_inputs": []
+      },
+      "policy_reason": "近90日未发现新增直接政策催化；3月国家能源局年度标准计划覆盖煤炭、油气和新能源等领域，侧重安全、绿色和标准化转型。 [国家能源局｜2026-03-24｜2026年能源行业标准计划立项指南](https://www.nea.gov.cn/20260324/a3810b8d733c4972a67ef5891a17b8ea/20260324a3810b8d733c4972a67ef5891a17b8ea_49f3818b8b71ed439ca1d10cceef0bc714.pdf)",
+      "fundamental_reason": "全球增长仍有韧性但能源与地缘风险并存，资源品价格可能保持高波动；应以趋势、库存和份额申赎共同确认。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为+0.69%/+0.54%/-7.75%，RSI14=42.8，KDJ=多头，MACD=零轴下空头。",
+      "sentiment_reason": "情绪分数27.4（偏冷）；5/10/20日份额净流入为-0.08亿/-0.47亿/N/A(missing_share_date)，5日成交量相对前20日为0.58倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "159732",
+      "name": "消费电子ETF华夏",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "consumer_electronics",
+      "tracking_index": "国证消费电子主题指数",
+      "screenshot_turnover_cny": 466000000,
+      "date": "2026-07-22",
+      "close": 1.424,
+      "ma20": 1.6631,
+      "ma60": 1.5702166666666666,
+      "ma20_rising": false,
+      "ret5_pct": -9.357097390197334,
+      "ret10_pct": -13.644633110976356,
+      "ret20_pct": -20.668523676880223,
+      "rsi14": 34.39363817097414,
+      "distance_ma20_pct": -14.37676627983886,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": -2.599179206566349,
+      "volume_ratio": 0.8961276546755456,
+      "kdj": {
+        "k": 21.372130018319353,
+        "d": 18.002862343209667,
+        "j": 28.110665368538726,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": -0.058752625235791944,
+        "dea": -0.017011607442126105,
+        "histogram": -0.08348203558733168,
+        "state": "零轴下空头"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": -91386000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": -97816000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 3863949815.296,
+      "sentiment": {
+        "score": 27.209463893264637,
+        "label": "偏冷",
+        "missing_inputs": []
+      },
+      "policy_reason": "近90日未发现新增直接政策催化；4月公布的集成电路和软件企业税收优惠清单覆盖设计、制造、封测和关键材料设备，体现中长期政策连续性。 [国家发展改革委等部门｜2026-04-09｜关于做好2026年享受税收优惠政策的集成电路企业或项目、软件企业清单制定工作的通知](https://www.ndrc.gov.cn/xxgk/zcfb/tz/202604/t20260409_1404580.html)",
+      "fundamental_reason": "AI驱动全球技术链需求，但行业景气和估值对资本开支、终端需求及外部限制高度敏感，需结合价格与份额流验证。 [International Monetary Fund｜2026-07-08｜World Economic Outlook Update, July 2026](https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为-9.36%/-13.64%/-20.67%，RSI14=34.4，KDJ=多头，MACD=零轴下空头。",
+      "sentiment_reason": "情绪分数27.2（偏冷）；5/10/20日份额净流入为-0.91亿/-0.98亿/N/A(missing_share_date)，5日成交量相对前20日为0.90倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "516520",
+      "name": "智能驾驶ETF华泰柏瑞",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "smart_driving",
+      "tracking_index": "中证智能汽车主题指数",
+      "screenshot_turnover_cny": 111000000,
+      "date": "2026-07-22",
+      "close": 1.05,
+      "ma20": 1.1397,
+      "ma60": 1.1994333333333331,
+      "ma20_rising": false,
+      "ret5_pct": -4.7186932849364815,
+      "ret10_pct": -8.376963350785328,
+      "ret20_pct": -12.060301507537686,
+      "rsi14": 32.63157894736844,
+      "distance_ma20_pct": -7.87049223479862,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": -1.7773620205799756,
+      "volume_ratio": 0.8561147103789273,
+      "kdj": {
+        "k": 22.251131761508883,
+        "d": 21.496613259915325,
+        "j": 23.760168764695997,
+        "state": "多头"
+      },
+      "macd": {
+        "dif": -0.03874974775521167,
+        "dea": -0.028529799854164456,
+        "histogram": -0.020439895802094432,
+        "state": "零轴下空头"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": -39264000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": -56240000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 873353775.0,
+      "sentiment": {
+        "score": 26.633128527937885,
+        "label": "偏冷",
+        "missing_inputs": []
+      },
+      "policy_reason": "2026年汽车标准化工作聚焦新能源汽车、智能网联、汽车芯片、固态电池等方向；同时部分税收优惠未来调整，需兼顾支持与退坡风险。 [工业和信息化部｜2026-06-12｜2026年汽车标准化工作要点](https://www.miit.gov.cn/xwfb/gxdt/sjdt/art/2026/art_202b76b65f354309a28d38686d988108.html)",
+      "fundamental_reason": "制造业整体保持增长，但新能源链仍受价格竞争、产能利用率与海外需求影响；仅凭政策不能替代盈利和资金验证。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为-4.72%/-8.38%/-12.06%，RSI14=32.6，KDJ=多头，MACD=零轴下空头。",
+      "sentiment_reason": "情绪分数26.6（偏冷）；5/10/20日份额净流入为-0.39亿/-0.56亿/N/A(missing_share_date)，5日成交量相对前20日为0.86倍，代表池综合宽度40.3%，缺失分项：无。"
+    },
+    {
+      "code": "159206",
+      "name": "卫星ETF永赢",
+      "kind": "ETF",
+      "market": "CN",
+      "sector": "satellite",
+      "tracking_index": "国证商用卫星通信产业指数",
+      "screenshot_turnover_cny": 959000000,
+      "date": "2026-07-22",
+      "close": 1.293,
+      "ma20": 1.58275,
+      "ma60": 1.6985999999999999,
+      "ma20_rising": false,
+      "ret5_pct": -12.10061182868798,
+      "ret10_pct": -20.037105751391472,
+      "ret20_pct": -20.965770171149146,
+      "rsi14": 31.14155251141551,
+      "distance_ma20_pct": -18.306744590112157,
+      "trend": "空头",
+      "action": "暂缓",
+      "ret1_pct": -1.6730038022813698,
+      "volume_ratio": 0.7227510583491938,
+      "kdj": {
+        "k": 13.315460163548371,
+        "d": 14.595228135509394,
+        "j": 10.755924219626323,
+        "state": "超卖"
+      },
+      "macd": {
+        "dif": -0.10269997063498582,
+        "dea": -0.06103705165504407,
+        "histogram": -0.08332583795988349,
+        "state": "零轴下空头"
+      },
+      "flows": {
+        "5": {
+          "window": 5,
+          "value_cny": -1350024000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "10": {
+          "window": 10,
+          "value_cny": -968681000.0,
+          "price_basis": "close",
+          "reason": null
+        },
+        "20": {
+          "window": 20,
+          "value_cny": null,
+          "price_basis": "close",
+          "reason": "missing_share_date"
+        }
+      },
+      "flow_as_of": "2026-07-21",
+      "aum_estimate_cny": 14573342700.945,
+      "sentiment": {
+        "score": 21.025489364045256,
+        "label": "偏冷",
+        "missing_inputs": []
+      },
+      "policy_reason": "智能工厂培育覆盖基础级、先进级、卓越级和领航级，利好自动化、机器人与高端装备应用扩散；主题兑现取决于订单。 [工业和信息化部等六部门｜2026-07-15｜关于开展2026年度智能工厂梯度培育行动的通知](https://www.ncsti.gov.cn/kjdt/tzgg/202607/t20260720_251553.html)",
+      "fundamental_reason": "上半年制造业增加值同比增长5.6%，制造业基本面有韧性；细分装备的盈利需继续核对订单、回款和产能利用率。 [国家统计局｜2026-07-15｜上半年国民经济顶住压力延续平稳增长态势](https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964121.html)",
+      "technical_reason": "收盘价位于MA20下方、MA60下方，MA20未上行；5/10/20日涨跌幅分别为-12.10%/-20.04%/-20.97%，RSI14=31.1，KDJ=超卖，MACD=零轴下空头。",
+      "sentiment_reason": "情绪分数21.0（偏冷）；5/10/20日份额净流入为-13.50亿/-9.69亿/N/A(missing_share_date)，5日成交量相对前20日为0.72倍，代表池综合宽度40.3%，缺失分项：无。"
+    }
+  ]
+}
