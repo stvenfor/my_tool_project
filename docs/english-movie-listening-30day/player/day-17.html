@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Day 17 — 数量与范围 | quant / magn / min / meas</title>
+  <link rel="stylesheet" href="assets/player.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="page-head">
+      <h1>Day 17 — 数量与范围 | quant / magn / min / meas</h1>
+      <nav class="nav">
+        <a href="index.html">目录</a>
+        <a href="day-16.html">← Day 16</a>
+        <a href="day-18.html">Day 18 →</a>
+      </nav>
+    </header>
+    <p class="hint">末列「播放 / 暂停」用浏览器朗读英文（Web Speech，美式优先，语速 0.9）。Markdown 文本备份见 <code>../by-day/day-17.md</code>。</p>
+
+    <section class="block">
+      <h2>词根词缀</h2>
+      <table class="roots">
+        <thead><tr><th>成分</th><th>含义</th><th>例词</th></tr></thead>
+        <tbody>
+<tr><td><strong>quant</strong></td><td>数量</td><td>quantity, quantitative, quantum</td></tr>
+<tr><td><strong>magn/maj</strong></td><td>大</td><td>magnitude, magnificent, major</td></tr>
+<tr><td><strong>min</strong></td><td>小</td><td>minimum, diminish, minority</td></tr>
+<tr><td><strong>meas/mens</strong></td><td>测量</td><td>measure, immense, dimension</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="block">
+      <h2>单词（80）</h2>
+      <table class="grid">
+        <thead>
+          <tr>
+            <th>#</th><th>单词</th><th>音标</th><th>词性/中文</th><th class="tip">词源提示</th><th>播放</th>
+          </tr>
+        </thead>
+        <tbody>
+<tr><td class="num">1</td><td class="en">quantity</td><td class="ipa">/ˈkwɑːntəti/</td><td>n. 数量</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="quantity" aria-label="播放或暂停：quantity">播放</button></td></tr>
+<tr><td class="num">2</td><td class="en">quantitative</td><td class="ipa">/ˈkwɑːntəteɪtɪv/</td><td>a. 定量的</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="quantitative" aria-label="播放或暂停：quantitative">播放</button></td></tr>
+<tr><td class="num">3</td><td class="en">qualitative</td><td class="ipa">/ˈkwɑːlɪteɪtɪv/</td><td>a. 定性的</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="qualitative" aria-label="播放或暂停：qualitative">播放</button></td></tr>
+<tr><td class="num">4</td><td class="en">quantum</td><td class="ipa">/ˈkwɑːntəm/</td><td>n. 量子；量</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="quantum" aria-label="播放或暂停：quantum">播放</button></td></tr>
+<tr><td class="num">5</td><td class="en">magnitude</td><td class="ipa">/ˈmæɡnɪtuːd/</td><td>n. 重大</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="magnitude" aria-label="播放或暂停：magnitude">播放</button></td></tr>
+<tr><td class="num">6</td><td class="en">magnificent</td><td class="ipa">/mæɡˈnɪfɪsnt/</td><td>a. 壮丽的</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="magnificent" aria-label="播放或暂停：magnificent">播放</button></td></tr>
+<tr><td class="num">7</td><td class="en">major</td><td class="ipa">/ˈmeɪdʒər/</td><td>a. 主要的</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="major" aria-label="播放或暂停：major">播放</button></td></tr>
+<tr><td class="num">8</td><td class="en">majority</td><td class="ipa">/məˈdʒɔːrəti/</td><td>n. 多数</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="majority" aria-label="播放或暂停：majority">播放</button></td></tr>
+<tr><td class="num">9</td><td class="en">minor</td><td class="ipa">/ˈmaɪnər/</td><td>a. 次要的</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="minor" aria-label="播放或暂停：minor">播放</button></td></tr>
+<tr><td class="num">10</td><td class="en">minority</td><td class="ipa">/maɪˈnɔːrəti/</td><td>n. 少数</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="minority" aria-label="播放或暂停：minority">播放</button></td></tr>
+<tr><td class="num">11</td><td class="en">minimum</td><td class="ipa">/ˈmɪnɪməm/</td><td>n./a. 最小</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="minimum" aria-label="播放或暂停：minimum">播放</button></td></tr>
+<tr><td class="num">12</td><td class="en">maximum</td><td class="ipa">/ˈmæksɪməm/</td><td>n./a. 最大</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="maximum" aria-label="播放或暂停：maximum">播放</button></td></tr>
+<tr><td class="num">13</td><td class="en">minimize</td><td class="ipa">/ˈmɪnɪmaɪz/</td><td>v. 最小化</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="minimize" aria-label="播放或暂停：minimize">播放</button></td></tr>
+<tr><td class="num">14</td><td class="en">maximize</td><td class="ipa">/ˈmæksɪmaɪz/</td><td>v. 最大化</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="maximize" aria-label="播放或暂停：maximize">播放</button></td></tr>
+<tr><td class="num">15</td><td class="en">proportion</td><td class="ipa">/prəˈpɔːrʃn/</td><td>n. 比例</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="proportion" aria-label="播放或暂停：proportion">播放</button></td></tr>
+<tr><td class="num">16</td><td class="en">proportional</td><td class="ipa">/prəˈpɔːrʃənl/</td><td>a. 成比例的</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="proportional" aria-label="播放或暂停：proportional">播放</button></td></tr>
+<tr><td class="num">17</td><td class="en">ratio</td><td class="ipa">/ˈreɪʃioʊ/</td><td>n. 比率</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="ratio" aria-label="播放或暂停：ratio">播放</button></td></tr>
+<tr><td class="num">18</td><td class="en">percentage</td><td class="ipa">/pərˈsentɪdʒ/</td><td>n. 百分比</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="percentage" aria-label="播放或暂停：percentage">播放</button></td></tr>
+<tr><td class="num">19</td><td class="en">fraction</td><td class="ipa">/ˈfrækʃn/</td><td>n. 分数；小部分</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="fraction" aria-label="播放或暂停：fraction">播放</button></td></tr>
+<tr><td class="num">20</td><td class="en">portion</td><td class="ipa">/ˈpɔːrʃn/</td><td>n. 一部分</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="portion" aria-label="播放或暂停：portion">播放</button></td></tr>
+<tr><td class="num">21</td><td class="en">share</td><td class="ipa">/ʃer/</td><td>n. 份额</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="share" aria-label="播放或暂停：share">播放</button></td></tr>
+<tr><td class="num">22</td><td class="en">segment</td><td class="ipa">/ˈseɡmənt/</td><td>n. 部分</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="segment" aria-label="播放或暂停：segment">播放</button></td></tr>
+<tr><td class="num">23</td><td class="en">approximate</td><td class="ipa">/əˈprɑːksɪmət/</td><td>a. 近似的</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="approximate" aria-label="播放或暂停：approximate">播放</button></td></tr>
+<tr><td class="num">24</td><td class="en">approximately</td><td class="ipa">/əˈprɑːksɪmətli/</td><td>adv. 大约</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="approximately" aria-label="播放或暂停：approximately">播放</button></td></tr>
+<tr><td class="num">25</td><td class="en">roughly</td><td class="ipa">/ˈrʌfli/</td><td>adv. 大约</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="roughly" aria-label="播放或暂停：roughly">播放</button></td></tr>
+<tr><td class="num">26</td><td class="en">exactly</td><td class="ipa">/ɪɡˈzæktli/</td><td>adv. 精确地</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="exactly" aria-label="播放或暂停：exactly">播放</button></td></tr>
+<tr><td class="num">27</td><td class="en">precise</td><td class="ipa">/prɪˈsaɪs/</td><td>a. 精确的</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="precise" aria-label="播放或暂停：precise">播放</button></td></tr>
+<tr><td class="num">28</td><td class="en">accuracy</td><td class="ipa">/ˈækjərəsi/</td><td>n. 准确</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="accuracy" aria-label="播放或暂停：accuracy">播放</button></td></tr>
+<tr><td class="num">29</td><td class="en">abundant</td><td class="ipa">/əˈbʌndənt/</td><td>a. 丰富的</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="abundant" aria-label="播放或暂停：abundant">播放</button></td></tr>
+<tr><td class="num">30</td><td class="en">abundance</td><td class="ipa">/əˈbʌndəns/</td><td>n. 丰富</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="abundance" aria-label="播放或暂停：abundance">播放</button></td></tr>
+<tr><td class="num">31</td><td class="en">adequate</td><td class="ipa">/ˈædɪkwət/</td><td>a. 足够的</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="adequate" aria-label="播放或暂停：adequate">播放</button></td></tr>
+<tr><td class="num">32</td><td class="en">sufficient</td><td class="ipa">/səˈfɪʃnt/</td><td>a. 充足的</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="sufficient" aria-label="播放或暂停：sufficient">播放</button></td></tr>
+<tr><td class="num">33</td><td class="en">insufficient</td><td class="ipa">/ˌɪnsəˈfɪʃnt/</td><td>a. 不足的</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="insufficient" aria-label="播放或暂停：insufficient">播放</button></td></tr>
+<tr><td class="num">34</td><td class="en">scarce</td><td class="ipa">/skers/</td><td>a. 稀缺的</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="scarce" aria-label="播放或暂停：scarce">播放</button></td></tr>
+<tr><td class="num">35</td><td class="en">ample</td><td class="ipa">/ˈæmpl/</td><td>a. 充足的</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="ample" aria-label="播放或暂停：ample">播放</button></td></tr>
+<tr><td class="num">36</td><td class="en">plentiful</td><td class="ipa">/ˈplentɪfl/</td><td>a. 丰富的</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="plentiful" aria-label="播放或暂停：plentiful">播放</button></td></tr>
+<tr><td class="num">37</td><td class="en">sparse</td><td class="ipa">/spɑːrs/</td><td>a. 稀疏的</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="sparse" aria-label="播放或暂停：sparse">播放</button></td></tr>
+<tr><td class="num">38</td><td class="en">dense</td><td class="ipa">/dens/</td><td>a. 密集的</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="dense" aria-label="播放或暂停：dense">播放</button></td></tr>
+<tr><td class="num">39</td><td class="en">density</td><td class="ipa">/ˈdensəti/</td><td>n. 密度</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="density" aria-label="播放或暂停：density">播放</button></td></tr>
+<tr><td class="num">40</td><td class="en">volume</td><td class="ipa">/ˈvɑːljuːm/</td><td>n. 体积；量</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="volume" aria-label="播放或暂停：volume">播放</button></td></tr>
+<tr><td class="num">41</td><td class="en">capacity</td><td class="ipa">/kəˈpæsəti/</td><td>n. 容量；能力</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="capacity" aria-label="播放或暂停：capacity">播放</button></td></tr>
+<tr><td class="num">42</td><td class="en">scale</td><td class="ipa">/skeɪl/</td><td>n. 规模</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="scale" aria-label="播放或暂停：scale">播放</button></td></tr>
+<tr><td class="num">43</td><td class="en">scope</td><td class="ipa">/skoʊp/</td><td>n. 范围</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="scope" aria-label="播放或暂停：scope">播放</button></td></tr>
+<tr><td class="num">44</td><td class="en">range</td><td class="ipa">/reɪndʒ/</td><td>n. 范围</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="range" aria-label="播放或暂停：range">播放</button></td></tr>
+<tr><td class="num">45</td><td class="en">extent</td><td class="ipa">/ɪkˈstent/</td><td>n. 程度</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="extent" aria-label="播放或暂停：extent">播放</button></td></tr>
+<tr><td class="num">46</td><td class="en">degree</td><td class="ipa">/dɪˈɡriː/</td><td>n. 程度</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="degree" aria-label="播放或暂停：degree">播放</button></td></tr>
+<tr><td class="num">47</td><td class="en">level</td><td class="ipa">/ˈlevl/</td><td>n. 水平</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="level" aria-label="播放或暂停：level">播放</button></td></tr>
+<tr><td class="num">48</td><td class="en">rate</td><td class="ipa">/reɪt/</td><td>n. 比率</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="rate" aria-label="播放或暂停：rate">播放</button></td></tr>
+<tr><td class="num">49</td><td class="en">frequency</td><td class="ipa">/ˈfriːkwənsi/</td><td>n. 频率</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="frequency" aria-label="播放或暂停：frequency">播放</button></td></tr>
+<tr><td class="num">50</td><td class="en">incidence</td><td class="ipa">/ˈɪnsɪdəns/</td><td>n. 发生率</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="incidence" aria-label="播放或暂停：incidence">播放</button></td></tr>
+<tr><td class="num">51</td><td class="en">prevalence</td><td class="ipa">/ˈprevələns/</td><td>n. 流行程度</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="prevalence" aria-label="播放或暂停：prevalence">播放</button></td></tr>
+<tr><td class="num">52</td><td class="en">average</td><td class="ipa">/ˈævərɪdʒ/</td><td>n./a. 平均</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="average" aria-label="播放或暂停：average">播放</button></td></tr>
+<tr><td class="num">53</td><td class="en">mean</td><td class="ipa">/miːn/</td><td>n. 平均值</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="mean" aria-label="播放或暂停：mean">播放</button></td></tr>
+<tr><td class="num">54</td><td class="en">median</td><td class="ipa">/ˈmiːdiən/</td><td>n. 中位数</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="median" aria-label="播放或暂停：median">播放</button></td></tr>
+<tr><td class="num">55</td><td class="en">mode</td><td class="ipa">/moʊd/</td><td>n. 众数；模式</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="mode" aria-label="播放或暂停：mode">播放</button></td></tr>
+<tr><td class="num">56</td><td class="en">statistic</td><td class="ipa">/stəˈtɪstɪk/</td><td>n. 统计数值</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="statistic" aria-label="播放或暂停：statistic">播放</button></td></tr>
+<tr><td class="num">57</td><td class="en">statistics</td><td class="ipa">/stəˈtɪstɪks/</td><td>n. 统计学</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="statistics" aria-label="播放或暂停：statistics">播放</button></td></tr>
+<tr><td class="num">58</td><td class="en">statistical</td><td class="ipa">/stəˈtɪstɪkl/</td><td>a. 统计的</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="statistical" aria-label="播放或暂停：statistical">播放</button></td></tr>
+<tr><td class="num">59</td><td class="en">sample</td><td class="ipa">/ˈsæmpl/</td><td>n. 样本</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="sample" aria-label="播放或暂停：sample">播放</button></td></tr>
+<tr><td class="num">60</td><td class="en">population</td><td class="ipa">/ˌpɑːpjuˈleɪʃn/</td><td>n. 总体；人口</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="population" aria-label="播放或暂停：population">播放</button></td></tr>
+<tr><td class="num">61</td><td class="en">survey</td><td class="ipa">/ˈsɜːrveɪ/</td><td>n. 调查</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="survey" aria-label="播放或暂停：survey">播放</button></td></tr>
+<tr><td class="num">62</td><td class="en">census</td><td class="ipa">/ˈsensəs/</td><td>n. 人口普查</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="census" aria-label="播放或暂停：census">播放</button></td></tr>
+<tr><td class="num">63</td><td class="en">measure</td><td class="ipa">/ˈmeʒər/</td><td>v./n. 测量</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="measure" aria-label="播放或暂停：measure">播放</button></td></tr>
+<tr><td class="num">64</td><td class="en">measurement</td><td class="ipa">/ˈmeʒərmənt/</td><td>n. 测量</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="measurement" aria-label="播放或暂停：measurement">播放</button></td></tr>
+<tr><td class="num">65</td><td class="en">dimension</td><td class="ipa">/dɪˈmenʃn/</td><td>n. 维度</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="dimension" aria-label="播放或暂停：dimension">播放</button></td></tr>
+<tr><td class="num">66</td><td class="en">immense</td><td class="ipa">/ɪˈmens/</td><td>a. 巨大的</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="immense" aria-label="播放或暂停：immense">播放</button></td></tr>
+<tr><td class="num">67</td><td class="en">enormous</td><td class="ipa">/ɪˈnɔːrməs/</td><td>a. 巨大的</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="enormous" aria-label="播放或暂停：enormous">播放</button></td></tr>
+<tr><td class="num">68</td><td class="en">tremendous</td><td class="ipa">/trɪˈmendəs/</td><td>a. 巨大的</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="tremendous" aria-label="播放或暂停：tremendous">播放</button></td></tr>
+<tr><td class="num">69</td><td class="en">vast</td><td class="ipa">/væst/</td><td>a. 广阔的</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="vast" aria-label="播放或暂停：vast">播放</button></td></tr>
+<tr><td class="num">70</td><td class="en">huge</td><td class="ipa">/hjuːdʒ/</td><td>a. 巨大的</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="huge" aria-label="播放或暂停：huge">播放</button></td></tr>
+<tr><td class="num">71</td><td class="en">tiny</td><td class="ipa">/ˈtaɪni/</td><td>a. 极小的</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="tiny" aria-label="播放或暂停：tiny">播放</button></td></tr>
+<tr><td class="num">72</td><td class="en">minute</td><td class="ipa">/maɪˈnuːt/</td><td>a. 微小的</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="minute" aria-label="播放或暂停：minute">播放</button></td></tr>
+<tr><td class="num">73</td><td class="en">massive</td><td class="ipa">/ˈmæsɪv/</td><td>a. 巨大的</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="massive" aria-label="播放或暂停：massive">播放</button></td></tr>
+<tr><td class="num">74</td><td class="en">bulk</td><td class="ipa">/bʌlk/</td><td>n. 主体；大量</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="bulk" aria-label="播放或暂停：bulk">播放</button></td></tr>
+<tr><td class="num">75</td><td class="en">handful</td><td class="ipa">/ˈhændfʊl/</td><td>n. 少数几个</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="handful" aria-label="播放或暂停：handful">播放</button></td></tr>
+<tr><td class="num">76</td><td class="en">dozen</td><td class="ipa">/ˈdʌzn/</td><td>n. 一打</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="dozen" aria-label="播放或暂停：dozen">播放</button></td></tr>
+<tr><td class="num">77</td><td class="en">score</td><td class="ipa">/skɔːr/</td><td>n. 二十；得分</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="score" aria-label="播放或暂停：score">播放</button></td></tr>
+<tr><td class="num">78</td><td class="en">multiple</td><td class="ipa">/ˈmʌltɪpl/</td><td>a. 多重的</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="multiple" aria-label="播放或暂停：multiple">播放</button></td></tr>
+<tr><td class="num">79</td><td class="en">numerous</td><td class="ipa">/ˈnuːmərəs/</td><td>a. 许多的</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="numerous" aria-label="播放或暂停：numerous">播放</button></td></tr>
+<tr><td class="num">80</td><td class="en">countless</td><td class="ipa">/ˈkaʊntləs/</td><td>a. 无数的</td><td class="tip">—</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="countless" aria-label="播放或暂停：countless">播放</button></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="block">
+      <h2>短语（40）</h2>
+      <table class="grid">
+        <thead>
+          <tr>
+            <th>#</th><th>短语</th><th>音标</th><th>中文</th><th>例句</th><th>播放</th>
+          </tr>
+        </thead>
+        <tbody>
+<tr><td class="num">1</td><td class="en">a large proportion of</td><td class="ipa">/ə lɑːrdʒ prəˈpɔːrʃn əv/</td><td>很大一部分</td><td>A large proportion of students.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="a large proportion of" aria-label="播放或暂停：a large proportion of">播放</button></td></tr>
+<tr><td class="num">2</td><td class="en">the vast majority</td><td class="ipa">/ðə væst məˈdʒɔːrəti/</td><td>绝大多数</td><td>The vast majority agree.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="the vast majority" aria-label="播放或暂停：the vast majority">播放</button></td></tr>
+<tr><td class="num">3</td><td class="en">of great magnitude</td><td class="ipa">/əv ɡreɪt ˈmæɡnɪtuːd/</td><td>规模巨大</td><td>Of great magnitude.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="of great magnitude" aria-label="播放或暂停：of great magnitude">播放</button></td></tr>
+<tr><td class="num">4</td><td class="en">adequate supply</td><td class="ipa">/ˈædɪkwət səˈplaɪ/</td><td>充足供应</td><td>An adequate supply.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="adequate supply" aria-label="播放或暂停：adequate supply">播放</button></td></tr>
+<tr><td class="num">5</td><td class="en">quantitative analysis</td><td class="ipa">/ˈkwɑːntəteɪtɪv əˈnæləsɪs/</td><td>定量分析</td><td>Quantitative analysis.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="quantitative analysis" aria-label="播放或暂停：quantitative analysis">播放</button></td></tr>
+<tr><td class="num">6</td><td class="en">qualitative research</td><td class="ipa">/ˈkwɑːlɪteɪtɪv rɪˈsɜːrtʃ/</td><td>定性研究</td><td>Qualitative research.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="qualitative research" aria-label="播放或暂停：qualitative research">播放</button></td></tr>
+<tr><td class="num">7</td><td class="en">minimize the cost</td><td class="ipa">/ˈmɪnɪmaɪz ðə kɔːst/</td><td>最小化成本</td><td>Minimize the cost.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="minimize the cost" aria-label="播放或暂停：minimize the cost">播放</button></td></tr>
+<tr><td class="num">8</td><td class="en">maximize profit</td><td class="ipa">/ˈmæksɪmaɪz ˈprɑːfɪt/</td><td>最大化利润</td><td>Maximize profit.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="maximize profit" aria-label="播放或暂停：maximize profit">播放</button></td></tr>
+<tr><td class="num">9</td><td class="en">approximately equal</td><td class="ipa">/əˈprɑːksɪmətli ˈiːkwəl/</td><td>约等于</td><td>Approximately equal.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="approximately equal" aria-label="播放或暂停：approximately equal">播放</button></td></tr>
+<tr><td class="num">10</td><td class="en">within the scope of</td><td class="ipa">/wɪˈðɪn ðə skoʊp əv/</td><td>在…范围内</td><td>Within the scope of.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="within the scope of" aria-label="播放或暂停：within the scope of">播放</button></td></tr>
+<tr><td class="num">11</td><td class="en">a wide range of</td><td class="ipa">/ə waɪd reɪndʒ əv/</td><td>广泛的</td><td>A wide range of options.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="a wide range of" aria-label="播放或暂停：a wide range of">播放</button></td></tr>
+<tr><td class="num">12</td><td class="en">to some extent</td><td class="ipa">/tə sʌm ɪkˈstent/</td><td>在某种程度上</td><td>To some extent.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="to some extent" aria-label="播放或暂停：to some extent">播放</button></td></tr>
+<tr><td class="num">13</td><td class="en">on average</td><td class="ipa">/ɑːn ˈævərɪdʒ/</td><td>平均而言</td><td>On average,</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="on average" aria-label="播放或暂停：on average">播放</button></td></tr>
+<tr><td class="num">14</td><td class="en">statistical data</td><td class="ipa">/stəˈtɪstɪkl ˈdeɪtə/</td><td>统计数据</td><td>Statistical data.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="statistical data" aria-label="播放或暂停：statistical data">播放</button></td></tr>
+<tr><td class="num">15</td><td class="en">sample size</td><td class="ipa">/ˈsæmpl saɪz/</td><td>样本量</td><td>Increase sample size.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="sample size" aria-label="播放或暂停：sample size">播放</button></td></tr>
+<tr><td class="num">16</td><td class="en">population density</td><td class="ipa">/ˌpɑːpjuˈleɪʃn ˈdensəti/</td><td>人口密度</td><td>Population density.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="population density" aria-label="播放或暂停：population density">播放</button></td></tr>
+<tr><td class="num">17</td><td class="en">frequency distribution</td><td class="ipa">/ˈfriːkwənsi ˌdɪstrɪˈbjuːʃn/</td><td>频率分布</td><td>Frequency distribution.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="frequency distribution" aria-label="播放或暂停：frequency distribution">播放</button></td></tr>
+<tr><td class="num">18</td><td class="en">incidence rate</td><td class="ipa">/ˈɪnsɪdəns reɪt/</td><td>发生率</td><td>Incidence rate.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="incidence rate" aria-label="播放或暂停：incidence rate">播放</button></td></tr>
+<tr><td class="num">19</td><td class="en">prevalence of disease</td><td class="ipa">/ˈprevələns əv dɪˈziːz/</td><td>疾病流行率</td><td>Prevalence of disease.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="prevalence of disease" aria-label="播放或暂停：prevalence of disease">播放</button></td></tr>
+<tr><td class="num">20</td><td class="en">immense pressure</td><td class="ipa">/ɪˈmens ˈpreʃər/</td><td>巨大压力</td><td>Immense pressure.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="immense pressure" aria-label="播放或暂停：immense pressure">播放</button></td></tr>
+<tr><td class="num">21</td><td class="en">tremendous effort</td><td class="ipa">/trɪˈmendəs ˈefərt/</td><td>巨大努力</td><td>Tremendous effort.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="tremendous effort" aria-label="播放或暂停：tremendous effort">播放</button></td></tr>
+<tr><td class="num">22</td><td class="en">massive investment</td><td class="ipa">/ˈmæsɪv ɪnˈvestmənt/</td><td>巨额投资</td><td>Massive investment.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="massive investment" aria-label="播放或暂停：massive investment">播放</button></td></tr>
+<tr><td class="num">23</td><td class="en">a handful of</td><td class="ipa">/ə ˈhændfʊl əv/</td><td>少数几个</td><td>A handful of cases.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="a handful of" aria-label="播放或暂停：a handful of">播放</button></td></tr>
+<tr><td class="num">24</td><td class="en">numerous studies</td><td class="ipa">/ˈnuːmərəs ˈstʌdiz/</td><td>大量研究</td><td>Numerous studies.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="numerous studies" aria-label="播放或暂停：numerous studies">播放</button></td></tr>
+<tr><td class="num">25</td><td class="en">finite resources</td><td class="ipa">/ˈfaɪnaɪt ˈriːsɔːrsɪz/</td><td>有限资源</td><td>Finite resources.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="finite resources" aria-label="播放或暂停：finite resources">播放</button></td></tr>
+<tr><td class="num">26</td><td class="en">infinite possibilities</td><td class="ipa">/ˈɪnfɪnət ˌpɑːsəˈbɪlətiz/</td><td>无限可能</td><td>Infinite possibilities.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="infinite possibilities" aria-label="播放或暂停：infinite possibilities">播放</button></td></tr>
+<tr><td class="num">27</td><td class="en">bulk of the work</td><td class="ipa">/bʌlk əv ðə wɜːrk/</td><td>大部分工作</td><td>The bulk of the work.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="bulk of the work" aria-label="播放或暂停：bulk of the work">播放</button></td></tr>
+<tr><td class="num">28</td><td class="en">in equal measure</td><td class="ipa">/ɪn ˈiːkwəl ˈmeʒər/</td><td>同样程度</td><td>Praised in equal measure.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="in equal measure" aria-label="播放或暂停：in equal measure">播放</button></td></tr>
+<tr><td class="num">29</td><td class="en">out of proportion</td><td class="ipa">/aʊt əv prəˈpɔːrʃn/</td><td>不成比例</td><td>Out of proportion.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="out of proportion" aria-label="播放或暂停：out of proportion">播放</button></td></tr>
+<tr><td class="num">30</td><td class="en">in proportion to</td><td class="ipa">/ɪn prəˈpɔːrʃn tə/</td><td>与…成比例</td><td>In proportion to income.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="in proportion to" aria-label="播放或暂停：in proportion to">播放</button></td></tr>
+<tr><td class="num">31</td><td class="en">growth rate</td><td class="ipa">/ɡroʊθ reɪt/</td><td>增长率</td><td>Annual growth rate.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="growth rate" aria-label="播放或暂停：growth rate">播放</button></td></tr>
+<tr><td class="num">32</td><td class="en">at full capacity</td><td class="ipa">/æt fʊl kəˈpæsəti/</td><td>满负荷</td><td>Running at full capacity.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="at full capacity" aria-label="播放或暂停：at full capacity">播放</button></td></tr>
+<tr><td class="num">33</td><td class="en">volume of trade</td><td class="ipa">/ˈvɑːljuːm əv treɪd/</td><td>贸易量</td><td>Volume of trade.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="volume of trade" aria-label="播放或暂停：volume of trade">播放</button></td></tr>
+<tr><td class="num">34</td><td class="en">sparse evidence</td><td class="ipa">/spɑːrs ˈevɪdəns/</td><td>稀少证据</td><td>Sparse evidence.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="sparse evidence" aria-label="播放或暂停：sparse evidence">播放</button></td></tr>
+<tr><td class="num">35</td><td class="en">dense population</td><td class="ipa">/dens ˌpɑːpjuˈleɪʃn/</td><td>密集人口</td><td>Dense population.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="dense population" aria-label="播放或暂停：dense population">播放</button></td></tr>
+<tr><td class="num">36</td><td class="en">median income</td><td class="ipa">/ˈmiːdiən ˈɪnkʌm/</td><td>收入中位数</td><td>Median income.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="median income" aria-label="播放或暂停：median income">播放</button></td></tr>
+<tr><td class="num">37</td><td class="en">margin of error</td><td class="ipa">/ˈmɑːrdʒɪn əv ˈerər/</td><td>误差幅度</td><td>Margin of error.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="margin of error" aria-label="播放或暂停：margin of error">播放</button></td></tr>
+<tr><td class="num">38</td><td class="en">order of magnitude</td><td class="ipa">/ˈɔːrdər əv ˈmæɡnɪtuːd/</td><td>数量级</td><td>An order of magnitude larger.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="order of magnitude" aria-label="播放或暂停：order of magnitude">播放</button></td></tr>
+<tr><td class="num">39</td><td class="en">scale up</td><td class="ipa">/skeɪl ʌp/</td><td>扩大规模</td><td>Scale up production.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="scale up" aria-label="播放或暂停：scale up">播放</button></td></tr>
+<tr><td class="num">40</td><td class="en">limited scope</td><td class="ipa">/ˈlɪmɪtɪd skoʊp/</td><td>有限范围</td><td>Limited scope.</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="limited scope" aria-label="播放或暂停：limited scope">播放</button></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="block">
+      <h2>句型训练（30）</h2>
+      <table class="grid">
+        <thead>
+          <tr>
+            <th>#</th><th>句型</th><th>英文句子</th><th>中文</th><th>播放</th>
+          </tr>
+        </thead>
+        <tbody>
+<tr><td class="num">1</td><td>陈述句</td><td class="en">A large proportion of samples showed dense clustering.</td><td>很大一部分样本呈现密集聚类。</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="A large proportion of samples showed dense clustering." aria-label="播放或暂停：A large proportion of samples showed dense clustering.">播放</button></td></tr>
+<tr><td class="num">2</td><td>否定句</td><td class="en">The minority did not reach the required threshold.</td><td>少数派未达到所需门槛。</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="The minority did not reach the required threshold." aria-label="播放或暂停：The minority did not reach the required threshold.">播放</button></td></tr>
+<tr><td class="num">3</td><td>一般疑问句</td><td class="en">Can approximate figures mislead policy decisions?</td><td>约数是否会误导政策决定？</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="Can approximate figures mislead policy decisions?" aria-label="播放或暂停：Can approximate figures mislead policy decisions?">播放</button></td></tr>
+<tr><td class="num">4</td><td>特殊疑问句</td><td class="en">What magnitude of change counts as significant?</td><td>多大变化才算显著？</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="What magnitude of change counts as significant?" aria-label="播放或暂停：What magnitude of change counts as significant?">播放</button></td></tr>
+<tr><td class="num">5</td><td>选择疑问句</td><td class="en">Is the distribution sparse or heavily concentrated?</td><td>分布是稀疏还是高度集中？</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="Is the distribution sparse or heavily concentrated?" aria-label="播放或暂停：Is the distribution sparse or heavily concentrated?">播放</button></td></tr>
+<tr><td class="num">6</td><td>反意疑问句</td><td class="en">The majority supports the measure, doesn&#x27;t it?</td><td>多数支持该措施，对吧？</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="The majority supports the measure, doesn&#x27;t it?" aria-label="播放或暂停：The majority supports the measure, doesn&#x27;t it?">播放</button></td></tr>
+<tr><td class="num">7</td><td>祈使句</td><td class="en">Maximize accuracy before you minimize cost.</td><td>在最小化成本前先最大化准确度。</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="Maximize accuracy before you minimize cost." aria-label="播放或暂停：Maximize accuracy before you minimize cost.">播放</button></td></tr>
+<tr><td class="num">8</td><td>感叹句</td><td class="en">What an enormous volume of statistical noise!</td><td>多么巨大的统计噪声量！</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="What an enormous volume of statistical noise!" aria-label="播放或暂停：What an enormous volume of statistical noise!">播放</button></td></tr>
+<tr><td class="num">9</td><td>存在句</td><td class="en">There is only a handful of reliable benchmarks.</td><td>可靠基准只有少数几个。</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="There is only a handful of reliable benchmarks." aria-label="播放或暂停：There is only a handful of reliable benchmarks.">播放</button></td></tr>
+<tr><td class="num">10</td><td>被动语态</td><td class="en">Survey results are weighted by population density.</td><td>调查结果按人口密度加权。</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="Survey results are weighted by population density." aria-label="播放或暂停：Survey results are weighted by population density.">播放</button></td></tr>
+<tr><td class="num">11</td><td>现在完成时</td><td class="en">Researchers have expanded sample sizes repeatedly.</td><td>研究者多次扩大样本量。</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="Researchers have expanded sample sizes repeatedly." aria-label="播放或暂停：Researchers have expanded sample sizes repeatedly.">播放</button></td></tr>
+<tr><td class="num">12</td><td>过去完成时</td><td class="en">They had calculated the median before the mean.</td><td>他们在均值之前先算了中位数。</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="They had calculated the median before the mean." aria-label="播放或暂停：They had calculated the median before the mean.">播放</button></td></tr>
+<tr><td class="num">13</td><td>将来时态</td><td class="en">The bureau will publish new statistics next week.</td><td>该局下周将公布新统计。</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="The bureau will publish new statistics next week." aria-label="播放或暂停：The bureau will publish new statistics next week.">播放</button></td></tr>
+<tr><td class="num">14</td><td>真实条件句</td><td class="en">If the ratio rises, inequality will widen.</td><td>如果比率上升，不平等将扩大。</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="If the ratio rises, inequality will widen." aria-label="播放或暂停：If the ratio rises, inequality will widen.">播放</button></td></tr>
+<tr><td class="num">15</td><td>虚拟语气</td><td class="en">If measurement were precise, debates would cool.</td><td>若测量精确，争论会降温。</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="If measurement were precise, debates would cool." aria-label="播放或暂停：If measurement were precise, debates would cool.">播放</button></td></tr>
+<tr><td class="num">16</td><td>定语从句</td><td class="en">Models that ignore scale produce false confidence.</td><td>忽视规模的模型产生虚假信心。</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="Models that ignore scale produce false confidence." aria-label="播放或暂停：Models that ignore scale produce false confidence.">播放</button></td></tr>
+<tr><td class="num">17</td><td>宾语从句</td><td class="en">Demographers say prevalence varies by region.</td><td>人口学家称流行率因地区而异。</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="Demographers say prevalence varies by region." aria-label="播放或暂停：Demographers say prevalence varies by region.">播放</button></td></tr>
+<tr><td class="num">18</td><td>原因状语从句</td><td class="en">Because the margin of error is large, caution is due.</td><td>因为误差幅度大，需要谨慎。</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="Because the margin of error is large, caution is due." aria-label="播放或暂停：Because the margin of error is large, caution is due.">播放</button></td></tr>
+<tr><td class="num">19</td><td>让步状语从句</td><td class="en">Although averages look stable, extremes matter.</td><td>尽管均值看似稳定，极端值仍重要。</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="Although averages look stable, extremes matter." aria-label="播放或暂停：Although averages look stable, extremes matter.">播放</button></td></tr>
+<tr><td class="num">20</td><td>目的状语从句</td><td class="en">Increase the sample so that estimates tighten.</td><td>增大样本，以便估计更紧。</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="Increase the sample so that estimates tighten." aria-label="播放或暂停：Increase the sample so that estimates tighten.">播放</button></td></tr>
+<tr><td class="num">21</td><td>比较结构</td><td class="en">Vast datasets are messier than tidy textbook examples.</td><td>海量数据比教科书干净例子更乱。</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="Vast datasets are messier than tidy textbook examples." aria-label="播放或暂停：Vast datasets are messier than tidy textbook examples.">播放</button></td></tr>
+<tr><td class="num">22</td><td>强调句</td><td class="en">It is proportion, not raw totals, that clarifies risk.</td><td>澄清风险的是比例而非原始总数。</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="It is proportion, not raw totals, that clarifies risk." aria-label="播放或暂停：It is proportion, not raw totals, that clarifies risk.">播放</button></td></tr>
+<tr><td class="num">23</td><td>倒装句</td><td class="en">Seldom is infinite growth available in finite systems.</td><td>有限系统中很少有无限增长。</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="Seldom is infinite growth available in finite systems." aria-label="播放或暂停：Seldom is infinite growth available in finite systems.">播放</button></td></tr>
+<tr><td class="num">24</td><td>分词结构</td><td class="en">Facing scarce data, analysts used approximate bounds.</td><td>面对稀缺数据，分析师使用近似边界。</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="Facing scarce data, analysts used approximate bounds." aria-label="播放或暂停：Facing scarce data, analysts used approximate bounds.">播放</button></td></tr>
+<tr><td class="num">25</td><td>不定式结构</td><td class="en">To compare magnitudes, convert units carefully.</td><td>要比较量级，应仔细换算单位。</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="To compare magnitudes, convert units carefully." aria-label="播放或暂停：To compare magnitudes, convert units carefully.">播放</button></td></tr>
+<tr><td class="num">26</td><td>动名词结构</td><td class="en">Counting without context can distort public debate.</td><td>没有语境的计数会扭曲公共辩论。</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="Counting without context can distort public debate." aria-label="播放或暂停：Counting without context can distort public debate.">播放</button></td></tr>
+<tr><td class="num">27</td><td>with 复合结构</td><td class="en">With denser sampling, rare events become visible.</td><td>抽样更密时，罕见事件变得可见。</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="With denser sampling, rare events become visible." aria-label="播放或暂停：With denser sampling, rare events become visible.">播放</button></td></tr>
+<tr><td class="num">28</td><td>同位语从句</td><td class="en">The assumption that bigger samples always help is incomplete.</td><td>更大样本总有帮助这一假设不完整。</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="The assumption that bigger samples always help is incomplete." aria-label="播放或暂停：The assumption that bigger samples always help is incomplete.">播放</button></td></tr>
+<tr><td class="num">29</td><td>插入评注</td><td class="en">On average, incremental gains compound over time.</td><td>平均而言，增量收益随时间复利。</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="On average, incremental gains compound over time." aria-label="播放或暂停：On average, incremental gains compound over time.">播放</button></td></tr>
+<tr><td class="num">30</td><td>形式主语 It</td><td class="en">It is easy to confuse frequency with importance.</td><td>很容易把频率与重要性混淆。</td><td class="play-cell"><button type="button" class="speak-btn" data-speak="It is easy to confuse frequency with importance." aria-label="播放或暂停：It is easy to confuse frequency with importance.">播放</button></td></tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+  <script src="assets/speak.js"></script>
+</body>
+</html>
