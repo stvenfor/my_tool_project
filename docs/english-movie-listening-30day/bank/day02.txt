@@ -1,0 +1,156 @@
+#TITLE 论证与观点 | dict / claim / spect
+#ROOT dict|说|predict, contradict, dictate
+#ROOT claim|声称|proclaim, exclaim
+#ROOT spect|看|perspective, speculate
+#ROOT just|公正|justify, justice
+#WORD assert|/əˈsɜːrt/|v. 断言；维护|—
+#WORD contend|/kənˈtend/|v. 主张；竞争|—
+#WORD contradict|/ˌkɑːntrəˈdɪkt/|v. 反驳|contra- + dict
+#WORD justify|/ˈdʒʌstɪfaɪ/|v. 证明正当|just + -ify
+#WORD objective|/əbˈdʒektɪv/|a. 客观的；n. 目标|object + -ive
+#WORD perspective|/pərˈspektɪv/|n. 视角|per- + spect
+#WORD speculate|/ˈspekjuleɪt/|v. 推测|spec 看
+#WORD valid|/ˈvælɪd/|a. 有效的|—
+#WORD argument|/ˈɑːrɡjumənt/|n. 论点；争论|—
+#WORD debate|/dɪˈbeɪt/|n./v. 辩论|de- + bat
+#WORD dispute|/dɪˈspjuːt/|n./v. 争端|dis- + put
+#WORD claim|/kleɪm/|v./n. 声称；索赔|claim 喊
+#WORD proclaim|/proʊˈkleɪm/|v. 宣告|pro- + claim
+#WORD exclaim|/ɪkˈskleɪm/|v.  exclaim 惊叫|ex- + claim
+#WORD reclaim|/rɪˈkleɪm/|v.  reclaim 收回|re- + claim
+#WORD predict|/prɪˈdɪkt/|v. 预测|pre- + dict
+#WORD dictate|/ˈdɪkteɪt/|v.  dict 口述；支配|dict
+#WORD verdict|/ˈvɜːrdɪkt/|n. 裁决|ver- + dict
+#WORD contradiction|/ˌkɑːntrəˈdɪkʃn/|n. 矛盾|contradict
+#WORD indict|/ɪnˈdaɪt/|v. 起诉|in- + dict
+#WORD advocate|/ˈædvəkeɪt/|v. 倡导|ad- + voc
+#WORD allege|/əˈledʒ/|v.  alleged 声称|—
+#WORD maintain|/meɪnˈteɪn/|v. 坚持；维护|main + tain
+#WORD refute|/rɪˈfjuːt/|v.  refute 驳斥|—
+#WORD rebut|/rɪˈbʌt/|v.  rebut 反驳|re- + but
+#WORD deny|/dɪˈnaɪ/|v. 否认|de- + ny
+#WORD acknowledge|/əkˈnɑːlɪdʒ/|v. 承认|—
+#WORD concede|/kənˈsiːd/|v.  concede 让步|con- + cede
+#WORD confess|/kənˈfes/|v.  confess 供认|con- + fess
+#WORD testify|/ˈtestɪfaɪ/|v.  testify 作证|test + -ify
+#WORD witness|/ˈwɪtnəs/|n./v. 证人；目击|—
+#WORD evidence|/ˈevɪdəns/|n. 证据|e- + vid 看
+#WORD proof|/pruːf/|n. 证明|—
+#WORD premise|/ˈpremɪs/|n. 前提|pre- + mis
+#WORD conclusion|/kənˈkluːʒn/|n. 结论|con- + clud
+#WORD inference|/ˈɪnfərəns/|n. 推论|infer
+#WORD assumption|/əˈsʌmpʃn/|n. 假设|assume
+#WORD proposition|/ˌprɑːpəˈzɪʃn/|n. 命题；提议|pro- + pos
+#WORD thesis|/ˈθiːsɪs/|n. 论文；论点|—
+#WORD stance|/stæns/|n. 立场|—
+#WORD viewpoint|/ˈvjuːpɔɪnt/|n. 观点|view + point
+#WORD standpoint|/ˈstændpɔɪnt/|n.  standpoint 立场|—
+#WORD opinion|/əˈpɪnjən/|n. 意见|—
+#WORD belief|/bɪˈliːf/|n. 信念|believe
+#WORD conviction|/kənˈvɪkʃn/|n.  conviction 信念|convict
+#WORD bias|/ˈbaɪəs/|n. 偏见|—
+#WORD prejudice|/ˈpredʒudɪs/|n. 偏见|pre- + jud
+#WORD subjective|/səbˈdʒektɪv/|a. 主观的|sub- + ject
+#WORD neutral|/ˈnuːtrəl/|a. 中立的|—
+#WORD impartial|/ɪmˈpɑːrʃl/|a. 公正的|im- + partial
+#WORD rational|/ˈræʃnəl/|a. 理性的|ratio 比
+#WORD logical|/ˈlɑːdʒɪkl/|a. 逻辑的|logic
+#WORD coherent|/koʊˈhɪrənt/|a. 连贯的|co- + her
+#WORD consistent|/kənˈsɪstənt/|a. 一致的|con- + sist
+#WORD fallacy|/ˈfæləsi/|n. 谬误|fall 错
+#WORD paradox|/ˈpærədɑːks/|n. 悖论|para- + dox
+#WORD dilemma|/dɪˈlemə/|n. 两难|di- + lemma
+#WORD controversy|/ˈkɑːntrəvɜːrsi/|n. 争议|contra- + vers
+#WORD disagreement|/ˌdɪsəˈɡriːmənt/|n. 分歧|dis- + agree
+#WORD consensus|/kənˈsensəs/|n. 共识|con- + sens
+#WORD compromise|/ˈkɑːmprəmaɪz/|n./v. 妥协|com- + promise
+#WORD negotiate|/nɪˈɡoʊʃieɪt/|v. 谈判|neg 否
+#WORD persuade|/pərˈsweɪd/|v. 说服|per- + suade
+#WORD convince|/kənˈvɪns/|v. 使信服|con- + vinc
+#WORD rhetoric|/ˈretərɪk/|n. 修辞|—
+#WORD eloquent|/ˈeləkwənt/|a. 雄辩的|e- + loqu
+#WORD articulate|/ɑːrˈtɪkjuleɪt/|a.  articulate 表达清晰|—
+#WORD emphasize|/ˈemfəsaɪz/|v. 强调|—
+#WORD highlight|/ˈhaɪlaɪt/|v. 突出|—
+#WORD illustrate|/ˈɪləstreɪt/|v. 说明|—
+#WORD demonstrate|/ˈdemənstreɪt/|v. 论证|—
+#WORD substantiate|/səbˈstænʃieɪt/|v.  substantiate 证实|sub- + stant
+#WORD corroborate|/kəˈrɑːbəreɪt/|v.  corroborate  corroborate|—
+#WORD undermine|/ˌʌndərˈmaɪn/|v. 削弱论点|—
+#WORD overstate|/ˌoʊvərˈsteɪt/|v. 夸大|over + state
+#WORD exaggerate|/ɪɡˈzædʒəreɪt/|v. 夸张|—
+#WORD distort|/dɪˈstɔːrt/|v. 歪曲|dis- + tort
+#WORD misinterpret|/ˌmɪsɪnˈtɜːrprət/|v. 误读|mis- + interpret
+#WORD ambiguity|/ˌæmbɪˈɡjuːəti/|n. 歧义|ambi- + gu
+#WORD nuance|/ˈnuːɑːns/|n. 细微差别|—
+#PHRASE from my perspective|/frəm maɪ pərˈspektɪv/|依我之见|From my perspective, it's weak.
+#PHRASE contradict oneself|/ˌkɑːntrəˈdɪkt wʌnˈself/|自相矛盾|Don't contradict yourself.
+#PHRASE justify one's action|/ˈdʒʌstɪfaɪ wʌnz ˈækʃn/|为行为辩护|Justify your action.
+#PHRASE a valid argument|/ə ˈvælɪd ˈɑːrɡjumənt/|站得住的论点|That's a valid argument.
+#PHRASE make a claim|/meɪk ə kleɪm/|提出主张|Scientists make a claim cautiously.
+#PHRASE present evidence|/prɪˈzent ˈevɪdəns/|出示证据|Present evidence in court.
+#PHRASE draw a conclusion|/drɔː ə kənˈkluːʒn/|得出结论|Draw a conclusion from facts.
+#PHRASE based on the premise|/beɪst ɑːn ðə ˈpremɪs/|基于前提|Based on the premise, it follows.
+#PHRASE take a stance|/teɪk ə stæns/|表明立场|Take a stance on the issue.
+#PHRASE hold an opinion|/hoʊld ən əˈpɪnjən/|持有观点|Everyone may hold an opinion.
+#PHRASE personal bias|/ˈpɜːrsənl ˈbaɪəs/|个人偏见|Watch for personal bias.
+#PHRASE remain neutral|/rɪˈmeɪn ˈnuːtrəl/|保持中立|Judges must remain neutral.
+#PHRASE a logical fallacy|/ə ˈlɑːdʒɪkl ˈfæləsi/|逻辑谬误|That's a logical fallacy.
+#PHRASE spark controversy|/spɑːrk ˈkɑːntrəvɜːrsi/|引发争议|The film sparked controversy.
+#PHRASE reach a consensus|/riːtʃ ə kənˈsensəs/|达成共识|They reached a consensus.
+#PHRASE reach a compromise|/riːtʃ ə ˈkɑːmprəmaɪz/|达成妥协|Negotiators reached a compromise.
+#PHRASE persuade sb of|/pərˈsweɪd ˈsʌmbədi əv/|使某人信服|Persuade him of the truth.
+#PHRASE convince sb that|/kənˈvɪns ˈsʌmbədi ðæt/|使某人相信|Convince her that it matters.
+#PHRASE make one's case|/meɪk wʌnz keɪs/|陈述理由|Lawyers make their case.
+#PHRASE state clearly|/steɪt ˈklɪrli/|清楚陈述|State clearly what you mean.
+#PHRASE put forward a proposal|/pʊt ˈfɔːrwərd ə prəˈpoʊzl/|提出提案|Put forward a proposal today.
+#PHRASE refute a claim|/rɪˈfjuːt ə kleɪm/|驳斥主张|Data refute a claim easily.
+#PHRASE acknowledge a point|/əkˈnɑːlɪdʒ ə pɔɪnt/|承认某点|Acknowledge a point fairly.
+#PHRASE concede defeat|/kənˈsiːd dɪˈfiːt/|承认失败|He conceded defeat gracefully.
+#PHRASE bear witness to|/ber ˈwɪtnəs tə/|见证|Records bear witness to change.
+#PHRASE beyond dispute|/bɪˈjɑːnd dɪˈspjuːt/|无可争议|The result is beyond dispute.
+#PHRASE open to debate|/ˈoʊpən tə dɪˈbeɪt/|可商榷|The policy is open to debate.
+#PHRASE heated debate|/ˈhiːtɪd dɪˈbeɪt/|激烈辩论|A heated debate erupted.
+#PHRASE play devil's advocate|/pleɪ ˈdevlz ˈædvəkeɪt/|故意唱反调|Let me play devil's advocate.
+#PHRASE on the one hand|/ɑːn ðə wʌn hænd/|一方面|On the one hand, costs rise.
+#PHRASE on the other hand|/ɑːn ði ˈʌðər hænd/|另一方面|On the other hand, quality improves.
+#PHRASE in my view|/ɪn maɪ vjuː/|在我看来|In my view, reform is needed.
+#PHRASE as far as I'm concerned|/æz fɑːr æz aɪm kənˈsɜːrnd/|就我而言|As far as I'm concerned, it's fine.
+#PHRASE strongly disagree|/strɔːŋli ˌdɪsəˈɡriː/|强烈反对|I strongly disagree with that.
+#PHRASE partially agree|/ˈpɑːrʃəli əˈɡriː/|部分同意|I partially agree with you.
+#PHRASE substantiate a claim|/səbˈstænʃieɪt ə kleɪm/|证实主张|Substantiate a claim with data.
+#PHRASE undermine credibility|/ˌʌndərˈmaɪn ˌkredəˈbɪləti/|损害可信度|Lies undermine credibility.
+#PHRASE distort the facts|/dɪˈstɔːrt ðə fækts/|歪曲事实|Don't distort the facts.
+#PHRASE read between the lines|/riːd bɪˈtwiːn ðə laɪnz/|体会言外之意|Read between the lines carefully.
+#PHRASE a matter of opinion|/ə ˈmætər əv əˈpɪnjən/|见仁见智|Taste is a matter of opinion.
+#SENTTYPE 陈述句|否定句|一般疑问句|特殊疑问句|选择疑问句|反意疑问句|祈使句|感叹句|存在句|被动语态|现在完成时|过去完成时|将来时态|真实条件句|虚拟语气|定语从句|宾语从句|原因状语从句|让步状语从句|目的状语从句|比较结构|强调句|倒装句|分词结构|不定式结构|动名词结构|with 复合结构|同位语从句|插入评注|形式主语 It
+#SENT 1|陈述句|A valid argument must rest on objective evidence.|站得住脚的论点必须基于客观证据。
+#SENT 2|否定句|He did not justify his claim with reliable data.|他没有用可靠数据为自己的主张辩护。
+#SENT 3|一般疑问句|Do you contend that the conclusion is premature?|你是否主张该结论为时过早？
+#SENT 4|特殊疑问句|What perspective shapes your evaluation of the policy?|何种视角塑造了你对该政策的评价？
+#SENT 5|选择疑问句|Should we assert our position or remain cautious?|我们应断言立场还是保持谨慎？
+#SENT 6|反意疑问句|The evidence contradicts the rumor, doesn't it?|证据与谣言矛盾，不是吗？
+#SENT 7|祈使句|Speculate carefully before you publish the critique.|发表批评前请谨慎推测。
+#SENT 8|感叹句|How convincing this line of reasoning is!|这一推理多么有说服力！
+#SENT 9|存在句|There are several competing interpretations of the text.|对该文本存在若干相互竞争的解释。
+#SENT 10|被动语态|The hypothesis was challenged by subsequent studies.|该假设受到后续研究的挑战。
+#SENT 11|现在完成时|Scholars have long debated the validity of this method.|学者们长期争论该方法的有效性。
+#SENT 12|过去完成时|She had already outlined her thesis before the seminar.|研讨会前她已列出论文提纲。
+#SENT 13|将来时态|We will examine whether the claim can withstand scrutiny.|我们将检验该主张能否经得起审视。
+#SENT 14|真实条件句|If the premises are false, the conclusion collapses.|如果前提为假，结论就会崩塌。
+#SENT 15|虚拟语气|If the data were clearer, we would not speculate so freely.|如果数据更清晰，我们就不会如此随意推测。
+#SENT 16|定语从句|Critics who contradict the mainstream offer alternative views.|反驳主流的批评者提供了替代观点。
+#SENT 17|宾语从句|I believe that an objective stance reduces bias.|我认为客观立场能减少偏见。
+#SENT 18|原因状语从句|Because the argument lacks evidence, it remains unpersuasive.|因为该论点缺乏证据，所以仍缺乏说服力。
+#SENT 19|让步状语从句|Although he asserted his innocence, doubts persisted.|尽管他断言自己无辜，疑虑依然存在。
+#SENT 20|目的状语从句|Clarify definitions so that debate stays productive.|澄清定义，以便辩论保持建设性。
+#SENT 21|比较结构|A justified claim is stronger than a mere opinion.|有依据的主张强于单纯意见。
+#SENT 22|强调句|It is the evidence that validates the argument.|正是证据使论点成立。
+#SENT 23|倒装句|Never before have we seen such polarized perspectives.|我们从未见过如此两极分化的观点。
+#SENT 24|分词结构|Confronted with counterexamples, he revised his position.|面对反例，他修正了立场。
+#SENT 25|不定式结构|To justify a policy, one must weigh costs and benefits.|要为政策辩护，必须权衡成本与收益。
+#SENT 26|动名词结构|Speculating without data undermines scholarly credibility.|没有数据地推测会损害学术可信度。
+#SENT 27|with 复合结构|With conflicting reports circulating, caution is warranted.|在相互矛盾的报道流传时，谨慎是必要的。
+#SENT 28|同位语从句|The claim that markets are always efficient is disputed.|市场总是有效这一主张存在争议。
+#SENT 29|插入评注|Objectivity, frankly, is harder than it sounds.|坦白说，客观性比听起来更难。
+#SENT 30|形式主语 It|It is necessary to distinguish assertion from proof.|有必要区分断言与证明。

@@ -1,0 +1,153 @@
+#TITLE 心理与行为 | psych / path / motiv = 心 / 感 / 动
+#ROOT psych / path / motiv|心灵 / 感情 / 驱动|psych→psychology, psychiatrist, psychic, psychotherapy, path / pass→sympathy, apathy, passion, pathology, mot / mov→motivate, emotion, mobile, locomotion, -ology / -ist→psychology, psychologist
+#WORD psychology|/saɪˈkɑːlədʒi/|n. 心理学|psych + -ology
+#WORD psychologist|/saɪˈkɑːlədʒɪst/|n. 心理学家|psychology
+#WORD psychiatric|/ˌsaɪkiˈætrɪk/|a. 精神病学的|psychiatry
+#WORD motivate|/ˈmoʊtɪveɪt/|v. 激励|motivation
+#WORD motivation|/ˌmoʊtɪˈveɪʃn/|n. 动机|motivate
+#WORD incentive|/ɪnˈsentɪv/|n. 激励；刺激|incent
+#WORD anxiety|/æŋˈzaɪəti/|n. 焦虑|anxious
+#WORD empathy|/ˈempəθi/|n. 共情|em- + path
+#WORD prejudice|/ˈpredʒudɪs/|n. 偏见|pre- + jud
+#WORD stereotype|/ˈsteriətaɪp/|n. 刻板印象|stereo + type
+#WORD impulse|/ˈɪmpʌls/|n. 冲动|impulsive
+#WORD sympathy|/ˈsɪmpəθi/|n. 同情|sym- + path
+#WORD apathy|/ˈæpəθi/|n. 冷漠|a- + path
+#WORD passion|/ˈpæʃn/|n. 热情|passionate
+#WORD emotion|/ɪˈmoʊʃn/|n. 情感|emotional
+#WORD emotional|/ɪˈmoʊʃənl/|a. 情绪的|emotion
+#WORD cognition|/kɑːɡˈnɪʃn/|n. 认知|cognitive
+#WORD perception|/pərˈsepʃn/|n. 感知；看法|perceive
+#WORD consciousness|/ˈkɑːnʃəsnəs/|n. 意识|conscious
+#WORD subconscious|/ˌsʌbˈkɑːnʃəs/|a./n. 潜意识（的）|sub- + conscious
+#WORD instinct|/ˈɪnstɪŋkt/|n. 本能|instinctive
+#WORD intuition|/ˌɪntuˈɪʃn/|n. 直觉|intuitive
+#WORD temperament|/ˈtemprəmənt/|n. 气质|temper
+#WORD personality|/ˌpɜːrsəˈnæləti/|n. 人格|personal
+#WORD disposition|/ˌdɪspəˈzɪʃn/|n. 性情；倾向|dispose
+#WORD behavior|/bɪˈheɪvjər/|n. 行为|behaviour BrE
+#WORD behavioral|/bɪˈheɪvjərəl/|a. 行为的|behavior
+#WORD habitual|/həˈbɪtʃuəl/|a. 习惯性的|habit
+#WORD compulsion|/kəmˈpʌlʃn/|n. 强迫（行为）|compulsive
+#WORD addiction|/əˈdɪkʃn/|n. 成瘾|addict
+#WORD withdrawal|/wɪðˈdrɔːəl/|n. 戒断；撤回|withdraw
+#WORD trauma|/ˈtrɔːmə/|n. 创伤|traumatic
+#WORD depression|/dɪˈpreʃn/|n. 抑郁；萧条|depress
+#WORD melancholy|/ˈmelənkɑːli/|n./a. 忧郁（的）|literary
+#WORD phobia|/ˈfoʊbiə/|n. 恐惧症|claustrophobia
+#WORD obsession|/əbˈseʃn/|n. 痴迷|obsess
+#WORD delusion|/dɪˈluːʒn/|n. 妄想；错觉|delude
+#WORD hallucination|/həˌluːsɪˈneɪʃn/|n. 幻觉|hallucinate
+#WORD resilience|/rɪˈzɪliəns/|n. 韧性；恢复力|resilient
+#WORD vulnerability|/ˌvʌlnərəˈbɪləti/|n. 脆弱性|vulnerable
+#WORD self-esteem|/ˌself ɪˈstiːm/|n. 自尊|esteem
+#WORD confidence|/ˈkɑːnfɪdəns/|n. 信心|confident
+#WORD insecurity|/ˌɪnsɪˈkjʊrəti/|n. 不安全感|insecure
+#WORD frustration|/frʌˈstreɪʃn/|n. 挫败感|frustrate
+#WORD aggression|/əˈɡreʃn/|n. 攻击性|aggressive
+#WORD hostility|/hɑːˈstɪləti/|n. 敌意|hostile
+#WORD affection|/əˈfekʃn/|n. 喜爱|affectionate
+#WORD alienation|/ˌeɪliəˈneɪʃn/|n. 疏离|alienate
+#WORD conformity|/kənˈfɔːrməti/|n. 从众|conform
+#WORD rebellion|/rɪˈbeljən/|n. 反抗|rebel
+#WORD peer|/pɪr/|n. 同龄人|peer pressure
+#WORD socialization|/ˌsoʊʃələˈzeɪʃn/|n. 社会化|socialize
+#WORD conditioning|/kənˈdɪʃənɪŋ/|n. 条件反射|condition
+#WORD reinforcement|/ˌriːɪnˈfɔːrsmənt/|n. 强化|reinforce
+#WORD stimulus|/ˈstɪmjələs/|n. 刺激（pl. stimuli）|stimulate
+#WORD response|/rɪˈspɑːns/|n. 反应|respond
+#WORD attitude|/ˈætɪtuːd/|n. 态度|attitudinal
+#WORD mindset|/ˈmaɪndset/|n. 思维模式|mind + set
+#WORD bias|/ˈbaɪəs/|n. 偏见|biased
+#WORD discrimination|/dɪˌskrɪmɪˈneɪʃn/|n. 歧视；辨别|discriminate
+#WORD stigma|/ˈstɪɡmə/|n. 污名|stigmatize
+#WORD counseling|/ˈkaʊnsəlɪŋ/|n. 心理咨询|counsel
+#WORD therapy|/ˈθerəpi/|n. 治疗；疗法|therapist
+#WORD psychotherapy|/ˌsaɪkoʊˈθerəpi/|n. 心理治疗|psycho + therapy
+#WORD hypnosis|/hɪpˈnoʊsɪs/|n. 催眠|hypnotize
+#WORD meditation|/ˌmedɪˈteɪʃn/|n. 冥想|meditate
+#WORD mindfulness|/ˈmaɪndfəlnəs/|n. 正念|mindful
+#WORD catharsis|/kəˈθɑːrsɪs/|n. 宣泄|cathartic
+#WORD rationalize|/ˈræʃnəlaɪz/|v. 合理化（心理）|rational
+#WORD rationalization|/ˌræʃnələˈzeɪʃn/|n. 合理化|rationalize
+#WORD projection|/prəˈdʒekʃn/|n. 投射（心理）|project
+#WORD denial|/dɪˈnaɪəl/|n. 否认（防御机制）|deny
+#WORD repression|/rɪˈpreʃn/|n. 压抑|repress
+#WORD sublimation|/ˌsʌblɪˈmeɪʃn/|n. 升华（心理）|sublimate
+#WORD neurosis|/nʊˈroʊsɪs/|n. 神经症|neurotic
+#WORD psychosis|/saɪˈkoʊsɪs/|n. 精神病|psychotic
+#WORD disorder|/dɪsˈɔːrdər/|n. 紊乱；障碍|order 反义
+#WORD syndrome|/ˈsɪndroʊm/|n. 综合征|sym- + drom
+#WORD autism|/ˈɔːtɪzəm/|n. 自闭症|autistic
+#WORD schizophrenia|/ˌskɪtsəˈfriːniə/|n. 精神分裂症|schizo + phren
+#PHRASE motivate sb to do|/ˈmoʊtɪveɪt ˈsʌmbədi tə duː/|激励某人做|Teachers motivate students to read.
+#PHRASE financial incentive|/faɪˈnænʃl ɪnˈsentɪv/|经济激励|A financial incentive boosted sales.
+#PHRASE racial prejudice|/ˈreɪʃl ˈpredʒudɪs/|种族偏见|Fight racial prejudice openly.
+#PHRASE on impulse|/ɑːn ˈɪmpʌls/|一时冲动|He bought it on impulse.
+#PHRASE peer pressure|/pɪr ˈpreʃər/|同辈压力|Peer pressure shapes behavior.
+#PHRASE self-esteem|/ˌself ɪˈstiːm/|自尊|Praise can raise self-esteem.
+#PHRASE coping mechanism|/ˈkoʊpɪŋ ˈmekənɪzəm/|应对机制|Exercise is a coping mechanism.
+#PHRASE mental health|/ˈmentl helθ/|心理健康|Mental health matters at work.
+#PHRASE anxiety disorder|/æŋˈzaɪəti dɪsˈɔːrdər/|焦虑症|She sought help for anxiety disorder.
+#PHRASE cognitive bias|/ˈkɑːɡnətɪv ˈbaɪəs/|认知偏差|Cognitive bias affects judgment.
+#PHRASE emotional intelligence|/ɪˈmoʊʃənl ɪnˈtelɪdʒəns/|情商|Emotional intelligence aids leadership.
+#PHRASE behavioral pattern|/bɪˈheɪvjərəl ˈpætərn/|行为模式|Notice the behavioral pattern.
+#PHRASE fight or flight|/faɪt ɔːr flaɪt/|战斗或逃跑反应|Stress triggers fight or flight.
+#PHRASE defense mechanism|/dɪˈfens ˈmekənɪzəm/|防御机制|Denial is a defense mechanism.
+#PHRASE positive reinforcement|/ˈpɑːzətɪv ˌriːɪnˈfɔːrsmənt/|正强化|Use positive reinforcement in class.
+#PHRASE negative reinforcement|/ˈneɡətɪv ˌriːɪnˈfɔːrsmənt/|负强化|Negative reinforcement removes pain.
+#PHRASE conditioned response|/kənˈdɪʃənd rɪˈspɑːns/|条件反射|Salivation is a conditioned response.
+#PHRASE loss of motivation|/lɔːs əv ˌmoʊtɪˈveɪʃn/|失去动力|Burnout causes loss of motivation.
+#PHRASE feel empathy for|/fiːl ˈempəθi fɔːr/|对…共情|Feel empathy for victims.
+#PHRASE show sympathy|/ʃoʊ ˈsɪmpəθi/|表示同情|Show sympathy without pity.
+#PHRASE overcome trauma|/ˌoʊvərˈkʌm ˈtrɔːmə/|克服创伤|Therapy helps overcome trauma.
+#PHRASE build resilience|/bɪld rɪˈzɪliəns/|培养韧性|Sports build resilience.
+#PHRASE social anxiety|/ˈsoʊʃl æŋˈzaɪəti/|社交焦虑|Social anxiety limits networking.
+#PHRASE panic attack|/ˈpænɪk əˈtæk/|恐慌发作|She had a panic attack.
+#PHRASE eating disorder|/ˈiːtɪŋ dɪsˈɔːrdər/|饮食障碍|Media can trigger eating disorder.
+#PHRASE addictive behavior|/əˈdɪktɪv bɪˈheɪvjər/|成瘾行为|Gambling is addictive behavior.
+#PHRASE withdrawal symptoms|/wɪðˈdrɔːəl ˈsɪmptəmz/|戒断症状|Withdrawal symptoms appeared.
+#PHRASE seek counseling|/siːk ˈkaʊnsəlɪŋ/|寻求咨询|Seek counseling early.
+#PHRASE undergo therapy|/ˌʌndərˈɡoʊ ˈθerəpi/|接受治疗|He underwent therapy for months.
+#PHRASE practice mindfulness|/ˈpræktɪs ˈmaɪndfəlnəs/|练习正念|Practice mindfulness daily.
+#PHRASE change one's mindset|/tʃeɪndʒ wʌnz ˈmaɪndset/|改变心态|Coaching changed her mindset.
+#PHRASE conform to norms|/kənˈfɔːrm tə nɔːrmz/|遵从规范|Teens conform to norms.
+#PHRASE rebel against authority|/rɪˈbel əˈɡenst əˈθɔːrəti/|反抗权威|Youth rebel against authority.
+#PHRASE gender stereotype|/ˈdʒendər ˈsteriətaɪp/|性别刻板印象|Challenge gender stereotype.
+#PHRASE implicit bias|/ɪmˈplɪsɪt ˈbaɪəs/|隐性偏见|Training reduces implicit bias.
+#PHRASE stigma around mental illness|/ˈstɪɡmə əˈraʊnd ˈmentl ˈɪlnəs/|对心理疾病的污名|Reduce stigma around mental illness.
+#PHRASE psychological well-being|/ˌsaɪkəˈlɑːdʒɪkl ˌwel ˈbiːɪŋ/|心理健康（福祉）|Sleep aids psychological well-being.
+#PHRASE intrinsic motivation|/ɪnˈtrɪnzɪk ˌmoʊtɪˈveɪʃn/|内在动机|Curiosity drives intrinsic motivation.
+#PHRASE extrinsic reward|/ɪkˈstrɪnzɪk rɪˈwɔːrd/|外在奖励|Extrinsic reward fades quickly.
+#PHRASE fight discrimination|/faɪt dɪˌskrɪmɪˈneɪʃn/|对抗歧视|Laws fight discrimination.
+#SENTTYPE 陈述句|否定句|一般疑问句|特殊疑问句|选择疑问句|反意疑问句|祈使句|感叹句|存在句|被动语态|现在完成时|过去完成时|将来时态|真实条件句|虚拟语气|定语从句|宾语从句|原因状语从句|让步状语从句|目的状语从句|比较结构|强调句|倒装句|分词结构|不定式结构|动名词结构|with 复合结构|同位语从句|插入评注|形式主语 It
+#SENT 1|陈述句|Empathy motivates prosocial behavior in groups.|共情激发群体中的亲社会行为。
+#SENT 2|否定句|Stereotypes did not disappear after the campaign.|刻板印象并未在运动后消失。
+#SENT 3|一般疑问句|Does anxiety impair working memory under pressure?|焦虑是否在压力下损害工作记忆？
+#SENT 4|特殊疑问句|What incentives shape adolescent risk-taking?|哪些激励塑造青少年冒险行为？
+#SENT 5|选择疑问句|Is prejudice explicit bias or implicit association?|偏见是显性偏见还是内隐联想？
+#SENT 6|反意疑问句|Impulse control matters, doesn't it?|冲动控制很重要，对吧？
+#SENT 7|祈使句|Challenge stereotypes before they harden into norms.|在刻板印象固化为规范前挑战它们。
+#SENT 8|感叹句|How powerful peer pressure can become!|同辈压力可以变得多么强大！
+#SENT 9|存在句|There is rising concern about student anxiety.|对学生焦虑的担忧在上升。
+#SENT 10|被动语态|Motivation is often strengthened by timely feedback.|动机常因及时反馈而增强。
+#SENT 11|现在完成时|Psychologists have studied empathy across cultures.|心理学家跨文化研究共情。
+#SENT 12|过去完成时|The child had internalized the stereotype early.|孩子很早就内化了刻板印象。
+#SENT 13|将来时态|Schools will introduce mindfulness programs next term.|学校下学期将引入正念项目。
+#SENT 14|真实条件句|If incentives align, cooperation will increase.|如果激励一致，合作将增加。
+#SENT 15|虚拟语气|If stigma were reduced, more people would seek help.|若污名减少，更多人会求助。
+#SENT 16|定语从句|People who show empathy resolve conflicts faster.|表现共情的人解决冲突更快。
+#SENT 17|宾语从句|Therapists believe that talking reduces anxiety.|治疗师认为倾诉能减轻焦虑。
+#SENT 18|原因状语从句|Because impulses arise quickly, pause techniques help.|因为冲动来得快，暂停技巧有帮助。
+#SENT 19|让步状语从句|Although prejudice declined publicly, bias persisted privately.|尽管公开偏见下降，私下偏见仍在。
+#SENT 20|目的状语从句|Design incentives so that healthy habits stick.|设计激励，以便健康习惯得以保持。
+#SENT 21|比较结构|Intrinsic motivation lasts longer than external rewards.|内在动机比外部奖励更持久。
+#SENT 22|强调句|It is early intervention that prevents chronic anxiety.|正是早期干预防止慢性焦虑。
+#SENT 23|倒装句|Rarely do stereotypes match individual reality.|刻板印象很少符合个体现实。
+#SENT 24|分词结构|Facing rejection, she rebuilt self-efficacy gradually.|面对拒绝，她逐渐重建自我效能。
+#SENT 25|不定式结构|To reduce prejudice, expand intergroup contact.|为减少偏见，应扩大群际接触。
+#SENT 26|动名词结构|Labeling people can reinforce harmful stereotypes.|给人贴标签会强化有害刻板印象。
+#SENT 27|with 复合结构|With social support present, resilience improves.|有社会支持时，韧性提升。
+#SENT 28|同位语从句|The idea that personality never changes is outdated.|性格永不改变这一想法已经过时。
+#SENT 29|插入评注|In therapy, honesty matters more than perfection.|在治疗中，诚实比完美更重要。
+#SENT 30|形式主语 It|It is healthy to acknowledge emotional vulnerability.|承认情绪脆弱是健康的。

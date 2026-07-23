@@ -1,0 +1,158 @@
+#TITLE 复习强化（Day22–27）
+#ROOT cept / ceiv / cip / capt|拿、抓、取|cept / ceiv→concept, perceive, receive, conceive, cip / capt→anticipate, participate, capture, captive, inter- / pre-→intercept, interpret, precede, prejudice, -ual / -ion→conceptual, perception, conception
+#ROOT flu|流|influence, fluent
+#ROOT duc|引导|induce, deduce, conduct
+#ROOT press|压|pressure, suppress
+#ROOT suad|劝|persuade
+#ROOT struct|建造|structure, construct
+#WORD concept|/ˈkɑːnsept/|n. 概念|con- + cept
+#WORD conceptual|/kənˈseptʃuəl/|a. 概念的|concept
+#WORD conception|/kənˈsepʃn/|n. 概念；构想|conceive
+#WORD conceive|/kənˈsiːv/|v. 构想；怀孕|con- + ceive
+#WORD perception|/pərˈsepʃn/|n. 感知；看法|perceive
+#WORD perceive|/pərˈsiːv/|v. 察觉；认为|per- + ceive
+#WORD perceptive|/pərˈseptɪv/|a. 敏锐的|perceive
+#WORD assumption|/əˈsʌmpʃn/|n. 假设|assume
+#WORD assume|/əˈsuːm/|v. 假定；承担|ad- + sume
+#WORD hypothesis|/haɪˈpɑːθəsɪs/|n. 假设|hypo + thesis
+#WORD hypothetical|/ˌhaɪpəˈθetɪkl/|a. 假设的|hypothesis
+#WORD paradigm|/ˈpærədaɪm/|n. 范式|paradigm shift
+#WORD abstract|/ˈæbstrækt/|a. 抽象的|abs- + tract
+#WORD abstraction|/æbˈstrækʃn/|n. 抽象|abstract
+#WORD concrete|/ˈkɑːŋkriːt/|a. 具体的|反义 abstract
+#WORD empirical|/ɪmˈpɪrɪkl/|a. 实证的|empiricism
+#WORD empiricism|/ɪmˈpɪrɪsɪzəm/|n. 经验主义|empirical
+#WORD theoretical|/ˌθiːəˈretɪkl/|a. 理论的|theory
+#WORD theory|/ˈθɪri/|n. 理论|theoretical
+#WORD notion|/ˈnoʊʃn/|n. 概念；想法|not
+#WORD premise|/ˈpremɪs/|n. 前提|pre- + mis
+#WORD inference|/ˈɪnfərəns/|n. 推论|infer
+#WORD infer|/ɪnˈfɜːr/|v. 推断|in- + fer
+#WORD deduce|/dɪˈduːs/|v. 演绎；推断|de- + duce
+#WORD deduction|/dɪˈdʌkʃn/|n. 演绎；扣除|deduce
+#WORD induction|/ɪnˈdʌkʃn/|n. 归纳；感应|induce
+#WORD generalization|/ˌdʒenrələˈzeɪʃn/|n. 概括|generalize
+#WORD generalize|/ˈdʒenrəlaɪz/|v. 概括；推广|general
+#WORD speculation|/ˌspekjuˈleɪʃn/|n. 推测|speculate
+#WORD speculative|/ˈspekjuleɪtɪv/|a. 推测的|speculate
+#WORD intuition|/ˌɪntuˈɪʃn/|n. 直觉|intuit
+#WORD intuitive|/ɪnˈtuːɪtɪv/|a. 直觉的|intuition
+#WORD cognitive|/ˈkɑːɡnətɪv/|a. 认知的|cogn
+#WORD cognition|/kɑːɡˈnɪʃn/|n. 认知|cogn
+#WORD mental|/ˈmentl/|a. 心理的；精神的|mind
+#WORD intellectual|/ˌɪntəˈlektʃuəl/|a. 智力的|intellect
+#WORD rational|/ˈræʃnəl/|a. 理性的|ratio 比
+#WORD irrational|/ɪˈræʃnəl/|a. 非理性的|ir- + rational
+#WORD logical|/ˈlɑːdʒɪkl/|a. 逻辑的|logic
+#WORD coherent|/koʊˈhɪrənt/|a. 连贯的|soci/civ
+#WORD incoherent|/ˌɪnkoʊˈhɪrənt/|a. 不连贯的|in- + coherent
+#WORD ambiguity|/ˌæmbɪˈɡjuːəti/|n. 歧义|ambi- + gu
+#WORD misconception|/ˌmɪsənˈsepʃn/|n. 误解|mis- + conception
+#WORD preconception|/ˌpriːkənˈsepʃn/|n. 成见|pre- + conception
+#WORD anticipate|/ænˈtɪsɪpeɪt/|v. 预期|anti- + cip
+#WORD anticipation|/ænˌtɪsɪˈpeɪʃn/|n. 预期|anticipate
+#WORD participate|/pɑːrˈtɪsɪpeɪt/|v. 参与|part + cip
+#WORD participant|/pɑːrˈtɪsɪpənt/|n. 参与者|participate
+#WORD capture|/ˈkæptʃər/|v. 捕获；体现|capt
+#WORD captive|/ˈkæptɪv/|n./a. 俘虏（的）|capt
+#WORD intercept|/ˌɪntərˈsept/|v. 拦截|inter- + cept
+#WORD interpret|/ɪnˈtɜːrprɪt/|v. 解释|inter- + pret
+#WORD interpretation|/ɪnˌtɜːrprɪˈteɪʃn/|n. 解释|interpret
+#WORD misinterpret|/ˌmɪsɪnˈtɜːrprət/|v. 误读|mis- + interpret
+#WORD prejudice|/ˈpredʒudɪs/|n. 偏见|pre- + jud
+#WORD bias|/ˈbaɪəs/|n. 偏见|biased
+#WORD stereotype|/ˈsteriətaɪp/|n. 刻板印象|stereo + type
+#WORD paradox|/ˈpærədɑːks/|n. 悖论|para- + dox
+#WORD dilemma|/dɪˈlemə/|n. 两难|di- + lemma
+#WORD contradiction|/ˌkɑːntrəˈdɪkʃn/|n. 矛盾|contra + dict
+#WORD consistent|/kənˈsɪstənt/|a. 一致的|con- + sist
+#WORD inconsistent|/ˌɪnkənˈsɪstənt/|a. 不一致的|in- + consistent
+#WORD implicit|/ɪmˈplɪsɪt/|a. 含蓄的|im- + plic
+#WORD explicit|/ɪkˈsplɪsɪt/|a. 明确的|ex- + plic
+#WORD nuance|/ˈnuːɑːns/|n. 细微差别|法语借词
+#WORD subtle|/ˈsʌtl/|a. 微妙的|subtlety
+#WORD profound|/prəˈfaʊnd/|a. 深刻的|pro- + found
+#WORD superficial|/ˌsuːpərˈfɪʃl/|a. 肤浅的|super + fic
+#WORD philosophical|/ˌfɪləˈsɑːfɪkl/|a. 哲学的|philosophy
+#WORD metaphysical|/ˌmetəˈfɪzɪkl/|a. 形而上学的|meta + physic
+#WORD epistemology|/ɪˌpɪstəˈmɑːlədʒi/|n. 认识论|episteme
+#WORD ontology|/ɑːnˈtɑːlədʒi/|n. 本体论|ont
+#WORD axiom|/ˈæksiəm/|n. 公理|axi
+#WORD theorem|/ˈθiːərəm/|n. 定理|theo
+#WORD corollary|/ˈkɔːrəleri/|n. 推论；必然结果|coroll
+#WORD analogy|/əˈnælədʒi/|n. 类比|ana- + log
+#WORD metaphor|/ˈmetəfɔːr/|n. 隐喻|meta + phor
+#WORD symbolic|/sɪmˈbɑːlɪk/|a. 象征的|symbol
+#WORD representational|/ˌreprɪzenˈteɪʃənl/|a. 表征的|represent
+#WORD framework|/ˈfreɪmwɜːrk/|n. 框架|frame + work
+#PHRASE abstract concept|/ˈæbstrækt ˈkɑːnsept/|抽象概念|An abstract concept is hard to define.
+#PHRASE working hypothesis|/ˈwɜːrkɪŋ haɪˈpɑːθəsɪs/|工作假设|A working hypothesis guides research.
+#PHRASE paradigm shift|/ˈpærədaɪm ʃɪft/|范式转变|A paradigm shift occurred.
+#PHRASE empirical evidence|/ɪmˈpɪrɪkl ˈevɪdəns/|实证证据|Empirical evidence supports the claim.
+#PHRASE theoretical model|/ˌθiːəˈretɪkl ˈmɑːdl/|理论模型|A theoretical model was proposed.
+#PHRASE on the premise that|/ɑːn ðə ˈpremɪs ðæt/|以…为前提|On the premise that data are valid.
+#PHRASE draw an inference|/drɔː ən ˈɪnfərəns/|作出推论|Draw an inference from facts.
+#PHRASE deduce from|/dɪˈduːs frəm/|从…演绎|Deduce conclusions from axioms.
+#PHRASE generalize from|/ˈdʒenrəlaɪz frəm/|从…概括|Generalize from a sample.
+#PHRASE pure speculation|/pjʊr ˌspekjuˈleɪʃn/|纯粹推测|That is pure speculation.
+#PHRASE cognitive process|/ˈkɑːɡnətɪv ˈprɑːses/|认知过程|A complex cognitive process.
+#PHRASE rational thinking|/ˈræʃnəl ˈθɪŋkɪŋ/|理性思维|Rational thinking requires evidence.
+#PHRASE logical consistency|/ˈlɑːdʒɪkl kənˈsɪstənsi/|逻辑一致|Maintain logical consistency.
+#PHRASE coherent argument|/koʊˈhɪrənt ˈɑːrɡjumənt/|连贯论证|Build a coherent argument.
+#PHRASE common misconception|/ˈkɑːmən ˌmɪsənˈsepʃn/|常见误解|A common misconception persists.
+#PHRASE anticipate the outcome|/ænˈtɪsɪpeɪt ði ˈaʊtkʌm/|预期结果|Anticipate the outcome early.
+#PHRASE participate in debate|/pɑːrˈtɪsɪpeɪt ɪn dɪˈbeɪt/|参与辩论|Participate in academic debate.
+#PHRASE capture the essence|/ˈkæptʃər ði ˈesns/|抓住本质|Capture the essence of the idea.
+#PHRASE interpret the results|/ɪnˈtɜːrprɪt ðə rɪˈzʌlts/|解读结果|Interpret the results cautiously.
+#PHRASE implicit assumption|/ɪmˈplɪsɪt əˈsʌmpʃn/|隐含假定|An implicit assumption underlies it.
+#PHRASE explicit statement|/ɪkˈsplɪsɪt ˈsteɪtmənt/|明确陈述|Make an explicit statement.
+#PHRASE subtle distinction|/ˈsʌtl dɪˈstɪŋkʃn/|细微区别|A subtle distinction matters.
+#PHRASE profound insight|/prəˈfaʊnd ˈɪnsaɪt/|深刻洞见|Offer a profound insight.
+#PHRASE philosophical question|/ˌfɪləˈsɑːfɪkl ˈkwestʃən/|哲学问题|Raise a philosophical question.
+#PHRASE by analogy|/baɪ əˈnælədʒi/|通过类比|Explain by analogy.
+#PHRASE metaphor for|/ˈmetəfɔːr fɔːr/|…的隐喻|A metaphor for change.
+#PHRASE conceptual framework|/kənˈseptʃuəl ˈfreɪmwɜːrk/|概念框架|A conceptual framework helps.
+#PHRASE test the hypothesis|/test ðə haɪˈpɑːθəsɪs/|检验假设|Test the hypothesis rigorously.
+#PHRASE contradictory evidence|/ˌkɑːntrəˈdɪktəri ˈevɪdəns/|矛盾证据|Contradictory evidence appeared.
+#PHRASE intellectual rigor|/ˌɪntəˈlektʃuəl ˈrɪɡər/|学术严谨|Intellectual rigor is required.
+#PHRASE mental model|/ˈmentl ˈmɑːdl/|心智模型|Update your mental model.
+#PHRASE beyond perception|/bɪˈjɑːnd pərˈsepʃn/|超出感知|Beyond ordinary perception.
+#PHRASE form a conception|/fɔːrm ə kənˈsepʃn/|形成概念|Form a conception of justice.
+#PHRASE abstract reasoning|/ˈæbstrækt ˈriːzənɪŋ/|抽象推理|Abstract reasoning skills.
+#PHRASE concrete example|/ˈkɑːŋkriːt ɪɡˈzæmpl/|具体例子|Give a concrete example.
+#PHRASE nuance of meaning|/ˈnuːɑːns əv ˈmiːnɪŋ/|意义细微差别|The nuance of meaning matters.
+#PHRASE paradoxical situation|/ˌpærəˈdɑːksɪkl ˌsɪtʃuˈeɪʃn/|悖论情境|A paradoxical situation arose.
+#PHRASE moral dilemma|/ˈmɔːrəl dɪˈlemə/|道德两难|Face a moral dilemma.
+#PHRASE stereotypical view|/ˌsteriəˈtɪpɪkl vjuː/|刻板看法|Challenge stereotypical views.
+#PHRASE symbolic representation|/sɪmˈbɑːlɪk ˌreprɪzenˈteɪʃn/|象征表征|Symbolic representation in art.
+#SENTTYPE 陈述句|否定句|一般疑问句|特殊疑问句|选择疑问句|反意疑问句|祈使句|感叹句|存在句|被动语态|现在完成时|过去完成时|将来时态|真实条件句|虚拟语气|定语从句|宾语从句|原因状语从句|让步状语从句|目的状语从句|比较结构|强调句|倒装句|分词结构|不定式结构|动名词结构|with 复合结构|同位语从句|插入评注|形式主语 It
+#SENT 1|陈述句|A coherent framework links concepts to evidence.|连贯框架把概念与证据联系起来。
+#SENT 2|否定句|Influence alone did not settle the structural dispute.|单靠影响并未解决结构性争议。
+#SENT 3|一般疑问句|Have you verified the ambiguous criterion yet?|你核实过那个含糊标准了吗？
+#SENT 4|特殊疑问句|Which paradigm best explains this mechanism?|哪种范式最能解释该机制？
+#SENT 5|选择疑问句|Is consensus authentic agreement or suppressed dissent?|共识是真实同意还是被压制的异议？
+#SENT 6|反意疑问句|The evidence looks empirical, doesn't it?|证据看似实证，对吧？
+#SENT 7|祈使句|Map structures before you debate abstract claims.|辩论抽象主张前先绘制结构。
+#SENT 8|感叹句|How tightly Days 22–27 lock together!|第22–27天联系多么紧密！
+#SENT 9|存在句|There are recurring logic patterns across hard themes.|难主题间有反复出现的逻辑模式。
+#SENT 10|被动语态|Assumptions are challenged through careful critique.|假定通过仔细批评受到挑战。
+#SENT 11|现在完成时|You have already practiced inversion and cleft sentences.|你已练习倒装与强调句。
+#SENT 12|过去完成时|She had reviewed influence vocabulary before structures.|结构词之前她已复习影响词汇。
+#SENT 13|将来时态|We will recycle weak adjectives in mixed drills.|混合训练将重练薄弱形容词。
+#SENT 14|真实条件句|If frameworks conflict, choose transparent criteria.|如果框架冲突，选择透明标准。
+#SENT 15|虚拟语气|If persuasion were evidence-based, trust would rise.|若说服基于证据，信任会上升。
+#SENT 16|定语从句|Learners who synthesize themes write stronger essays.|综合主题的学习者写出更强作文。
+#SENT 17|宾语从句|Tutors note that hard weeks reward persistence.|辅导指出艰难周奖励坚持。
+#SENT 18|原因状语从句|Because abstraction is dense, examples unlock meaning.|因为抽象密集，例子解锁意义。
+#SENT 19|让步状语从句|Although volume is high, selective deep work wins.|尽管体量大，选择性深度学习获胜。
+#SENT 20|目的状语从句|Cluster roots so that recall stays organized.|聚类词根，以便回忆保持有序。
+#SENT 21|比较结构|Empirical claims travel farther than vague rhetoric.|实证主张比含糊修辞传得更远。
+#SENT 22|强调句|It is synthesis that turns lists into understanding.|正是综合把清单变成理解。
+#SENT 23|倒装句|Not until this review did contradictions surface.|直到本次复习矛盾才浮现。
+#SENT 24|分词结构|Combining cases, we test whether mechanisms hold.|结合案例，我们检验机制是否成立。
+#SENT 25|不定式结构|To consolidate, produce original sentences tonight.|为巩固，今晚产出原创句子。
+#SENT 26|动名词结构|Avoiding controversy vocabulary limits debate skills.|回避争议词汇限制辩论技能。
+#SENT 27|with 复合结构|With mixed retrieval, interference becomes training.|混合提取时，干扰变成训练。
+#SENT 28|同位语从句|The principle that clarity beats cleverness still applies.|清晰胜过聪明这一原则仍然适用。
+#SENT 29|插入评注|Overall, advanced weeks demand slower, deeper passes.|总体而言，高阶周需要更慢更深的过关。
+#SENT 30|形式主语 It|It is wise to mark any sentence type you still mix up.|标出你仍混淆的句型是明智的。

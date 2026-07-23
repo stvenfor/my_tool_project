@@ -1,0 +1,156 @@
+#TITLE 对比与转折 | contra / vers / di-
+#ROOT contra/counter|相反|contrast, contrary, counterpart
+#ROOT vert/vers|转|convert, reverse, controversy
+#ROOT di-/dis-|分开/否定|diverse, dispute, differ
+#ROOT -ary|…的|contrary, temporary
+#WORD contrast|/ˈkɑːntræst/|n. 对比|—
+#WORD contrary|/ˈkɑːntreri/|a. 相反的|—
+#WORD versus|/ˈvɜːrsəs/|prep. 对|—
+#WORD whereas|/ˌwerˈæz/|conj. 然而|—
+#WORD nevertheless|/ˌnevərðəˈles/|adv. 尽管如此|—
+#WORD nonetheless|/ˌnʌnðəˈles/|adv. 尽管如此|—
+#WORD however|/haʊˈevər/|adv. 然而|—
+#WORD although|/ɔːlˈðoʊ/|conj. 虽然|—
+#WORD though|/ðoʊ/|conj. 虽然|—
+#WORD despite|/dɪˈspaɪt/|prep. 尽管|—
+#WORD in spite of|/ɪn spaɪt əv/|尽管|—
+#WORD regardless|/rɪˈɡɑːrdləs/|adv. 不管怎样|—
+#WORD diverse|/daɪˈvɜːrs/|a. 多样的|—
+#WORD diversity|/daɪˈvɜːrsəti/|n. 多样性|—
+#WORD diversify|/daɪˈvɜːrsɪfaɪ/|v. 多样化|—
+#WORD counterpart|/ˈkaʊntərpɑːrt/|n. 对应物|—
+#WORD counteract|/ˌkaʊntərˈækt/|v. 抵消|—
+#WORD counterargument|/ˈkaʊntərɑːrɡjumənt/|n. 反驳|—
+#WORD reverse|/rɪˈvɜːrs/|v./a. 颠倒|—
+#WORD inverse|/ˌɪnˈvɜːrs/|a. 相反的|—
+#WORD convert|/kənˈvɜːrt/|v. 转换|—
+#WORD avert|/əˈvɜːrt/|v. 避免|—
+#WORD divert|/daɪˈvɜːrt/|v. 转移|—
+#WORD controversy|/ˈkɑːntrəvɜːrsi/|n. 争议|—
+#WORD controversial|/ˌkɑːntrəˈvɜːrʃl/|a. 有争议的|—
+#WORD contradict|/ˌkɑːntrəˈdɪkt/|v. 反驳|—
+#WORD contradiction|/ˌkɑːntrəˈdɪkʃn/|n. 矛盾|—
+#WORD conflict|/ˈkɑːnflɪkt/|n. 冲突|—
+#WORD clash|/klæʃ/|n./v. 冲突|—
+#WORD differ|/ˈdɪfər/|v. 不同|—
+#WORD difference|/ˈdɪfrəns/|n. 差异|—
+#WORD distinct|/dɪˈstɪŋkt/|a. 明显不同的|—
+#WORD distinction|/dɪˈstɪŋkʃn/|n. 区别|—
+#WORD distinguish|/dɪˈstɪŋɡwɪʃ/|v. 区分|—
+#WORD similar|/ˈsɪmələr/|a. 相似的|—
+#WORD similarity|/ˌsɪməˈlærəti/|n. 相似性|—
+#WORD alike|/əˈlaɪk/|a./adv. 相像|—
+#WORD identical|/aɪˈdentɪkl/|a. 完全相同的|—
+#WORD comparable|/ˈkɑːmpərəbl/|a. 可比较的|—
+#WORD incomparable|/ɪnˈkɑːmpərəbl/|a. 无可比拟的|—
+#WORD parallel|/ˈpærəlel/|a./n. 平行；相似|—
+#WORD analogy|/əˈnælədʒi/|n. 类比|—
+#WORD analogous|/əˈnæləɡəs/|a. 类似的|—
+#WORD vice versa|/ˌvaɪs ˈvɜːrsə/|adv. 反之亦然|—
+#WORD alternative|/ɔːlˈtɜːrnətɪv/|n./a. 替代（的）|—
+#WORD option|/ˈɑːpʃn/|n. 选项|—
+#WORD choice|/tʃɔɪs/|n. 选择|—
+#WORD prefer|/prɪˈfɜːr/|v. 更喜欢|—
+#WORD preference|/ˈprefrəns/|n. 偏好|—
+#WORD rather|/ˈræðər/|adv. 宁愿|—
+#WORD instead|/ɪnˈsted/|adv. 反而|—
+#WORD otherwise|/ˈʌðərwaɪz/|adv. 否则|—
+#WORD except|/ɪkˈsept/|prep. 除了|—
+#WORD exception|/ɪkˈsepʃn/|n. 例外|—
+#WORD exclude|/ɪkˈskluːd/|v. 排除|—
+#WORD include|/ɪnˈkluːd/|v. 包括|—
+#WORD besides|/bɪˈsaɪdz/|prep. 除…之外还|—
+#WORD apart from|/əˈpɑːrt frəm/|除了|—
+#WORD unlike|/ʌnˈlaɪk/|prep. 不像|—
+#WORD likewise|/ˈlaɪkwaɪz/|adv. 同样|—
+#WORD similarly|/ˈsɪmələrli/|adv. 相似地|—
+#WORD conversely|/ˈkɑːnvɜːrsli/|adv. 相反地|—
+#WORD oppositely|/ˈɑːpəzɪtli/|adv. 相反地|—
+#WORD paradox|/ˈpærədɑːks/|n. 悖论|—
+#WORD paradoxical|/ˌpærəˈdɑːksɪkl/|a. 矛盾的|—
+#WORD irony|/ˈaɪrəni/|n. 讽刺|—
+#WORD ironic|/aɪˈrɑːnɪk/|a. 讽刺的|—
+#WORD ambivalent|/æmˈbɪvələnt/|a. 矛盾心态的|—
+#WORD ambiguous|/æmˈbɪɡjuəs/|a. 模棱两可的|—
+#WORD nuance|/ˈnuːɑːns/|n. 细微差别|—
+#WORD subtle|/ˈsʌtl/|a. 微妙的|—
+#WORD sharp|/ʃɑːrp/|a. 鲜明的|—
+#WORD stark|/stɑːrk/|a. 鲜明的；严酷的|—
+#WORD marked|/mɑːrkt/|a. 显著的|—
+#WORD striking|/ˈstraɪkɪŋ/|a. 引人注目的|—
+#WORD notable|/ˈnoʊtəbl/|a. 值得注意的|—
+#WORD noteworthy|/ˈnoʊtwɜːrði/|a. 值得注意的|—
+#WORD remarkable|/rɪˈmɑːrkəbl/|a. 非凡的|—
+#WORD item78|/ˈaɪtəm/|n. 条目|—
+#WORD item79|/ˈaɪtəm/|n. 条目|—
+#PHRASE in contrast to|/ɪn ˈkɑːntræst tə/|与…对比|In contrast to last year.
+#PHRASE on the contrary|/ɑːn ðə ˈkɑːntreri/|恰恰相反|On the contrary, it's better.
+#PHRASE diverse opinions|/daɪˈvɜːrs əˈpɪnjənz/|不同意见|Diverse opinions exist.
+#PHRASE Chinese counterpart|/ˌtʃaɪˈniːz ˈkaʊntərpɑːrt/|中方对等方|Meet their Chinese counterpart.
+#PHRASE whereas A, B|/ˌwerˈæz/|然而|Whereas A is cheap, B is costly.
+#PHRASE despite the fact that|/dɪˈspaɪt ðə fækt ðæt/|尽管|Despite the fact that...
+#PHRASE regardless of|/rɪˈɡɑːrdləs əv/|不顾|Regardless of cost.
+#PHRASE vice versa|/ˌvaɪs ˈvɜːrsə/|反之亦然|And vice versa.
+#PHRASE as opposed to|/æz əˈpoʊzd tə/|而不是|Tea as opposed to coffee.
+#PHRASE by comparison|/baɪ kəmˈpærɪsn/|相比较|By comparison, this is faster.
+#PHRASE a sharp contrast|/ə ʃɑːrp ˈkɑːntræst/|鲜明对比|A sharp contrast.
+#PHRASE counteract the effect|/ˌkaʊntərˈækt ði ɪˈfekt/|抵消影响|Counteract the effect.
+#PHRASE reverse the trend|/rɪˈvɜːrs ðə trend/|扭转趋势|Reverse the trend.
+#PHRASE convert into|/kənˈvɜːrt ˈɪntuː/|转换成|Convert into energy.
+#PHRASE distinguish A from B|/dɪˈstɪŋɡwɪʃ/|把A与B区分|Distinguish fact from opinion.
+#PHRASE make a distinction|/meɪk ə dɪˈstɪŋkʃn/|加以区分|Make a distinction.
+#PHRASE bear a resemblance to|/ber ə rɪˈzembləns tə/|与…相似|Bear a resemblance to.
+#PHRASE identical to|/aɪˈdentɪkl tə/|与…相同|Identical to the sample.
+#PHRASE prefer A to B|/prɪˈfɜːr/|喜欢A胜过B|Prefer tea to coffee.
+#PHRASE rather than|/ˈræðər ðæn/|而不是|Rather than wait.
+#PHRASE instead of|/ɪnˈsted əv/|代替|Instead of complaining.
+#PHRASE with the exception of|/wɪð ði ɪkˈsepʃn əv/|除…外|With the exception of one.
+#PHRASE exclude from|/ɪkˈskluːd frəm/|排除在外|Exclude from the list.
+#PHRASE paradoxical result|/ˌpærəˈdɑːksɪkl rɪˈzʌlt/|矛盾结果|A paradoxical result.
+#PHRASE ambivalent attitude|/æmˈbɪvələnt ˈætɪtuːd/|矛盾态度|An ambivalent attitude.
+#PHRASE ambiguous statement|/æmˈbɪɡjuəs ˈsteɪtmənt/|含糊陈述|An ambiguous statement.
+#PHRASE subtle difference|/ˈsʌtl ˈdɪfrəns/|细微差别|A subtle difference.
+#PHRASE stark difference|/stɑːrk ˈdɪfrəns/|鲜明差异|A stark difference.
+#PHRASE likewise|/ˈlaɪkwaɪz/|同样|Likewise, costs rose.
+#PHRASE conversely|/ˈkɑːnvɜːrsli/|相反地|Conversely, demand fell.
+#PHRASE alternative solution|/ɔːlˈtɜːrnətɪv səˈluːʃn/|替代方案|An alternative solution.
+#PHRASE controversial issue|/ˌkɑːntrəˈvɜːrʃl ˈɪʃuː/|争议问题|A controversial issue.
+#PHRASE in spite of difficulties|/ɪn spaɪt əv ˈdɪfɪkəltiz/|尽管困难|In spite of difficulties.
+#PHRASE unlike previous studies|/ʌnˈlaɪk ˈpriːviəs ˈstʌdiz/|与以往研究不同|Unlike previous studies.
+#PHRASE parallel development|/ˈpærəlel dɪˈveləpmənt/|并行发展|Parallel development.
+#PHRASE by analogy|/baɪ əˈnælədʒi/|通过类比|Explain by analogy.
+#PHRASE marked difference|/mɑːrkt ˈdɪfrəns/|显著差别|A marked difference.
+#PHRASE striking similarity|/ˈstraɪkɪŋ ˌsɪməˈlærəti/|惊人相似|A striking similarity.
+#PHRASE noteworthy exception|/ˈnoʊtwɜːrði ɪkˈsepʃn/|值得注意的例外|A noteworthy exception.
+#PHRASE conflict with|/ˈkɑːnflɪkt wɪð/|与…冲突|Conflict with the rule.
+#SENTTYPE 陈述句|否定句|一般疑问句|特殊疑问句|选择疑问句|反意疑问句|祈使句|感叹句|存在句|被动语态|现在完成时|过去完成时|将来时态|真实条件句|虚拟语气|定语从句|宾语从句|原因状语从句|让步状语从句|目的状语从句|比较结构|强调句|倒装句|分词结构|不定式结构|动名词结构|with 复合结构|同位语从句|插入评注|形式主语 It
+#SENT 1|陈述句|The two models stand in sharp contrast.|两种模型形成鲜明对比。
+#SENT 2|否定句|The results did not reverse earlier findings.|结果并未推翻先前发现。
+#SENT 3|一般疑问句|Does diversity strengthen or fragment consensus?|多样性是强化还是碎片化共识？
+#SENT 4|特殊疑问句|Where does your view differ from your counterpart's?|你的观点与对等方何处不同？
+#SENT 5|选择疑问句|Is the paradox real or merely rhetorical?|悖论是真实的还是纯修辞？
+#SENT 6|反意疑问句|The wording is ambiguous, isn't it?|措辞模棱两可，对吧？
+#SENT 7|祈使句|State alternatives clearly before choosing one.|选择前先把替代方案说清楚。
+#SENT 8|感叹句|What a striking similarity between the cases!|案例之间多么惊人的相似！
+#SENT 9|存在句|There are nonetheless important exceptions.|尽管如此仍有重要例外。
+#SENT 10|被动语态|Opposite conclusions were drawn from the same data.|同一数据得出了相反结论。
+#SENT 11|现在完成时|Debates have diversified across disciplines.|辩论已跨学科多样化。
+#SENT 12|过去完成时|They had preferred plan A before new evidence arrived.|新证据到来前他们更倾向方案A。
+#SENT 13|将来时态|We will compare frameworks in the next section.|下一节我们将比较框架。
+#SENT 14|真实条件句|If assumptions differ, conclusions will diverge.|如果假设不同，结论将分叉。
+#SENT 15|虚拟语气|If definitions were shared, disputes would shrink.|若定义共享，争议会缩小。
+#SENT 16|定语从句|Claims that ignore nuance invite misunderstanding.|忽视细微差别的主张易引发误解。
+#SENT 17|宾语从句|Critics argue that conversely trends are overstated.|批评者认为相反趋势被夸大。
+#SENT 18|原因状语从句|Because contexts differ, analogies can mislead.|因为语境不同，类比可能误导。
+#SENT 19|让步状语从句|Although costs rose, quality improved nonetheless.|尽管成本上升，质量仍改善。
+#SENT 20|目的状语从句|Clarify contrasts so that readers track the logic.|澄清对比，以便读者跟上逻辑。
+#SENT 21|比较结构|Plan A is riskier than its counterpart abroad.|方案A比国外对等方案风险更高。
+#SENT 22|强调句|It is ambiguity that fuels endless dispute.|正是含糊助长无尽争议。
+#SENT 23|倒装句|Not only is the gap large, it is widening.|差距不但大，而且还在扩大。
+#SENT 24|分词结构|Differing on methods, the teams still shared goals.|虽方法不同，团队仍共享目标。
+#SENT 25|不定式结构|To resolve the paradox, separate levels of analysis.|要解决悖论，应区分分析层次。
+#SENT 26|动名词结构|Preferring simplicity can erase meaningful diversity.|偏好简单可能抹去有意义的多样性。
+#SENT 27|with 复合结构|With conflicting metrics, rankings become unstable.|指标冲突时，排名变得不稳定。
+#SENT 28|同位语从句|The notion that opposites never coexist is false.|对立永不共存这一观念是错误的。
+#SENT 29|插入评注|By comparison, the second model is more flexible.|相比较，第二模型更灵活。
+#SENT 30|形式主语 It|It is useful to mark subtle distinctions explicitly.|明确标出细微区别很有用。

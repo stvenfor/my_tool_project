@@ -1,0 +1,153 @@
+#TITLE 环境与自然 | bio / geo / eco = 生命 / 地 / 环境
+#ROOT bio / geo / eco|生命 / 地 / 环境|bio→biology, biodiversity, antibiotic, biodegradable, geo→geography, geology, geothermal, geometry, eco→ecology, ecosystem, ecotourism, eco-friendly, de-→degrade, deforestation, deplete, desalination
+#WORD ecology|/ɪˈkɑːlədʒi/|n. 生态（学）|eco + -logy
+#WORD ecosystem|/ˈiːkoʊsɪstəm/|n. 生态系统|eco + system
+#WORD biodiversity|/ˌbaɪoʊdaɪˈvɜːrsəti/|n. 生物多样性|bio + diversity
+#WORD contaminate|/kənˈtæmɪneɪt/|v. 污染|contamination
+#WORD emission|/ɪˈmɪʃn/|n. 排放（物）|e- + miss
+#WORD sustainable|/səˈsteɪnəbl/|a. 可持续的|sustain + -able
+#WORD degrade|/dɪˈɡreɪd/|v. 降解；贬低|de- + grade
+#WORD conservation|/ˌkɑːnsərˈveɪʃn/|n. 保护；节约|conserve
+#WORD biological|/ˌbaɪəˈlɑːdʒɪkl/|a. 生物的|biology
+#WORD habitat|/ˈhæbɪtæt/|n. 栖息地|habit + -at
+#WORD species|/ˈspiːʃiːz/|n. 物种|单复同形
+#WORD flora|/ˈflɔːrə/|n. 植物群|fauna 对应
+#WORD fauna|/ˈfɔːnə/|n. 动物群|flora 对应
+#WORD vegetation|/ˌvedʒəˈteɪʃn/|n. 植被|vegetable
+#WORD deforestation|/diːˌfɔːrɪˈsteɪʃn/|n. 滥伐森林|de- + forest
+#WORD reforestation|/ˌriːˌfɔːrɪˈsteɪʃn/|n. 重新造林|re- + forest
+#WORD erosion|/ɪˈroʊʒn/|n. 侵蚀|erode
+#WORD drought|/draʊt/|n. 干旱|六级
+#WORD flood|/flʌd/|n./v. 洪水；淹没|flooding
+#WORD pesticide|/ˈpestɪsaɪd/|n. 杀虫剂|pest + -cide
+#WORD herbicide|/ˈɜːrbɪsaɪd/|n. 除草剂|herb + -cide
+#WORD pollutant|/pəˈluːtənt/|n. 污染物|pollute
+#WORD pollution|/pəˈluːʃn/|n. 污染|pollute
+#WORD purify|/ˈpjʊrɪfaɪ/|v. 净化|pure + -ify
+#WORD renewable|/rɪˈnuːəbl/|a. 可再生的|renew
+#WORD recycle|/ˌriːˈsaɪkl/|v. 回收利用|re- + cycle
+#WORD biodegradable|/ˌbaɪoʊdɪˈɡreɪdəbl/|a. 可生物降解的|bio + degrade
+#WORD organic|/ɔːrˈɡænɪk/|a. 有机的|organism
+#WORD terrestrial|/təˈrestriəl/|a. 陆地的|terra 地
+#WORD aquatic|/əˈkwætɪk/|a. 水生的|aqua 水
+#WORD marine|/məˈriːn/|a. 海洋的|maritime
+#WORD atmospheric|/ˌætməsˈferɪk/|a. 大气的|atmosphere
+#WORD ozone|/ˈoʊzoʊn/|n. 臭氧|ozone layer
+#WORD greenhouse|/ˈɡriːnhaʊs/|n. 温室|green + house
+#WORD climatic|/klaɪˈmætɪk/|a. 气候的|climate
+#WORD precipitation|/prɪˌsɪpɪˈteɪʃn/|n. 降水|precipitate
+#WORD humidity|/hjuːˈmɪdəti/|n. 湿度|humid
+#WORD arid|/ˈærɪd/|a. 干旱的|aridity
+#WORD fertile|/ˈfɜːrtl/|a. 肥沃的|fertility
+#WORD irrigation|/ˌɪrɪˈɡeɪʃn/|n. 灌溉|irrigate
+#WORD cultivation|/ˌkʌltɪˈveɪʃn/|n. 耕种；培养|cultivate
+#WORD harvest|/ˈhɑːrvɪst/|n./v. 收获|harvesting
+#WORD agrarian|/əˈɡreriən/|a. 农业的|agriculture
+#WORD wilderness|/ˈwɪldərnəs/|n. 荒野|wild
+#WORD sanctuary|/ˈsæŋktʃueri/|n. 保护区；庇护所|sanct 神圣
+#WORD preserve|/prɪˈzɜːrv/|v. 保护；n. 保护区|preservation
+#WORD extinct|/ɪkˈstɪŋkt/|a. 灭绝的|extinction
+#WORD endangered|/ɪnˈdeɪndʒərd/|a. 濒危的|endanger
+#WORD migrate|/ˈmaɪɡreɪt/|v. 迁徙|migration
+#WORD predator|/ˈpredətər/|n. 捕食者|prey 反义
+#WORD prey|/preɪ/|n. 猎物|predator
+#WORD symbiosis|/ˌsɪmbaɪˈoʊsɪs/|n. 共生|sym- + bio
+#WORD parasite|/ˈpærəsaɪt/|n. 寄生虫|parasitic
+#WORD microorganism|/ˌmaɪkroʊˈɔːrɡənɪzəm/|n. 微生物|micro + organism
+#WORD epidemic|/ˌepɪˈdemɪk/|n./a. 流行病（的）|epi- + dem
+#WORD toxic|/ˈtɑːksɪk/|a. 有毒的|toxicity
+#WORD hazardous|/ˈhæzərdəs/|a. 有害的；危险的|hazard
+#WORD landfill|/ˈlændfɪl/|n. 垃圾填埋场|land + fill
+#WORD sewage|/ˈsuːɪdʒ/|n. 污水|sewer
+#WORD sanitation|/ˌsænɪˈteɪʃn/|n. 公共卫生|sanitary
+#WORD environmentalist|/ɪnˌvaɪrənˈmentəlɪst/|n. 环保主义者|environment
+#WORD anthropogenic|/ˌænθrəpəˈdʒenɪk/|a. 人为造成的|anthropo + gen
+#WORD methane|/ˈmeθeɪn/|n. 甲烷|greenhouse gas
+#WORD hydrocarbon|/ˌhaɪdrəˈkɑːrbən/|n. 碳氢化合物|hydro + carbon
+#WORD hydroelectric|/ˌhaɪdroʊɪˈlektrɪk/|a. 水力发电的|hydro + electric
+#WORD biomass|/ˈbaɪoʊmæs/|n. 生物质|bio + mass
+#WORD rehabilitate|/ˌriːəˈbɪlɪteɪt/|v. 恢复；改造|re- + habilit
+#WORD restoration|/ˌrestəˈreɪʃn/|n. 恢复；修复|restore
+#WORD remediation|/rɪˌmiːdiˈeɪʃn/|n. 补救；修复|remedy
+#WORD sediment|/ˈsedɪmənt/|n. 沉积物|sedimentary
+#WORD watershed|/ˈwɔːtərʃed/|n. 流域；分水岭|water + shed
+#WORD wetland|/ˈwetlænd/|n. 湿地|wet + land
+#WORD mangrove|/ˈmæŋɡroʊv/|n. 红树林|coastal
+#WORD glacier|/ˈɡleɪʃər/|n. 冰川|glacial
+#WORD desertification|/dɪˌzɜːrtɪfɪˈkeɪʃn/|n. 沙漠化|desert + -ification
+#WORD nutrient|/ˈnuːtriənt/|n. 营养素|nutrition
+#WORD photosynthesis|/ˌfoʊtoʊˈsɪnθəsɪs/|n. 光合作用|photo + synthesis
+#WORD ecotourism|/ˈiːkoʊtʊrɪzəm/|n. 生态旅游|eco + tourism
+#WORD deplete|/dɪˈpliːt/|v. 耗尽|depletion
+#WORD replenish|/rɪˈplenɪʃ/|v. 补充；再装满|re- + plen
+#PHRASE sustainable development|/səˈsteɪnəbl dɪˈveləpmənt/|可持续发展|Sustainable development requires policy.
+#PHRASE carbon emissions|/ˈkɑːrbən ɪˈmɪʃnz/|碳排放|Cut carbon emissions sharply.
+#PHRASE protect biodiversity|/prəˈtekt ˌbaɪoʊdaɪˈvɜːrsəti/|保护生物多样性|Protect biodiversity in wetlands.
+#PHRASE contaminate the water|/kənˈtæmɪneɪt ðə ˈwɔːtər/|污染水源|Factories contaminate the water.
+#PHRASE renewable energy|/rɪˈnuːəbl ˈenərdʒi/|可再生能源|Invest in renewable energy.
+#PHRASE greenhouse effect|/ˈɡriːnhaʊs ɪˈfekt/|温室效应|The greenhouse effect intensifies.
+#PHRASE ozone layer|/ˈoʊzoʊn ˈleɪər/|臭氧层|Protect the ozone layer.
+#PHRASE endangered species|/ɪnˈdeɪndʒərd ˈspiːʃiːz/|濒危物种|Endangered species need habitat.
+#PHRASE natural habitat|/ˈnætʃrəl ˈhæbɪtæt/|自然栖息地|Loss of natural habitat threatens wildlife.
+#PHRASE marine ecosystem|/məˈriːn ˈiːkoʊsɪstəm/|海洋生态系统|Coral reefs form a marine ecosystem.
+#PHRASE soil erosion|/sɔɪl ɪˈroʊʒn/|土壤侵蚀|Soil erosion reduces fertility.
+#PHRASE water purification|/ˈwɔːtər ˌpjʊrɪfɪˈkeɪʃn/|水净化|Water purification plants expanded.
+#PHRASE air pollution|/er pəˈluːʃn/|空气污染|Air pollution worsens in winter.
+#PHRASE toxic waste|/ˈtɑːksɪk weɪst/|有毒废物|Dispose of toxic waste safely.
+#PHRASE recycle waste|/ˌriːˈsaɪkl weɪst/|回收废物|Communities recycle waste weekly.
+#PHRASE organic farming|/ɔːrˈɡænɪk ˈfɑːrmɪŋ/|有机农业|Organic farming avoids pesticides.
+#PHRASE climate change|/ˈklaɪmət tʃeɪndʒ/|气候变化|Climate change accelerates drought.
+#PHRASE extreme weather|/ɪkˈstriːm ˈweðər/|极端天气|Extreme weather events increased.
+#PHRASE conservation area|/ˌkɑːnsərˈveɪʃn ˈeriə/|保护区|The park is a conservation area.
+#PHRASE wildlife sanctuary|/ˈwaɪldlaɪf ˈsæŋktʃueri/|野生动物保护区|Visit the wildlife sanctuary.
+#PHRASE deforestation rate|/diːˌfɔːrɪˈsteɪʃn reɪt/|森林砍伐率|The deforestation rate declined.
+#PHRASE reforestation project|/ˌriːˌfɔːrɪˈsteɪʃn ˈprɑːdʒekt/|重新造林项目|A reforestation project began.
+#PHRASE migratory birds|/ˈmaɪɡrətɔːri bɜːrdz/|候鸟|Migratory birds cross the wetland.
+#PHRASE food chain|/fuːd tʃeɪn/|食物链|Pesticides disrupt the food chain.
+#PHRASE environmental impact|/ɪnˌvaɪrənˈmentl ˈɪmpækt/|环境影响|Assess the environmental impact.
+#PHRASE environmental protection|/ɪnˌvaɪrənˈmentl prəˈtekʃn/|环境保护|Environmental protection is urgent.
+#PHRASE hazardous material|/ˈhæzərdəs məˈtɪriəl/|有害物质|Handle hazardous material carefully.
+#PHRASE sewage treatment|/ˈsuːɪdʒ ˈtriːtmənt/|污水处理|Sewage treatment improved.
+#PHRASE landfill site|/ˈlændfɪl saɪt/|垃圾填埋场|The landfill site was closed.
+#PHRASE ecological balance|/ˌiːkəˈlɑːdʒɪkl ˈbæləns/|生态平衡|Predators maintain ecological balance.
+#PHRASE biodegradable packaging|/ˌbaɪoʊdɪˈɡreɪdəbl ˈpækɪdʒɪŋ/|可降解包装|Use biodegradable packaging.
+#PHRASE solar panel|/ˈsoʊlər ˈpænl/|太阳能板|Install solar panels on roofs.
+#PHRASE wind turbine|/wɪnd ˈtɜːrbaɪn/|风力涡轮机|Wind turbines generate power.
+#PHRASE water scarcity|/ˈwɔːtər ˈskersəti/|水资源短缺|Water scarcity affects farming.
+#PHRASE desertification process|/dɪˌzɜːrtɪfɪˈkeɪʃn ˈprɑːses/|沙漠化进程|Overgrazing speeds desertification.
+#PHRASE glacier retreat|/ˈɡleɪʃər rɪˈtriːt/|冰川退缩|Glacier retreat alarms scientists.
+#PHRASE nutrient cycle|/ˈnuːtriənt ˈsaɪkl/|营养循环|Forests close the nutrient cycle.
+#PHRASE ecological restoration|/ˌiːkəˈlɑːdʒɪkl ˌrestəˈreɪʃn/|生态修复|Ecological restoration takes decades.
+#PHRASE anthropogenic pollution|/ˌænθrəpəˈdʒenɪk pəˈluːʃn/|人为污染|Anthropogenic pollution rose.
+#PHRASE deplete natural resources|/dɪˈpliːt ˈnætʃrəl rɪˈsɔːrsɪz/|耗尽自然资源|Overmining depletes natural resources.
+#SENTTYPE 陈述句|否定句|一般疑问句|特殊疑问句|选择疑问句|反意疑问句|祈使句|感叹句|存在句|被动语态|现在完成时|过去完成时|将来时态|真实条件句|虚拟语气|定语从句|宾语从句|原因状语从句|让步状语从句|目的状语从句|比较结构|强调句|倒装句|分词结构|不定式结构|动名词结构|with 复合结构|同位语从句|插入评注|形式主语 It
+#SENT 1|陈述句|Sustainable development requires protecting biodiversity.|可持续发展需要保护生物多样性。
+#SENT 2|否定句|Factories did not stop contaminating local rivers.|工厂并未停止污染当地河流。
+#SENT 3|一般疑问句|Can conservation policies reverse ecosystem collapse?|保护政策能否扭转生态系统崩溃？
+#SENT 4|特殊疑问句|Where do the largest carbon emissions originate?|最大碳排放源自何处？
+#SENT 5|选择疑问句|Is degradation reversible or already permanent?|退化是可逆的还是已成永久？
+#SENT 6|反意疑问句|The habitat is fragile, isn't it?|栖息地很脆弱，对吧？
+#SENT 7|祈使句|Reduce emissions before tipping points are crossed.|在越过临界点前减少排放。
+#SENT 8|感叹句|What an alarming decline in marine biodiversity!|海洋生物多样性下降多么惊人！
+#SENT 9|存在句|There is still hope for ecological recovery.|生态恢复仍有希望。
+#SENT 10|被动语态|Wetlands are being restored across the region.|该地区湿地正在得到修复。
+#SENT 11|现在完成时|Scientists have tracked deforestation for decades.|科学家数十年来追踪森林砍伐。
+#SENT 12|过去完成时|The city had ignored pollution warnings for years.|该市多年来忽视污染警告。
+#SENT 13|将来时态|New standards will limit industrial discharge soon.|新标准不久将限制工业排放。
+#SENT 14|真实条件句|If temperatures rise further, droughts will intensify.|如果气温继续上升，干旱将加剧。
+#SENT 15|虚拟语气|If plastics were banned sooner, oceans would be cleaner.|若塑料更早被禁，海洋本会更干净。
+#SENT 16|定语从句|Communities that conserve forests secure water supplies.|保护森林的社区能保障供水。
+#SENT 17|宾语从句|Ecologists argue that biodiversity buffers climate shocks.|生态学家认为生物多样性可缓冲气候冲击。
+#SENT 18|原因状语从句|Because habitats fragment, species migrate or vanish.|因为栖息地碎片化，物种迁移或消失。
+#SENT 19|让步状语从句|Although renewable energy expanded, coal persisted.|尽管可再生能源扩展，煤炭仍在。
+#SENT 20|目的状语从句|Plant native species so that ecosystems can recover.|种植本地物种，以便生态系统恢复。
+#SENT 21|比较结构|Clean air is more valuable than short-term profits.|清洁空气比短期利润更有价值。
+#SENT 22|强调句|It is overconsumption that drives resource depletion.|正是过度消费驱动资源耗竭。
+#SENT 23|倒装句|Nowhere are emissions harder to cut than in heavy industry.|重工业减排难度最大。
+#SENT 24|分词结构|Facing scarcity, planners invested in conservation.|面对稀缺，规划者投资于保护。
+#SENT 25|不定式结构|To protect biodiversity, expand marine reserves.|为保护生物多样性，应扩大海洋保护区。
+#SENT 26|动名词结构|Contaminating groundwater endangers public health.|污染地下水危及公共卫生。
+#SENT 27|with 复合结构|With rising seas, coastal ecology changes rapidly.|海平面上升时，海岸生态快速变化。
+#SENT 28|同位语从句|The claim that growth need not harm nature is debated.|增长不必伤害自然这一主张存在争论。
+#SENT 29|插入评注|Ultimately, stewardship decides environmental outcomes.|最终，管理责任决定环境结果。
+#SENT 30|形式主语 It|It is urgent to cut carbon emissions this decade.|本十年削减碳排放十分紧迫。

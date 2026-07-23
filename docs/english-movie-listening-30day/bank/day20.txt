@@ -1,0 +1,156 @@
+#TITLE 伦理与规范 | eth / norm / jud / rect
+#ROOT eth|伦理|ethics, ethical, unethical
+#ROOT norm|规范|normal, abnormal, normalize
+#ROOT jud|判断|justice, judicial, prejudice
+#ROOT rect|正|correct, rectify, direct
+#WORD ethical|/ˈeθɪkl/|a. 伦理的|eth
+#WORD ethics|/ˈeθɪks/|n. 伦理|eth
+#WORD unethical|/ʌnˈeθɪkl/|a. 不道德的|un-
+#WORD moral|/ˈmɔːrəl/|a. 道德的|—
+#WORD morality|/məˈræləti/|n. 道德|moral
+#WORD immoral|/ɪˈmɔːrəl/|a. 不道德的|im-
+#WORD norm|/nɔːrm/|n. 规范|norm
+#WORD normalize|/ˈnɔːrməlaɪz/|v. 正常化|norm
+#WORD principle|/ˈprɪnsəpl/|n. 原则|—
+#WORD integrity|/ɪnˈteɡrəti/|n. 正直；完整|soci/civ
+#WORD accountability|/əˌkaʊntəˈbɪləti/|n. 问责|soci/civ
+#WORD conscience|/ˈkɑːnʃəns/|n. 良心|sci
+#WORD compliance|/kəmˈplaɪəns/|n. 合规|comply
+#WORD comply|/kəmˈplaɪ/|v. 遵守|—
+#WORD conformity|/kənˈfɔːrməti/|n. 遵从|conform
+#WORD misconduct|/ˌmɪsˈkɑːndʌkt/|n. 不当行为|mis-
+#WORD penalty|/ˈpenəlti/|n. 处罚|penal
+#WORD fairness|/ˈfernəs/|n. 公平|fair
+#WORD dignity|/ˈdɪɡnəti/|n. 尊严|dign
+#WORD whistleblower|/ˈwɪslbloʊər/|n. 举报人|—
+#WORD consent|/kənˈsent/|n./v. 同意|—
+#WORD confidentiality|/ˌkɑːnfɪˌdenʃiˈæləti/|n. 保密|confident
+#WORD rectify|/ˈrektɪfaɪ/|v. 纠正|rect
+#WORD stewardship|/ˈstuːərdʃɪp/|n. 管理责任|steward
+#WORD guideline|/ˈɡaɪdlaɪn/|n. 指南|guide
+#WORD protocol|/ˈproʊtəkɑːl/|n. 规程|—
+#WORD taboo|/təˈbuː/|n. 禁忌|—
+#WORD lawful|/ˈlɔːfl/|a. 合法的|law
+#WORD unlawful|/ʌnˈlɔːfl/|a. 非法的|un-
+#WORD due process|/duː ˈprɑːses/|n. 正当程序|—
+#WORD civil|/ˈsɪvl/|a. 公民的；文明的|soci/civ
+#WORD civic|/ˈsɪvɪk/|a. 市政的|soci/civ
+#WORD civilization|/ˌsɪvələˈzeɪʃn/|n. 文明|soci/civ
+#WORD citizen|/ˈsɪtɪzn/|n. 公民|soci/civ
+#WORD citizenship|/ˈsɪtɪznʃɪp/|n. 公民身份|soci/civ
+#WORD society|/səˈsaɪəti/|n. 社会|soci/civ
+#WORD social|/ˈsoʊʃl/|a. 社会的|soci/civ
+#WORD sociology|/ˌsoʊsiˈɑːlədʒi/|n. 社会学|soci/civ
+#WORD associate|/əˈsoʊʃieɪt/|v. 联系；n. 同事|soci/civ
+#WORD association|/əˌsoʊʃiˈeɪʃn/|n. 协会；联想|soci/civ
+#WORD community|/kəˈmjuːnəti/|n. 社区|soci/civ
+#WORD communal|/kəˈmjuːnl/|a. 公共的|soci/civ
+#WORD public|/ˈpʌblɪk/|a. 公共的|soci/civ
+#WORD private|/ˈpraɪvət/|a. 私人的|soci/civ
+#WORD privacy|/ˈpraɪvəsi/|n. 隐私|soci/civ
+#WORD legislation|/ˌledʒɪsˈleɪʃn/|n. 立法|soci/civ
+#WORD legislature|/ˈledʒɪsleɪtʃər/|n. 立法机关|soci/civ
+#WORD legitimate|/lɪˈdʒɪtɪmət/|a. 合法的|soci/civ
+#WORD illegitimate|/ˌɪləˈdʒɪtɪmət/|a. 非法的|soci/civ
+#WORD regulate|/ˈreɡjuleɪt/|v. 管制|soci/civ
+#WORD regulation|/ˌreɡjuˈleɪʃn/|n. 规章|soci/civ
+#WORD regulatory|/ˈreɡjələtɔːri/|a. 监管的|soci/civ
+#WORD authority|/əˈθɔːrəti/|n. 权威；当局|soci/civ
+#WORD authorize|/ˈɔːθəraɪz/|v. 授权|soci/civ
+#WORD authorization|/ˌɔːθərəˈzeɪʃn/|n. 授权|soci/civ
+#WORD jurisdiction|/ˌdʒʊrɪsˈdɪkʃn/|n. 管辖权|soci/civ
+#WORD judicial|/dʒuˈdɪʃl/|a. 司法的|soci/civ
+#WORD justice|/ˈdʒʌstɪs/|n. 正义；司法|soci/civ
+#WORD injustice|/ɪnˈdʒʌstɪs/|n. 不公|soci/civ
+#WORD equality|/ɪˈkwɑːləti/|n. 平等|soci/civ
+#WORD equity|/ˈekwəti/|n. 公平；股权|soci/civ
+#WORD inequality|/ˌɪnɪˈkwɑːləti/|n. 不平等|soci/civ
+#WORD discriminate|/dɪˈskrɪmɪneɪt/|v. 歧视；区分|soci/civ
+#WORD discrimination|/dɪˌskrɪmɪˈneɪʃn/|n. 歧视|soci/civ
+#WORD prejudice|/ˈpredʒudɪs/|n. 偏见|soci/civ
+#WORD stereotype|/ˈsteriətaɪp/|n. 刻板印象|soci/civ
+#WORD integrate|/ˈɪntɪɡreɪt/|v. 整合|soci/civ
+#WORD integration|/ˌɪntɪˈɡreɪʃn/|n. 融合|soci/civ
+#WORD coherent|/koʊˈhɪrənt/|a. 连贯的|soci/civ
+#WORD coherence|/koʊˈhɪrəns/|n. 连贯|soci/civ
+#WORD cohesion|/koʊˈhiːʒn/|n. 凝聚|soci/civ
+#WORD solidarity|/ˌsɑːlɪˈdærəti/|n. 团结|soci/civ
+#WORD welfare|/ˈwelfer/|n. 福利|soci/civ
+#WORD privilege|/ˈprɪvəlɪdʒ/|n. 特权|soci/civ
+#WORD right|/raɪt/|n. 权利|soci/civ
+#WORD obligation|/ˌɑːblɪˈɡeɪʃn/|n. 义务|soci/civ
+#WORD duty|/ˈduːti/|n. 职责|soci/civ
+#WORD responsibility|/rɪˌspɑːnsəˈbɪləti/|n. 责任|soci/civ
+#WORD transparency|/trænsˈpærənsi/|n. 透明|soci/civ
+#WORD corruption|/kəˈrʌpʃn/|n. 腐败|corrupt
+#PHRASE ethical standards|/ˈeθɪkl ˈstændərdz/|伦理标准|Meet ethical standards.
+#PHRASE social norms|/ˈsoʊʃl nɔːrmz/|社会规范|Follow social norms.
+#PHRASE moral obligation|/ˈmɔːrəl ˌɑːblɪˈɡeɪʃn/|道德义务|A moral obligation.
+#PHRASE violate the law|/ˈvaɪəleɪt ðə lɔː/|违法|Violate the law.
+#PHRASE code of conduct|/koʊd əv ˈkɑːndʌkt/|行为准则|Code of conduct.
+#PHRASE academic integrity|/ˌækəˈdemɪk ɪnˈteɡrəti/|学术诚信|Academic integrity.
+#PHRASE informed consent|/ɪnˈfɔːrmd kənˈsent/|知情同意|Informed consent.
+#PHRASE conflict of interest|/ˈkɑːnflɪkt əv ˈɪntrəst/|利益冲突|Conflict of interest.
+#PHRASE comply with regulations|/kəmˈplaɪ wɪð ˌreɡjuˈleɪʃnz/|遵守规章|Comply with regulations.
+#PHRASE breach of ethics|/briːtʃ əv ˈeθɪks/|违反伦理|A breach of ethics.
+#PHRASE clear conscience|/klɪr ˈkɑːnʃəns/|问心无愧|With a clear conscience.
+#PHRASE whistleblower protection|/ˈwɪslbloʊər prəˈtekʃn/|吹哨人保护|Whistleblower protection.
+#PHRASE ethical dilemma|/ˈeθɪkl dɪˈlemə/|伦理困境|An ethical dilemma.
+#PHRASE corporate social responsibility|/ˈkɔːrpərət ˈsoʊʃl rɪˌspɑːnsəˈbɪləti/|企业社会责任|CSR matters.
+#PHRASE uphold justice|/ʌpˈhoʊld ˈdʒʌstɪs/|维护正义|Uphold justice.
+#PHRASE due process|/duː ˈprɑːses/|正当程序|Due process.
+#PHRASE rule of law|/ruːl əv lɔː/|法治|Uphold the rule of law.
+#PHRASE professional ethics|/prəˈfeʃənl ˈeθɪks/|职业伦理|Professional ethics.
+#PHRASE moral hazard|/ˈmɔːrəl ˈhæzərd/|道德风险|Moral hazard.
+#PHRASE rectify the mistake|/ˈrektɪfaɪ ðə mɪˈsteɪk/|纠正错误|Rectify the mistake.
+#PHRASE civil rights|/ˈsɪvl raɪts/|公民权利|Fight for civil rights.
+#PHRASE under the authority of|/ˈʌndər ði əˈθɔːrəti əv/|在…管辖下|Under the authority of law.
+#PHRASE discriminate against|/dɪˈskrɪmɪneɪt əˈɡenst/|歧视|Don't discriminate against anyone.
+#PHRASE integrate into|/ˈɪntɪɡreɪt ˈɪntuː/|融入|Integrate into society.
+#PHRASE social cohesion|/ˈsoʊʃl koʊˈhiːʒn/|社会凝聚|Promote social cohesion.
+#PHRASE public welfare|/ˈpʌblɪk ˈwelfer/|公共福利|Public welfare programs.
+#PHRASE equal opportunity|/ˈiːkwəl ˌɑːpərˈtuːnəti/|机会均等|Equal opportunity.
+#PHRASE racial prejudice|/ˈreɪʃl ˈpredʒudɪs/|种族偏见|Combat racial prejudice.
+#PHRASE break stereotypes|/breɪk ˈsteriətaɪps/|打破刻板印象|Break stereotypes.
+#PHRASE hold accountable|/hoʊld əˈkaʊntəbl/|问责|Hold officials accountable.
+#PHRASE transparency and accountability|/trænsˈpærənsi ənd əˌkaʊntəˈbɪləti/|透明与问责|Demand transparency and accountability.
+#PHRASE pass legislation|/pæs ˌledʒɪsˈleɪʃn/|通过立法|Pass legislation.
+#PHRASE regulatory framework|/ˈreɡjələtɔːri ˈfreɪmwɜːrk/|监管框架|A regulatory framework.
+#PHRASE constitutional right|/ˌkɑːnstɪˈtuːʃənl raɪt/|宪法权利|A constitutional right.
+#PHRASE democratic process|/ˌdeməˈkrætɪk ˈprɑːses/|民主程序|The democratic process.
+#PHRASE grassroots movement|/ˈɡræsruːts ˈmuːvmənt/|基层运动|A grassroots movement.
+#PHRASE civic duty|/ˈsɪvɪk ˈduːti/|公民义务|Civic duty.
+#PHRASE community engagement|/kəˈmjuːnəti ɪnˈɡeɪdʒmənt/|社区参与|Community engagement.
+#PHRASE social inequality|/ˈsoʊʃl ˌɪnɪˈkwɑːləti/|社会不平等|Reduce social inequality.
+#PHRASE empower marginalized groups|/ɪmˈpaʊər ˈmɑːrdʒɪnəlaɪzd ɡruːps/|赋权边缘群体|Empower marginalized groups.
+#SENTTYPE 陈述句|否定句|一般疑问句|特殊疑问句|选择疑问句|反意疑问句|祈使句|感叹句|存在句|被动语态|现在完成时|过去完成时|将来时态|真实条件句|虚拟语气|定语从句|宾语从句|原因状语从句|让步状语从句|目的状语从句|比较结构|强调句|倒装句|分词结构|不定式结构|动名词结构|with 复合结构|同位语从句|插入评注|形式主语 It
+#SENT 1|陈述句|Ethical standards protect dignity in research.|伦理标准在研究中保护尊严。
+#SENT 2|否定句|The firm did not comply with privacy regulations.|该公司未遵守隐私规章。
+#SENT 3|一般疑问句|Does informed consent always prevent harm?|知情同意是否总能防止伤害？
+#SENT 4|特殊疑问句|Where should accountability begin in a hierarchy?|问责应在等级制何处开始？
+#SENT 5|选择疑问句|Is the act unlawful, unethical, or both?|该行为是非法、不道德，还是两者皆是？
+#SENT 6|反意疑问句|Integrity still matters in politics, doesn't it?|政治中正直仍然重要，对吧？
+#SENT 7|祈使句|Rectify mistakes before trust erodes further.|在信任进一步侵蚀前纠正错误。
+#SENT 8|感叹句|What a serious breach of professional ethics!|多么严重的职业伦理违反！
+#SENT 9|存在句|There is growing demand for corporate transparency.|对企业透明的需求在增长。
+#SENT 10|被动语态|Whistleblowers are protected under new guidelines.|吹哨人受新指南保护。
+#SENT 11|现在完成时|Courts have upheld equal rights repeatedly.|法院多次维护平等权利。
+#SENT 12|过去完成时|The board had ignored conflicts of interest earlier.|董事会早前忽视了利益冲突。
+#SENT 13|将来时态|Auditors will examine compliance next quarter.|审计员下季度将检查合规。
+#SENT 14|真实条件句|If norms collapse, cooperation becomes fragile.|如果规范崩溃，合作变得脆弱。
+#SENT 15|虚拟语气|If penalties were certain, misconduct would decline.|若处罚确定，不当行为会减少。
+#SENT 16|定语从句|Codes that lack enforcement invite cynicism.|缺乏执行的准则招致犬儒。
+#SENT 17|宾语从句|Citizens believe fairness requires due process.|公民认为公平需要正当程序。
+#SENT 18|原因状语从句|Because stigma persists, victims stay silent.|因为污名持续，受害者保持沉默。
+#SENT 19|让步状语从句|Although laws exist, unlawful practices continue.|尽管法律存在，非法做法仍继续。
+#SENT 20|目的状语从句|Publish protocols so that review boards can decide.|公布规程，以便审查委员会裁决。
+#SENT 21|比较结构|Moral obligation can outweigh short-term profit.|道德义务可以压过短期利润。
+#SENT 22|强调句|It is transparency that deters corrupt practice.|正是透明度威慑腐败行为。
+#SENT 23|倒装句|Nowhere is ethical failure more costly than in medicine.|医学中伦理失败代价最高。
+#SENT 24|分词结构|Facing a dilemma, she chose the harder honesty.|面对困境，她选择了更难的诚实。
+#SENT 25|不定式结构|To uphold justice, separate power from privilege.|为维护正义，应将权力与特权分离。
+#SENT 26|动名词结构|Abusing authority destroys institutional legitimacy.|滥用权威摧毁制度合法性。
+#SENT 27|with 复合结构|With clear guidelines, compliance becomes easier.|有清晰指南时，合规更容易。
+#SENT 28|同位语从句|The principle that consent must be informed is fundamental.|同意必须知情这一原则是根本的。
+#SENT 29|插入评注|In governance, stewardship beats extractive control.|治理中，管理责任胜过榨取式控制。
+#SENT 30|形式主语 It|It is wrong to treat people merely as means.|把人仅当作手段是错误的。

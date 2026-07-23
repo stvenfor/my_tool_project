@@ -1,0 +1,154 @@
+#TITLE 复习强化（Day1–6 词族）| 综合复现
+#ROOT 综合|复现巩固|cogn/dict/sequ/valu/form/cris
+#ROOT 派生|注意名词/形容词|-ion/-ive/-able
+#WORD acquire|/əˈkwaɪər/|v. 获得|Day1
+#WORD cognitive|/ˈkɑːɡnətɪv/|a. 认知的|Day1
+#WORD comprehend|/ˌkɑːmprɪˈhend/|v. 理解|Day1
+#WORD conscious|/ˈkɑːnʃəs/|a. 有意识的|Day1
+#WORD perceive|/pərˈsiːv/|v. 察觉|Day1
+#WORD retain|/rɪˈteɪn/|v. 保持|Day1
+#WORD assert|/əˈsɜːrt/|v. 断言|Day2
+#WORD contradict|/ˌkɑːntrəˈdɪkt/|v. 反驳|Day2
+#WORD justify|/ˈdʒʌstɪfaɪ/|v. 证明正当|Day2
+#WORD perspective|/pərˈspektɪv/|n. 视角|Day2
+#WORD speculate|/ˈspekjuleɪt/|v. 推测|Day2
+#WORD valid|/ˈvælɪd/|a. 有效的|Day2
+#WORD consequence|/ˈkɑːnsɪkwens/|n. 结果|Day3
+#WORD subsequent|/ˈsʌbsɪkwənt/|a. 随后的|Day3
+#WORD attribute|/əˈtrɪbjuːt/|v. 归因|Day3
+#WORD contribute|/kənˈtrɪbjuːt/|v. 促成|Day3
+#WORD inevitable|/ɪnˈevɪtəbl/|a. 不可避免的|Day3
+#WORD undermine|/ˌʌndərˈmaɪn/|v. 削弱|Day3
+#WORD evaluate|/ɪˈvæljueɪt/|v. 评估|Day4
+#WORD assess|/əˈses/|v. 评定|Day4
+#WORD crucial|/ˈkruːʃl/|a. 关键的|Day4
+#WORD significant|/sɪɡˈnɪfɪkənt/|a. 显著的|Day4
+#WORD substantial|/səbˈstænʃl/|a. 大量的|Day4
+#WORD compensate|/ˈkɑːmpenseɪt/|v. 补偿|Day4
+#WORD transform|/trænsˈfɔːrm/|v. 转变|Day5
+#WORD fluctuate|/ˈflʌktʃueɪt/|v. 波动|Day5
+#WORD accelerate|/əkˈseləreɪt/|v. 加速|Day5
+#WORD deteriorate|/dɪˈtɪriəreɪt/|v. 恶化|Day5
+#WORD evolve|/ɪˈvɑːlv/|v. 演变|Day5
+#WORD diminish|/dɪˈmɪnɪʃ/|v. 减少|Day5
+#WORD crisis|/ˈkraɪsɪs/|n. 危机|Day6
+#WORD vulnerable|/ˈvʌlnərəbl/|a. 脆弱的|Day6
+#WORD hazard|/ˈhæzərd/|n. 危害|Day6
+#WORD obstacle|/ˈɑːbstəkl/|n. 障碍|Day6
+#WORD mitigate|/ˈmɪtɪɡeɪt/|v. 缓解|Day6
+#WORD exacerbate|/ɪɡˈzæsərbeɪt/|v. 加剧|Day6
+#WORD hypothesis|/haɪˈpɑːθəsɪs/|n. 假设|复现
+#WORD empirical|/ɪmˈpɪrɪkl/|a. 实证的|复现
+#WORD inference|/ˈɪnfərəns/|n. 推论|infer
+#WORD assumption|/əˈsʌmpʃn/|n. 假定|assume
+#WORD implication|/ˌɪmplɪˈkeɪʃn/|n. 含义|imply
+#WORD objective|/əbˈdʒektɪv/|a. 客观的|Day2
+#WORD subjective|/səbˈdʒektɪv/|a. 主观的|subject
+#WORD controversy|/ˈkɑːntrəvɜːrsi/|n. 争议|Day6
+#WORD consensus|/kənˈsensəs/|n. 共识|consent
+#WORD criterion|/kraɪˈtɪriən/|n. 标准|Day4
+#WORD magnitude|/ˈmæɡnɪtuːd/|n. 重大|Day4
+#WORD threshold|/ˈθreʃhoʊld/|n. 临界|Day4
+#WORD momentum|/moʊˈmentəm/|n. 势头|Day5
+#WORD volatile|/ˈvɑːlətl/|a. 动荡的|Day5
+#WORD resilient|/rɪˈzɪliənt/|a. 有韧性的|Day6
+#WORD jeopardize|/ˈdʒepərdaɪz/|v. 危及|Day6
+#WORD precaution|/prɪˈkɔːʃn/|n. 预防|Day6
+#WORD safeguard|/ˈseɪfɡɑːrd/|v./n. 保障|Day6
+#WORD acknowledge|/əkˈnɑːlɪdʒ/|v. 承认|Day1
+#WORD assimilate|/əˈsɪməleɪt/|v. 吸收|Day1
+#WORD insight|/ˈɪnsaɪt/|n. 洞察|Day1
+#WORD contend|/kənˈtend/|v. 主张|Day2
+#WORD induce|/ɪnˈduːs/|v. 引起|Day3
+#WORD trigger|/ˈtrɪɡər/|v. 触发|Day3
+#WORD trivial|/ˈtrɪviəl/|a. 琐碎的|Day4
+#WORD negligible|/ˈneɡlɪdʒəbl/|a. 可忽略的|Day4
+#WORD transition|/trænˈzɪʃn/|n. 过渡|Day5
+#WORD innovation|/ˌɪnəˈveɪʃn/|n. 创新|Day5
+#WORD compromise|/ˈkɑːmprəmaɪz/|n./v. 妥协|Day6
+#WORD tackle|/ˈtækl/|v. 处理|Day6
+#WORD credibility|/ˌkredəˈbɪləti/|n. 可信度|Day4
+#WORD validity|/vəˈlɪdəti/|n. 有效性|Day4
+#WORD perception|/pərˈsepʃn/|n. 感知|Day1
+#WORD comprehension|/ˌkɑːmprɪˈhenʃn/|n. 理解|Day1
+#WORD prediction|/prɪˈdɪkʃn/|n. 预测|predict
+#WORD contradiction|/ˌkɑːntrəˈdɪkʃn/|n. 矛盾|Day2
+#WORD contribution|/ˌkɑːntrɪˈbjuːʃn/|n. 贡献|Day3
+#WORD evaluation|/ɪˌvæljuˈeɪʃn/|n. 评估|Day4
+#WORD fluctuation|/ˌflʌktʃuˈeɪʃn/|n. 波动|Day5
+#WORD deterioration|/dɪˌtɪriəˈreɪʃn/|n. 恶化|Day5
+#WORD vulnerability|/ˌvʌlnərəˈbɪləti/|n. 脆弱性|Day6
+#WORD obstruction|/əbˈstrʌkʃn/|n. 阻碍|Day6
+#WORD analytical|/ˌænəˈlɪtɪkl/|a. 分析的|Day1
+#WORD theoretical|/ˌθiːəˈretɪkl/|a. 理论的|Day1
+#PHRASE acquire a skill|/əˈkwaɪər ə skɪl/|掌握技能|Acquire a skill.
+#PHRASE be conscious of|/bi ˈkɑːnʃəs əv/|意识到|Be conscious of risk.
+#PHRASE from my perspective|/frəm maɪ pərˈspektɪv/|依我看|From my perspective.
+#PHRASE a valid argument|/ə ˈvælɪd ˈɑːrɡjumənt/|站得住的论点|A valid argument.
+#PHRASE as a consequence|/æz ə ˈkɑːnsɪkwens/|因此|As a consequence.
+#PHRASE attribute A to B|/əˈtrɪbjuːt/|归因于|Attribute failure to bias.
+#PHRASE play a crucial role|/pleɪ ə ˈkruːʃl roʊl/|起关键作用|Play a crucial role.
+#PHRASE compensate for|/ˈkɑːmpenseɪt fɔːr/|弥补|Compensate for losses.
+#PHRASE undergo a transition|/ˌʌndərˈɡoʊ ə trænˈzɪʃn/|经历过渡|Undergo a transition.
+#PHRASE accelerate the process|/əkˈseləreɪt ðə ˈprɑːses/|加速进程|Accelerate the process.
+#PHRASE pose a threat to|/poʊz ə θret tə/|构成威胁|Pose a threat to.
+#PHRASE be vulnerable to|/bi ˈvʌlnərəbl tə/|易受影响|Be vulnerable to.
+#PHRASE tackle the issue|/ˈtækl ði ˈɪʃuː/|处理问题|Tackle the issue.
+#PHRASE mitigate risk|/ˈmɪtɪɡeɪt rɪsk/|降低风险|Mitigate risk.
+#PHRASE empirical evidence|/ɪmˈpɪrɪkl ˈevɪdəns/|实证证据|Empirical evidence.
+#PHRASE test a hypothesis|/test ə haɪˈpɑːθəsɪs/|检验假设|Test a hypothesis.
+#PHRASE draw an inference|/drɔː ən ˈɪnfərəns/|作出推论|Draw an inference.
+#PHRASE reach a consensus|/riːtʃ ə kənˈsensəs/|达成共识|Reach a consensus.
+#PHRASE spark controversy|/spɑːrk ˈkɑːntrəvɜːrsi/|引发争议|Spark controversy.
+#PHRASE meet the criteria|/miːt ðə kraɪˈtɪriə/|符合标准|Meet the criteria.
+#PHRASE of great magnitude|/əv ɡreɪt ˈmæɡnɪtuːd/|规模巨大|Of great magnitude.
+#PHRASE gain momentum|/ɡeɪn moʊˈmentəm/|获得势头|Gain momentum.
+#PHRASE volatile market|/ˈvɑːlətl ˈmɑːrkɪt/|动荡市场|Volatile market.
+#PHRASE resilient system|/rɪˈzɪliənt ˈsɪstəm/|有韧性的系统|Resilient system.
+#PHRASE take precautions|/teɪk prɪˈkɔːʃnz/|采取预防|Take precautions.
+#PHRASE safeguard rights|/ˈseɪfɡɑːrd raɪts/|保障权利|Safeguard rights.
+#PHRASE beyond comprehension|/bɪˈjɑːnd ˌkɑːmprɪˈhenʃn/|无法理解|Beyond comprehension.
+#PHRASE contradict oneself|/ˌkɑːntrəˈdɪkt wʌnˈself/|自相矛盾|Don't contradict yourself.
+#PHRASE contribute to|/kənˈtrɪbjuːt tə/|促成|Contribute to growth.
+#PHRASE inevitable outcome|/ɪnˈevɪtəbl ˈaʊtkʌm/|不可避免的结果|Inevitable outcome.
+#PHRASE substantial evidence|/səbˈstænʃl ˈevɪdəns/|大量证据|Substantial evidence.
+#PHRASE negligible impact|/ˈneɡlɪdʒəbl ˈɪmpækt/|可忽略影响|Negligible impact.
+#PHRASE evolve into|/ɪˈvɑːlv ˈɪntuː/|演变成|Evolve into.
+#PHRASE deteriorate rapidly|/dɪˈtɪriəreɪt ˈræpɪdli/|迅速恶化|Deteriorate rapidly.
+#PHRASE in crisis|/ɪn ˈkraɪsɪs/|处于危机|In crisis.
+#PHRASE remove obstacles|/rɪˈmuːv ˈɑːbstəklz/|清除障碍|Remove obstacles.
+#PHRASE exacerbate the problem|/ɪɡˈzæsərbeɪt ðə ˈprɑːbləm/|加剧问题|Exacerbate the problem.
+#PHRASE lose credibility|/luːz ˌkredəˈbɪləti/|失去可信度|Lose credibility.
+#PHRASE questionable validity|/ˈkwestʃənəbl vəˈlɪdəti/|有效性存疑|Questionable validity.
+#PHRASE critical thinking|/ˈkrɪtɪkl ˈθɪŋkɪŋ/|批判性思维|Critical thinking.
+#SENTTYPE 陈述句|否定句|一般疑问句|特殊疑问句|选择疑问句|反意疑问句|祈使句|感叹句|存在句|被动语态|现在完成时|过去完成时|将来时态|真实条件句|虚拟语气|定语从句|宾语从句|原因状语从句|让步状语从句|目的状语从句|比较结构|强调句|倒装句|分词结构|不定式结构|动名词结构|with 复合结构|同位语从句|插入评注|形式主语 It
+#SENT 1|陈述句|Regular review helps learners retain crucial concepts.|定期复习帮助学习者记住关键概念。
+#SENT 2|否定句|The report did not justify the optimistic forecast.|报告未能证明乐观预测的合理性。
+#SENT 3|一般疑问句|Have you evaluated the inevitable trade-offs yet?|你评估过那些不可避免的取舍了吗？
+#SENT 4|特殊疑问句|Which consequence concerns you most after the reform?|改革后哪种后果最令你担忧？
+#SENT 5|选择疑问句|Should we transform the system or merely adjust it?|我们应改造系统还是仅作调整？
+#SENT 6|反意疑问句|The argument is still valid, isn't it?|该论点仍然成立，对吧？
+#SENT 7|祈使句|Acquire evidence before you assert a strong claim.|在断言强硬主张前先获取证据。
+#SENT 8|感叹句|How complex this chain of causes and effects is!|这条因果链条多么复杂！
+#SENT 9|存在句|There are useful overlaps among this week's word families.|本周词族之间有有用的交叉。
+#SENT 10|被动语态|Risks are mitigated when teams share timely information.|团队及时共享信息时，风险得以缓解。
+#SENT 11|现在完成时|You have already practiced both analysis and evaluation.|你已同时练习了分析与评估。
+#SENT 12|过去完成时|She had consolidated memory before the final exam.|期末考前她已巩固记忆。
+#SENT 13|将来时态|Tomorrow we will revisit crisis vocabulary under pressure.|明天我们将在压力下重温危机词汇。
+#SENT 14|真实条件句|If you contradict yourself, credibility will suffer.|如果你自相矛盾，可信度会受损。
+#SENT 15|虚拟语气|If criteria were clearer, assessment would feel fairer.|如果标准更清晰，评估会更显公平。
+#SENT 16|定语从句|Learners who stay focused acquire skills faster.|保持专注的学习者获得技能更快。
+#SENT 17|宾语从句|Teachers believe that insight follows structured struggle.|教师认为洞察来自有结构的挣扎。
+#SENT 18|原因状语从句|Because fluctuation is normal, panic is rarely helpful.|因为波动正常，恐慌很少有帮助。
+#SENT 19|让步状语从句|Although the crisis passed, vulnerability remains.|尽管危机已过，脆弱性仍在。
+#SENT 20|目的状语从句|Review word roots so that recall becomes automatic.|复习词根，以便回忆变得自动。
+#SENT 21|比较结构|A justified claim is stronger than speculation alone.|有依据的主张强于单纯推测。
+#SENT 22|强调句|It is consistent practice that turns knowledge into skill.|正是持续练习把知识变成技能。
+#SENT 23|倒装句|Not until week two did many students notice the pattern.|直到第二周许多学生才注意到规律。
+#SENT 24|分词结构|Combining themes, we can see deeper connections.|结合主题，我们能看到更深联系。
+#SENT 25|不定式结构|To undermine a myth, present empirical counterevidence.|要削弱迷思，应提出实证反证。
+#SENT 26|动名词结构|Memorizing lists without sentences limits real mastery.|只背清单不练句子会限制真正掌握。
+#SENT 27|with 复合结构|With mixed review, forgotten items resurface usefully.|通过混合复习，遗忘项会有益地重现。
+#SENT 28|同位语从句|The principle that evidence beats assertion still holds.|证据胜过断言这一原则仍然成立。
+#SENT 29|插入评注|Overall, this checkpoint measures both breadth and depth.|总体而言，这一检查点兼顾广度与深度。
+#SENT 30|形式主语 It|It is wise to mark weak items for tonight's review.|今晚复习标出薄弱项是明智的。

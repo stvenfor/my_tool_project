@@ -1,0 +1,156 @@
+#TITLE 问题与风险 | crit / cris / vulner / tort
+#ROOT crit/cris|判断/危机|crisis, critical, criterion
+#ROOT vulner|伤害|vulnerable, invulnerable
+#ROOT tort/torq|扭|distort, torture, contort
+#ROOT ob-|挡/逆|obstacle, obstruct, oppose
+#WORD crisis|/ˈkraɪsɪs/|n. 危机|crises /ˈkraɪsiːz/
+#WORD critical|/ˈkrɪtɪkl/|a. 危急的；批判的|crisis
+#WORD hazard|/ˈhæzərd/|n. 危害|hazardous
+#WORD hazardous|/ˈhæzərdəs/|a. 危险的|hazard
+#WORD threat|/θret/|n. 威胁|threaten
+#WORD threaten|/ˈθretn/|v. 威胁|threat
+#WORD menace|/ˈmenəs/|n./v. 威胁|—
+#WORD risk|/rɪsk/|n./v. 风险|risky
+#WORD risky|/ˈrɪski/|a. 有风险的|risk
+#WORD peril|/ˈperəl/|n. 严重危险|perilous
+#WORD jeopardy|/ˈdʒepərdi/|n. 危险|jeopardize
+#WORD jeopardize|/ˈdʒepərdaɪz/|v. 危及|jeopardy
+#WORD vulnerable|/ˈvʌlnərəbl/|a. 易受伤害的|vulner
+#WORD invulnerable|/ɪnˈvʌlnərəbl/|a. 无懈可击的|in-
+#WORD fragile|/ˈfrædʒl/|a. 脆弱的|fragility
+#WORD robust|/roʊˈbʌst/|a. 强健的|—
+#WORD resilient|/rɪˈzɪliənt/|a. 有韧性的|resilience
+#WORD resilience|/rɪˈzɪliəns/|n. 韧性|resilient
+#WORD obstacle|/ˈɑːbstəkl/|n. 障碍|ob-+sta
+#WORD obstruct|/əbˈstrʌkt/|v. 阻碍|ob-+struct
+#WORD obstruction|/əbˈstrʌkʃn/|n. 阻碍|obstruct
+#WORD hinder|/ˈhɪndər/|v. 妨碍|hindrance
+#WORD impede|/ɪmˈpiːd/|v. 阻碍|impediment
+#WORD hamper|/ˈhæmpər/|v. 妨碍|—
+#WORD barrier|/ˈbæriər/|n. 壁垒|—
+#WORD bottleneck|/ˈbɑːtlnek/|n. 瓶颈|bottle+neck
+#WORD compromise|/ˈkɑːmprəmaɪz/|n./v. 妥协；损害|com-+promise
+#WORD tackle|/ˈtækl/|v. 处理|—
+#WORD address|/əˈdres/|v. 处理；致辞|—
+#WORD resolve|/rɪˈzɑːlv/|v. 解决；决心|resolution
+#WORD resolution|/ˌrezəˈluːʃn/|n. 决议；决心|resolve
+#WORD solution|/səˈluːʃn/|n. 解决办法|solve
+#WORD solve|/sɑːlv/|v. 解决|solution
+#WORD cope|/koʊp/|v. 应付|cope with
+#WORD confront|/kənˈfrʌnt/|v. 面对|confrontation
+#WORD encounter|/ɪnˈkaʊntər/|v./n. 遭遇|—
+#WORD disaster|/dɪˈzæstər/|n. 灾难|disastrous
+#WORD catastrophe|/kəˈtæstrəfi/|n. 大灾难|catastrophic
+#WORD calamity|/kəˈlæməti/|n. 灾祸|—
+#WORD emergency|/ɪˈmɜːrdʒənsi/|n. 紧急情况|emerge
+#WORD urgency|/ˈɜːrdʒənsi/|n. 紧迫|urgent
+#WORD urgent|/ˈɜːrdʒənt/|a. 紧急的|urge
+#WORD alarm|/əˈlɑːrm/|n./v. 警报；使惊恐|alarming
+#WORD panic|/ˈpænɪk/|n./v. 恐慌|—
+#WORD chaos|/ˈkeɪɑːs/|n. 混乱|chaotic
+#WORD disorder|/dɪsˈɔːrdər/|n. 紊乱|order
+#WORD turmoil|/ˈtɜːrmɔɪl/|n. 动荡|—
+#WORD turbulence|/ˈtɜːrbjələns/|n. 动荡；湍流|turbulent
+#WORD conflict|/ˈkɑːnflɪkt/|n. 冲突|conflict v.
+#WORD clash|/klæʃ/|n./v. 冲突|—
+#WORD tension|/ˈtenʃn/|n. 紧张|tense
+#WORD friction|/ˈfrɪkʃn/|n. 摩擦；不和|frict
+#WORD dispute|/dɪˈspjuːt/|n./v. 争议|disputable
+#WORD controversy|/ˈkɑːntrəvɜːrsi/|n. 争议|controversial
+#WORD scandal|/ˈskændl/|n. 丑闻|scandalous
+#WORD corruption|/kəˈrʌpʃn/|n. 腐败|corrupt
+#WORD fraud|/frɔːd/|n. 欺诈|fraudulent
+#WORD violation|/ˌvaɪəˈleɪʃn/|n. 违反|violate
+#WORD violate|/ˈvaɪəleɪt/|v. 违反|violation
+#WORD breach|/briːtʃ/|n./v. 违反；破裂|—
+#WORD infringement|/ɪnˈfrɪndʒmənt/|n. 侵犯|infringe
+#WORD damage|/ˈdæmɪdʒ/|n./v. 损害|—
+#WORD harm|/hɑːrm/|n./v. 伤害|harmful
+#WORD injury|/ˈɪndʒəri/|n. 伤害|injure
+#WORD casualty|/ˈkæʒuəlti/|n. 伤亡者|—
+#WORD victim|/ˈvɪktɪm/|n. 受害者|victimize
+#WORD exposure|/ɪkˈspoʊʒər/|n. 暴露；接触|expose
+#WORD susceptible|/səˈseptəbl/|a. 易受影响的|suscept
+#WORD prone|/proʊn/|a. 易于…的|prone to
+#WORD liable|/ˈlaɪəbl/|a. 可能；负有责任|liability
+#WORD precaution|/prɪˈkɔːʃn/|n. 预防措施|pre-+caution
+#WORD prevention|/prɪˈvenʃn/|n. 预防|prevent
+#WORD prevent|/prɪˈvent/|v. 预防|pre-+vent
+#WORD safeguard|/ˈseɪfɡɑːrd/|n./v. 保障|safe+guard
+#WORD mitigate|/ˈmɪtɪɡeɪt/|v. 缓解|mitigation
+#WORD alleviate|/əˈliːvieɪt/|v. 减轻|alleviation
+#WORD exacerbate|/ɪɡˈzæsərbeɪt/|v. 加剧|ex-+acerb尖
+#WORD aggravate|/ˈæɡrəveɪt/|v. 加重|ag-+grav重
+#WORD worsen|/ˈwɜːrsn/|v. 恶化|worse
+#WORD collapse|/kəˈlæps/|v./n. 崩溃|—
+#PHRASE in crisis|/ɪn ˈkraɪsɪs/|处于危机|The firm is in crisis.
+#PHRASE pose a threat to|/poʊz ə θret tə/|对…构成威胁|Pose a threat to health.
+#PHRASE be vulnerable to|/bi ˈvʌlnərəbl tə/|易受…影响|Vulnerable to infection.
+#PHRASE tackle the issue|/ˈtækl ði ˈɪʃuː/|着手解决|Tackle the issue now.
+#PHRASE at risk|/æt rɪsk/|有风险|Children at risk.
+#PHRASE run the risk of|/rʌn ðə rɪsk əv/|冒…风险|Run the risk of failure.
+#PHRASE in jeopardy|/ɪn ˈdʒepərdi/|处于危险|Jobs are in jeopardy.
+#PHRASE take precautions|/teɪk prɪˈkɔːʃnz/|采取预防措施|Take precautions.
+#PHRASE emergency response|/ɪˈmɜːrdʒənsi rɪˈspɑːns/|应急响应|Emergency response team.
+#PHRASE natural disaster|/ˈnætʃrəl dɪˈzæstər/|自然灾害|A natural disaster.
+#PHRASE risk assessment|/rɪsk əˈsesmənt/|风险评估|Conduct risk assessment.
+#PHRASE mitigate risk|/ˈmɪtɪɡeɪt rɪsk/|降低风险|Mitigate risk.
+#PHRASE exacerbate tensions|/ɪɡˈzæsərbeɪt ˈtenʃnz/|加剧紧张|Exacerbate tensions.
+#PHRASE resolve a conflict|/rɪˈzɑːlv ə ˈkɑːnflɪkt/|解决冲突|Resolve a conflict.
+#PHRASE reach a compromise|/riːtʃ ə ˈkɑːmprəmaɪz/|达成妥协|Reach a compromise.
+#PHRASE remove obstacles|/rɪˈmuːv ˈɑːbstəklz/|扫清障碍|Remove obstacles.
+#PHRASE break down barriers|/breɪk daʊn ˈbæriərz/|打破壁垒|Break down barriers.
+#PHRASE bottleneck in supply|/ˈbɑːtlnek ɪn səˈplaɪ/|供应瓶颈|A bottleneck in supply.
+#PHRASE cope with stress|/koʊp wɪð stres/|应对压力|Cope with stress.
+#PHRASE confront the problem|/kənˈfrʌnt ðə ˈprɑːbləm/|正视问题|Confront the problem.
+#PHRASE fraudulent activity|/ˈfrɔːdʒələnt ækˈtɪvəti/|欺诈行为|Fraudulent activity.
+#PHRASE breach of contract|/briːtʃ əv ˈkɑːntrækt/|违约|A breach of contract.
+#PHRASE security breach|/sɪˈkjʊrəti briːtʃ/|安全漏洞/入侵|A security breach.
+#PHRASE prone to error|/proʊn tu ˈerər/|易出错|Prone to error.
+#PHRASE susceptible to influence|/səˈseptəbl tu ˈɪnfluəns/|易受影响|Susceptible to influence.
+#PHRASE safeguard privacy|/ˈseɪfɡɑːrd ˈpraɪvəsi/|保护隐私|Safeguard privacy.
+#PHRASE preventable accident|/prɪˈventəbl ˈæksɪdənt/|可预防事故|A preventable accident.
+#PHRASE system collapse|/ˈsɪstəm kəˈlæps/|系统崩溃|System collapse.
+#PHRASE economic turmoil|/ˌekəˈnɑːmɪk ˈtɜːrmɔɪl/|经济动荡|Economic turmoil.
+#PHRASE political tension|/pəˈlɪtɪkl ˈtenʃn/|政治紧张|Political tension.
+#PHRASE spark controversy|/spɑːrk ˈkɑːntrəvɜːrsi/|引发争议|Spark controversy.
+#PHRASE beyond dispute|/bɪˈjɑːnd dɪˈspjuːt/|无可争议|Beyond dispute.
+#PHRASE resilient economy|/rɪˈzɪliənt ɪˈkɑːnəmi/|有韧性的经济|A resilient economy.
+#PHRASE fragile peace|/ˈfrædʒl piːs/|脆弱的和平|A fragile peace.
+#PHRASE hazardous material|/ˈhæzərdəs məˈtɪriəl/|危险材料|Hazardous material.
+#PHRASE alarming rate|/əˈlɑːrmɪŋ reɪt/|惊人速度/比率|An alarming rate.
+#PHRASE chaotic situation|/keɪˈɑːtɪk ˌsɪtʃuˈeɪʃn/|混乱局面|A chaotic situation.
+#PHRASE address root causes|/əˈdres ruːt ˈkɔːzɪz/|解决根源|Address root causes.
+#PHRASE find a solution|/faɪnd ə səˈluːʃn/|找到解决办法|Find a solution.
+#PHRASE damage control|/ˈdæmɪdʒ kənˈtroʊl/|损害控制|Damage control.
+#SENTTYPE 陈述句|否定句|一般疑问句|特殊疑问句|选择疑问句|反意疑问句|祈使句|感叹句|存在句|被动语态|现在完成时|过去完成时|将来时态|真实条件句|虚拟语气|定语从句|宾语从句|原因状语从句|让步状语从句|目的状语从句|比较结构|强调句|倒装句|分词结构|不定式结构|动名词结构|with 复合结构|同位语从句|插入评注|形式主语 It
+#SENT 1|陈述句|Coastal cities remain vulnerable to extreme weather.|沿海城市仍易受极端天气影响。
+#SENT 2|否定句|The agency did not mitigate the hazard in time.|该机构未能及时缓解危害。
+#SENT 3|一般疑问句|Can resilience be built before the next crisis?|能否在下一场危机前建立韧性？
+#SENT 4|特殊疑问句|What obstacles prevent effective emergency response?|哪些障碍妨碍有效应急响应？
+#SENT 5|选择疑问句|Is the threat natural, human-made, or both?|威胁是自然的、人为的，还是两者皆有？
+#SENT 6|反意疑问句|The system is fragile, isn't it?|系统很脆弱，对吧？
+#SENT 7|祈使句|Take precautions before entering hazardous zones.|进入危险区域前请采取预防措施。
+#SENT 8|感叹句|What a catastrophic failure of risk management!|多么灾难性的风险管理失败！
+#SENT 9|存在句|There are early warning signs before most collapses.|大多数崩溃前都有预警信号。
+#SENT 10|被动语态|Critical infrastructure must be safeguarded continuously.|关键基础设施必须持续得到保障。
+#SENT 11|现在完成时|Communities have faced repeated floods this decade.|本十年社区已多次遭遇洪水。
+#SENT 12|过去完成时|Officials had underestimated the scale of the disaster.|官员曾低估灾害规模。
+#SENT 13|将来时态|New protocols will address bottlenecks in supply.|新规程将解决供应瓶颈。
+#SENT 14|真实条件句|If tensions escalate, markets will panic quickly.|如果紧张加剧，市场将迅速恐慌。
+#SENT 15|虚拟语气|If safeguards were stronger, casualties would decrease.|若保障更强，伤亡会减少。
+#SENT 16|定语从句|Policies that exacerbate inequality deepen social risk.|加剧不平等的政策会加深社会风险。
+#SENT 17|宾语从句|Experts warn that complacency invites future crises.|专家警告自满会招致未来危机。
+#SENT 18|原因状语从句|Because loopholes remain, fraud continues to spread.|因为漏洞仍在，欺诈继续蔓延。
+#SENT 19|让步状语从句|Although the conflict eased, underlying friction persists.|尽管冲突缓和，深层摩擦仍在。
+#SENT 20|目的状语从句|Train responders so that emergencies do not turn chaotic.|培训应急人员，以免紧急情况陷入混乱。
+#SENT 21|比较结构|Prevention is cheaper than post-disaster recovery.|预防比灾后恢复更便宜。
+#SENT 22|强调句|It is weak governance that amplifies every shock.|正是薄弱治理放大每一次冲击。
+#SENT 23|倒装句|Nowhere is vulnerability more visible than in slums.|脆弱性在贫民窟最为可见。
+#SENT 24|分词结构|Confronting the problem early, leaders limited damage.|及早正视问题，领导层限制了损害。
+#SENT 25|不定式结构|To tackle root causes, fund long-term resilience.|要解决根源，应为长期韧性提供资金。
+#SENT 26|动名词结构|Ignoring warnings often leads to irreversible harm.|忽视警告常导致不可逆伤害。
+#SENT 27|with 复合结构|With limited hospitals, casualties rose sharply.|医院有限时，伤亡急剧上升。
+#SENT 28|同位语从句|The fear that panic itself worsens outcomes is real.|恐慌本身会恶化结果的担忧是真实的。
+#SENT 29|插入评注|In crisis, coordinated action outweighs isolated heroism.|危机中，协调行动胜过孤立英雄主义。
+#SENT 30|形式主语 It|It is urgent to remove obstacles to aid delivery.|清除援助运送障碍十分紧迫。

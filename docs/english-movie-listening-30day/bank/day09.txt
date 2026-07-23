@@ -1,0 +1,156 @@
+#TITLE 经济与资源 | eco / merc / fin / pend
+#ROOT eco|家计/经济|economy, economics, ecology
+#ROOT merc|商|commerce, merchant
+#ROOT fin|界/钱|finance, finish, finite
+#ROOT pend/pens|花费|expense, expend, pension
+#WORD economy|/ɪˈkɑːnəmi/|n. 经济|eco
+#WORD economics|/ˌekəˈnɑːmɪks/|n. 经济学|eco
+#WORD economic|/ˌekəˈnɑːmɪk/|a. 经济的|economy
+#WORD economical|/ˌekəˈnɑːmɪkl/|a. 节约的|economy
+#WORD allocate|/ˈæləkeɪt/|v. 分配|al-+loc
+#WORD allocation|/ˌæləˈkeɪʃn/|n. 分配|allocate
+#WORD budget|/ˈbʌdʒɪt/|n./v. 预算|—
+#WORD revenue|/ˈrevənuː/|n. 营收|dup
+#WORD deficit|/ˈdefɪsɪt/|n. 赤字|de-+fic
+#WORD surplus|/ˈsɜːrpləs/|n. 盈余|sur-+plus
+#WORD inflation|/ɪnˈfleɪʃn/|n. 通胀|in-+flat
+#WORD deflation|/dɪˈfleɪʃn/|n. 通缩|de-+flat
+#WORD recession|/rɪˈseʃn/|n. 衰退|re-+cess
+#WORD depression|/dɪˈpreʃn/|n. 萧条|de-+press
+#WORD prosperity|/prɑːˈsperəti/|n. 繁荣|prosper
+#WORD prosper|/ˈprɑːspər/|v. 繁荣|prosperity
+#WORD scarce|/skers/|a. 稀缺的|scarcity
+#WORD scarcity|/ˈskersəti/|n. 稀缺|scarce
+#WORD commodity|/kəˈmɑːdəti/|n. 商品|—
+#WORD commerce|/ˈkɑːmɜːrs/|n. 商业|merc
+#WORD commercial|/kəˈmɜːrʃl/|a. 商业的|commerce
+#WORD merchant|/ˈmɜːrtʃənt/|n. 商人|merc
+#WORD finance|/ˈfaɪnæns/|n./v. 金融；资助|fin
+#WORD financial|/faɪˈnænʃl/|a. 金融的|finance
+#WORD fiscal|/ˈfɪskl/|a. 财政的|—
+#WORD monetary|/ˈmɑːnɪteri/|a. 货币的|money
+#WORD currency|/ˈkɜːrənsi/|n. 货币|current
+#WORD capital|/ˈkæpɪtl/|n. 资本|cap头
+#WORD investment|/ɪnˈvestmənt/|n. 投资|invest
+#WORD invest|/ɪnˈvest/|v. 投资|investment
+#WORD investor|/ɪnˈvestər/|n. 投资者|invest
+#WORD asset|/ˈæset/|n. 资产|—
+#WORD liability|/ˌlaɪəˈbɪləti/|n. 负债；责任|liable
+#WORD equity|/ˈekwəti/|n. 股权；公平|equ
+#WORD stock|/stɑːk/|n. 股票；存货|—
+#WORD share|/ʃer/|n. 股份|shareholder
+#WORD dividend|/ˈdɪvɪdend/|n. 股息|divide
+#WORD interest|/ˈɪntrəst/|n. 利息；兴趣|—
+#WORD loan|/loʊn/|n. 贷款|—
+#WORD credit|/ˈkredɪt/|n. 信贷；学分|cred信
+#WORD debt|/det/|n. 债务|debit
+#WORD bankruptcy|/ˈbæŋkrʌptsi/|n. 破产|bankrupt
+#WORD tax|/tæks/|n./v. 税|taxation
+#WORD taxation|/tækˈseɪʃn/|n. 征税|tax
+#WORD subsidy|/ˈsʌbsədi/|n. 补贴|sub-+sid
+#WORD tariff|/ˈtærɪf/|n. 关税|dup skip
+#WORD quota|/ˈkwoʊtə/|n. 配额|—
+#WORD trade|/treɪd/|n./v. 贸易|—
+#WORD export|/ˈekspɔːrt/|n./v. 出口|ex-+port
+#WORD import|/ˈɪmpɔːrt/|n./v. 进口|im-+port
+#WORD sanction|/ˈsæŋkʃn/|n./v. 制裁；批准|—
+#WORD market|/ˈmɑːrkɪt/|n. 市场|marketing
+#WORD marketing|/ˈmɑːrkɪtɪŋ/|n. 营销|market
+#WORD consumer|/kənˈsuːmər/|n. 消费者|consume
+#WORD consumption|/kənˈsʌmpʃn/|n. 消费|consume
+#WORD demand|/dɪˈmænd/|n./v. 需求|—
+#WORD supply|/səˈplaɪ/|n./v. 供给|—
+#WORD productivity|/ˌprɑːdʌkˈtɪvəti/|n. 生产率|product
+#WORD efficiency|/ɪˈfɪʃnsi/|n. 效率|efficient
+#WORD profit|/ˈprɑːfɪt/|n. 利润|profitable
+#WORD profitable|/ˈprɑːfɪtəbl/|a. 有利可图的|profit
+#WORD loss|/lɔːs/|n. 亏损|lose
+#WORD turnover|/ˈtɜːrnoʊvər/|n. 营业额；人事流动|turn+over
+#WORD cost|/kɔːst/|n. 成本|—
+#WORD expense|/ɪkˈspens/|n. 费用|ex-+pens
+#WORD expenditure|/ɪkˈspendɪtʃər/|n. 开支|expend
+#WORD price|/praɪs/|n. 价格|—
+#WORD pricing|/ˈpraɪsɪŋ/|n. 定价|price
+#WORD inflationary|/ɪnˈfleɪʃəneri/|a. 通胀的|inflation
+#WORD unemployment|/ˌʌnɪmˈplɔɪmənt/|n. 失业|employ
+#WORD employment|/ɪmˈplɔɪmənt/|n. 就业|employ
+#WORD wage|/weɪdʒ/|n. 工资|—
+#WORD salary|/ˈsæləri/|n. 薪水|—
+#WORD income|/ˈɪnkʌm/|n. 收入|in+come
+#WORD GDP|/ˌdʒiːdiːˈpiː/|n. 国内生产总值|gross domestic product
+#WORD growth|/ɡroʊθ/|n. 增长|grow
+#WORD incentive|/ɪnˈsentɪv/|n. 激励|in-+cent
+#WORD stimulus|/ˈstɪmjələs/|n. 刺激|stimulate
+#WORD stimulate|/ˈstɪmjuleɪt/|v. 刺激|stimulus
+#WORD boom|/buːm/|n./v. 繁荣；激增|—
+#PHRASE allocate resources|/ˈæləkeɪt ˈriːsɔːrsɪz/|配置资源|Allocate resources wisely.
+#PHRASE budget deficit|/ˈbʌdʒɪt ˈdefɪsɪt/|预算赤字|A growing budget deficit.
+#PHRASE curb inflation|/kɜːrb ɪnˈfleɪʃn/|抑制通胀|Policies curb inflation.
+#PHRASE scarce resources|/skers ˈriːsɔːrsɪz/|稀缺资源|Scarce resources.
+#PHRASE economic recession|/ˌekəˈnɑːmɪk rɪˈseʃn/|经济衰退|During an economic recession.
+#PHRASE fiscal policy|/ˈfɪskl ˈpɑːləsi/|财政政策|Fiscal policy matters.
+#PHRASE monetary policy|/ˈmɑːnɪteri ˈpɑːləsi/|货币政策|Tight monetary policy.
+#PHRASE foreign investment|/ˈfɔːrən ɪnˈvestmənt/|外国投资|Attract foreign investment.
+#PHRASE capital market|/ˈkæpɪtl ˈmɑːrkɪt/|资本市场|Capital market reforms.
+#PHRASE stock market|/stɑːk ˈmɑːrkɪt/|股市|The stock market rose.
+#PHRASE interest rate|/ˈɪntrəst reɪt/|利率|Raise the interest rate.
+#PHRASE trade surplus|/treɪd ˈsɜːrpləs/|贸易顺差|A trade surplus.
+#PHRASE trade deficit|/treɪd ˈdefɪsɪt/|贸易逆差|A trade deficit.
+#PHRASE impose tariffs|/ɪmˈpoʊz ˈtærɪfs/|征收关税|Impose tariffs on imports.
+#PHRASE supply and demand|/səˈplaɪ ənd dɪˈmænd/|供求|Supply and demand.
+#PHRASE consumer spending|/kənˈsuːmər ˈspendɪŋ/|消费支出|Consumer spending fell.
+#PHRASE productivity growth|/ˌprɑːdʌkˈtɪvəti ɡroʊθ/|生产率增长|Productivity growth.
+#PHRASE profit margin|/ˈprɑːfɪt ˈmɑːrdʒɪn/|利润率|A thin profit margin.
+#PHRASE operating cost|/ˈɑːpəreɪtɪŋ kɔːst/|运营成本|Cut operating cost.
+#PHRASE unemployment rate|/ˌʌnɪmˈplɔɪmənt reɪt/|失业率|The unemployment rate.
+#PHRASE financial incentive|/faɪˈnænʃl ɪnˈsentɪv/|经济激励|A financial incentive.
+#PHRASE stimulus package|/ˈstɪmjələs ˈpækɪdʒ/|刺激计划|A stimulus package.
+#PHRASE economic boom|/ˌekəˈnɑːmɪk buːm/|经济繁荣|An economic boom.
+#PHRASE asset bubble|/ˈæset ˈbʌbl/|资产泡沫|An asset bubble.
+#PHRASE declare bankruptcy|/dɪˈkler ˈbæŋkrʌptsi/|宣布破产|Declare bankruptcy.
+#PHRASE tax revenue|/tæks ˈrevənuː/|税收收入|Tax revenue rose.
+#PHRASE government subsidy|/ˈɡʌvərnmənt ˈsʌbsədi/|政府补贴|A government subsidy.
+#PHRASE market mechanism|/ˈmɑːrkɪt ˈmekənɪzəm/|市场机制|Market mechanism.
+#PHRASE gross domestic product|/ɡroʊs dəˈmestɪk ˈprɑːdʌkt/|国内生产总值|GDP grew 3%.
+#PHRASE liquidity crisis|/lɪˈkwɪdəti ˈkraɪsɪs/|流动性危机|A liquidity crisis.
+#PHRASE hedge against risk|/hedʒ əˈɡenst rɪsk/|对冲风险|Hedge against risk.
+#PHRASE return on investment|/rɪˈtɜːrn ɑːn ɪnˈvestmənt/|投资回报|Return on investment.
+#PHRASE credit crunch|/ˈkredɪt krʌntʃ/|信贷紧缩|A credit crunch.
+#PHRASE public debt|/ˈpʌblɪk det/|公共债务|Rising public debt.
+#PHRASE commodity price|/kəˈmɑːdəti praɪs/|大宗商品价格|Commodity price volatility.
+#PHRASE commercial bank|/kəˈmɜːrʃl bæŋk/|商业银行|A commercial bank.
+#PHRASE venture capital|/ˈventʃər ˈkæpɪtl/|风险资本|Venture capital funding.
+#PHRASE balance sheet|/ˈbæləns ʃiːt/|资产负债表|On the balance sheet.
+#PHRASE cost-effective|/ˌkɔːst ɪˈfektɪv/|具有成本效益的|A cost-effective solution.
+#PHRASE prosperity and stability|/prɑːˈsperəti ənd stəˈbɪləti/|繁荣与稳定|Prosperity and stability.
+#SENTTYPE 陈述句|否定句|一般疑问句|特殊疑问句|选择疑问句|反意疑问句|祈使句|感叹句|存在句|被动语态|现在完成时|过去完成时|将来时态|真实条件句|虚拟语气|定语从句|宾语从句|原因状语从句|让步状语从句|目的状语从句|比较结构|强调句|倒装句|分词结构|不定式结构|动名词结构|with 复合结构|同位语从句|插入评注|形式主语 It
+#SENT 1|陈述句|Fiscal policy can stimulate a weak economy.|财政政策可刺激疲弱经济。
+#SENT 2|否定句|The surplus did not offset the mounting public debt.|盈余未能抵消不断攀升的公共债务。
+#SENT 3|一般疑问句|Will higher interest rates curb inflation effectively?|更高利率能否有效抑制通胀？
+#SENT 4|特殊疑问句|How should governments allocate scarce resources?|政府应如何配置稀缺资源？
+#SENT 5|选择疑问句|Is recession a cyclical dip or a structural break?|衰退是周期性回落还是结构性断裂？
+#SENT 6|反意疑问句|Productivity growth remains sluggish, doesn't it?|生产率增长仍然乏力，对吧？
+#SENT 7|祈使句|Diversify investments before the bubble bursts.|在泡沫破裂前分散投资。
+#SENT 8|感叹句|What a dramatic collapse in commodity prices!|大宗商品价格多么剧烈的崩盘！
+#SENT 9|存在句|There is little liquidity in distressed markets.|困境市场中几乎没有流动性。
+#SENT 10|被动语态|Tariffs were imposed to protect domestic industries.|征收关税以保护国内产业。
+#SENT 11|现在完成时|Central banks have tightened monetary policy sharply.|央行已大幅收紧货币政策。
+#SENT 12|过去完成时|Investors had fled risk assets before the crash.|崩盘前投资者已逃离风险资产。
+#SENT 13|将来时态|Subsidies will target renewable energy next year.|明年补贴将瞄准可再生能源。
+#SENT 14|真实条件句|If wages stagnate, consumption will weaken further.|如果工资停滞，消费将进一步走弱。
+#SENT 15|虚拟语气|If debt were sustainable, panic would be unnecessary.|若债务可持续，恐慌本无必要。
+#SENT 16|定语从句|Firms that raise productivity can absorb higher costs.|提高生产率的企业能消化更高成本。
+#SENT 17|宾语从句|Markets expect that unemployment will edge upward.|市场预期失业率将小幅上升。
+#SENT 18|原因状语从句|Because credit tightened, small businesses struggled.|因为信贷收紧，小企业陷入困境。
+#SENT 19|让步状语从句|Although exports recovered, the deficit persisted.|尽管出口复苏，逆差仍在。
+#SENT 20|目的状语从句|Build reserves so that shocks do not force austerity.|建立储备，以免冲击迫使紧缩。
+#SENT 21|比较结构|Capital investment is riskier than cash holdings.|资本投资比持有现金风险更高。
+#SENT 22|强调句|It is consumer spending that drives short-term growth.|正是消费支出驱动短期增长。
+#SENT 23|倒装句|Seldom do stimulus packages please every faction.|刺激计划很少让各方都满意。
+#SENT 24|分词结构|Facing insolvency, the bank sought emergency funding.|面对无力偿付，银行寻求紧急资金。
+#SENT 25|不定式结构|To restore solvency, cut nonessential expenditure.|为恢复偿付能力，削减非必要开支。
+#SENT 26|动名词结构|Speculating on leverage can amplify losses rapidly.|杠杆投机会迅速放大亏损。
+#SENT 27|with 复合结构|With inflation elevated, real incomes decline.|通胀高企时，实际收入下降。
+#SENT 28|同位语从句|The claim that markets self-correct instantly is contested.|市场瞬间自我纠正这一主张存在争议。
+#SENT 29|插入评注|On balance, gradual tightening reduces volatility.|总体而言，渐进收紧可降低波动。
+#SENT 30|形式主语 It|It is hard to forecast commodity price swings precisely.|精确预测大宗商品价格波动很难。

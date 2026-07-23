@@ -1,0 +1,154 @@
+#TITLE 总复习自测包 | CET-4/6 高频综合
+#ROOT 综合|四六级高频|mixed
+#ROOT 复现|自测|day-30
+#WORD acquire|/əˈkwaɪər/|v. 获得；习得|ac- + quire 寻求
+#WORD cognitive|/ˈkɑːɡnətɪv/|a. 认知的|cogn
+#WORD comprehend|/ˌkɑːmprɪˈhend/|v. 理解|com- + prehend 抓
+#WORD conscious|/ˈkɑːnʃəs/|a. 有意识的|con- + sci + -ous
+#WORD perceive|/pərˈsiːv/|v. 察觉；认为|per- + ceive
+#WORD retain|/rɪˈteɪn/|v. 保留；记住|re- + tain
+#WORD assimilate|/əˈsɪməleɪt/|v. 吸收；同化|as- + simil 同
+#WORD insight|/ˈɪnsaɪt/|n. 洞察|in + sight
+#WORD recognize|/ˈrekəɡnaɪz/|v. 认出；承认|re- + cogn + -ize
+#WORD cognition|/kɑːɡˈnɪʃn/|n. 认知|cogn
+#WORD scientific|/ˌsaɪənˈtɪfɪk/|a. 科学的|sci + -ific
+#WORD discipline|/ˈdɪsəplɪn/|n. 学科；纪律|—
+#WORD curriculum|/kəˈrɪkjələm/|n. 课程|—
+#WORD literacy|/ˈlɪtərəsi/|n. 读写能力|liter 文字
+#WORD proficiency|/prəˈfɪʃnsi/|n. 熟练|pro- + fic 做
+#WORD competence|/ˈkɑːmpɪtəns/|n. 能力|compete 竞争
+#WORD memorize|/ˈmeməraɪz/|v. 记忆|memory + -ize
+#WORD recall|/rɪˈkɔːl/|v. 回忆；召回|re- + call
+#WORD grasp|/ɡræsp/|v.  grasp 理解；抓住|—
+#WORD interpret|/ɪnˈtɜːrprɪt/|v. 解释|inter- + pret
+#WORD deduce|/dɪˈduːs/|v. 演绎；推断|de- + duce
+#WORD infer|/ɪnˈfɜːr/|v. 推断|in- + fer
+#WORD hypothesis|/haɪˈpɑːθəsɪs/|n. 假设|hypo + thesis
+#WORD theorem|/ˈθiːərəm/|n. 定理|theo
+#WORD empirical|/ɪmˈpɪrɪkl/|a. 实证的|empiricism
+#WORD analytical|/ˌænəˈlɪtɪkl/|a. 分析的|analysis
+#WORD synthesis|/ˈsɪnθəsɪs/|n. 综合|syn- + thesis
+#WORD abstract|/ˈæbstrækt/|a. 抽象的|abs- + tract
+#WORD concrete|/ˈkɑːŋkriːt/|a. 具体的|反义 abstract
+#WORD concept|/ˈkɑːnsept/|n. 概念|con- + cept
+#WORD notion|/ˈnoʊʃn/|n. 概念；想法|not
+#WORD intuition|/ˌɪntuˈɪʃn/|n. 直觉|intuit
+#WORD awareness|/əˈwernəs/|a. 意识；觉察|aware + -ness
+#WORD mindset|/ˈmaɪndset/|n. 思维模式|—
+#WORD aptitude|/ˈæptɪtuːd/|n. 天资； aptitude|apt 适合
+#WORD intelligence|/ɪnˈtelɪdʒəns/|n. 智力|intel 之间
+#WORD wisdom|/ˈwɪzdəm/|n. 智慧|wise + -dom
+#WORD knowledge|/ˈnɑːlɪdʒ/|n. 知识|know + -ledge
+#WORD expertise|/ˌekspɜːrˈtiːz/|n. 专长|expert + -ise
+#WORD scholar|/ˈskɑːlər/|n. 学者|schol 学校
+#WORD academic|/ˌækəˈdemɪk/|a. 学术的|academy
+#WORD intellectual|/ˌɪntəˈlektʃuəl/|a. 智力的|intellect
+#WORD enlighten|/ɪnˈlaɪtn/|v. 启发；启蒙|en- + light
+#WORD educate|/ˈedʒukeɪt/|v. 教育|e- + duc 引
+#WORD instruct|/ɪnˈstrʌkt/|v. 指导；讲授|in- + struct 建
+#WORD tutor|/ˈtuːtər/|v./n. 辅导|—
+#WORD mentor|/ˈmentɔːr/|n. 导师|—
+#WORD pedagogy|/ˈpedəɡɑːdʒi/|n. 教学法|ped 儿童
+#WORD seminar|/ˈsemɪnɑːr/|n. 研讨会|—
+#WORD lecture|/ˈlektʃər/|n./v. 讲座|lect 读
+#WORD textbook|/ˈtekstbʊk/|n. 教科书|—
+#WORD handout|/ˈhændaʊt/|n. 讲义|—
+#WORD assignment|/əˈsaɪnmənt/|n. 作业；任务|assign
+#WORD revision|/rɪˈvɪʒn/|n. 修订|revise
+#WORD review|/rɪˈvjuː/|n./v. 综述；审阅|—
+#WORD preview|/ˈpriːvjuː/|v./n. 预习|pre- + view
+#WORD digest|/daɪˈdʒest/|v. 消化；领会|di- + gest
+#WORD absorb|/əbˈzɔːrb/|v. 吸收|ab- + sorb
+#WORD internalize|/ɪnˈtɜːrnəlaɪz/|v. 内化|internal + -ize
+#WORD master|/ˈmæstər/|v. 掌握|—
+#WORD practice|/ˈpræktɪs/|n./v. 练习|pract 做
+#WORD rehearse|/rɪˈhɜːrs/|v. 排练；预演|re- + hearse
+#WORD drill|/drɪl/|n./v.  drill 操练|—
+#WORD reinforce|/ˌriːɪnˈfɔːrs/|v. 强化|re- + in + force
+#WORD consolidate|/kənˈsɑːlɪdeɪt/|v. 巩固|con- + solid
+#WORD forget|/fərˈɡet/|v. 忘记|—
+#WORD oblivion|/əˈblɪviən/|n. 遗忘|ob- + liv
+#WORD distract|/dɪˈstrækt/|v. 分心|dis- + tract
+#WORD concentrate|/ˈkɑːnsntreɪt/|v. 集中|con- + centr
+#WORD focus|/ˈfoʊkəs/|v./n. 聚焦|—
+#WORD attentive|/əˈtentɪv/|a. 专心的|attend
+#WORD diligent|/ˈdɪlɪdʒənt/|a. 勤奋的|—
+#WORD persistent|/pərˈsɪstənt/|a. 坚持不懈的|per- + sist
+#WORD motivation|/ˌmoʊtɪˈveɪʃn/|n. 动机|motive
+#WORD curiosity|/ˌkjʊriˈɑːsəti/|n. 好奇心|curious
+#WORD inquiry|/ɪnˈkwaɪəri/|n. 探究|in- + quire
+#WORD explore|/ɪkˈsplɔːr/|v. 探索|ex- + plor
+#WORD investigate|/ɪnˈvestɪɡeɪt/|v. 调查|in- + vestig
+#WORD observe|/əbˈzɜːrv/|v. 观察|ob- + serv
+#WORD experiment|/ɪkˈsperɪmənt/|n. 实验|ex- + per 试
+#PHRASE acquire a skill|/əˈkwaɪər ə skɪl/|掌握一项技能|She acquired a skill in coding.
+#PHRASE be conscious of|/bi ˈkɑːnʃəs əv/|意识到|Be conscious of your bias.
+#PHRASE gain insight into|/ɡeɪn ˈɪnsaɪt ˈɪntuː/|深入了解|Gain insight into memory.
+#PHRASE beyond comprehension|/bɪˈjɑːnd ˌkɑːmprɪˈhenʃn/|无法理解|The scale is beyond comprehension.
+#PHRASE retain information|/rɪˈteɪn ˌɪnfərˈmeɪʃn/|记住信息|Sleep helps retain information.
+#PHRASE assimilate knowledge|/əˈsɪməleɪt ˈnɑːlɪdʒ/|吸收知识|Students assimilate knowledge slowly.
+#PHRASE perceive a difference|/pərˈsiːv ə ˈdɪfrəns/|察觉差异|Can you perceive a difference?
+#PHRASE cognitive ability|/ˈkɑːɡnətɪv əˈbɪləti/|认知能力|Cognitive ability varies widely.
+#PHRASE scientific method|/ˌsaɪənˈtɪfɪk ˈmeθəd/|科学方法|Follow the scientific method.
+#PHRASE develop proficiency|/dɪˈveləp prəˈfɪʃnsi/|提高熟练度|Develop proficiency through practice.
+#PHRASE grasp the concept|/ɡræsp ðə ˈkɑːnsept/|理解概念|It took time to grasp the concept.
+#PHRASE draw an inference|/drɔː ən ˈɪnfərəns/|作出推论|Draw an inference from facts.
+#PHRASE test a hypothesis|/test ə haɪˈpɑːθəsɪs/|检验假设|Scientists test a hypothesis rigorously.
+#PHRASE empirical evidence|/ɪmˈpɪrɪkl ˈevɪdəns/|实证证据|Empirical evidence supports the claim.
+#PHRASE abstract thinking|/ˈæbstrækt ˈθɪŋkɪŋ/|抽象思维|Abstract thinking develops with age.
+#PHRASE critical thinking|/ˈkrɪtɪkl ˈθɪŋkɪŋ/|批判性思维|Schools teach critical thinking.
+#PHRASE intellectual curiosity|/ˌɪntəˈlektʃuəl ˌkjʊriˈɑːsəti/|求知欲|Intellectual curiosity drives research.
+#PHRASE academic achievement|/ˌækəˈdemɪk əˈtʃiːvmənt/|学业成就|Hard work boosts academic achievement.
+#PHRASE enlighten the mind|/ɪnˈlaɪtn ðə maɪnd/|启迪心智|Books enlighten the mind.
+#PHRASE receive instruction|/rɪˈsiːv ɪnˈstrʌkʃn/|接受指导|Students receive instruction online.
+#PHRASE complete an assignment|/kəmˈpliːt ən əˈsaɪnmənt/|完成作业|Complete an assignment on time.
+#PHRASE review for an exam|/rɪˈvjuː fɔːr ən ɪɡˈzæm/|复习迎考|Review for an exam every night.
+#PHRASE internalize a lesson|/ɪnˈtɜːrnəlaɪz ə ˈlesn/|内化一课|Children internalize a lesson through play.
+#PHRASE master a subject|/ˈmæstər ə ˈsʌbdʒɪkt/|精通一门学科|She mastered a subject in two years.
+#PHRASE practice makes perfect|/ˈpræktɪs meɪks ˈpɜːrfɪkt/|熟能生巧|Practice makes perfect.
+#PHRASE reinforce learning|/ˌriːɪnˈfɔːrs ˈlɜːrnɪŋ/|强化学习|Quizzes reinforce learning.
+#PHRASE consolidate memory|/kənˈsɑːlɪdeɪt ˈmeməri/|巩固记忆|Sleep helps consolidate memory.
+#PHRASE lose concentration|/luːz ˌkɑːnsnˈtreɪʃn/|失去专注|Noise makes you lose concentration.
+#PHRASE stay focused|/steɪ ˈfoʊkəst/|保持专注|Stay focused during lectures.
+#PHRASE pay attention to|/peɪ əˈtenʃn tə/|注意|Pay attention to details.
+#PHRASE a thirst for knowledge|/ə θɜːrst fɔːr ˈnɑːlɪdʒ/|求知欲|He has a thirst for knowledge.
+#PHRASE conduct an experiment|/kənˈdʌkt ən ɪkˈsperɪmənt/|做实验|Conduct an experiment safely.
+#PHRASE observe carefully|/əbˈzɜːrv ˈkerfəli/|仔细观察|Observe carefully before concluding.
+#PHRASE investigate a problem|/ɪnˈvestɪɡeɪt ə ˈprɑːbləm/|调查问题|Investigate a problem thoroughly.
+#PHRASE explore new ideas|/ɪkˈsplɔːr nuː aɪˈdiːəz/|探索新想法|Teams explore new ideas weekly.
+#PHRASE learn by rote|/lɜːrn baɪ roʊt/|死记硬背|Don't just learn by rote.
+#PHRASE hands-on learning|/hændz ɑːn ˈlɜːrnɪŋ/|体验式学习|Hands-on learning works best.
+#PHRASE lifelong learning|/ˈlaɪflɔːŋ ˈlɜːrnɪŋ/|终身学习|Lifelong learning is essential.
+#PHRASE study habit|/ˈstʌdi ˈhæbɪt/|学习习惯|Good study habits matter.
+#PHRASE expand one's horizons|/ɪkˈspænd wʌnz həˈraɪznz/|开阔眼界|Travel expands one's horizons.
+#SENTTYPE 陈述句|否定句|一般疑问句|特殊疑问句|选择疑问句|反意疑问句|祈使句|感叹句|存在句|被动语态|现在完成时|过去完成时|将来时态|真实条件句|虚拟语气|定语从句|宾语从句|原因状语从句|让步状语从句|目的状语从句|比较结构|强调句|倒装句|分词结构|不定式结构|动名词结构|with 复合结构|同位语从句|插入评注|形式主语 It
+#SENT 1|陈述句|Empirical verification strengthens civil accountability.|实证核实增强公民问责。
+#SENT 2|否定句|Influence campaigns did not acquire lasting legitimacy.|影响运动未获得持久合法性。
+#SENT 3|一般疑问句|Can sustainable policies conclude growth debates fairly?|可持续政策能否公平结束增长辩论？
+#SENT 4|特殊疑问句|Which crucial criterion should guide final self-assessment?|哪项关键标准应指导最终自评？
+#SENT 5|选择疑问句|Is progress cognitive growth or merely vocabulary volume?|进步是认知成长还是仅词汇体量？
+#SENT 6|反意疑问句|Thirty days of practice compounds, doesn't it?|三十天练习会复利，对吧？
+#SENT 7|祈使句|Retest weak sentence types before celebrating.|庆祝前先重测薄弱句型。
+#SENT 8|感叹句|What a comprehensive archive of CET patterns this is!|这是多么全面的四六级句型档案！
+#SENT 9|存在句|There is still room to deepen listening next month.|下月听力仍有深化空间。
+#SENT 10|被动语态|Insights are retained when sentences are produced aloud.|大声产出句子时洞见得以保持。
+#SENT 11|现在完成时|You have already integrated roots, phrases, and syntax.|你已整合词根、短语与句法。
+#SENT 12|过去完成时|She had verified progress against the Day 0 baseline.|她已对照 Day0 基线核实进步。
+#SENT 13|将来时态|Next cycle will emphasize spoken shadowing daily.|下一周期将每天强调影子跟读。
+#SENT 14|真实条件句|If review continues, fluency will keep rising.|如果复习继续，流利度将持续上升。
+#SENT 15|虚拟语气|If practice stopped now, attrition would accelerate.|若现在停止练习，遗忘会加速。
+#SENT 16|定语从句|Learners who conclude with production lock in gains.|以产出收尾的学习者锁定收益。
+#SENT 17|宾语从句|Tutors recommend that sustainable habits beat cramming.|辅导建议可持续习惯胜过临时抱佛脚。
+#SENT 18|原因状语从句|Because themes recycled, recognition became faster.|因为主题循环，识别变得更快。
+#SENT 19|让步状语从句|Although the load was heavy, methods stayed consistent.|尽管负荷重，方法保持一致。
+#SENT 20|目的状语从句|Schedule maintenance so that hard words do not fade.|安排维持练习，以免难词消退。
+#SENT 21|比较结构|Civil discourse needs clearer evidence than slogans.|公民话语需要比口号更清晰的证据。
+#SENT 22|强调句|It is cumulative sentence work that builds real fluency.|正是累积的句子训练建立真正流利。
+#SENT 23|倒装句|Never before have you practiced so many clause types.|你从未练习过如此多种从句类型。
+#SENT 24|分词结构|Facing Day 30, treat gaps as the next syllabus.|面对第30天，把缺口当作下一课程表。
+#SENT 25|不定式结构|To keep improving, mix old roots with new articles.|要持续进步，把旧词根与新文章混合。
+#SENT 26|动名词结构|Stopping at recognition alone leaves output weak.|仅停在识别会让产出薄弱。
+#SENT 27|with 复合结构|With this toolkit ready, authentic input becomes usable.|有了这套工具，真实输入变得可用。
+#SENT 28|同位语从句|The belief that thirty days finishes English is false.|三十天学完英语这一信念是错误的。
+#SENT 29|插入评注|In the end, consistency outruns intensity spikes.|最终，一致性胜过强度冲刺。
+#SENT 30|形式主语 It|It is time to convert study into daily English use.|是时候把学习转化为日常英语使用。

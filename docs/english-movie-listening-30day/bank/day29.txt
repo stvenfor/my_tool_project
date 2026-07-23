@@ -1,0 +1,156 @@
+#TITLE 写作听力万能搭配日 | 学术搭配核心词
+#ROOT 搭配|写作高频|account, regard, extent
+#ROOT sist|站|consistent
+#ROOT tend|伸|extent
+#ROOT pens|花费|expense
+#WORD propose|/prəˈpoʊz/|v. 提议|pro-+pos
+#WORD proposal|/prəˈpoʊzl/|n. 提议|propose
+#WORD expose|/ɪkˈspoʊz/|v. 暴露|ex-+pose
+#WORD exposure|/ɪkˈspoʊʒər/|n. 暴露|expose
+#WORD compose|/kəmˈpoʊz/|v. 组成；创作|com-+pose
+#WORD composition|/ˌkɑːmpəˈzɪʃn/|n. 作文；构成|compose
+#WORD decompose|/ˌdiːkəmˈpoʊz/|v. 分解|de-
+#WORD component|/kəmˈpoʊnənt/|n. 成分|com-+pon
+#WORD position|/pəˈzɪʃn/|n. 位置；立场|pos
+#WORD positive|/ˈpɑːzətɪv/|a. 积极的|pos
+#WORD impose|/ɪmˈpoʊz/|v. 强加|im-+pose
+#WORD oppose|/əˈpoʊz/|v. 反对|ob-+pose
+#WORD opposite|/ˈɑːpəzɪt/|a./n. 相反|oppose
+#WORD opposition|/ˌɑːpəˈzɪʃn/|n. 反对|oppose
+#WORD suppose|/səˈpoʊz/|v. 假设|sup-+pose
+#WORD supposition|/ˌsʌpəˈzɪʃn/|n. 假定|suppose
+#WORD illustrate|/ˈɪləstreɪt/|v. 说明|—
+#WORD illustration|/ˌɪləˈstreɪʃn/|n. 例证|illustrate
+#WORD demonstrate|/ˈdemənstreɪt/|v. 论证|—
+#WORD demonstration|/ˌdemənˈstreɪʃn/|n. 证明|demonstrate
+#WORD indicate|/ˈɪndɪkeɪt/|v. 表明|indication
+#WORD indication|/ˌɪndɪˈkeɪʃn/|n. 迹象|indicate
+#WORD imply|/ɪmˈplaɪ/|v. 暗示|implication
+#WORD implication|/ˌɪmplɪˈkeɪʃn/|n. 含义|imply
+#WORD infer|/ɪnˈfɜːr/|v. 推断|in- + fer 带
+#WORD inference|/ˈɪnfərəns/|n. 推论|infer
+#WORD conclude|/kənˈkluːd/|v. 结论|conclusion
+#WORD conclusion|/kənˈkluːʒn/|n. 结论|con- + clud
+#WORD summarize|/ˈsʌməraɪz/|v. 总结|summary
+#WORD summary|/ˈsʌməri/|n. 摘要|summarize
+#WORD outline|/ˈaʊtlaɪn/|n./v. 提纲|out+line
+#WORD draft|/dræft/|n./v. 草稿|—
+#WORD revise|/rɪˈvaɪz/|v. 修改|re-+vis
+#WORD revision|/rɪˈvɪʒn/|n. 复习；修订|re- + vis 看
+#WORD edit|/ˈedɪt/|v. 编辑|edition
+#WORD cite|/saɪt/|v. 引用|citation
+#WORD citation|/saɪˈteɪʃn/|n. 引文|cite
+#WORD quote|/kwoʊt/|v./n. 引用|quotation
+#WORD paraphrase|/ˈpærəfreɪz/|v./n. 释义|para-+phrase
+#WORD plagiarism|/ˈpleɪdʒərɪzəm/|n. 剽窃|plagiarize
+#WORD argument|/ˈɑːrɡjumənt/|n. 论点；争论|—
+#WORD claim|/kleɪm/|v./n. 声称；索赔|claim 喊
+#WORD thesis|/ˈθiːsɪs/|n. 论文；论点|—
+#WORD dissertation|/ˌdɪsərˈteɪʃn/|n. 学位论文|—
+#WORD abstract|/ˈæbstrækt/|a. 抽象的|abs- + tract 拉
+#WORD introduction|/ˌɪntrəˈdʌkʃn/|n. 引言|introduce
+#WORD methodology|/ˌmeθəˈdɑːlədʒi/|n.  methodology  methodology|method
+#WORD finding|/ˈfaɪndɪŋ/|n. 发现；结果|find
+#WORD discussion|/dɪˈskʌʃn/|n. 讨论|discuss
+#WORD reference|/ˈrefrəns/|n. 参考文献|refer
+#WORD bibliography|/ˌbɪbliˈɑːɡrəfi/|n. 书目|biblio
+#WORD appendix|/əˈpendɪks/|n. 附录|append
+#WORD footnote|/ˈfʊtnoʊt/|n. 脚注|foot+note
+#WORD clarify|/ˈklærɪfaɪ/|v. 澄清|clarity
+#WORD elaborate|/ɪˈlæbəreɪt/|v. 详述|e-+labor
+#WORD emphasize|/ˈemfəsaɪz/|v. 强调|—
+#WORD highlight|/ˈhaɪlaɪt/|v. 突出|—
+#WORD underline|/ˌʌndərˈlaɪn/|v. 强调|under+line
+#WORD compare|/kəmˈper/|v. 比较|comparison
+#WORD contrast|/ˈkɑːntræst/|n. 对比|—
+#WORD distinguish|/dɪˈstɪŋɡwɪʃ/|v. 区分|—
+#WORD define|/dɪˈfaɪn/|v. 定义|definition
+#WORD definition|/ˌdefɪˈnɪʃn/|n. 定义|define
+#WORD classify|/ˈklæsɪfaɪ/|v. 分类|classification
+#WORD category|/ˈkætəɡɔːri/|n. 类别|categorical
+#WORD analyze|/ˈænəlaɪz/|v. 分析|analysis
+#WORD synthesize|/ˈsɪnθəsaɪz/|v. 综合|synthesis
+#WORD evaluate|/ɪˈvæljueɪt/|v. 评估|e-+valu
+#WORD interpret|/ɪnˈtɜːrprət/|v. 解释；口译|inter- + pret
+#WORD comment|/ˈkɑːment/|v./n. 评论|commentary
+#WORD critique|/krɪˈtiːk/|n./v. 评论|critical
+#WORD review|/rɪˈvjuː/|v./n. 复习；评论|re- + view
+#WORD acknowledge|/əkˈnɑːlɪdʒ/|v. 承认|—
+#WORD contribute|/kənˈtrɪbjuːt/|v. 贡献；促成|con- + tribute
+#WORD item74|/ˈaɪtəm/|n. 条目|—
+#WORD item75|/ˈaɪtəm/|n. 条目|—
+#WORD item76|/ˈaɪtəm/|n. 条目|—
+#WORD item77|/ˈaɪtəm/|n. 条目|—
+#WORD item78|/ˈaɪtəm/|n. 条目|—
+#WORD item79|/ˈaɪtəm/|n. 条目|—
+#PHRASE propose a solution|/prəˈpoʊz ə səˈluːʃn/|提出方案|Propose a solution.
+#PHRASE expose sb to|/ɪkˈspoʊz ˈsʌmbədi tə/|使接触|Expose students to research.
+#PHRASE as illustrated by|/æz ˈɪləstreɪtɪd baɪ/|如…所示|As illustrated by the chart.
+#PHRASE draw a conclusion|/drɔː ə kənˈkluːʒn/|得出结论|Draw a conclusion from facts.
+#PHRASE it can be inferred that|/ɪt kæn bi ɪnˈfɜːrd ðæt/|可以推断|It can be inferred that...
+#PHRASE the findings suggest|/ðə ˈfaɪndɪŋz səˈdʒest/|结果表明|The findings suggest...
+#PHRASE according to the author|/əˈkɔːrdɪŋ tə ði ˈɔːθər/|据作者|According to the author.
+#PHRASE in this paper|/ɪn ðɪs ˈpeɪpər/|在本文中|In this paper, we argue...
+#PHRASE research methodology|/rɪˈsɜːrtʃ ˌmeθəˈdɑːlədʒi/|研究方法|Research methodology.
+#PHRASE literature review|/ˈlɪtrətʃər rɪˈvjuː/|文献综述|A literature review.
+#PHRASE cite sources|/saɪt ˈsɔːrsɪz/|引用来源|Cite sources properly.
+#PHRASE avoid plagiarism|/əˈvɔɪd ˈpleɪdʒərɪzəm/|避免剽窃|Avoid plagiarism.
+#PHRASE paraphrase the text|/ˈpærəfreɪz ðə tekst/|改写文本|Paraphrase the text.
+#PHRASE thesis statement|/ˈθiːsɪs ˈsteɪtmənt/|中心论点句|Write a thesis statement.
+#PHRASE supporting evidence|/səˈpɔːrtɪŋ ˈevɪdəns/|支撑证据|Provide supporting evidence.
+#PHRASE counterargument|/ˈkaʊntərɑːrɡjumənt/|反驳论点|Address the counterargument.
+#PHRASE in conclusion|/ɪn kənˈkluːʒn/|总之|In conclusion,
+#PHRASE to summarize|/tə ˈsʌməraɪz/|概括而言|To summarize,
+#PHRASE it is worth noting|/ɪt ɪz wɜːrθ ˈnoʊtɪŋ/|值得注意|It is worth noting that...
+#PHRASE for instance|/fɔːr ˈɪnstəns/|例如|For instance,
+#PHRASE in contrast|/ɪn ˈkɑːntræst/|相比之下|In contrast,
+#PHRASE on the one hand|/ɑːn ðə wʌn hænd/|一方面|On the one hand, costs rise.
+#PHRASE on the other hand|/ɑːn ði ˈʌðər hænd/|另一方面|On the other hand, quality improves.
+#PHRASE as a result|/æz ə rɪˈzʌlt/|结果|As a result, prices rose.
+#PHRASE therefore|/ˈðerfɔːr/|因此|Therefore, we conclude...
+#PHRASE moreover|/mɔːrˈoʊvər/|此外|Moreover, the data show...
+#PHRASE nevertheless|/ˌnevərðəˈles/|尽管如此|Nevertheless, limits remain.
+#PHRASE define key terms|/dɪˈfaɪn kiː tɜːrmz/|界定关键术语|Define key terms.
+#PHRASE clarify the point|/ˈklærɪfaɪ ðə pɔɪnt/|澄清论点|Clarify the point.
+#PHRASE elaborate on|/ɪˈlæbəreɪt ɑːn/|详述|Elaborate on the method.
+#PHRASE emphasize the importance|/ˈemfəsaɪz ði ɪmˈpɔːrtns/|强调重要性|Emphasize the importance.
+#PHRASE compare and contrast|/kəmˈper ənd ˈkɑːntræst/|比较与对比|Compare and contrast theories.
+#PHRASE distinguish between|/dɪˈstɪŋɡwɪʃ bɪˈtwiːn/|区分|Distinguish between A and B.
+#PHRASE revise the draft|/rɪˈvaɪz ðə dræft/|修改草稿|Revise the draft.
+#PHRASE peer review|/pɪr rɪˈvjuː/|同行评议|Submit for peer review.
+#PHRASE reference list|/ˈrefrəns lɪst/|参考文献列表|Check the reference list.
+#PHRASE impose a constraint|/ɪmˈpoʊz ə kənˈstreɪnt/|施加约束|Impose a constraint.
+#PHRASE take a position|/teɪk ə pəˈzɪʃn/|表明立场|Take a position on the issue.
+#PHRASE well-founded claim|/ˌwel ˈfaʊndɪd kleɪm/|有根据的主张|A well-founded claim.
+#PHRASE logical structure|/ˈlɑːdʒɪkl ˈstrʌktʃər/|逻辑结构|A clear logical structure.
+#SENTTYPE 陈述句|否定句|一般疑问句|特殊疑问句|选择疑问句|反意疑问句|祈使句|感叹句|存在句|被动语态|现在完成时|过去完成时|将来时态|真实条件句|虚拟语气|定语从句|宾语从句|原因状语从句|让步状语从句|目的状语从句|比较结构|强调句|倒装句|分词结构|不定式结构|动名词结构|with 复合结构|同位语从句|插入评注|形式主语 It
+#SENT 1|陈述句|Policymakers take fiscal costs into account carefully.|决策者仔细把财政成本考虑在内。
+#SENT 2|否定句|The reform did not pave the way for equal access.|改革并未为平等准入铺路。
+#SENT 3|一般疑问句|Does growth at the expense of health make sense?|以健康为代价的增长说得通吗？
+#SENT 4|特殊疑问句|To what extent should privacy constrain platforms?|隐私应在多大程度上约束平台？
+#SENT 5|选择疑问句|Is the rise cyclical recovery or structural shift?|上升是周期性复苏还是结构转变？
+#SENT 6|反意疑问句|The figures are consistent with forecasts, aren't they?|数据与预测一致，对吧？
+#SENT 7|祈使句|Attach importance to process as well as outcomes.|既重视结果也重视过程。
+#SENT 8|感叹句|What lasting impact this modest change may give rise to!|这一细微变化可能引发多么持久的影响！
+#SENT 9|存在句|There is much left to be desired in enforcement.|执行方面仍远不尽人意。
+#SENT 10|被动语态|Long-run gains are often discounted by markets.|长期收益常被市场贴现。
+#SENT 11|现在完成时|Scholars have shed light on hidden trade-offs.|学者阐明了隐藏取舍。
+#SENT 12|过去完成时|Ministers had regarded the issue as secondary earlier.|部长们早前将该问题视为次要。
+#SENT 13|将来时态|The committee will revisit the expense rules soon.|委员会很快将重审费用规则。
+#SENT 14|真实条件句|If incentives align, compliance will become consistent.|如果激励一致，合规将变得一致。
+#SENT 15|虚拟语气|If costs were shared fairly, resistance would fall.|若成本公平分摊，阻力会下降。
+#SENT 16|定语从句|Policies that ignore extent of harm invite backlash.|忽视伤害程度的政策招致反弹。
+#SENT 17|宾语从句|Analysts believe the rise is bound to slow.|分析人士认为上升注定放缓。
+#SENT 18|原因状语从句|Because data conflict, regard claims with caution.|因为数据冲突，应谨慎看待主张。
+#SENT 19|让步状语从句|Although growth continued, welfare left much to be desired.|尽管增长继续，福利仍远不尽人意。
+#SENT 20|目的状语从句|Clarify scope so that evaluation stays consistent.|澄清范围，以便评估保持一致。
+#SENT 21|比较结构|In the long run, credibility outweighs quick wins.|从长远看，可信度胜过速胜。
+#SENT 22|强调句|It is transparency that paves the way for trust.|正是透明为信任铺路。
+#SENT 23|倒装句|Only with open books can expense abuse be checked.|只有账目公开才能遏制费用滥用。
+#SENT 24|分词结构|Facing trade-offs, the board attached priority to safety.|面对取舍，董事会把安全置于优先。
+#SENT 25|不定式结构|To shed light on gaps, publish disaggregated data.|为阐明缺口，公布细分数据。
+#SENT 26|动名词结构|Growing at the expense of equity is politically costly.|以公平为代价的增长政治代价高。
+#SENT 27|with 复合结构|With regard to privacy, stricter defaults help.|关于隐私，更严格的默认设置有帮助。
+#SENT 28|同位语从句|The idea that markets always leave nothing to be desired is false.|市场总尽如人意这一想法是错误的。
+#SENT 29|插入评注|In practice, consistent rules beat discretionary favors.|实践中，一致规则胜过随意优待。
+#SENT 30|形式主语 It|It is useful to recycle these collocations in essays.|在作文中反复使用这些搭配很有用。

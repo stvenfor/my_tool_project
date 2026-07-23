@@ -1,0 +1,156 @@
+#TITLE 科技与创新 | nov / techn / auto / mech
+#ROOT nov|新|novel, innovate, renovate
+#ROOT techn|技艺|technology, technique
+#ROOT auto|自己|automatic, autonomy
+#ROOT mech|机械|mechanism, mechanical
+#WORD innovate|/ˈɪnəveɪt/|v. 创新|nov
+#WORD innovation|/ˌɪnəˈveɪʃn/|n. 创新|innovate
+#WORD innovative|/ˈɪnəveɪtɪv/|a. 创新的|innovate
+#WORD novel|/ˈnɑːvl/|a. 新颖的；n.小说|nov
+#WORD novelty|/ˈnɑːvlti/|n. 新奇|novel
+#WORD renovate|/ˈrenəveɪt/|v. 翻新|re-+nov
+#WORD technology|/tekˈnɑːlədʒi/|n. 技术|techn
+#WORD technical|/ˈteknɪkl/|a. 技术的|techn
+#WORD technique|/tekˈniːk/|n. 技巧|techn
+#WORD technician|/tekˈnɪʃn/|n. 技师|techn
+#WORD sophisticated|/səˈfɪstɪkeɪtɪd/|a. 精密的；老练的|—
+#WORD automatic|/ˌɔːtəˈmætɪk/|a. 自动的|auto
+#WORD automation|/ˌɔːtəˈmeɪʃn/|n. 自动化|dup
+#WORD robot|/ˈroʊbɑːt/|n. 机器人|robotics
+#WORD robotics|/roʊˈbɑːtɪks/|n. 机器人学|robot
+#WORD digital|/ˈdɪdʒɪtl/|a. 数字的|digit
+#WORD digitize|/ˈdɪdʒɪtaɪz/|v. 数字化|digital
+#WORD virtual|/ˈvɜːrtʃuəl/|a. 虚拟的|virtue同源
+#WORD cyber|/ˈsaɪbər/|a. 网络的|cybersecurity
+#WORD algorithm|/ˈælɡərɪðəm/|n. 算法|—
+#WORD software|/ˈsɔːftwer/|n. 软件|soft+ware
+#WORD hardware|/ˈhɑːrdwer/|n. 硬件|hard+ware
+#WORD application|/ˌæplɪˈkeɪʃn/|n. 应用；申请|apply
+#WORD platform|/ˈplætfɔːrm/|n. 平台|—
+#WORD network|/ˈnetwɜːrk/|n. 网络|net+work
+#WORD database|/ˈdeɪtəbeɪs/|n. 数据库|data+base
+#WORD data|/ˈdeɪtə/|n. 数据|datum
+#WORD simulate|/ˈsɪmjuleɪt/|v. 模拟|simulation
+#WORD simulation|/ˌsɪmjuˈleɪʃn/|n. 模拟|simulate
+#WORD model|/ˈmɑːdl/|n./v. 模型；建模|—
+#WORD prototype|/ˈproʊtətaɪp/|n. 原型|proto-+type
+#WORD breakthrough|/ˈbreɪkθruː/|n. 突破|—
+#WORD obsolete|/ˌɑːbsəˈliːt/|a. 过时的|—
+#WORD outdated|/ˌaʊtˈdeɪtɪd/|a. 过时的|out+date
+#WORD cutting-edge|/ˌkʌtɪŋ ˈedʒ/|a. 前沿的|—
+#WORD state-of-the-art|/ˌsteɪt əv ði ˈɑːrt/|a. 最先进的|—
+#WORD device|/dɪˈvaɪs/|n. 装置|—
+#WORD gadget|/ˈɡædʒɪt/|n. 小装置|—
+#WORD sensor|/ˈsensər/|n. 传感器|sense
+#WORD chip|/tʃɪp/|n. 芯片|—
+#WORD semiconductor|/ˌsemikənˈdʌktər/|n. 半导体|semi-+conduct
+#WORD circuit|/ˈsɜːrkɪt/|n. 电路|circ环
+#WORD engineer|/ˌendʒɪˈnɪr/|n./v. 工程师；设计|engine
+#WORD engineering|/ˌendʒɪˈnɪrɪŋ/|n. 工程|engineer
+#WORD mechanism|/ˈmekənɪzəm/|n. 机制|mech
+#WORD mechanical|/məˈkænɪkl/|a. 机械的|mech
+#WORD manufacture|/ˌmænjəˈfæktʃər/|v./n. 制造|manu手+fact
+#WORD manufacturing|/ˌmænjəˈfæktʃərɪŋ/|n. 制造业|manufacture
+#WORD industrial|/ɪnˈdʌstriəl/|a. 工业的|industry
+#WORD industry|/ˈɪndəstri/|n. 工业；行业|—
+#WORD artificial|/ˌɑːrtɪˈfɪʃl/|a. 人工的|art+fic
+#WORD intelligence|/ɪnˈtelɪdʒəns/|n. 智能|AI
+#WORD machine|/məˈʃiːn/|n. 机器|machinery
+#WORD compute|/kəmˈpjuːt/|v. 计算|computer
+#WORD computation|/ˌkɑːmpjuˈteɪʃn/|n. 计算|compute
+#WORD calculate|/ˈkælkjuleɪt/|v. 计算|calculation
+#WORD program|/ˈproʊɡræm/|n./v. 程序；编程|—
+#WORD code|/koʊd/|n./v. 代码；编码|coding
+#WORD debug|/ˌdiːˈbʌɡ/|v. 调试|de-+bug
+#WORD interface|/ˈɪntərfeɪs/|n. 界面；接口|inter-+face
+#WORD user|/ˈjuːzər/|n. 用户|use
+#WORD compatible|/kəmˈpætəbl/|a. 兼容的|compatibility
+#WORD integrate|/ˈɪntɪɡreɪt/|v. 集成|integration
+#WORD deploy|/dɪˈplɔɪ/|v. 部署|deployment
+#WORD implement|/ˈɪmplɪment/|v. 实施|implementation
+#WORD optimize|/ˈɑːptɪmaɪz/|v. 优化|optimum
+#WORD efficient|/ɪˈfɪʃnt/|a. 高效的|efficiency
+#WORD bandwidth|/ˈbændwɪdθ/|n. 带宽|band+width
+#WORD latency|/ˈleɪtənsi/|n. 延迟|latent
+#WORD encrypt|/ɪnˈkrɪpt/|v. 加密|encryption
+#WORD decrypt|/diːˈkrɪpt/|v. 解密|de-
+#WORD cybersecurity|/ˌsaɪbərsɪˈkjʊrəti/|n. 网络安全|cyber+security
+#WORD malware|/ˈmælwer/|n. 恶意软件|mal-+ware
+#WORD privacy|/ˈpraɪvəsi/|n. 隐私|private
+#WORD surveillance|/sərˈveɪləns/|n. 监控|sur-+veil
+#WORD drone|/droʊn/|n. 无人机|—
+#WORD satellite|/ˈsætəlaɪt/|n. 卫星|—
+#WORD biotech|/ˈbaɪoʊtek/|n. 生物技术|bio+tech
+#WORD nanotech|/ˈnænoʊtek/|n. 纳米技术|nano+tech
+#WORD renewable|/rɪˈnuːəbl/|a. 可再生的|re-+new
+#PHRASE technological innovation|/ˌteknəˈlɑːdʒɪkl ˌɪnəˈveɪʃn/|技术创新|Drive technological innovation.
+#PHRASE a novel approach|/ə ˈnɑːvl əˈproʊtʃ/|新颖方法|A novel approach.
+#PHRASE make a breakthrough|/meɪk ə ˈbreɪkθruː/|取得突破|Make a breakthrough.
+#PHRASE become obsolete|/bɪˈkʌm ˌɑːbsəˈliːt/|变得过时|Skills may become obsolete.
+#PHRASE cutting-edge technology|/ˌkʌtɪŋ ˈedʒ tekˈnɑːlədʒi/|尖端技术|Cutting-edge technology.
+#PHRASE artificial intelligence|/ˌɑːrtɪˈfɪʃl ɪnˈtelɪdʒəns/|人工智能|Artificial intelligence.
+#PHRASE machine learning|/məˈʃiːn ˈlɜːrnɪŋ/|机器学习|Machine learning models.
+#PHRASE digital transformation|/ˈdɪdʒɪtl ˌtrænsfərˈmeɪʃn/|数字化转型|Digital transformation.
+#PHRASE cloud computing|/klaʊd kəmˈpjuːtɪŋ/|云计算|Cloud computing.
+#PHRASE big data|/bɪɡ ˈdeɪtə/|大数据|Big data analytics.
+#PHRASE run a simulation|/rʌn ə ˌsɪmjuˈleɪʃn/|运行模拟|Run a simulation.
+#PHRASE prototype design|/ˈproʊtətaɪp dɪˈzaɪn/|原型设计|Prototype design.
+#PHRASE user interface|/ˈjuːzər ˈɪntərfeɪs/|用户界面|A clean user interface.
+#PHRASE deploy the system|/dɪˈplɔɪ ðə ˈsɪstəm/|部署系统|Deploy the system.
+#PHRASE implement an algorithm|/ˈɪmplɪment ən ˈælɡərɪðəm/|实现算法|Implement an algorithm.
+#PHRASE optimize performance|/ˈɑːptɪmaɪz pərˈfɔːrməns/|优化性能|Optimize performance.
+#PHRASE compatible with|/kəmˈpætəbl wɪð/|与…兼容|Compatible with older devices.
+#PHRASE cybersecurity threat|/ˌsaɪbərsɪˈkjʊrəti θret/|网络安全威胁|A cybersecurity threat.
+#PHRASE encrypt data|/ɪnˈkrɪpt ˈdeɪtə/|加密数据|Encrypt data.
+#PHRASE intellectual property|/ˌɪntəˈlektʃuəl ˈprɑːpərti/|知识产权|Protect intellectual property.
+#PHRASE apply for a patent|/əˈplaɪ fɔːr ə ˈpætnt/|申请专利|Apply for a patent.
+#PHRASE semiconductor industry|/ˌsemikənˈdʌktər ˈɪndəstri/|半导体产业|Semiconductor industry.
+#PHRASE automated production|/ˈɔːtəmeɪtɪd prəˈdʌkʃn/|自动化生产|Automated production.
+#PHRASE industrial robot|/ɪnˈdʌstriəl ˈroʊbɑːt/|工业机器人|An industrial robot.
+#PHRASE virtual reality|/ˈvɜːrtʃuəl riˈæləti/|虚拟现实|Virtual reality headset.
+#PHRASE augmented reality|/ɔːɡˈmentɪd riˈæləti/|增强现实|Augmented reality apps.
+#PHRASE open-source software|/ˈoʊpən sɔːrs ˈsɔːftwer/|开源软件|Open-source software.
+#PHRASE legacy system|/ˈleɡəsi ˈsɪstəm/|遗留系统|Replace the legacy system.
+#PHRASE scalable platform|/ˈskeɪləbl ˈplætfɔːrm/|可扩展平台|A scalable platform.
+#PHRASE low latency|/loʊ ˈleɪtənsi/|低延迟|Low latency network.
+#PHRASE bandwidth limit|/ˈbændwɪdθ ˈlɪmɪt/|带宽限制|Bandwidth limit.
+#PHRASE debug the code|/ˌdiːˈbʌɡ ðə koʊd/|调试代码|Debug the code.
+#PHRASE sensor network|/ˈsensər ˈnetwɜːrk/|传感器网络|A sensor network.
+#PHRASE renewable energy tech|/rɪˈnuːəbl ˈenərdʒi tek/|可再生能源技术|Renewable energy tech.
+#PHRASE biotech research|/ˈbaɪoʊtek rɪˈsɜːrtʃ/|生物技术研究|Biotech research.
+#PHRASE state-of-the-art facility|/ˌsteɪt əv ði ˈɑːrt fəˈsɪləti/|最先进设施|A state-of-the-art facility.
+#PHRASE tech startup|/tek ˈstɑːrtʌp/|科技初创公司|A tech startup.
+#PHRASE disruptive innovation|/dɪsˈrʌptɪv ˌɪnəˈveɪʃn/|颠覆性创新|Disruptive innovation.
+#PHRASE human-computer interaction|/ˈhjuːmən kəmˈpjuːtər ˌɪntərˈækʃn/|人机交互|Human-computer interaction.
+#PHRASE data privacy|/ˈdeɪtə ˈpraɪvəsi/|数据隐私|Data privacy laws.
+#SENTTYPE 陈述句|否定句|一般疑问句|特殊疑问句|选择疑问句|反意疑问句|祈使句|感叹句|存在句|被动语态|现在完成时|过去完成时|将来时态|真实条件句|虚拟语气|定语从句|宾语从句|原因状语从句|让步状语从句|目的状语从句|比较结构|强调句|倒装句|分词结构|不定式结构|动名词结构|with 复合结构|同位语从句|插入评注|形式主语 It
+#SENT 1|陈述句|Cutting-edge algorithms reshape digital platforms.|尖端算法重塑数字平台。
+#SENT 2|否定句|Legacy systems did not become obsolete overnight.|遗留系统并非一夜之间过时。
+#SENT 3|一般疑问句|Can automation replace complex engineering judgment?|自动化能否取代复杂工程判断？
+#SENT 4|特殊疑问句|What cybersecurity threats worry regulators most?|哪些网络安全威胁最令监管担忧？
+#SENT 5|选择疑问句|Is the prototype ready for deployment or still experimental?|原型是已可部署还是仍在实验？
+#SENT 6|反意疑问句|Patents encourage innovation, don't they?|专利鼓励创新，对吧？
+#SENT 7|祈使句|Encrypt sensitive data before you transmit it.|传输前先加密敏感数据。
+#SENT 8|感叹句|What a sophisticated semiconductor supply chain!|多么精密的半导体供应链！
+#SENT 9|存在句|There is intense competition in cloud computing.|云计算领域竞争激烈。
+#SENT 10|被动语态|User interfaces are optimized for faster interaction.|用户界面被优化以加快交互。
+#SENT 11|现在完成时|Labs have simulated climate scenarios for decades.|实验室数十年来一直模拟气候情景。
+#SENT 12|过去完成时|The startup had patented the method before fundraising.|融资前初创公司已为该方法申请专利。
+#SENT 13|将来时态|The company will deploy machine learning next quarter.|公司下季度将部署机器学习。
+#SENT 14|真实条件句|If bandwidth expands, latency will fall noticeably.|如果带宽扩大，延迟将明显下降。
+#SENT 15|虚拟语气|If standards were open, compatibility would improve.|若标准开放，兼容性会改善。
+#SENT 16|定语从句|Tools that digitize archives preserve cultural memory.|数字化档案的工具保存文化记忆。
+#SENT 17|宾语从句|Engineers believe robotics will transform manufacturing.|工程师认为机器人将改造制造业。
+#SENT 18|原因状语从句|Because malware spreads quickly, updates matter.|因为恶意软件传播快，更新很重要。
+#SENT 19|让步状语从句|Although AI is powerful, surveillance risks rise.|尽管 AI 强大，监控风险上升。
+#SENT 20|目的状语从句|Debug carefully so that critical failures are avoided.|仔细调试，以避免关键故障。
+#SENT 21|比较结构|State-of-the-art chips are costlier than older models.|最先进芯片比旧型号更昂贵。
+#SENT 22|强调句|It is scalable design that enables rapid growth.|正是可扩展设计使快速增长成为可能。
+#SENT 23|倒装句|Only after the breach did executives fund cybersecurity.|入侵之后高管才为网络安全拨款。
+#SENT 24|分词结构|Facing obsolescence, firms renovated their stacks.|面对过时，公司翻新了技术栈。
+#SENT 25|不定式结构|To implement an algorithm, validate edge cases.|要实现算法，应验证边界情况。
+#SENT 26|动名词结构|Ignoring privacy erodes trust in digital services.|忽视隐私会侵蚀对数字服务的信任。
+#SENT 27|with 复合结构|With sensors everywhere, data volumes explode.|传感器无处不在时，数据量爆炸。
+#SENT 28|同位语从句|The hope that technology alone solves inequality is naive.|仅靠技术解决不平等的希望很幼稚。
+#SENT 29|插入评注|In practice, human-computer interaction still frustrates users.|实践中，人机交互仍令用户沮丧。
+#SENT 30|形式主语 It|It is vital to protect intellectual property carefully.|仔细保护知识产权至关重要。

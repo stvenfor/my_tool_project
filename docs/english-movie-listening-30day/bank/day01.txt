@@ -1,0 +1,156 @@
+#TITLE 认知与学习 | cogn / sci / prehend / ceiv
+#ROOT cogn|知道、认识|recognize, cognitive, cognition
+#ROOT sci|知道|science, conscious, conscience
+#ROOT prehend|抓住|comprehend, apprehend
+#ROOT ceiv/cept|取|perceive, concept, receive
+#WORD acquire|/əˈkwaɪər/|v. 获得；习得|ac- + quire 寻求
+#WORD cognitive|/ˈkɑːɡnətɪv/|a. 认知的|cogn + -itive
+#WORD comprehend|/ˌkɑːmprɪˈhend/|v. 理解|com- + prehend 抓
+#WORD conscious|/ˈkɑːnʃəs/|a. 有意识的|con- + sci + -ous
+#WORD perceive|/pərˈsiːv/|v. 察觉；认为|per- + ceive
+#WORD retain|/rɪˈteɪn/|v. 保留；记住|re- + tain
+#WORD assimilate|/əˈsɪməleɪt/|v. 吸收；同化|as- + simil 同
+#WORD insight|/ˈɪnsaɪt/|n. 洞察|in + sight
+#WORD recognize|/ˈrekəɡnaɪz/|v. 认出；承认|re- + cogn + -ize
+#WORD cognition|/kɑːɡˈnɪʃn/|n. 认知|cogn + -ition
+#WORD scientific|/ˌsaɪənˈtɪfɪk/|a. 科学的|sci + -ific
+#WORD discipline|/ˈdɪsəplɪn/|n. 学科；纪律|—
+#WORD curriculum|/kəˈrɪkjələm/|n. 课程|—
+#WORD literacy|/ˈlɪtərəsi/|n. 读写能力|liter 文字
+#WORD proficiency|/prəˈfɪʃnsi/|n. 熟练|pro- + fic 做
+#WORD competence|/ˈkɑːmpɪtəns/|n. 能力|compete 竞争
+#WORD memorize|/ˈmeməraɪz/|v. 记忆|memory + -ize
+#WORD recall|/rɪˈkɔːl/|v. 回忆；召回|re- + call
+#WORD grasp|/ɡræsp/|v.  grasp 理解；抓住|—
+#WORD interpret|/ɪnˈtɜːrprət/|v. 解释；口译|inter- + pret
+#WORD deduce|/dɪˈduːs/|v. 演绎；推断|de- + duc 引
+#WORD infer|/ɪnˈfɜːr/|v. 推断|in- + fer 带
+#WORD hypothesis|/haɪˈpɑːθəsɪs/|n. 假设|hypo- + thesis
+#WORD theorem|/ˈθiːərəm/|n. 定理|theo 神/理
+#WORD empirical|/ɪmˈpɪrɪkl/|a. 经验的；实证的|empir 经验
+#WORD analytical|/ˌænəˈlɪtɪkl/|a. 分析的|analysis
+#WORD synthesis|/ˈsɪnθəsɪs/|n. 综合|syn- + thesis
+#WORD abstract|/ˈæbstrækt/|a. 抽象的|abs- + tract 拉
+#WORD concrete|/ˈkɑːŋkriːt/|a. 具体的|con- + cret
+#WORD concept|/ˈkɑːnsept/|n. 概念|con- + cept 取
+#WORD notion|/ˈnoʊʃn/|n. 观念|—
+#WORD intuition|/ˌɪntuˈɪʃn/|n. 直觉|in- + tu 看
+#WORD awareness|/əˈwernəs/|a. 意识；觉察|aware + -ness
+#WORD mindset|/ˈmaɪndset/|n. 思维模式|—
+#WORD aptitude|/ˈæptɪtuːd/|n. 天资； aptitude|apt 适合
+#WORD intelligence|/ɪnˈtelɪdʒəns/|n. 智力|intel 之间
+#WORD wisdom|/ˈwɪzdəm/|n. 智慧|wise + -dom
+#WORD knowledge|/ˈnɑːlɪdʒ/|n. 知识|know + -ledge
+#WORD expertise|/ˌekspɜːrˈtiːz/|n. 专长|expert + -ise
+#WORD scholar|/ˈskɑːlər/|n. 学者|schol 学校
+#WORD academic|/ˌækəˈdemɪk/|a. 学术的|academy
+#WORD intellectual|/ˌɪntəˈlektʃuəl/|a. 智力的；n. 知识分子|intellect
+#WORD enlighten|/ɪnˈlaɪtn/|v. 启发；启蒙|en- + light
+#WORD educate|/ˈedʒukeɪt/|v. 教育|e- + duc 引
+#WORD instruct|/ɪnˈstrʌkt/|v. 指导；讲授|in- + struct 建
+#WORD tutor|/ˈtuːtər/|v./n. 辅导|—
+#WORD mentor|/ˈmentɔːr/|n. 导师|—
+#WORD pedagogy|/ˈpedəɡɑːdʒi/|n. 教学法|ped 儿童
+#WORD seminar|/ˈsemɪnɑːr/|n. 研讨会|—
+#WORD lecture|/ˈlektʃər/|n./v. 讲座|lect 读
+#WORD textbook|/ˈtekstbʊk/|n. 教科书|—
+#WORD handout|/ˈhændaʊt/|n. 讲义|—
+#WORD assignment|/əˈsaɪnmənt/|n. 作业；任务|assign
+#WORD revision|/rɪˈvɪʒn/|n. 复习；修订|re- + vis 看
+#WORD review|/rɪˈvjuː/|v./n. 复习；评论|re- + view
+#WORD preview|/ˈpriːvjuː/|v./n. 预习|pre- + view
+#WORD digest|/daɪˈdʒest/|v. 消化；领会|di- + gest
+#WORD absorb|/əbˈzɔːrb/|v. 吸收|ab- + sorb
+#WORD internalize|/ɪnˈtɜːrnəlaɪz/|v. 内化|internal + -ize
+#WORD master|/ˈmæstər/|v. 掌握|—
+#WORD practice|/ˈpræktɪs/|n./v. 练习|pract 做
+#WORD rehearse|/rɪˈhɜːrs/|v. 排练；预演|re- + hearse
+#WORD drill|/drɪl/|n./v.  drill 操练|—
+#WORD reinforce|/ˌriːɪnˈfɔːrs/|v. 强化|re- + in + force
+#WORD consolidate|/kənˈsɑːlɪdeɪt/|v. 巩固|con- + solid
+#WORD forget|/fərˈɡet/|v. 忘记|—
+#WORD oblivion|/əˈblɪviən/|n. 遗忘|ob- + liv
+#WORD distract|/dɪˈstrækt/|v. 分心|dis- + tract
+#WORD concentrate|/ˈkɑːnsntreɪt/|v. 集中|con- + centr
+#WORD focus|/ˈfoʊkəs/|v./n. 聚焦|—
+#WORD attentive|/əˈtentɪv/|a. 专心的|attend
+#WORD diligent|/ˈdɪlɪdʒənt/|a. 勤奋的|—
+#WORD persistent|/pərˈsɪstənt/|a. 坚持不懈的|per- + sist
+#WORD motivation|/ˌmoʊtɪˈveɪʃn/|n. 动机|motive
+#WORD curiosity|/ˌkjʊriˈɑːsəti/|n. 好奇心|curious
+#WORD inquiry|/ɪnˈkwaɪəri/|n. 探究|in- + quire
+#WORD explore|/ɪkˈsplɔːr/|v. 探索|ex- + plor
+#WORD investigate|/ɪnˈvestɪɡeɪt/|v. 调查|in- + vestig
+#WORD observe|/əbˈzɜːrv/|v. 观察|ob- + serv
+#WORD experiment|/ɪkˈsperɪmənt/|n. 实验|ex- + per 试
+#PHRASE acquire a skill|/əˈkwaɪər ə skɪl/|掌握一项技能|She acquired a skill in coding.
+#PHRASE be conscious of|/bi ˈkɑːnʃəs əv/|意识到|Be conscious of your bias.
+#PHRASE gain insight into|/ɡeɪn ˈɪnsaɪt ˈɪntuː/|深入了解|Gain insight into memory.
+#PHRASE beyond comprehension|/bɪˈjɑːnd ˌkɑːmprɪˈhenʃn/|无法理解|The scale is beyond comprehension.
+#PHRASE retain information|/rɪˈteɪn ˌɪnfərˈmeɪʃn/|记住信息|Sleep helps retain information.
+#PHRASE assimilate knowledge|/əˈsɪməleɪt ˈnɑːlɪdʒ/|吸收知识|Students assimilate knowledge slowly.
+#PHRASE perceive a difference|/pərˈsiːv ə ˈdɪfrəns/|察觉差异|Can you perceive a difference?
+#PHRASE cognitive ability|/ˈkɑːɡnətɪv əˈbɪləti/|认知能力|Cognitive ability varies widely.
+#PHRASE scientific method|/ˌsaɪənˈtɪfɪk ˈmeθəd/|科学方法|Follow the scientific method.
+#PHRASE develop proficiency|/dɪˈveləp prəˈfɪʃnsi/|提高熟练度|Develop proficiency through practice.
+#PHRASE grasp the concept|/ɡræsp ðə ˈkɑːnsept/|理解概念|It took time to grasp the concept.
+#PHRASE draw an inference|/drɔː ən ˈɪnfərəns/|作出推断|We can draw an inference from data.
+#PHRASE test a hypothesis|/test ə haɪˈpɑːθəsɪs/|检验假设|Scientists test a hypothesis rigorously.
+#PHRASE empirical evidence|/ɪmˈpɪrɪkl ˈevɪdəns/|实证证据|Empirical evidence supports the claim.
+#PHRASE abstract thinking|/ˈæbstrækt ˈθɪŋkɪŋ/|抽象思维|Abstract thinking develops with age.
+#PHRASE critical thinking|/ˈkrɪtɪkl ˈθɪŋkɪŋ/|批判性思维|Schools teach critical thinking.
+#PHRASE intellectual curiosity|/ˌɪntəˈlektʃuəl ˌkjʊriˈɑːsəti/|求知欲|Intellectual curiosity drives research.
+#PHRASE academic achievement|/ˌækəˈdemɪk əˈtʃiːvmənt/|学业成就|Hard work boosts academic achievement.
+#PHRASE enlighten the mind|/ɪnˈlaɪtn ðə maɪnd/|启迪心智|Books enlighten the mind.
+#PHRASE receive instruction|/rɪˈsiːv ɪnˈstrʌkʃn/|接受指导|Students receive instruction online.
+#PHRASE complete an assignment|/kəmˈpliːt ən əˈsaɪnmənt/|完成作业|Complete an assignment on time.
+#PHRASE review for an exam|/rɪˈvjuː fɔːr ən ɪɡˈzæm/|复习迎考|Review for an exam every night.
+#PHRASE internalize a lesson|/ɪnˈtɜːrnəlaɪz ə ˈlesn/|内化一课|Children internalize a lesson through play.
+#PHRASE master a subject|/ˈmæstər ə ˈsʌbdʒɪkt/|精通一门学科|She mastered a subject in two years.
+#PHRASE practice makes perfect|/ˈpræktɪs meɪks ˈpɜːrfɪkt/|熟能生巧|Practice makes perfect.
+#PHRASE reinforce learning|/ˌriːɪnˈfɔːrs ˈlɜːrnɪŋ/|强化学习|Quizzes reinforce learning.
+#PHRASE consolidate memory|/kənˈsɑːlɪdeɪt ˈmeməri/|巩固记忆|Sleep helps consolidate memory.
+#PHRASE lose concentration|/luːz ˌkɑːnsnˈtreɪʃn/|失去专注|Noise makes you lose concentration.
+#PHRASE stay focused|/steɪ ˈfoʊkəst/|保持专注|Stay focused during lectures.
+#PHRASE pay attention to|/peɪ əˈtenʃn tə/|注意|Pay attention to details.
+#PHRASE a thirst for knowledge|/ə θɜːrst fɔːr ˈnɑːlɪdʒ/|求知欲|He has a thirst for knowledge.
+#PHRASE conduct an experiment|/kənˈdʌkt ən ɪkˈsperɪmənt/|做实验|Conduct an experiment safely.
+#PHRASE observe carefully|/əbˈzɜːrv ˈkerfəli/|仔细观察|Observe carefully before concluding.
+#PHRASE investigate a problem|/ɪnˈvestɪɡeɪt ə ˈprɑːbləm/|调查问题|Investigate a problem thoroughly.
+#PHRASE explore new ideas|/ɪkˈsplɔːr nuː aɪˈdiːəz/|探索新想法|Teams explore new ideas weekly.
+#PHRASE learn by rote|/lɜːrn baɪ roʊt/|死记硬背|Don't just learn by rote.
+#PHRASE hands-on learning|/hændz ɑːn ˈlɜːrnɪŋ/|体验式学习|Hands-on learning works best.
+#PHRASE lifelong learning|/ˈlaɪflɔːŋ ˈlɜːrnɪŋ/|终身学习|Lifelong learning is essential.
+#PHRASE study habit|/ˈstʌdi ˈhæbɪt/|学习习惯|Good study habits matter.
+#PHRASE expand one's horizons|/ɪkˈspænd wʌnz həˈraɪznz/|开阔眼界|Travel expands one's horizons.
+#SENTTYPE 陈述句|否定句|一般疑问句|特殊疑问句|选择疑问句|反意疑问句|祈使句|感叹句|存在句|被动语态|现在完成时|过去完成时|将来时态|真实条件句|虚拟语气|定语从句|宾语从句|原因状语从句|让步状语从句|目的状语从句|比较结构|强调句|倒装句|分词结构|不定式结构|动名词结构|with 复合结构|同位语从句|插入评注|形式主语 It
+#SENT 1|陈述句|Students acquire cognitive skills through deliberate practice.|学生通过刻意练习获得认知技能。
+#SENT 2|否定句|Many learners do not retain information without spaced review.|许多学习者若不间隔复习就记不住信息。
+#SENT 3|一般疑问句|Can you comprehend the main idea of this passage?|你能理解这段文字的大意吗？
+#SENT 4|特殊疑问句|Why do people perceive the same event differently?|为什么人们对同一事件的感知不同？
+#SENT 5|选择疑问句|Is insight the result of analysis or sudden recognition?|洞察是分析的结果还是突然的认出？
+#SENT 6|反意疑问句|You recognized the pattern, didn't you?|你认出了这个模式，对吧？
+#SENT 7|祈使句|Assimilate new concepts before moving to the next chapter.|先吸收新概念，再进入下一章。
+#SENT 8|感叹句|What a remarkable capacity for lifelong learning!|多么惊人的终身学习能力啊！
+#SENT 9|存在句|There is growing interest in cognitive science education.|人们对认知科学教育的兴趣日益增长。
+#SENT 10|被动语态|Critical thinking is taught systematically in many universities.|批判性思维在许多大学被系统教授。
+#SENT 11|现在完成时|She has already developed strong literacy skills.|她已经培养了很强的读写能力。
+#SENT 12|过去完成时|He had studied the theory before testing the hypothesis.|他在检验假设之前就已经研究过该理论。
+#SENT 13|将来时态|We will investigate how memory consolidates during sleep.|我们将研究睡眠如何巩固记忆。
+#SENT 14|真实条件句|If you review regularly, you will retain more vocabulary.|如果你定期复习，就会记住更多词汇。
+#SENT 15|虚拟语气|If I were more attentive, I would grasp abstract ideas faster.|如果我更专注，就能更快抓住抽象概念。
+#SENT 16|定语从句|The professor who enlightened us emphasized empirical evidence.|那位启发我们的教授强调实证证据。
+#SENT 17|宾语从句|Researchers claim that practice reinforces learning.|研究者声称练习能强化学习。
+#SENT 18|原因状语从句|Because concentration fades quickly, short sessions work better.|因为专注力消退很快，短时学习更有效。
+#SENT 19|让步状语从句|Although the curriculum is demanding, students stay focused.|尽管课程要求高，学生仍保持专注。
+#SENT 20|目的状语从句|Take notes carefully so that you can recall key insights later.|认真记笔记，以便之后能回忆关键洞见。
+#SENT 21|比较结构|Analytical thinking is more trainable than many people assume.|分析思维比许多人以为的更可训练。
+#SENT 22|强调句|It is deliberate practice that builds true proficiency.|正是刻意练习造就真正的熟练。
+#SENT 23|倒装句|Only after repeated failure did she master the subject.|直到反复失败之后，她才精通该学科。
+#SENT 24|分词结构|Observing carefully, the team drew a valid inference.|仔细观察后，团队作出了有效推断。
+#SENT 25|不定式结构|To expand one's horizons, one must explore unfamiliar fields.|要开阔眼界，必须探索陌生领域。
+#SENT 26|动名词结构|Learning by rote rarely leads to deep comprehension.|死记硬背很少带来深刻理解。
+#SENT 27|with 复合结构|With new evidence available, the hypothesis needs revision.|有了新证据，该假设需要修订。
+#SENT 28|同位语从句|The idea that cognition shapes behavior is widely accepted.|认知塑造行为这一观点被广泛接受。
+#SENT 29|插入评注|Hands-on learning, in my view, outperforms passive listening.|在我看来，体验式学习优于被动听讲。
+#SENT 30|形式主语 It|It is essential to pay attention to subtle conceptual differences.|注意细微的概念差异至关重要。

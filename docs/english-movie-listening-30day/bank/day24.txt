@@ -1,0 +1,156 @@
+#TITLE 结构与系统 | struct / syn / thes / pon
+#ROOT struct|建造|structure, construct
+#ROOT syn|一起|synthesis, system
+#ROOT thes|放置|thesis, hypothesis
+#ROOT pon|放置|component, compose
+#WORD transform|/trænsˈfɔːrm/|v. 转变|trans-+form
+#WORD transformation|/ˌtrænsfərˈmeɪʃn/|n. 转变|transform
+#WORD reform|/rɪˈfɔːrm/|v./n. 改革|re-+form
+#WORD formulate|/ˈfɔːrmjuleɪt/|v. 制定；表述|form
+#WORD formation|/fɔːrˈmeɪʃn/|n. 形成|form
+#WORD transition|/trænˈzɪʃn/|n. 过渡|transit
+#WORD transit|/ˈtrænzɪt/|n. 通行；运输|trans-
+#WORD shift|/ʃɪft/|v./n. 转移；转变|—
+#WORD alter|/ˈɔːltər/|v. 改变|alteration
+#WORD alteration|/ˌɔːltəˈreɪʃn/|n. 改动|alter
+#WORD modify|/ˈmɑːdɪfaɪ/|v. 修改|modification
+#WORD modification|/ˌmɑːdɪfɪˈkeɪʃn/|n. 修改|modify
+#WORD adjust|/əˈdʒʌst/|v. 调整|adjustment
+#WORD adaptation|/ˌædæpˈteɪʃn/|n. 适应|adapt
+#WORD adapt|/əˈdæpt/|v. 适应|apt
+#WORD convert|/kənˈvɜːrt/|v. 转换|con-+vert
+#WORD conversion|/kənˈvɜːrʒn/|n. 转换|convert
+#WORD evolve|/ɪˈvɑːlv/|v. 演变|e-+volv
+#WORD evolution|/ˌevəˈluːʃn/|n. 进化；演变|evolve
+#WORD revolutionary|/ˌrevəˈluːʃəneri/|a. 革命性的|re-+volv
+#WORD involve|/ɪnˈvɑːlv/|v. 涉及|in-+volv
+#WORD revolve|/rɪˈvɑːlv/|v. 旋转；围绕|re-+volv
+#WORD fluctuate|/ˈflʌktʃueɪt/|v. 波动|fluctuation
+#WORD fluctuation|/ˌflʌktʃuˈeɪʃn/|n. 波动|fluctuate
+#WORD oscillate|/ˈɑːsɪleɪt/|v. 摆动|oscillation
+#WORD vary|/ˈveri/|v. 变化|various
+#WORD variation|/ˌveriˈeɪʃn/|n. 变化|vary
+#WORD variable|/ˈveriəbl/|n./a. 变量；可变的|vary
+#WORD diversity|/daɪˈvɜːrsəti/|n. 多样性|diverse
+#WORD diversify|/daɪˈvɜːrsɪfaɪ/|v. 使多样化|diverse
+#WORD accelerate|/əkˈseləreɪt/|v. 加速|ac-+celer
+#WORD acceleration|/əkˌseləˈreɪʃn/|n. 加速|accelerate
+#WORD decelerate|/diːˈseləreɪt/|v. 减速|de-+celer
+#WORD hasten|/ˈheɪsn/|v. 加快|haste
+#WORD postpone|/poʊˈspoʊn/|v. 推迟|post-+pone
+#WORD delay|/dɪˈleɪ/|v./n. 延误|—
+#WORD prolong|/prəˈlɔːŋ/|v. 延长|pro-+long
+#WORD extend|/ɪkˈstend/|v. 延伸；延长|ex-+tend
+#WORD expand|/ɪkˈspænd/|v. 扩大|ex-+pand
+#WORD expansion|/ɪkˈspænʃn/|n. 扩张|expand
+#WORD shrink|/ʃrɪŋk/|v. 收缩|—
+#WORD contract|/kənˈtrækt/|v. 收缩；签约|con-+tract
+#WORD diminish|/dɪˈmɪnɪʃ/|v. 减少|mini
+#WORD reduce|/rɪˈduːs/|v. 减少|re-+duc
+#WORD reduction|/rɪˈdʌkʃn/|n. 减少|reduce
+#WORD increase|/ɪnˈkriːs/|v./n. 增加|in-+crease
+#WORD decrease|/dɪˈkriːs/|v./n. 减少|de-+crease
+#WORD surge|/sɜːrdʒ/|v./n. 激增|—
+#WORD soar|/sɔːr/|v. 猛增；高飞|—
+#WORD plunge|/plʌndʒ/|v./n. 骤降|—
+#WORD decline|/dɪˈklaɪn/|v./n. 下降；婉拒|—
+#WORD deteriorate|/dɪˈtɪriəreɪt/|v. 恶化|deterioration
+#WORD worsen|/ˈwɜːrsn/|v. 恶化|worse
+#WORD improve|/ɪmˈpruːv/|v. 改善|improvement
+#WORD enhance|/ɪnˈhæns/|v. 增强|enhancement
+#WORD upgrade|/ˈʌpɡreɪd/|v./n. 升级|up+grade
+#WORD downgrade|/ˈdaʊnɡreɪd/|v./n. 降级|down+grade
+#WORD innovate|/ˈɪnəveɪt/|v. 创新|nov
+#WORD innovation|/ˌɪnəˈveɪʃn/|n. 创新|innovate
+#WORD renew|/rɪˈnuː/|v. 更新；续期|re-+new
+#WORD renewal|/rɪˈnuːəl/|n. 更新|renew
+#WORD restore|/rɪˈstɔːr/|v. 恢复|re-+store
+#WORD recover|/rɪˈkʌvər/|v. 恢复|recovery
+#WORD recovery|/rɪˈkʌvəri/|n. 复苏|recover
+#WORD revive|/rɪˈvaɪv/|v. 复苏|re-+viv生
+#WORD mutable|/ˈmjuːtəbl/|a. 可变的|mut
+#WORD immutable|/ɪˈmjuːtəbl/|a. 不可变的|im-+mut
+#WORD mutate|/ˈmjuːteɪt/|v. 突变|mutation
+#WORD dynamic|/daɪˈnæmɪk/|a. 动态的|dynam力
+#WORD static|/ˈstætɪk/|a. 静态的|stat站
+#WORD stable|/ˈsteɪbl/|a. 稳定的|stability
+#WORD stability|/stəˈbɪləti/|n. 稳定|stable
+#WORD unstable|/ʌnˈsteɪbl/|a. 不稳定的|un-
+#WORD volatile|/ˈvɑːlətl/|a. 易变的；动荡的|volat飞
+#WORD trend|/trend/|n. 趋势|trending
+#WORD tendency|/ˈtendənsi/|n. 倾向|tend
+#WORD momentum|/moʊˈmentəm/|n. 势头；动量|moment
+#WORD pace|/peɪs/|n. 节奏；步伐|—
+#WORD tempo|/ˈtempoʊ/|n. 速度；节奏|temp
+#WORD phase|/feɪz/|n. 阶段|—
+#PHRASE undergo a transition|/ˌʌndərˈɡoʊ ə trænˈzɪʃn/|经历过渡|Undergo a transition.
+#PHRASE fluctuate between|/ˈflʌktʃueɪt bɪˈtwiːn/|在…间波动|Prices fluctuate between seasons.
+#PHRASE accelerate the process|/əkˈseləreɪt ðə ˈprɑːses/|加速进程|Accelerate the process.
+#PHRASE evolve into|/ɪˈvɑːlv ˈɪntuː/|演变成|Evolve into a crisis.
+#PHRASE transform into|/trænsˈfɔːrm ˈɪntuː/|转变成|Transform into opportunities.
+#PHRASE adapt to change|/əˈdæpt tə tʃeɪndʒ/|适应变化|Adapt to change quickly.
+#PHRASE a paradigm shift|/ə ˈpærədaɪm ʃɪft/|范式转变|A paradigm shift.
+#PHRASE on the rise|/ɑːn ðə raɪz/|在上升|Crime is on the rise.
+#PHRASE on the decline|/ɑːn ðə dɪˈklaɪn/|在下降|Demand is on the decline.
+#PHRASE gain momentum|/ɡeɪn moʊˈmentəm/|积蓄势头|The campaign gained momentum.
+#PHRASE at a rapid pace|/æt ə ˈræpɪd peɪs/|快速地|Growing at a rapid pace.
+#PHRASE in the long run|/ɪn ðə lɔːŋ rʌn/|从长远看|In the long run, quality wins.
+#PHRASE short-term fluctuation|/ʃɔːrt tɜːrm ˌflʌktʃuˈeɪʃn/|短期波动|Short-term fluctuation.
+#PHRASE structural reform|/ˈstrʌktʃərəl rɪˈfɔːrm/|结构改革|Structural reform is needed.
+#PHRASE technological innovation|/ˌteknəˈlɑːdʒɪkl ˌɪnəˈveɪʃn/|技术创新|Drive technological innovation.
+#PHRASE economic recovery|/ˌekəˈnɑːmɪk rɪˈkʌvəri/|经济复苏|Economic recovery.
+#PHRASE volatile market|/ˈvɑːlətl ˈmɑːrkɪt/|动荡市场|A volatile market.
+#PHRASE stable growth|/ˈsteɪbl ɡroʊθ/|稳定增长|Stable growth.
+#PHRASE diminish in importance|/dɪˈmɪnɪʃ ɪn ɪmˈpɔːrtns/|重要性下降|Diminish in importance.
+#PHRASE enhance efficiency|/ɪnˈhæns ɪˈfɪʃnsi/|提高效率|Enhance efficiency.
+#PHRASE expand rapidly|/ɪkˈspænd ˈræpɪdli/|迅速扩张|Expand rapidly.
+#PHRASE shrink dramatically|/ʃrɪŋk drəˈmætɪkli/|大幅收缩|Shrink dramatically.
+#PHRASE surge in demand|/sɜːrdʒ ɪn dɪˈmænd/|需求激增|A surge in demand.
+#PHRASE plunge into recession|/plʌndʒ ˈɪntuː rɪˈseʃn/|陷入衰退|Plunge into recession.
+#PHRASE make adjustments|/meɪk əˈdʒʌstmənts/|作出调整|Make adjustments.
+#PHRASE modify the plan|/ˈmɑːdɪfaɪ ðə plæn/|修改计划|Modify the plan.
+#PHRASE postpone the meeting|/poʊˈspoʊn ðə ˈmiːtɪŋ/|推迟会议|Postpone the meeting.
+#PHRASE prolong the conflict|/prəˈlɔːŋ ðə ˈkɑːnflɪkt/|延长冲突|Prolong the conflict.
+#PHRASE a turning point|/ə ˈtɜːrnɪŋ pɔɪnt/|转折点|A turning point in history.
+#PHRASE suffer a setback|/ˈsʌfər ə ˈsetbæk/|遭受挫折|Suffer a setback.
+#PHRASE make a breakthrough|/meɪk ə ˈbreɪkθruː/|取得突破|Make a breakthrough.
+#PHRASE dynamic process|/daɪˈnæmɪk ˈprɑːses/|动态过程|A dynamic process.
+#PHRASE static situation|/ˈstætɪk ˌsɪtʃuˈeɪʃn/|静态局面|A static situation.
+#PHRASE immutable law|/ɪˈmjuːtəbl lɔː/|不可改变的规律|An immutable law.
+#PHRASE involve risk|/ɪnˈvɑːlv rɪsk/|涉及风险|Involve risk.
+#PHRASE revolve around|/rɪˈvɑːlv əˈraʊnd/|围绕…转|Revolve around the issue.
+#PHRASE phase out|/feɪz aʊt/|逐步淘汰|Phase out coal plants.
+#PHRASE upgrade the system|/ˈʌpɡreɪd ðə ˈsɪstəm/|升级系统|Upgrade the system.
+#PHRASE restore confidence|/rɪˈstɔːr ˈkɑːnfɪdəns/|恢复信心|Restore confidence.
+#PHRASE trend toward|/trend təˈwɔːrd/|趋向|A trend toward remote work.
+#SENTTYPE 陈述句|否定句|一般疑问句|特殊疑问句|选择疑问句|反意疑问句|祈使句|感叹句|存在句|被动语态|现在完成时|过去完成时|将来时态|真实条件句|虚拟语气|定语从句|宾语从句|原因状语从句|让步状语从句|目的状语从句|比较结构|强调句|倒装句|分词结构|不定式结构|动名词结构|with 复合结构|同位语从句|插入评注|形式主语 It
+#SENT 1|陈述句|Infrastructure shapes the hierarchy of opportunity.|基础设施塑造机会的等级结构。
+#SENT 2|否定句|The mechanism did not synthesize conflicting goals.|该机制未能综合冲突目标。
+#SENT 3|一般疑问句|Can modular components stabilize complex systems?|模块化组件能否稳定复杂系统？
+#SENT 4|特殊疑问句|Where does this framework place accountability?|该框架把问责置于何处？
+#SENT 5|选择疑问句|Is the structure centralized or loosely networked?|结构是集中的还是松散联网的？
+#SENT 6|反意疑问句|The system looks robust, doesn't it?|系统看起来稳健，对吧？
+#SENT 7|祈使句|Map components before you redesign the pipeline.|重新设计流水线前先绘制组件。
+#SENT 8|感叹句|What an intricate institutional architecture!|多么错综的制度架构！
+#SENT 9|存在句|There are bottlenecks at every layer of delivery.|交付每一层都有瓶颈。
+#SENT 10|被动语态|Standards are constructed through lengthy negotiation.|标准通过漫长协商构建。
+#SENT 11|现在完成时|Engineers have upgraded critical nodes repeatedly.|工程师多次升级关键节点。
+#SENT 12|过去完成时|Planners had modeled traffic before construction.|施工前规划者已模拟交通。
+#SENT 13|将来时态|The ministry will publish a new systems blueprint.|该部将公布新的系统蓝图。
+#SENT 14|真实条件句|If one node fails, cascades will spread.|如果一个节点失败，级联将扩散。
+#SENT 15|虚拟语气|If interfaces were standardized, synthesis would improve.|若接口标准化，综合会改善。
+#SENT 16|定语从句|Designs that ignore hierarchy create confusion.|忽视等级的设计造成混乱。
+#SENT 17|宾语从句|Architects argue that frameworks discipline creativity.|建筑师认为框架约束创造力。
+#SENT 18|原因状语从句|Because coupling is tight, local faults go global.|因为耦合紧密，局部故障变全局。
+#SENT 19|让步状语从句|Although modules help, integration remains hard.|尽管模块有帮助，集成仍难。
+#SENT 20|目的状语从句|Document interfaces so that teams can collaborate.|记录接口，以便团队协作。
+#SENT 21|比较结构|Loose coupling is safer than brittle centralization.|松耦合比脆弱集中更安全。
+#SENT 22|强调句|It is infrastructure that enables scalable growth.|正是基础设施使可扩展增长成为可能。
+#SENT 23|倒装句|Nowhere is complexity more visible than in logistics.|物流中复杂性最为可见。
+#SENT 24|分词结构|Facing overload, operators isolated failing components.|面对过载，操作员隔离了故障组件。
+#SENT 25|不定式结构|To strengthen resilience, add redundant pathways.|为增强韧性，增加冗余路径。
+#SENT 26|动名词结构|Overcomplicating structures slows everyday decisions.|结构过度复杂拖慢日常决策。
+#SENT 27|with 复合结构|With clearer schemas, onboarding becomes faster.|有更清晰图式时，入职更快。
+#SENT 28|同位语从句|The thesis that systems self-organize perfectly is doubtful.|系统完美自组织这一论题可疑。
+#SENT 29|插入评注|In engineering, synthesis beats isolated brilliance.|工程中，综合胜过孤立才华。
+#SENT 30|形式主语 It|It is essential to test mechanisms under stress.|在压力下测试机制至关重要。

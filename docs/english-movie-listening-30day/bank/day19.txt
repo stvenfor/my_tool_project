@@ -1,0 +1,156 @@
+#TITLE 能力与表现 | pot / fac / cap / form
+#ROOT pot/poss|能力|potential, possible, potent
+#ROOT fac/fic/fect|做|efficient, affect, proficient
+#ROOT cap/cept|拿|capable, capacity, capture
+#ROOT -ence/-ency|名词|competence, efficiency
+#WORD potential|/pəˈtenʃl/|a./n. 潜在；潜力|—
+#WORD potent|/ˈpoʊtnt/|a. 强有力的|—
+#WORD possible|/ˈpɑːsəbl/|a. 可能的|—
+#WORD possibility|/ˌpɑːsəˈbɪləti/|n. 可能性|—
+#WORD impossible|/ɪmˈpɑːsəbl/|a. 不可能的|—
+#WORD competent|/ˈkɑːmpɪtənt/|a. 胜任的|—
+#WORD competence|/ˈkɑːmpɪtəns/|n. 能力|—
+#WORD incompetent|/ɪnˈkɑːmpɪtənt/|a. 不胜任的|—
+#WORD proficient|/prəˈfɪʃnt/|a. 熟练的|—
+#WORD proficiency|/prəˈfɪʃnsi/|n. 熟练|—
+#WORD capable|/ˈkeɪpəbl/|a. 有能力的|—
+#WORD capability|/ˌkeɪpəˈbɪləti/|n. 能力|—
+#WORD capacity|/kəˈpæsəti/|n. 能力；容量|—
+#WORD ability|/əˈbɪləti/|n. 能力|—
+#WORD skill|/skɪl/|n. 技能|—
+#WORD talent|/ˈtælənt/|n. 天赋|—
+#WORD gifted|/ˈɡɪftɪd/|a. 有天赋的|—
+#WORD aptitude|/ˈæptɪtuːd/|n. 天资|—
+#WORD efficient|/ɪˈfɪʃnt/|a. 高效的|—
+#WORD efficiency|/ɪˈfɪʃnsi/|n. 效率|—
+#WORD effective|/ɪˈfektɪv/|a. 有效的|—
+#WORD effectiveness|/ɪˈfektɪvnəs/|n. 有效性|—
+#WORD ineffective|/ˌɪnɪˈfektɪv/|a. 无效的|—
+#WORD affect|/əˈfekt/|v. 影响|—
+#WORD effect|/ɪˈfekt/|n. 效果|—
+#WORD accomplish|/əˈkɑːmplɪʃ/|v. 完成|—
+#WORD accomplishment|/əˈkɑːmplɪʃmənt/|n. 成就|—
+#WORD achieve|/əˈtʃiːv/|v. 实现|—
+#WORD achievement|/əˈtʃiːvmənt/|n. 成就|—
+#WORD attain|/əˈteɪn/|v. 达到|—
+#WORD fulfil|/fəlˈfɪl/|v. 履行；满足|—
+#WORD perform|/pərˈfɔːrm/|v. 表现；执行|—
+#WORD performance|/pərˈfɔːrməns/|n. 表现|—
+#WORD excel|/ɪkˈsel/|v. 擅长|—
+#WORD excellence|/ˈeksələns/|n. 卓越|—
+#WORD excellent|/ˈeksələnt/|a. 优秀的|—
+#WORD outstanding|/aʊtˈstændɪŋ/|a. 杰出的|—
+#WORD superior|/suːˈpɪriər/|a. 更优的|—
+#WORD mastery|/ˈmæstəri/|n. 精通|—
+#WORD expertise|/ˌekspɜːrˈtiːz/|n. 专长|—
+#WORD specialist|/ˈspeʃəlɪst/|n. 专家|—
+#WORD professional|/prəˈfeʃənl/|a./n. 专业（人士）|—
+#WORD amateur|/ˈæmətʃər/|n./a. 业余|—
+#WORD qualify|/ˈkwɑːlɪfaɪ/|v. 取得资格|—
+#WORD qualification|/ˌkwɑːlɪfɪˈkeɪʃn/|n. 资格|—
+#WORD credential|/krəˈdenʃl/|n. 资历证明|—
+#WORD certificate|/sərˈtɪfɪkət/|n. 证书|—
+#WORD diploma|/dɪˈploʊmə/|n. 文凭|—
+#WORD literate|/ˈlɪtərət/|a. 有文化的|—
+#WORD literacy|/ˈlɪtərəsi/|n. 素养|—
+#WORD fluent|/ˈfluːənt/|a. 流利的|—
+#WORD fluency|/ˈfluːənsi/|n. 流利|—
+#WORD articulate|/ɑːrˈtɪkjuleɪt/|a./v. 表达清晰|—
+#WORD eloquent|/ˈeləkwənt/|a. 雄辩的|—
+#WORD productive|/prəˈdʌktɪv/|a. 多产的|—
+#WORD productivity|/ˌprɑːdʌkˈtɪvəti/|n. 生产率|—
+#WORD output|/ˈaʊtpʊt/|n. 产出|—
+#WORD outcome|/ˈaʊtkʌm/|n. 结果|—
+#WORD success|/səkˈses/|n. 成功|—
+#WORD failure|/ˈfeɪljər/|n. 失败|—
+#WORD overcome|/ˌoʊvərˈkʌm/|v. 克服|—
+#WORD surmount|/sərˈmaʊnt/|v. 克服|—
+#WORD cope|/koʊp/|v. 应付|—
+#WORD manage|/ˈmænɪdʒ/|v. 设法做到|—
+#WORD handle|/ˈhændl/|v. 处理|—
+#WORD tackle|/ˈtækl/|v. 应对|—
+#WORD improve|/ɪmˈpruːv/|v. 提高|—
+#WORD enhance|/ɪnˈhæns/|v. 增强|—
+#WORD strengthen|/ˈstreŋθn/|v. 加强|—
+#WORD weaken|/ˈwiːkən/|v. 削弱|—
+#WORD empower|/ɪmˈpaʊər/|v. 赋能|—
+#WORD enable|/ɪˈneɪbl/|v. 使能够|—
+#WORD disable|/dɪsˈeɪbl/|v. 使丧失能力|—
+#WORD hinder|/ˈhɪndər/|v. 阻碍|—
+#WORD facilitate|/fəˈsɪlɪteɪt/|v. 促进|—
+#WORD promote|/prəˈmoʊt/|v. 促进|—
+#WORD cultivate|/ˈkʌltɪveɪt/|v. 培养|—
+#WORD nurture|/ˈnɜːrtʃər/|v. 培育|—
+#WORD train|/treɪn/|v. 训练|—
+#WORD practice|/ˈpræktɪs/|v./n. 练习|—
+#PHRASE potential risk|/pəˈtenʃl rɪsk/|潜在风险|A potential risk.
+#PHRASE be proficient in|/bi prəˈfɪʃnt ɪn/|精通|Proficient in English.
+#PHRASE capable of|/ˈkeɪpəbl əv/|能够|Capable of solving it.
+#PHRASE accomplish a goal|/əˈkɑːmplɪʃ ə ɡoʊl/|达成目标|Accomplish a goal.
+#PHRASE core competence|/kɔːr ˈkɑːmpɪtəns/|核心竞争力|Core competence.
+#PHRASE reach full potential|/riːtʃ fʊl pəˈtenʃl/|发挥全部潜力|Reach full potential.
+#PHRASE efficient use of|/ɪˈfɪʃnt juːs əv/|高效利用|Efficient use of time.
+#PHRASE effective strategy|/ɪˈfektɪv ˈstrætədʒi/|有效策略|An effective strategy.
+#PHRASE improve performance|/ɪmˈpruːv pərˈfɔːrməns/|提升表现|Improve performance.
+#PHRASE outstanding achievement|/aʊtˈstændɪŋ əˈtʃiːvmənt/|杰出成就|Outstanding achievement.
+#PHRASE professional expertise|/prəˈfeʃənl ˌekspɜːrˈtiːz/|专业专长|Professional expertise.
+#PHRASE academic qualification|/ˌækəˈdemɪk ˌkwɑːlɪfɪˈkeɪʃn/|学历资格|Academic qualification.
+#PHRASE language proficiency|/ˈlæŋɡwɪdʒ prəˈfɪʃnsi/|语言熟练度|Language proficiency.
+#PHRASE literacy skills|/ˈlɪtərəsi skɪlz/|读写技能|Literacy skills.
+#PHRASE fluent speaker|/ˈfluːənt ˈspiːkər/|流利使用者|A fluent speaker.
+#PHRASE productivity gain|/ˌprɑːdʌkˈtɪvəti ɡeɪn/|生产率提升|Productivity gain.
+#PHRASE desirable outcome|/dɪˈzaɪərəbl ˈaʊtkʌm/|理想结果|A desirable outcome.
+#PHRASE overcome difficulties|/ˌoʊvərˈkʌm ˈdɪfɪkəltiz/|克服困难|Overcome difficulties.
+#PHRASE cope with pressure|/koʊp wɪð ˈpreʃər/|应对压力|Cope with pressure.
+#PHRASE facilitate learning|/fəˈsɪlɪteɪt ˈlɜːrnɪŋ/|促进学习|Facilitate learning.
+#PHRASE cultivate talent|/ˈkʌltɪveɪt ˈtælənt/|培养人才|Cultivate talent.
+#PHRASE empower employees|/ɪmˈpaʊər ɪmˈplɔɪiːz/|赋能员工|Empower employees.
+#PHRASE enable access|/ɪˈneɪbl ˈækses/|使能访问|Enable access.
+#PHRASE hinder progress|/ˈhɪndər ˈprɑːɡres/|阻碍进步|Hinder progress.
+#PHRASE strengthen capacity|/ˈstreŋθn kəˈpæsəti/|增强能力|Strengthen capacity.
+#PHRASE skill set|/skɪl set/|技能组合|A broad skill set.
+#PHRASE talent shortage|/ˈtælənt ˈʃɔːrtɪdʒ/|人才短缺|Talent shortage.
+#PHRASE high achiever|/haɪ əˈtʃiːvər/|高成就者|A high achiever.
+#PHRASE measure effectiveness|/ˈmeʒər ɪˈfektɪvnəs/|衡量有效性|Measure effectiveness.
+#PHRASE demonstrate ability|/ˈdemənstreɪt əˈbɪləti/|展示能力|Demonstrate ability.
+#PHRASE qualify for|/ˈkwɑːlɪfaɪ fɔːr/|有资格|Qualify for the exam.
+#PHRASE credentials matter|/krəˈdenʃlz ˈmætər/|资历很重要|Credentials matter.
+#PHRASE practice makes perfect|/ˈpræktɪs meɪks ˈpɜːrfɪkt/|熟能生巧|Practice makes perfect.
+#PHRASE excel at|/ɪkˈsel æt/|擅长|Excel at math.
+#PHRASE master the skill|/ˈmæstər ðə skɪl/|掌握技能|Master the skill.
+#PHRASE underperform|/ˌʌndərpərˈfɔːrm/|表现不佳|The team underperformed.
+#PHRASE outperform peers|/ˌaʊtpərˈfɔːrm pɪrz/|优于同辈|Outperform peers.
+#PHRASE room for improvement|/ruːm fɔːr ɪmˈpruːvmənt/|有改进空间|Room for improvement.
+#PHRASE peak performance|/piːk pərˈfɔːrməns/|巅峰表现|Peak performance.
+#PHRASE sustainable excellence|/səˈsteɪnəbl ˈeksələns/|可持续卓越|Sustainable excellence.
+#SENTTYPE 陈述句|否定句|一般疑问句|特殊疑问句|选择疑问句|反意疑问句|祈使句|感叹句|存在句|被动语态|现在完成时|过去完成时|将来时态|真实条件句|虚拟语气|定语从句|宾语从句|原因状语从句|让步状语从句|目的状语从句|比较结构|强调句|倒装句|分词结构|不定式结构|动名词结构|with 复合结构|同位语从句|插入评注|形式主语 It
+#SENT 1|陈述句|Proficient teams accomplish complex goals efficiently.|熟练团队高效完成复杂目标。
+#SENT 2|否定句|The intern was not yet capable of solo decisions.|实习生尚不能独立决策。
+#SENT 3|一般疑问句|Can training facilitate rapid skill transfer?|培训能否促进技能快速迁移？
+#SENT 4|特殊疑问句|What expertise distinguishes top performers?|何种专长区分顶尖表现者？
+#SENT 5|选择疑问句|Is potential innate talent or cultivated capacity?|潜力是先天天赋还是培养出的能力？
+#SENT 6|反意疑问句|Performance improved markedly, didn't it?|表现明显改善，对吧？
+#SENT 7|祈使句|Practice deliberately before you claim mastery.|在宣称精通前先刻意练习。
+#SENT 8|感叹句|What outstanding achievement under tight constraints!|在紧张约束下多么杰出的成就！
+#SENT 9|存在句|There is room for improvement in every skill set.|每一套技能都有改进空间。
+#SENT 10|被动语态|Competence is demonstrated through real tasks.|能力通过真实任务得到证明。
+#SENT 11|现在完成时|Athletes have strengthened capacity all season.|运动员整季都在增强能力。
+#SENT 12|过去完成时|She had qualified for the exam before coaching began.|辅导开始前她已取得考试资格。
+#SENT 13|将来时态|The lab will enhance productivity with new tools.|实验室将用新工具提升生产率。
+#SENT 14|真实条件句|If feedback is timely, learning will accelerate.|如果反馈及时，学习将加速。
+#SENT 15|虚拟语气|If barriers were removed, more talent would excel.|若障碍清除，更多人才会脱颖而出。
+#SENT 16|定语从句|Leaders who empower staff unlock hidden potential.|赋能员工的领导释放隐藏潜力。
+#SENT 17|宾语从句|Coaches believe fluent practice beats passive study.|教练认为流利练习胜过被动学习。
+#SENT 18|原因状语从句|Because incentives misalign, effective effort drops.|因为激励错位，有效努力下降。
+#SENT 19|让步状语从句|Although credentials help, performance decides.|尽管资历有帮助，表现才作决定。
+#SENT 20|目的状语从句|Train consistently so that proficiency becomes durable.|持续训练，以便熟练变得持久。
+#SENT 21|比较结构|Efficient methods save more time than longer hours.|高效方法比更长工时更省时间。
+#SENT 22|强调句|It is deliberate practice that creates excellence.|正是刻意练习造就卓越。
+#SENT 23|倒装句|Seldom do amateurs outperform trained specialists overnight.|业余者很少一夜超越训练有素的专家。
+#SENT 24|分词结构|Facing failure, he rebuilt confidence gradually.|面对失败，他逐渐重建信心。
+#SENT 25|不定式结构|To accomplish more, eliminate low-value tasks.|要完成更多，剔除低价值任务。
+#SENT 26|动名词结构|Underperforming quietly still harms team outcomes.|默默表现不佳仍损害团队结果。
+#SENT 27|with 复合结构|With better scaffolding, novices become capable faster.|有更好支架时，新手更快变得能干。
+#SENT 28|同位语从句|The myth that talent needs no practice is harmful.|天赋无需练习这一迷思有害。
+#SENT 29|插入评注|In competitions, peak performance is rare and fragile.|竞赛中，巅峰表现稀少且脆弱。
+#SENT 30|形式主语 It|It is possible to cultivate expertise at any age.|任何年龄都可能培养专长。

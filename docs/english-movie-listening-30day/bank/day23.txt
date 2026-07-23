@@ -1,0 +1,156 @@
+#TITLE 影响与操控 | flu / duc / press / suad
+#ROOT flu|流|influence, fluent
+#ROOT duc|引导|induce, deduce, conduct
+#ROOT press|压|pressure, suppress
+#ROOT suad|劝|persuade
+#WORD assert|/əˈsɜːrt/|v. 断言；维护|—
+#WORD contend|/kənˈtend/|v. 主张；竞争|—
+#WORD contradict|/ˌkɑːntrəˈdɪkt/|v. 反驳|contra- + dict
+#WORD justify|/ˈdʒʌstɪfaɪ/|v. 证明正当|just + -ify
+#WORD objective|/əbˈdʒektɪv/|a. 客观的；n. 目标|object + -ive
+#WORD perspective|/pərˈspektɪv/|n. 视角|per- + spect
+#WORD speculate|/ˈspekjuleɪt/|v. 推测|spec 看
+#WORD valid|/ˈvælɪd/|a. 有效的|—
+#WORD argument|/ˈɑːrɡjumənt/|n. 论点；争论|—
+#WORD debate|/dɪˈbeɪt/|n./v. 辩论|de- + bat
+#WORD dispute|/dɪˈspjuːt/|n./v. 争议|disputable
+#WORD claim|/kleɪm/|v./n. 声称；索赔|claim 喊
+#WORD proclaim|/proʊˈkleɪm/|v. 宣告|pro- + claim
+#WORD exclaim|/ɪkˈskleɪm/|v.  exclaim 惊叫|ex- + claim
+#WORD reclaim|/rɪˈkleɪm/|v.  reclaim 收回|re- + claim
+#WORD predict|/prɪˈdɪkt/|v. 预测|pre- + dict
+#WORD dictate|/ˈdɪkteɪt/|v.  dict 口述；支配|dict
+#WORD verdict|/ˈvɜːrdɪkt/|n. 裁决|ver- + dict
+#WORD contradiction|/ˌkɑːntrəˈdɪkʃn/|n. 矛盾|contradict
+#WORD indict|/ɪnˈdaɪt/|v. 起诉|in- + dict
+#WORD advocate|/ˈædvəkeɪt/|v. 提倡|soci/civ
+#WORD allege|/əˈledʒ/|v.  alleged 声称|—
+#WORD maintain|/meɪnˈteɪn/|v. 坚持；维护|main + tain
+#WORD refute|/rɪˈfjuːt/|v.  refute 驳斥|—
+#WORD rebut|/rɪˈbʌt/|v.  rebut 反驳|re- + but
+#WORD deny|/dɪˈnaɪ/|v. 否认|de- + ny
+#WORD acknowledge|/əkˈnɑːlɪdʒ/|v. 承认|—
+#WORD concede|/kənˈsiːd/|v.  concede 让步|con- + cede
+#WORD confess|/kənˈfes/|v.  confess 供认|con- + fess
+#WORD testify|/ˈtestɪfaɪ/|v.  testify 作证|test + -ify
+#WORD witness|/ˈwɪtnəs/|n./v. 证人；目击|—
+#WORD evidence|/ˈevɪdəns/|n. 证据|e- + vid 看
+#WORD proof|/pruːf/|n. 证明|—
+#WORD premise|/ˈpremɪs/|n. 前提|pre- + mis
+#WORD conclusion|/kənˈkluːʒn/|n. 结论|con- + clud
+#WORD inference|/ˈɪnfərəns/|n. 推论|infer
+#WORD assumption|/əˈsʌmpʃn/|n. 假设|assume
+#WORD proposition|/ˌprɑːpəˈzɪʃn/|n. 命题；提议|pro- + pos
+#WORD thesis|/ˈθiːsɪs/|n. 论文；论点|—
+#WORD stance|/stæns/|n. 立场|—
+#WORD viewpoint|/ˈvjuːpɔɪnt/|n. 观点|view + point
+#WORD standpoint|/ˈstændpɔɪnt/|n.  standpoint 立场|—
+#WORD opinion|/əˈpɪnjən/|n. 意见|—
+#WORD belief|/bɪˈliːf/|n. 信念|believe
+#WORD conviction|/kənˈvɪkʃn/|n.  conviction 信念|convict
+#WORD bias|/ˈbaɪəs/|n. 偏见|biased
+#WORD prejudice|/ˈpredʒudɪs/|n. 偏见|pre- + jud
+#WORD subjective|/səbˈdʒektɪv/|a. 主观的|sub- + ject
+#WORD neutral|/ˈnuːtrəl/|a. 中立的|—
+#WORD impartial|/ɪmˈpɑːrʃl/|a. 公正的|im- + partial
+#WORD rational|/ˈræʃnəl/|a. 理性的|ratio 比
+#WORD logical|/ˈlɑːdʒɪkl/|a. 逻辑的|logic
+#WORD coherent|/koʊˈhɪrənt/|a. 连贯的|soci/civ
+#WORD consistent|/kənˈsɪstənt/|a. 一致的|con- + sist
+#WORD fallacy|/ˈfæləsi/|n. 谬误|fall 错
+#WORD paradox|/ˈpærədɑːks/|n. 悖论|para- + dox
+#WORD dilemma|/dɪˈlemə/|n. 两难|di- + lemma
+#WORD controversy|/ˈkɑːntrəvɜːrsi/|n. 争议|controversial
+#WORD disagreement|/ˌdɪsəˈɡriːmənt/|n. 分歧|dis- + agree
+#WORD consensus|/kənˈsensəs/|n. 共识|con- + sens
+#WORD compromise|/ˈkɑːmprəmaɪz/|n./v. 妥协；损害|com-+promise
+#WORD negotiate|/nɪˈɡoʊʃieɪt/|v. 谈判|neg 否
+#WORD persuade|/pərˈsweɪd/|v. 说服|per- + suade
+#WORD convince|/kənˈvɪns/|v. 使信服|con- + vinc
+#WORD rhetoric|/ˈretərɪk/|n. 修辞|—
+#WORD eloquent|/ˈeləkwənt/|a. 雄辩的|e- + loqu
+#WORD articulate|/ɑːrˈtɪkjuleɪt/|a.  articulate 表达清晰|—
+#WORD emphasize|/ˈemfəsaɪz/|v. 强调|—
+#WORD highlight|/ˈhaɪlaɪt/|v. 突出|—
+#WORD illustrate|/ˈɪləstreɪt/|v. 说明|—
+#WORD demonstrate|/ˈdemənstreɪt/|v. 论证|—
+#WORD substantiate|/səbˈstænʃieɪt/|v.  substantiate 证实|sub- + stant
+#WORD corroborate|/kəˈrɑːbəreɪt/|v.  corroborate  corroborate|—
+#WORD undermine|/ˌʌndərˈmaɪn/|v. 削弱论点|—
+#WORD overstate|/ˌoʊvərˈsteɪt/|v. 夸大|over + state
+#WORD exaggerate|/ɪɡˈzædʒəreɪt/|v. 夸张|—
+#WORD distort|/dɪˈstɔːrt/|v. 歪曲|dis- + tort
+#WORD misinterpret|/ˌmɪsɪnˈtɜːrprət/|v. 误读|mis- + interpret
+#WORD ambiguity|/ˌæmbɪˈɡjuːəti/|n. 歧义|ambi- + gu
+#WORD nuance|/ˈnuːɑːns/|n. 细微差别|—
+#PHRASE from my perspective|/frəm maɪ pərˈspektɪv/|依我之见|From my perspective, it's weak.
+#PHRASE contradict oneself|/ˌkɑːntrəˈdɪkt wʌnˈself/|自相矛盾|Don't contradict yourself.
+#PHRASE justify one's action|/ˈdʒʌstɪfaɪ wʌnz ˈækʃn/|为行为辩护|Justify your action.
+#PHRASE a valid argument|/ə ˈvælɪd ˈɑːrɡjumənt/|站得住的论点|That's a valid argument.
+#PHRASE make a claim|/meɪk ə kleɪm/|提出主张|Scientists make a claim cautiously.
+#PHRASE present evidence|/prɪˈzent ˈevɪdəns/|出示证据|Present evidence in court.
+#PHRASE draw a conclusion|/drɔː ə kənˈkluːʒn/|得出结论|Draw a conclusion from facts.
+#PHRASE based on the premise|/beɪst ɑːn ðə ˈpremɪs/|基于前提|Based on the premise, it follows.
+#PHRASE take a stance|/teɪk ə stæns/|表明立场|Take a stance on the issue.
+#PHRASE hold an opinion|/hoʊld ən əˈpɪnjən/|持有观点|Everyone may hold an opinion.
+#PHRASE personal bias|/ˈpɜːrsənl ˈbaɪəs/|个人偏见|Watch for personal bias.
+#PHRASE remain neutral|/rɪˈmeɪn ˈnuːtrəl/|保持中立|Judges must remain neutral.
+#PHRASE a logical fallacy|/ə ˈlɑːdʒɪkl ˈfæləsi/|逻辑谬误|That's a logical fallacy.
+#PHRASE spark controversy|/spɑːrk ˈkɑːntrəvɜːrsi/|引发争议|Spark controversy.
+#PHRASE reach a consensus|/riːtʃ ə kənˈsensəs/|达成共识|They reached a consensus.
+#PHRASE reach a compromise|/riːtʃ ə ˈkɑːmprəmaɪz/|达成妥协|Reach a compromise.
+#PHRASE persuade sb of|/pərˈsweɪd ˈsʌmbədi əv/|使某人信服|Persuade him of the truth.
+#PHRASE convince sb that|/kənˈvɪns ˈsʌmbədi ðæt/|使某人相信|Convince her that it matters.
+#PHRASE make one's case|/meɪk wʌnz keɪs/|陈述理由|Lawyers make their case.
+#PHRASE state clearly|/steɪt ˈklɪrli/|清楚陈述|State clearly what you mean.
+#PHRASE put forward a proposal|/pʊt ˈfɔːrwərd ə prəˈpoʊzl/|提出提案|Put forward a proposal today.
+#PHRASE refute a claim|/rɪˈfjuːt ə kleɪm/|驳斥主张|Data refute a claim easily.
+#PHRASE acknowledge a point|/əkˈnɑːlɪdʒ ə pɔɪnt/|承认某点|Acknowledge a point fairly.
+#PHRASE concede defeat|/kənˈsiːd dɪˈfiːt/|承认失败|He conceded defeat gracefully.
+#PHRASE bear witness to|/ber ˈwɪtnəs tə/|见证|Records bear witness to change.
+#PHRASE beyond dispute|/bɪˈjɑːnd dɪˈspjuːt/|无可争议|Beyond dispute.
+#PHRASE open to debate|/ˈoʊpən tə dɪˈbeɪt/|可商榷|The policy is open to debate.
+#PHRASE heated debate|/ˈhiːtɪd dɪˈbeɪt/|激烈辩论|A heated debate erupted.
+#PHRASE play devil's advocate|/pleɪ ˈdevlz ˈædvəkeɪt/|故意唱反调|Let me play devil's advocate.
+#PHRASE on the one hand|/ɑːn ðə wʌn hænd/|一方面|On the one hand, costs rise.
+#PHRASE on the other hand|/ɑːn ði ˈʌðər hænd/|另一方面|On the other hand, quality improves.
+#PHRASE in my view|/ɪn maɪ vjuː/|在我看来|In my view, reform is needed.
+#PHRASE as far as I'm concerned|/æz fɑːr æz aɪm kənˈsɜːrnd/|就我而言|As far as I'm concerned, it's fine.
+#PHRASE strongly disagree|/strɔːŋli ˌdɪsəˈɡriː/|强烈反对|I strongly disagree with that.
+#PHRASE partially agree|/ˈpɑːrʃəli əˈɡriː/|部分同意|I partially agree with you.
+#PHRASE substantiate a claim|/səbˈstænʃieɪt ə kleɪm/|证实主张|Substantiate a claim with data.
+#PHRASE undermine credibility|/ˌʌndərˈmaɪn ˌkredəˈbɪləti/|损害可信度|Lies undermine credibility.
+#PHRASE distort the facts|/dɪˈstɔːrt ðə fækts/|歪曲事实|Don't distort the facts.
+#PHRASE read between the lines|/riːd bɪˈtwiːn ðə laɪnz/|体会言外之意|Read between the lines carefully.
+#PHRASE a matter of opinion|/ə ˈmætər əv əˈpɪnjən/|见仁见智|Taste is a matter of opinion.
+#SENTTYPE 陈述句|否定句|一般疑问句|特殊疑问句|选择疑问句|反意疑问句|祈使句|感叹句|存在句|被动语态|现在完成时|过去完成时|将来时态|真实条件句|虚拟语气|定语从句|宾语从句|原因状语从句|让步状语从句|目的状语从句|比较结构|强调句|倒装句|分词结构|不定式结构|动名词结构|with 复合结构|同位语从句|插入评注|形式主语 It
+#SENT 1|陈述句|Hidden agendas influence public debate quietly.|隐藏议程悄然影响公共辩论。
+#SENT 2|否定句|The campaign did not persuade skeptical voters.|运动未能说服怀疑的选民。
+#SENT 3|一般疑问句|Can soft power dominate without coercion?|软实力能否在无胁迫下占据主导？
+#SENT 4|特殊疑问句|Who steers the narrative in this controversy?|这场争议中谁引导叙事？
+#SENT 5|选择疑问句|Is pressure peer influence or institutional control?|压力是同辈影响还是制度控制？
+#SENT 6|反意疑问句|Manipulation remains hard to detect, doesn't it?|操控仍难察觉，对吧？
+#SENT 7|祈使句|Resist intimidation before norms collapse.|在规范崩溃前抵制恐吓。
+#SENT 8|感叹句|How subtle this rhetorical strategy seems!|这一修辞策略显得多么微妙！
+#SENT 9|存在句|There is unequal leverage across stakeholders.|利益相关方之间杠杆不平等。
+#SENT 10|被动语态|Dissent was suppressed during the emergency.|紧急状态期间异议被压制。
+#SENT 11|现在完成时|Lobbyists have reinforced industry talking points.|游说者强化了行业话术。
+#SENT 12|过去完成时|Mediators had negotiated before talks collapsed.|谈判破裂前调解人已进行斡旋。
+#SENT 13|将来时态|Regulators will intervene if monopolies form.|若形成垄断，监管将介入。
+#SENT 14|真实条件句|If incentives change, behavior will follow.|如果激励改变，行为将跟随。
+#SENT 15|虚拟语气|If transparency were higher, abuse would decline.|若透明度更高，滥用会减少。
+#SENT 16|定语从句|Leaders who empower citizens reduce fear.|赋权公民的领导减少恐惧。
+#SENT 17|宾语从句|Analysts warn that propaganda distorts consent.|分析人士警告宣传扭曲同意。
+#SENT 18|原因状语从句|Because peer pressure is strong, defiance is costly.|因为同辈压力强，违抗代价高。
+#SENT 19|让步状语从句|Although influence is soft, effects can be hard.|尽管影响柔和，效果可以强硬。
+#SENT 20|目的状语从句|Set clear rules so that coercion becomes unnecessary.|设定清晰规则，使胁迫变得不必要。
+#SENT 21|比较结构|Hard power is blunter than careful persuasion.|硬实力比细致说服更生硬。
+#SENT 22|强调句|It is framing that shapes what people notice.|正是框定塑造人们注意什么。
+#SENT 23|倒装句|Only after leaks did the agenda become visible.|泄密之后议程才变得可见。
+#SENT 24|分词结构|Facing backlash, officials moderated their stance.|面对反弹，官员缓和了立场。
+#SENT 25|不定式结构|To deter misconduct, raise the certainty of penalties.|为威慑不当行为，提高处罚确定性。
+#SENT 26|动名词结构|Exploiting vulnerability destroys long-term legitimacy.|利用脆弱性摧毁长期合法性。
+#SENT 27|with 复合结构|With concentrated power, accountability weakens.|权力集中时，问责削弱。
+#SENT 28|同位语从句|The claim that markets need no governance is extreme.|市场无需治理这一主张过于极端。
+#SENT 29|插入评注|In politics, narrative often outweighs raw data.|政治中，叙事常压过原始数据。
+#SENT 30|形式主语 It|It is risky to confuse influence with truth.|把影响与真相混淆是危险的。

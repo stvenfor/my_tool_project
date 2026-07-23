@@ -1,0 +1,156 @@
+#TITLE 数量与范围 | quant / magn / min / meas
+#ROOT quant|数量|quantity, quantitative, quantum
+#ROOT magn/maj|大|magnitude, magnificent, major
+#ROOT min|小|minimum, diminish, minority
+#ROOT meas/mens|测量|measure, immense, dimension
+#WORD quantity|/ˈkwɑːntəti/|n. 数量|—
+#WORD quantitative|/ˈkwɑːntəteɪtɪv/|a. 定量的|—
+#WORD qualitative|/ˈkwɑːlɪteɪtɪv/|a. 定性的|—
+#WORD quantum|/ˈkwɑːntəm/|n. 量子；量|—
+#WORD magnitude|/ˈmæɡnɪtuːd/|n. 重大|—
+#WORD magnificent|/mæɡˈnɪfɪsnt/|a. 壮丽的|—
+#WORD major|/ˈmeɪdʒər/|a. 主要的|—
+#WORD majority|/məˈdʒɔːrəti/|n. 多数|—
+#WORD minor|/ˈmaɪnər/|a. 次要的|—
+#WORD minority|/maɪˈnɔːrəti/|n. 少数|—
+#WORD minimum|/ˈmɪnɪməm/|n./a. 最小|—
+#WORD maximum|/ˈmæksɪməm/|n./a. 最大|—
+#WORD minimize|/ˈmɪnɪmaɪz/|v. 最小化|—
+#WORD maximize|/ˈmæksɪmaɪz/|v. 最大化|—
+#WORD proportion|/prəˈpɔːrʃn/|n. 比例|—
+#WORD proportional|/prəˈpɔːrʃənl/|a. 成比例的|—
+#WORD ratio|/ˈreɪʃioʊ/|n. 比率|—
+#WORD percentage|/pərˈsentɪdʒ/|n. 百分比|—
+#WORD fraction|/ˈfrækʃn/|n. 分数；小部分|—
+#WORD portion|/ˈpɔːrʃn/|n. 一部分|—
+#WORD share|/ʃer/|n. 份额|—
+#WORD segment|/ˈseɡmənt/|n. 部分|—
+#WORD approximate|/əˈprɑːksɪmət/|a. 近似的|—
+#WORD approximately|/əˈprɑːksɪmətli/|adv. 大约|—
+#WORD roughly|/ˈrʌfli/|adv. 大约|—
+#WORD exactly|/ɪɡˈzæktli/|adv. 精确地|—
+#WORD precise|/prɪˈsaɪs/|a. 精确的|—
+#WORD accuracy|/ˈækjərəsi/|n. 准确|—
+#WORD abundant|/əˈbʌndənt/|a. 丰富的|—
+#WORD abundance|/əˈbʌndəns/|n. 丰富|—
+#WORD adequate|/ˈædɪkwət/|a. 足够的|—
+#WORD sufficient|/səˈfɪʃnt/|a. 充足的|—
+#WORD insufficient|/ˌɪnsəˈfɪʃnt/|a. 不足的|—
+#WORD scarce|/skers/|a. 稀缺的|—
+#WORD ample|/ˈæmpl/|a. 充足的|—
+#WORD plentiful|/ˈplentɪfl/|a. 丰富的|—
+#WORD sparse|/spɑːrs/|a. 稀疏的|—
+#WORD dense|/dens/|a. 密集的|—
+#WORD density|/ˈdensəti/|n. 密度|—
+#WORD volume|/ˈvɑːljuːm/|n. 体积；量|—
+#WORD capacity|/kəˈpæsəti/|n. 容量；能力|—
+#WORD scale|/skeɪl/|n. 规模|—
+#WORD scope|/skoʊp/|n. 范围|—
+#WORD range|/reɪndʒ/|n. 范围|—
+#WORD extent|/ɪkˈstent/|n. 程度|—
+#WORD degree|/dɪˈɡriː/|n. 程度|—
+#WORD level|/ˈlevl/|n. 水平|—
+#WORD rate|/reɪt/|n. 比率|—
+#WORD frequency|/ˈfriːkwənsi/|n. 频率|—
+#WORD incidence|/ˈɪnsɪdəns/|n. 发生率|—
+#WORD prevalence|/ˈprevələns/|n. 流行程度|—
+#WORD average|/ˈævərɪdʒ/|n./a. 平均|—
+#WORD mean|/miːn/|n. 平均值|—
+#WORD median|/ˈmiːdiən/|n. 中位数|—
+#WORD mode|/moʊd/|n. 众数；模式|—
+#WORD statistic|/stəˈtɪstɪk/|n. 统计数值|—
+#WORD statistics|/stəˈtɪstɪks/|n. 统计学|—
+#WORD statistical|/stəˈtɪstɪkl/|a. 统计的|—
+#WORD sample|/ˈsæmpl/|n. 样本|—
+#WORD population|/ˌpɑːpjuˈleɪʃn/|n. 总体；人口|—
+#WORD survey|/ˈsɜːrveɪ/|n. 调查|—
+#WORD census|/ˈsensəs/|n. 人口普查|—
+#WORD measure|/ˈmeʒər/|v./n. 测量|—
+#WORD measurement|/ˈmeʒərmənt/|n. 测量|—
+#WORD dimension|/dɪˈmenʃn/|n. 维度|—
+#WORD immense|/ɪˈmens/|a. 巨大的|—
+#WORD enormous|/ɪˈnɔːrməs/|a. 巨大的|—
+#WORD tremendous|/trɪˈmendəs/|a. 巨大的|—
+#WORD vast|/væst/|a. 广阔的|—
+#WORD huge|/hjuːdʒ/|a. 巨大的|—
+#WORD tiny|/ˈtaɪni/|a. 极小的|—
+#WORD minute|/maɪˈnuːt/|a. 微小的|—
+#WORD massive|/ˈmæsɪv/|a. 巨大的|—
+#WORD bulk|/bʌlk/|n. 主体；大量|—
+#WORD handful|/ˈhændfʊl/|n. 少数几个|—
+#WORD dozen|/ˈdʌzn/|n. 一打|—
+#WORD score|/skɔːr/|n. 二十；得分|—
+#WORD multiple|/ˈmʌltɪpl/|a. 多重的|—
+#WORD numerous|/ˈnuːmərəs/|a. 许多的|—
+#WORD countless|/ˈkaʊntləs/|a. 无数的|—
+#PHRASE a large proportion of|/ə lɑːrdʒ prəˈpɔːrʃn əv/|很大一部分|A large proportion of students.
+#PHRASE the vast majority|/ðə væst məˈdʒɔːrəti/|绝大多数|The vast majority agree.
+#PHRASE of great magnitude|/əv ɡreɪt ˈmæɡnɪtuːd/|规模巨大|Of great magnitude.
+#PHRASE adequate supply|/ˈædɪkwət səˈplaɪ/|充足供应|An adequate supply.
+#PHRASE quantitative analysis|/ˈkwɑːntəteɪtɪv əˈnæləsɪs/|定量分析|Quantitative analysis.
+#PHRASE qualitative research|/ˈkwɑːlɪteɪtɪv rɪˈsɜːrtʃ/|定性研究|Qualitative research.
+#PHRASE minimize the cost|/ˈmɪnɪmaɪz ðə kɔːst/|最小化成本|Minimize the cost.
+#PHRASE maximize profit|/ˈmæksɪmaɪz ˈprɑːfɪt/|最大化利润|Maximize profit.
+#PHRASE approximately equal|/əˈprɑːksɪmətli ˈiːkwəl/|约等于|Approximately equal.
+#PHRASE within the scope of|/wɪˈðɪn ðə skoʊp əv/|在…范围内|Within the scope of.
+#PHRASE a wide range of|/ə waɪd reɪndʒ əv/|广泛的|A wide range of options.
+#PHRASE to some extent|/tə sʌm ɪkˈstent/|在某种程度上|To some extent.
+#PHRASE on average|/ɑːn ˈævərɪdʒ/|平均而言|On average,
+#PHRASE statistical data|/stəˈtɪstɪkl ˈdeɪtə/|统计数据|Statistical data.
+#PHRASE sample size|/ˈsæmpl saɪz/|样本量|Increase sample size.
+#PHRASE population density|/ˌpɑːpjuˈleɪʃn ˈdensəti/|人口密度|Population density.
+#PHRASE frequency distribution|/ˈfriːkwənsi ˌdɪstrɪˈbjuːʃn/|频率分布|Frequency distribution.
+#PHRASE incidence rate|/ˈɪnsɪdəns reɪt/|发生率|Incidence rate.
+#PHRASE prevalence of disease|/ˈprevələns əv dɪˈziːz/|疾病流行率|Prevalence of disease.
+#PHRASE immense pressure|/ɪˈmens ˈpreʃər/|巨大压力|Immense pressure.
+#PHRASE tremendous effort|/trɪˈmendəs ˈefərt/|巨大努力|Tremendous effort.
+#PHRASE massive investment|/ˈmæsɪv ɪnˈvestmənt/|巨额投资|Massive investment.
+#PHRASE a handful of|/ə ˈhændfʊl əv/|少数几个|A handful of cases.
+#PHRASE numerous studies|/ˈnuːmərəs ˈstʌdiz/|大量研究|Numerous studies.
+#PHRASE finite resources|/ˈfaɪnaɪt ˈriːsɔːrsɪz/|有限资源|Finite resources.
+#PHRASE infinite possibilities|/ˈɪnfɪnət ˌpɑːsəˈbɪlətiz/|无限可能|Infinite possibilities.
+#PHRASE bulk of the work|/bʌlk əv ðə wɜːrk/|大部分工作|The bulk of the work.
+#PHRASE in equal measure|/ɪn ˈiːkwəl ˈmeʒər/|同样程度|Praised in equal measure.
+#PHRASE out of proportion|/aʊt əv prəˈpɔːrʃn/|不成比例|Out of proportion.
+#PHRASE in proportion to|/ɪn prəˈpɔːrʃn tə/|与…成比例|In proportion to income.
+#PHRASE growth rate|/ɡroʊθ reɪt/|增长率|Annual growth rate.
+#PHRASE at full capacity|/æt fʊl kəˈpæsəti/|满负荷|Running at full capacity.
+#PHRASE volume of trade|/ˈvɑːljuːm əv treɪd/|贸易量|Volume of trade.
+#PHRASE sparse evidence|/spɑːrs ˈevɪdəns/|稀少证据|Sparse evidence.
+#PHRASE dense population|/dens ˌpɑːpjuˈleɪʃn/|密集人口|Dense population.
+#PHRASE median income|/ˈmiːdiən ˈɪnkʌm/|收入中位数|Median income.
+#PHRASE margin of error|/ˈmɑːrdʒɪn əv ˈerər/|误差幅度|Margin of error.
+#PHRASE order of magnitude|/ˈɔːrdər əv ˈmæɡnɪtuːd/|数量级|An order of magnitude larger.
+#PHRASE scale up|/skeɪl ʌp/|扩大规模|Scale up production.
+#PHRASE limited scope|/ˈlɪmɪtɪd skoʊp/|有限范围|Limited scope.
+#SENTTYPE 陈述句|否定句|一般疑问句|特殊疑问句|选择疑问句|反意疑问句|祈使句|感叹句|存在句|被动语态|现在完成时|过去完成时|将来时态|真实条件句|虚拟语气|定语从句|宾语从句|原因状语从句|让步状语从句|目的状语从句|比较结构|强调句|倒装句|分词结构|不定式结构|动名词结构|with 复合结构|同位语从句|插入评注|形式主语 It
+#SENT 1|陈述句|A large proportion of samples showed dense clustering.|很大一部分样本呈现密集聚类。
+#SENT 2|否定句|The minority did not reach the required threshold.|少数派未达到所需门槛。
+#SENT 3|一般疑问句|Can approximate figures mislead policy decisions?|约数是否会误导政策决定？
+#SENT 4|特殊疑问句|What magnitude of change counts as significant?|多大变化才算显著？
+#SENT 5|选择疑问句|Is the distribution sparse or heavily concentrated?|分布是稀疏还是高度集中？
+#SENT 6|反意疑问句|The majority supports the measure, doesn't it?|多数支持该措施，对吧？
+#SENT 7|祈使句|Maximize accuracy before you minimize cost.|在最小化成本前先最大化准确度。
+#SENT 8|感叹句|What an enormous volume of statistical noise!|多么巨大的统计噪声量！
+#SENT 9|存在句|There is only a handful of reliable benchmarks.|可靠基准只有少数几个。
+#SENT 10|被动语态|Survey results are weighted by population density.|调查结果按人口密度加权。
+#SENT 11|现在完成时|Researchers have expanded sample sizes repeatedly.|研究者多次扩大样本量。
+#SENT 12|过去完成时|They had calculated the median before the mean.|他们在均值之前先算了中位数。
+#SENT 13|将来时态|The bureau will publish new statistics next week.|该局下周将公布新统计。
+#SENT 14|真实条件句|If the ratio rises, inequality will widen.|如果比率上升，不平等将扩大。
+#SENT 15|虚拟语气|If measurement were precise, debates would cool.|若测量精确，争论会降温。
+#SENT 16|定语从句|Models that ignore scale produce false confidence.|忽视规模的模型产生虚假信心。
+#SENT 17|宾语从句|Demographers say prevalence varies by region.|人口学家称流行率因地区而异。
+#SENT 18|原因状语从句|Because the margin of error is large, caution is due.|因为误差幅度大，需要谨慎。
+#SENT 19|让步状语从句|Although averages look stable, extremes matter.|尽管均值看似稳定，极端值仍重要。
+#SENT 20|目的状语从句|Increase the sample so that estimates tighten.|增大样本，以便估计更紧。
+#SENT 21|比较结构|Vast datasets are messier than tidy textbook examples.|海量数据比教科书干净例子更乱。
+#SENT 22|强调句|It is proportion, not raw totals, that clarifies risk.|澄清风险的是比例而非原始总数。
+#SENT 23|倒装句|Seldom is infinite growth available in finite systems.|有限系统中很少有无限增长。
+#SENT 24|分词结构|Facing scarce data, analysts used approximate bounds.|面对稀缺数据，分析师使用近似边界。
+#SENT 25|不定式结构|To compare magnitudes, convert units carefully.|要比较量级，应仔细换算单位。
+#SENT 26|动名词结构|Counting without context can distort public debate.|没有语境的计数会扭曲公共辩论。
+#SENT 27|with 复合结构|With denser sampling, rare events become visible.|抽样更密时，罕见事件变得可见。
+#SENT 28|同位语从句|The assumption that bigger samples always help is incomplete.|更大样本总有帮助这一假设不完整。
+#SENT 29|插入评注|On average, incremental gains compound over time.|平均而言，增量收益随时间复利。
+#SENT 30|形式主语 It|It is easy to confuse frequency with importance.|很容易把频率与重要性混淆。

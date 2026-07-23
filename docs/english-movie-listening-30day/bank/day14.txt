@@ -1,0 +1,158 @@
+#TITLE 复习强化（Day8–13）| soci/eco/nov/bio/psych/medi
+#ROOT soci|社会|social, associate, sociology
+#ROOT civ|公民|civil, civic, civilization
+#ROOT legis|法律|legislation, legitimate
+#ROOT jud/jur|判断/法|judicial, justice, jury
+#ROOT eco|家计/经济|economy, economics, ecology
+#ROOT merc|商|commerce, merchant
+#WORD civil|/ˈsɪvl/|a. 公民的；文明的|soci/civ
+#WORD civic|/ˈsɪvɪk/|a. 市政的|soci/civ
+#WORD civilization|/ˌsɪvələˈzeɪʃn/|n. 文明|soci/civ
+#WORD citizen|/ˈsɪtɪzn/|n. 公民|soci/civ
+#WORD citizenship|/ˈsɪtɪznʃɪp/|n. 公民身份|soci/civ
+#WORD society|/səˈsaɪəti/|n. 社会|soci/civ
+#WORD social|/ˈsoʊʃl/|a. 社会的|soci/civ
+#WORD sociology|/ˌsoʊsiˈɑːlədʒi/|n. 社会学|soci/civ
+#WORD associate|/əˈsoʊʃieɪt/|v. 联系；n. 同事|soci/civ
+#WORD association|/əˌsoʊʃiˈeɪʃn/|n. 协会；联想|soci/civ
+#WORD community|/kəˈmjuːnəti/|n. 社区|soci/civ
+#WORD communal|/kəˈmjuːnl/|a. 公共的|soci/civ
+#WORD public|/ˈpʌblɪk/|a. 公共的|soci/civ
+#WORD private|/ˈpraɪvət/|a. 私人的|soci/civ
+#WORD privacy|/ˈpraɪvəsi/|n. 隐私|private
+#WORD legislation|/ˌledʒɪsˈleɪʃn/|n. 立法|soci/civ
+#WORD legislature|/ˈledʒɪsleɪtʃər/|n. 立法机关|soci/civ
+#WORD legitimate|/lɪˈdʒɪtɪmət/|a. 合法的|soci/civ
+#WORD illegitimate|/ˌɪləˈdʒɪtɪmət/|a. 非法的|soci/civ
+#WORD regulate|/ˈreɡjuleɪt/|v. 管制|soci/civ
+#WORD regulation|/ˌreɡjuˈleɪʃn/|n. 规章|soci/civ
+#WORD regulatory|/ˈreɡjələtɔːri/|a. 监管的|soci/civ
+#WORD authority|/əˈθɔːrəti/|n. 权威；当局|soci/civ
+#WORD authorize|/ˈɔːθəraɪz/|v. 授权|soci/civ
+#WORD authorization|/ˌɔːθərəˈzeɪʃn/|n. 授权|soci/civ
+#WORD jurisdiction|/ˌdʒʊrɪsˈdɪkʃn/|n. 管辖权|soci/civ
+#WORD judicial|/dʒuˈdɪʃl/|a. 司法的|soci/civ
+#WORD justice|/ˈdʒʌstɪs/|n. 正义；司法|soci/civ
+#WORD injustice|/ɪnˈdʒʌstɪs/|n. 不公|soci/civ
+#WORD equality|/ɪˈkwɑːləti/|n. 平等|soci/civ
+#WORD equity|/ˈekwəti/|n. 股权；公平|equ
+#WORD inequality|/ˌɪnɪˈkwɑːləti/|n. 不平等|soci/civ
+#WORD discriminate|/dɪˈskrɪmɪneɪt/|v. 歧视；区分|soci/civ
+#WORD discrimination|/dɪˌskrɪmɪˈneɪʃn/|n. 歧视；辨别|discriminate
+#WORD prejudice|/ˈpredʒudɪs/|n. 偏见|pre- + jud
+#WORD stereotype|/ˈsteriətaɪp/|n. 刻板印象|stereo + type
+#WORD integrate|/ˈɪntɪɡreɪt/|v. 集成|integration
+#WORD integration|/ˌɪntɪˈɡreɪʃn/|n. 融合|soci/civ
+#WORD integrity|/ɪnˈteɡrəti/|n. 正直；完整|soci/civ
+#WORD coherent|/koʊˈhɪrənt/|a. 连贯的|soci/civ
+#WORD coherence|/koʊˈhɪrəns/|n. 连贯|soci/civ
+#WORD cohesion|/koʊˈhiːʒn/|n. 凝聚|soci/civ
+#WORD solidarity|/ˌsɑːlɪˈdærəti/|n. 团结|soci/civ
+#WORD welfare|/ˈwelfer/|n. 福利|soci/civ
+#WORD privilege|/ˈprɪvəlɪdʒ/|n. 特权|soci/civ
+#WORD right|/raɪt/|n. 权利|soci/civ
+#WORD obligation|/ˌɑːblɪˈɡeɪʃn/|n. 义务|soci/civ
+#WORD duty|/ˈduːti/|n. 职责|soci/civ
+#WORD responsibility|/rɪˌspɑːnsəˈbɪləti/|n. 责任|soci/civ
+#WORD accountability|/əˌkaʊntəˈbɪləti/|n. 问责|soci/civ
+#WORD transparency|/trænsˈpærənsi/|n. 透明|soci/civ
+#WORD corruption|/kəˈrʌpʃn/|n. 腐败|soci/civ
+#WORD bribery|/ˈbraɪbəri/|n. 贿赂|soci/civ
+#WORD bureaucracy|/bjʊˈrɑːkrəsi/|n. 官僚制|soci/civ
+#WORD institution|/ˌɪnstɪˈtuːʃn/|n. 制度；机构|soci/civ
+#WORD institutional|/ˌɪnstɪˈtuːʃənl/|a. 制度的|soci/civ
+#WORD constitution|/ˌkɑːnstɪˈtuːʃn/|n. 宪法|soci/civ
+#WORD constitutional|/ˌkɑːnstɪˈtuːʃənl/|a. 合宪的|soci/civ
+#WORD democracy|/dɪˈmɑːkrəsi/|n. 民主|soci/civ
+#WORD democratic|/ˌdeməˈkrætɪk/|a. 民主的|soci/civ
+#WORD republic|/rɪˈpʌblɪk/|n. 共和国|soci/civ
+#WORD election|/ɪˈlekʃn/|n. 选举|soci/civ
+#WORD vote|/voʊt/|v./n. 投票|soci/civ
+#WORD campaign|/kæmˈpeɪn/|n./v. 竞选；运动|soci/civ
+#WORD policy|/ˈpɑːləsi/|n. 政策|soci/civ
+#WORD reform|/rɪˈfɔːrm/|n./v. 改革|soci/civ
+#WORD protest|/ˈproʊtest/|n./v. 抗议|soci/civ
+#WORD petition|/pəˈtɪʃn/|n./v. 请愿|soci/civ
+#WORD activist|/ˈæktɪvɪst/|n. 活动家|soci/civ
+#WORD advocacy|/ˈædvəkəsi/|n. 倡导|soci/civ
+#WORD advocate|/ˈædvəkeɪt/|v. 倡导；n. 支持者|ad- + voc
+#WORD nonprofit|/ˌnɑːnˈprɑːfɪt/|a./n. 非营利|soci/civ
+#WORD charity|/ˈtʃærəti/|n. 慈善|soci/civ
+#WORD volunteer|/ˌvɑːlənˈtɪr/|n./v. 志愿者|soci/civ
+#WORD inclusion|/ɪnˈkluːʒn/|n. 包容|soci/civ
+#WORD exclusion|/ɪkˈskluːʒn/|n. 排斥|soci/civ
+#WORD marginalize|/ˈmɑːrdʒɪnəlaɪz/|v. 边缘化|soci/civ
+#WORD empower|/ɪmˈpaʊər/|v. 赋权|soci/civ
+#WORD empowerment|/ɪmˈpaʊərmənt/|n. 赋权|soci/civ
+#WORD grassroots|/ˈɡræsruːts/|a./n. 基层的|soci/civ
+#PHRASE civil rights|/ˈsɪvl raɪts/|公民权利|Fight for civil rights.
+#PHRASE under the authority of|/ˈʌndər ði əˈθɔːrəti əv/|在…管辖下|Under the authority of law.
+#PHRASE discriminate against|/dɪˈskrɪmɪneɪt əˈɡenst/|歧视|Don't discriminate against anyone.
+#PHRASE integrate into|/ˈɪntɪɡreɪt ˈɪntuː/|融入|Integrate into society.
+#PHRASE social cohesion|/ˈsoʊʃl koʊˈhiːʒn/|社会凝聚|Promote social cohesion.
+#PHRASE public welfare|/ˈpʌblɪk ˈwelfer/|公共福利|Public welfare programs.
+#PHRASE rule of law|/ruːl əv lɔː/|法治|Uphold the rule of law.
+#PHRASE equal opportunity|/ˈiːkwəl ˌɑːpərˈtuːnəti/|机会均等|Equal opportunity.
+#PHRASE racial prejudice|/ˈreɪʃl ˈpredʒudɪs/|种族偏见|Fight racial prejudice openly.
+#PHRASE break stereotypes|/breɪk ˈsteriətaɪps/|打破刻板印象|Break stereotypes.
+#PHRASE hold accountable|/hoʊld əˈkaʊntəbl/|问责|Hold officials accountable.
+#PHRASE transparency and accountability|/trænsˈpærənsi ənd əˌkaʊntəˈbɪləti/|透明与问责|Demand transparency and accountability.
+#PHRASE pass legislation|/pæs ˌledʒɪsˈleɪʃn/|通过立法|Pass legislation.
+#PHRASE regulatory framework|/ˈreɡjələtɔːri ˈfreɪmwɜːrk/|监管框架|A regulatory framework.
+#PHRASE constitutional right|/ˌkɑːnstɪˈtuːʃənl raɪt/|宪法权利|A constitutional right.
+#PHRASE democratic process|/ˌdeməˈkrætɪk ˈprɑːses/|民主程序|The democratic process.
+#PHRASE grassroots movement|/ˈɡræsruːts ˈmuːvmənt/|基层运动|A grassroots movement.
+#PHRASE civic duty|/ˈsɪvɪk ˈduːti/|公民义务|Civic duty.
+#PHRASE community engagement|/kəˈmjuːnəti ɪnˈɡeɪdʒmənt/|社区参与|Community engagement.
+#PHRASE social inequality|/ˈsoʊʃl ˌɪnɪˈkwɑːləti/|社会不平等|Reduce social inequality.
+#PHRASE empower marginalized groups|/ɪmˈpaʊər ˈmɑːrdʒɪnəlaɪzd ɡruːps/|赋权边缘群体|Empower marginalized groups.
+#PHRASE protect privacy|/prəˈtekt ˈpraɪvəsi/|保护隐私|Protect privacy.
+#PHRASE public institution|/ˈpʌblɪk ˌɪnstɪˈtuːʃn/|公共机构|A public institution.
+#PHRASE anti-corruption campaign|/ˌænti kəˈrʌpʃn kæmˈpeɪn/|反腐运动|An anti-corruption campaign.
+#PHRASE policy reform|/ˈpɑːləsi rɪˈfɔːrm/|政策改革|Policy reform.
+#PHRASE vote in an election|/voʊt ɪn ən ɪˈlekʃn/|在选举中投票|Vote in an election.
+#PHRASE advocacy group|/ˈædvəkəsi ɡruːp/|倡导团体|An advocacy group.
+#PHRASE volunteer work|/ˌvɑːlənˈtɪr wɜːrk/|志愿工作|Volunteer work.
+#PHRASE inclusive society|/ɪnˈkluːsɪv səˈsaɪəti/|包容性社会|An inclusive society.
+#PHRASE urban migration|/ˈɜːrbən maɪˈɡreɪʃn/|城市迁移|Urban migration.
+#PHRASE refugee crisis|/ˌrefjuˈdʒiː ˈkraɪsɪs/|难民危机|Refugee crisis.
+#PHRASE cultural diversity|/ˈkʌltʃərəl daɪˈvɜːrsəti/|文化多样性|Cultural diversity.
+#PHRASE solidarity with|/ˌsɑːlɪˈdærəti wɪð/|与…团结|Solidarity with workers.
+#PHRASE abuse of privilege|/əˈbjuːs əv ˈprɪvəlɪdʒ/|滥用特权|Abuse of privilege.
+#PHRASE moral obligation|/ˈmɔːrəl ˌɑːblɪˈɡeɪʃn/|道德义务|A moral obligation.
+#PHRASE judicial system|/dʒuˈdɪʃl ˈsɪstəm/|司法系统|The judicial system.
+#PHRASE legitimate authority|/lɪˈdʒɪtɪmət əˈθɔːrəti/|合法权威|Legitimate authority.
+#PHRASE bureaucratic delay|/ˌbjʊrəˈkrætɪk dɪˈleɪ/|官僚拖延|Bureaucratic delay.
+#PHRASE nonprofit organization|/ˌnɑːnˈprɑːfɪt ˌɔːrɡənəˈzeɪʃn/|非营利组织|A nonprofit organization.
+#PHRASE social welfare system|/ˈsoʊʃl ˈwelfer ˈsɪstəm/|社会福利制度|Social welfare system.
+#SENTTYPE 陈述句|否定句|一般疑问句|特殊疑问句|选择疑问句|反意疑问句|祈使句|感叹句|存在句|被动语态|现在完成时|过去完成时|将来时态|真实条件句|虚拟语气|定语从句|宾语从句|原因状语从句|让步状语从句|目的状语从句|比较结构|强调句|倒装句|分词结构|不定式结构|动名词结构|with 复合结构|同位语从句|插入评注|形式主语 It
+#SENT 1|陈述句|Integrated policies link society, economy, and ecology.|综合政策把社会、经济与生态联系起来。
+#SENT 2|否定句|Innovation alone did not solve media bias overnight.|单靠创新并未一夜消除媒体偏见。
+#SENT 3|一般疑问句|Can sustainable growth motivate civic participation?|可持续增长能否激励公民参与？
+#SENT 4|特殊疑问句|Which theme from this week still feels hardest?|本周哪个主题仍觉得最难？
+#SENT 5|选择疑问句|Is the bottleneck technology, regulation, or psychology?|瓶颈是技术、监管还是心理？
+#SENT 6|反意疑问句|These word families overlap usefully, don't they?|这些词族有用交叉，对吧？
+#SENT 7|祈使句|Review ecology terms before the mixed self-test.|混合自测前先复习生态术语。
+#SENT 8|感叹句|What a dense week of interdisciplinary vocabulary!|多么密集的一周跨学科词汇！
+#SENT 9|存在句|There are clear patterns across Days 8–13.|第8–13天之间有清晰规律。
+#SENT 10|被动语态|Social incentives are shaped by media narratives.|社会激励由媒体叙事塑造。
+#SENT 11|现在完成时|You have already connected economy with sustainability.|你已把经济与可持续联系起来。
+#SENT 12|过去完成时|She had mastered tech terms before the psychology set.|在心理学词集前她已掌握科技术语。
+#SENT 13|将来时态|We will recycle weak items in tonight's drill.|今晚训练将重练薄弱项。
+#SENT 14|真实条件句|If you integrate themes, recall becomes richer.|如果你整合主题，回忆会更丰富。
+#SENT 15|虚拟语气|If bias were easier to spot, media literacy would soar.|若偏见更易识别，媒介素养会飙升。
+#SENT 16|定语从句|Learners who revisit roots remember derivatives longer.|重温词根的学习者更久记得派生词。
+#SENT 17|宾语从句|Teachers note that mixed review beats massed cramming.|教师指出混合复习胜过集中死记。
+#SENT 18|原因状语从句|Because topics diverge, deliberate linking helps.|因为话题发散，有意联结有帮助。
+#SENT 19|让步状语从句|Although the load is heavy, spaced practice works.|尽管负荷重，间隔练习有效。
+#SENT 20|目的状语从句|Sort cards by theme so that retrieval stays flexible.|按主题分类卡片，以便提取保持灵活。
+#SENT 21|比较结构|Civic vocabulary is denser than everyday chat.|公民词汇比日常闲聊更密。
+#SENT 22|强调句|It is cumulative exposure that builds fluent access.|正是累积接触建立流利提取。
+#SENT 23|倒装句|Not until the review day did gaps become obvious.|直到复习日缺口才变得明显。
+#SENT 24|分词结构|Combining examples, we see shared argument patterns.|结合例子，我们看到共享论证模式。
+#SENT 25|不定式结构|To stay motivated, track small weekly wins.|为保持动机，追踪每周小胜利。
+#SENT 26|动名词结构|Skipping sentence practice weakens productive skills.|跳过句子练习会削弱产出技能。
+#SENT 27|with 复合结构|With six themes mixed, interference is expected.|六主题混合时，干扰在所难免。
+#SENT 28|同位语从句|The rule that roots unlock families still applies.|词根打开词族这一规则仍然适用。
+#SENT 29|插入评注|Overall, this checkpoint rewards breadth plus precision.|总体而言，本检查点奖励广度加精确。
+#SENT 30|形式主语 It|It is useful to rewrite hard phrases in your own words.|用自己的话改写难短语很有用。

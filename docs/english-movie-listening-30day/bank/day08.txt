@@ -1,0 +1,156 @@
+#TITLE 社会与制度 | soci / civ / legis / jud
+#ROOT soci|社会|social, associate, sociology
+#ROOT civ|公民|civil, civic, civilization
+#ROOT legis|法律|legislation, legitimate
+#ROOT jud/jur|判断/法|judicial, justice, jury
+#WORD civil|/ˈsɪvl/|a. 公民的；文明的|soci/civ
+#WORD civic|/ˈsɪvɪk/|a. 市政的|soci/civ
+#WORD civilization|/ˌsɪvələˈzeɪʃn/|n. 文明|soci/civ
+#WORD citizen|/ˈsɪtɪzn/|n. 公民|soci/civ
+#WORD citizenship|/ˈsɪtɪznʃɪp/|n. 公民身份|soci/civ
+#WORD society|/səˈsaɪəti/|n. 社会|soci/civ
+#WORD social|/ˈsoʊʃl/|a. 社会的|soci/civ
+#WORD sociology|/ˌsoʊsiˈɑːlədʒi/|n. 社会学|soci/civ
+#WORD associate|/əˈsoʊʃieɪt/|v. 联系；n. 同事|soci/civ
+#WORD association|/əˌsoʊʃiˈeɪʃn/|n. 协会；联想|soci/civ
+#WORD community|/kəˈmjuːnəti/|n. 社区|soci/civ
+#WORD communal|/kəˈmjuːnl/|a. 公共的|soci/civ
+#WORD public|/ˈpʌblɪk/|a. 公共的|soci/civ
+#WORD private|/ˈpraɪvət/|a. 私人的|soci/civ
+#WORD privacy|/ˈpraɪvəsi/|n. 隐私|soci/civ
+#WORD legislation|/ˌledʒɪsˈleɪʃn/|n. 立法|soci/civ
+#WORD legislature|/ˈledʒɪsleɪtʃər/|n. 立法机关|soci/civ
+#WORD legitimate|/lɪˈdʒɪtɪmət/|a. 合法的|soci/civ
+#WORD illegitimate|/ˌɪləˈdʒɪtɪmət/|a. 非法的|soci/civ
+#WORD regulate|/ˈreɡjuleɪt/|v. 管制|soci/civ
+#WORD regulation|/ˌreɡjuˈleɪʃn/|n. 规章|soci/civ
+#WORD regulatory|/ˈreɡjələtɔːri/|a. 监管的|soci/civ
+#WORD authority|/əˈθɔːrəti/|n. 权威；当局|soci/civ
+#WORD authorize|/ˈɔːθəraɪz/|v. 授权|soci/civ
+#WORD authorization|/ˌɔːθərəˈzeɪʃn/|n. 授权|soci/civ
+#WORD jurisdiction|/ˌdʒʊrɪsˈdɪkʃn/|n. 管辖权|soci/civ
+#WORD judicial|/dʒuˈdɪʃl/|a. 司法的|soci/civ
+#WORD justice|/ˈdʒʌstɪs/|n. 正义；司法|soci/civ
+#WORD injustice|/ɪnˈdʒʌstɪs/|n. 不公|soci/civ
+#WORD equality|/ɪˈkwɑːləti/|n. 平等|soci/civ
+#WORD equity|/ˈekwəti/|n. 公平；股权|soci/civ
+#WORD inequality|/ˌɪnɪˈkwɑːləti/|n. 不平等|soci/civ
+#WORD discriminate|/dɪˈskrɪmɪneɪt/|v. 歧视；区分|soci/civ
+#WORD discrimination|/dɪˌskrɪmɪˈneɪʃn/|n. 歧视|soci/civ
+#WORD prejudice|/ˈpredʒudɪs/|n. 偏见|soci/civ
+#WORD stereotype|/ˈsteriətaɪp/|n. 刻板印象|soci/civ
+#WORD integrate|/ˈɪntɪɡreɪt/|v. 整合|soci/civ
+#WORD integration|/ˌɪntɪˈɡreɪʃn/|n. 融合|soci/civ
+#WORD integrity|/ɪnˈteɡrəti/|n. 正直；完整|soci/civ
+#WORD coherent|/koʊˈhɪrənt/|a. 连贯的|soci/civ
+#WORD coherence|/koʊˈhɪrəns/|n. 连贯|soci/civ
+#WORD cohesion|/koʊˈhiːʒn/|n. 凝聚|soci/civ
+#WORD solidarity|/ˌsɑːlɪˈdærəti/|n. 团结|soci/civ
+#WORD welfare|/ˈwelfer/|n. 福利|soci/civ
+#WORD privilege|/ˈprɪvəlɪdʒ/|n. 特权|soci/civ
+#WORD right|/raɪt/|n. 权利|soci/civ
+#WORD obligation|/ˌɑːblɪˈɡeɪʃn/|n. 义务|soci/civ
+#WORD duty|/ˈduːti/|n. 职责|soci/civ
+#WORD responsibility|/rɪˌspɑːnsəˈbɪləti/|n. 责任|soci/civ
+#WORD accountability|/əˌkaʊntəˈbɪləti/|n. 问责|soci/civ
+#WORD transparency|/trænsˈpærənsi/|n. 透明|soci/civ
+#WORD corruption|/kəˈrʌpʃn/|n. 腐败|soci/civ
+#WORD bribery|/ˈbraɪbəri/|n. 贿赂|soci/civ
+#WORD bureaucracy|/bjʊˈrɑːkrəsi/|n. 官僚制|soci/civ
+#WORD institution|/ˌɪnstɪˈtuːʃn/|n. 制度；机构|soci/civ
+#WORD institutional|/ˌɪnstɪˈtuːʃənl/|a. 制度的|soci/civ
+#WORD constitution|/ˌkɑːnstɪˈtuːʃn/|n. 宪法|soci/civ
+#WORD constitutional|/ˌkɑːnstɪˈtuːʃənl/|a. 合宪的|soci/civ
+#WORD democracy|/dɪˈmɑːkrəsi/|n. 民主|soci/civ
+#WORD democratic|/ˌdeməˈkrætɪk/|a. 民主的|soci/civ
+#WORD republic|/rɪˈpʌblɪk/|n. 共和国|soci/civ
+#WORD election|/ɪˈlekʃn/|n. 选举|soci/civ
+#WORD vote|/voʊt/|v./n. 投票|soci/civ
+#WORD campaign|/kæmˈpeɪn/|n./v. 竞选；运动|soci/civ
+#WORD policy|/ˈpɑːləsi/|n. 政策|soci/civ
+#WORD reform|/rɪˈfɔːrm/|n./v. 改革|soci/civ
+#WORD protest|/ˈproʊtest/|n./v. 抗议|soci/civ
+#WORD petition|/pəˈtɪʃn/|n./v. 请愿|soci/civ
+#WORD activist|/ˈæktɪvɪst/|n. 活动家|soci/civ
+#WORD advocacy|/ˈædvəkəsi/|n. 倡导|soci/civ
+#WORD advocate|/ˈædvəkeɪt/|v. 提倡|soci/civ
+#WORD nonprofit|/ˌnɑːnˈprɑːfɪt/|a./n. 非营利|soci/civ
+#WORD charity|/ˈtʃærəti/|n. 慈善|soci/civ
+#WORD volunteer|/ˌvɑːlənˈtɪr/|n./v. 志愿者|soci/civ
+#WORD inclusion|/ɪnˈkluːʒn/|n. 包容|soci/civ
+#WORD exclusion|/ɪkˈskluːʒn/|n. 排斥|soci/civ
+#WORD marginalize|/ˈmɑːrdʒɪnəlaɪz/|v. 边缘化|soci/civ
+#WORD empower|/ɪmˈpaʊər/|v. 赋权|soci/civ
+#WORD empowerment|/ɪmˈpaʊərmənt/|n. 赋权|soci/civ
+#WORD grassroots|/ˈɡræsruːts/|a./n. 基层的|soci/civ
+#PHRASE civil rights|/ˈsɪvl raɪts/|公民权利|Fight for civil rights.
+#PHRASE under the authority of|/ˈʌndər ði əˈθɔːrəti əv/|在…管辖下|Under the authority of law.
+#PHRASE discriminate against|/dɪˈskrɪmɪneɪt əˈɡenst/|歧视|Don't discriminate against anyone.
+#PHRASE integrate into|/ˈɪntɪɡreɪt ˈɪntuː/|融入|Integrate into society.
+#PHRASE social cohesion|/ˈsoʊʃl koʊˈhiːʒn/|社会凝聚|Promote social cohesion.
+#PHRASE public welfare|/ˈpʌblɪk ˈwelfer/|公共福利|Public welfare programs.
+#PHRASE rule of law|/ruːl əv lɔː/|法治|Uphold the rule of law.
+#PHRASE equal opportunity|/ˈiːkwəl ˌɑːpərˈtuːnəti/|机会均等|Equal opportunity.
+#PHRASE racial prejudice|/ˈreɪʃl ˈpredʒudɪs/|种族偏见|Combat racial prejudice.
+#PHRASE break stereotypes|/breɪk ˈsteriətaɪps/|打破刻板印象|Break stereotypes.
+#PHRASE hold accountable|/hoʊld əˈkaʊntəbl/|问责|Hold officials accountable.
+#PHRASE transparency and accountability|/trænsˈpærənsi ənd əˌkaʊntəˈbɪləti/|透明与问责|Demand transparency and accountability.
+#PHRASE pass legislation|/pæs ˌledʒɪsˈleɪʃn/|通过立法|Pass legislation.
+#PHRASE regulatory framework|/ˈreɡjələtɔːri ˈfreɪmwɜːrk/|监管框架|A regulatory framework.
+#PHRASE constitutional right|/ˌkɑːnstɪˈtuːʃənl raɪt/|宪法权利|A constitutional right.
+#PHRASE democratic process|/ˌdeməˈkrætɪk ˈprɑːses/|民主程序|The democratic process.
+#PHRASE grassroots movement|/ˈɡræsruːts ˈmuːvmənt/|基层运动|A grassroots movement.
+#PHRASE civic duty|/ˈsɪvɪk ˈduːti/|公民义务|Civic duty.
+#PHRASE community engagement|/kəˈmjuːnəti ɪnˈɡeɪdʒmənt/|社区参与|Community engagement.
+#PHRASE social inequality|/ˈsoʊʃl ˌɪnɪˈkwɑːləti/|社会不平等|Reduce social inequality.
+#PHRASE empower marginalized groups|/ɪmˈpaʊər ˈmɑːrdʒɪnəlaɪzd ɡruːps/|赋权边缘群体|Empower marginalized groups.
+#PHRASE protect privacy|/prəˈtekt ˈpraɪvəsi/|保护隐私|Protect privacy.
+#PHRASE public institution|/ˈpʌblɪk ˌɪnstɪˈtuːʃn/|公共机构|A public institution.
+#PHRASE anti-corruption campaign|/ˌænti kəˈrʌpʃn kæmˈpeɪn/|反腐运动|An anti-corruption campaign.
+#PHRASE policy reform|/ˈpɑːləsi rɪˈfɔːrm/|政策改革|Policy reform.
+#PHRASE vote in an election|/voʊt ɪn ən ɪˈlekʃn/|在选举中投票|Vote in an election.
+#PHRASE advocacy group|/ˈædvəkəsi ɡruːp/|倡导团体|An advocacy group.
+#PHRASE volunteer work|/ˌvɑːlənˈtɪr wɜːrk/|志愿工作|Volunteer work.
+#PHRASE inclusive society|/ɪnˈkluːsɪv səˈsaɪəti/|包容性社会|An inclusive society.
+#PHRASE urban migration|/ˈɜːrbən maɪˈɡreɪʃn/|城市迁移|Urban migration.
+#PHRASE refugee crisis|/ˌrefjuˈdʒiː ˈkraɪsɪs/|难民危机|Refugee crisis.
+#PHRASE cultural diversity|/ˈkʌltʃərəl daɪˈvɜːrsəti/|文化多样性|Cultural diversity.
+#PHRASE solidarity with|/ˌsɑːlɪˈdærəti wɪð/|与…团结|Solidarity with workers.
+#PHRASE abuse of privilege|/əˈbjuːs əv ˈprɪvəlɪdʒ/|滥用特权|Abuse of privilege.
+#PHRASE moral obligation|/ˈmɔːrəl ˌɑːblɪˈɡeɪʃn/|道德义务|A moral obligation.
+#PHRASE judicial system|/dʒuˈdɪʃl ˈsɪstəm/|司法系统|The judicial system.
+#PHRASE legitimate authority|/lɪˈdʒɪtɪmət əˈθɔːrəti/|合法权威|Legitimate authority.
+#PHRASE bureaucratic delay|/ˌbjʊrəˈkrætɪk dɪˈleɪ/|官僚拖延|Bureaucratic delay.
+#PHRASE nonprofit organization|/ˌnɑːnˈprɑːfɪt ˌɔːrɡənəˈzeɪʃn/|非营利组织|A nonprofit organization.
+#PHRASE social welfare system|/ˈsoʊʃl ˈwelfer ˈsɪstəm/|社会福利制度|Social welfare system.
+#SENTTYPE 陈述句|否定句|一般疑问句|特殊疑问句|选择疑问句|反意疑问句|祈使句|感叹句|存在句|被动语态|现在完成时|过去完成时|将来时态|真实条件句|虚拟语气|定语从句|宾语从句|原因状语从句|让步状语从句|目的状语从句|比较结构|强调句|倒装句|分词结构|不定式结构|动名词结构|with 复合结构|同位语从句|插入评注|形式主语 It
+#SENT 1|陈述句|Civil rights expansions reshape democratic institutions.|公民权利扩展重塑民主体制。
+#SENT 2|否定句|The law did not integrate marginalized communities fairly.|法律未能公平地融入边缘社群。
+#SENT 3|一般疑问句|Does transparency strengthen public accountability?|透明度是否增强公共问责？
+#SENT 4|特殊疑问句|Who holds legitimate authority in this dispute?|这场争议中谁拥有合法权威？
+#SENT 5|选择疑问句|Should welfare prioritize efficiency or equity?|福利应优先效率还是公平？
+#SENT 6|反意疑问句|Discrimination remains widespread, doesn't it?|歧视仍然普遍，对吧？
+#SENT 7|祈使句|Empower citizens through accessible civic education.|通过可及的公民教育赋权公民。
+#SENT 8|感叹句|What an inspiring grassroots movement this has become!|这场基层运动变得多么鼓舞人心！
+#SENT 9|存在句|There is growing solidarity across urban neighborhoods.|城市社区间的团结在增强。
+#SENT 10|被动语态|Corrupt officials were prosecuted under new legislation.|腐败官员依据新立法被起诉。
+#SENT 11|现在完成时|Voters have demanded judicial reform for years.|选民多年来要求司法改革。
+#SENT 12|过去完成时|Activists had petitioned before the protest began.|抗议开始前活动人士已请愿。
+#SENT 13|将来时态|Parliament will debate immigration policy next month.|议会下月将辩论移民政策。
+#SENT 14|真实条件句|If inequality widens, social cohesion will erode.|如果不平等扩大，社会凝聚将削弱。
+#SENT 15|虚拟语气|If voting were simpler, turnout would likely rise.|若投票更简便，投票率可能上升。
+#SENT 16|定语从句|Institutions that exclude minorities lose legitimacy.|排斥少数群体的制度会失去合法性。
+#SENT 17|宾语从句|Many citizens believe bureaucracy delays justice.|许多公民认为官僚制拖延正义。
+#SENT 18|原因状语从句|Because privilege is invisible, reform meets resistance.|因为特权不易察觉，改革遭遇阻力。
+#SENT 19|让步状语从句|Although democracy expanded, civic duty declined.|尽管民主扩展，公民义务却下降。
+#SENT 20|目的状语从句|Publish open data so that watchdog groups can audit.|公开数据，以便监督团体审计。
+#SENT 21|比较结构|Inclusive policies are more durable than coercive ones.|包容政策比强制政策更持久。
+#SENT 22|强调句|It is equal opportunity that underpins social mobility.|正是机会均等支撑社会流动。
+#SENT 23|倒装句|Nowhere is civic neglect more costly than in education.|公民忽视在教育领域代价最高。
+#SENT 24|分词结构|Facing injustice, volunteers organized legal aid.|面对不公，志愿者组织了法律援助。
+#SENT 25|不定式结构|To protect privacy, regulate surveillance carefully.|为保护隐私，应谨慎监管监控。
+#SENT 26|动名词结构|Stereotyping groups undermines democratic deliberation.|刻板印象群体会损害民主审议。
+#SENT 27|with 复合结构|With weak rule of law, corruption thrives easily.|法治薄弱时，腐败容易滋生。
+#SENT 28|同位语从句|The principle that all citizens are equal remains contested in practice.|公民一律平等这一原则在实践中仍有争议。
+#SENT 29|插入评注|In short, institutions matter more than slogans.|简言之，制度比口号更重要。
+#SENT 30|形式主语 It|It is difficult to rebuild trust after systemic abuse.|系统性滥用之后重建信任十分困难。

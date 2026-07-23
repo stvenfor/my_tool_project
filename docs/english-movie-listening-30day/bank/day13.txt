@@ -1,0 +1,153 @@
+#TITLE 媒体与信息 | medi / scrib / voc = 中间 / 写 / 声
+#ROOT medi / scrib / voc|中间 / 写 / 声音|medi→media, intermediate, Mediterranean, mediate, scrib / script→describe, manuscript, subscribe, prescription, verb / voc→verbal, vocabulary, advocate, vocation, trans-→transmit, translate, transparent, transfer
+#WORD media|/ˈmiːdiə/|n. 媒体（medium 复数）|mass media
+#WORD transmit|/trænsˈmɪt/|v. 传输；传播|trans- + mit
+#WORD circulate|/ˈsɜːrkjuleɪt/|v. 流通；传播|circulation
+#WORD distort|/dɪˈstɔːrt/|v. 扭曲|distortion
+#WORD exaggerate|/ɪɡˈzædʒəreɪt/|v. 夸张|exaggeration
+#WORD authentic|/ɔːˈθentɪk/|a. 真实的；可信的|authenticity
+#WORD bias|/ˈbaɪəs/|n. 偏见；倾向|biased
+#WORD headline|/ˈhedlaɪn/|n. 头条|head + line
+#WORD journalism|/ˈdʒɜːrnəlɪzəm/|n. 新闻业|journalist
+#WORD journalist|/ˈdʒɜːrnəlɪst/|n. 记者|journal
+#WORD editorial|/ˌedɪˈtɔːriəl/|n. 社论；a. 编辑的|editor
+#WORD correspondent|/ˌkɔːrəˈspɑːndənt/|n. 通讯员|correspond
+#WORD columnist|/ˈkɑːləmnɪst/|n. 专栏作家|column
+#WORD broadcast|/ˈbrɔːdkæst/|v./n. 广播；播送|broad + cast
+#WORD telecast|/ˈtelikæst/|v./n. 电视播送|tele + cast
+#WORD podcast|/ˈpɑːdkæst/|n. 播客|iPod + broadcast
+#WORD stream|/striːm/|v./n. 流媒体播放|livestream
+#WORD viral|/ˈvaɪrəl/|a. 病毒式传播的|go viral
+#WORD algorithm|/ˈælɡərɪðəm/|n. 算法|algorithmic
+#WORD platform|/ˈplætfɔːrm/|n. 平台|social platform
+#WORD subscriber|/səbˈskraɪbər/|n. 订阅者|subscribe
+#WORD subscription|/səbˈskrɪpʃn/|n. 订阅|subscribe
+#WORD manuscript|/ˈmænjuskrɪpt/|n. 手稿|manu + script
+#WORD transcript|/ˈtrænskrɪpt/|n. 誊本；文字稿|trans- + script
+#WORD inscription|/ɪnˈskrɪpʃn/|n. 铭文；题字|in- + script
+#WORD prescription|/prɪˈskrɪpʃn/|n. 处方；规定|pre- + script
+#WORD describe|/dɪˈskraɪb/|v. 描述|de- + scrib
+#WORD description|/dɪˈskrɪpʃn/|n. 描述|describe
+#WORD narrative|/ˈnærətɪv/|n. 叙事；a. 叙述的|narrate
+#WORD commentary|/ˈkɑːmənteri/|n. 评论；解说|comment
+#WORD coverage|/ˈkʌvərɪdʒ/|n. 报道范围|cover
+#WORD publicity|/pʌbˈlɪsəti/|n. 宣传；曝光|public
+#WORD propaganda|/ˌprɑːpəˈɡændə/|n. 宣传（贬义）|propagate
+#WORD censorship|/ˈsensərʃɪp/|n. 审查制度|censor
+#WORD disinformation|/ˌdɪsɪnfərˈmeɪʃn/|n. 虚假信息|misinformation 近义
+#WORD misinformation|/ˌmɪsɪnfərˈmeɪʃn/|n. 错误信息|mis- + information
+#WORD rumor|/ˈruːmər/|n. 谣言|rumour BrE
+#WORD speculation|/ˌspekjuˈleɪʃn/|n. 推测；投机|speculate
+#WORD sensational|/senˈseɪʃənl/|a. 耸人听闻的|sensation
+#WORD tabloid|/ˈtæblɔɪd/|n. 小报|tabloid press
+#WORD broadsheet|/ˈbrɔːdʃiːt/|n. 大开本严肃报纸|broad + sheet
+#WORD caption|/ˈkæpʃn/|n. 说明文字；字幕|capture
+#WORD subtitle|/ˈsʌbtaɪtl/|n. 字幕|sub- + title
+#WORD footage|/ˈfʊtɪdʒ/|n. 影像片段|foot
+#WORD documentary|/ˌdɑːkjuˈmentri/|n. 纪录片|document
+#WORD interviewee|/ˌɪntərvjuːˈiː/|n. 受访者|interview
+#WORD source|/sɔːrs/|n. 消息来源|sourcing
+#WORD anonymous|/əˈnɑːnɪməs/|a. 匿名的|anonymity
+#WORD confidential|/ˌkɑːnfɪˈdenʃl/|a. 机密的|confidence
+#WORD leak|/liːk/|v./n. 泄露|leakage
+#WORD whistleblower|/ˈwɪslbloʊər/|n. 吹哨人|whistle + blow
+#WORD advocate|/ˈædvəkeɪt/|v. 倡导；n. 支持者|ad- + voc
+#WORD verbal|/ˈvɜːrbl/|a. 口头的|verb
+#WORD vocabulary|/voʊˈkæbjəleri/|n. 词汇|voc
+#WORD articulate|/ɑːrˈtɪkjuleɪt/|v. 清晰表达|articulation
+#WORD rhetoric|/ˈretərɪk/|n. 修辞；花言巧语|rhetorical
+#WORD discourse|/ˈdɪskɔːrs/|n. 话语；论述|discursive
+#WORD semantics|/sɪˈmæntɪks/|n. 语义学|semantic
+#WORD connotation|/ˌkɑːnəˈteɪʃn/|n. 隐含意义|connote
+#WORD denotation|/ˌdiːnoʊˈteɪʃn/|n. 字面意义|denote
+#WORD metaphor|/ˈmetəfər/|n. 隐喻|metaphorical
+#WORD analogy|/əˈnælədʒi/|n. 类比|analogous
+#WORD paraphrase|/ˈpærəfreɪz/|v./n. 释义|para + phrase
+#WORD summarize|/ˈsʌməraɪz/|v. 概括|summary
+#WORD quote|/kwoʊt/|v./n. 引用|quotation
+#WORD citation|/saɪˈteɪʃn/|n. 引文；引用|cite
+#WORD plagiarism|/ˈpleɪdʒərɪzəm/|n. 剽窃|plagiarize
+#WORD copyright|/ˈkɑːpiraɪt/|n. 版权|copy + right
+#WORD trademark|/ˈtreɪdmɑːrk/|n. 商标|trade + mark
+#WORD publication|/ˌpʌblɪˈkeɪʃn/|n. 出版；发表|publish
+#WORD circulation|/ˌsɜːrkjəˈleɪʃn/|n. 发行量；流通|circulate
+#WORD readership|/ˈriːdərʃɪp/|n. 读者群|reader
+#WORD viewership|/ˈvjuːərʃɪp/|n. 观众群|viewer
+#WORD engagement|/ɪnˈɡeɪdʒmənt/|n. 互动；参与度|engage
+#WORD influencer|/ˈɪnfluənsər/|n. 网红；影响者|influence
+#WORD virality|/vaɪˈræləti/|n. 病毒传播性|viral
+#WORD clickbait|/ˈklɪkbeɪt/|n. 标题党|click + bait
+#WORD echo chamber|/ˈekoʊ ˈtʃeɪmbər/|n. 信息茧房|echo + chamber
+#WORD filter bubble|/ˈfɪltər ˈbʌbl/|n. 过滤气泡|algorithmic
+#WORD podcast|/ˈpɑːdkæst/|n. 播客|pod+cast
+#PHRASE mass media|/mæs ˈmiːdiə/|大众传媒|Influenced by mass media.
+#PHRASE transmit information|/trænsˈmɪt ˌɪnfərˈmeɪʃn/|传递信息|Transmit information quickly.
+#PHRASE distort the truth|/dɪˈstɔːrt ðə truːθ/|歪曲真相|Headlines distort the truth.
+#PHRASE media bias|/ˈmiːdiə ˈbaɪəs/|媒体偏见|Watch for media bias.
+#PHRASE breaking news|/ˈbreɪkɪŋ nuːz/|突发新闻|Breaking news interrupted the show.
+#PHRASE front-page headline|/frʌnt peɪdʒ ˈhedlaɪn/|头版头条|A front-page headline shocked readers.
+#PHRASE live broadcast|/laɪv ˈbrɔːdkæst/|现场直播|The trial had a live broadcast.
+#PHRASE go viral|/ɡoʊ ˈvaɪrəl/|病毒式传播|The clip went viral overnight.
+#PHRASE social media platform|/ˈsoʊʃl ˈmiːdiə ˈplætfɔːrm/|社交媒体平台|Regulate social media platform.
+#PHRASE news coverage|/nuːz ˈkʌvərɪdʒ/|新闻报道|News coverage was extensive.
+#PHRASE press conference|/pres ˈkɑːnfərəns/|新闻发布会|The CEO held a press conference.
+#PHRASE anonymous source|/əˈnɑːnɪməs sɔːrs/|匿名消息源|An anonymous source leaked files.
+#PHRASE fact-check|/fækt tʃek/|事实核查|Reporters fact-check claims.
+#PHRASE spread misinformation|/spred ˌmɪsɪnfərˈmeɪʃn/|传播错误信息|Bots spread misinformation.
+#PHRASE combat disinformation|/ˈkɑːmbæt ˌdɪsɪnfərˈmeɪʃn/|打击虚假信息|Governments combat disinformation.
+#PHRASE freedom of the press|/ˈfriːdəm əv ðə pres/|新闻自由|Freedom of the press is vital.
+#PHRASE editorial opinion|/ˌedɪˈtɔːriəl əˈpɪnjən/|社论观点|The editorial opinion divided readers.
+#PHRASE investigative journalism|/ɪnˈvestɪɡeɪtɪv ˈdʒɜːrnəlɪzəm/|调查性报道|Investigative journalism exposed fraud.
+#PHRASE sensational headline|/senˈseɪʃənl ˈhedlaɪn/|耸动标题|Avoid sensational headline.
+#PHRASE quote out of context|/kwoʊt aʊt əv ˈkɑːntekst/|断章取义|They quote out of context.
+#PHRASE paraphrase a passage|/ˈpærəfreɪz ə ˈpæsɪdʒ/|释义段落|Paraphrase a passage carefully.
+#PHRASE avoid plagiarism|/əˈvɔɪd ˈpleɪdʒərɪzəm/|避免剽窃|Cite sources to avoid plagiarism.
+#PHRASE copyright infringement|/ˈkɑːpiraɪt ɪnˈfrɪndʒmənt/|侵犯版权|Sued for copyright infringement.
+#PHRASE audience engagement|/ˈɔːdiəns ɪnˈɡeɪdʒmənt/|受众互动|Audience engagement rose sharply.
+#PHRASE subscriber base|/səbˈskraɪbər beɪs/|订阅用户群|The subscriber base doubled.
+#PHRASE podcast episode|/ˈpɑːdkæst ˈepɪsoʊd/|播客单集|Download the podcast episode.
+#PHRASE documentary footage|/ˌdɑːkjuˈmentri ˈfʊtɪdʒ/|纪录片素材|Archive documentary footage.
+#PHRASE verbal communication|/ˈvɜːrbl kəˌmjuːnɪˈkeɪʃn/|口头交流|Verbal communication skills matter.
+#PHRASE rhetorical device|/rɪˈtɔːrɪkl dɪˈvaɪs/|修辞手法|Metaphor is a rhetorical device.
+#PHRASE political discourse|/pəˈlɪtɪkl ˈdɪskɔːrs/|政治话语|Political discourse turned hostile.
+#PHRASE negative connotation|/ˈneɡətɪv ˌkɑːnəˈteɪʃn/|负面含义|The term has negative connotation.
+#PHRASE public opinion|/ˈpʌblɪk əˈpɪnjən/|公众舆论|Polls reflect public opinion.
+#PHRASE media literacy|/ˈmiːdiə ˈlɪtərəsi/|媒介素养|Teach media literacy in schools.
+#PHRASE filter bubble effect|/ˈfɪltər ˈbʌbl ɪˈfekt/|过滤气泡效应|Algorithms create filter bubble effect.
+#PHRASE echo chamber effect|/ˈekoʊ ˈtʃeɪmbər ɪˈfekt/|回音室效应|Debate suffers echo chamber effect.
+#PHRASE clickbait title|/ˈklɪkbeɪt ˈtaɪtl/|标题党标题|Reject clickbait title.
+#PHRASE whistleblower protection|/ˈwɪslbloʊər prəˈtekʃn/|吹哨人保护|Law ensures whistleblower protection.
+#PHRASE confidential leak|/ˌkɑːnfɪˈdenʃl liːk/|机密泄露|A confidential leak caused panic.
+#PHRASE circulation decline|/ˌsɜːrkjəˈleɪʃn dɪˈklaɪn/|发行量下降|Print saw circulation decline.
+#PHRASE influence public debate|/ˈɪnfluəns ˈpʌblɪk dɪˈbeɪt/|影响公共讨论|Media influence public debate.
+#SENTTYPE 陈述句|否定句|一般疑问句|特殊疑问句|选择疑问句|反意疑问句|祈使句|感叹句|存在句|被动语态|现在完成时|过去完成时|将来时态|真实条件句|虚拟语气|定语从句|宾语从句|原因状语从句|让步状语从句|目的状语从句|比较结构|强调句|倒装句|分词结构|不定式结构|动名词结构|with 复合结构|同位语从句|插入评注|形式主语 It
+#SENT 1|陈述句|Mass media transmit narratives across borders quickly.|大众传媒迅速跨境传递叙事。
+#SENT 2|否定句|The headline did not distort the core facts badly.|标题并未严重歪曲核心事实。
+#SENT 3|一般疑问句|Can audiences detect media bias without training?|受众未经训练能否察觉媒体偏见？
+#SENT 4|特殊疑问句|Why do false stories circulate faster than corrections?|为何假新闻比更正传播更快？
+#SENT 5|选择疑问句|Is the source anonymous whistleblowing or mere rumor?|消息源是匿名吹哨还是纯属谣言？
+#SENT 6|反意疑问句|Authenticity still matters online, doesn't it?|网络上真实性仍然重要，对吧？
+#SENT 7|祈使句|Fact-check claims before you share the clip.|分享片段前先核查事实。
+#SENT 8|感叹句|What a sensational piece of clickbait this is!|这条标题党内容多么耸动！
+#SENT 9|存在句|There is intense competition for audience engagement.|争夺受众互动十分激烈。
+#SENT 10|被动语态|Documentaries are often funded by nonprofit foundations.|纪录片常由非营利基金会资助。
+#SENT 11|现在完成时|Journalists have exposed corruption through investigations.|记者通过调查揭露腐败。
+#SENT 12|过去完成时|Editors had cut the segment before broadcast.|播出前编辑已删减该片段。
+#SENT 13|将来时态|Platforms will label AI-generated content soon.|平台很快将标注 AI 生成内容。
+#SENT 14|真实条件句|If algorithms amplify outrage, polarization will deepen.|如果算法放大愤怒，极化将加深。
+#SENT 15|虚拟语气|If citations were required, plagiarism would decline.|若要求引用，剽窃会减少。
+#SENT 16|定语从句|Outlets that distort truth lose long-term trust.|歪曲真相的媒体失去长期信任。
+#SENT 17|宾语从句|Readers know that headlines oversimplify complex issues.|读者知道标题会简化复杂问题。
+#SENT 18|原因状语从句|Because echo chambers form, opposing views vanish.|因为回音室形成，对立观点消失。
+#SENT 19|让步状语从句|Although press freedom expanded, threats persist.|尽管新闻自由扩展，威胁仍在。
+#SENT 20|目的状语从句|Paraphrase carefully so that meaning remains accurate.|仔细释义，以便意义保持准确。
+#SENT 21|比较结构|Investigative reporting is costlier than wire summaries.|调查报道比电讯摘要成本更高。
+#SENT 22|强调句|It is media literacy that protects public discourse.|正是媒介素养保护公共话语。
+#SENT 23|倒装句|Never before has misinformation scaled so quickly.|虚假信息从未如此快速规模化。
+#SENT 24|分词结构|Facing lawsuits, the paper issued a correction.|面对诉讼，该报发布更正。
+#SENT 25|不定式结构|To combat disinformation, fund independent fact-checkers.|为打击虚假信息，资助独立事实核查。
+#SENT 26|动名词结构|Quoting out of context damages democratic debate.|断章取义损害民主辩论。
+#SENT 27|with 复合结构|With virality rewarded, nuance disappears fast.|病毒传播受奖励时，细微差别迅速消失。
+#SENT 28|同位语从句|The claim that platforms are neutral is contested.|平台中立这一主张存在争议。
+#SENT 29|插入评注|Ironically, more channels have not meant better truth.|讽刺的是，更多渠道并未带来更好真相。
+#SENT 30|形式主语 It|It is important to verify sources before publishing.|发表前核实来源很重要。

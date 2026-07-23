@@ -1,0 +1,156 @@
+#TITLE 因果与逻辑 | sequ / tribut / duc
+#ROOT sequ|跟随|sequence, subsequent
+#ROOT tribut|给予|attribute, contribute
+#ROOT duc|引导|induce, deduce
+#ROOT caus|原因|cause, because
+#WORD consequence|/ˈkɑːnsɪkwens/|n. 结果；重要性|con- + sequ
+#WORD subsequent|/ˈsʌbsɪkwənt/|a. 随后的|sub- + sequ
+#WORD attribute|/əˈtrɪbjuːt/|v. 归因于|at- + tribute
+#WORD contribute|/kənˈtrɪbjuːt/|v. 贡献；促成|con- + tribute
+#WORD induce|/ɪnˈduːs/|v. 引起|in- + duc
+#WORD inevitable|/ɪnˈevɪtəbl/|a. 不可避免的|in- + evit
+#WORD trigger|/ˈtrɪɡər/|v./n. 触发|—
+#WORD undermine|/ˌʌndərˈmaɪn/|v. 削弱|—
+#WORD sequence|/ˈsiːkwəns/|n. 顺序；序列|sequ + -ence
+#WORD consecutive|/kənˈsekjətɪv/|a. 连续的|con- + secut
+#WORD execute|/ˈeksɪkjuːt/|v. 执行|ex- + secut
+#WORD prosecute|/ˈprɑːsɪkjuːt/|v. 起诉|pro- + secut
+#WORD pursue|/pərˈsuː/|v.  pursue 追求|pur- + sue
+#WORD ensue|/ɪnˈsuː/|v.  ensue  ensue|en- + sue
+#WORD cause|/kɔːz/|n./v. 原因；导致|—
+#WORD effect|/ɪˈfekt/|n. 效果|ef- + fect
+#WORD affect|/əˈfekt/|v. 影响|af- + fect
+#WORD impact|/ˈɪmpækt/|n./v. 影响|im- + pact
+#WORD influence|/ˈɪnfluəns/|n./v. 影响|in- + flu
+#WORD result|/rɪˈzʌlt/|n./v. 结果|re- + sult
+#WORD outcome|/ˈaʊtkʌm/|n.  outcome 结果|out + come
+#WORD correlation|/ˌkɔːrəˈleɪʃn/|n.  correlation 相关|cor- + rel
+#WORD causation|/kɔːˈzeɪʃn/|n.  causation 因果关系|cause
+#WORD premise|/ˈpremɪs/|n. 前提|—
+#WORD therefore|/ˈðerfɔːr/|adv. 因此|there + for
+#WORD hence|/hens/|adv.  hence 因此|—
+#WORD thus|/ðʌs/|adv.  thus  thus|—
+#WORD accordingly|/əˈkɔːrdɪŋli/|adv.  accordingly|accord
+#WORD consequently|/ˈkɑːnsɪkwently/|adv. 因此|consequence
+#WORD nevertheless|/ˌnevərðəˈles/|adv. 尽管如此|—
+#WORD whereas|/ˌwerˈæz/|conj. 然而|—
+#WORD whereby|/werˈbaɪ/|adv.  whereby 据此|—
+#WORD wherein|/werˈɪn/|adv.  wherein 其中|—
+#WORD provided that|/prəˈvaɪdɪd ðæt/|conj. 倘若|—
+#WORD assuming that|/əˈsuːmɪŋ ðæt/|conj. 假设|—
+#WORD given that|/ˈɡɪvn ðæt/|conj. 鉴于|—
+#WORD stem from|/stem frəm/|v.  stem from 源于|—
+#WORD derive from|/dɪˈraɪv frəm/|v.  derive 源于|de- + riv
+#WORD originate|/əˈrɪdʒɪneɪt/|v.  originate 起源于|origin
+#WORD generate|/ˈdʒenəreɪt/|v. 产生|gen 生
+#WORD produce|/prəˈduːs/|v.  produce 产生|pro- + duc
+#WORD yield|/jiːld/|v.  yield  yield|—
+#WORD facilitate|/fəˈsɪlɪteɪt/|v.  facilitate 促进|facil 易
+#WORD hinder|/ˈhɪndər/|v.  hinder 阻碍|—
+#WORD impede|/ɪmˈpiːd/|v.  impede 阻碍|im- + ped
+#WORD obstruct|/əbˈstrʌkt/|v.  obstruct  obstruct|ob- + struct
+#WORD prevent|/prɪˈvent/|v.  prevent  prevent|pre- + vent
+#WORD enable|/ɪˈneɪbl/|v.  enable  enable|en- + able
+#WORD prompt|/prɑːmpt/|v.  prompt  prompt|—
+#WORD provoke|/prəˈvoʊk/|v.  provoke  provoke|pro- + voc
+#WORD stimulate|/ˈstɪmjuleɪt/|v.  stimulate  stimulate|—
+#WORD exacerbate|/ɪɡˈzæsərbeɪt/|v.  exacerbate  exacerbate|—
+#WORD alleviate|/əˈliːvieɪt/|v.  alleviate  alleviate|—
+#WORD mitigate|/ˈmɪtɪɡeɪt/|v.  mitigate  mitigate|—
+#WORD amplify|/ˈæmplɪfaɪ/|v.  amplify  amplify|ampl 大
+#WORD diminish|/dɪˈmɪnɪʃ/|v.  diminish  diminish|mini 小
+#WORD accumulate|/əˈkjuːmjuleɪt/|v.  accumulate  accumulate|ad- + cumul
+#WORD cascade|/kæˈskeɪd/|n./v.  cascade  cascade|—
+#WORD chain reaction|/tʃeɪn riˈækʃn/|n.  chain reaction  chain reaction|—
+#WORD feedback|/ˈfiːdbæk/|n.  feedback  feedback|—
+#WORD loop|/luːp/|n.  loop  loop|—
+#WORD mechanism|/ˈmekənɪzəm/|n.  mechanism  mechanism|—
+#WORD pattern|/ˈpætərn/|n.  pattern  pattern|—
+#WORD trend|/trend/|n.  trend  trend|—
+#WORD cycle|/ˈsaɪkl/|n.  cycle  cycle|cycl 圆
+#WORD phase|/feɪz/|n.  phase  phase|—
+#WORD stage|/steɪdʒ/|n.  stage  stage|—
+#WORD process|/ˈprɑːses/|n.  process  process|pro- + cess
+#WORD procedure|/prəˈsiːdʒər/|n.  procedure  procedure|pro- + ced
+#WORD methodology|/ˌmeθəˈdɑːlədʒi/|n.  methodology  methodology|method
+#WORD framework|/ˈfreɪmwɜːrk/|n.  framework  framework|—
+#WORD criteria|/kraɪˈtɪriə/|n.  criteria  criteria|criterion 复
+#WORD variable|/ˈveriəbl/|n.  variable  variable|vari 变
+#WORD factor|/ˈfæktər/|n.  factor  factor|fact 做
+#WORD determinant|/dɪˈtɜːrmɪnənt/|n.  determinant  determinant|determine
+#WORD dependency|/dɪˈpendənsi/|n.  dependency  dependency|depend
+#WORD interdependence|/ˌɪntərdɪˈpendəns/|n.  interdependence  interdependence|inter- + depend
+#WORD causal|/ˈkɔːzl/|a.  causal  causal|cause
+#WORD logical|/ˈlɑːdʒɪkl/|a.  logical  logical|logic
+#WORD systematic|/ˌsɪstəˈmætɪk/|a.  systematic  systematic|system
+#PHRASE as a consequence|/æz ə ˈkɑːnsɪkwens/|因此|As a consequence, sales fell.
+#PHRASE attribute A to B|/əˈtrɪbjuːt eɪ tə biː/|把 A 归因于 B|Attribute success to luck.
+#PHRASE contribute to|/kənˈtrɪbjuːt tə/|促成|Stress contributes to illness.
+#PHRASE trigger a debate|/ˈtrɪɡər ə dɪˈbeɪt/|引发争论|It triggered a debate.
+#PHRASE in sequence|/ɪn ˈsiːkwəns/|按顺序|Events occurred in sequence.
+#PHRASE as a result|/æz ə rɪˈzʌlt/|结果|As a result, prices rose.
+#PHRASE lead to|/liːd tə/|导致|Pollution leads to disease.
+#PHRASE result in|/rɪˈzʌlt ɪn/|导致|Errors result in losses.
+#PHRASE result from|/rɪˈzʌlt frəm/|源于|Success results from effort.
+#PHRASE stem from|/stem frəm/|源于|Problems stem from neglect.
+#PHRASE give rise to|/ɡɪv raɪz tə/|引起|Changes give rise to conflict.
+#PHRASE bring about|/brɪŋ əˈbaʊt/|带来|Reform brings about growth.
+#PHRASE account for|/əˈkaʊnt fɔːr/|解释；占|Weather accounts for delays.
+#PHRASE be attributable to|/bi əˈtrɪbjətəbl tə/|可归因于|Failure is attributable to bias.
+#PHRASE have an impact on|/hæv ən ˈɪmpækt ɑːn/|对…有影响|Policy has an impact on jobs.
+#PHRASE exert influence on|/ɪɡˈzɜːrt ˈɪnfluəns ɑːn/|施加影响|Media exert influence on voters.
+#PHRASE in turn|/ɪn tɜːrn/|反过来|Costs rise and, in turn, demand falls.
+#PHRASE by contrast|/baɪ ˈkɑːntræst/|相比之下|By contrast, exports grew.
+#PHRASE on the grounds that|/ɑːn ðə ɡraʊndz ðæt/|理由是|Rejected on the grounds that it lacked proof.
+#PHRASE for this reason|/fɔːr ðɪs ˈriːzn/|为此|For this reason, we paused.
+#PHRASE it follows that|/ɪt ˈfɑːloʊz ðæt/|由此可得|It follows that costs rise.
+#PHRASE given the circumstances|/ˈɡɪvn ðə ˈsɜːrkəmstænsɪz/|鉴于情况|Given the circumstances, wait.
+#PHRASE under the condition that|/ˈʌndər ðə kənˈdɪʃn ðæt/|在…条件下|Approved under the condition that costs fall.
+#PHRASE prevent sb from doing|/prɪˈvent ˈsʌmbədi frəm ˈduːɪŋ/|阻止某人做|Rules prevent firms from cheating.
+#PHRASE enable sb to do|/ɪˈneɪbl ˈsʌmbədi tə duː/|使某人能够|Tech enables us to collaborate.
+#PHRASE facilitate communication|/fəˈsɪlɪteɪt kəˌmjuːnɪˈkeɪʃn/|促进沟通|Tools facilitate communication.
+#PHRASE hinder progress|/ˈhɪndər ˈprɑːɡres/|阻碍进展|Bureaucracy hinders progress.
+#PHRASE impede development|/ɪmˈpiːd dɪˈveləpmənt/|阻碍发展|Sanctions impede development.
+#PHRASE exacerbate the problem|/ɪɡˈzæsərbeɪt ðə ˈprɑːbləm/|加剧问题|Cuts exacerbate the problem.
+#PHRASE alleviate suffering|/əˈliːvieɪt ˈsʌfərɪŋ/|减轻痛苦|Aid alleviates suffering.
+#PHRASE mitigate risk|/ˈmɪtɪɡeɪt rɪsk/|降低风险|Diversification mitigates risk.
+#PHRASE a chain of events|/ə tʃeɪn əv ɪˈvents/|一连串事件|A chain of events unfolded.
+#PHRASE feedback loop|/ˈfiːdbæk luːp/|反馈循环|A feedback loop formed.
+#PHRASE cause and effect|/kɔːz ənd ɪˈfekt/|因果关系|Study cause and effect.
+#PHRASE correlation does not imply causation|/ˌkɔːrəˈleɪʃn dʌz nɑːt ɪmˈplaɪ kɔːˈzeɪʃn/|相关不等于因果|Remember: correlation does not imply causation.
+#PHRASE in the first place|/ɪn ðə fɜːrst pleɪs/|首先；起初|Why did it fail in the first place?
+#PHRASE in the long run|/ɪn ðə lɔːŋ rʌn/|从长远看|In the long run, quality wins.
+#PHRASE in the short term|/ɪn ðə ʃɔːrt tɜːrm/|短期来看|In the short term, costs rise.
+#PHRASE step by step|/step baɪ step/|逐步地|Solve it step by step.
+#PHRASE follow a procedure|/ˈfɑːloʊ ə prəˈsiːdʒər/|遵循程序|Follow a procedure strictly.
+#SENTTYPE 陈述句|否定句|一般疑问句|特殊疑问句|选择疑问句|反意疑问句|祈使句|感叹句|存在句|被动语态|现在完成时|过去完成时|将来时态|真实条件句|虚拟语气|定语从句|宾语从句|原因状语从句|让步状语从句|目的状语从句|比较结构|强调句|倒装句|分词结构|不定式结构|动名词结构|with 复合结构|同位语从句|插入评注|形式主语 It
+#SENT 1|陈述句|Rising costs contribute to inflationary pressure.|成本上升促成通胀压力。
+#SENT 2|否定句|The delay did not trigger an immediate crisis.|延误并未立即引发危机。
+#SENT 3|一般疑问句|Does stress contribute to chronic illness?|压力是否促成慢性病？
+#SENT 4|特殊疑问句|What consequence followed the policy change?|政策变化带来了什么后果？
+#SENT 5|选择疑问句|Was the failure induced by error or by design?|失败是由失误引起还是有意为之？
+#SENT 6|反意疑问句|The outcome was inevitable, wasn't it?|结果不可避免，对吧？
+#SENT 7|祈使句|Attribute success to preparation, not luck alone.|把成功归因于准备，而非仅靠运气。
+#SENT 8|感叹句|What a chain of unexpected consequences!|多么一连串出人意料的后果！
+#SENT 9|存在句|There are multiple causes behind the shortage.|短缺背后存在多重原因。
+#SENT 10|被动语态|The reform was undermined by weak enforcement.|改革因执行不力而被削弱。
+#SENT 11|现在完成时|Experts have linked the decline to demographic shifts.|专家已将下滑与人口结构变化联系起来。
+#SENT 12|过去完成时|Officials had warned of risks before the collapse.|崩溃之前官员已警告过风险。
+#SENT 13|将来时态|Further investigation will reveal the root cause.|进一步调查将揭示根本原因。
+#SENT 14|真实条件句|If demand surges, prices will rise accordingly.|如果需求激增，价格将相应上涨。
+#SENT 15|虚拟语气|If precautions had been taken, losses would have been smaller.|若早采取预防，损失本会更小。
+#SENT 16|定语从句|Policies that induce investment can accelerate growth.|诱发投资的政策能加速增长。
+#SENT 17|宾语从句|Analysts argue that the deficit stems from overspending.|分析人士认为赤字源于过度支出。
+#SENT 18|原因状语从句|Because incentives were misaligned, efficiency fell.|因为激励错位，效率下降。
+#SENT 19|让步状语从句|Although the trigger seemed minor, the impact was huge.|尽管诱因看似微小，影响却巨大。
+#SENT 20|目的状语从句|Diversify early so that one shock cannot ruin the plan.|尽早多元化，以免一次冲击毁掉计划。
+#SENT 21|比较结构|Subsequent effects were more severe than initial estimates.|后续影响比最初估计更严重。
+#SENT 22|强调句|It is poor coordination that exacerbates the problem.|正是协调不力加剧了问题。
+#SENT 23|倒装句|Only then did the team realize the causal chain.|直到那时团队才意识到因果链条。
+#SENT 24|分词结构|Facing inevitable trade-offs, leaders chose stability.|面对不可避免的取舍，领导选择了稳定。
+#SENT 25|不定式结构|To prevent recurrence, address underlying causes.|为防复发，应解决深层原因。
+#SENT 26|动名词结构|Blaming individuals rarely solves systemic problems.|指责个人很少能解决系统性问题。
+#SENT 27|with 复合结构|With feedback loops ignored, small errors snowballed.|忽视反馈回路后，小错误滚成雪球。
+#SENT 28|同位语从句|The fact that correlation is not causation matters.|相关不等于因果这一事实很重要。
+#SENT 29|插入评注|In turn, higher costs reduced household consumption.|反过来，更高成本降低了家庭消费。
+#SENT 30|形式主语 It|It is crucial to distinguish cause from coincidence.|区分原因与巧合至关重要。
